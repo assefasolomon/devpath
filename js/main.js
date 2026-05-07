@@ -93,5 +93,37 @@
     initKnowledgeChecks();
     initCopyButtons();
     initMarkCompleted();
+    initHighlighting();
   });
 })();
+// Syntax highlighting for code blocks
+  function highlight(text) {
+    return text
+      // HTML comments
+      .replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="token-comment">$1</span>')
+      // HTML tags
+      .replace(/(&lt;\/?)([\w-]+)/g, '<span class="token-punct">$1</span><span class="token-tag">$2</span>')
+      // HTML attributes
+      .replace(/\s([\w-]+)(=)/g, ' <span class="token-attr">$1</span><span class="token-punct">$2</span>')
+      // Strings (quoted values)
+      .replace(/(&#34;|&quot;|")(.*?)\1/g, '<span class="token-string">"$2"</span>')
+      // CSS selectors (lines ending with {)
+      .replace(/^([.#\w][\w\s,.-]*)(\s*\{)/gm, '<span class="token-selector">$1</span>$2')
+      // CSS properties
+      .replace(/^\s{2,}([\w-]+)(\s*:)/gm, '  <span class="token-property">$1</span>$2')
+      // JS keywords
+      .replace(/\b(const|let|var|function|return|if|else|for|while|class|import|export|default|new|this|typeof|async|await)\b/g,
+        '<span class="token-keyword">$1</span>')
+      // JS functions/methods
+      .replace(/\b([\w]+)(\()/g, '<span class="token-function">$1</span><span class="token-punct">$2</span>')
+      // Numbers
+      .replace(/\b(\d+\.?\d*)\b/g, '<span class="token-number">$1</span>')
+      // Shell comments
+      .replace(/(#.+)$/gm, '<span class="token-comment">$1</span>');
+  }
+
+  function initHighlighting() {
+    document.querySelectorAll(".code-block code").forEach(function (el) {
+      el.innerHTML = highlight(el.innerHTML);
+    });
+  }
