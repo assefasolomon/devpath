@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Web Content Accessibility Guidelines (WCAG) | DevPath</title>
+  <link rel="stylesheet" href="../../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="introduction-to-web-accessibility.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="accessible-colors.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">The Web Content Accessibility Guidelines (WCAG)</span></nav><h1>The Web Content Accessibility Guidelines (WCAG)</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
+<a href="svg.html" class="sidebar-link">SVG</a>
+<a href="html-tables.html" class="sidebar-link">Tables</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate CSS</div><a href="default-styles.html" class="sidebar-link">Default Styles</a>
+<a href="css-units.html" class="sidebar-link">CSS Units</a>
+<a href="more-text-styles.html" class="sidebar-link">More Text Styles</a>
+<a href="more-css-properties.html" class="sidebar-link">More CSS Properties</a>
+<a href="advanced-selectors.html" class="sidebar-link">Advanced Selectors</a>
+<a href="positioning.html" class="sidebar-link">Positioning</a>
+<a href="css-functions.html" class="sidebar-link">CSS Functions</a>
+<a href="custom-properties.html" class="sidebar-link">Custom Properties</a>
+<a href="browser-compatibility.html" class="sidebar-link">Browser Compatibility</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Forms</div><a href="form-basics.html" class="sidebar-link">Form Basics</a>
+<a href="form-validation.html" class="sidebar-link">Form Validation</a>
+<a href="project-sign-up-form.html" class="sidebar-link is-project">Project: Sign-Up Form</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Grid</div><a href="introduction-to-grid.html" class="sidebar-link">Introduction to Grid</a>
+<a href="creating-a-grid.html" class="sidebar-link">Creating a Grid</a>
+<a href="positioning-grid-elements.html" class="sidebar-link">Positioning Grid Elements</a>
+<a href="advanced-grid-properties.html" class="sidebar-link">Advanced Grid Properties</a>
+<a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
+<a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
+<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link active">The Web Content Accessibility Guidelines</a>
+<a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
+<a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
+<a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
+<a href="wai-aria.html" class="sidebar-link">WAI-ARIA</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Responsive Design</div><a href="introduction-to-responsive-design.html" class="sidebar-link">Introduction to Responsive Design</a>
+<a href="natural-responsiveness.html" class="sidebar-link">Natural Responsiveness</a>
+<a href="responsive-images.html" class="sidebar-link">Responsive Images</a>
+<a href="media-queries.html" class="sidebar-link">Media Queries</a>
+<a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>WCAG is the internationally recognised standard for web accessibility. Understanding its structure lets you make informed decisions about which requirements apply to your projects.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand WCAG's three conformance levels: A, AA, AAA.</li><li>Know the most important success criteria for everyday development.</li><li>Use automated tools to check WCAG compliance.</li></ul></div>
+
+<h2 class="lesson-section-title" id="levels">Conformance Levels</h2>
+<p>WCAG organises success criteria into three levels:</p>
+<ul>
+  <li><strong>Level A</strong> — Minimum. Failing these makes content inaccessible to some users. Example: all images have alt text.</li>
+  <li><strong>Level AA</strong> — The standard most legal requirements reference. Most organisations target AA. Example: text contrast ratio of at least 4.5:1.</li>
+  <li><strong>Level AAA</strong> — Enhanced. Not required for entire sites but desirable where feasible. Example: contrast ratio of 7:1.</li>
+</ul>
+
+<h2 class="lesson-section-title" id="key-criteria">Key Success Criteria for Developers</h2>
+<div class="code-block"><pre><code>/* 1.1.1 Non-text Content (A) — all images have alt text */
+&lt;img src="photo.jpg" alt="A description of the photo"&gt;
+
+/* 1.4.3 Contrast Minimum (AA) — text contrast ratio ≥ 4.5:1 */
+/* Use a contrast checker to verify */
+
+/* 2.1.1 Keyboard (A) — all functionality available via keyboard */
+/* Never use outline: none without a replacement focus style */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* 2.4.6 Headings and Labels (AA) — headings are descriptive */
+/* Good: &lt;h2&gt;Contact Form&lt;/h2&gt; */
+/* Bad:  &lt;h2&gt;Section&lt;/h2&gt; */
+
+/* 3.1.1 Language of Page (A) — html lang attribute */
+&lt;html lang="en"&gt;
+
+/* 4.1.2 Name, Role, Value (A) — interactive elements have labels */
+&lt;button aria-label="Close modal"&gt;✕&lt;/button&gt;
+</code></pre></div>
+<h2 class="lesson-section-title" id="testing-tools">Testing Tools</h2>
+<ul>
+  <li><strong>axe DevTools</strong> — Browser extension that audits pages for WCAG issues.</li>
+  <li><strong>Chrome Lighthouse</strong> — Built into Chrome DevTools, includes an Accessibility audit.</li>
+  <li><strong>WAVE</strong> — Visual overlay showing accessibility errors and warnings.</li>
+  <li><strong>Colour Contrast Checker</strong> — webaim.org/resources/contrastchecker/</li>
+</ul>
+<div class="callout callout-warn">
+  <span class="callout-icon">⚠️</span>
+  <p>Automated tools catch roughly 30% of accessibility issues. Manual testing — especially keyboard navigation and screen reader testing — is essential for the rest.</p>
+</div>
+
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#levels" data-target="levels">What is the difference between WCAG Level A and Level AA?</a></li><li><a href="#key-criteria" data-target="key-criteria">What contrast ratio does WCAG AA require for normal text?</a></li><li><a href="#testing-tools" data-target="testing-tools">Why can automated tools not catch all accessibility issues?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Run Chrome Lighthouse on one of your projects. Read the Accessibility score breakdown and fix at least three issues.</li><li>Install the axe DevTools extension and audit your sign-up form.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://www.w3.org/WAI/WCAG21/quickref/" target="_blank" rel="noopener">WCAG 2.1 Quick Reference</a></li><li><a href="https://webaim.org/standards/wcag/checklist" target="_blank" rel="noopener">WebAIM — WCAG 2 Checklist</a></li><li><a href="https://developer.chrome.com/docs/lighthouse/accessibility/" target="_blank" rel="noopener">Chrome Lighthouse — Accessibility</a></li><li><a href="https://www.youtube.com/watch?v=vMKRc3TmFoE" target="_blank" rel="noopener">YouTube — WCAG Explained (Kevin Powell)</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="introduction-to-web-accessibility.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Introduction to Web Accessibility</span></a><a href="accessible-colors.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Accessible Colors</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../../js/main.js"></script>
+</body>
+</html>
