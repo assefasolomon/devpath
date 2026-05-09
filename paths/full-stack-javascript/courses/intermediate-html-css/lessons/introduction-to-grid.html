@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Introduction to Grid | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="project-sign-up-form.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="creating-a-grid.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Introduction to Grid</span></nav><h1>Introduction to Grid</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Introduction to Grid</span></nav><h1>Introduction to Grid</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,72 +44,65 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>CSS Grid is a two-dimensional layout system — it handles rows and columns simultaneously. Where Flexbox excels at one-dimensional layouts, Grid excels at placing items in a defined two-dimensional space.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand when Grid is more appropriate than Flexbox.</li><li>Activate Grid with display: grid.</li><li>Define columns and rows with grid-template-columns and grid-template-rows.</li><li>Use the fr unit and repeat() for flexible tracks.</li></ul></div>
+<div class="block-intro"><p>CSS Grid is a two-dimensional layout system — it handles both rows and columns simultaneously. Where Flexbox excels at one-dimensional layouts, Grid excels at complex two-dimensional ones.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand when to use Grid versus Flexbox.</li><li>Activate CSS Grid with display: grid.</li><li>Define columns and rows with grid-template-columns and grid-template-rows.</li><li>Use the fr unit for flexible track sizing.</li></ul></div>
 
 <h2 class="lesson-section-title" id="grid-vs-flex">Grid vs. Flexbox</h2>
-<p>Use <strong>Flexbox</strong> for one-dimensional layouts — a row of buttons, a navigation bar, a set of cards where you mainly care about spacing in one direction.</p>
-<p>Use <strong>Grid</strong> for two-dimensional layouts — page structure with header/sidebar/main/footer, image galleries, dashboards where you need precise row and column control.</p>
-<p>They are not competitors — you will routinely use both on the same page: Grid for the overall structure, Flexbox for components inside grid areas.</p>
+<p>Flexbox and Grid are complementary tools, not competitors:</p>
+<ul>
+  <li><strong>Flexbox</strong> — one-dimensional. Items flow in a single row or column. Great for navigation bars, button groups, centering content.</li>
+  <li><strong>Grid</strong> — two-dimensional. Items are placed in explicit rows AND columns simultaneously. Great for page layouts, dashboards, card grids, and any layout where you need precise control over both axes.</li>
+</ul>
 
-<h2 class="lesson-section-title" id="basics">Grid Basics</h2>
+<h2 class="lesson-section-title" id="activating">Activating Grid</h2>
 <div class="code-block"><pre><code>&lt;div class="grid-container"&gt;
-  &lt;div&gt;One&lt;/div&gt;
-  &lt;div&gt;Two&lt;/div&gt;
-  &lt;div&gt;Three&lt;/div&gt;
-  &lt;div&gt;Four&lt;/div&gt;
-  &lt;div&gt;Five&lt;/div&gt;
-  &lt;div&gt;Six&lt;/div&gt;
+  &lt;div class="item"&gt;1&lt;/div&gt;
+  &lt;div class="item"&gt;2&lt;/div&gt;
+  &lt;div class="item"&gt;3&lt;/div&gt;
+  &lt;div class="item"&gt;4&lt;/div&gt;
+  &lt;div class="item"&gt;5&lt;/div&gt;
+  &lt;div class="item"&gt;6&lt;/div&gt;
 &lt;/div&gt;
 </code></pre></div><div class="code-block"><pre><code>.grid-container {
   display: grid;
 
   /* Define three equal columns */
-  grid-template-columns: 200px 200px 200px;
-
-  /* Three columns using the fr (fraction) unit */
   grid-template-columns: 1fr 1fr 1fr;
 
   /* Shorthand with repeat() */
   grid-template-columns: repeat(3, 1fr);
 
-  /* Define rows */
-  grid-template-rows: 100px auto 100px;
+  /* Mixed sizes */
+  grid-template-columns: 250px 1fr 1fr;
+  grid-template-columns: 250px 1fr auto;
 
   /* Gap between cells */
   gap: 1rem;
+  column-gap: 1.5rem;  /* separate horizontal and vertical */
   row-gap: 1rem;
-  column-gap: 2rem;
 }
 </code></pre></div>
 <h2 class="lesson-section-title" id="fr-unit">The fr Unit</h2>
-<div class="code-block"><pre><code>.layout {
-  display: grid;
-  grid-template-columns: 250px 1fr 1fr;
-  /* Fixed 250px sidebar, two equal remaining columns */
-}
+<p>The <code>fr</code> (fraction) unit represents a fraction of the available space in the grid container — similar to flex-grow in Flexbox but applied to grid tracks.</p>
+<div class="code-block"><pre><code>/* Three equal columns sharing all available space */
+grid-template-columns: 1fr 1fr 1fr;
 
-.layout-2 {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  /* Middle column gets twice the space of either side column */
-}
+/* First column is twice as wide as the others */
+grid-template-columns: 2fr 1fr 1fr;
+
+/* Sidebar + main content + another sidebar */
+grid-template-columns: 200px 1fr 200px;
+/* Fixed sidebar | flexible main | fixed sidebar */
+
+/* Automatic rows */
+grid-template-rows: auto;        /* default — sized by content */
+grid-auto-rows: minmax(100px, auto); /* each row at least 100px */
 </code></pre></div>
-<h2 class="lesson-section-title" id="auto-fit">Responsive Grids with auto-fit</h2>
-<div class="code-block"><pre><code>.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-/* Cards fill the available space
-   When the container gets too narrow for 250px cards they wrap
-   No media queries needed */
-</code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#grid-vs-flex" data-target="grid-vs-flex">When should you use Grid instead of Flexbox?</a></li><li><a href="#fr-unit" data-target="fr-unit">What does the fr unit represent?</a></li><li><a href="#auto-fit" data-target="auto-fit">What does repeat(auto-fit, minmax(250px, 1fr)) do?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Create a three-column card grid using CSS Grid with auto-fit and minmax. Resize the browser and observe it adapting.</li><li>Play CSS Grid Garden (linked below) — all levels.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://cssgridgarden.com/" target="_blank" rel="noopener">CSS Grid Garden — Learn Grid with a game</a></li><li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS Tricks — A Complete Guide to Grid</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" target="_blank" rel="noopener">MDN — CSS Grid Layout</a></li><li><a href="https://www.youtube.com/watch?v=jV8B24rSN5o" target="_blank" rel="noopener">YouTube — CSS Grid in 20 Minutes (Traversy Media)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#grid-vs-flex" data-target="grid-vs-flex">When should you use Grid over Flexbox?</a></li><li><a href="#fr-unit" data-target="fr-unit">What does the fr unit represent?</a></li><li><a href="#activating" data-target="activating">What does repeat(3, 1fr) do?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a simple three-column article layout using Grid.</li><li>Play CSS Grid Garden until you complete all 28 levels — linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://cssgridgarden.com/" target="_blank" rel="noopener">CSS Grid Garden — Learn Grid with a game</a></li><li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS Tricks — A Complete Guide to Grid</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids" target="_blank" rel="noopener">MDN — CSS Grid Layout</a></li><li><a href="https://www.youtube.com/watch?v=rg7Fvvl3taU" target="_blank" rel="noopener">YouTube — CSS Grid Tutorial (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="project-sign-up-form.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Project: Sign-Up Form</span></a><a href="creating-a-grid.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Creating a Grid</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

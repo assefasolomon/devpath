@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tables | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="svg.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="default-styles.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Tables</span></nav><h1>Tables</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Tables</span></nav><h1>Tables</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link active">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,83 +44,83 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>HTML tables are for displaying tabular data — information with rows and columns. They are often misused for layout (do not do that) but are exactly right for spreadsheet-style data.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Build a table with thead, tbody, and tfoot.</li><li>Span cells across multiple columns and rows.</li><li>Style tables with CSS.</li><li>Understand when tables are appropriate.</li></ul></div>
+<div class="block-intro"><p>HTML tables exist for one purpose: displaying tabular data — information that has a natural row-and-column structure. This lesson covers how to build accessible, well-structured tables.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Build a complete HTML table with thead, tbody, and tfoot.</li><li>Use th, td, colspan, and rowspan correctly.</li><li>Make tables accessible with scope and caption.</li></ul></div>
 
-<h2 class="lesson-section-title" id="table-structure">Table Structure</h2>
+<h2 class="lesson-section-title" id="basic-table">Basic Table Structure</h2>
 <div class="code-block"><pre><code>&lt;table&gt;
+  &lt;caption&gt;Monthly Sales Figures&lt;/caption&gt;
+
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th scope="col"&gt;Name&lt;/th&gt;
-      &lt;th scope="col"&gt;Role&lt;/th&gt;
-      &lt;th scope="col"&gt;Salary&lt;/th&gt;
+      &lt;th scope="col"&gt;Month&lt;/th&gt;
+      &lt;th scope="col"&gt;Revenue&lt;/th&gt;
+      &lt;th scope="col"&gt;Orders&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
+
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Alice&lt;/td&gt;
-      &lt;td&gt;Engineer&lt;/td&gt;
-      &lt;td&gt;$120,000&lt;/td&gt;
+      &lt;td&gt;January&lt;/td&gt;
+      &lt;td&gt;$12,400&lt;/td&gt;
+      &lt;td&gt;248&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;Bob&lt;/td&gt;
-      &lt;td&gt;Designer&lt;/td&gt;
-      &lt;td&gt;$105,000&lt;/td&gt;
+      &lt;td&gt;February&lt;/td&gt;
+      &lt;td&gt;$10,200&lt;/td&gt;
+      &lt;td&gt;204&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
+
   &lt;tfoot&gt;
     &lt;tr&gt;
-      &lt;td colspan="2"&gt;Average&lt;/td&gt;
-      &lt;td&gt;$112,500&lt;/td&gt;
+      &lt;th scope="row"&gt;Total&lt;/th&gt;
+      &lt;td&gt;$22,600&lt;/td&gt;
+      &lt;td&gt;452&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tfoot&gt;
 &lt;/table&gt;
 </code></pre></div>
-<h2 class="lesson-section-title" id="spanning">Spanning Cells</h2>
-<div class="code-block"><pre><code>&lt;!-- colspan spans across multiple columns --&gt;
-&lt;td colspan="2"&gt;Covers two columns&lt;/td&gt;
+<h2 class="lesson-section-title" id="spanning">Spanning Columns and Rows</h2>
+<div class="code-block"><pre><code>&lt;!-- colspan — cell spans multiple columns --&gt;
+&lt;tr&gt;
+  &lt;td colspan="2"&gt;This cell spans two columns&lt;/td&gt;
+  &lt;td&gt;Normal cell&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;!-- rowspan spans across multiple rows --&gt;
-&lt;td rowspan="3"&gt;Covers three rows&lt;/td&gt;
+&lt;!-- rowspan — cell spans multiple rows --&gt;
+&lt;tr&gt;
+  &lt;td rowspan="3"&gt;This spans three rows&lt;/td&gt;
+  &lt;td&gt;Row 1 data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Row 2 data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+  &lt;td&gt;Row 3 data&lt;/td&gt;
+&lt;/tr&gt;
 </code></pre></div>
-<h2 class="lesson-section-title" id="styling-tables">Styling Tables</h2>
-<div class="code-block"><pre><code>table {
-  width: 100%;
-  border-collapse: collapse; /* removes double borders */
-  font-size: 0.9rem;
-}
+<h2 class="lesson-section-title" id="accessibility">Accessible Tables</h2>
+<div class="code-block"><pre><code>&lt;!-- scope tells screen readers if a th applies to a column or row --&gt;
+&lt;th scope="col"&gt;Name&lt;/th&gt;    &lt;!-- column header --&gt;
+&lt;th scope="row"&gt;Total&lt;/th&gt;   &lt;!-- row header --&gt;
 
-th, td {
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-th {
-  background: #1e3a8a;
-  color: white;
-  font-weight: 600;
-}
-
-/* Alternating row colours */
-tbody tr:nth-child(even) {
-  background: #f8fafc;
-}
-
-tbody tr:hover {
-  background: #eff6ff;
-}
+&lt;!-- caption provides a visible title and helps screen readers --&gt;
+&lt;table&gt;
+  &lt;caption&gt;Q1 2024 Product Performance&lt;/caption&gt;
+  ...
+&lt;/table&gt;
 </code></pre></div>
 <div class="callout callout-warn">
   <span class="callout-icon">⚠️</span>
-  <p>Never use tables for page layout. That was a 1990s technique. Tables are for data — schedules, pricing grids, comparison charts, spreadsheet-style information.</p>
+  <p>Never use tables for page layout. Tables are only for tabular data. Use CSS Grid or Flexbox for layout purposes.</p>
 </div>
 
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#table-structure" data-target="table-structure">What is the purpose of thead, tbody, and tfoot?</a></li><li><a href="#spanning" data-target="spanning">How do you make a cell span two columns?</a></li><li><a href="#styling-tables" data-target="styling-tables">What does border-collapse: collapse do?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a monthly expense table with categories, amounts, and a total row using tfoot.</li><li>Style it with alternating row colours and a hover highlight.</li><li>Read MDN's HTML Tables guide linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics" target="_blank" rel="noopener">MDN — HTML Table Basics</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced" target="_blank" rel="noopener">MDN — HTML Table Advanced</a></li><li><a href="https://www.youtube.com/watch?v=SIzHxPL6Sc8" target="_blank" rel="noopener">YouTube — HTML Tables (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#basic-table" data-target="basic-table">What are the three structural sections of an HTML table?</a></li><li><a href="#spanning" data-target="spanning">What does colspan do?</a></li><li><a href="#accessibility" data-target="accessibility">What does the scope attribute on a th element do for accessibility?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a weekly schedule table with colspan and rowspan to represent classes that span multiple periods.</li><li>Read MDN's HTML Table tutorial — linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics" target="_blank" rel="noopener">MDN — HTML Table Basics</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced" target="_blank" rel="noopener">MDN — HTML Table Advanced Features</a></li><li><a href="https://www.youtube.com/watch?v=dFEqTyMJ2B8" target="_blank" rel="noopener">YouTube — HTML Tables (Web Dev Simplified)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="svg.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">SVG</span></a><a href="default-styles.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Default Styles</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

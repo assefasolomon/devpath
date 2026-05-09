@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Positioning | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="advanced-selectors.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="css-functions.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Positioning</span></nav><h1>Positioning</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Positioning</span></nav><h1>Positioning</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,74 +44,84 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>CSS positioning takes elements out of the normal document flow and lets you place them precisely anywhere on the page. Understanding it is essential for navbars, modals, tooltips, and sticky sidebars.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand the five position values: static, relative, absolute, fixed, sticky.</li><li>Know when each type is appropriate.</li><li>Use top, right, bottom, left to place positioned elements.</li><li>Understand how positioned elements interact with z-index.</li></ul></div>
+<div class="block-intro"><p>CSS positioning lets you break elements out of the normal document flow and place them exactly where you want. Understanding the five position values and how they interact is essential for building tooltips, modals, sticky headers, and complex layouts.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand the five position values: static, relative, absolute, fixed, sticky.</li><li>Know how top, right, bottom, left work with each position type.</li><li>Use z-index to control stacking order.</li><li>Know common use cases for each position value.</li></ul></div>
 
-<h2 class="lesson-section-title" id="static">static (default)</h2>
-<p>Every element starts as <code>position: static</code>. It flows in the normal document order. The <code>top/right/bottom/left</code> and <code>z-index</code> properties have no effect on static elements.</p>
+<h2 class="lesson-section-title" id="position-values">The Five Position Values</h2>
+<div class="code-block"><pre><code>/* STATIC — default. Element is in normal flow. */
+/* top/right/bottom/left have NO effect */
+.normal { position: static; }
 
-<h2 class="lesson-section-title" id="relative">relative</h2>
-<div class="code-block"><pre><code>.nudged {
+/* RELATIVE — stays in normal flow, but can be nudged */
+/* top/right/bottom/left offset from its own normal position */
+.nudged {
   position: relative;
-  top: 10px;    /* moves DOWN 10px from its normal position */
-  left: 20px;   /* moves RIGHT 20px */
+  top: 10px;    /* move 10px DOWN from normal position */
+  left: 20px;   /* move 20px RIGHT from normal position */
 }
-/* Important: the space the element originally occupied is KEPT */
-/* Other elements do not shift to fill the gap */
-</code></pre></div>
-<h2 class="lesson-section-title" id="absolute">absolute</h2>
-<div class="code-block"><pre><code>/* Absolutely positioned elements are REMOVED from normal flow */
-/* They position relative to the nearest positioned ancestor */
-/* If no positioned ancestor exists, they use the viewport */
 
+/* ABSOLUTE — removed from normal flow */
+/* Positioned relative to nearest NON-STATIC ancestor */
+.parent  { position: relative; }   /* establishes a containing block */
+.tooltip {
+  position: absolute;
+  top: 100%;    /* just below the parent */
+  left: 0;
+  z-index: 10;
+}
+
+/* FIXED — removed from flow, positioned relative to VIEWPORT */
+/* Stays on screen even when scrolling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* STICKY — hybrid of relative and fixed */
+/* Behaves relative until it reaches a scroll threshold, then fixed */
+.section-header {
+  position: sticky;
+  top: 64px;   /* sticks when 64px from top of viewport */
+}
+</code></pre></div>
+<h2 class="lesson-section-title" id="containing-block">The Containing Block</h2>
+<p>When you use <code>position: absolute</code>, the element positions itself relative to its nearest ancestor that has a position other than <code>static</code>. This ancestor is called the <strong>containing block</strong>.</p>
+<div class="code-block"><pre><code>/* The badge is absolutely positioned INSIDE the card */
 .card {
-  position: relative; /* establish a positioning context */
+  position: relative;  /* makes this the containing block */
+  width: 300px;
 }
 
 .badge {
   position: absolute;
   top: 12px;
   right: 12px;
-  /* Positioned relative to .card, not the page */
+  background: #2563eb;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 20px;
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="fixed">fixed</h2>
-<div class="code-block"><pre><code>/* Fixed relative to the VIEWPORT — stays on screen when scrolling */
-.site-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: white;
-}
+<h2 class="lesson-section-title" id="z-index">Z-Index</h2>
+<div class="code-block"><pre><code>/* z-index controls which element appears on top */
+/* Higher value = appears in front */
+/* Only works on positioned elements (anything except static) */
 
-/* Floating action button */
-.fab {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 50;
-}
+.dropdown { position: absolute; z-index: 20; }
+.modal    { position: fixed;    z-index: 200; }
+.tooltip  { position: absolute; z-index: 50; }
+
+/* Stacking context — a z-index creates a new stacking context */
+/* Children cannot escape their parent's stacking context */
 </code></pre></div>
-<h2 class="lesson-section-title" id="sticky">sticky</h2>
-<div class="code-block"><pre><code>/* Sticky is a hybrid: flows normally until a scroll threshold,
-   then behaves like fixed relative to its scroll container */
-
-.section-header {
-  position: sticky;
-  top: 64px;    /* sticks when it reaches 64px from the top of the viewport */
-  background: white;
-  z-index: 10;
-}
-
-/* The element must have a defined parent with overflow to stick within */
-</code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#absolute" data-target="absolute">What is the difference between relative and absolute positioning?</a></li><li><a href="#absolute" data-target="absolute">What does an absolutely positioned element position itself relative to?</a></li><li><a href="#sticky" data-target="sticky">When does a sticky element switch from flowing to fixed?</a></li><li><a href="#static" data-target="static">Why does z-index not work on static elements?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a card with an absolutely positioned badge (e.g. 'Sale!') in its top-right corner.</li><li>Build a sticky header that stays at the top of the viewport while scrolling.</li><li>Work through the positioning exercises linked below.</li></ol></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#position-values" data-target="position-values">What is the difference between relative and absolute positioning?</a></li><li><a href="#containing-block" data-target="containing-block">What is the containing block for a position: absolute element?</a></li><li><a href="#z-index" data-target="z-index">Why does z-index not work on position: static elements?</a></li><li><a href="#position-values" data-target="position-values">When would you use position: sticky?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a card with an absolutely positioned badge in the top-right corner.</li><li>Build a sticky navigation bar that stays at the top of the viewport while scrolling.</li><li>Build a tooltip that appears on hover using position: absolute.</li></ol></div>
 <div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning" target="_blank" rel="noopener">MDN — CSS Positioning</a></li><li><a href="https://css-tricks.com/almanac/properties/p/position/" target="_blank" rel="noopener">CSS Tricks — position</a></li><li><a href="https://www.youtube.com/watch?v=jx5jmI0UlXU" target="_blank" rel="noopener">YouTube — CSS Position Explained (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="advanced-selectors.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Advanced Selectors</span></a><a href="css-functions.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">CSS Functions</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

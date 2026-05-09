@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>More Text Styles | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="css-units.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="more-css-properties.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">More Text Styles</span></nav><h1>More Text Styles</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">More Text Styles</span></nav><h1>More Text Styles</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,70 +44,82 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Typography is one of the biggest levers you have for making a design look professional. This lesson covers the CSS properties that give you precise control over how text looks.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use font-family, font-weight, and font-style.</li><li>Control text with letter-spacing, line-height, and text-transform.</li><li>Load custom fonts using Google Fonts and @font-face.</li><li>Apply text-shadow and text-overflow.</li></ul></div>
+<div class="block-intro"><p>Typography is one of the most powerful tools in web design. This lesson covers the CSS properties that control how text looks — beyond just font-size and color.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Control font families, weights, and styles.</li><li>Use letter-spacing, line-height, and text-transform.</li><li>Load and apply custom web fonts.</li><li>Use text-shadow and other decorative text properties.</li></ul></div>
 
-<h2 class="lesson-section-title" id="font-properties">Core Font Properties</h2>
-<div class="code-block"><pre><code>body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 1rem;       /* base size */
-  font-weight: 400;      /* normal */
-  font-style: normal;
-  line-height: 1.6;      /* unitless — multiplied by font-size */
+<h2 class="lesson-section-title" id="font-properties">Font Properties</h2>
+<div class="code-block"><pre><code>/* font-family — always provide fallbacks */
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-h1 { font-weight: 700; font-size: 2.5rem; }
-em { font-style: italic; }
+/* font-weight — numeric values are more precise than keywords */
+.light    { font-weight: 300; }
+.regular  { font-weight: 400; }
+.medium   { font-weight: 500; }
+.semibold { font-weight: 600; }
+.bold     { font-weight: 700; }
+.extrabold{ font-weight: 800; }
+
+/* font-style */
+em, .italic { font-style: italic; }
+
+/* font-size */
+h1 { font-size: 2.5rem; }
+p  { font-size: 1rem; }
 </code></pre></div>
-<h2 class="lesson-section-title" id="text-properties">Text Properties</h2>
-<div class="code-block"><pre><code>.nav-link {
-  text-transform: uppercase;    /* UPPERCASE */
-  letter-spacing: 0.1em;        /* space between letters */
-  text-decoration: none;        /* remove underline */
-}
+<h2 class="lesson-section-title" id="text-properties">Text Spacing and Transform</h2>
+<div class="code-block"><pre><code>/* line-height — unitless values are recommended */
+p { line-height: 1.7; }           /* 1.7x the font-size */
+h1 { line-height: 1.15; }         /* tighter for headings */
 
-.card-title {
-  white-space: nowrap;           /* prevent wrapping */
-  overflow: hidden;
-  text-overflow: ellipsis;       /* show ... when text overflows */
-  max-width: 200px;
-}
+/* letter-spacing */
+.eyebrow { letter-spacing: 0.12em; text-transform: uppercase; }
+p        { letter-spacing: -0.01em; }  /* slight tightening for body text */
 
-.pull-quote {
-  text-align: center;
-  font-style: italic;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
-}
+/* text-transform */
+.caps    { text-transform: uppercase; }
+.title   { text-transform: capitalize; }
+
+/* text-decoration */
+a        { text-decoration: none; }
+.strikethrough { text-decoration: line-through; }
+.underline { text-decoration: underline #2563eb 2px; }
 </code></pre></div>
-<h2 class="lesson-section-title" id="custom-fonts">Loading Custom Fonts</h2>
+<h2 class="lesson-section-title" id="web-fonts">Loading Custom Web Fonts</h2>
 <div class="code-block"><pre><code>/* Method 1: Google Fonts (easiest) */
-/* Add to &lt;head&gt; in HTML: */
+/* Add this in the &lt;head&gt; of your HTML */
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
 &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"&gt;
 
-/* Then use in CSS: */
+/* Then use in CSS */
 body { font-family: 'Inter', sans-serif; }
 
-/* Method 2: @font-face (self-hosted) */
+/* Method 2: @font-face (self-hosted fonts) */
 @font-face {
   font-family: 'MyFont';
-  src: url('fonts/myfont.woff2') format('woff2');
+  src: url('/fonts/myfont.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap; /* show fallback font while custom font loads */
+  font-display: swap;  /* prevents invisible text during font load */
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="system-fonts">System Font Stack</h2>
-<div class="code-block"><pre><code>/* Uses the operating system's native font — fast, no loading */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-               Roboto, Helvetica, Arial, sans-serif;
-}
+<h2 class="lesson-section-title" id="text-effects">Text Shadow and Effects</h2>
+<div class="code-block"><pre><code>/* text-shadow: x-offset y-offset blur-radius color */
+h1 { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+
+/* Multiple shadows */
+.glow { text-shadow: 0 0 10px #2563eb, 0 0 20px #2563eb; }
+
+/* white-space controls how whitespace is handled */
+.nowrap { white-space: nowrap; }   /* prevent line breaks */
+.pre    { white-space: pre; }      /* preserve whitespace exactly */
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#font-properties" data-target="font-properties">What is the difference between line-height: 1.6 and line-height: 1.6rem?</a></li><li><a href="#text-properties" data-target="text-properties">How do you show an ellipsis when text overflows its container?</a></li><li><a href="#custom-fonts" data-target="custom-fonts">What does font-display: swap do?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Style a typographic hierarchy: h1, h2, h3, body text, and a caption using different weights, sizes, and letter-spacing.</li><li>Load an Inter or Sora font from Google Fonts and apply it to a project.</li><li>Read MDN's Fundamental Text and Font Styling guide linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals" target="_blank" rel="noopener">MDN — Fundamental Text and Font Styling</a></li><li><a href="https://fonts.google.com/" target="_blank" rel="noopener">Google Fonts</a></li><li><a href="https://www.youtube.com/watch?v=l0GX6ezSw_E" target="_blank" rel="noopener">YouTube — Typography in CSS (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#font-properties" data-target="font-properties">Why should you always provide fallback fonts in font-family?</a></li><li><a href="#text-properties" data-target="text-properties">Why are unitless values recommended for line-height?</a></li><li><a href="#web-fonts" data-target="web-fonts">What does font-display: swap do?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Apply a Google Font to one of your projects. Set appropriate line-height, letter-spacing, and font-weight for headings and body text.</li><li>Create a typographic scale with at least six size steps using rem units.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals" target="_blank" rel="noopener">MDN — Fundamental Text and Font Styling</a></li><li><a href="https://fonts.google.com/" target="_blank" rel="noopener">Google Fonts</a></li><li><a href="https://www.youtube.com/watch?v=6x7AjMJNLmo" target="_blank" rel="noopener">YouTube — Typography in CSS (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="css-units.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">CSS Units</span></a><a href="more-css-properties.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">More CSS Properties</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

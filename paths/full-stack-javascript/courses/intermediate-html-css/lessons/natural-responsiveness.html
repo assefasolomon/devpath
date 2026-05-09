@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Natural Responsiveness | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="introduction-to-responsive-design.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="responsive-images.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Natural Responsiveness</span></nav><h1>Natural Responsiveness</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Natural Responsiveness</span></nav><h1>Natural Responsiveness</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,58 +44,79 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Before reaching for media queries, many elements can be made responsive naturally using the CSS techniques you already know. This lesson covers the layout approaches that adapt to screen size without breakpoints.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use relative units to make text and spacing fluid.</li><li>Use auto-fit/auto-fill for responsive grids without media queries.</li><li>Apply min(), max(), and clamp() for adaptive sizing.</li><li>Use min-width and max-width to contain layouts.</li></ul></div>
+<div class="block-intro"><p>Many layout techniques create responsive results automatically without media queries. This lesson covers how to write CSS that is naturally fluid.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use relative units to create fluid typography and spacing.</li><li>Use Flexbox and Grid patterns that respond automatically.</li><li>Avoid fixed widths that break layouts.</li></ul></div>
 
-<h2 class="lesson-section-title" id="fluid-typography">Fluid Typography</h2>
-<div class="code-block"><pre><code>/* WITHOUT clamp: need media queries to control font size */
-h1 { font-size: 2rem; }
-@media (min-width: 768px)  { h1 { font-size: 2.5rem; } }
-@media (min-width: 1024px) { h1 { font-size: 3.5rem; } }
+<h2 class="lesson-section-title" id="fluid-type">Fluid Typography</h2>
+<div class="code-block"><pre><code>/* clamp() creates fluid type with no media queries */
+h1 { font-size: clamp(1.75rem, 4vw, 3rem);   }
+h2 { font-size: clamp(1.35rem, 3vw, 2.25rem); }
+p  { font-size: clamp(1rem,    1.5vw, 1.125rem); }
 
-/* WITH clamp: fluid scaling with no breakpoints */
-h1 { font-size: clamp(1.75rem, 5vw, 3.5rem); }
-/* Never smaller than 1.75rem, never bigger than 3.5rem,
-   scales smoothly with viewport in between */
+/* Fluid spacing */
+.section {
+  padding: clamp(2rem, 8vw, 6rem) clamp(1rem, 5vw, 3rem);
+}
 
-/* A readable line length at any screen size */
-p { max-width: 65ch; }
+/* Container that never gets too wide */
+.container {
+  width: min(90%, 1200px);  /* 90% on mobile, max 1200px on large screens */
+  margin-inline: auto;       /* centre it */
+}
 </code></pre></div>
-<h2 class="lesson-section-title" id="intrinsic-grid">Intrinsic Responsive Grid</h2>
-<div class="code-block"><pre><code>.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+<h2 class="lesson-section-title" id="responsive-flex">Naturally Responsive Flexbox</h2>
+<div class="code-block"><pre><code>/* flex-wrap: wrap + flex: 1 1 min-width */
+/* Items wrap naturally when they run out of space */
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
-/* Breakdown:
-   auto-fit: create as many columns as fit
-   minmax: each column is at least 280px (or 100% if container is smaller)
-   1fr: columns grow to fill available space
-   Result: 1 column on phones, 2-3 on tablets, 4 on desktop — no media queries */
-</code></pre></div>
-<h2 class="lesson-section-title" id="contain">max-width and min-width for Containment</h2>
-<div class="code-block"><pre><code>.container {
-  width: min(90%, 1200px);  /* 90% on small screens, capped at 1200px */
-  margin-inline: auto;       /* centre horizontally */
-  padding-inline: 1rem;
+
+.card {
+  flex: 1 1 280px;  /* items are at least 280px, fill space, wrap as needed */
 }
 
-/* Prevent images from overflowing */
+/* Result: 4 columns on wide screens → 2 → 1 as width decreases */
+/* Zero media queries needed */
+</code></pre></div>
+<h2 class="lesson-section-title" id="responsive-grid">Naturally Responsive Grid</h2>
+<div class="code-block"><pre><code>/* auto-fit + minmax — the most powerful responsive pattern */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Image galleries */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+</code></pre></div>
+<h2 class="lesson-section-title" id="avoid-fixed">Avoiding Fixed Widths</h2>
+<div class="code-block"><pre><code>/* Fragile — breaks on small screens */
+.card { width: 400px; }
+
+/* Better — flexible with a maximum */
+.card {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Images — always include this */
 img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Sidebar that never gets too narrow */
-.sidebar {
-  width: max(200px, 25%);
+  display: block;
+  max-width: 100%;   /* image never overflows its container */
+  height: auto;      /* maintain aspect ratio */
 }
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#fluid-typography" data-target="fluid-typography">What does clamp(1.75rem, 5vw, 3.5rem) mean for font-size?</a></li><li><a href="#intrinsic-grid" data-target="intrinsic-grid">How does auto-fit with minmax create a responsive grid without media queries?</a></li><li><a href="#contain" data-target="contain">What does width: min(90%, 1200px) do?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Refactor a project's typography to use clamp() for all heading sizes. Remove the corresponding media query font-size overrides.</li><li>Replace a media-query-based card grid with auto-fit and minmax.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/min" target="_blank" rel="noopener">MDN — min()</a></li><li><a href="https://css-tricks.com/a-complete-guide-to-css-media-queries/" target="_blank" rel="noopener">CSS Tricks — A Complete Guide to CSS Media Queries</a></li><li><a href="https://www.youtube.com/watch?v=VsNAuGkCpQU" target="_blank" rel="noopener">YouTube — Intrinsic Responsive Design (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#fluid-type" data-target="fluid-type">How does clamp() create responsive typography without media queries?</a></li><li><a href="#responsive-flex" data-target="responsive-flex">What CSS makes a Flexbox layout wrap naturally?</a></li><li><a href="#avoid-fixed" data-target="avoid-fixed">Why should you use max-width instead of width for fixed-size elements?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Rebuild a previous project's typography using clamp() for all font sizes.</li><li>Refactor a card grid to use auto-fit and minmax — remove any media queries that were only adjusting column counts.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" target="_blank" rel="noopener">MDN — Responsive Images</a></li><li><a href="https://www.youtube.com/watch?v=OwNyUkJ1WDM" target="_blank" rel="noopener">YouTube — Stop using media queries (Kevin Powell)</a></li><li><a href="https://css-tricks.com/complete-guide-to-css-functions/" target="_blank" rel="noopener">CSS Tricks — A Complete Guide to CSS Functions</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="introduction-to-responsive-design.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Introduction to Responsive Design</span></a><a href="responsive-images.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Responsive Images</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

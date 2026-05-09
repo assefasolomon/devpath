@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accessible Colors | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
-<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="the-web-content-accessibility-guidelines.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="keyboard-navigation.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Accessible Colors</span></nav><h1>Accessible Colors</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="wcag.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="keyboard-navigation.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Accessible Colors</span></nav><h1>Accessible Colors</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link active">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,71 +44,61 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Colour contrast is one of the most common accessibility failures on the web. This lesson covers how to choose colours that meet WCAG standards and work for people with colour vision deficiencies.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand contrast ratio and how it is calculated.</li><li>Meet WCAG AA and AAA contrast requirements.</li><li>Design for colour blindness.</li><li>Use tools to check and fix contrast issues.</li></ul></div>
+<div class="block-intro"><p>Colour contrast is one of the most common and most fixable accessibility failures. This lesson covers the contrast requirements and the tools that make meeting them easy.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand the WCAG colour contrast requirements.</li><li>Use contrast checking tools to verify your colour choices.</li><li>Build a colour palette that meets AA requirements.</li><li>Consider colour blindness in your designs.</li></ul></div>
 
-<h2 class="lesson-section-title" id="contrast-ratio">Contrast Ratio</h2>
-<p>Contrast ratio compares the relative luminance of two colours on a scale from 1:1 (identical) to 21:1 (black on white). WCAG requirements:</p>
+<h2 class="lesson-section-title" id="contrast-ratios">Contrast Ratios</h2>
+<p>Colour contrast is measured as a ratio between the relative luminance of two colours:</p>
 <ul>
-  <li><strong>Normal text (below 18pt / 14pt bold):</strong> 4.5:1 minimum (AA), 7:1 enhanced (AAA)</li>
-  <li><strong>Large text (18pt+ / 14pt+ bold):</strong> 3:1 minimum (AA), 4.5:1 enhanced (AAA)</li>
-  <li><strong>UI components and graphical objects:</strong> 3:1 minimum (AA)</li>
+  <li><strong>AA — Normal text:</strong> minimum 4.5:1</li>
+  <li><strong>AA — Large text</strong> (18px regular / 14px bold): minimum 3:1</li>
+  <li><strong>AA — UI components</strong> (buttons, inputs, focus indicators): minimum 3:1</li>
+  <li><strong>AAA — Normal text:</strong> 7:1 (enhanced, not required everywhere)</li>
 </ul>
+<p>Pure white (<code>#ffffff</code>) on pure black (<code>#000000</code>) has a contrast ratio of 21:1 — the maximum. A light grey on white might be 1.5:1 — completely inaccessible.</p>
 
-<h2 class="lesson-section-title" id="checking">Checking Contrast</h2>
-<div class="code-block"><pre><code>/* Common contrast issues */
+<h2 class="lesson-section-title" id="tools">Contrast Checking Tools</h2>
+<div class="code-block"><pre><code>/* Useful tools for checking contrast */
 
-/* FAIL — 2.3:1 ratio — light grey on white */
-.low-contrast {
-  color: #aaaaaa;
-  background: #ffffff;
-}
+/* 1. WebAIM Contrast Checker — https://webaim.org/resources/contrastchecker/ */
+/* Enter two hex colours, get the ratio and pass/fail for AA and AAA */
 
-/* PASS AA — 4.6:1 ratio */
-.good-contrast {
-  color: #595959;
-  background: #ffffff;
-}
+/* 2. Colour Contrast Analyser (desktop app) — picks any two colours on screen */
 
-/* PASS AA — dark blue on white — 8.6:1 */
-.high-contrast {
-  color: #1e3a8a;
-  background: #ffffff;
-}
+/* 3. browser DevTools — Chrome DevTools shows contrast ratio */
+/* when you click on a text colour in the styles pane */
 
-/* For dark backgrounds: use light foreground colours */
-.dark-bg {
-  background: #0f172a;
-  color: #e2e8f0; /* 14.5:1 — excellent */
+/* 4. CSS: use high-contrast colours by default */
+:root {
+  --text: #1e293b;       /* dark on white: 15.5:1 — excellent */
+  --text-muted: #64748b; /* on white: 4.6:1 — passes AA */
+  --text-subtle: #94a3b8;/* on white: 2.9:1 — FAILS AA for small text */
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="color-blindness">Designing for Colour Blindness</h2>
-<p>About 8% of men have some form of colour vision deficiency. Red-green colour blindness is most common. The rule: <strong>never use colour as the only way to convey information</strong>.</p>
-<div class="code-block"><pre><code>&lt;!-- BAD: only colour distinguishes required fields --&gt;
-&lt;label style="color: red"&gt;Email *&lt;/label&gt;
+<h2 class="lesson-section-title" id="color-blindness">Colour Blindness</h2>
+<p>About 8% of males and 0.5% of females have some form of colour blindness. The most common is red-green colour blindness (deuteranopia), where red and green appear similar.</p>
+<p>Key principles:</p>
+<ul>
+  <li><strong>Never use colour alone</strong> to convey information. Always add a text label, icon, or pattern.</li>
+  <li>For success/error states: use green/red with checkmark/X icons — not colour alone.</li>
+  <li>Test with tools like the Firefox Accessibility Inspector's colour blindness simulation.</li>
+</ul>
+<div class="code-block"><pre><code>&lt;!-- Bad: colour alone distinguishes required fields --&gt;
+&lt;input type="email" style="border-color: red;"&gt;  &lt;!-- fails --&gt;
 
-&lt;!-- GOOD: colour + text + icon --&gt;
-&lt;label&gt;
-  Email
-  &lt;span class="required" aria-label="required"&gt;*&lt;/span&gt;
-&lt;/label&gt;
-
-&lt;!-- BAD: error state communicated only by red border --&gt;
-input.error { border-color: red; }
-
-&lt;!-- GOOD: colour + icon + text message --&gt;
-&lt;div class="field"&gt;
-  &lt;input class="error" aria-describedby="email-error"&gt;
-  &lt;span id="email-error" class="error-message"&gt;
+&lt;!-- Good: colour + icon + text --&gt;
+&lt;div class="field error"&gt;
+  &lt;input type="email" aria-describedby="email-error"&gt;
+  &lt;p id="email-error" class="error-message"&gt;
     ⚠ Please enter a valid email address
-  &lt;/span&gt;
+  &lt;/p&gt;
 &lt;/div&gt;
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#contrast-ratio" data-target="contrast-ratio">What is the minimum contrast ratio for normal body text at WCAG AA?</a></li><li><a href="#color-blindness" data-target="color-blindness">Why should you never use colour as the only way to convey information?</a></li><li><a href="#checking" data-target="checking">What tool can you use to check contrast ratio?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Check the contrast ratio of every colour combination in one of your projects using WebAIM's contrast checker.</li><li>Find and fix any failing contrast ratios.</li><li>Enable Chrome's colour blindness emulation (DevTools → Rendering → Emulate vision deficiencies) and check your UI.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM — Colour Contrast Checker</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast" target="_blank" rel="noopener">MDN — Colour and Accessibility</a></li><li><a href="https://www.youtube.com/watch?v=SL_YcLbG9B0" target="_blank" rel="noopener">YouTube — Accessible Colour Design (Google Chrome Developers)</a></li></ul></div>
-</div><div class="lesson-pagination"><a href="the-web-content-accessibility-guidelines.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">The Web Content Accessibility Guidelines (WCAG)</span></a><a href="keyboard-navigation.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Keyboard Navigation</span></a></div></main></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#contrast-ratios" data-target="contrast-ratios">What is the minimum contrast ratio for normal text at AA level?</a></li><li><a href="#color-blindness" data-target="color-blindness">Why should you never use colour alone to convey information?</a></li><li><a href="#tools" data-target="tools">Name two tools for checking colour contrast.</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Check the colour contrast of all text in one of your projects using WebAIM's contrast checker. Fix any failures.</li><li>Test your project in Firefox's colour blindness simulation mode.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM — Colour Contrast Checker</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast" target="_blank" rel="noopener">MDN — Colour and Colour Contrast</a></li><li><a href="https://www.youtube.com/watch?v=FzXFzk9RsI8" target="_blank" rel="noopener">YouTube — Colour Accessibility (Kevin Powell)</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="wcag.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">The Web Content Accessibility Guidelines</span></a><a href="keyboard-navigation.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Keyboard Navigation</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

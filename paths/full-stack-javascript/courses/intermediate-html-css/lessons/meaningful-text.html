@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meaningful Text | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="keyboard-navigation.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="wai-aria.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Meaningful Text</span></nav><h1>Meaningful Text</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Meaningful Text</span></nav><h1>Meaningful Text</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link active">Meaningful Text</a>
@@ -44,61 +44,83 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>The words you choose — in link text, button labels, headings, and alt text — dramatically affect accessibility. Screen reader users often navigate by heading or link lists, so every label must stand alone.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Write link text that makes sense out of context.</li><li>Use headings to create a logical document outline.</li><li>Write alt text that conveys the meaning of images.</li><li>Use plain language and clear error messages.</li></ul></div>
+<div class="block-intro"><p>The words you use in your HTML — link text, button labels, headings, alt text — are the primary way screen reader users understand your page. This lesson covers how to write text that communicates clearly for everyone.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Write descriptive link text that makes sense out of context.</li><li>Write meaningful button labels.</li><li>Use headings to create a navigable document structure.</li><li>Write good alt text for images in different contexts.</li></ul></div>
 
-<h2 class="lesson-section-title" id="link-text">Meaningful Link Text</h2>
-<p>Screen reader users can call up a list of all links on a page and navigate between them without surrounding context. "Click here" and "Read more" are useless in that list.</p>
-<div class="code-block"><pre><code>&lt;!-- BAD — meaningless out of context --&gt;
-&lt;a href="/docs"&gt;Click here&lt;/a&gt;
-&lt;a href="/blog/css-grid"&gt;Read more&lt;/a&gt;
+<h2 class="lesson-section-title" id="link-text">Link Text</h2>
+<p>Screen reader users often navigate by pulling up a list of all links on the page. Links need to make sense when read in isolation, out of their surrounding context.</p>
+<div class="code-block"><pre><code>&lt;!-- Bad — meaningless out of context --&gt;
+&lt;a href="/pricing"&gt;Click here&lt;/a&gt;
+&lt;a href="/docs"&gt;Read more&lt;/a&gt;
 &lt;a href="/contact"&gt;Here&lt;/a&gt;
 
-&lt;!-- GOOD — descriptive and self-contained --&gt;
-&lt;a href="/docs"&gt;View the documentation&lt;/a&gt;
-&lt;a href="/blog/css-grid"&gt;Read: CSS Grid in Depth&lt;/a&gt;
-&lt;a href="/contact"&gt;Contact the support team&lt;/a&gt;
+&lt;!-- Good — descriptive on their own --&gt;
+&lt;a href="/pricing"&gt;View pricing plans&lt;/a&gt;
+&lt;a href="/docs"&gt;Read the documentation&lt;/a&gt;
+&lt;a href="/contact"&gt;Contact our support team&lt;/a&gt;
 
-&lt;!-- When the context is visually obvious but not to screen readers --&gt;
-&lt;article&gt;
-  &lt;h2&gt;CSS Grid in Depth&lt;/h2&gt;
-  &lt;p&gt;A comprehensive guide to CSS Grid...&lt;/p&gt;
-  &lt;a href="/blog/css-grid" aria-label="Read CSS Grid in Depth"&gt;Read more&lt;/a&gt;
-&lt;/article&gt;
+&lt;!-- Multiple "Read more" links on one page — bad --&gt;
+&lt;a href="/post-1"&gt;Read more&lt;/a&gt;
+&lt;a href="/post-2"&gt;Read more&lt;/a&gt;
+
+&lt;!-- Better — use visually-hidden text to distinguish them --&gt;
+&lt;a href="/post-1"&gt;
+  Read more
+  &lt;span class="visually-hidden"&gt; about Getting Started with CSS&lt;/span&gt;
+&lt;/a&gt;
 </code></pre></div>
-<h2 class="lesson-section-title" id="headings">Heading Hierarchy</h2>
-<div class="code-block"><pre><code>&lt;!-- BAD — heading levels chosen for visual size --&gt;
-&lt;h3&gt;Sign In&lt;/h3&gt;           &lt;!-- actually the page title --&gt;
-&lt;h5&gt;Email&lt;/h5&gt;             &lt;!-- form section label --&gt;
+<h2 class="lesson-section-title" id="buttons">Button Labels</h2>
+<div class="code-block"><pre><code>&lt;!-- Bad — icon-only button with no label --&gt;
+&lt;button&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;
 
-&lt;!-- GOOD — logical outline --&gt;
-&lt;h1&gt;Sign In&lt;/h1&gt;
-&lt;h2&gt;Enter Your Credentials&lt;/h2&gt;
+&lt;!-- Good — icon + visible label --&gt;
+&lt;button&gt;&lt;svg aria-hidden="true"&gt;...&lt;/svg&gt; Delete account&lt;/button&gt;
 
-&lt;!-- Screen readers navigate by heading — every heading should
-     describe the content that follows it --&gt;
+&lt;!-- Good — icon-only with aria-label --&gt;
+&lt;button aria-label="Delete account"&gt;
+  &lt;svg aria-hidden="true"&gt;...&lt;/svg&gt;
+&lt;/button&gt;
+
+&lt;!-- Good — icon-only with tooltip via title --&gt;
+&lt;button title="Close menu"&gt;
+  &lt;svg aria-hidden="true"&gt;...&lt;/svg&gt;
+&lt;/button&gt;
 </code></pre></div>
-<h2 class="lesson-section-title" id="plain-language">Plain Language and Error Messages</h2>
-<div class="code-block"><pre><code>&lt;!-- BAD — technical error message --&gt;
-&lt;span class="error"&gt;
-  ERR_FORM_VALIDATION_422: email field regex mismatch
-&lt;/span&gt;
+<h2 class="lesson-section-title" id="headings">Heading Structure</h2>
+<p>Screen reader users navigate between headings like a sighted user scans a page. A logical heading structure is one of the highest-impact accessibility improvements you can make.</p>
+<div class="code-block"><pre><code>&lt;!-- Bad — headings chosen for visual size, not structure --&gt;
+&lt;h1&gt;Home&lt;/h1&gt;
+&lt;h3&gt;Welcome&lt;/h3&gt;       &lt;!-- skipped h2 --&gt;
+&lt;h1&gt;Our Services&lt;/h1&gt;  &lt;!-- second h1 --&gt;
 
-&lt;!-- GOOD — human, specific, actionable --&gt;
-&lt;span class="error" role="alert"&gt;
-  Please enter a valid email address — for example, name@example.com
-&lt;/span&gt;
-
-&lt;!-- Error messages should:
-     1. Say what went wrong
-     2. Say how to fix it
-     3. Not blame the user --&gt;
+&lt;!-- Good — logical, nested hierarchy --&gt;
+&lt;h1&gt;DevPath — Learn Web Development&lt;/h1&gt;
+  &lt;h2&gt;Foundations Course&lt;/h2&gt;
+    &lt;h3&gt;Introduction&lt;/h3&gt;
+    &lt;h3&gt;HTML Basics&lt;/h3&gt;
+  &lt;h2&gt;Full Stack JavaScript&lt;/h2&gt;
+    &lt;h3&gt;Intermediate HTML and CSS&lt;/h3&gt;
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#link-text" data-target="link-text">Why must link text be descriptive without surrounding context?</a></li><li><a href="#headings" data-target="headings">Why should headings be chosen based on hierarchy, not visual size?</a></li><li><a href="#plain-language" data-target="plain-language">What three things should a good error message do?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Audit all link text in a project. Replace any 'click here' or 'read more' with descriptive text.</li><li>Run your page through a headings outline checker (linked below) to verify your hierarchy is logical.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://webaim.org/techniques/hypertext/" target="_blank" rel="noopener">WebAIM — Links and Hypertext</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML#text_alternatives" target="_blank" rel="noopener">MDN — Writing Good Alt Text</a></li><li><a href="https://www.youtube.com/watch?v=3f31oufqFSM" target="_blank" rel="noopener">YouTube — Accessible Link Text (Google Chrome Developers)</a></li></ul></div>
+<h2 class="lesson-section-title" id="visually-hidden">The Visually-Hidden Pattern</h2>
+<div class="code-block"><pre><code>/* Hide text visually but keep it accessible to screen readers */
+/* DO NOT use display:none or visibility:hidden — those hide from everyone */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#link-text" data-target="link-text">Why must link text make sense out of context?</a></li><li><a href="#buttons" data-target="buttons">How do you make an icon-only button accessible?</a></li><li><a href="#visually-hidden" data-target="visually-hidden">What is the visually-hidden pattern and when do you use it?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Audit all links in one of your projects. Replace any 'click here' or 'read more' text with descriptive labels.</li><li>Add aria-label or visually-hidden text to any icon-only buttons in your projects.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/CSS_and_JavaScript" target="_blank" rel="noopener">MDN — Writing CSS for Accessibility</a></li><li><a href="https://webaim.org/techniques/hypertext/" target="_blank" rel="noopener">WebAIM — Links and Hypertext</a></li><li><a href="https://www.youtube.com/watch?v=e2nkq3h1P68" target="_blank" rel="noopener">YouTube — Accessible Text (Google Chrome Developers)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="keyboard-navigation.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Keyboard Navigation</span></a><a href="wai-aria.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">WAI-ARIA</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advanced Grid Properties | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="positioning-grid-elements.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="using-flexbox-and-grid.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Advanced Grid Properties</span></nav><h1>Advanced Grid Properties</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Advanced Grid Properties</span></nav><h1>Advanced Grid Properties</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,75 +44,68 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>This lesson covers the remaining Grid properties that round out your toolkit: alignment inside grid cells, subgrid for nested alignment, and the masonry-style layout pattern.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use justify-items, align-items, justify-self, and align-self within grid.</li><li>Understand subgrid for aligning nested grid items.</li><li>Use place-items and place-self shorthand.</li></ul></div>
+<div class="block-intro"><p>This lesson covers the remaining Grid properties that complete your toolkit: alignment within grid cells, the gap shorthand, subgrid, and layering items.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Align items and tracks with justify-items, align-items, justify-content, align-content.</li><li>Override alignment on individual items with justify-self and align-self.</li><li>Understand the order property for re-ordering items.</li><li>Layer items in the same grid cell.</li></ul></div>
 
-<h2 class="lesson-section-title" id="alignment">Alignment in Grid</h2>
+<h2 class="lesson-section-title" id="alignment">Grid Alignment</h2>
 <div class="code-block"><pre><code>.grid {
   display: grid;
   grid-template-columns: repeat(3, 200px);
-  grid-template-rows: repeat(2, 150px);
+  /* The grid tracks are 600px total but the container might be wider */
 
-  /* Align ALL items within their cells */
-  justify-items: center;   /* horizontal alignment in cell */
-  align-items: center;     /* vertical alignment in cell */
+  /* Align items WITHIN their cell */
+  justify-items: start;   /* horizontal within cell (default: stretch) */
+  align-items: center;    /* vertical within cell */
 
-  /* Align the entire grid within its container */
-  justify-content: space-between;
-  align-content: start;
+  /* Align the GRID ITSELF within the container */
+  justify-content: center;      /* horizontal position of the whole grid */
+  align-content: space-between; /* vertical position of grid rows */
 }
 
-/* Override for a single item */
-.special {
-  justify-self: start;
+/* Override alignment on a single item */
+.featured {
+  justify-self: center;
   align-self: end;
 }
-
-/* Shorthand: place-items = align-items + justify-items */
-.grid { place-items: center; }
-
-/* place-self = align-self + justify-self */
-.item { place-self: center; }
 </code></pre></div>
-<h2 class="lesson-section-title" id="subgrid">subgrid</h2>
-<p>The classic problem: cards in a grid where the card title spans different amounts of text, making buttons misalign across cards. <code>subgrid</code> solves this by making nested grids participate in the parent grid's track definitions:</p>
-<div class="code-block"><pre><code>.card-grid {
+<h2 class="lesson-section-title" id="layering">Layering Items</h2>
+<p>Multiple grid items can be placed in the same cell — useful for overlapping text on images or stacked UI effects:</p>
+<div class="code-block"><pre><code>.grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  gap: 1rem;
+  grid-template-columns: 1fr;
 }
 
-.card {
-  display: grid;
-  /* inherit the parent's ROW tracks */
-  grid-row: span 3;
-  grid-template-rows: subgrid;
-  /* Now: title, description, and button in each card
-     all align to the same row lines */
+/* Both items are placed in the same cell */
+.background-image {
+  grid-column: 1;
+  grid-row: 1;
 }
 
-.card-title   { grid-row: 1; }
-.card-desc    { grid-row: 2; }
-.card-button  { grid-row: 3; align-self: end; }
-</code></pre></div>
-<h2 class="lesson-section-title" id="responsive-grid">Fully Responsive Grid Patterns</h2>
-<div class="code-block"><pre><code>.card-grid {
-  display: grid;
-  /* auto-fit: create as many columns as fit at minimum 280px */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+.overlay-text {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 1;
+  /* Text sits on top of the image */
 }
-
-/* auto-fill vs auto-fit:
-   auto-fill: keeps empty tracks (columns exist even if empty)
-   auto-fit: collapses empty tracks (only as many as needed) */
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#alignment" data-target="alignment">What is the difference between justify-items and justify-self?</a></li><li><a href="#subgrid" data-target="subgrid">What problem does subgrid solve?</a></li><li><a href="#responsive-grid" data-target="responsive-grid">What is the difference between auto-fill and auto-fit?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a card grid where all card buttons align to the same baseline using subgrid.</li><li>Experiment with auto-fill vs auto-fit to understand their difference visually.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout" target="_blank" rel="noopener">MDN — CSS Grid Layout — Box Alignment</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid" target="_blank" rel="noopener">MDN — Subgrid</a></li><li><a href="https://www.youtube.com/watch?v=Yl8hg2FG20Q" target="_blank" rel="noopener">YouTube — CSS subgrid (Kevin Powell)</a></li></ul></div>
+<h2 class="lesson-section-title" id="order">Order</h2>
+<div class="code-block"><pre><code>/* Reorder items visually without changing HTML */
+/* Default order is 0. Lower = earlier, higher = later. */
+.item-a { order: 2; }  /* moves to the end */
+.item-b { order: 1; }
+.item-c { order: 0; }  /* appears first (default) */
+
+/* Useful for responsive design — move sidebar below main on mobile */
+@media (max-width: 768px) {
+  .sidebar { order: 2; }  /* after main on mobile */
+  .main    { order: 1; }
+}
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#alignment" data-target="alignment">What is the difference between justify-items and justify-content in Grid?</a></li><li><a href="#layering" data-target="layering">How do you place two items in the same grid cell?</a></li><li><a href="#order" data-target="order">What does the order property do and why should you be careful with it?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a dashboard layout that uses grid alignment to position elements precisely within their cells.</li><li>Create an image card with overlapping text using grid layering.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout" target="_blank" rel="noopener">MDN — Box Alignment in Grid Layout</a></li><li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS Tricks — A Complete Guide to Grid</a></li><li><a href="https://www.youtube.com/watch?v=N5wpD9Ov_To" target="_blank" rel="noopener">YouTube — Advanced CSS Grid (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="positioning-grid-elements.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Positioning Grid Elements</span></a><a href="using-flexbox-and-grid.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Using Flexbox and Grid</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

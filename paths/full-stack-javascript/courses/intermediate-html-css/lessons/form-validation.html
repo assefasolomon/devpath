@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Validation | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="form-basics.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="project-sign-up-form.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Form Validation</span></nav><h1>Form Validation</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Form Validation</span></nav><h1>Form Validation</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,76 +44,84 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Form validation ensures users submit correct data before it reaches your server. HTML5 provides built-in validation that requires no JavaScript, and CSS lets you style the validation states.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use HTML5 built-in validation attributes.</li><li>Style form states with :valid, :invalid, and :user-invalid.</li><li>Provide accessible error messages.</li><li>Understand the limits of client-side validation.</li></ul></div>
+<div class="block-intro"><p>Form validation ensures users provide correct, complete data before submission. HTML5 provides powerful built-in validation — no JavaScript required for the basics.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use HTML5 validation attributes: required, minlength, maxlength, min, max, pattern.</li><li>Style valid and invalid states with CSS pseudo-classes.</li><li>Understand the constraint validation API.</li><li>Know when to use HTML validation versus custom JavaScript validation.</li></ul></div>
 
-<h2 class="lesson-section-title" id="html5-validation">HTML5 Validation Attributes</h2>
-<div class="code-block"><pre><code>&lt;!-- required — must not be empty --&gt;
-&lt;input type="text" required&gt;
+<h2 class="lesson-section-title" id="html-validation">HTML5 Validation Attributes</h2>
+<div class="code-block"><pre><code>&lt;!-- required — field cannot be empty --&gt;
+&lt;input type="text" name="name" required&gt;
 
-&lt;!-- minlength / maxlength — character limits --&gt;
-&lt;input type="text" minlength="3" maxlength="50"&gt;
+&lt;!-- minlength / maxlength — string length constraints --&gt;
+&lt;input type="password" name="password" minlength="8" maxlength="64" required&gt;
 
-&lt;!-- min / max — numeric range --&gt;
-&lt;input type="number" min="1" max="100"&gt;
+&lt;!-- min / max — numeric range constraints --&gt;
+&lt;input type="number" name="age" min="18" max="120" required&gt;
+&lt;input type="date" name="dob" min="1900-01-01" max="2010-12-31"&gt;
 
-&lt;!-- pattern — regex pattern --&gt;
-&lt;input type="text" pattern="[A-Za-z]{3}" title="Three letters only"&gt;
+&lt;!-- pattern — regular expression validation --&gt;
+&lt;input
+  type="text"
+  name="username"
+  pattern="[a-zA-Z0-9_]{3,20}"
+  title="3-20 characters: letters, numbers, and underscores only"
+  required
+&gt;
 
-&lt;!-- type itself validates --&gt;
-&lt;input type="email"&gt;  &lt;!-- must contain @ and a domain --&gt;
-&lt;input type="url"&gt;    &lt;!-- must start with http:// or similar --&gt;
+&lt;!-- type validation happens automatically --&gt;
+&lt;input type="email" required&gt;  &lt;!-- validates email format --&gt;
+&lt;input type="url" required&gt;    &lt;!-- validates URL format --&gt;
 </code></pre></div>
-<h2 class="lesson-section-title" id="css-states">Styling Validation States</h2>
-<div class="code-block"><pre><code>/* :user-invalid — only shows after user has interacted with the field */
-/* Better UX than :invalid (which fires immediately on page load) */
+<h2 class="lesson-section-title" id="css-validation">Styling Validation States</h2>
+<div class="code-block"><pre><code>/* :valid and :invalid pseudo-classes */
+input:valid {
+  border-color: #10b981;
+  outline-color: #10b981;
+}
 
+input:invalid {
+  border-color: #ef4444;
+  outline-color: #ef4444;
+}
+
+/* :required and :optional */
+input:required { border-left: 3px solid #2563eb; }
+
+/* :user-valid / :user-invalid — only after user has interacted */
+/* Prevents showing errors before user has typed anything */
 input:user-invalid {
   border-color: #ef4444;
-  background: #fef2f2;
 }
 
-input:user-valid {
-  border-color: #10b981;
-}
-
-input:user-invalid + .error-message {
-  display: block;
-}
-
-.error-message {
-  display: none;
-  color: #ef4444;
-  font-size: 0.8rem;
-  margin-top: 0.25rem;
+/* Focus state should always be visible for accessibility */
+input:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="accessible-errors">Accessible Error Messages</h2>
-<div class="code-block"><pre><code>&lt;!-- Connect error message to input with aria-describedby --&gt;
-&lt;div class="field"&gt;
-  &lt;label for="email"&gt;Email&lt;/label&gt;
-  &lt;input
-    type="email"
-    id="email"
-    name="email"
-    aria-describedby="email-error"
-    required
-  &gt;
-  &lt;span id="email-error" class="error-message" role="alert"&gt;
-    Please enter a valid email address.
-  &lt;/span&gt;
-&lt;/div&gt;
-</code></pre></div>
-<div class="callout callout-warn">
-  <span class="callout-icon">⚠️</span>
-  <p>Client-side validation is a UX convenience, not a security measure. Always validate data on the server too — any user can bypass HTML validation using browser DevTools.</p>
-</div>
+<h2 class="lesson-section-title" id="custom-validation">Custom Validation Messages</h2>
+<div class="code-block"><pre><code>&lt;!-- Custom error message with title attribute --&gt;
+&lt;input
+  type="email"
+  required
+  title="Please enter a valid email address like: you@example.com"
+&gt;
 
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#css-states" data-target="css-states">What is the difference between :invalid and :user-invalid?</a></li><li><a href="#accessible-errors" data-target="accessible-errors">How do you connect an error message to an input for screen readers?</a></li><li><a href="#accessible-errors" data-target="accessible-errors">Why is client-side validation not a security measure?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add validation to your contact form from the previous lesson: make fields required, add minlength, and style error states.</li><li>Read MDN's Client-Side Form Validation guide linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation" target="_blank" rel="noopener">MDN — Client-Side Form Validation</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation" target="_blank" rel="noopener">MDN — Constraint Validation</a></li><li><a href="https://www.youtube.com/watch?v=In0nB0ABaUk" target="_blank" rel="noopener">YouTube — HTML Form Validation (Web Dev Simplified)</a></li></ul></div>
+&lt;!-- Custom JS validation using the Constraint Validation API --&gt;
+const emailInput = document.querySelector('#email');
+
+emailInput.addEventListener('input', () =&gt; {
+  if (emailInput.value.includes('+')) {
+    emailInput.setCustomValidity('Plus signs are not allowed in email addresses.');
+  } else {
+    emailInput.setCustomValidity('');  // empty string = valid
+  }
+});
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#html-validation" data-target="html-validation">What HTML attribute prevents a form from submitting with an empty field?</a></li><li><a href="#html-validation" data-target="html-validation">What does the pattern attribute accept?</a></li><li><a href="#css-validation" data-target="css-validation">What is the difference between :invalid and :user-invalid?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add validation to the registration form from the previous lesson: required fields, password minimum length, and email format.</li><li>Style the form validation states using :user-valid and :user-invalid.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation" target="_blank" rel="noopener">MDN — Client-Side Form Validation</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation" target="_blank" rel="noopener">MDN — Constraint Validation API</a></li><li><a href="https://www.youtube.com/watch?v=In0nB0ABaUk" target="_blank" rel="noopener">YouTube — Form Validation (Web Dev Simplified)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="form-basics.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Form Basics</span></a><a href="project-sign-up-form.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Project: Sign-Up Form</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

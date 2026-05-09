@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Media Queries | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="responsive-images.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="project-homepage.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Media Queries</span></nav><h1>Media Queries</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Media Queries</span></nav><h1>Media Queries</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,90 +44,114 @@
 <a href="media-queries.html" class="sidebar-link active">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Media queries let you apply CSS conditionally based on viewport size, device capabilities, or user preferences. They are the final tool for handling what natural responsiveness cannot.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Write min-width and max-width media queries.</li><li>Use common breakpoints effectively.</li><li>Use media queries for user preferences: prefers-color-scheme, prefers-reduced-motion.</li><li>Know when not to use media queries.</li></ul></div>
+<div class="block-intro"><p>Media queries are the tool that lets you apply different CSS rules based on the characteristics of the device or viewport. They are the foundation of responsive design when natural responsiveness is not enough.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Write media queries using min-width and max-width.</li><li>Use the mobile-first approach with min-width queries.</li><li>Query other media features: height, orientation, prefers-color-scheme, prefers-reduced-motion.</li><li>Understand modern container queries.</li></ul></div>
 
 <h2 class="lesson-section-title" id="syntax">Media Query Syntax</h2>
 <div class="code-block"><pre><code>/* Basic syntax */
-@media (min-width: 768px) {
-  /* styles applied when viewport is 768px or wider */
+@media media-type and (condition) {
+  /* CSS rules applied when condition is true */
 }
+
+/* Most common: screen width */
+@media (min-width: 768px) { ... }  /* mobile-first: adds styles from 768px up */
+@media (max-width: 767px) { ... }  /* desktop-first: adds styles below 768px */
 
 /* Multiple conditions */
-@media (min-width: 640px) and (max-width: 1024px) {
-  /* tablet range only */
+@media (min-width: 640px) and (max-width: 1023px) { ... }  /* tablet range */
+
+/* Common breakpoints */
+/* Mobile:  &lt; 640px  (base styles in mobile-first) */
+/* Tablet:   640px+ */
+/* Desktop: 1024px+ */
+/* Wide:    1280px+ */
+</code></pre></div>
+<h2 class="lesson-section-title" id="mobile-first-queries">Mobile-First with min-width</h2>
+<div class="code-block"><pre><code>/* Base styles: mobile */
+.nav {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Target media type */
-@media screen and (min-width: 768px) { }
-@media print { }
+.hero-title {
+  font-size: 1.75rem;
+}
+
+.card-grid {
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 640px and up */
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+  .nav {
+    flex-direction: row;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </code></pre></div>
-<h2 class="lesson-section-title" id="breakpoints">Common Breakpoints</h2>
-<div class="code-block"><pre><code>/* Mobile-first — apply styles progressively */
-/* Base: &lt; 640px (mobile) — no media query */
-
-/* Small: 640px — large phones, small tablets */
-@media (min-width: 640px)  { }
-
-/* Medium: 768px — tablets */
-@media (min-width: 768px)  { }
-
-/* Large: 1024px — laptops */
-@media (min-width: 1024px) { }
-
-/* XL: 1280px — desktops */
-@media (min-width: 1280px) { }
-
-/* 2XL: 1536px — wide screens */
-@media (min-width: 1536px) { }
-
-/* TIP: set breakpoints where your content breaks,
-   not at device sizes */
-</code></pre></div>
-<h2 class="lesson-section-title" id="preference-queries">User Preference Queries</h2>
-<div class="code-block"><pre><code>/* Respect the OS dark mode preference */
+<h2 class="lesson-section-title" id="user-preferences">User Preference Queries</h2>
+<div class="code-block"><pre><code>/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg:   #0f172a;
-    --text: #e2e8f0;
+    --text: #f1f5f9;
   }
 }
 
-/* Respect the OS reduced motion preference */
-/* Critical for users with vestibular disorders */
+/* Reduced motion — respect users who have set this in their OS */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
 
-/* High contrast preference */
-@media (prefers-contrast: high) {
+/* Print styles */
+@media print {
+  .no-print { display: none; }
+  body { font-size: 12pt; color: black; }
+}
+</code></pre></div>
+<h2 class="lesson-section-title" id="container-queries">Container Queries</h2>
+<p>Media queries respond to the viewport size. Container queries respond to the size of the <em>parent element</em>. This is a newer feature with broad modern browser support:</p>
+<div class="code-block"><pre><code>/* Define a container */
+.card-wrapper {
+  container-type: inline-size;
+  container-name: card;
+}
+
+/* Style the card differently based on its OWN container width */
+@container card (min-width: 400px) {
   .card {
-    border: 2px solid currentColor;
+    display: flex;        /* horizontal layout when card is wide enough */
+    flex-direction: row;
+  }
+  .card-image {
+    width: 200px;
   }
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="when-not-to">When Not to Use Media Queries</h2>
-<p>Before adding a breakpoint, ask whether the problem can be solved with:</p>
-<ul>
-  <li><code>clamp()</code> for fluid typography and spacing</li>
-  <li><code>auto-fit</code>/<code>auto-fill</code> for responsive grids</li>
-  <li><code>min()</code>/<code>max()</code> for adaptive sizing</li>
-  <li>Flexbox wrapping with <code>flex-wrap: wrap</code></li>
-</ul>
-<p>Media queries are powerful but add complexity. Use them for structural layout changes that cannot be handled intrinsically.</p>
-
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#syntax" data-target="syntax">What is the difference between min-width and max-width queries?</a></li><li><a href="#breakpoints" data-target="breakpoints">Why should breakpoints be set where content breaks rather than at device sizes?</a></li><li><a href="#preference-queries" data-target="preference-queries">What does prefers-reduced-motion do and why is it important?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add prefers-reduced-motion to your CSS reset and verify it disables animations.</li><li>Implement a dark mode using prefers-color-scheme and your existing CSS custom properties.</li><li>Read MDN's Using Media Queries guide linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries" target="_blank" rel="noopener">MDN — Using Media Queries</a></li><li><a href="https://css-tricks.com/a-complete-guide-to-css-media-queries/" target="_blank" rel="noopener">CSS Tricks — A Complete Guide to CSS Media Queries</a></li><li><a href="https://www.youtube.com/watch?v=2KL-z9A56SQ" target="_blank" rel="noopener">YouTube — Media Queries (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#syntax" data-target="syntax">What is the difference between min-width and max-width media queries?</a></li><li><a href="#mobile-first-queries" data-target="mobile-first-queries">Why does mobile-first use min-width instead of max-width?</a></li><li><a href="#user-preferences" data-target="user-preferences">What does prefers-reduced-motion do?</a></li><li><a href="#container-queries" data-target="container-queries">How do container queries differ from media queries?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Make the Admin Dashboard project fully responsive using media queries. It should work well on mobile, tablet, and desktop.</li><li>Add prefers-color-scheme and prefers-reduced-motion queries to a project.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries" target="_blank" rel="noopener">MDN — Media Queries</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries" target="_blank" rel="noopener">MDN — Container Queries</a></li><li><a href="https://www.youtube.com/watch?v=K24lUqcT0Ms" target="_blank" rel="noopener">YouTube — Media Queries (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="responsive-images.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Responsive Images</span></a><a href="project-homepage.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Project: Homepage</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

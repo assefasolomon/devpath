@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Using Flexbox and Grid | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="advanced-grid-properties.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="project-admin-dashboard.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Using Flexbox and Grid</span></nav><h1>Using Flexbox and Grid</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Using Flexbox and Grid</span></nav><h1>Using Flexbox and Grid</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link active">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,81 +44,90 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Flexbox and Grid are complementary tools, not competitors. This lesson covers the decision framework for choosing between them and how to combine them effectively in real layouts.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Know when to choose Grid and when to choose Flexbox.</li><li>Combine both in the same layout.</li><li>Understand content-first vs layout-first design.</li></ul></div>
+<div class="block-intro"><p>Flexbox and Grid are not competitors — they are partners. This lesson covers how to combine them effectively, and how to decide which to reach for in any given situation.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Know the decision framework for choosing Grid vs Flexbox.</li><li>Combine Grid and Flexbox in the same layout.</li><li>Understand common layout patterns that use both.</li></ul></div>
 
-<h2 class="lesson-section-title" id="decision-framework">The Decision Framework</h2>
-<p>The key question is: <strong>are you laying out content, or are you placing items into a predefined structure?</strong></p>
+<h2 class="lesson-section-title" id="decision">The Decision Framework</h2>
 <ul>
-  <li><strong>Use Flexbox</strong> when the layout should adapt to the content — items grow and shrink based on what they contain. Navigation bars, button groups, card rows where you want items to fill available space.</li>
-  <li><strong>Use Grid</strong> when you have a predefined layout structure that items should fit into. Page layouts, dashboards, galleries where rows and columns must align across items.</li>
+  <li><strong>Use Grid when</strong> you need to control layout in two dimensions simultaneously — rows and columns together. Page layouts, dashboards, complex card arrangements.</li>
+  <li><strong>Use Flexbox when</strong> you are laying out items in a single direction — a row of buttons, a navigation bar, a stack of cards. Also ideal when you want items to naturally wrap.</li>
+  <li><strong>Use both together</strong> — Grid for the overall page structure, Flexbox for the components inside each grid area.</li>
 </ul>
-<div class="code-block"><pre><code>/* Page structure — Grid */
+
+<h2 class="lesson-section-title" id="combining">Combining Them in Practice</h2>
+<div class="code-block"><pre><code>/* Grid handles the macro layout */
 .page {
   display: grid;
   grid-template-areas:
     "header"
     "main"
     "footer";
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
 
-/* Navigation inside the header — Flexbox */
-.site-header {
+/* Flexbox handles the header's internal layout */
+.header {
   grid-area: header;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  height: 64px;
 }
 
-/* Card grid — Grid */
-.card-grid {
+/* Grid handles the card section */
+.card-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-/* Card interior — Flexbox */
+/* Flexbox handles what is inside each card */
 .card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.card .card-footer {
+.card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto; /* push to bottom */
+  margin-top: auto;  /* push footer to the bottom of the card */
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="common-patterns">Common Combination Patterns</h2>
-<div class="code-block"><pre><code>/* Holy Grail Layout — Grid for structure */
+<h2 class="lesson-section-title" id="common-patterns">Common Layout Patterns</h2>
+<div class="code-block"><pre><code>/* Holy Grail Layout */
 .holy-grail {
   display: grid;
-  grid-template:
-    "header header header" 64px
-    "nav    main   aside"  1fr
-    "footer footer footer" 60px
-    / 200px 1fr 200px;
+  grid-template: auto 1fr auto / 200px 1fr 200px;
+  grid-template-areas:
+    "header  header  header"
+    "nav     main    aside"
+    "footer  footer  footer";
   min-height: 100vh;
 }
 
-/* Inside each section — Flexbox for component layout */
-.main-content {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
+/* Sidebar layout */
+.with-sidebar {
+  display: grid;
+  grid-template-columns: minmax(200px, 25%) 1fr;
   gap: 2rem;
-  padding: 2rem;
+}
+
+/* Pancake stack — full-width sections stacked vertically */
+.pancake {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#decision-framework" data-target="decision-framework">When should you choose Flexbox over Grid?</a></li><li><a href="#decision-framework" data-target="decision-framework">When should you choose Grid over Flexbox?</a></li><li><a href="#common-patterns" data-target="common-patterns">Is it acceptable to nest Flexbox inside a Grid area?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a full page layout using Grid for structure and Flexbox for every component inside the layout.</li><li>Refactor a previous Flexbox-only layout and identify which parts should be Grid.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods" target="_blank" rel="noopener">MDN — Relationship of Grid Layout to Other Layout Methods</a></li><li><a href="https://css-tricks.com/css-grid-replace-flexbox/" target="_blank" rel="noopener">CSS Tricks — Does CSS Grid Replace Flexbox?</a></li><li><a href="https://www.youtube.com/watch?v=3elGSZSWTbM" target="_blank" rel="noopener">YouTube — Grid vs Flexbox (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#decision" data-target="decision">When should you use Grid instead of Flexbox?</a></li><li><a href="#combining" data-target="combining">How do Grid and Flexbox typically work together in a page layout?</a></li><li><a href="#common-patterns" data-target="common-patterns">What is the Holy Grail layout?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build the Holy Grail layout using Grid for the structure and Flexbox for the internal layout of each section.</li><li>Refactor a previous project to deliberately use Grid at the page level and Flexbox at the component level.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods" target="_blank" rel="noopener">MDN — Relationship of Grid to Other Layout Methods</a></li><li><a href="https://css-tricks.com/css-grid-replace-flexbox/" target="_blank" rel="noopener">CSS Tricks — Does CSS Grid Replace Flexbox?</a></li><li><a href="https://www.youtube.com/watch?v=3elGSZSWTbM" target="_blank" rel="noopener">YouTube — Grid vs Flexbox (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="advanced-grid-properties.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Advanced Grid Properties</span></a><a href="project-admin-dashboard.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Project: Admin Dashboard</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

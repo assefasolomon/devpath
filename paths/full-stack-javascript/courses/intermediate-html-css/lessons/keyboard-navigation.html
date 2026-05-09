@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Keyboard Navigation | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="accessible-colors.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="meaningful-text.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Keyboard Navigation</span></nav><h1>Keyboard Navigation</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Keyboard Navigation</span></nav><h1>Keyboard Navigation</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link active">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,85 +44,82 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Many users navigate entirely by keyboard — people with motor disabilities, power users, and screen reader users. Building keyboard-accessible sites is a core accessibility requirement.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand how keyboard navigation works in browsers.</li><li>Manage focus correctly with tabindex.</li><li>Style focus indicators that are visible and attractive.</li><li>Avoid common keyboard accessibility pitfalls.</li></ul></div>
+<div class="block-intro"><p>Many users navigate entirely by keyboard — people with motor disabilities, power users, and anyone using a screen reader. Your site must be fully operable without a mouse.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand how keyboard navigation works in the browser.</li><li>Ensure all interactive elements are keyboard-accessible.</li><li>Implement visible, well-designed focus styles.</li><li>Manage focus correctly for dynamic content.</li></ul></div>
 
 <h2 class="lesson-section-title" id="how-it-works">How Keyboard Navigation Works</h2>
+<p>In a browser, keyboard users navigate with:</p>
 <ul>
-  <li><kbd>Tab</kbd> — moves focus to the next interactive element</li>
-  <li><kbd>Shift+Tab</kbd> — moves focus to the previous interactive element</li>
-  <li><kbd>Enter</kbd> — activates links and buttons</li>
-  <li><kbd>Space</kbd> — activates buttons, checks checkboxes</li>
-  <li><kbd>Arrow keys</kbd> — moves within components (radio groups, select dropdowns, carousels)</li>
-  <li><kbd>Escape</kbd> — closes modals and dropdowns</li>
+  <li><kbd>Tab</kbd> — move focus forward through interactive elements</li>
+  <li><kbd>Shift+Tab</kbd> — move focus backward</li>
+  <li><kbd>Enter</kbd> — activate a link or button</li>
+  <li><kbd>Space</kbd> — activate a button, checkbox, or select</li>
+  <li><kbd>Arrow keys</kbd> — navigate within components (menus, radios, sliders)</li>
+  <li><kbd>Escape</kbd> — dismiss modals and menus</li>
 </ul>
-<p>By default, only naturally focusable elements receive Tab focus: <code>a</code>, <code>button</code>, <code>input</code>, <code>select</code>, <code>textarea</code>.</p>
+<p>Interactive HTML elements — <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;textarea&gt;</code> — are focusable by default. <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are NOT.</p>
 
-<h2 class="lesson-section-title" id="tabindex">tabindex</h2>
-<div class="code-block"><pre><code>&lt;!-- tabindex="0" — add to the natural tab order --&gt;
-&lt;!-- Use for custom interactive elements that are not buttons --&gt;
-&lt;div role="button" tabindex="0" class="custom-card"&gt;
-  Clickable card
-&lt;/div&gt;
-
-&lt;!-- tabindex="-1" — focusable by JavaScript but not by Tab --&gt;
-&lt;!-- Use for modal content you want to focus programmatically --&gt;
-&lt;div id="modal" tabindex="-1"&gt;
-  Modal content
-&lt;/div&gt;
-// Focus it with JS:
-document.getElementById('modal').focus();
-
-&lt;!-- tabindex &gt; 0 — AVOID — creates confusing non-linear tab order --&gt;
-</code></pre></div>
 <h2 class="lesson-section-title" id="focus-styles">Focus Styles</h2>
-<div class="code-block"><pre><code>/* NEVER do this without a replacement */
-* { outline: none; } /* kills keyboard navigation */
+<div class="code-block"><pre><code>/* NEVER do this — it removes the only visual indicator for keyboard users */
+*       { outline: none; }          /* terrible */
+button:focus { outline: 0; }       /* also terrible */
 
-/* Modern approach — :focus-visible shows outline only for keyboard */
+/* DO this — a clear, branded focus style */
 :focus-visible {
   outline: 2px solid #2563eb;
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
-/* Remove the outline for mouse clicks (handled by :focus-visible) */
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* Custom focus styles that match your design */
-.button:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+/* :focus-visible only shows the focus ring for keyboard navigation */
+/* not for mouse clicks — the best of both worlds */
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
 }
 </code></pre></div>
+<h2 class="lesson-section-title" id="tabindex">tabindex</h2>
+<div class="code-block"><pre><code>&lt;!-- tabindex="0" — adds a non-interactive element to the tab order --&gt;
+&lt;div tabindex="0" role="button"&gt;Click me&lt;/div&gt;
+
+&lt;!-- tabindex="-1" — removes from tab order but can receive focus via JS --&gt;
+&lt;!-- Useful for managing focus in modals and dynamic content --&gt;
+&lt;div tabindex="-1" id="modal-content"&gt;Modal body&lt;/div&gt;
+
+&lt;!-- JavaScript: programmatically move focus --&gt;
+document.querySelector('#modal-content').focus();
+
+&lt;!-- tabindex &gt; 0 — DO NOT USE — creates unpredictable tab order --&gt;
+&lt;button tabindex="3"&gt;Avoid this&lt;/button&gt;
+</code></pre></div>
 <h2 class="lesson-section-title" id="skip-links">Skip Navigation Links</h2>
-<div class="code-block"><pre><code>&lt;!-- Allow keyboard users to skip to main content --&gt;
+<div class="code-block"><pre><code>&lt;!-- Allows keyboard users to skip repetitive navigation --&gt;
+&lt;!-- Placed as the very first element in the body --&gt;
 &lt;a href="#main-content" class="skip-link"&gt;Skip to main content&lt;/a&gt;
 
 &lt;nav&gt;...&lt;/nav&gt;
-&lt;main id="main-content" tabindex="-1"&gt;...&lt;/main&gt;
+&lt;main id="main-content"&gt;...&lt;/main&gt;
 </code></pre></div><div class="code-block"><pre><code>.skip-link {
   position: absolute;
-  top: -100%;
-  left: 1rem;
+  top: -100%;      /* off-screen by default */
+  left: 0;
   background: #2563eb;
   color: white;
   padding: 0.5rem 1rem;
-  border-radius: 0 0 4px 4px;
-  transition: top 0.2s;
+  z-index: 9999;
+  text-decoration: none;
 }
 
 .skip-link:focus {
-  top: 0;  /* visible when focused via keyboard */
+  top: 0;          /* visible when focused by keyboard */
 }
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#tabindex" data-target="tabindex">What is the difference between tabindex 0 and tabindex -1?</a></li><li><a href="#focus-styles" data-target="focus-styles">Why should you avoid outline: none without a replacement?</a></li><li><a href="#skip-links" data-target="skip-links">What is a skip navigation link and who benefits from it?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add a skip navigation link to your admin dashboard project.</li><li>Remove all outline: none declarations from your project and replace them with proper :focus-visible styles.</li><li>Navigate your admin dashboard with keyboard only and fix any focus order issues.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://webaim.org/techniques/keyboard/" target="_blank" rel="noopener">WebAIM — Keyboard Accessibility</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex" target="_blank" rel="noopener">MDN — tabindex</a></li><li><a href="https://www.youtube.com/watch?v=Mvu5OMGcdVA" target="_blank" rel="noopener">YouTube — Focus Styles (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#how-it-works" data-target="how-it-works">Which HTML elements are keyboard-focusable by default?</a></li><li><a href="#focus-styles" data-target="focus-styles">What is :focus-visible and why is it better than :focus?</a></li><li><a href="#tabindex" data-target="tabindex">What does tabindex='-1' do?</a></li><li><a href="#skip-links" data-target="skip-links">What is a skip link and why is it important?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Navigate one of your projects using only the keyboard (Tab, Shift+Tab, Enter, Space). Identify and fix all issues you encounter.</li><li>Add a skip link to the top of one of your projects.</li><li>Replace any outline: none rules with a proper :focus-visible style.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets" target="_blank" rel="noopener">MDN — Keyboard-accessible JavaScript widgets</a></li><li><a href="https://webaim.org/techniques/keyboard/" target="_blank" rel="noopener">WebAIM — Keyboard Accessibility</a></li><li><a href="https://www.youtube.com/watch?v=EIkNaBMkxhE" target="_blank" rel="noopener">YouTube — Keyboard Navigation (Google Chrome Developers)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="accessible-colors.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Accessible Colors</span></a><a href="meaningful-text.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Meaningful Text</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

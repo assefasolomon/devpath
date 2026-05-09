@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Introduction to Responsive Design | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="wai-aria.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="natural-responsiveness.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Introduction to Responsive Design</span></nav><h1>Introduction to Responsive Design</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Introduction to Responsive Design</span></nav><h1>Introduction to Responsive Design</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,64 +44,58 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Responsive design means your website looks and works well on every screen size — from a 375px phone to a 2560px monitor. This lesson introduces the philosophy and tools behind responsive web development.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Define responsive design and its three core ingredients.</li><li>Understand the viewport meta tag.</li><li>Know the mobile-first approach and why it is preferred.</li></ul></div>
+<div class="block-intro"><p>Responsive design means building websites that look and work well on every screen size — from a 320px mobile phone to a 4K monitor. This lesson introduces the philosophy and core techniques.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand what responsive design is and why it matters.</li><li>Know the three pillars of responsive design.</li><li>Understand the mobile-first approach.</li><li>Know the difference between responsive and adaptive design.</li></ul></div>
 
-<h2 class="lesson-section-title" id="what-is-rwd">What Is Responsive Design?</h2>
-<p>Responsive design is an approach where the layout, images, and typography adapt to the available space. A single codebase serves all screen sizes gracefully — no separate mobile site required.</p>
-<p>Ethan Marcotte coined the term in 2010 and defined three core ingredients:</p>
+<h2 class="lesson-section-title" id="what-is-responsive">What Is Responsive Design?</h2>
+<p>Responsive web design (RWD) is an approach where a website's layout and content fluidly adapt to the size of the device displaying it. The same HTML is served to all devices — CSS handles the presentation differences.</p>
+<p>This matters because over 60% of web traffic now comes from mobile devices. A site that only looks good on a desktop is failing the majority of its users.</p>
+
+<h2 class="lesson-section-title" id="three-pillars">The Three Pillars</h2>
 <ol>
-  <li><strong>Fluid grids</strong> — use relative units (%, fr, vw) instead of fixed pixel widths.</li>
-  <li><strong>Flexible images</strong> — images scale within their containers.</li>
-  <li><strong>Media queries</strong> — apply different CSS at different viewport widths.</li>
+  <li><strong>Fluid grids</strong> — layouts built with relative units (%, fr) rather than fixed pixels, so they stretch and compress naturally.</li>
+  <li><strong>Flexible images</strong> — images that scale within their containers and never overflow them.</li>
+  <li><strong>Media queries</strong> — CSS rules that apply only when the viewport matches certain conditions (e.g., screen width is below 768px).</li>
 </ol>
 
-<h2 class="lesson-section-title" id="viewport-meta">The Viewport Meta Tag</h2>
-<p>Without this tag, mobile browsers render your page at ~980px wide and scale it down — making everything tiny and unreadable:</p>
-<div class="code-block"><pre><code>&lt;!-- Required in every HTML file — already in your boilerplate --&gt;
-&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-
-&lt;!-- width=device-width: use the device's actual screen width --&gt;
-&lt;!-- initial-scale=1.0:  no initial zoom --&gt;
-</code></pre></div>
-<h2 class="lesson-section-title" id="mobile-first">Mobile-First Approach</h2>
-<p>Write your base CSS for the smallest screen first, then progressively enhance for larger screens using <code>min-width</code> media queries.</p>
-<div class="code-block"><pre><code>/* MOBILE FIRST — base styles for small screens */
+<h2 class="lesson-section-title" id="mobile-first">Mobile-First Design</h2>
+<p>Mobile-first means writing your base CSS for the smallest screens, then adding media queries to enhance the layout for larger screens. This is the recommended approach because:</p>
+<ul>
+  <li>It forces you to prioritise content — what is truly essential on a small screen?</li>
+  <li>It results in leaner CSS — you start minimal and add, rather than starting large and overriding.</li>
+  <li>Performance is better — mobile users only download styles they need.</li>
+</ul>
+<div class="code-block"><pre><code>/* Mobile-first: base styles for small screens */
 .container {
   padding: 1rem;
 }
-
 .card-grid {
   display: grid;
-  grid-template-columns: 1fr;  /* single column on mobile */
+  grid-template-columns: 1fr;   /* single column on mobile */
   gap: 1rem;
 }
 
-/* TABLET — enhance at 640px */
+/* Add more columns as the screen gets wider */
 @media (min-width: 640px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* DESKTOP — enhance further at 1024px */
 @media (min-width: 1024px) {
-  .container { padding: 2rem; }
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .container {
+    padding: 2rem;
+  }
 }
 </code></pre></div>
-<div class="callout callout-tip">
-  <span class="callout-icon">💡</span>
-  <p>Mobile-first is better because mobile CSS is simpler (single column), and overriding simple with complex is easier than overriding complex with simple. It also performs better — mobile devices only download what they need.</p>
-</div>
-
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#what-is-rwd" data-target="what-is-rwd">What are the three ingredients of responsive design?</a></li><li><a href="#viewport-meta" data-target="viewport-meta">What does the viewport meta tag do?</a></li><li><a href="#mobile-first" data-target="mobile-first">Why is mobile-first preferred over desktop-first?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Read Ethan Marcotte's original 'Responsive Web Design' article (linked below) — the article that started it all.</li><li>Check each of your current projects to confirm they all have the viewport meta tag.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://alistapart.com/article/responsive-web-design/" target="_blank" rel="noopener">A List Apart — Responsive Web Design (Ethan Marcotte)</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank" rel="noopener">MDN — Responsive Design</a></li><li><a href="https://www.youtube.com/watch?v=bn-DQznwa14" target="_blank" rel="noopener">YouTube — Responsive Web Design Introduction (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#three-pillars" data-target="three-pillars">What are the three pillars of responsive design?</a></li><li><a href="#mobile-first" data-target="mobile-first">What does mobile-first mean in terms of how you write CSS?</a></li><li><a href="#mobile-first" data-target="mobile-first">Why is mobile-first recommended over desktop-first?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Read Ethan Marcotte's original 'Responsive Web Design' article — linked below.</li><li>Identify three websites you use daily. View them at mobile, tablet, and desktop widths. Note what changes between breakpoints.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://alistapart.com/article/responsive-web-design/" target="_blank" rel="noopener">A List Apart — Responsive Web Design (Ethan Marcotte)</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank" rel="noopener">MDN — Responsive Design</a></li><li><a href="https://www.youtube.com/watch?v=VQraviuwbzU" target="_blank" rel="noopener">YouTube — Responsive Design Explained (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="wai-aria.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">WAI-ARIA</span></a><a href="natural-responsiveness.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Natural Responsiveness</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

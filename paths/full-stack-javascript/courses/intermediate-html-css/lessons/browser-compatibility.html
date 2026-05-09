@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Browser Compatibility | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="custom-properties.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="form-basics.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Browser Compatibility</span></nav><h1>Browser Compatibility</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Browser Compatibility</span></nav><h1>Browser Compatibility</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,69 +44,61 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Not every browser supports every CSS feature. This lesson covers how to check compatibility, write resilient CSS, and use the tools that handle most compatibility work automatically.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use Can I Use to check browser support for CSS features.</li><li>Write fallbacks for unsupported features.</li><li>Understand vendor prefixes and when they are needed.</li><li>Use Autoprefixer in a build workflow.</li></ul></div>
+<div class="block-intro"><p>Modern CSS has excellent browser support, but new features roll out at different times across Chrome, Firefox, Safari, and Edge. This lesson covers how to check compatibility, handle differences, and use progressive enhancement.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use Can I Use to check feature support.</li><li>Understand vendor prefixes and when they are needed.</li><li>Write progressive enhancement using @supports.</li><li>Know which browsers require special attention today.</li></ul></div>
 
-<h2 class="lesson-section-title" id="caniuse">Checking Support</h2>
-<p>Before using a newer CSS feature, check <a href="https://caniuse.com" target="_blank" rel="noopener">caniuse.com</a>. Search for the feature and see which browsers and versions support it. Pay attention to your target audience — a site for developers can safely use cutting-edge features; a site for general consumers should be more conservative.</p>
+<h2 class="lesson-section-title" id="checking">Checking Compatibility</h2>
+<p><a href="https://caniuse.com" target="_blank" rel="noopener">caniuse.com</a> is the definitive resource for checking which browsers support a given CSS or JavaScript feature. Before using any new CSS property in production, search it on Can I Use to understand the support landscape.</p>
 
-<h2 class="lesson-section-title" id="fallbacks">Writing Fallbacks</h2>
-<p>CSS ignores properties it does not understand — this is a feature, not a bug. You can stack declarations to provide progressively better experiences:</p>
-<div class="code-block"><pre><code>.element {
-  /* Fallback for old browsers */
-  color: #2563eb;
-  background: #f0f9ff;
+<h2 class="lesson-section-title" id="vendor-prefixes">Vendor Prefixes</h2>
+<p>Historically, browsers added vendor prefixes to experimental features before standardising them. You still occasionally see these in older codebases:</p>
+<div class="code-block"><pre><code>-webkit- /* Chrome, Safari, newer Opera, Edge */
+-moz-    /* Firefox */
+-ms-     /* Internet Explorer, old Edge */
+-o-      /* Old Opera */
 
-  /* Modern enhancement — old browsers just ignore these */
-  color: oklch(60% 0.2 240);
-  background: color-mix(in oklch, #2563eb 10%, white);
+/* Example */
+.box {
+  -webkit-transform: rotate(45deg);  /* old Safari */
+  transform: rotate(45deg);          /* standard */
 }
+</code></pre></div>
+<p>Modern properties like Grid, Flexbox, and custom properties no longer need prefixes. Autoprefixer (a PostCSS plugin) can automatically add any needed prefixes during your build process.</p>
 
-/* @supports — feature query */
+<h2 class="lesson-section-title" id="supports">@supports — Feature Detection</h2>
+<div class="code-block"><pre><code>/* Apply styles only if the browser supports a property */
 @supports (display: grid) {
-  .layout {
+  .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@supports not (display: grid) {
-  .layout {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-</code></pre></div>
-<h2 class="lesson-section-title" id="prefixes">Vendor Prefixes</h2>
-<p>Some CSS features required browser-specific prefixes during development. Most modern features no longer need them, but you will see them in older codebases:</p>
-<div class="code-block"><pre><code>/* Old code you might encounter */
--webkit-transform: rotate(45deg);  /* Chrome, Safari */
--moz-transform: rotate(45deg);     /* Firefox */
--ms-transform: rotate(45deg);      /* IE */
-transform: rotate(45deg);          /* standard — always last */
-</code></pre></div>
-<h2 class="lesson-section-title" id="autoprefixer">Autoprefixer</h2>
-<p>Writing prefixes manually is error-prone. <strong>Autoprefixer</strong> is a PostCSS plugin that adds prefixes automatically based on a target browser list. Most modern build tools (Vite, Create React App, Next.js) include it automatically.</p>
-<div class="code-block"><pre><code>/* You write: */
-.box {
+/* Fallback for browsers without grid support */
+.container {
   display: flex;
-  user-select: none;
+  flex-wrap: wrap;
 }
 
-/* Autoprefixer outputs: */
-.box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-user-select: none;
-  user-select: none;
+/* Negative query */
+@supports not (container-type: inline-size) {
+  /* Fallback when container queries are not supported */
 }
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#caniuse" data-target="caniuse">Where do you check browser support for a CSS feature?</a></li><li><a href="#fallbacks" data-target="fallbacks">What does @supports do?</a></li><li><a href="#autoprefixer" data-target="autoprefixer">What is Autoprefixer and what does it do?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Visit caniuse.com and check support for CSS Grid, CSS custom properties, and the :has() selector.</li><li>Add an @supports query to a project to provide a flexbox fallback when grid is unavailable.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://caniuse.com/" target="_blank" rel="noopener">Can I Use — Browser Compatibility</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports" target="_blank" rel="noopener">MDN — @supports</a></li><li><a href="https://autoprefixer.github.io/" target="_blank" rel="noopener">Autoprefixer</a></li><li><a href="https://www.youtube.com/watch?v=nn_-pSNOEKE" target="_blank" rel="noopener">YouTube — Browser Compatibility CSS (Kevin Powell)</a></li></ul></div>
+<h2 class="lesson-section-title" id="today">Browser Support Today</h2>
+<p>In 2024, the browser landscape is much simpler than it was five years ago:</p>
+<ul>
+  <li>IE11 has been officially retired — you no longer need to support it.</li>
+  <li>Chrome, Edge, Firefox, and Safari all support Grid, Flexbox, custom properties, and most modern CSS.</li>
+  <li>Safari on iOS can lag behind slightly — worth testing on real devices.</li>
+  <li>The main strategy now is <strong>progressive enhancement</strong> — build a baseline that works everywhere, then layer on enhancements for modern browsers.</li>
+</ul>
+
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#checking" data-target="checking">What is the best resource for checking CSS browser support?</a></li><li><a href="#supports" data-target="supports">What does @supports do?</a></li><li><a href="#today" data-target="today">What is progressive enhancement?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Look up three CSS features you have used recently on caniuse.com and check their browser support.</li><li>Add an @supports block to a project, providing a flex-based fallback for a grid layout.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://caniuse.com/" target="_blank" rel="noopener">Can I Use — Browser Compatibility Tables</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@supports" target="_blank" rel="noopener">MDN — @supports</a></li><li><a href="https://www.youtube.com/watch?v=nFk-sHqDIBs" target="_blank" rel="noopener">YouTube — Browser Compatibility (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="custom-properties.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Custom Properties</span></a><a href="form-basics.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Form Basics</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

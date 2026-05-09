@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Introduction to Web Accessibility | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
-<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="project-admin-dashboard.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="the-web-content-accessibility-guidelines.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Introduction to Web Accessibility</span></nav><h1>Introduction to Web Accessibility</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="project-admin-dashboard.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="wcag.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Introduction to Web Accessibility</span></nav><h1>Introduction to Web Accessibility</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link active">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,46 +44,41 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Web accessibility means building websites that work for everyone — including people who use screen readers, keyboard-only navigation, or who have visual, motor, or cognitive differences. It is not optional.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand what web accessibility is and why it matters.</li><li>Know the four principles of accessibility (POUR).</li><li>Understand the difference between assistive technology types.</li></ul></div>
+<div class="block-intro"><p>Accessibility means building websites that everyone can use — including the roughly 1 in 7 people worldwide who have a disability. This lesson introduces what accessibility means and why it matters.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand what web accessibility means and who it benefits.</li><li>Know the main categories of disabilities that affect web usage.</li><li>Understand assistive technologies like screen readers.</li><li>Know the difference between WCAG compliance levels.</li></ul></div>
 
 <h2 class="lesson-section-title" id="what-is-a11y">What Is Accessibility?</h2>
-<p>Roughly 15% of the world's population lives with some form of disability. Web accessibility (often abbreviated <strong>a11y</strong> — the 11 letters between 'a' and 'y') ensures your websites work for all of them. This includes:</p>
+<p>Web accessibility (often abbreviated <strong>a11y</strong> — a, 11 letters, y) means building websites and applications that can be used by people with disabilities. This includes people with:</p>
 <ul>
-  <li><strong>Visual</strong> — blindness, low vision, colour blindness</li>
-  <li><strong>Motor</strong> — cannot use a mouse, uses keyboard only or switch controls</li>
-  <li><strong>Hearing</strong> — deafness or hearing impairment</li>
-  <li><strong>Cognitive</strong> — dyslexia, ADHD, memory or attention differences</li>
+  <li><strong>Visual impairments</strong> — blindness, low vision, colour blindness</li>
+  <li><strong>Motor impairments</strong> — difficulty using a mouse, tremors, paralysis</li>
+  <li><strong>Cognitive disabilities</strong> — dyslexia, ADHD, autism spectrum</li>
+  <li><strong>Auditory impairments</strong> — deafness or hard of hearing</li>
 </ul>
-<p>Beyond being the right thing to do, accessibility is often a legal requirement and improves usability for everyone — captions help people in noisy environments; keyboard navigation helps power users; clear language helps non-native speakers.</p>
-
-<h2 class="lesson-section-title" id="pour">The POUR Principles</h2>
-<p>The Web Content Accessibility Guidelines (WCAG) organise accessibility around four principles. Content must be:</p>
-<ol>
-  <li><strong>Perceivable</strong> — can be perceived by all senses (provide alt text, captions, sufficient contrast).</li>
-  <li><strong>Operable</strong> — can be operated by all input methods (keyboard navigable, no seizure-inducing content).</li>
-  <li><strong>Understandable</strong> — content and UI are clear (plain language, predictable behaviour, helpful errors).</li>
-  <li><strong>Robust</strong> — works reliably across browsers, devices, and assistive technologies.</li>
-</ol>
+<p>Accessibility is not just about disabilities. Good accessibility also benefits people using a phone in bright sunlight, people with slow internet connections, elderly users, and people using keyboard-only navigation.</p>
 
 <h2 class="lesson-section-title" id="assistive-tech">Assistive Technologies</h2>
+<p>The most important assistive technology for web developers to understand is the <strong>screen reader</strong> — software that reads page content aloud. Popular screen readers include NVDA (free, Windows), VoiceOver (built into macOS and iOS), and TalkBack (built into Android).</p>
+<p>Screen readers navigate web pages by reading out HTML structure: headings, landmarks, links, form labels, and alt text. This is exactly why semantic HTML matters so much — a screen reader cannot read a visual layout, only the underlying code.</p>
+
+<h2 class="lesson-section-title" id="wcag">WCAG and Compliance Levels</h2>
+<p>The <strong>Web Content Accessibility Guidelines (WCAG)</strong> are the international standard for web accessibility. Published by the W3C, they organise requirements around four principles: <strong>Perceivable, Operable, Understandable, Robust</strong> (POUR).</p>
+<p>WCAG has three conformance levels:</p>
 <ul>
-  <li><strong>Screen readers</strong> — announce page content aloud (NVDA, JAWS, VoiceOver, TalkBack).</li>
-  <li><strong>Keyboard navigation</strong> — no mouse; Tab to move between interactive elements, Enter/Space to activate.</li>
-  <li><strong>Switch controls</strong> — single buttons for people with limited motor function.</li>
-  <li><strong>Screen magnifiers</strong> — zoom into portions of the screen.</li>
-  <li><strong>Voice control</strong> — navigate and interact by speaking.</li>
+  <li><strong>A</strong> — Minimum. Failing this excludes some users entirely.</li>
+  <li><strong>AA</strong> — The standard target for most organisations. Required by law in many countries.</li>
+  <li><strong>AAA</strong> — Highest level. Not required for entire sites but worth aiming for in key areas.</li>
 </ul>
 <div class="callout callout-tip">
   <span class="callout-icon">💡</span>
-  <p>Try navigating your own website using only the keyboard (Tab, Shift+Tab, Enter, Space, arrow keys). If you get stuck, so will your users who rely on keyboard navigation.</p>
+  <p>Good news: most accessibility improvements are also good user experience improvements. A site with clear headings, good colour contrast, and keyboard navigation is a better site for everyone — not just people with disabilities.</p>
 </div>
 
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#what-is-a11y" data-target="what-is-a11y">What are the four categories of disability that accessibility addresses?</a></li><li><a href="#pour" data-target="pour">What do the four POUR principles stand for?</a></li><li><a href="#assistive-tech" data-target="assistive-tech">Name three types of assistive technology.</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Navigate your most recent project using only the keyboard. Note every place you get stuck or confused.</li><li>Install a screen reader (VoiceOver on Mac, NVDA on Windows — both free) and navigate a webpage with your eyes closed.</li><li>Read the WebAIM Introduction to Accessibility linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://webaim.org/intro/" target="_blank" rel="noopener">WebAIM — Introduction to Web Accessibility</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility" target="_blank" rel="noopener">MDN — Accessibility</a></li><li><a href="https://www.youtube.com/watch?v=20SHvU2PKsM" target="_blank" rel="noopener">YouTube — Web Accessibility Introduction (Google Chrome Developers)</a></li></ul></div>
-</div><div class="lesson-pagination"><a href="project-admin-dashboard.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Project: Admin Dashboard</span></a><a href="the-web-content-accessibility-guidelines.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">The Web Content Accessibility Guidelines (WCAG)</span></a></div></main></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#what-is-a11y" data-target="what-is-a11y">What does a11y stand for?</a></li><li><a href="#assistive-tech" data-target="assistive-tech">What is a screen reader and how does it navigate a page?</a></li><li><a href="#wcag" data-target="wcag">What are the three WCAG conformance levels?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Download and try NVDA (Windows) or use VoiceOver (Mac: Cmd+F5) on one of your own projects. Note what works and what does not.</li><li>Read the MDN Accessibility overview linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility" target="_blank" rel="noopener">MDN — Accessibility Overview</a></li><li><a href="https://webaim.org/intro/" target="_blank" rel="noopener">WebAIM — Introduction to Web Accessibility</a></li><li><a href="https://www.youtube.com/watch?v=20SHvU2PKsM" target="_blank" rel="noopener">YouTube — Web Accessibility Introduction (Google Chrome Developers)</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="project-admin-dashboard.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Project: Admin Dashboard</span></a><a href="wcag.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">The Web Content Accessibility Guidelines</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

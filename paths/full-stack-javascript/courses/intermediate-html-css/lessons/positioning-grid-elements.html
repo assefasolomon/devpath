@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Positioning Grid Elements | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="creating-a-grid.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="advanced-grid-properties.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Positioning Grid Elements</span></nav><h1>Positioning Grid Elements</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Positioning Grid Elements</span></nav><h1>Positioning Grid Elements</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,67 +44,68 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>So far grid items have been placed automatically. This lesson covers how to manually position and span items across specific rows and columns.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use grid-column and grid-row to place items manually.</li><li>Span items across multiple tracks.</li><li>Use grid line numbers and named lines.</li><li>Use the span keyword for relative sizing.</li></ul></div>
+<div class="block-intro"><p>So far grid items have been placed automatically. This lesson covers how to manually position items — spanning multiple rows or columns, and placing items in specific grid cells.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Place items using grid-column and grid-row.</li><li>Span items across multiple tracks.</li><li>Use named grid lines.</li><li>Use grid-area for shorthand placement.</li></ul></div>
 
-<h2 class="lesson-section-title" id="line-numbers">Grid Line Numbers</h2>
-<p>Grid lines are numbered starting from 1 on the left/top. A 3-column grid has 4 vertical lines (1, 2, 3, 4) and negative numbers count from the opposite end (-1 is the last line).</p>
-<div class="code-block"><pre><code>.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 100px);
-  gap: 1rem;
+<h2 class="lesson-section-title" id="line-placement">Line-Based Placement</h2>
+<p>Grid lines are numbered starting from 1. You can place items by specifying start and end lines:</p>
+<div class="code-block"><pre><code>.item-a {
+  grid-column: 1 / 3;  /* start at line 1, end at line 3 (spans 2 columns) */
+  grid-row: 1 / 2;     /* start at row line 1, end at line 2 */
 }
 
-/* Place an item from column line 1 to 3 */
-.featured {
-  grid-column: 1 / 3;   /* start / end */
-  grid-row: 1 / 2;
+/* Shorthand with span keyword */
+.item-b {
+  grid-column: 2 / span 2;  /* start at line 2, span 2 columns */
+  grid-row: span 3;          /* span 3 rows from current position */
 }
 
-/* Shorthand: start / span count */
-.wide {
-  grid-column: 1 / span 3;  /* starts at 1, spans 3 columns */
-  grid-row: 2 / span 2;     /* starts at 2, spans 2 rows */
-}
-
-/* Reach the last line with -1 */
+/* Negative line numbers count from the end */
 .full-width {
-  grid-column: 1 / -1;  /* spans all columns regardless of count */
+  grid-column: 1 / -1;  /* span entire row, no matter how many columns */
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="named-lines">Named Lines</h2>
-<div class="code-block"><pre><code>.grid {
-  grid-template-columns:
-    [content-start] 1fr 1fr [content-end]
-    [sidebar-start] 300px [sidebar-end];
-}
-
-.article {
-  grid-column: content-start / content-end;
-}
-.aside {
-  grid-column: sidebar-start / sidebar-end;
-}
-</code></pre></div>
-<h2 class="lesson-section-title" id="auto-placement">Auto Placement Control</h2>
-<div class="code-block"><pre><code>.grid {
+<h2 class="lesson-section-title" id="named-lines">Named Grid Lines</h2>
+<div class="code-block"><pre><code>.layout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  /* dense: fills gaps left by large items */
-  grid-auto-flow: row dense;
+  grid-template-columns:
+    [sidebar-start] 250px [sidebar-end main-start] 1fr [main-end];
+  grid-template-rows:
+    [header-start] 64px [header-end content-start] 1fr [content-end];
 }
 
-.large-item {
-  grid-column: span 2;  /* takes two columns */
-}
+.header  { grid-column: sidebar-start / main-end; grid-row: header-start; }
+.sidebar { grid-column: sidebar-start; grid-row: content-start; }
+.main    { grid-column: main-start; grid-row: content-start; }
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#line-numbers" data-target="line-numbers">How do you make a grid item span three columns?</a></li><li><a href="#line-numbers" data-target="line-numbers">What does grid-column: 1 / -1 mean?</a></li><li><a href="#auto-placement" data-target="auto-placement">What does grid-auto-flow: dense do?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a magazine-style layout where the featured article spans two columns and one featured image spans the full width.</li><li>Create a dashboard layout with differently sized widgets using manual placement.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement" target="_blank" rel="noopener">MDN — Line-Based Placement with CSS Grid</a></li><li><a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener">CSS Tricks — Complete Guide to Grid</a></li><li><a href="https://www.youtube.com/watch?v=M3qBpPw77qo" target="_blank" rel="noopener">YouTube — CSS Grid Item Placement (Kevin Powell)</a></li></ul></div>
+<h2 class="lesson-section-title" id="grid-area">grid-template-areas</h2>
+<p>The most readable way to define complex layouts — name the areas and the grid draws itself:</p>
+<div class="code-block"><pre><code>.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 64px 1fr 48px;
+  grid-template-areas:
+    "header  header"
+    "sidebar main"
+    "footer  footer";
+  min-height: 100vh;
+}
+
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.footer  { grid-area: footer; }
+
+/* Use a dot for an empty cell */
+grid-template-areas:
+  "header header header"
+  "sidebar main  .     ";
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#line-placement" data-target="line-placement">What does grid-column: 1 / -1 do?</a></li><li><a href="#line-placement" data-target="line-placement">What is the span keyword used for?</a></li><li><a href="#grid-area" data-target="grid-area">How do grid-template-areas make layouts more readable?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a full page layout (header, sidebar, main, footer) using grid-template-areas.</li><li>Build a featured articles section where the first article spans two columns.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement" target="_blank" rel="noopener">MDN — Line-Based Placement</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_template_areas" target="_blank" rel="noopener">MDN — Grid Template Areas</a></li><li><a href="https://www.youtube.com/watch?v=v5KzBPUEgGQ" target="_blank" rel="noopener">YouTube — Grid Template Areas (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="creating-a-grid.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Creating a Grid</span></a><a href="advanced-grid-properties.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Advanced Grid Properties</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

@@ -1,62 +1,62 @@
 #!/usr/bin/env python3
 """
-Seed: Full Stack JavaScript — Intermediate HTML and CSS
-All 33 lessons, no references to any specific curriculum site,
-using MDN, CSS-Tricks, Kevin Powell, and other quality resources.
+Seed: Intermediate HTML and CSS course
+Path: Full Stack JavaScript
 """
 import os, subprocess
 
-BASE    = os.path.expanduser("~/devpath")
-COURSE  = os.path.join(BASE, "paths", "full-stack-javascript", "courses", "intermediate-html-css")
-LESSONS = os.path.join(COURSE, "lessons")
-
-LOGO = '<svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>'
+BASE   = os.path.expanduser("~/devpath")
+COURSE = os.path.join(BASE, "paths", "full-stack-javascript", "courses", "intermediate-html-css")
+LDIR   = os.path.join(COURSE, "lessons")
 
 ALL_LESSONS = [
-    ("int-html-css-intro",                  "Introduction"),
-    ("emmet",                               "Emmet"),
-    ("svg",                                 "SVG"),
-    ("html-tables",                         "Tables"),
-    ("default-styles",                      "Default Styles"),
-    ("css-units",                           "CSS Units"),
-    ("more-text-styles",                    "More Text Styles"),
-    ("more-css-properties",                 "More CSS Properties"),
-    ("advanced-selectors",                  "Advanced Selectors"),
-    ("positioning",                         "Positioning"),
-    ("css-functions",                       "CSS Functions"),
-    ("custom-properties",                   "Custom Properties"),
-    ("browser-compatibility",               "Browser Compatibility"),
-    ("form-basics",                         "Form Basics"),
-    ("form-validation",                     "Form Validation"),
-    ("project-sign-up-form",                "Project: Sign-Up Form"),
-    ("introduction-to-grid",                "Introduction to Grid"),
-    ("creating-a-grid",                     "Creating a Grid"),
-    ("positioning-grid-elements",           "Positioning Grid Elements"),
-    ("advanced-grid-properties",            "Advanced Grid Properties"),
-    ("using-flexbox-and-grid",              "Using Flexbox and Grid"),
-    ("project-admin-dashboard",             "Project: Admin Dashboard"),
-    ("introduction-to-web-accessibility",   "Introduction to Web Accessibility"),
-    ("the-web-content-accessibility-guidelines", "The Web Content Accessibility Guidelines (WCAG)"),
-    ("accessible-colors",                   "Accessible Colors"),
-    ("keyboard-navigation",                 "Keyboard Navigation"),
-    ("meaningful-text",                     "Meaningful Text"),
-    ("wai-aria",                            "WAI-ARIA"),
-    ("introduction-to-responsive-design",   "Introduction to Responsive Design"),
-    ("natural-responsiveness",              "Natural Responsiveness"),
-    ("responsive-images",                   "Responsive Images"),
-    ("media-queries",                       "Media Queries"),
-    ("project-homepage",                    "Project: Homepage"),
+    ("int-html-css-intro",                "Introduction"),
+    ("emmet",                             "Emmet"),
+    ("svg",                               "SVG"),
+    ("html-tables",                       "Tables"),
+    ("default-styles",                    "Default Styles"),
+    ("css-units",                         "CSS Units"),
+    ("more-text-styles",                  "More Text Styles"),
+    ("more-css-properties",               "More CSS Properties"),
+    ("advanced-selectors",                "Advanced Selectors"),
+    ("positioning",                       "Positioning"),
+    ("css-functions",                     "CSS Functions"),
+    ("custom-properties",                 "Custom Properties"),
+    ("browser-compatibility",             "Browser Compatibility"),
+    ("form-basics",                       "Form Basics"),
+    ("form-validation",                   "Form Validation"),
+    ("project-sign-up-form",              "Project: Sign-Up Form"),
+    ("introduction-to-grid",              "Introduction to Grid"),
+    ("creating-a-grid",                   "Creating a Grid"),
+    ("positioning-grid-elements",         "Positioning Grid Elements"),
+    ("advanced-grid-properties",          "Advanced Grid Properties"),
+    ("using-flexbox-and-grid",            "Using Flexbox and Grid"),
+    ("project-admin-dashboard",           "Project: Admin Dashboard"),
+    ("introduction-to-web-accessibility", "Introduction to Web Accessibility"),
+    ("wcag",                              "The Web Content Accessibility Guidelines"),
+    ("accessible-colors",                 "Accessible Colors"),
+    ("keyboard-navigation",               "Keyboard Navigation"),
+    ("meaningful-text",                   "Meaningful Text"),
+    ("wai-aria",                          "WAI-ARIA"),
+    ("introduction-to-responsive-design", "Introduction to Responsive Design"),
+    ("natural-responsiveness",            "Natural Responsiveness"),
+    ("responsive-images",                 "Responsive Images"),
+    ("media-queries",                     "Media Queries"),
+    ("project-homepage",                  "Project: Homepage"),
 ]
+
+LOGO = '<svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>'
+ROOT = "../../../../../"
 
 def nav():
     return (
         '<nav class="site-nav">'
-        f'<a href="../../../../../../index.html" class="nav-logo">{LOGO} DevPath</a>'
+        f'<a href="{ROOT}index.html" class="nav-logo">{LOGO} DevPath</a>'
         '<ul class="nav-links">'
-        '<li><a href="../../../../../../index.html">Home</a></li>'
-        '<li><a href="../../../../../../foundations/index.html">Foundations</a></li>'
-        '<li><a href="../../../../index.html">Full Stack JS</a></li>'
-        '<li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li>'
+        f'<li><a href="{ROOT}index.html">Home</a></li>'
+        f'<li><a href="{ROOT}foundations/index.html">Foundations</a></li>'
+        f'<li><a href="{ROOT}paths/full-stack-javascript/index.html">Full Stack JS</a></li>'
+        f'<li><a href="{ROOT}paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li>'
         '</ul></nav>'
     )
 
@@ -64,13 +64,12 @@ def footer():
     return '<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>'
 
 def sidebar(active):
+    def lnk(sl, ti, proj=False):
+        cls = "sidebar-link" + (" is-project" if proj else "") + (" active" if sl == active else "")
+        return f'<a href="{sl}.html" class="{cls}">{ti}</a>\n'
     sections = [
-        ("Introduction", [("int-html-css-intro","Introduction",False)]),
-        ("Intermediate HTML", [
-            ("emmet","Emmet",False),
-            ("svg","SVG",False),
-            ("html-tables","Tables",False),
-        ]),
+        ("Introduction",    [("int-html-css-intro","Introduction",False)]),
+        ("Intermediate HTML",[("emmet","Emmet",False),("svg","SVG",False),("html-tables","Tables",False)]),
         ("Intermediate CSS", [
             ("default-styles","Default Styles",False),
             ("css-units","CSS Units",False),
@@ -97,7 +96,7 @@ def sidebar(active):
         ]),
         ("Accessibility", [
             ("introduction-to-web-accessibility","Introduction to Web Accessibility",False),
-            ("the-web-content-accessibility-guidelines","The Web Content Accessibility Guidelines",False),
+            ("wcag","The Web Content Accessibility Guidelines",False),
             ("accessible-colors","Accessible Colors",False),
             ("keyboard-navigation","Keyboard Navigation",False),
             ("meaningful-text","Meaningful Text",False),
@@ -111,12 +110,11 @@ def sidebar(active):
             ("project-homepage","Project: Homepage",True),
         ]),
     ]
-    s = '<aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div>'
+    s = '<aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div>'
     for label, items in sections:
         s += f'<div class="sidebar-section"><div class="sidebar-section-label">{label}</div>'
         for sl, ti, proj in items:
-            cls = "sidebar-link" + (" is-project" if proj else "") + (" active" if sl == active else "")
-            s += f'<a href="{sl}.html" class="{cls}">{ti}</a>\n'
+            s += lnk(sl, ti, proj)
         s += '</div>'
     s += '</aside>'
     return s
@@ -149,11 +147,11 @@ def write(slug, title, intro, overview, body, kc, assignments, resources):
     p, n = pn(slug)
     bc = (
         '<nav class="breadcrumb">'
-        '<a href="../../../../../../index.html">Home</a>'
+        f'<a href="{ROOT}index.html">Home</a>'
         '<span class="breadcrumb-sep">/</span>'
-        '<a href="../../../../index.html">Full Stack JS</a>'
+        f'<a href="{ROOT}paths/full-stack-javascript/index.html">Full Stack JS</a>'
         '<span class="breadcrumb-sep">/</span>'
-        '<a href="../../index.html">Intermediate HTML &amp; CSS</a>'
+        '<a href="../index.html">Intermediate HTML and CSS</a>'
         '<span class="breadcrumb-sep">/</span>'
         f'<span class="breadcrumb-current">{title}</span></nav>'
     )
@@ -169,7 +167,7 @@ def write(slug, title, intro, overview, body, kc, assignments, resources):
         '  <meta charset="UTF-8">\n'
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
         f'  <title>{title} | DevPath</title>\n'
-        '  <link rel="stylesheet" href="../../../../../../css/styles.css">\n'
+        f'  <link rel="stylesheet" href="{ROOT}css/styles.css">\n'
         '</head>\n<body>\n'
         + nav() + '\n'
         + navbar(slug) + '\n'
@@ -185,56 +183,57 @@ def write(slug, title, intro, overview, body, kc, assignments, resources):
         + f'<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul>{rsli}</ul></div>\n'
         + f'</div><div class="lesson-pagination">{ph}{nh}</div></main></div>\n'
         + footer() + '\n'
-        + '<script src="../../../../../../js/main.js"></script>\n</body>\n</html>'
+        + f'<script src="{ROOT}js/main.js"></script>\n</body>\n</html>'
     )
-    with open(os.path.join(LESSONS, f"{slug}.html"), "w", encoding="utf-8") as f:
+    with open(os.path.join(LDIR, f"{slug}.html"), "w", encoding="utf-8") as f:
         f.write(html)
     print(f"  ✓  {slug}")
 
 
-# ════════════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════
 #  LESSONS
-# ════════════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════
 def seed():
 
     write("int-html-css-intro","Introduction",
-    intro="Welcome to Intermediate HTML and CSS. You already know the fundamentals — now you will fill in the gaps and master the tools professional developers use every day.",
+    intro="You have completed Foundations. This course takes your HTML and CSS skills to the next level — deeper selectors, real forms, CSS Grid, accessibility, and responsive design. Everything here is used daily in professional front-end work.",
     overview=[
         "Understand what this course covers and why each topic matters.",
-        "Know the order lessons should be taken.",
+        "Know the order of topics and how they build on each other.",
     ],
     body="""
-<h2 class="lesson-section-title" id="what-this-covers">What This Course Covers</h2>
-<p>Foundations gave you the skeleton of web development. This course adds the muscle. You will learn the HTML and CSS features that are everywhere in professional codebases but are often skipped in beginner courses:</p>
+<h2 class="lesson-section-title" id="what-youll-learn">What This Course Covers</h2>
+<p>Foundations gave you the core tools. This course sharpens them. You will work through seven major topic areas:</p>
 <ul>
-  <li><strong>Intermediate HTML</strong> — Emmet shortcuts, SVG graphics, and HTML tables.</li>
-  <li><strong>Intermediate CSS</strong> — Units, text styling, advanced selectors, positioning, CSS functions, custom properties, and browser compatibility.</li>
+  <li><strong>Intermediate HTML</strong> — Emmet productivity shortcuts, SVG graphics, and HTML tables.</li>
+  <li><strong>Intermediate CSS</strong> — Units, text styling, advanced selectors, positioning, CSS functions, and custom properties.</li>
   <li><strong>Forms</strong> — Building and validating real HTML forms.</li>
-  <li><strong>CSS Grid</strong> — The two-dimensional layout system that makes complex layouts manageable.</li>
-  <li><strong>Accessibility</strong> — Building websites that work for everyone, including users of assistive technology.</li>
-  <li><strong>Responsive Design</strong> — Sites that look great on every screen size.</li>
+  <li><strong>CSS Grid</strong> — Two-dimensional layout that pairs with Flexbox for complete layout control.</li>
+  <li><strong>Accessibility</strong> — Making websites usable for everyone, including people using assistive technology.</li>
+  <li><strong>Responsive Design</strong> — Layouts that work on every screen size.</li>
 </ul>
+<p>Each section ends with a project that applies everything from that section. By the end of this course you will build a full responsive homepage.</p>
 <div class="callout callout-tip">
   <span class="callout-icon">💡</span>
-  <p>Take lessons in order. Each section builds directly on the previous one. Skipping ahead causes confusion when topics reference earlier concepts.</p>
+  <p>Take the lessons in order. Each one builds directly on the previous. Grid makes much more sense after you fully understand Flexbox, and responsive design makes much more sense after Grid.</p>
 </div>
 """,
-    kc=[("What six topic areas does this course cover?","what-this-covers")],
-    assignments=["Read through this introduction and continue to the next lesson."],
+    kc=[("What seven topic areas does this course cover?","what-youll-learn")],
+    assignments=["Read through the course index page to get familiar with what is coming.","Make sure your Foundations projects are pushed to GitHub — you will continue building on them."],
     resources=[
         ("MDN — Learn Web Development","https://developer.mozilla.org/en-US/docs/Learn"),
-        ("CSS Tricks — Guides","https://css-tricks.com/guides/"),
+        ("CSS Tricks — Almanac","https://css-tricks.com/almanac/"),
     ])
 
     write("emmet","Emmet",
-    intro="Emmet is a toolkit built into VS Code that expands short abbreviations into full HTML and CSS. Once it becomes muscle memory, you will write markup significantly faster.",
+    intro="Emmet is a plugin built into VS Code that expands short abbreviations into full HTML and CSS. Once you learn it, writing HTML by hand feels painfully slow by comparison.",
     overview=[
-        "Use Emmet to generate HTML boilerplate and elements.",
-        "Write nested structures, siblings, and repeated elements with one abbreviation.",
+        "Use Emmet abbreviations to generate HTML structure instantly.",
+        "Chain, nest, and multiply elements with Emmet syntax.",
         "Use Emmet for CSS property shortcuts.",
     ],
     body="""
-<h2 class="lesson-section-title" id="html-abbreviations">HTML Abbreviations</h2>
+<h2 class="lesson-section-title" id="html-abbrev">HTML Abbreviations</h2>
 <p>Type an abbreviation in a <code>.html</code> file and press <kbd>Tab</kbd>:</p>
 """ + code("""! + Tab
 → Full HTML5 boilerplate
@@ -242,10 +241,14 @@ def seed():
 div.container + Tab
 → <div class="container"></div>
 
-div#hero.section + Tab
-→ <div id="hero" class="section"></div>
+div#hero + Tab
+→ <div id="hero"></div>
 
-ul>li*5 + Tab
+div.card.featured + Tab
+→ <div class="card featured"></div>
+""") + """
+<h2 class="lesson-section-title" id="nesting-multiplying">Nesting and Multiplying</h2>
+""" + code("""ul>li*5 + Tab
 → <ul>
     <li></li>
     <li></li>
@@ -254,736 +257,748 @@ ul>li*5 + Tab
     <li></li>
   </ul>
 
-nav>ul>li*3>a[href=#]{Link $} + Tab
+nav>ul>li*3>a + Tab
 → <nav>
     <ul>
-      <li><a href="#">Link 1</a></li>
-      <li><a href="#">Link 2</a></li>
-      <li><a href="#">Link 3</a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
     </ul>
   </nav>
+
+div.card*3 + Tab
+→ three div.card elements side by side
 """) + """
-<h2 class="lesson-section-title" id="operators">Emmet Operators</h2>
-<ul>
-  <li><code>&gt;</code> — child: <code>div&gt;p</code> → p inside div</li>
-  <li><code>+</code> — sibling: <code>h1+p</code> → h1 then p</li>
-  <li><code>*</code> — multiply: <code>li*3</code> → three li elements</li>
-  <li><code>$</code> — counter: <code>item$*3</code> → item1, item2, item3</li>
-  <li><code>{}</code> — text content: <code>p{Hello}</code> → &lt;p&gt;Hello&lt;/p&gt;</li>
-  <li><code>[]</code> — custom attribute: <code>input[type=email]</code></li>
-  <li><code>()</code> — grouping: <code>(li&gt;a)*3</code></li>
-</ul>
+<h2 class="lesson-section-title" id="content-attributes">Content and Attributes</h2>
+""" + code("""h1{Hello World} + Tab
+→ <h1>Hello World</h1>
 
-<h2 class="lesson-section-title" id="css-emmet">CSS Abbreviations</h2>
-""" + code("""/* In a .css file, type abbreviation + Tab */
+a[href=https://example.com]{Visit} + Tab
+→ <a href="https://example.com">Visit</a>
 
-m10        → margin: 10px;
-p20        → padding: 20px;
-df         → display: flex;
-jcc        → justify-content: center;
-aic        → align-items: center;
-w100p      → width: 100%;
-bgc#fff    → background-color: #fff;
-fz1.5rem   → font-size: 1.5rem;
-fw700      → font-weight: 700;
-"""),
+input[type=email placeholder="Enter email"] + Tab
+→ <input type="email" placeholder="Enter email">
+
+p.item$*3 + Tab
+→ <p class="item1"></p>
+  <p class="item2"></p>
+  <p class="item3"></p>
+""") + """
+<h2 class="lesson-section-title" id="sibling-climb">Siblings and Climbing</h2>
+""" + code("""/* + creates a sibling, ^ climbs up one level */
+div>p+span + Tab
+→ <div>
+    <p></p>
+    <span></span>
+  </div>
+
+header>nav^main>section + Tab
+→ <header><nav></nav></header>
+  <main><section></section></main>
+""") + """
+<div class="callout callout-tip">
+  <span class="callout-icon">💡</span>
+  <p>You do not need to memorise all of this now. Start with the basic element, class, ID, and multiplication syntax. Add more as you naturally want to type faster.</p>
+</div>
+""",
     kc=[
-        ("What does the Emmet operator > do?","operators"),
-        ("How do you create five li elements with one Emmet abbreviation?","html-abbreviations"),
-        ("What does the $ symbol do in Emmet?","operators"),
+        ("What does the Emmet abbreviation <code>ul>li*5</code> produce?","nesting-multiplying"),
+        ("How do you add content inside an element with Emmet?","content-attributes"),
+        ("What does the <code>^</code> operator do?","sibling-climb"),
     ],
     assignments=[
-        "Open a new HTML file and recreate a full page structure (nav, header, main with three sections, footer) using only one Emmet abbreviation.",
-        "Read the full Emmet documentation linked below.",
+        "Open a blank HTML file and reproduce the following structure using a single Emmet abbreviation: a nav containing an unordered list of five list items each containing an anchor tag.",
+        "Build the skeleton of a blog post page (header, nav, main with two article elements each containing h2 and p, sidebar, footer) using Emmet in one line.",
     ],
     resources=[
-        ("Emmet — Official Docs","https://docs.emmet.io/"),
-        ("Emmet — Cheat Sheet","https://docs.emmet.io/cheat-sheet/"),
-        ("YouTube — Emmet in VS Code (Kevin Powell)","https://www.youtube.com/watch?v=EzGWXTASWWo"),
+        ("Emmet Official Documentation","https://docs.emmet.io/"),
+        ("Emmet Cheat Sheet","https://docs.emmet.io/cheat-sheet/"),
+        ("YouTube — Emmet in VS Code (Traversy Media)","https://www.youtube.com/watch?v=5BIAdWNcr8Y"),
     ])
 
     write("svg","SVG",
-    intro="SVG (Scalable Vector Graphics) is an XML-based image format that scales to any size without losing quality. It is the right choice for icons, logos, illustrations, and animations.",
+    intro="SVG (Scalable Vector Graphics) lets you display graphics that stay perfectly sharp at any size — from a small icon to a billboard. Unlike images, SVG is written in code and can be styled with CSS.",
     overview=[
-        "Understand what SVG is and when to use it over raster formats.",
-        "Read and write basic SVG markup.",
-        "Embed SVGs in HTML using inline, img, and background-image methods.",
-        "Style SVGs with CSS.",
+        "Understand what SVG is and why it is used for icons and graphics.",
+        "Embed SVG inline in HTML and as an img src.",
+        "Style SVG elements with CSS.",
+        "Understand basic SVG shapes and attributes.",
     ],
     body="""
 <h2 class="lesson-section-title" id="what-is-svg">What Is SVG?</h2>
-<p>SVG describes shapes mathematically rather than storing pixel data. This means an SVG logo looks crisp on a phone screen and a 4K monitor — it never blurs. The tradeoff is that SVGs are better suited to geometric shapes and illustrations than complex photographs (use JPEG/WebP for photos).</p>
+<p>SVG is an XML-based format for describing two-dimensional graphics. Unlike raster images (PNG, JPG) which store pixel data, SVG stores mathematical descriptions of shapes. This means SVG graphics are infinitely scalable with no loss of quality — perfect for logos, icons, and illustrations.</p>
 
-<h2 class="lesson-section-title" id="basic-svg">Basic SVG Markup</h2>
-""" + code("""<!-- SVG is XML — it lives in .svg files or directly in HTML -->
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<h2 class="lesson-section-title" id="basic-shapes">Basic SVG Shapes</h2>
+""" + code("""<!-- SVG is written directly in HTML -->
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="200" height="200">
 
-  <!-- Circle: cx cy = centre, r = radius -->
+  <!-- Circle: cx/cy = center, r = radius -->
   <circle cx="50" cy="50" r="40" fill="#2563eb" />
 
-  <!-- Rectangle: x y = top-left corner -->
-  <rect x="10" y="10" width="80" height="80" fill="none" stroke="#f0c040" stroke-width="4" />
+  <!-- Rectangle: x/y = top-left corner -->
+  <rect x="10" y="10" width="80" height="40" fill="#1e3a8a" rx="8" />
 
-  <!-- Line: x1 y1 = start, x2 y2 = end -->
-  <line x1="0" y1="50" x2="100" y2="50" stroke="red" stroke-width="2" />
+  <!-- Line -->
+  <line x1="0" y1="0" x2="100" y2="100" stroke="#93c5fd" stroke-width="2" />
 
-  <!-- Text -->
-  <text x="50" y="55" text-anchor="middle" fill="white" font-size="16">Hello</text>
+  <!-- Polygon -->
+  <polygon points="50,10 90,90 10,90" fill="#60a5fa" />
 
-  <!-- Path: the most powerful SVG element -->
-  <path d="M 10 80 Q 50 10 90 80" stroke="#e05c7a" fill="none" stroke-width="3" />
+  <!-- Path — the most powerful, draws anything -->
+  <path d="M 10 80 Q 50 10 90 80" stroke="#2563eb" fill="none" stroke-width="3" />
 
 </svg>
 """) + """
-<h2 class="lesson-section-title" id="embedding">Three Ways to Embed SVG</h2>
-""" + code("""<!-- 1. Inline — best for icons you want to style with CSS -->
-<button>
-  <svg viewBox="0 0 24 24" width="20" height="20">
-    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-  </svg>
-  Save
-</button>
+<h2 class="lesson-section-title" id="embedding">Ways to Embed SVG</h2>
+""" + code("""<!-- 1. Inline SVG — full CSS/JS access, no extra HTTP request -->
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/>
+</svg>
 
-<!-- 2. img tag — simple, cacheable, but not styleable with CSS -->
-<img src="logo.svg" alt="Company logo" width="200">
+<!-- 2. As an img tag — simple but no CSS access to internals -->
+<img src="logo.svg" alt="Company logo" width="120" height="40">
 
-<!-- 3. CSS background-image — for decorative SVGs -->
+<!-- 3. As CSS background — decorative only, no accessibility -->
 .hero {
   background-image: url('pattern.svg');
 }
 """) + """
-<h2 class="lesson-section-title" id="styling">Styling SVGs with CSS</h2>
-""" + code("""/* Inline SVGs can be styled directly with CSS */
+<h2 class="lesson-section-title" id="styling">Styling SVG with CSS</h2>
+""" + code("""/* SVG-specific CSS properties */
 svg {
-  width: 48px;
-  height: 48px;
+  fill: #2563eb;       /* fill colour of shapes */
+  stroke: #1e3a8a;     /* border/outline colour */
+  stroke-width: 2;     /* border thickness */
 }
 
-/* Style SVG-specific properties */
-.icon {
-  fill: currentColor;       /* inherits text colour from parent */
-  stroke: none;
-  transition: fill 0.2s;
-}
+/* Style specific SVG elements */
+svg circle { fill: #60a5fa; }
+svg rect   { fill: #1d4ed8; }
 
-.icon:hover {
-  fill: #2563eb;
-}
-
-/* Using CSS variables for theming */
-svg path {
-  fill: var(--icon-color, #64748b);
-}
-"""),
+/* currentColor inherits the CSS color property — very useful for icons */
+.icon { color: #2563eb; }
+.icon svg { fill: currentColor; }
+""") + """
+<div class="callout callout-tip">
+  <span class="callout-icon">💡</span>
+  <p>Use <code>fill="currentColor"</code> on inline SVG icons. Then you can change the icon colour just by setting <code>color</code> on the parent element — no need to touch the SVG itself.</p>
+</div>
+""",
     kc=[
-        ("When should you use SVG instead of PNG/JPEG?","what-is-svg"),
-        ("What is the difference between fill and stroke in SVG?","basic-svg"),
-        ("Which embedding method lets you style SVG with CSS?","embedding"),
+        ("What is the main advantage of SVG over PNG for icons?","what-is-svg"),
+        ("What are the three ways to embed SVG in HTML?","embedding"),
+        ("What does <code>fill: currentColor</code> do?","styling"),
     ],
     assignments=[
-        "Draw a simple house using only SVG shapes (rect, triangle path, circle for window) without any tools — just code.",
-        "Take any icon from heroicons.com, embed it inline, and style its colour and hover state with CSS.",
-        "Read MDN's SVG tutorial linked below.",
+        "Create an SVG file containing at least four different shapes. Embed it inline in HTML and style the shapes with CSS.",
+        "Find a free SVG icon from a resource like Heroicons or Feather Icons. Embed it inline and change its colour using CSS.",
     ],
     resources=[
         ("MDN — SVG Tutorial","https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial"),
         ("Heroicons — Free SVG Icons","https://heroicons.com/"),
-        ("YouTube — SVG Explained (Fireship)","https://www.youtube.com/watch?v=ZJSCl6XEdP8"),
-        ("CSS Tricks — Using SVG","https://css-tricks.com/using-svg/"),
+        ("YouTube — SVG Tutorial for Beginners (Web Dev Simplified)","https://www.youtube.com/watch?v=ZJSCl6XEdP8"),
     ])
 
     write("html-tables","Tables",
-    intro="HTML tables are for displaying tabular data — information with rows and columns. They are often misused for layout (do not do that) but are exactly right for spreadsheet-style data.",
+    intro="HTML tables exist for one purpose: displaying tabular data — information that has a natural row-and-column structure. This lesson covers how to build accessible, well-structured tables.",
     overview=[
-        "Build a table with thead, tbody, and tfoot.",
-        "Span cells across multiple columns and rows.",
-        "Style tables with CSS.",
-        "Understand when tables are appropriate.",
+        "Build a complete HTML table with thead, tbody, and tfoot.",
+        "Use th, td, colspan, and rowspan correctly.",
+        "Make tables accessible with scope and caption.",
     ],
     body="""
-<h2 class="lesson-section-title" id="table-structure">Table Structure</h2>
+<h2 class="lesson-section-title" id="basic-table">Basic Table Structure</h2>
 """ + code("""<table>
+  <caption>Monthly Sales Figures</caption>
+
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Role</th>
-      <th scope="col">Salary</th>
+      <th scope="col">Month</th>
+      <th scope="col">Revenue</th>
+      <th scope="col">Orders</th>
     </tr>
   </thead>
+
   <tbody>
     <tr>
-      <td>Alice</td>
-      <td>Engineer</td>
-      <td>$120,000</td>
+      <td>January</td>
+      <td>$12,400</td>
+      <td>248</td>
     </tr>
     <tr>
-      <td>Bob</td>
-      <td>Designer</td>
-      <td>$105,000</td>
+      <td>February</td>
+      <td>$10,200</td>
+      <td>204</td>
     </tr>
   </tbody>
+
   <tfoot>
     <tr>
-      <td colspan="2">Average</td>
-      <td>$112,500</td>
+      <th scope="row">Total</th>
+      <td>$22,600</td>
+      <td>452</td>
     </tr>
   </tfoot>
 </table>
 """) + """
-<h2 class="lesson-section-title" id="spanning">Spanning Cells</h2>
-""" + code("""<!-- colspan spans across multiple columns -->
-<td colspan="2">Covers two columns</td>
+<h2 class="lesson-section-title" id="spanning">Spanning Columns and Rows</h2>
+""" + code("""<!-- colspan — cell spans multiple columns -->
+<tr>
+  <td colspan="2">This cell spans two columns</td>
+  <td>Normal cell</td>
+</tr>
 
-<!-- rowspan spans across multiple rows -->
-<td rowspan="3">Covers three rows</td>
+<!-- rowspan — cell spans multiple rows -->
+<tr>
+  <td rowspan="3">This spans three rows</td>
+  <td>Row 1 data</td>
+</tr>
+<tr>
+  <td>Row 2 data</td>
+</tr>
+<tr>
+  <td>Row 3 data</td>
+</tr>
 """) + """
-<h2 class="lesson-section-title" id="styling-tables">Styling Tables</h2>
-""" + code("""table {
-  width: 100%;
-  border-collapse: collapse; /* removes double borders */
-  font-size: 0.9rem;
-}
+<h2 class="lesson-section-title" id="accessibility">Accessible Tables</h2>
+""" + code("""<!-- scope tells screen readers if a th applies to a column or row -->
+<th scope="col">Name</th>    <!-- column header -->
+<th scope="row">Total</th>   <!-- row header -->
 
-th, td {
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid #e2e8f0;
-}
-
-th {
-  background: #1e3a8a;
-  color: white;
-  font-weight: 600;
-}
-
-/* Alternating row colours */
-tbody tr:nth-child(even) {
-  background: #f8fafc;
-}
-
-tbody tr:hover {
-  background: #eff6ff;
-}
+<!-- caption provides a visible title and helps screen readers -->
+<table>
+  <caption>Q1 2024 Product Performance</caption>
+  ...
+</table>
 """) + """
 <div class="callout callout-warn">
   <span class="callout-icon">⚠️</span>
-  <p>Never use tables for page layout. That was a 1990s technique. Tables are for data — schedules, pricing grids, comparison charts, spreadsheet-style information.</p>
+  <p>Never use tables for page layout. Tables are only for tabular data. Use CSS Grid or Flexbox for layout purposes.</p>
 </div>
 """,
     kc=[
-        ("What is the purpose of thead, tbody, and tfoot?","table-structure"),
-        ("How do you make a cell span two columns?","spanning"),
-        ("What does border-collapse: collapse do?","styling-tables"),
+        ("What are the three structural sections of an HTML table?","basic-table"),
+        ("What does colspan do?","spanning"),
+        ("What does the scope attribute on a th element do for accessibility?","accessibility"),
     ],
     assignments=[
-        "Build a monthly expense table with categories, amounts, and a total row using tfoot.",
-        "Style it with alternating row colours and a hover highlight.",
-        "Read MDN's HTML Tables guide linked below.",
+        "Build a weekly schedule table with colspan and rowspan to represent classes that span multiple periods.",
+        "Read MDN's HTML Table tutorial — linked below.",
     ],
     resources=[
         ("MDN — HTML Table Basics","https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics"),
-        ("MDN — HTML Table Advanced","https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced"),
-        ("YouTube — HTML Tables (Kevin Powell)","https://www.youtube.com/watch?v=SIzHxPL6Sc8"),
+        ("MDN — HTML Table Advanced Features","https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced"),
+        ("YouTube — HTML Tables (Web Dev Simplified)","https://www.youtube.com/watch?v=dFEqTyMJ2B8"),
     ])
 
     write("default-styles","Default Styles",
-    intro="Every browser applies its own default styles to HTML elements before your CSS runs. Understanding this explains why things look different across browsers — and what to do about it.",
+    intro="Every browser applies its own default styles to HTML elements before you write a single line of CSS. Understanding these defaults — and how to reset or normalise them — is essential for consistent cross-browser layouts.",
     overview=[
-        "Understand what browser default styles are and why they exist.",
-        "Know the difference between a CSS reset and a CSS normalizer.",
+        "Understand what browser default styles are.",
+        "Know the difference between a CSS reset and a normalise stylesheet.",
         "Apply a modern CSS reset to your projects.",
     ],
     body="""
 <h2 class="lesson-section-title" id="what-are-defaults">What Are Default Styles?</h2>
-<p>When you create an HTML file and open it without any CSS, the browser still applies styles: headings are large and bold, links are blue and underlined, lists have bullet points and indentation. These come from the browser's built-in <strong>user-agent stylesheet</strong>.</p>
-<p>The problem is that different browsers (Chrome, Firefox, Safari) have slightly different defaults. An <code>h1</code> might have a different margin in Firefox than in Chrome. These inconsistencies cause layout differences across browsers.</p>
+<p>Every browser ships with a built-in stylesheet called the <strong>user agent stylesheet</strong>. This is what gives headings their size hierarchy, links their blue colour, lists their bullet points, and blockquotes their indentation — before you write any CSS.</p>
+<p>The problem is these defaults differ between browsers. Chrome, Firefox, and Safari all have slightly different default margins, paddings, and font sizes. This leads to your site looking different across browsers unless you address the defaults explicitly.</p>
 
-<h2 class="lesson-section-title" id="reset-vs-normalize">Reset vs. Normalize</h2>
-<p>Two strategies exist for dealing with defaults:</p>
+<h2 class="lesson-section-title" id="reset-vs-normalize">Reset vs. Normalise</h2>
+<p>Two approaches exist for handling default styles:</p>
 <ul>
-  <li><strong>CSS Reset</strong> — strips away all default styles, giving you a blank slate. You then add back everything you need.</li>
-  <li><strong>CSS Normalize</strong> — keeps useful defaults but makes them consistent across browsers. Less work, but you inherit more.</li>
+  <li><strong>CSS Reset</strong> — Removes all browser defaults, giving you a blank slate. Everything must be styled from scratch.</li>
+  <li><strong>Normalise.css</strong> — Preserves useful defaults while correcting inconsistencies between browsers. More conservative approach.</li>
 </ul>
 
 <h2 class="lesson-section-title" id="modern-reset">A Modern CSS Reset</h2>
-<p>A minimal, practical reset that most professional projects start with:</p>
-""" + code("""/* Modern CSS Reset */
+<p>Most modern projects use a lightweight targeted reset rather than a full nuclear one:</p>
+""" + code("""/* Box sizing — border-box for everything */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+/* Remove default margins */
 * {
   margin: 0;
-  padding: 0;
 }
 
-html {
-  font-size: 100%;
-  scroll-behavior: smooth;
-}
-
+/* Improve text rendering */
 body {
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
 }
 
+/* Sensible media defaults */
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
 }
 
+/* Inherit fonts for form elements */
 input, button, textarea, select {
-  font: inherit; /* form elements do NOT inherit font by default */
+  font: inherit;
 }
 
+/* Avoid text overflow */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
 }
-"""),
-    kc=[
-        ("What is a browser user-agent stylesheet?","what-are-defaults"),
-        ("What is the difference between a CSS reset and normalize?","reset-vs-normalize"),
-        ("Why do form elements need font: inherit in a reset?","modern-reset"),
-    ],
-    assignments=[
-        "Add the modern CSS reset above to your current project. Notice what changes visually.",
-        "Read Josh Comeau's 'A Modern CSS Reset' article linked below — it explains every rule.",
-    ],
-    resources=[
-        ("Josh Comeau — A Modern CSS Reset","https://www.joshwcomeau.com/css/custom-css-reset/"),
-        ("MDN — CSS Cascade — User-Agent Styles","https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade"),
-        ("YouTube — CSS Resets (Kevin Powell)","https://www.youtube.com/watch?v=eWmDW4zEXt4"),
-    ])
 
-    write("css-units","CSS Units",
-    intro="CSS has many units for expressing size. Choosing the right unit for each context is one of the most important skills for building layouts that are flexible, accessible, and responsive.",
-    overview=[
-        "Understand absolute units (px) and when to use them.",
-        "Use relative units: em, rem, %, vw, vh.",
-        "Choose the right unit for font sizes, spacing, and layout.",
-    ],
-    body="""
-<h2 class="lesson-section-title" id="absolute">Absolute Units</h2>
-<p><code>px</code> (pixels) is the only absolute unit you will use in web development. It maps to a consistent size on screen and is predictable. Use it for: borders, box shadows, small fixed dimensions, and media query breakpoints.</p>
-""" + code("""border: 1px solid #e2e8f0;
-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-""") + """
-<h2 class="lesson-section-title" id="relative">Relative Units</h2>
-""" + code("""/* rem — relative to the ROOT font size (html element) */
-/* Default: 1rem = 16px */
-/* Best for: font sizes, spacing (margins, paddings) */
-h1 { font-size: 2.5rem; }  /* 40px at default settings */
-p  { margin-bottom: 1rem; }
-
-/* em — relative to the PARENT element's font size */
-/* Useful for: padding/margin that scales with the element's own font */
-button {
-  font-size: 1rem;
-  padding: 0.75em 1.5em; /* scales if button font-size changes */
+/* Remove list styles when a list has a role attribute */
+ul[role="list"], ol[role="list"] {
+  list-style: none;
 }
-
-/* % — relative to the parent element */
-/* Best for: widths in a flow layout */
-.container { width: 90%; max-width: 1200px; }
-.column    { width: 50%; }
-
-/* vw / vh — relative to the viewport (visible screen area) */
-/* 1vw = 1% of viewport width, 1vh = 1% of viewport height */
-.hero    { min-height: 100vh; }  /* full screen height */
-.sidebar { width: 25vw; }
-
-/* ch — relative to the width of the "0" character */
-/* Great for constraining line length for readability */
-p { max-width: 65ch; }
 """) + """
-<h2 class="lesson-section-title" id="best-practices">Practical Guidelines</h2>
-<ul>
-  <li><strong>Font sizes:</strong> use <code>rem</code> — respects user browser font preferences.</li>
-  <li><strong>Padding and margins:</strong> use <code>rem</code> for consistency, <code>em</code> when you want it to scale with the element.</li>
-  <li><strong>Layout widths:</strong> use <code>%</code> or <code>vw</code> for fluid layouts.</li>
-  <li><strong>Line length:</strong> use <code>ch</code> — <code>max-width: 65ch</code> on paragraphs is a classic readability technique.</li>
-  <li><strong>Borders and shadows:</strong> use <code>px</code> — these should not scale.</li>
-</ul>
-<div class="callout callout-warn">
-  <span class="callout-icon">⚠️</span>
-  <p>Avoid setting font sizes in <code>px</code> — it overrides the user's browser font size preference and harms accessibility. Use <code>rem</code> instead.</p>
+<div class="callout callout-tip">
+  <span class="callout-icon">💡</span>
+  <p>Add this reset to the very top of every project stylesheet. It takes about two minutes and prevents hours of cross-browser debugging.</p>
 </div>
 """,
     kc=[
-        ("What is the difference between rem and em?","relative"),
-        ("What does 1vh equal?","relative"),
-        ("Why should you avoid using px for font sizes?","best-practices"),
-        ("What unit is ideal for constraining paragraph line length?","best-practices"),
+        ("What is the user agent stylesheet?","what-are-defaults"),
+        ("What is the difference between a CSS reset and Normalise.css?","reset-vs-normalize"),
+        ("Why should box-sizing: border-box be in every reset?","modern-reset"),
     ],
     assignments=[
-        "Refactor a small project to replace all px font sizes with rem values.",
-        "Create a full-viewport hero section using vh and vw units.",
-        "Read MDN's CSS values and units guide linked below.",
+        "Add the modern reset above to your projects and observe what changes in the browser.",
+        "Read Josh Comeau's CSS Reset article — linked below.",
+    ],
+    resources=[
+        ("Josh Comeau — A Modern CSS Reset","https://www.joshwcomeau.com/css/custom-css-reset/"),
+        ("Normalise.css","https://necolas.github.io/normalize.css/"),
+        ("YouTube — CSS Resets Explained (Kevin Powell)","https://www.youtube.com/watch?v=eWmDW4zEXt4"),
+    ])
+
+    write("css-units","CSS Units",
+    intro="CSS has many different units for expressing sizes. Using the right unit for each situation — absolute vs relative, viewport vs font-relative — has a significant impact on how your layouts respond to different screens and user preferences.",
+    overview=[
+        "Distinguish between absolute units (px) and relative units (em, rem, %, vw, vh).",
+        "Know when to use each unit type.",
+        "Understand why rem is preferred for font sizes and spacing.",
+    ],
+    body="""
+<h2 class="lesson-section-title" id="absolute">Absolute Units</h2>
+<p><code>px</code> (pixels) is the only absolute unit you will regularly use in web development. One CSS pixel corresponds to one device pixel on standard displays (though high-DPI displays handle this automatically). Pixels are useful for borders, shadows, and small precise measurements.</p>
+
+<h2 class="lesson-section-title" id="relative">Relative Units</h2>
+""" + code("""/* em — relative to the element's own font-size */
+.parent { font-size: 20px; }
+.child  { font-size: 0.8em; }  /* 0.8 × 20 = 16px */
+.child  { padding: 1em; }       /* 1 × 16 = 16px padding */
+
+/* rem — relative to the ROOT element's font-size (usually 16px) */
+/* Predictable — not affected by nested font sizes */
+h1 { font-size: 2.5rem; }    /* 2.5 × 16 = 40px */
+p  { font-size: 1rem; }      /* 1 × 16 = 16px */
+.container { max-width: 75rem; }  /* 75 × 16 = 1200px */
+
+/* % — percentage of the parent element's corresponding property */
+.sidebar { width: 25%; }     /* 25% of parent width */
+
+/* vw / vh — percentage of the viewport width/height */
+.hero   { height: 100vh; }   /* full viewport height */
+.banner { width: 100vw; }    /* full viewport width */
+
+/* ch — width of the '0' character. Great for text containers */
+p { max-width: 65ch; }       /* readable line length */
+""") + """
+<h2 class="lesson-section-title" id="when-to-use">When to Use Each Unit</h2>
+<ul>
+  <li><code>rem</code> — font sizes, spacing (padding/margin), container widths</li>
+  <li><code>em</code> — spacing that should scale relative to the element's own font size (button padding, icon sizes)</li>
+  <li><code>px</code> — borders, box shadows, very small precise values</li>
+  <li><code>%</code> — widths inside a flex or grid container</li>
+  <li><code>vw</code> / <code>vh</code> — full-screen sections, viewport-relative font sizes</li>
+  <li><code>ch</code> — controlling text line length for readability</li>
+</ul>
+<div class="callout callout-tip">
+  <span class="callout-icon">💡</span>
+  <p>Use <code>rem</code> for font sizes and spacing by default. It respects users' browser font size settings (an important accessibility consideration) and is far more predictable than <code>em</code>.</p>
+</div>
+""",
+    kc=[
+        ("What is the difference between em and rem?","relative"),
+        ("What does 100vh mean?","relative"),
+        ("Why is rem preferred over px for font sizes?","when-to-use"),
+    ],
+    assignments=[
+        "Take a previous project and convert all px font-size and spacing values to rem.",
+        "Create a hero section using vh for height and vw for font size. Observe how it responds to browser resizing.",
     ],
     resources=[
         ("MDN — CSS Values and Units","https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units"),
+        ("YouTube — CSS Units Explained (Kevin Powell)","https://www.youtube.com/watch?v=N5wpD9Ov_To"),
         ("CSS Tricks — The Lengths of CSS","https://css-tricks.com/the-lengths-of-css/"),
-        ("YouTube — CSS Units (Kevin Powell)","https://www.youtube.com/watch?v=N5wpD9Ov_To"),
     ])
 
     write("more-text-styles","More Text Styles",
-    intro="Typography is one of the biggest levers you have for making a design look professional. This lesson covers the CSS properties that give you precise control over how text looks.",
+    intro="Typography is one of the most powerful tools in web design. This lesson covers the CSS properties that control how text looks — beyond just font-size and color.",
     overview=[
-        "Use font-family, font-weight, and font-style.",
-        "Control text with letter-spacing, line-height, and text-transform.",
-        "Load custom fonts using Google Fonts and @font-face.",
-        "Apply text-shadow and text-overflow.",
+        "Control font families, weights, and styles.",
+        "Use letter-spacing, line-height, and text-transform.",
+        "Load and apply custom web fonts.",
+        "Use text-shadow and other decorative text properties.",
     ],
     body="""
-<h2 class="lesson-section-title" id="font-properties">Core Font Properties</h2>
-""" + code("""body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 1rem;       /* base size */
-  font-weight: 400;      /* normal */
-  font-style: normal;
-  line-height: 1.6;      /* unitless — multiplied by font-size */
+<h2 class="lesson-section-title" id="font-properties">Font Properties</h2>
+""" + code("""/* font-family — always provide fallbacks */
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-h1 { font-weight: 700; font-size: 2.5rem; }
-em { font-style: italic; }
+/* font-weight — numeric values are more precise than keywords */
+.light    { font-weight: 300; }
+.regular  { font-weight: 400; }
+.medium   { font-weight: 500; }
+.semibold { font-weight: 600; }
+.bold     { font-weight: 700; }
+.extrabold{ font-weight: 800; }
+
+/* font-style */
+em, .italic { font-style: italic; }
+
+/* font-size */
+h1 { font-size: 2.5rem; }
+p  { font-size: 1rem; }
 """) + """
-<h2 class="lesson-section-title" id="text-properties">Text Properties</h2>
-""" + code(""".nav-link {
-  text-transform: uppercase;    /* UPPERCASE */
-  letter-spacing: 0.1em;        /* space between letters */
-  text-decoration: none;        /* remove underline */
-}
+<h2 class="lesson-section-title" id="text-properties">Text Spacing and Transform</h2>
+""" + code("""/* line-height — unitless values are recommended */
+p { line-height: 1.7; }           /* 1.7x the font-size */
+h1 { line-height: 1.15; }         /* tighter for headings */
 
-.card-title {
-  white-space: nowrap;           /* prevent wrapping */
-  overflow: hidden;
-  text-overflow: ellipsis;       /* show ... when text overflows */
-  max-width: 200px;
-}
+/* letter-spacing */
+.eyebrow { letter-spacing: 0.12em; text-transform: uppercase; }
+p        { letter-spacing: -0.01em; }  /* slight tightening for body text */
 
-.pull-quote {
-  text-align: center;
-  font-style: italic;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
-}
+/* text-transform */
+.caps    { text-transform: uppercase; }
+.title   { text-transform: capitalize; }
+
+/* text-decoration */
+a        { text-decoration: none; }
+.strikethrough { text-decoration: line-through; }
+.underline { text-decoration: underline #2563eb 2px; }
 """) + """
-<h2 class="lesson-section-title" id="custom-fonts">Loading Custom Fonts</h2>
+<h2 class="lesson-section-title" id="web-fonts">Loading Custom Web Fonts</h2>
 """ + code("""/* Method 1: Google Fonts (easiest) */
-/* Add to <head> in HTML: */
+/* Add this in the <head> of your HTML */
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-/* Then use in CSS: */
+/* Then use in CSS */
 body { font-family: 'Inter', sans-serif; }
 
-/* Method 2: @font-face (self-hosted) */
+/* Method 2: @font-face (self-hosted fonts) */
 @font-face {
   font-family: 'MyFont';
-  src: url('fonts/myfont.woff2') format('woff2');
+  src: url('/fonts/myfont.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap; /* show fallback font while custom font loads */
+  font-display: swap;  /* prevents invisible text during font load */
 }
 """) + """
-<h2 class="lesson-section-title" id="system-fonts">System Font Stack</h2>
-""" + code("""/* Uses the operating system's native font — fast, no loading */
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-               Roboto, Helvetica, Arial, sans-serif;
-}
+<h2 class="lesson-section-title" id="text-effects">Text Shadow and Effects</h2>
+""" + code("""/* text-shadow: x-offset y-offset blur-radius color */
+h1 { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+
+/* Multiple shadows */
+.glow { text-shadow: 0 0 10px #2563eb, 0 0 20px #2563eb; }
+
+/* white-space controls how whitespace is handled */
+.nowrap { white-space: nowrap; }   /* prevent line breaks */
+.pre    { white-space: pre; }      /* preserve whitespace exactly */
 """),
     kc=[
-        ("What is the difference between line-height: 1.6 and line-height: 1.6rem?","font-properties"),
-        ("How do you show an ellipsis when text overflows its container?","text-properties"),
-        ("What does font-display: swap do?","custom-fonts"),
+        ("Why should you always provide fallback fonts in font-family?","font-properties"),
+        ("Why are unitless values recommended for line-height?","text-properties"),
+        ("What does font-display: swap do?","web-fonts"),
     ],
     assignments=[
-        "Style a typographic hierarchy: h1, h2, h3, body text, and a caption using different weights, sizes, and letter-spacing.",
-        "Load an Inter or Sora font from Google Fonts and apply it to a project.",
-        "Read MDN's Fundamental Text and Font Styling guide linked below.",
+        "Apply a Google Font to one of your projects. Set appropriate line-height, letter-spacing, and font-weight for headings and body text.",
+        "Create a typographic scale with at least six size steps using rem units.",
     ],
     resources=[
         ("MDN — Fundamental Text and Font Styling","https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals"),
         ("Google Fonts","https://fonts.google.com/"),
-        ("YouTube — Typography in CSS (Kevin Powell)","https://www.youtube.com/watch?v=l0GX6ezSw_E"),
+        ("YouTube — Typography in CSS (Kevin Powell)","https://www.youtube.com/watch?v=6x7AjMJNLmo"),
     ])
 
     write("more-css-properties","More CSS Properties",
-    intro="This lesson covers a collection of highly useful CSS properties that come up constantly in real projects but did not fit neatly into earlier lessons.",
+    intro="This lesson covers a set of highly useful CSS properties that did not fit neatly into earlier lessons but appear constantly in real projects: overflow, opacity, filter, transitions, and more.",
     overview=[
-        "Use overflow to control content that exceeds its container.",
-        "Apply opacity and visibility correctly.",
-        "Use background shorthand with gradients and multiple values.",
+        "Control overflow behaviour with the overflow property.",
+        "Use opacity and visibility.",
+        "Apply CSS filter effects.",
+        "Use the cursor property.",
         "Control element stacking with z-index.",
     ],
     body="""
-<h2 class="lesson-section-title" id="overflow">overflow</h2>
-""" + code(""".card {
-  overflow: hidden;    /* clip content that exceeds the box */
-  overflow: scroll;    /* always show scrollbars */
-  overflow: auto;      /* scrollbars only when needed */
-  overflow: visible;   /* default — content flows outside the box */
+<h2 class="lesson-section-title" id="overflow">Overflow</h2>
+""" + code("""/* What happens when content is larger than its container */
+.container {
+  overflow: visible;  /* default — content spills outside */
+  overflow: hidden;   /* content is clipped at the border */
+  overflow: scroll;   /* always show scrollbars */
+  overflow: auto;     /* show scrollbars only when needed */
 }
 
-/* Control axes separately */
-.code-block {
-  overflow-x: auto;   /* horizontal scroll for wide code */
-  overflow-y: hidden;
-}
-""") + """
-<h2 class="lesson-section-title" id="opacity-visibility">opacity and visibility</h2>
-""" + code(""".faded   { opacity: 0.5; }        /* 50% transparent but still takes up space */
-.hidden  { opacity: 0; }           /* invisible but still takes up space */
-.gone    { visibility: hidden; }   /* invisible but still takes up space */
-.removed { display: none; }        /* invisible AND removed from layout flow */
+/* Control horizontal and vertical separately */
+.code-block { overflow-x: auto; }    /* horizontal scroll only */
+.sidebar    { overflow-y: auto; }    /* vertical scroll only */
 
-/* opacity: 0 vs visibility: hidden vs display: none */
-/* opacity: 0 — invisible, takes space, can receive events */
-/* visibility: hidden — invisible, takes space, cannot receive events */
-/* display: none — invisible, no space, no events */
-""") + """
-<h2 class="lesson-section-title" id="background">background Shorthand</h2>
-""" + code(""".hero {
-  /* Gradient */
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-
-  /* Image with fallback colour */
-  background: #1e3a8a url('hero.jpg') center/cover no-repeat;
-
-  /* Multiple backgrounds — first listed is on top */
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.4), transparent),
-    url('photo.jpg') center/cover no-repeat;
+/* text-overflow — what to show when text is clipped */
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;   /* shows "..." when text is too long */
 }
 """) + """
-<h2 class="lesson-section-title" id="z-index">z-index and Stacking Context</h2>
-""" + code("""/* z-index only works on positioned elements */
-/* (position: relative, absolute, fixed, or sticky) */
+<h2 class="lesson-section-title" id="opacity-visibility">Opacity and Visibility</h2>
+""" + code("""/* opacity — 0 (invisible) to 1 (fully visible) */
+/* Element still takes up space, can receive click events */
+.faded { opacity: 0.5; }
+.invisible-but-there { opacity: 0; }
 
-.modal-overlay {
-  position: fixed;
-  z-index: 1000;
+/* visibility — hidden removes from visual display */
+/* Element STILL takes up space, cannot receive events */
+.hidden { visibility: hidden; }
+
+/* display:none — removes from layout entirely */
+.gone { display: none; }
+""") + """
+<h2 class="lesson-section-title" id="filters">CSS Filters</h2>
+""" + code("""/* Apply visual effects to any element */
+img { filter: grayscale(100%); }           /* black and white */
+img { filter: blur(4px); }                 /* blur */
+img { filter: brightness(1.2); }           /* brighter */
+img { filter: contrast(1.5); }             /* more contrast */
+img { filter: sepia(80%); }                /* sepia tone */
+img { filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); }
+
+/* Chain multiple filters */
+.hero-bg {
+  filter: brightness(0.7) contrast(1.2) blur(1px);
 }
+""") + """
+<h2 class="lesson-section-title" id="other">Other Useful Properties</h2>
+""" + code("""/* cursor — change the mouse cursor */
+button { cursor: pointer; }     /* hand cursor */
+.grab  { cursor: grab; }
+.loading { cursor: wait; }
+.no-select { cursor: not-allowed; }
 
-.dropdown {
-  position: absolute;
-  z-index: 100;
-}
+/* z-index — stacking order (only works on positioned elements) */
+.modal-backdrop { position: fixed; z-index: 100; }
+.modal          { position: fixed; z-index: 101; }
+.tooltip        { position: absolute; z-index: 50; }
 
-.card {
-  position: relative;
-  z-index: 1;
-}
-
-/* Higher z-index = closer to viewer */
-/* Stacking context: a new context is created by position + z-index, */
-/* opacity < 1, transform, filter, and a few others */
+/* pointer-events — disable click interactions */
+.overlay { pointer-events: none; }
 """),
     kc=[
         ("What is the difference between overflow: hidden and overflow: auto?","overflow"),
-        ("What is the difference between opacity: 0, visibility: hidden, and display: none?","opacity-visibility"),
-        ("Why does z-index have no effect on a static element?","z-index"),
+        ("What is the difference between opacity: 0 and display: none?","opacity-visibility"),
+        ("How do you chain multiple CSS filters?","filters"),
     ],
     assignments=[
-        "Build a card with overflow: hidden so a hover image scale effect stays clipped to the card boundary.",
-        "Create a modal overlay using position: fixed and z-index.",
+        "Build a card component with a hover effect that uses filter: brightness() and a smooth transition.",
+        "Create a text truncation component that shows ellipsis when text overflows a single line.",
     ],
     resources=[
         ("MDN — overflow","https://developer.mozilla.org/en-US/docs/Web/CSS/overflow"),
-        ("MDN — z-index","https://developer.mozilla.org/en-US/docs/Web/CSS/z-index"),
-        ("CSS Tricks — What No One Told You About z-index","https://philipwalton.com/articles/what-no-one-told-you-about-z-index/"),
-        ("YouTube — CSS overflow (Kevin Powell)","https://www.youtube.com/watch?v=DFemev-iEBY"),
+        ("MDN — CSS filter","https://developer.mozilla.org/en-US/docs/Web/CSS/filter"),
+        ("YouTube — CSS Properties You Should Know (Kevin Powell)","https://www.youtube.com/watch?v=N5wpD9Ov_To"),
     ])
 
     write("advanced-selectors","Advanced Selectors",
-    intro="CSS selectors are far more powerful than element, class, and ID. Advanced selectors let you target elements based on their relationship to other elements, their state, and their attributes — often without adding any extra classes to your HTML.",
+    intro="CSS selectors go far beyond element, class, and ID. Advanced selectors let you target elements based on their position, state, attributes, and relationship to other elements — often without adding any extra classes to your HTML.",
     overview=[
         "Use combinators: descendant, child, adjacent sibling, general sibling.",
         "Use pseudo-classes: :hover, :focus, :nth-child, :not, :is, :where.",
-        "Use pseudo-elements: ::before, ::after, ::placeholder.",
+        "Use pseudo-elements: ::before, ::after, ::first-line, ::placeholder.",
         "Use attribute selectors.",
     ],
     body="""
 <h2 class="lesson-section-title" id="combinators">Combinators</h2>
-""" + code("""/* Descendant — any p inside .card (any depth) */
-.card p { color: #475569; }
+""" + code("""/* Descendant — any p inside .article, no matter how deep */
+.article p { color: #334155; }
 
-/* Child — direct children only */
+/* Child — only DIRECT children */
 .nav > li { display: inline-block; }
 
-/* Adjacent sibling — h2 immediately following an img */
-img + h2 { margin-top: 1rem; }
+/* Adjacent sibling — h2 immediately followed by p */
+h2 + p { font-size: 1.15rem; font-weight: 500; }
 
-/* General sibling — all p elements after an h2 */
-h2 ~ p { color: #64748b; }
+/* General sibling — all p after h2 in the same parent */
+h2 ~ p { margin-top: 0.5rem; }
 """) + """
 <h2 class="lesson-section-title" id="pseudo-classes">Pseudo-Classes</h2>
-""" + code("""/* User state */
-a:hover  { color: #2563eb; }
-a:focus  { outline: 2px solid #2563eb; }
-a:active { color: #1d4ed8; }
-input:focus { border-color: #2563eb; }
+""" + code("""/* State pseudo-classes */
+a:hover       { color: #1d4ed8; }
+button:focus  { outline: 2px solid #2563eb; outline-offset: 2px; }
+input:disabled{ opacity: 0.5; }
+input:checked { accent-color: #2563eb; }
 
-/* Structural */
-li:first-child  { font-weight: bold; }
+/* Structural pseudo-classes */
+li:first-child  { font-weight: 700; }
 li:last-child   { border-bottom: none; }
-li:nth-child(2) { color: red; }
+li:nth-child(2) { background: #f0f9ff; }
 li:nth-child(odd)  { background: #f8fafc; }
-li:nth-child(even) { background: white; }
-li:nth-child(3n)   { color: blue; } /* every third */
+li:nth-child(even) { background: #ffffff; }
 
-/* Negation and grouping */
-p:not(.intro)  { font-size: 0.9rem; }
-:is(h1, h2, h3) { font-family: 'Sora', sans-serif; } /* matches any */
-:where(h1, h2, h3) { margin-bottom: 0.5em; } /* zero specificity */
+/* Negation */
+p:not(.intro) { color: #64748b; }
 
-/* Form states */
-input:disabled  { opacity: 0.5; cursor: not-allowed; }
-input:checked   { accent-color: #2563eb; }
-input:required  { border-color: #ef4444; }
-input:valid     { border-color: #10b981; }
+/* :is() — matches any selector in the list */
+:is(h1, h2, h3) { line-height: 1.2; }
+
+/* :where() — same as :is() but zero specificity */
+:where(h1, h2, h3) { margin-bottom: 0.75em; }
 """) + """
 <h2 class="lesson-section-title" id="pseudo-elements">Pseudo-Elements</h2>
-""" + code("""/* ::before and ::after — insert generated content */
+""" + code("""/* ::before and ::after — inject content before/after element */
 .card::before {
-  content: '';        /* required — even if empty */
+  content: '';
   display: block;
+  width: 100%;
   height: 4px;
   background: #2563eb;
   border-radius: 4px 4px 0 0;
 }
 
-blockquote::before {
-  content: '"';
-  font-size: 4rem;
-  color: #2563eb;
-  line-height: 0;
-  vertical-align: -0.4em;
-}
+/* ::first-line — style just the first line of text */
+p::first-line { font-weight: 600; }
 
 /* ::placeholder — style input placeholder text */
-input::placeholder {
-  color: #94a3b8;
-  font-style: italic;
-}
+input::placeholder { color: #94a3b8; font-style: italic; }
 
-/* ::selection — style highlighted text */
-::selection {
-  background: #2563eb;
-  color: white;
-}
+/* ::selection — style highlighted/selected text */
+::selection { background: #2563eb; color: white; }
 """) + """
 <h2 class="lesson-section-title" id="attribute-selectors">Attribute Selectors</h2>
 """ + code("""/* Has the attribute */
-[disabled]          { opacity: 0.5; }
+[disabled] { opacity: 0.5; }
 
-/* Exact value */
-[type="email"]      { padding-right: 2.5rem; }
+/* Exact attribute value */
+[type="submit"] { background: #2563eb; }
 
-/* Starts with */
-a[href^="https"]    { color: green; }
+/* Attribute contains word */
+[class~="card"] { border-radius: 8px; }
 
-/* Ends with */
-a[href$=".pdf"]::after { content: ' (PDF)'; }
+/* Attribute starts with */
+a[href^="https"] { /* external links */ }
 
-/* Contains */
-[class*="btn-"]     { cursor: pointer; }
+/* Attribute ends with */
+a[href$=".pdf"]::after { content: " (PDF)"; }
+
+/* Attribute contains substring */
+a[href*="github"] { color: #6e40c9; }
 """),
     kc=[
-        ("What is the difference between a descendant selector and a child selector?","combinators"),
-        ("What does :nth-child(odd) select?","pseudo-classes"),
+        ("What is the difference between the descendant combinator and the child combinator?","combinators"),
+        ("What does li:nth-child(odd) select?","pseudo-classes"),
         ("What is the difference between :is() and :where()?","pseudo-classes"),
-        ("What does the content property do on ::before?","pseudo-elements"),
+        ("How do ::before and ::after work?","pseudo-elements"),
     ],
     assignments=[
-        "Style a navigation menu using only combinators and pseudo-classes — no extra classes.",
-        "Add a decorative coloured top border to all cards using ::before.",
-        "Work through the advanced selector exercises on CSS Diner linked below.",
+        "Rebuild a navigation menu using only combinators and pseudo-classes — no extra classes on the HTML.",
+        "Style a form entirely using attribute selectors and pseudo-classes like :focus, :valid, :invalid.",
     ],
     resources=[
-        ("CSS Diner — Selector Game","https://flukeout.github.io/"),
-        ("MDN — CSS Selectors","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors"),
+        ("MDN — CSS Selectors","https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors"),
+        ("CSS Tricks — The CSS :is() Pseudo-Class","https://css-tricks.com/the-css-is-pseudo-class/"),
         ("YouTube — Advanced CSS Selectors (Kevin Powell)","https://www.youtube.com/watch?v=Bcr70LIJcOk"),
     ])
 
     write("positioning","Positioning",
-    intro="CSS positioning takes elements out of the normal document flow and lets you place them precisely anywhere on the page. Understanding it is essential for navbars, modals, tooltips, and sticky sidebars.",
+    intro="CSS positioning lets you break elements out of the normal document flow and place them exactly where you want. Understanding the five position values and how they interact is essential for building tooltips, modals, sticky headers, and complex layouts.",
     overview=[
         "Understand the five position values: static, relative, absolute, fixed, sticky.",
-        "Know when each type is appropriate.",
-        "Use top, right, bottom, left to place positioned elements.",
-        "Understand how positioned elements interact with z-index.",
+        "Know how top, right, bottom, left work with each position type.",
+        "Use z-index to control stacking order.",
+        "Know common use cases for each position value.",
     ],
     body="""
-<h2 class="lesson-section-title" id="static">static (default)</h2>
-<p>Every element starts as <code>position: static</code>. It flows in the normal document order. The <code>top/right/bottom/left</code> and <code>z-index</code> properties have no effect on static elements.</p>
+<h2 class="lesson-section-title" id="position-values">The Five Position Values</h2>
+""" + code("""/* STATIC — default. Element is in normal flow. */
+/* top/right/bottom/left have NO effect */
+.normal { position: static; }
 
-<h2 class="lesson-section-title" id="relative">relative</h2>
-""" + code(""".nudged {
+/* RELATIVE — stays in normal flow, but can be nudged */
+/* top/right/bottom/left offset from its own normal position */
+.nudged {
   position: relative;
-  top: 10px;    /* moves DOWN 10px from its normal position */
-  left: 20px;   /* moves RIGHT 20px */
+  top: 10px;    /* move 10px DOWN from normal position */
+  left: 20px;   /* move 20px RIGHT from normal position */
 }
-/* Important: the space the element originally occupied is KEPT */
-/* Other elements do not shift to fill the gap */
-""") + """
-<h2 class="lesson-section-title" id="absolute">absolute</h2>
-""" + code("""/* Absolutely positioned elements are REMOVED from normal flow */
-/* They position relative to the nearest positioned ancestor */
-/* If no positioned ancestor exists, they use the viewport */
 
+/* ABSOLUTE — removed from normal flow */
+/* Positioned relative to nearest NON-STATIC ancestor */
+.parent  { position: relative; }   /* establishes a containing block */
+.tooltip {
+  position: absolute;
+  top: 100%;    /* just below the parent */
+  left: 0;
+  z-index: 10;
+}
+
+/* FIXED — removed from flow, positioned relative to VIEWPORT */
+/* Stays on screen even when scrolling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* STICKY — hybrid of relative and fixed */
+/* Behaves relative until it reaches a scroll threshold, then fixed */
+.section-header {
+  position: sticky;
+  top: 64px;   /* sticks when 64px from top of viewport */
+}
+""") + """
+<h2 class="lesson-section-title" id="containing-block">The Containing Block</h2>
+<p>When you use <code>position: absolute</code>, the element positions itself relative to its nearest ancestor that has a position other than <code>static</code>. This ancestor is called the <strong>containing block</strong>.</p>
+""" + code("""/* The badge is absolutely positioned INSIDE the card */
 .card {
-  position: relative; /* establish a positioning context */
+  position: relative;  /* makes this the containing block */
+  width: 300px;
 }
 
 .badge {
   position: absolute;
   top: 12px;
   right: 12px;
-  /* Positioned relative to .card, not the page */
+  background: #2563eb;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 20px;
 }
 """) + """
-<h2 class="lesson-section-title" id="fixed">fixed</h2>
-""" + code("""/* Fixed relative to the VIEWPORT — stays on screen when scrolling */
-.site-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: white;
-}
+<h2 class="lesson-section-title" id="z-index">Z-Index</h2>
+""" + code("""/* z-index controls which element appears on top */
+/* Higher value = appears in front */
+/* Only works on positioned elements (anything except static) */
 
-/* Floating action button */
-.fab {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 50;
-}
-""") + """
-<h2 class="lesson-section-title" id="sticky">sticky</h2>
-""" + code("""/* Sticky is a hybrid: flows normally until a scroll threshold,
-   then behaves like fixed relative to its scroll container */
+.dropdown { position: absolute; z-index: 20; }
+.modal    { position: fixed;    z-index: 200; }
+.tooltip  { position: absolute; z-index: 50; }
 
-.section-header {
-  position: sticky;
-  top: 64px;    /* sticks when it reaches 64px from the top of the viewport */
-  background: white;
-  z-index: 10;
-}
-
-/* The element must have a defined parent with overflow to stick within */
+/* Stacking context — a z-index creates a new stacking context */
+/* Children cannot escape their parent's stacking context */
 """),
     kc=[
-        ("What is the difference between relative and absolute positioning?","absolute"),
-        ("What does an absolutely positioned element position itself relative to?","absolute"),
-        ("When does a sticky element switch from flowing to fixed?","sticky"),
-        ("Why does z-index not work on static elements?","static"),
+        ("What is the difference between relative and absolute positioning?","position-values"),
+        ("What is the containing block for a position: absolute element?","containing-block"),
+        ("Why does z-index not work on position: static elements?","z-index"),
+        ("When would you use position: sticky?","position-values"),
     ],
     assignments=[
-        "Build a card with an absolutely positioned badge (e.g. 'Sale!') in its top-right corner.",
-        "Build a sticky header that stays at the top of the viewport while scrolling.",
-        "Work through the positioning exercises linked below.",
+        "Build a card with an absolutely positioned badge in the top-right corner.",
+        "Build a sticky navigation bar that stays at the top of the viewport while scrolling.",
+        "Build a tooltip that appears on hover using position: absolute.",
     ],
     resources=[
         ("MDN — CSS Positioning","https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning"),
@@ -992,288 +1007,282 @@ a[href$=".pdf"]::after { content: ' (PDF)'; }
     ])
 
     write("css-functions","CSS Functions",
-    intro="CSS functions let you compute values dynamically — calculating sizes based on context, clamping values to a range, and mixing colours. They make stylesheets more adaptable and maintainable.",
+    intro="CSS functions are a powerful feature that allow dynamic values, calculations, and responsive behaviour — all without JavaScript. This lesson covers the most useful ones.",
     overview=[
-        "Use calc() to compute values from mixed units.",
-        "Use min(), max(), and clamp() for responsive sizing.",
-        "Use color functions: rgb(), hsl(), and modern oklch().",
+        "Use calc() for dynamic size calculations.",
+        "Use min(), max(), and clamp() for responsive values.",
+        "Use var() with CSS custom properties.",
+        "Use color functions like rgb(), hsl(), and oklch().",
     ],
     body="""
 <h2 class="lesson-section-title" id="calc">calc()</h2>
-<p><code>calc()</code> lets you perform arithmetic with different units — something impossible otherwise:</p>
-""" + code(""".sidebar {
-  width: calc(300px - 2rem);  /* mix px and rem */
+<p><code>calc()</code> lets you perform mathematical operations with mixed units — something you cannot do with regular CSS values.</p>
+""" + code("""/* Mix units freely */
+.sidebar {
+  width: calc(100% - 280px);   /* full width minus sidebar */
 }
 
-.full-bleed {
-  width: calc(100% + 4rem);
-  margin-left: -2rem;
+.container {
+  padding: calc(1rem + 2vw);   /* base padding that grows with viewport */
 }
 
-/* Useful with CSS variables */
-:root { --nav-height: 64px; }
-.main {
-  min-height: calc(100vh - var(--nav-height));
+.column {
+  width: calc(33.333% - 1rem); /* three columns with gap */
 }
 """) + """
 <h2 class="lesson-section-title" id="min-max-clamp">min(), max(), and clamp()</h2>
 """ + code("""/* min() — use the SMALLEST value */
 .container {
-  width: min(90%, 1200px);  /* 90% on small screens, max 1200px */
+  width: min(90%, 1200px);
+  /* → on large screens: 1200px  */
+  /* → on small screens: 90%     */
 }
 
 /* max() — use the LARGEST value */
-.sidebar {
-  width: max(200px, 20%);  /* at least 200px, grows with viewport */
+.text {
+  font-size: max(1rem, 2vw);
+  /* → at least 1rem, but grows with viewport */
 }
 
 /* clamp(minimum, preferred, maximum) */
-/* The preferred value is usually a viewport-relative unit */
+/* The most powerful responsive tool in CSS */
 h1 {
-  font-size: clamp(1.75rem, 5vw, 4rem);
-  /* never smaller than 1.75rem, never larger than 4rem */
-  /* scales smoothly with viewport width in between */
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  /* → never smaller than 1.75rem           */
+  /* → ideally 4% of viewport width          */
+  /* → never larger than 3rem               */
 }
 
-.content {
-  padding: clamp(1rem, 5%, 4rem);
+.container {
+  padding: clamp(1rem, 5vw, 3rem);
+  /* padding that scales smoothly with screen width */
 }
 """) + """
 <h2 class="lesson-section-title" id="color-functions">Color Functions</h2>
-""" + code("""/* rgb() / rgba() — red, green, blue (0-255), optional alpha (0-1) */
-color: rgb(37, 99, 235);
-background: rgba(37, 99, 235, 0.1);
+""" + code("""/* rgb() and rgba() */
+.box { background: rgb(37, 99, 235); }
+.box { background: rgba(37, 99, 235, 0.5); }  /* 50% transparent */
 
-/* hsl() — hue (0-360°), saturation (%), lightness (%) */
-/* More intuitive for creating colour variations */
-color: hsl(217, 91%, 60%);
-background: hsl(217, 91%, 97%);  /* same hue, much lighter */
+/* hsl() — hue, saturation, lightness */
+/* More intuitive for creating colour palettes */
+.primary  { background: hsl(217, 91%, 60%); }
+.lighter  { background: hsl(217, 91%, 75%); }  /* same hue, lighter */
+.darker   { background: hsl(217, 91%, 45%); }  /* same hue, darker */
 
-/* Modern: oklch() — perceptually uniform, great for design systems */
-color: oklch(60% 0.2 240);
-
-/* CSS relative colour syntax (modern) */
-.lighter {
-  background: hsl(from var(--brand-color) h s calc(l + 20%));
-}
+/* Modern: oklch() — perceptually uniform colour space */
+.brand { color: oklch(60% 0.2 240); }
 """),
     kc=[
-        ("When would you use calc() instead of a plain value?","calc"),
-        ("What does clamp(1rem, 5vw, 3rem) mean?","min-max-clamp"),
-        ("What advantage does hsl() have over rgb() for colour design?","color-functions"),
+        ("What problem does calc() solve that regular CSS values cannot?","calc"),
+        ("What does clamp() do and what are its three arguments?","min-max-clamp"),
+        ("Why is hsl() more intuitive than rgb() for building colour palettes?","color-functions"),
     ],
     assignments=[
-        "Refactor a project to use clamp() for all heading font sizes — eliminating media queries for typography.",
-        "Use calc() to create a full-bleed section inside a centred container.",
+        "Create a fluid typography system using clamp() for all headings and body text.",
+        "Build a full-width layout with a constrained container using min() or calc().",
     ],
     resources=[
-        ("MDN — calc()","https://developer.mozilla.org/en-US/docs/Web/CSS/calc"),
+        ("MDN — CSS Functions","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions"),
         ("MDN — clamp()","https://developer.mozilla.org/en-US/docs/Web/CSS/clamp"),
-        ("YouTube — CSS clamp() (Kevin Powell)","https://www.youtube.com/watch?v=U9VF-4euyRo"),
-        ("CSS Tricks — A Complete Guide to CSS Functions","https://css-tricks.com/complete-guide-to-css-functions/"),
+        ("YouTube — CSS clamp() is Amazing (Kevin Powell)","https://www.youtube.com/watch?v=U9VF-4euyRo"),
     ])
 
     write("custom-properties","Custom Properties",
-    intro="CSS custom properties (CSS variables) let you define reusable values once and reference them everywhere. They are the foundation of maintainable design systems and dynamic theming.",
+    intro="CSS custom properties (also called CSS variables) let you store values in one place and reuse them throughout your stylesheet. They are the foundation of every modern design system and theme.",
     overview=[
-        "Declare and use CSS custom properties.",
-        "Understand scope and inheritance with custom properties.",
-        "Build a colour theme using custom properties.",
-        "Update custom properties with JavaScript for dynamic theming.",
+        "Declare and use CSS custom properties with var().",
+        "Understand scope and inheritance of custom properties.",
+        "Use custom properties to build a design token system.",
+        "Update custom properties dynamically with JavaScript.",
     ],
     body="""
 <h2 class="lesson-section-title" id="declaring">Declaring and Using Custom Properties</h2>
-""" + code("""/* Declare on :root to make globally available */
+""" + code("""/* Declare on :root to make available everywhere */
 :root {
-  --color-primary:   #2563eb;
-  --color-secondary: #64748b;
-  --color-bg:        #0f172a;
-  --color-surface:   #1e293b;
-  --color-text:      #e2e8f0;
-
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
-
-  --radius-sm: 4px;
-  --radius:    8px;
-  --radius-lg: 16px;
-
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --color-primary:    #2563eb;
+  --color-secondary:  #60a5fa;
+  --color-text:       #1e293b;
+  --color-bg:         #ffffff;
+  --font-size-base:   1rem;
+  --spacing-sm:       0.5rem;
+  --spacing-md:       1rem;
+  --spacing-lg:       2rem;
+  --radius:           8px;
+  --shadow:           0 4px 6px -1px rgba(0,0,0,0.1);
 }
 
-/* Use with var() */
+/* Use with var() — always provide a fallback */
 .button {
   background: var(--color-primary);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--radius);
-  font-family: var(--font-sans);
+  box-shadow: var(--shadow);
 }
 
-/* var() with a fallback value */
-color: var(--color-accent, #f59e0b);  /* uses #f59e0b if --color-accent is not defined */
+h1 { color: var(--color-text, #000); }  /* fallback = #000 */
 """) + """
 <h2 class="lesson-section-title" id="scope">Scope and Inheritance</h2>
-""" + code("""/* Custom properties are scoped and inherited */
-
-:root { --color: blue; }
-
-.card {
-  --color: red;         /* overrides within .card and its children */
-  color: var(--color);  /* red */
+""" + code("""/* Custom properties are inherited — children get parent's values */
+:root {
+  --color-primary: #2563eb;
 }
 
-.card p {
-  color: var(--color);  /* also red — inherits from .card */
+.dark-theme {
+  --color-primary: #93c5fd;  /* override in this scope only */
+  --color-bg: #0f172a;
+  --color-text: #f1f5f9;
 }
 
-p {
-  color: var(--color);  /* blue — no .card ancestor */
-}
+/* Elements inside .dark-theme automatically use the overridden values */
+.dark-theme .button { background: var(--color-primary); }
 """) + """
-<h2 class="lesson-section-title" id="theming">Dark / Light Theme</h2>
+<h2 class="lesson-section-title" id="dark-mode">Dark Mode with Custom Properties</h2>
 """ + code(""":root {
   --bg:      #ffffff;
+  --text:    #1e293b;
   --surface: #f8fafc;
-  --text:    #0f172a;
 }
 
-[data-theme="dark"] {
-  --bg:      #0f172a;
-  --surface: #1e293b;
-  --text:    #e2e8f0;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:      #0f172a;
+    --text:    #f1f5f9;
+    --surface: #1e293b;
+  }
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-}
-""") + code("""// Toggle theme with JavaScript
-const btn = document.querySelector('#theme-toggle');
-btn.addEventListener('click', () => {
-  const isDark = document.documentElement.dataset.theme === 'dark';
-  document.documentElement.dataset.theme = isDark ? 'light' : 'dark';
+/* All components automatically update — no duplication */
+body       { background: var(--bg); color: var(--text); }
+.card      { background: var(--surface); }
+""") + """
+<h2 class="lesson-section-title" id="js-update">Updating with JavaScript</h2>
+""" + code("""// Read a custom property
+const root = document.documentElement;
+const primary = getComputedStyle(root).getPropertyValue('--color-primary');
+
+// Set a custom property dynamically
+root.style.setProperty('--color-primary', '#10b981');
+
+// Theme switcher example
+document.querySelector('#theme-toggle').addEventListener('click', () => {
+  document.documentElement.classList.toggle('dark-theme');
 });
 """),
     kc=[
-        ("How do you declare a CSS custom property?","declaring"),
-        ("What is the scope of a custom property declared on :root?","scope"),
-        ("How do you provide a fallback value with var()?","declaring"),
+        ("What is the syntax for declaring a CSS custom property?","declaring"),
+        ("On which selector should you declare global custom properties?","declaring"),
+        ("How does scope work for custom properties?","scope"),
+        ("How do you update a custom property with JavaScript?","js-update"),
     ],
     assignments=[
-        "Refactor a project to use CSS variables for all colours, spacing values, and border radii.",
-        "Implement a working dark/light mode toggle using a data-theme attribute and CSS custom properties.",
+        "Refactor one of your projects to use custom properties for all colours, font sizes, spacing, and border radii.",
+        "Implement a dark mode toggle using custom properties and a class switch on the root element.",
     ],
     resources=[
         ("MDN — Using CSS Custom Properties","https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties"),
         ("CSS Tricks — A Complete Guide to Custom Properties","https://css-tricks.com/a-complete-guide-to-custom-properties/"),
-        ("YouTube — CSS Variables (Kevin Powell)","https://www.youtube.com/watch?v=PHO6TBq_auI"),
+        ("YouTube — CSS Custom Properties (Kevin Powell)","https://www.youtube.com/watch?v=GF8aoDqebsQ"),
     ])
 
     write("browser-compatibility","Browser Compatibility",
-    intro="Not every browser supports every CSS feature. This lesson covers how to check compatibility, write resilient CSS, and use the tools that handle most compatibility work automatically.",
+    intro="Modern CSS has excellent browser support, but new features roll out at different times across Chrome, Firefox, Safari, and Edge. This lesson covers how to check compatibility, handle differences, and use progressive enhancement.",
     overview=[
-        "Use Can I Use to check browser support for CSS features.",
-        "Write fallbacks for unsupported features.",
+        "Use Can I Use to check feature support.",
         "Understand vendor prefixes and when they are needed.",
-        "Use Autoprefixer in a build workflow.",
+        "Write progressive enhancement using @supports.",
+        "Know which browsers require special attention today.",
     ],
     body="""
-<h2 class="lesson-section-title" id="caniuse">Checking Support</h2>
-<p>Before using a newer CSS feature, check <a href="https://caniuse.com" target="_blank" rel="noopener">caniuse.com</a>. Search for the feature and see which browsers and versions support it. Pay attention to your target audience — a site for developers can safely use cutting-edge features; a site for general consumers should be more conservative.</p>
+<h2 class="lesson-section-title" id="checking">Checking Compatibility</h2>
+<p><a href="https://caniuse.com" target="_blank" rel="noopener">caniuse.com</a> is the definitive resource for checking which browsers support a given CSS or JavaScript feature. Before using any new CSS property in production, search it on Can I Use to understand the support landscape.</p>
 
-<h2 class="lesson-section-title" id="fallbacks">Writing Fallbacks</h2>
-<p>CSS ignores properties it does not understand — this is a feature, not a bug. You can stack declarations to provide progressively better experiences:</p>
-""" + code(""".element {
-  /* Fallback for old browsers */
-  color: #2563eb;
-  background: #f0f9ff;
+<h2 class="lesson-section-title" id="vendor-prefixes">Vendor Prefixes</h2>
+<p>Historically, browsers added vendor prefixes to experimental features before standardising them. You still occasionally see these in older codebases:</p>
+""" + code("""-webkit- /* Chrome, Safari, newer Opera, Edge */
+-moz-    /* Firefox */
+-ms-     /* Internet Explorer, old Edge */
+-o-      /* Old Opera */
 
-  /* Modern enhancement — old browsers just ignore these */
-  color: oklch(60% 0.2 240);
-  background: color-mix(in oklch, #2563eb 10%, white);
+/* Example */
+.box {
+  -webkit-transform: rotate(45deg);  /* old Safari */
+  transform: rotate(45deg);          /* standard */
 }
+""") + """
+<p>Modern properties like Grid, Flexbox, and custom properties no longer need prefixes. Autoprefixer (a PostCSS plugin) can automatically add any needed prefixes during your build process.</p>
 
-/* @supports — feature query */
+<h2 class="lesson-section-title" id="supports">@supports — Feature Detection</h2>
+""" + code("""/* Apply styles only if the browser supports a property */
 @supports (display: grid) {
-  .layout {
+  .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@supports not (display: grid) {
-  .layout {
-    display: flex;
-    flex-wrap: wrap;
-  }
-}
-""") + """
-<h2 class="lesson-section-title" id="prefixes">Vendor Prefixes</h2>
-<p>Some CSS features required browser-specific prefixes during development. Most modern features no longer need them, but you will see them in older codebases:</p>
-""" + code("""/* Old code you might encounter */
--webkit-transform: rotate(45deg);  /* Chrome, Safari */
--moz-transform: rotate(45deg);     /* Firefox */
--ms-transform: rotate(45deg);      /* IE */
-transform: rotate(45deg);          /* standard — always last */
-""") + """
-<h2 class="lesson-section-title" id="autoprefixer">Autoprefixer</h2>
-<p>Writing prefixes manually is error-prone. <strong>Autoprefixer</strong> is a PostCSS plugin that adds prefixes automatically based on a target browser list. Most modern build tools (Vite, Create React App, Next.js) include it automatically.</p>
-""" + code("""/* You write: */
-.box {
+/* Fallback for browsers without grid support */
+.container {
   display: flex;
-  user-select: none;
+  flex-wrap: wrap;
 }
 
-/* Autoprefixer outputs: */
-.box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-user-select: none;
-  user-select: none;
+/* Negative query */
+@supports not (container-type: inline-size) {
+  /* Fallback when container queries are not supported */
 }
-"""),
+""") + """
+<h2 class="lesson-section-title" id="today">Browser Support Today</h2>
+<p>In 2024, the browser landscape is much simpler than it was five years ago:</p>
+<ul>
+  <li>IE11 has been officially retired — you no longer need to support it.</li>
+  <li>Chrome, Edge, Firefox, and Safari all support Grid, Flexbox, custom properties, and most modern CSS.</li>
+  <li>Safari on iOS can lag behind slightly — worth testing on real devices.</li>
+  <li>The main strategy now is <strong>progressive enhancement</strong> — build a baseline that works everywhere, then layer on enhancements for modern browsers.</li>
+</ul>
+""",
     kc=[
-        ("Where do you check browser support for a CSS feature?","caniuse"),
-        ("What does @supports do?","fallbacks"),
-        ("What is Autoprefixer and what does it do?","autoprefixer"),
+        ("What is the best resource for checking CSS browser support?","checking"),
+        ("What does @supports do?","supports"),
+        ("What is progressive enhancement?","today"),
     ],
     assignments=[
-        "Visit caniuse.com and check support for CSS Grid, CSS custom properties, and the :has() selector.",
-        "Add an @supports query to a project to provide a flexbox fallback when grid is unavailable.",
+        "Look up three CSS features you have used recently on caniuse.com and check their browser support.",
+        "Add an @supports block to a project, providing a flex-based fallback for a grid layout.",
     ],
     resources=[
-        ("Can I Use — Browser Compatibility","https://caniuse.com/"),
+        ("Can I Use — Browser Compatibility Tables","https://caniuse.com/"),
         ("MDN — @supports","https://developer.mozilla.org/en-US/docs/Web/CSS/@supports"),
-        ("Autoprefixer","https://autoprefixer.github.io/"),
-        ("YouTube — Browser Compatibility CSS (Kevin Powell)","https://www.youtube.com/watch?v=nn_-pSNOEKE"),
+        ("YouTube — Browser Compatibility (Kevin Powell)","https://www.youtube.com/watch?v=nFk-sHqDIBs"),
     ])
 
     write("form-basics","Form Basics",
-    intro="Forms are how users interact with web applications — logging in, searching, submitting data. This lesson covers how to build accessible, well-structured HTML forms.",
+    intro="Forms are how users interact with your application — logging in, signing up, searching, submitting data. This lesson covers how to build well-structured, accessible HTML forms.",
     overview=[
-        "Build a form with input, select, textarea, and button elements.",
+        "Build a complete HTML form with appropriate input types.",
         "Use label elements correctly for accessibility.",
-        "Group related fields with fieldset and legend.",
-        "Understand the different input types.",
+        "Understand the key form attributes: action, method, name.",
+        "Use fieldset and legend to group related inputs.",
     ],
     body="""
 <h2 class="lesson-section-title" id="form-structure">Form Structure</h2>
 """ + code("""<form action="/submit" method="POST">
 
-  <!-- Label + input pair — always link them -->
-  <div class="field">
+  <!-- Text input with associated label -->
+  <div class="form-group">
     <label for="email">Email address</label>
     <input
       type="email"
       id="email"
       name="email"
       placeholder="you@example.com"
-      required
       autocomplete="email"
+      required
     >
   </div>
 
-  <div class="field">
+  <!-- Password input -->
+  <div class="form-group">
     <label for="password">Password</label>
     <input
       type="password"
@@ -1284,84 +1293,83 @@ transform: rotate(45deg);          /* standard — always last */
     >
   </div>
 
+  <!-- Submit button -->
   <button type="submit">Sign In</button>
 
 </form>
 """) + """
 <h2 class="lesson-section-title" id="input-types">Input Types</h2>
-""" + code("""<input type="text">        <!-- plain text -->
-<input type="email">       <!-- validates email format -->
-<input type="password">    <!-- hides characters -->
-<input type="number">      <!-- numeric keyboard on mobile -->
-<input type="tel">         <!-- phone keyboard on mobile -->
-<input type="url">         <!-- validates URL format -->
-<input type="date">        <!-- date picker -->
-<input type="checkbox">    <!-- boolean on/off -->
-<input type="radio">       <!-- one choice from a group -->
-<input type="range">       <!-- slider -->
-<input type="file">        <!-- file upload -->
-<input type="search">      <!-- with clear button on mobile -->
-<input type="hidden">      <!-- not shown, sent with form data -->
-""") + """
-<h2 class="lesson-section-title" id="other-inputs">Other Form Elements</h2>
-""" + code("""<!-- Multi-line text input -->
-<textarea id="message" name="message" rows="4" cols="50"></textarea>
+""" + code("""<input type="text">           <!-- single-line text -->
+<input type="email">          <!-- validates email format -->
+<input type="password">       <!-- masks characters -->
+<input type="number">         <!-- numeric keyboard on mobile -->
+<input type="tel">            <!-- phone keyboard on mobile -->
+<input type="url">            <!-- validates URL format -->
+<input type="date">           <!-- date picker -->
+<input type="checkbox">       <!-- boolean option -->
+<input type="radio">          <!-- one of many options -->
+<input type="range" min="0" max="100"> <!-- slider -->
+<input type="file">           <!-- file upload -->
+<input type="hidden">         <!-- invisible data field -->
+<input type="search">         <!-- search field with clear button -->
 
-<!-- Dropdown select -->
-<select id="country" name="country">
-  <option value="">Select a country</option>
-  <option value="et">Ethiopia</option>
-  <option value="us">United States</option>
-  <option value="gb">United Kingdom</option>
+<textarea rows="5" cols="40">Multi-line text</textarea>
+
+<select>
+  <option value="">-- Select one --</option>
+  <option value="js">JavaScript</option>
+  <option value="py">Python</option>
 </select>
-
-<!-- Grouping related fields -->
-<fieldset>
-  <legend>Delivery address</legend>
-  <label for="street">Street</label>
-  <input type="text" id="street" name="street">
-  <label for="city">City</label>
-  <input type="text" id="city" name="city">
-</fieldset>
 """) + """
-<h2 class="lesson-section-title" id="styling-forms">Styling Forms</h2>
-""" + code(""".field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  margin-bottom: 1.25rem;
-}
+<h2 class="lesson-section-title" id="labels-accessibility">Labels and Accessibility</h2>
+""" + code("""<!-- Method 1: for/id association (preferred) -->
+<label for="username">Username</label>
+<input type="text" id="username" name="username">
 
-label {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #374151;
-}
+<!-- Method 2: wrapping label -->
+<label>
+  Username
+  <input type="text" name="username">
+</label>
 
-input, textarea, select {
-  padding: 0.6rem 0.85rem;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-family: inherit;      /* form elements do not inherit font */
-  transition: border-color 0.15s;
-}
+<!-- Never do this — no label association -->
+<p>Username</p>
+<input type="text" name="username">
 
-input:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
+<!-- Placeholder is NOT a replacement for a label -->
+<!-- It disappears when the user starts typing -->
+""") + """
+<h2 class="lesson-section-title" id="fieldset">Grouping with Fieldset</h2>
+""" + code("""<fieldset>
+  <legend>Shipping Address</legend>
+
+  <div class="form-group">
+    <label for="street">Street</label>
+    <input type="text" id="street" name="street">
+  </div>
+
+  <div class="form-group">
+    <label for="city">City</label>
+    <input type="text" id="city" name="city">
+  </div>
+</fieldset>
+
+<!-- Radio buttons always belong in a fieldset/legend group -->
+<fieldset>
+  <legend>Preferred contact method</legend>
+  <label><input type="radio" name="contact" value="email"> Email</label>
+  <label><input type="radio" name="contact" value="phone"> Phone</label>
+</fieldset>
 """),
     kc=[
-        ("Why must every input have a matching label?","form-structure"),
-        ("What is the purpose of the for attribute on a label?","form-structure"),
-        ("What does fieldset do?","other-inputs"),
-        ("Why does form CSS need font-family: inherit?","styling-forms"),
+        ("Why must every input have an associated label?","labels-accessibility"),
+        ("What is the difference between the for attribute and wrapping a label?","labels-accessibility"),
+        ("When should you use fieldset and legend?","fieldset"),
+        ("What input type should you use for email addresses?","input-types"),
     ],
     assignments=[
-        "Build a contact form with: name, email, subject (select), message (textarea), and a submit button. Style it fully.",
-        "Read MDN's Your First Form guide linked below.",
+        "Build a complete registration form with name, email, password, country (select), and terms checkbox — all with proper labels.",
+        "Read MDN's 'Your first HTML form' guide — linked below.",
     ],
     resources=[
         ("MDN — Your First HTML Form","https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form"),
@@ -1370,609 +1378,616 @@ input:focus {
     ])
 
     write("form-validation","Form Validation",
-    intro="Form validation ensures users submit correct data before it reaches your server. HTML5 provides built-in validation that requires no JavaScript, and CSS lets you style the validation states.",
+    intro="Form validation ensures users provide correct, complete data before submission. HTML5 provides powerful built-in validation — no JavaScript required for the basics.",
     overview=[
-        "Use HTML5 built-in validation attributes.",
-        "Style form states with :valid, :invalid, and :user-invalid.",
-        "Provide accessible error messages.",
-        "Understand the limits of client-side validation.",
+        "Use HTML5 validation attributes: required, minlength, maxlength, min, max, pattern.",
+        "Style valid and invalid states with CSS pseudo-classes.",
+        "Understand the constraint validation API.",
+        "Know when to use HTML validation versus custom JavaScript validation.",
     ],
     body="""
-<h2 class="lesson-section-title" id="html5-validation">HTML5 Validation Attributes</h2>
-""" + code("""<!-- required — must not be empty -->
-<input type="text" required>
+<h2 class="lesson-section-title" id="html-validation">HTML5 Validation Attributes</h2>
+""" + code("""<!-- required — field cannot be empty -->
+<input type="text" name="name" required>
 
-<!-- minlength / maxlength — character limits -->
-<input type="text" minlength="3" maxlength="50">
+<!-- minlength / maxlength — string length constraints -->
+<input type="password" name="password" minlength="8" maxlength="64" required>
 
-<!-- min / max — numeric range -->
-<input type="number" min="1" max="100">
+<!-- min / max — numeric range constraints -->
+<input type="number" name="age" min="18" max="120" required>
+<input type="date" name="dob" min="1900-01-01" max="2010-12-31">
 
-<!-- pattern — regex pattern -->
-<input type="text" pattern="[A-Za-z]{3}" title="Three letters only">
+<!-- pattern — regular expression validation -->
+<input
+  type="text"
+  name="username"
+  pattern="[a-zA-Z0-9_]{3,20}"
+  title="3-20 characters: letters, numbers, and underscores only"
+  required
+>
 
-<!-- type itself validates -->
-<input type="email">  <!-- must contain @ and a domain -->
-<input type="url">    <!-- must start with http:// or similar -->
+<!-- type validation happens automatically -->
+<input type="email" required>  <!-- validates email format -->
+<input type="url" required>    <!-- validates URL format -->
 """) + """
-<h2 class="lesson-section-title" id="css-states">Styling Validation States</h2>
-""" + code("""/* :user-invalid — only shows after user has interacted with the field */
-/* Better UX than :invalid (which fires immediately on page load) */
+<h2 class="lesson-section-title" id="css-validation">Styling Validation States</h2>
+""" + code("""/* :valid and :invalid pseudo-classes */
+input:valid {
+  border-color: #10b981;
+  outline-color: #10b981;
+}
 
+input:invalid {
+  border-color: #ef4444;
+  outline-color: #ef4444;
+}
+
+/* :required and :optional */
+input:required { border-left: 3px solid #2563eb; }
+
+/* :user-valid / :user-invalid — only after user has interacted */
+/* Prevents showing errors before user has typed anything */
 input:user-invalid {
   border-color: #ef4444;
-  background: #fef2f2;
 }
 
-input:user-valid {
-  border-color: #10b981;
-}
-
-input:user-invalid + .error-message {
-  display: block;
-}
-
-.error-message {
-  display: none;
-  color: #ef4444;
-  font-size: 0.8rem;
-  margin-top: 0.25rem;
+/* Focus state should always be visible for accessibility */
+input:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 """) + """
-<h2 class="lesson-section-title" id="accessible-errors">Accessible Error Messages</h2>
-""" + code("""<!-- Connect error message to input with aria-describedby -->
-<div class="field">
-  <label for="email">Email</label>
-  <input
-    type="email"
-    id="email"
-    name="email"
-    aria-describedby="email-error"
-    required
-  >
-  <span id="email-error" class="error-message" role="alert">
-    Please enter a valid email address.
-  </span>
-</div>
-""") + """
-<div class="callout callout-warn">
-  <span class="callout-icon">⚠️</span>
-  <p>Client-side validation is a UX convenience, not a security measure. Always validate data on the server too — any user can bypass HTML validation using browser DevTools.</p>
-</div>
-""",
+<h2 class="lesson-section-title" id="custom-validation">Custom Validation Messages</h2>
+""" + code("""<!-- Custom error message with title attribute -->
+<input
+  type="email"
+  required
+  title="Please enter a valid email address like: you@example.com"
+>
+
+<!-- Custom JS validation using the Constraint Validation API -->
+const emailInput = document.querySelector('#email');
+
+emailInput.addEventListener('input', () => {
+  if (emailInput.value.includes('+')) {
+    emailInput.setCustomValidity('Plus signs are not allowed in email addresses.');
+  } else {
+    emailInput.setCustomValidity('');  // empty string = valid
+  }
+});
+"""),
     kc=[
-        ("What is the difference between :invalid and :user-invalid?","css-states"),
-        ("How do you connect an error message to an input for screen readers?","accessible-errors"),
-        ("Why is client-side validation not a security measure?","accessible-errors"),
+        ("What HTML attribute prevents a form from submitting with an empty field?","html-validation"),
+        ("What does the pattern attribute accept?","html-validation"),
+        ("What is the difference between :invalid and :user-invalid?","css-validation"),
     ],
     assignments=[
-        "Add validation to your contact form from the previous lesson: make fields required, add minlength, and style error states.",
-        "Read MDN's Client-Side Form Validation guide linked below.",
+        "Add validation to the registration form from the previous lesson: required fields, password minimum length, and email format.",
+        "Style the form validation states using :user-valid and :user-invalid.",
     ],
     resources=[
         ("MDN — Client-Side Form Validation","https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation"),
-        ("MDN — Constraint Validation","https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation"),
-        ("YouTube — HTML Form Validation (Web Dev Simplified)","https://www.youtube.com/watch?v=In0nB0ABaUk"),
+        ("MDN — Constraint Validation API","https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation"),
+        ("YouTube — Form Validation (Web Dev Simplified)","https://www.youtube.com/watch?v=In0nB0ABaUk"),
     ])
 
     write("project-sign-up-form","Project: Sign-Up Form",
-    intro="Build a polished, accessible sign-up form that uses everything from the Forms section — proper HTML structure, custom styling, and client-side validation.",
+    intro="Put your form knowledge to work. You will build a complete, styled, and validated sign-up form — the kind found on real applications.",
     overview=[
-        "Build a complete sign-up form with multiple field types.",
-        "Apply custom styling that overrides browser defaults.",
-        "Add client-side validation with styled error states.",
-        "Ensure the form is accessible.",
+        "Build a visually polished sign-up form.",
+        "Apply custom form styling including focus states.",
+        "Implement HTML5 validation with meaningful error indicators.",
+        "Ensure the form is accessible and keyboard-navigable.",
     ],
     body="""
 <h2 class="lesson-section-title" id="requirements">Requirements</h2>
 <ul>
-  <li>A full-page layout with a background image or gradient on one side and the form on the other</li>
-  <li>Fields: first name, last name, email, phone number, password, confirm password</li>
-  <li>All fields required with appropriate validation attributes</li>
-  <li>A visual indicator when passwords do not match</li>
-  <li>Custom-styled inputs (no browser default appearance)</li>
-  <li>A submit button and a link to a hypothetical login page</li>
-  <li>Fully accessible: all labels connected, all errors announced</li>
+  <li>Fields: full name, username, email, password, confirm password</li>
+  <li>All fields validated appropriately (required, minlength, pattern where relevant)</li>
+  <li>Custom styling for default, focus, valid, and invalid states</li>
+  <li>A show/hide password toggle button</li>
+  <li>A terms and conditions checkbox (required before submit)</li>
+  <li>Fully keyboard-accessible: every element reachable and operable by Tab</li>
+  <li>Responsive: works on mobile and desktop</li>
 </ul>
 
-<h2 class="lesson-section-title" id="structure">Project Structure</h2>
+<h2 class="lesson-section-title" id="design-tips">Design Tips</h2>
+<ul>
+  <li>Use a two-column layout on wide screens, single column on mobile</li>
+  <li>Give the form a card-like container with padding and shadow</li>
+  <li>Use a brand colour for focus outlines and validation indicators</li>
+  <li>Error messages should appear below the relevant field, not as a browser alert</li>
+</ul>
+
+<h2 class="lesson-section-title" id="password-toggle">Password Toggle Snippet</h2>
+""" + code("""<!-- HTML -->
+<div class="input-group">
+  <input type="password" id="password" name="password" required>
+  <button type="button" id="toggle-password" aria-label="Show password">
+    👁
+  </button>
+</div>
+
+<!-- JavaScript -->
+document.querySelector('#toggle-password').addEventListener('click', () => {
+  const input = document.querySelector('#password');
+  const isPassword = input.type === 'password';
+  input.type = isPassword ? 'text' : 'password';
+});
+""") + """
+<h2 class="lesson-section-title" id="workflow">Project Workflow</h2>
 """ + code("""mkdir ~/devpath-projects/sign-up-form
 cd ~/devpath-projects/sign-up-form
 git init
 touch index.html styles.css script.js
 code .
-""") + """
-<h2 class="lesson-section-title" id="password-check">Password Match Check</h2>
-""" + code("""// Check passwords match on input
-const password = document.getElementById('password');
-const confirm  = document.getElementById('confirm-password');
-const error    = document.getElementById('password-error');
-
-function checkPasswords() {
-  if (confirm.value && confirm.value !== password.value) {
-    confirm.setCustomValidity('Passwords do not match');
-    error.textContent = 'Passwords do not match';
-  } else {
-    confirm.setCustomValidity('');
-    error.textContent = '';
-  }
-}
-
-password.addEventListener('input', checkPasswords);
-confirm.addEventListener('input', checkPasswords);
 """),
     kc=[
-        ("What method sets a custom validation message on an input?","password-check"),
-        ("How do you visually show a validation error without JavaScript?","requirements"),
+        ("What pseudo-classes should you use for form validation states?","requirements"),
+        ("What attribute is needed to make a button inside a form NOT submit the form?","password-toggle"),
     ],
     assignments=[
-        "Build the sign-up form meeting all requirements above.",
+        "Complete the Sign-Up Form meeting all requirements above.",
         "Push to GitHub and publish on GitHub Pages.",
     ],
     resources=[
-        ("MDN — HTML Forms","https://developer.mozilla.org/en-US/docs/Learn/Forms"),
-        ("YouTube — Sign Up Form Project (Kevin Powell)","https://www.youtube.com/watch?v=a1ByMkEOBos"),
+        ("MDN — Styling Web Forms","https://developer.mozilla.org/en-US/docs/Learn/Forms/Styling_web_forms"),
+        ("MDN — Advanced Form Styling","https://developer.mozilla.org/en-US/docs/Learn/Forms/Advanced_form_styling"),
+        ("YouTube — Style a Sign Up Form (Traversy Media)","https://www.youtube.com/watch?v=okbByPWS1Xc"),
     ])
 
     write("introduction-to-grid","Introduction to Grid",
-    intro="CSS Grid is a two-dimensional layout system — it handles rows and columns simultaneously. Where Flexbox excels at one-dimensional layouts, Grid excels at placing items in a defined two-dimensional space.",
+    intro="CSS Grid is a two-dimensional layout system — it handles both rows and columns simultaneously. Where Flexbox excels at one-dimensional layouts, Grid excels at complex two-dimensional ones.",
     overview=[
-        "Understand when Grid is more appropriate than Flexbox.",
-        "Activate Grid with display: grid.",
+        "Understand when to use Grid versus Flexbox.",
+        "Activate CSS Grid with display: grid.",
         "Define columns and rows with grid-template-columns and grid-template-rows.",
-        "Use the fr unit and repeat() for flexible tracks.",
+        "Use the fr unit for flexible track sizing.",
     ],
     body="""
 <h2 class="lesson-section-title" id="grid-vs-flex">Grid vs. Flexbox</h2>
-<p>Use <strong>Flexbox</strong> for one-dimensional layouts — a row of buttons, a navigation bar, a set of cards where you mainly care about spacing in one direction.</p>
-<p>Use <strong>Grid</strong> for two-dimensional layouts — page structure with header/sidebar/main/footer, image galleries, dashboards where you need precise row and column control.</p>
-<p>They are not competitors — you will routinely use both on the same page: Grid for the overall structure, Flexbox for components inside grid areas.</p>
+<p>Flexbox and Grid are complementary tools, not competitors:</p>
+<ul>
+  <li><strong>Flexbox</strong> — one-dimensional. Items flow in a single row or column. Great for navigation bars, button groups, centering content.</li>
+  <li><strong>Grid</strong> — two-dimensional. Items are placed in explicit rows AND columns simultaneously. Great for page layouts, dashboards, card grids, and any layout where you need precise control over both axes.</li>
+</ul>
 
-<h2 class="lesson-section-title" id="basics">Grid Basics</h2>
+<h2 class="lesson-section-title" id="activating">Activating Grid</h2>
 """ + code("""<div class="grid-container">
-  <div>One</div>
-  <div>Two</div>
-  <div>Three</div>
-  <div>Four</div>
-  <div>Five</div>
-  <div>Six</div>
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+  <div class="item">5</div>
+  <div class="item">6</div>
 </div>
 """) + code(""".grid-container {
   display: grid;
 
   /* Define three equal columns */
-  grid-template-columns: 200px 200px 200px;
-
-  /* Three columns using the fr (fraction) unit */
   grid-template-columns: 1fr 1fr 1fr;
 
   /* Shorthand with repeat() */
   grid-template-columns: repeat(3, 1fr);
 
-  /* Define rows */
-  grid-template-rows: 100px auto 100px;
+  /* Mixed sizes */
+  grid-template-columns: 250px 1fr 1fr;
+  grid-template-columns: 250px 1fr auto;
 
   /* Gap between cells */
   gap: 1rem;
+  column-gap: 1.5rem;  /* separate horizontal and vertical */
   row-gap: 1rem;
-  column-gap: 2rem;
 }
 """) + """
 <h2 class="lesson-section-title" id="fr-unit">The fr Unit</h2>
-""" + code(""".layout {
-  display: grid;
-  grid-template-columns: 250px 1fr 1fr;
-  /* Fixed 250px sidebar, two equal remaining columns */
-}
+<p>The <code>fr</code> (fraction) unit represents a fraction of the available space in the grid container — similar to flex-grow in Flexbox but applied to grid tracks.</p>
+""" + code("""/* Three equal columns sharing all available space */
+grid-template-columns: 1fr 1fr 1fr;
 
-.layout-2 {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  /* Middle column gets twice the space of either side column */
-}
-""") + """
-<h2 class="lesson-section-title" id="auto-fit">Responsive Grids with auto-fit</h2>
-""" + code(""".card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-/* Cards fill the available space
-   When the container gets too narrow for 250px cards they wrap
-   No media queries needed */
+/* First column is twice as wide as the others */
+grid-template-columns: 2fr 1fr 1fr;
+
+/* Sidebar + main content + another sidebar */
+grid-template-columns: 200px 1fr 200px;
+/* Fixed sidebar | flexible main | fixed sidebar */
+
+/* Automatic rows */
+grid-template-rows: auto;        /* default — sized by content */
+grid-auto-rows: minmax(100px, auto); /* each row at least 100px */
 """),
     kc=[
-        ("When should you use Grid instead of Flexbox?","grid-vs-flex"),
+        ("When should you use Grid over Flexbox?","grid-vs-flex"),
         ("What does the fr unit represent?","fr-unit"),
-        ("What does repeat(auto-fit, minmax(250px, 1fr)) do?","auto-fit"),
+        ("What does repeat(3, 1fr) do?","activating"),
     ],
     assignments=[
-        "Create a three-column card grid using CSS Grid with auto-fit and minmax. Resize the browser and observe it adapting.",
-        "Play CSS Grid Garden (linked below) — all levels.",
+        "Build a simple three-column article layout using Grid.",
+        "Play CSS Grid Garden until you complete all 28 levels — linked below.",
     ],
     resources=[
         ("CSS Grid Garden — Learn Grid with a game","https://cssgridgarden.com/"),
         ("CSS Tricks — A Complete Guide to Grid","https://css-tricks.com/snippets/css/complete-guide-grid/"),
         ("MDN — CSS Grid Layout","https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids"),
-        ("YouTube — CSS Grid in 20 Minutes (Traversy Media)","https://www.youtube.com/watch?v=jV8B24rSN5o"),
+        ("YouTube — CSS Grid Tutorial (Kevin Powell)","https://www.youtube.com/watch?v=rg7Fvvl3taU"),
     ])
 
     write("creating-a-grid","Creating a Grid",
-    intro="Now that you understand Grid's core concepts, this lesson goes deeper into defining grid tracks, controlling implicit grids, and using grid-template-areas for readable layouts.",
+    intro="Now that you understand the basics, this lesson goes deeper — implicit vs explicit grids, auto-placement, and controlling row heights.",
     overview=[
-        "Define explicit columns and rows.",
-        "Understand implicit grid tracks created automatically.",
-        "Use grid-template-areas for named layout zones.",
-        "Control implicit track sizing with grid-auto-rows and grid-auto-columns.",
+        "Understand the difference between explicit and implicit grid tracks.",
+        "Use grid-auto-rows and grid-auto-columns.",
+        "Use minmax() for flexible minimum and maximum track sizes.",
+        "Use auto-fill and auto-fit for responsive grids without media queries.",
     ],
     body="""
-<h2 class="lesson-section-title" id="explicit-implicit">Explicit vs. Implicit Grids</h2>
-<p>The tracks you define with <code>grid-template-columns</code> and <code>grid-template-rows</code> form the <strong>explicit grid</strong>. When items exceed those defined tracks, the browser automatically creates new rows — these are <strong>implicit tracks</strong>.</p>
+<h2 class="lesson-section-title" id="explicit-implicit">Explicit vs. Implicit Grid</h2>
+<p>The <strong>explicit grid</strong> is the one you define with <code>grid-template-columns</code> and <code>grid-template-rows</code>. The <strong>implicit grid</strong> is what the browser creates automatically when items overflow your defined tracks.</p>
 """ + code(""".grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 200px;  /* only one explicit row */
+  grid-template-columns: repeat(3, 1fr);  /* explicit: 3 columns */
+  /* No rows defined — they are IMPLICIT */
 
-  /* Control the size of auto-created rows */
-  grid-auto-rows: 150px;
-
-  /* Or use minmax so rows adapt to content */
-  grid-auto-rows: minmax(150px, auto);
+  /* Control implicit row height */
+  grid-auto-rows: 200px;              /* fixed height */
+  grid-auto-rows: minmax(150px, auto);/* at least 150px, grows with content */
 }
 """) + """
-<h2 class="lesson-section-title" id="template-areas">grid-template-areas</h2>
-<p>Named areas give your grid a readable, visual structure right in your CSS:</p>
-""" + code(""".page {
+<h2 class="lesson-section-title" id="minmax">minmax()</h2>
+""" + code("""/* minmax(minimum, maximum) — track cannot be smaller than min or larger than max */
+.grid {
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  /* each column: at least 200px, expands equally to fill remaining space */
+
+  grid-auto-rows: minmax(120px, auto);
+  /* each row: at least 120px tall, grows with content */
+}
+""") + """
+<h2 class="lesson-section-title" id="auto-fill-fit">auto-fill and auto-fit</h2>
+<p>These keywords let you create fully responsive grids with zero media queries:</p>
+""" + code(""".responsive-grid {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  grid-template-rows: 64px 1fr 60px;
+  gap: 1.5rem;
+
+  /* auto-fill — create as many columns as fit at minimum 250px */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+  /* auto-fit — same, but collapses empty tracks */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* Result:
+   - Wide screens: many columns
+   - Medium screens: fewer columns
+   - Small screens: single column
+   Zero media queries needed.
+*/
+""") + """
+<div class="callout callout-tip">
+  <span class="callout-icon">💡</span>
+  <p><code>repeat(auto-fit, minmax(250px, 1fr))</code> is one of the most useful CSS patterns ever written. Add it to your muscle memory — you will use it in almost every project.</p>
+</div>
+""",
+    kc=[
+        ("What is the difference between an explicit and implicit grid track?","explicit-implicit"),
+        ("What does minmax(200px, 1fr) mean?","minmax"),
+        ("What is the difference between auto-fill and auto-fit?","auto-fill-fit"),
+    ],
+    assignments=[
+        "Build a photo gallery that automatically adjusts from 1 to 4 columns based on screen width using auto-fit and minmax — no media queries.",
+        "Build a blog card grid where each card has a minimum height set with minmax.",
+    ],
+    resources=[
+        ("MDN — Auto-placement in Grid","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout"),
+        ("CSS Tricks — Auto-Sizing Columns in CSS Grid","https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/"),
+        ("YouTube — Responsive Grid (Kevin Powell)","https://www.youtube.com/watch?v=moBhzSC455o"),
+    ])
+
+    write("positioning-grid-elements","Positioning Grid Elements",
+    intro="So far grid items have been placed automatically. This lesson covers how to manually position items — spanning multiple rows or columns, and placing items in specific grid cells.",
+    overview=[
+        "Place items using grid-column and grid-row.",
+        "Span items across multiple tracks.",
+        "Use named grid lines.",
+        "Use grid-area for shorthand placement.",
+    ],
+    body="""
+<h2 class="lesson-section-title" id="line-placement">Line-Based Placement</h2>
+<p>Grid lines are numbered starting from 1. You can place items by specifying start and end lines:</p>
+""" + code(""".item-a {
+  grid-column: 1 / 3;  /* start at line 1, end at line 3 (spans 2 columns) */
+  grid-row: 1 / 2;     /* start at row line 1, end at line 2 */
+}
+
+/* Shorthand with span keyword */
+.item-b {
+  grid-column: 2 / span 2;  /* start at line 2, span 2 columns */
+  grid-row: span 3;          /* span 3 rows from current position */
+}
+
+/* Negative line numbers count from the end */
+.full-width {
+  grid-column: 1 / -1;  /* span entire row, no matter how many columns */
+}
+""") + """
+<h2 class="lesson-section-title" id="named-lines">Named Grid Lines</h2>
+""" + code(""".layout {
+  display: grid;
+  grid-template-columns:
+    [sidebar-start] 250px [sidebar-end main-start] 1fr [main-end];
+  grid-template-rows:
+    [header-start] 64px [header-end content-start] 1fr [content-end];
+}
+
+.header  { grid-column: sidebar-start / main-end; grid-row: header-start; }
+.sidebar { grid-column: sidebar-start; grid-row: content-start; }
+.main    { grid-column: main-start; grid-row: content-start; }
+""") + """
+<h2 class="lesson-section-title" id="grid-area">grid-template-areas</h2>
+<p>The most readable way to define complex layouts — name the areas and the grid draws itself:</p>
+""" + code(""".layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 64px 1fr 48px;
   grid-template-areas:
     "header  header"
     "sidebar main"
     "footer  footer";
   min-height: 100vh;
-  gap: 0;
 }
 
-.site-header { grid-area: header;  background: #1e3a8a; }
-.sidebar     { grid-area: sidebar; background: #f8fafc; }
-.main        { grid-area: main; }
-.site-footer { grid-area: footer;  background: #1e3a8a; }
-""") + """
-<h2 class="lesson-section-title" id="shorthand">grid Shorthand</h2>
-""" + code(""".grid {
-  /* grid: rows / columns */
-  grid: auto 1fr auto / 260px 1fr;
+.header  { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main    { grid-area: main; }
+.footer  { grid-area: footer; }
 
-  /* Or define everything including areas */
-  grid:
-    "header header" 64px
-    "sidebar main"  1fr
-    "footer footer" 60px
-    / 260px 1fr;
-}
+/* Use a dot for an empty cell */
+grid-template-areas:
+  "header header header"
+  "sidebar main  .     ";
 """),
     kc=[
-        ("What is the difference between explicit and implicit grid tracks?","explicit-implicit"),
-        ("What does grid-auto-rows do?","explicit-implicit"),
-        ("How do you assign an element to a named grid area?","template-areas"),
+        ("What does grid-column: 1 / -1 do?","line-placement"),
+        ("What is the span keyword used for?","line-placement"),
+        ("How do grid-template-areas make layouts more readable?","grid-area"),
     ],
     assignments=[
-        "Build a full-page layout (header, sidebar, main content, footer) using grid-template-areas.",
-        "Create a photo gallery where images automatically create new rows using grid-auto-rows.",
+        "Build a full page layout (header, sidebar, main, footer) using grid-template-areas.",
+        "Build a featured articles section where the first article spans two columns.",
     ],
     resources=[
-        ("MDN — Grid Template Areas","https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas"),
-        ("CSS Tricks — Complete Guide to Grid","https://css-tricks.com/snippets/css/complete-guide-grid/"),
-        ("YouTube — grid-template-areas (Kevin Powell)","https://www.youtube.com/watch?v=d1BCT2yrLgo"),
-    ])
-
-    write("positioning-grid-elements","Positioning Grid Elements",
-    intro="So far grid items have been placed automatically. This lesson covers how to manually position and span items across specific rows and columns.",
-    overview=[
-        "Use grid-column and grid-row to place items manually.",
-        "Span items across multiple tracks.",
-        "Use grid line numbers and named lines.",
-        "Use the span keyword for relative sizing.",
-    ],
-    body="""
-<h2 class="lesson-section-title" id="line-numbers">Grid Line Numbers</h2>
-<p>Grid lines are numbered starting from 1 on the left/top. A 3-column grid has 4 vertical lines (1, 2, 3, 4) and negative numbers count from the opposite end (-1 is the last line).</p>
-""" + code(""".grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 100px);
-  gap: 1rem;
-}
-
-/* Place an item from column line 1 to 3 */
-.featured {
-  grid-column: 1 / 3;   /* start / end */
-  grid-row: 1 / 2;
-}
-
-/* Shorthand: start / span count */
-.wide {
-  grid-column: 1 / span 3;  /* starts at 1, spans 3 columns */
-  grid-row: 2 / span 2;     /* starts at 2, spans 2 rows */
-}
-
-/* Reach the last line with -1 */
-.full-width {
-  grid-column: 1 / -1;  /* spans all columns regardless of count */
-}
-""") + """
-<h2 class="lesson-section-title" id="named-lines">Named Lines</h2>
-""" + code(""".grid {
-  grid-template-columns:
-    [content-start] 1fr 1fr [content-end]
-    [sidebar-start] 300px [sidebar-end];
-}
-
-.article {
-  grid-column: content-start / content-end;
-}
-.aside {
-  grid-column: sidebar-start / sidebar-end;
-}
-""") + """
-<h2 class="lesson-section-title" id="auto-placement">Auto Placement Control</h2>
-""" + code(""".grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  /* dense: fills gaps left by large items */
-  grid-auto-flow: row dense;
-}
-
-.large-item {
-  grid-column: span 2;  /* takes two columns */
-}
-"""),
-    kc=[
-        ("How do you make a grid item span three columns?","line-numbers"),
-        ("What does grid-column: 1 / -1 mean?","line-numbers"),
-        ("What does grid-auto-flow: dense do?","auto-placement"),
-    ],
-    assignments=[
-        "Build a magazine-style layout where the featured article spans two columns and one featured image spans the full width.",
-        "Create a dashboard layout with differently sized widgets using manual placement.",
-    ],
-    resources=[
-        ("MDN — Line-Based Placement with CSS Grid","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement"),
-        ("CSS Tricks — Complete Guide to Grid","https://css-tricks.com/snippets/css/complete-guide-grid/"),
-        ("YouTube — CSS Grid Item Placement (Kevin Powell)","https://www.youtube.com/watch?v=M3qBpPw77qo"),
+        ("MDN — Line-Based Placement","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement"),
+        ("MDN — Grid Template Areas","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Grid_template_areas"),
+        ("YouTube — Grid Template Areas (Kevin Powell)","https://www.youtube.com/watch?v=v5KzBPUEgGQ"),
     ])
 
     write("advanced-grid-properties","Advanced Grid Properties",
-    intro="This lesson covers the remaining Grid properties that round out your toolkit: alignment inside grid cells, subgrid for nested alignment, and the masonry-style layout pattern.",
+    intro="This lesson covers the remaining Grid properties that complete your toolkit: alignment within grid cells, the gap shorthand, subgrid, and layering items.",
     overview=[
-        "Use justify-items, align-items, justify-self, and align-self within grid.",
-        "Understand subgrid for aligning nested grid items.",
-        "Use place-items and place-self shorthand.",
+        "Align items and tracks with justify-items, align-items, justify-content, align-content.",
+        "Override alignment on individual items with justify-self and align-self.",
+        "Understand the order property for re-ordering items.",
+        "Layer items in the same grid cell.",
     ],
     body="""
-<h2 class="lesson-section-title" id="alignment">Alignment in Grid</h2>
+<h2 class="lesson-section-title" id="alignment">Grid Alignment</h2>
 """ + code(""".grid {
   display: grid;
   grid-template-columns: repeat(3, 200px);
-  grid-template-rows: repeat(2, 150px);
+  /* The grid tracks are 600px total but the container might be wider */
 
-  /* Align ALL items within their cells */
-  justify-items: center;   /* horizontal alignment in cell */
-  align-items: center;     /* vertical alignment in cell */
+  /* Align items WITHIN their cell */
+  justify-items: start;   /* horizontal within cell (default: stretch) */
+  align-items: center;    /* vertical within cell */
 
-  /* Align the entire grid within its container */
-  justify-content: space-between;
-  align-content: start;
+  /* Align the GRID ITSELF within the container */
+  justify-content: center;      /* horizontal position of the whole grid */
+  align-content: space-between; /* vertical position of grid rows */
 }
 
-/* Override for a single item */
-.special {
-  justify-self: start;
+/* Override alignment on a single item */
+.featured {
+  justify-self: center;
   align-self: end;
 }
-
-/* Shorthand: place-items = align-items + justify-items */
-.grid { place-items: center; }
-
-/* place-self = align-self + justify-self */
-.item { place-self: center; }
 """) + """
-<h2 class="lesson-section-title" id="subgrid">subgrid</h2>
-<p>The classic problem: cards in a grid where the card title spans different amounts of text, making buttons misalign across cards. <code>subgrid</code> solves this by making nested grids participate in the parent grid's track definitions:</p>
-""" + code(""".card-grid {
+<h2 class="lesson-section-title" id="layering">Layering Items</h2>
+<p>Multiple grid items can be placed in the same cell — useful for overlapping text on images or stacked UI effects:</p>
+""" + code(""".grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  gap: 1rem;
+  grid-template-columns: 1fr;
 }
 
-.card {
-  display: grid;
-  /* inherit the parent's ROW tracks */
-  grid-row: span 3;
-  grid-template-rows: subgrid;
-  /* Now: title, description, and button in each card
-     all align to the same row lines */
+/* Both items are placed in the same cell */
+.background-image {
+  grid-column: 1;
+  grid-row: 1;
 }
 
-.card-title   { grid-row: 1; }
-.card-desc    { grid-row: 2; }
-.card-button  { grid-row: 3; align-self: end; }
+.overlay-text {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 1;
+  /* Text sits on top of the image */
+}
 """) + """
-<h2 class="lesson-section-title" id="responsive-grid">Fully Responsive Grid Patterns</h2>
-""" + code(""".card-grid {
-  display: grid;
-  /* auto-fit: create as many columns as fit at minimum 280px */
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
+<h2 class="lesson-section-title" id="order">Order</h2>
+""" + code("""/* Reorder items visually without changing HTML */
+/* Default order is 0. Lower = earlier, higher = later. */
+.item-a { order: 2; }  /* moves to the end */
+.item-b { order: 1; }
+.item-c { order: 0; }  /* appears first (default) */
 
-/* auto-fill vs auto-fit:
-   auto-fill: keeps empty tracks (columns exist even if empty)
-   auto-fit: collapses empty tracks (only as many as needed) */
+/* Useful for responsive design — move sidebar below main on mobile */
+@media (max-width: 768px) {
+  .sidebar { order: 2; }  /* after main on mobile */
+  .main    { order: 1; }
+}
 """),
     kc=[
-        ("What is the difference between justify-items and justify-self?","alignment"),
-        ("What problem does subgrid solve?","subgrid"),
-        ("What is the difference between auto-fill and auto-fit?","responsive-grid"),
+        ("What is the difference between justify-items and justify-content in Grid?","alignment"),
+        ("How do you place two items in the same grid cell?","layering"),
+        ("What does the order property do and why should you be careful with it?","order"),
     ],
     assignments=[
-        "Build a card grid where all card buttons align to the same baseline using subgrid.",
-        "Experiment with auto-fill vs auto-fit to understand their difference visually.",
+        "Build a dashboard layout that uses grid alignment to position elements precisely within their cells.",
+        "Create an image card with overlapping text using grid layering.",
     ],
     resources=[
-        ("MDN — CSS Grid Layout — Box Alignment","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout"),
-        ("MDN — Subgrid","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid"),
-        ("YouTube — CSS subgrid (Kevin Powell)","https://www.youtube.com/watch?v=Yl8hg2FG20Q"),
+        ("MDN — Box Alignment in Grid Layout","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout"),
+        ("CSS Tricks — A Complete Guide to Grid","https://css-tricks.com/snippets/css/complete-guide-grid/"),
+        ("YouTube — Advanced CSS Grid (Kevin Powell)","https://www.youtube.com/watch?v=N5wpD9Ov_To"),
     ])
 
     write("using-flexbox-and-grid","Using Flexbox and Grid",
-    intro="Flexbox and Grid are complementary tools, not competitors. This lesson covers the decision framework for choosing between them and how to combine them effectively in real layouts.",
+    intro="Flexbox and Grid are not competitors — they are partners. This lesson covers how to combine them effectively, and how to decide which to reach for in any given situation.",
     overview=[
-        "Know when to choose Grid and when to choose Flexbox.",
-        "Combine both in the same layout.",
-        "Understand content-first vs layout-first design.",
+        "Know the decision framework for choosing Grid vs Flexbox.",
+        "Combine Grid and Flexbox in the same layout.",
+        "Understand common layout patterns that use both.",
     ],
     body="""
-<h2 class="lesson-section-title" id="decision-framework">The Decision Framework</h2>
-<p>The key question is: <strong>are you laying out content, or are you placing items into a predefined structure?</strong></p>
+<h2 class="lesson-section-title" id="decision">The Decision Framework</h2>
 <ul>
-  <li><strong>Use Flexbox</strong> when the layout should adapt to the content — items grow and shrink based on what they contain. Navigation bars, button groups, card rows where you want items to fill available space.</li>
-  <li><strong>Use Grid</strong> when you have a predefined layout structure that items should fit into. Page layouts, dashboards, galleries where rows and columns must align across items.</li>
+  <li><strong>Use Grid when</strong> you need to control layout in two dimensions simultaneously — rows and columns together. Page layouts, dashboards, complex card arrangements.</li>
+  <li><strong>Use Flexbox when</strong> you are laying out items in a single direction — a row of buttons, a navigation bar, a stack of cards. Also ideal when you want items to naturally wrap.</li>
+  <li><strong>Use both together</strong> — Grid for the overall page structure, Flexbox for the components inside each grid area.</li>
 </ul>
-""" + code("""/* Page structure — Grid */
+
+<h2 class="lesson-section-title" id="combining">Combining Them in Practice</h2>
+""" + code("""/* Grid handles the macro layout */
 .page {
   display: grid;
   grid-template-areas:
     "header"
     "main"
     "footer";
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
 
-/* Navigation inside the header — Flexbox */
-.site-header {
+/* Flexbox handles the header's internal layout */
+.header {
   grid-area: header;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  height: 64px;
 }
 
-/* Card grid — Grid */
-.card-grid {
+/* Grid handles the card section */
+.card-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 
-/* Card interior — Flexbox */
+/* Flexbox handles what is inside each card */
 .card {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.card .card-footer {
+.card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto; /* push to bottom */
+  margin-top: auto;  /* push footer to the bottom of the card */
 }
 """) + """
-<h2 class="lesson-section-title" id="common-patterns">Common Combination Patterns</h2>
-""" + code("""/* Holy Grail Layout — Grid for structure */
+<h2 class="lesson-section-title" id="common-patterns">Common Layout Patterns</h2>
+""" + code("""/* Holy Grail Layout */
 .holy-grail {
   display: grid;
-  grid-template:
-    "header header header" 64px
-    "nav    main   aside"  1fr
-    "footer footer footer" 60px
-    / 200px 1fr 200px;
+  grid-template: auto 1fr auto / 200px 1fr 200px;
+  grid-template-areas:
+    "header  header  header"
+    "nav     main    aside"
+    "footer  footer  footer";
   min-height: 100vh;
 }
 
-/* Inside each section — Flexbox for component layout */
-.main-content {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
+/* Sidebar layout */
+.with-sidebar {
+  display: grid;
+  grid-template-columns: minmax(200px, 25%) 1fr;
   gap: 2rem;
-  padding: 2rem;
+}
+
+/* Pancake stack — full-width sections stacked vertically */
+.pancake {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
 }
 """),
     kc=[
-        ("When should you choose Flexbox over Grid?","decision-framework"),
-        ("When should you choose Grid over Flexbox?","decision-framework"),
-        ("Is it acceptable to nest Flexbox inside a Grid area?","common-patterns"),
+        ("When should you use Grid instead of Flexbox?","decision"),
+        ("How do Grid and Flexbox typically work together in a page layout?","combining"),
+        ("What is the Holy Grail layout?","common-patterns"),
     ],
     assignments=[
-        "Build a full page layout using Grid for structure and Flexbox for every component inside the layout.",
-        "Refactor a previous Flexbox-only layout and identify which parts should be Grid.",
+        "Build the Holy Grail layout using Grid for the structure and Flexbox for the internal layout of each section.",
+        "Refactor a previous project to deliberately use Grid at the page level and Flexbox at the component level.",
     ],
     resources=[
-        ("MDN — Relationship of Grid Layout to Other Layout Methods","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods"),
+        ("MDN — Relationship of Grid to Other Layout Methods","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Relationship_of_grid_layout_with_other_layout_methods"),
         ("CSS Tricks — Does CSS Grid Replace Flexbox?","https://css-tricks.com/css-grid-replace-flexbox/"),
         ("YouTube — Grid vs Flexbox (Kevin Powell)","https://www.youtube.com/watch?v=3elGSZSWTbM"),
     ])
 
     write("project-admin-dashboard","Project: Admin Dashboard",
-    intro="Build a fully functional admin dashboard layout — the capstone of the Grid section. This project requires CSS Grid for the overall layout and Flexbox for components throughout.",
+    intro="The Admin Dashboard project brings together everything from both the Intermediate CSS and Grid sections — positioning, custom properties, advanced selectors, and a complex Grid layout.",
     overview=[
-        "Build a complete admin dashboard using CSS Grid.",
-        "Use Flexbox for navigation and component layouts.",
-        "Apply custom properties for consistent theming.",
-        "Make it responsive.",
+        "Build a complete admin dashboard UI using CSS Grid.",
+        "Use Grid for both the page layout and the card grids within it.",
+        "Apply custom properties, advanced selectors, and all CSS techniques from this course.",
+        "Make the dashboard responsive.",
     ],
     body="""
 <h2 class="lesson-section-title" id="requirements">Requirements</h2>
 <ul>
-  <li><strong>Sidebar navigation</strong> — fixed width, full height, with logo and nav links</li>
-  <li><strong>Header bar</strong> — across the top of the main area, with search and user info</li>
-  <li><strong>Stats cards</strong> — a row of 4 metric cards</li>
-  <li><strong>Recent activity</strong> — a table or list of recent actions</li>
-  <li><strong>Charts/data section</strong> — two side-by-side data panels</li>
-  <li>Responsive: sidebar collapses on mobile</li>
+  <li><strong>Sidebar navigation</strong> — fixed-width, full-height, with nav links and active state</li>
+  <li><strong>Top header bar</strong> — site name, search input, user avatar</li>
+  <li><strong>Main content area</strong> with at least:
+    <ul>
+      <li>A stats row — four cards showing key numbers</li>
+      <li>A recent activity table</li>
+      <li>A projects grid — cards with title, description, and progress</li>
+    </ul>
+  </li>
+  <li>Uses CSS Grid for the overall layout and inner grids</li>
+  <li>Uses custom properties for the entire colour scheme</li>
+  <li>Responsive: sidebar collapses or moves on small screens</li>
 </ul>
 
 <h2 class="lesson-section-title" id="layout-structure">Layout Structure</h2>
-""" + code("""/* Overall layout */
-.app {
+""" + code("""/* Overall layout — Grid */
+.dashboard {
   display: grid;
   grid-template-columns: 260px 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 64px 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
   min-height: 100vh;
 }
 
-.sidebar { grid-column: 1; }
-
-.main-area {
-  grid-column: 2;
+/* Stats row — Flexbox or Grid */
+.stats-row {
   display: grid;
-  grid-template-rows: 64px 1fr;
-}
-
-.header { /* top bar */ }
-
-.content {
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);  /* stats row */
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 
-/* Stats cards span one column each */
-.stat-card { grid-column: span 1; }
-
-/* Activity table spans all columns */
-.activity  { grid-column: 1 / -1; }
-
-/* Two data panels side by side */
-.panel-left  { grid-column: span 2; }
-.panel-right { grid-column: span 2; }
+/* Projects grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
 """) + code("""mkdir ~/devpath-projects/admin-dashboard
 cd ~/devpath-projects/admin-dashboard
 git init
@@ -1980,680 +1995,718 @@ touch index.html styles.css
 code .
 """),
     kc=[
-        ("What CSS layout method is best for the overall page structure?","layout-structure"),
-        ("How do you make the activity table span all four columns?","layout-structure"),
+        ("What grid-template-areas layout works well for an admin dashboard?","layout-structure"),
+        ("How do you make the sidebar full-height?","layout-structure"),
     ],
     assignments=[
-        "Build the admin dashboard meeting all requirements above.",
+        "Build the Admin Dashboard meeting all requirements above.",
         "Push to GitHub and publish on GitHub Pages.",
     ],
     resources=[
-        ("CSS Tricks — Complete Guide to Grid","https://css-tricks.com/snippets/css/complete-guide-grid/"),
-        ("YouTube — CSS Grid Admin Dashboard (Traversy Media)","https://www.youtube.com/watch?v=moBhzSC455o"),
+        ("CSS Tricks — A Complete Guide to Grid","https://css-tricks.com/snippets/css/complete-guide-grid/"),
+        ("YouTube — Build an Admin Dashboard (Traversy Media)","https://www.youtube.com/watch?v=moBhzSC455o"),
+        ("MDN — CSS Grid Layout","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout"),
     ])
 
     write("introduction-to-web-accessibility","Introduction to Web Accessibility",
-    intro="Web accessibility means building websites that work for everyone — including people who use screen readers, keyboard-only navigation, or who have visual, motor, or cognitive differences. It is not optional.",
+    intro="Accessibility means building websites that everyone can use — including the roughly 1 in 7 people worldwide who have a disability. This lesson introduces what accessibility means and why it matters.",
     overview=[
-        "Understand what web accessibility is and why it matters.",
-        "Know the four principles of accessibility (POUR).",
-        "Understand the difference between assistive technology types.",
+        "Understand what web accessibility means and who it benefits.",
+        "Know the main categories of disabilities that affect web usage.",
+        "Understand assistive technologies like screen readers.",
+        "Know the difference between WCAG compliance levels.",
     ],
     body="""
 <h2 class="lesson-section-title" id="what-is-a11y">What Is Accessibility?</h2>
-<p>Roughly 15% of the world's population lives with some form of disability. Web accessibility (often abbreviated <strong>a11y</strong> — the 11 letters between 'a' and 'y') ensures your websites work for all of them. This includes:</p>
+<p>Web accessibility (often abbreviated <strong>a11y</strong> — a, 11 letters, y) means building websites and applications that can be used by people with disabilities. This includes people with:</p>
 <ul>
-  <li><strong>Visual</strong> — blindness, low vision, colour blindness</li>
-  <li><strong>Motor</strong> — cannot use a mouse, uses keyboard only or switch controls</li>
-  <li><strong>Hearing</strong> — deafness or hearing impairment</li>
-  <li><strong>Cognitive</strong> — dyslexia, ADHD, memory or attention differences</li>
+  <li><strong>Visual impairments</strong> — blindness, low vision, colour blindness</li>
+  <li><strong>Motor impairments</strong> — difficulty using a mouse, tremors, paralysis</li>
+  <li><strong>Cognitive disabilities</strong> — dyslexia, ADHD, autism spectrum</li>
+  <li><strong>Auditory impairments</strong> — deafness or hard of hearing</li>
 </ul>
-<p>Beyond being the right thing to do, accessibility is often a legal requirement and improves usability for everyone — captions help people in noisy environments; keyboard navigation helps power users; clear language helps non-native speakers.</p>
-
-<h2 class="lesson-section-title" id="pour">The POUR Principles</h2>
-<p>The Web Content Accessibility Guidelines (WCAG) organise accessibility around four principles. Content must be:</p>
-<ol>
-  <li><strong>Perceivable</strong> — can be perceived by all senses (provide alt text, captions, sufficient contrast).</li>
-  <li><strong>Operable</strong> — can be operated by all input methods (keyboard navigable, no seizure-inducing content).</li>
-  <li><strong>Understandable</strong> — content and UI are clear (plain language, predictable behaviour, helpful errors).</li>
-  <li><strong>Robust</strong> — works reliably across browsers, devices, and assistive technologies.</li>
-</ol>
+<p>Accessibility is not just about disabilities. Good accessibility also benefits people using a phone in bright sunlight, people with slow internet connections, elderly users, and people using keyboard-only navigation.</p>
 
 <h2 class="lesson-section-title" id="assistive-tech">Assistive Technologies</h2>
+<p>The most important assistive technology for web developers to understand is the <strong>screen reader</strong> — software that reads page content aloud. Popular screen readers include NVDA (free, Windows), VoiceOver (built into macOS and iOS), and TalkBack (built into Android).</p>
+<p>Screen readers navigate web pages by reading out HTML structure: headings, landmarks, links, form labels, and alt text. This is exactly why semantic HTML matters so much — a screen reader cannot read a visual layout, only the underlying code.</p>
+
+<h2 class="lesson-section-title" id="wcag">WCAG and Compliance Levels</h2>
+<p>The <strong>Web Content Accessibility Guidelines (WCAG)</strong> are the international standard for web accessibility. Published by the W3C, they organise requirements around four principles: <strong>Perceivable, Operable, Understandable, Robust</strong> (POUR).</p>
+<p>WCAG has three conformance levels:</p>
 <ul>
-  <li><strong>Screen readers</strong> — announce page content aloud (NVDA, JAWS, VoiceOver, TalkBack).</li>
-  <li><strong>Keyboard navigation</strong> — no mouse; Tab to move between interactive elements, Enter/Space to activate.</li>
-  <li><strong>Switch controls</strong> — single buttons for people with limited motor function.</li>
-  <li><strong>Screen magnifiers</strong> — zoom into portions of the screen.</li>
-  <li><strong>Voice control</strong> — navigate and interact by speaking.</li>
+  <li><strong>A</strong> — Minimum. Failing this excludes some users entirely.</li>
+  <li><strong>AA</strong> — The standard target for most organisations. Required by law in many countries.</li>
+  <li><strong>AAA</strong> — Highest level. Not required for entire sites but worth aiming for in key areas.</li>
 </ul>
 <div class="callout callout-tip">
   <span class="callout-icon">💡</span>
-  <p>Try navigating your own website using only the keyboard (Tab, Shift+Tab, Enter, Space, arrow keys). If you get stuck, so will your users who rely on keyboard navigation.</p>
+  <p>Good news: most accessibility improvements are also good user experience improvements. A site with clear headings, good colour contrast, and keyboard navigation is a better site for everyone — not just people with disabilities.</p>
 </div>
 """,
     kc=[
-        ("What are the four categories of disability that accessibility addresses?","what-is-a11y"),
-        ("What do the four POUR principles stand for?","pour"),
-        ("Name three types of assistive technology.","assistive-tech"),
+        ("What does a11y stand for?","what-is-a11y"),
+        ("What is a screen reader and how does it navigate a page?","assistive-tech"),
+        ("What are the three WCAG conformance levels?","wcag"),
     ],
     assignments=[
-        "Navigate your most recent project using only the keyboard. Note every place you get stuck or confused.",
-        "Install a screen reader (VoiceOver on Mac, NVDA on Windows — both free) and navigate a webpage with your eyes closed.",
-        "Read the WebAIM Introduction to Accessibility linked below.",
+        "Download and try NVDA (Windows) or use VoiceOver (Mac: Cmd+F5) on one of your own projects. Note what works and what does not.",
+        "Read the MDN Accessibility overview linked below.",
     ],
     resources=[
+        ("MDN — Accessibility Overview","https://developer.mozilla.org/en-US/docs/Learn/Accessibility/What_is_accessibility"),
         ("WebAIM — Introduction to Web Accessibility","https://webaim.org/intro/"),
-        ("MDN — Accessibility","https://developer.mozilla.org/en-US/docs/Learn/Accessibility"),
         ("YouTube — Web Accessibility Introduction (Google Chrome Developers)","https://www.youtube.com/watch?v=20SHvU2PKsM"),
     ])
 
-    write("the-web-content-accessibility-guidelines","The Web Content Accessibility Guidelines (WCAG)",
-    intro="WCAG is the internationally recognised standard for web accessibility. Understanding its structure lets you make informed decisions about which requirements apply to your projects.",
+    write("wcag","The Web Content Accessibility Guidelines",
+    intro="WCAG is the framework that defines what an accessible website looks like. This lesson breaks down the four POUR principles and the most important success criteria you need to implement.",
     overview=[
-        "Understand WCAG's three conformance levels: A, AA, AAA.",
-        "Know the most important success criteria for everyday development.",
-        "Use automated tools to check WCAG compliance.",
+        "Understand the four POUR principles of WCAG.",
+        "Know the key AA-level success criteria you must meet.",
+        "Use automated testing tools to check for WCAG issues.",
     ],
     body="""
-<h2 class="lesson-section-title" id="levels">Conformance Levels</h2>
-<p>WCAG organises success criteria into three levels:</p>
+<h2 class="lesson-section-title" id="pour">The POUR Principles</h2>
+<p>All WCAG success criteria fall under four principles:</p>
 <ul>
-  <li><strong>Level A</strong> — Minimum. Failing these makes content inaccessible to some users. Example: all images have alt text.</li>
-  <li><strong>Level AA</strong> — The standard most legal requirements reference. Most organisations target AA. Example: text contrast ratio of at least 4.5:1.</li>
-  <li><strong>Level AAA</strong> — Enhanced. Not required for entire sites but desirable where feasible. Example: contrast ratio of 7:1.</li>
+  <li><strong>Perceivable</strong> — Information must be presentable in ways users can perceive. Examples: alt text for images, captions for videos, sufficient colour contrast.</li>
+  <li><strong>Operable</strong> — Interface components must be operable. Examples: all functionality available by keyboard, no keyboard traps, sufficient time limits.</li>
+  <li><strong>Understandable</strong> — Information and operation must be understandable. Examples: clear language, consistent navigation, helpful error messages.</li>
+  <li><strong>Robust</strong> — Content must work with current and future assistive technologies. Examples: valid HTML, correct ARIA usage.</li>
 </ul>
 
-<h2 class="lesson-section-title" id="key-criteria">Key Success Criteria for Developers</h2>
-""" + code("""/* 1.1.1 Non-text Content (A) — all images have alt text */
-<img src="photo.jpg" alt="A description of the photo">
+<h2 class="lesson-section-title" id="key-criteria">Key AA-Level Success Criteria</h2>
+""" + code("""/* 1.4.3 — Colour Contrast (AA) */
+/* Text must have a contrast ratio of at least 4.5:1 against background */
+/* Large text (18px+ regular, 14px+ bold): at least 3:1 */
 
-/* 1.4.3 Contrast Minimum (AA) — text contrast ratio ≥ 4.5:1 */
-/* Use a contrast checker to verify */
+/* 2.1.1 — Keyboard Access */
+/* All functionality must be available from the keyboard */
+/* No keyboard traps */
 
-/* 2.1.1 Keyboard (A) — all functionality available via keyboard */
-/* Never use outline: none without a replacement focus style */
-:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
+/* 2.4.3 — Focus Order */
+/* Focus must move through the page in a logical order */
 
-/* 2.4.6 Headings and Labels (AA) — headings are descriptive */
-/* Good: <h2>Contact Form</h2> */
-/* Bad:  <h2>Section</h2> */
+/* 2.4.7 — Focus Visible */
+/* Any element with keyboard focus must have a visible focus indicator */
 
-/* 3.1.1 Language of Page (A) — html lang attribute */
+/* 3.1.1 — Language of Page */
+/* The human language of the page must be identified in the HTML */
 <html lang="en">
 
-/* 4.1.2 Name, Role, Value (A) — interactive elements have labels */
-<button aria-label="Close modal">✕</button>
+/* 4.1.2 — Name, Role, Value */
+/* UI components must have accessible names and roles */
 """) + """
-<h2 class="lesson-section-title" id="testing-tools">Testing Tools</h2>
+<h2 class="lesson-section-title" id="testing">Automated Testing Tools</h2>
 <ul>
-  <li><strong>axe DevTools</strong> — Browser extension that audits pages for WCAG issues.</li>
-  <li><strong>Chrome Lighthouse</strong> — Built into Chrome DevTools, includes an Accessibility audit.</li>
-  <li><strong>WAVE</strong> — Visual overlay showing accessibility errors and warnings.</li>
-  <li><strong>Colour Contrast Checker</strong> — webaim.org/resources/contrastchecker/</li>
+  <li><strong>axe DevTools</strong> — Browser extension that audits a page for WCAG violations directly in DevTools.</li>
+  <li><strong>Lighthouse</strong> — Built into Chrome DevTools. Run an audit from the Lighthouse tab.</li>
+  <li><strong>WAVE</strong> — Another browser extension with visual overlay showing issues on the page.</li>
 </ul>
-<div class="callout callout-warn">
-  <span class="callout-icon">⚠️</span>
-  <p>Automated tools catch roughly 30% of accessibility issues. Manual testing — especially keyboard navigation and screen reader testing — is essential for the rest.</p>
-</div>
+<p>Automated tools catch around 30–40% of accessibility issues. Manual testing with a keyboard and screen reader is still necessary for the rest.</p>
 """,
     kc=[
-        ("What is the difference between WCAG Level A and Level AA?","levels"),
-        ("What contrast ratio does WCAG AA require for normal text?","key-criteria"),
-        ("Why can automated tools not catch all accessibility issues?","testing-tools"),
+        ("What do the four letters in POUR stand for?","pour"),
+        ("What contrast ratio does AA-level WCAG require for normal text?","key-criteria"),
+        ("What percentage of accessibility issues can automated tools catch?","testing"),
     ],
     assignments=[
-        "Run Chrome Lighthouse on one of your projects. Read the Accessibility score breakdown and fix at least three issues.",
-        "Install the axe DevTools extension and audit your sign-up form.",
+        "Run a Lighthouse accessibility audit on one of your projects. Fix every issue it flags.",
+        "Install the axe DevTools extension and audit the same project. Compare the findings.",
     ],
     resources=[
         ("WCAG 2.1 Quick Reference","https://www.w3.org/WAI/WCAG21/quickref/"),
-        ("WebAIM — WCAG 2 Checklist","https://webaim.org/standards/wcag/checklist"),
-        ("Chrome Lighthouse — Accessibility","https://developer.chrome.com/docs/lighthouse/accessibility/"),
-        ("YouTube — WCAG Explained (Kevin Powell)","https://www.youtube.com/watch?v=vMKRc3TmFoE"),
+        ("axe DevTools Browser Extension","https://www.deque.com/axe/devtools/"),
+        ("YouTube — WCAG Explained (Deque)","https://www.youtube.com/watch?v=MzFr4_JvFdg"),
     ])
 
     write("accessible-colors","Accessible Colors",
-    intro="Colour contrast is one of the most common accessibility failures on the web. This lesson covers how to choose colours that meet WCAG standards and work for people with colour vision deficiencies.",
+    intro="Colour contrast is one of the most common and most fixable accessibility failures. This lesson covers the contrast requirements and the tools that make meeting them easy.",
     overview=[
-        "Understand contrast ratio and how it is calculated.",
-        "Meet WCAG AA and AAA contrast requirements.",
-        "Design for colour blindness.",
-        "Use tools to check and fix contrast issues.",
+        "Understand the WCAG colour contrast requirements.",
+        "Use contrast checking tools to verify your colour choices.",
+        "Build a colour palette that meets AA requirements.",
+        "Consider colour blindness in your designs.",
     ],
     body="""
-<h2 class="lesson-section-title" id="contrast-ratio">Contrast Ratio</h2>
-<p>Contrast ratio compares the relative luminance of two colours on a scale from 1:1 (identical) to 21:1 (black on white). WCAG requirements:</p>
+<h2 class="lesson-section-title" id="contrast-ratios">Contrast Ratios</h2>
+<p>Colour contrast is measured as a ratio between the relative luminance of two colours:</p>
 <ul>
-  <li><strong>Normal text (below 18pt / 14pt bold):</strong> 4.5:1 minimum (AA), 7:1 enhanced (AAA)</li>
-  <li><strong>Large text (18pt+ / 14pt+ bold):</strong> 3:1 minimum (AA), 4.5:1 enhanced (AAA)</li>
-  <li><strong>UI components and graphical objects:</strong> 3:1 minimum (AA)</li>
+  <li><strong>AA — Normal text:</strong> minimum 4.5:1</li>
+  <li><strong>AA — Large text</strong> (18px regular / 14px bold): minimum 3:1</li>
+  <li><strong>AA — UI components</strong> (buttons, inputs, focus indicators): minimum 3:1</li>
+  <li><strong>AAA — Normal text:</strong> 7:1 (enhanced, not required everywhere)</li>
 </ul>
+<p>Pure white (<code>#ffffff</code>) on pure black (<code>#000000</code>) has a contrast ratio of 21:1 — the maximum. A light grey on white might be 1.5:1 — completely inaccessible.</p>
 
-<h2 class="lesson-section-title" id="checking">Checking Contrast</h2>
-""" + code("""/* Common contrast issues */
+<h2 class="lesson-section-title" id="tools">Contrast Checking Tools</h2>
+""" + code("""/* Useful tools for checking contrast */
 
-/* FAIL — 2.3:1 ratio — light grey on white */
-.low-contrast {
-  color: #aaaaaa;
-  background: #ffffff;
-}
+/* 1. WebAIM Contrast Checker — https://webaim.org/resources/contrastchecker/ */
+/* Enter two hex colours, get the ratio and pass/fail for AA and AAA */
 
-/* PASS AA — 4.6:1 ratio */
-.good-contrast {
-  color: #595959;
-  background: #ffffff;
-}
+/* 2. Colour Contrast Analyser (desktop app) — picks any two colours on screen */
 
-/* PASS AA — dark blue on white — 8.6:1 */
-.high-contrast {
-  color: #1e3a8a;
-  background: #ffffff;
-}
+/* 3. browser DevTools — Chrome DevTools shows contrast ratio */
+/* when you click on a text colour in the styles pane */
 
-/* For dark backgrounds: use light foreground colours */
-.dark-bg {
-  background: #0f172a;
-  color: #e2e8f0; /* 14.5:1 — excellent */
+/* 4. CSS: use high-contrast colours by default */
+:root {
+  --text: #1e293b;       /* dark on white: 15.5:1 — excellent */
+  --text-muted: #64748b; /* on white: 4.6:1 — passes AA */
+  --text-subtle: #94a3b8;/* on white: 2.9:1 — FAILS AA for small text */
 }
 """) + """
-<h2 class="lesson-section-title" id="color-blindness">Designing for Colour Blindness</h2>
-<p>About 8% of men have some form of colour vision deficiency. Red-green colour blindness is most common. The rule: <strong>never use colour as the only way to convey information</strong>.</p>
-""" + code("""<!-- BAD: only colour distinguishes required fields -->
-<label style="color: red">Email *</label>
+<h2 class="lesson-section-title" id="color-blindness">Colour Blindness</h2>
+<p>About 8% of males and 0.5% of females have some form of colour blindness. The most common is red-green colour blindness (deuteranopia), where red and green appear similar.</p>
+<p>Key principles:</p>
+<ul>
+  <li><strong>Never use colour alone</strong> to convey information. Always add a text label, icon, or pattern.</li>
+  <li>For success/error states: use green/red with checkmark/X icons — not colour alone.</li>
+  <li>Test with tools like the Firefox Accessibility Inspector's colour blindness simulation.</li>
+</ul>
+""" + code("""<!-- Bad: colour alone distinguishes required fields -->
+<input type="email" style="border-color: red;">  <!-- fails -->
 
-<!-- GOOD: colour + text + icon -->
-<label>
-  Email
-  <span class="required" aria-label="required">*</span>
-</label>
-
-<!-- BAD: error state communicated only by red border -->
-input.error { border-color: red; }
-
-<!-- GOOD: colour + icon + text message -->
-<div class="field">
-  <input class="error" aria-describedby="email-error">
-  <span id="email-error" class="error-message">
+<!-- Good: colour + icon + text -->
+<div class="field error">
+  <input type="email" aria-describedby="email-error">
+  <p id="email-error" class="error-message">
     ⚠ Please enter a valid email address
-  </span>
+  </p>
 </div>
 """),
     kc=[
-        ("What is the minimum contrast ratio for normal body text at WCAG AA?","contrast-ratio"),
-        ("Why should you never use colour as the only way to convey information?","color-blindness"),
-        ("What tool can you use to check contrast ratio?","checking"),
+        ("What is the minimum contrast ratio for normal text at AA level?","contrast-ratios"),
+        ("Why should you never use colour alone to convey information?","color-blindness"),
+        ("Name two tools for checking colour contrast.","tools"),
     ],
     assignments=[
-        "Check the contrast ratio of every colour combination in one of your projects using WebAIM's contrast checker.",
-        "Find and fix any failing contrast ratios.",
-        "Enable Chrome's colour blindness emulation (DevTools → Rendering → Emulate vision deficiencies) and check your UI.",
+        "Check the colour contrast of all text in one of your projects using WebAIM's contrast checker. Fix any failures.",
+        "Test your project in Firefox's colour blindness simulation mode.",
     ],
     resources=[
         ("WebAIM — Colour Contrast Checker","https://webaim.org/resources/contrastchecker/"),
-        ("MDN — Colour and Accessibility","https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast"),
-        ("YouTube — Accessible Colour Design (Google Chrome Developers)","https://www.youtube.com/watch?v=SL_YcLbG9B0"),
+        ("MDN — Colour and Colour Contrast","https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast"),
+        ("YouTube — Colour Accessibility (Kevin Powell)","https://www.youtube.com/watch?v=FzXFzk9RsI8"),
     ])
 
     write("keyboard-navigation","Keyboard Navigation",
-    intro="Many users navigate entirely by keyboard — people with motor disabilities, power users, and screen reader users. Building keyboard-accessible sites is a core accessibility requirement.",
+    intro="Many users navigate entirely by keyboard — people with motor disabilities, power users, and anyone using a screen reader. Your site must be fully operable without a mouse.",
     overview=[
-        "Understand how keyboard navigation works in browsers.",
-        "Manage focus correctly with tabindex.",
-        "Style focus indicators that are visible and attractive.",
-        "Avoid common keyboard accessibility pitfalls.",
+        "Understand how keyboard navigation works in the browser.",
+        "Ensure all interactive elements are keyboard-accessible.",
+        "Implement visible, well-designed focus styles.",
+        "Manage focus correctly for dynamic content.",
     ],
     body="""
 <h2 class="lesson-section-title" id="how-it-works">How Keyboard Navigation Works</h2>
+<p>In a browser, keyboard users navigate with:</p>
 <ul>
-  <li><kbd>Tab</kbd> — moves focus to the next interactive element</li>
-  <li><kbd>Shift+Tab</kbd> — moves focus to the previous interactive element</li>
-  <li><kbd>Enter</kbd> — activates links and buttons</li>
-  <li><kbd>Space</kbd> — activates buttons, checks checkboxes</li>
-  <li><kbd>Arrow keys</kbd> — moves within components (radio groups, select dropdowns, carousels)</li>
-  <li><kbd>Escape</kbd> — closes modals and dropdowns</li>
+  <li><kbd>Tab</kbd> — move focus forward through interactive elements</li>
+  <li><kbd>Shift+Tab</kbd> — move focus backward</li>
+  <li><kbd>Enter</kbd> — activate a link or button</li>
+  <li><kbd>Space</kbd> — activate a button, checkbox, or select</li>
+  <li><kbd>Arrow keys</kbd> — navigate within components (menus, radios, sliders)</li>
+  <li><kbd>Escape</kbd> — dismiss modals and menus</li>
 </ul>
-<p>By default, only naturally focusable elements receive Tab focus: <code>a</code>, <code>button</code>, <code>input</code>, <code>select</code>, <code>textarea</code>.</p>
+<p>Interactive HTML elements — <code>&lt;a&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;textarea&gt;</code> — are focusable by default. <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> are NOT.</p>
 
-<h2 class="lesson-section-title" id="tabindex">tabindex</h2>
-""" + code("""<!-- tabindex="0" — add to the natural tab order -->
-<!-- Use for custom interactive elements that are not buttons -->
-<div role="button" tabindex="0" class="custom-card">
-  Clickable card
-</div>
-
-<!-- tabindex="-1" — focusable by JavaScript but not by Tab -->
-<!-- Use for modal content you want to focus programmatically -->
-<div id="modal" tabindex="-1">
-  Modal content
-</div>
-// Focus it with JS:
-document.getElementById('modal').focus();
-
-<!-- tabindex > 0 — AVOID — creates confusing non-linear tab order -->
-""") + """
 <h2 class="lesson-section-title" id="focus-styles">Focus Styles</h2>
-""" + code("""/* NEVER do this without a replacement */
-* { outline: none; } /* kills keyboard navigation */
+""" + code("""/* NEVER do this — it removes the only visual indicator for keyboard users */
+*       { outline: none; }          /* terrible */
+button:focus { outline: 0; }       /* also terrible */
 
-/* Modern approach — :focus-visible shows outline only for keyboard */
+/* DO this — a clear, branded focus style */
 :focus-visible {
   outline: 2px solid #2563eb;
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
-/* Remove the outline for mouse clicks (handled by :focus-visible) */
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* Custom focus styles that match your design */
-.button:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+/* :focus-visible only shows the focus ring for keyboard navigation */
+/* not for mouse clicks — the best of both worlds */
+button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
 }
 """) + """
+<h2 class="lesson-section-title" id="tabindex">tabindex</h2>
+""" + code("""<!-- tabindex="0" — adds a non-interactive element to the tab order -->
+<div tabindex="0" role="button">Click me</div>
+
+<!-- tabindex="-1" — removes from tab order but can receive focus via JS -->
+<!-- Useful for managing focus in modals and dynamic content -->
+<div tabindex="-1" id="modal-content">Modal body</div>
+
+<!-- JavaScript: programmatically move focus -->
+document.querySelector('#modal-content').focus();
+
+<!-- tabindex > 0 — DO NOT USE — creates unpredictable tab order -->
+<button tabindex="3">Avoid this</button>
+""") + """
 <h2 class="lesson-section-title" id="skip-links">Skip Navigation Links</h2>
-""" + code("""<!-- Allow keyboard users to skip to main content -->
+""" + code("""<!-- Allows keyboard users to skip repetitive navigation -->
+<!-- Placed as the very first element in the body -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav>...</nav>
-<main id="main-content" tabindex="-1">...</main>
+<main id="main-content">...</main>
 """) + code(""".skip-link {
   position: absolute;
-  top: -100%;
-  left: 1rem;
+  top: -100%;      /* off-screen by default */
+  left: 0;
   background: #2563eb;
   color: white;
   padding: 0.5rem 1rem;
-  border-radius: 0 0 4px 4px;
-  transition: top 0.2s;
+  z-index: 9999;
+  text-decoration: none;
 }
 
 .skip-link:focus {
-  top: 0;  /* visible when focused via keyboard */
+  top: 0;          /* visible when focused by keyboard */
 }
 """),
     kc=[
-        ("What is the difference between tabindex 0 and tabindex -1?","tabindex"),
-        ("Why should you avoid outline: none without a replacement?","focus-styles"),
-        ("What is a skip navigation link and who benefits from it?","skip-links"),
+        ("Which HTML elements are keyboard-focusable by default?","how-it-works"),
+        ("What is :focus-visible and why is it better than :focus?","focus-styles"),
+        ("What does tabindex='-1' do?","tabindex"),
+        ("What is a skip link and why is it important?","skip-links"),
     ],
     assignments=[
-        "Add a skip navigation link to your admin dashboard project.",
-        "Remove all outline: none declarations from your project and replace them with proper :focus-visible styles.",
-        "Navigate your admin dashboard with keyboard only and fix any focus order issues.",
+        "Navigate one of your projects using only the keyboard (Tab, Shift+Tab, Enter, Space). Identify and fix all issues you encounter.",
+        "Add a skip link to the top of one of your projects.",
+        "Replace any outline: none rules with a proper :focus-visible style.",
     ],
     resources=[
+        ("MDN — Keyboard-accessible JavaScript widgets","https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets"),
         ("WebAIM — Keyboard Accessibility","https://webaim.org/techniques/keyboard/"),
-        ("MDN — tabindex","https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex"),
-        ("YouTube — Focus Styles (Kevin Powell)","https://www.youtube.com/watch?v=Mvu5OMGcdVA"),
+        ("YouTube — Keyboard Navigation (Google Chrome Developers)","https://www.youtube.com/watch?v=EIkNaBMkxhE"),
     ])
 
     write("meaningful-text","Meaningful Text",
-    intro="The words you choose — in link text, button labels, headings, and alt text — dramatically affect accessibility. Screen reader users often navigate by heading or link lists, so every label must stand alone.",
+    intro="The words you use in your HTML — link text, button labels, headings, alt text — are the primary way screen reader users understand your page. This lesson covers how to write text that communicates clearly for everyone.",
     overview=[
-        "Write link text that makes sense out of context.",
-        "Use headings to create a logical document outline.",
-        "Write alt text that conveys the meaning of images.",
-        "Use plain language and clear error messages.",
+        "Write descriptive link text that makes sense out of context.",
+        "Write meaningful button labels.",
+        "Use headings to create a navigable document structure.",
+        "Write good alt text for images in different contexts.",
     ],
     body="""
-<h2 class="lesson-section-title" id="link-text">Meaningful Link Text</h2>
-<p>Screen reader users can call up a list of all links on a page and navigate between them without surrounding context. "Click here" and "Read more" are useless in that list.</p>
-""" + code("""<!-- BAD — meaningless out of context -->
-<a href="/docs">Click here</a>
-<a href="/blog/css-grid">Read more</a>
+<h2 class="lesson-section-title" id="link-text">Link Text</h2>
+<p>Screen reader users often navigate by pulling up a list of all links on the page. Links need to make sense when read in isolation, out of their surrounding context.</p>
+""" + code("""<!-- Bad — meaningless out of context -->
+<a href="/pricing">Click here</a>
+<a href="/docs">Read more</a>
 <a href="/contact">Here</a>
 
-<!-- GOOD — descriptive and self-contained -->
-<a href="/docs">View the documentation</a>
-<a href="/blog/css-grid">Read: CSS Grid in Depth</a>
-<a href="/contact">Contact the support team</a>
+<!-- Good — descriptive on their own -->
+<a href="/pricing">View pricing plans</a>
+<a href="/docs">Read the documentation</a>
+<a href="/contact">Contact our support team</a>
 
-<!-- When the context is visually obvious but not to screen readers -->
-<article>
-  <h2>CSS Grid in Depth</h2>
-  <p>A comprehensive guide to CSS Grid...</p>
-  <a href="/blog/css-grid" aria-label="Read CSS Grid in Depth">Read more</a>
-</article>
+<!-- Multiple "Read more" links on one page — bad -->
+<a href="/post-1">Read more</a>
+<a href="/post-2">Read more</a>
+
+<!-- Better — use visually-hidden text to distinguish them -->
+<a href="/post-1">
+  Read more
+  <span class="visually-hidden"> about Getting Started with CSS</span>
+</a>
 """) + """
-<h2 class="lesson-section-title" id="headings">Heading Hierarchy</h2>
-""" + code("""<!-- BAD — heading levels chosen for visual size -->
-<h3>Sign In</h3>           <!-- actually the page title -->
-<h5>Email</h5>             <!-- form section label -->
+<h2 class="lesson-section-title" id="buttons">Button Labels</h2>
+""" + code("""<!-- Bad — icon-only button with no label -->
+<button><svg>...</svg></button>
 
-<!-- GOOD — logical outline -->
-<h1>Sign In</h1>
-<h2>Enter Your Credentials</h2>
+<!-- Good — icon + visible label -->
+<button><svg aria-hidden="true">...</svg> Delete account</button>
 
-<!-- Screen readers navigate by heading — every heading should
-     describe the content that follows it -->
+<!-- Good — icon-only with aria-label -->
+<button aria-label="Delete account">
+  <svg aria-hidden="true">...</svg>
+</button>
+
+<!-- Good — icon-only with tooltip via title -->
+<button title="Close menu">
+  <svg aria-hidden="true">...</svg>
+</button>
 """) + """
-<h2 class="lesson-section-title" id="plain-language">Plain Language and Error Messages</h2>
-""" + code("""<!-- BAD — technical error message -->
-<span class="error">
-  ERR_FORM_VALIDATION_422: email field regex mismatch
-</span>
+<h2 class="lesson-section-title" id="headings">Heading Structure</h2>
+<p>Screen reader users navigate between headings like a sighted user scans a page. A logical heading structure is one of the highest-impact accessibility improvements you can make.</p>
+""" + code("""<!-- Bad — headings chosen for visual size, not structure -->
+<h1>Home</h1>
+<h3>Welcome</h3>       <!-- skipped h2 -->
+<h1>Our Services</h1>  <!-- second h1 -->
 
-<!-- GOOD — human, specific, actionable -->
-<span class="error" role="alert">
-  Please enter a valid email address — for example, name@example.com
-</span>
-
-<!-- Error messages should:
-     1. Say what went wrong
-     2. Say how to fix it
-     3. Not blame the user -->
+<!-- Good — logical, nested hierarchy -->
+<h1>DevPath — Learn Web Development</h1>
+  <h2>Foundations Course</h2>
+    <h3>Introduction</h3>
+    <h3>HTML Basics</h3>
+  <h2>Full Stack JavaScript</h2>
+    <h3>Intermediate HTML and CSS</h3>
+""") + """
+<h2 class="lesson-section-title" id="visually-hidden">The Visually-Hidden Pattern</h2>
+""" + code("""/* Hide text visually but keep it accessible to screen readers */
+/* DO NOT use display:none or visibility:hidden — those hide from everyone */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 """),
     kc=[
-        ("Why must link text be descriptive without surrounding context?","link-text"),
-        ("Why should headings be chosen based on hierarchy, not visual size?","headings"),
-        ("What three things should a good error message do?","plain-language"),
+        ("Why must link text make sense out of context?","link-text"),
+        ("How do you make an icon-only button accessible?","buttons"),
+        ("What is the visually-hidden pattern and when do you use it?","visually-hidden"),
     ],
     assignments=[
-        "Audit all link text in a project. Replace any 'click here' or 'read more' with descriptive text.",
-        "Run your page through a headings outline checker (linked below) to verify your hierarchy is logical.",
+        "Audit all links in one of your projects. Replace any 'click here' or 'read more' text with descriptive labels.",
+        "Add aria-label or visually-hidden text to any icon-only buttons in your projects.",
     ],
     resources=[
+        ("MDN — Writing CSS for Accessibility","https://developer.mozilla.org/en-US/docs/Learn/Accessibility/CSS_and_JavaScript"),
         ("WebAIM — Links and Hypertext","https://webaim.org/techniques/hypertext/"),
-        ("MDN — Writing Good Alt Text","https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML#text_alternatives"),
-        ("YouTube — Accessible Link Text (Google Chrome Developers)","https://www.youtube.com/watch?v=3f31oufqFSM"),
+        ("YouTube — Accessible Text (Google Chrome Developers)","https://www.youtube.com/watch?v=e2nkq3h1P68"),
     ])
 
     write("wai-aria","WAI-ARIA",
-    intro="WAI-ARIA (Web Accessibility Initiative – Accessible Rich Internet Applications) is a set of HTML attributes that communicate the role, state, and properties of elements to assistive technologies — especially for dynamic content that HTML alone cannot describe.",
+    intro="WAI-ARIA (Accessible Rich Internet Applications) is a specification that lets you communicate additional semantic information to assistive technologies — information that HTML alone cannot express.",
     overview=[
-        "Understand the three types of ARIA attributes: roles, states, and properties.",
-        "Know when to use ARIA and when not to.",
-        "Apply common ARIA patterns correctly.",
+            "Understand when to use ARIA and when not to.",
+            "Use ARIA roles to define element purpose.",
+            "Use ARIA properties and states to convey dynamic information.",
+            "Follow the first rule of ARIA.",
     ],
     body="""
-<h2 class="lesson-section-title" id="what-aria">What ARIA Does</h2>
-<p>When you build a custom dropdown menu out of divs rather than a native <code>&lt;select&gt;</code>, screen readers have no idea what it is. ARIA lets you annotate it: "this is a listbox, these are options, this option is currently selected."</p>
-<p>The first rule of ARIA is: <strong>use native HTML elements before reaching for ARIA</strong>. A <code>&lt;button&gt;</code> already has the correct role, keyboard behaviour, and accessibility semantics. A <code>&lt;div role="button"&gt;</code> requires you to manually add everything the button provides for free.</p>
+<h2 class="lesson-section-title" id="first-rule">The First Rule of ARIA</h2>
+<p>The most important rule about ARIA is: <strong>do not use ARIA if you can use native HTML instead.</strong></p>
+""" + code("""<!-- Do NOT do this -->
+<div role="button" tabindex="0" onclick="submit()">Submit</div>
 
+<!-- DO this — native HTML has all the semantics built in -->
+<button type="submit">Submit</button>
+
+<!-- ARIA is for cases where native HTML falls short:
+     - Custom interactive widgets (tabs, accordions, carousels)
+     - Dynamic content updates
+     - Complex relationships between elements              -->
+""") + """
 <h2 class="lesson-section-title" id="roles">ARIA Roles</h2>
-""" + code("""<!-- Landmark roles — help screen readers navigate the page -->
-<header  role="banner">...</header>    <!-- usually implicit on header -->
-<nav     role="navigation">...</nav>  <!-- usually implicit on nav -->
-<main    role="main">...</main>        <!-- usually implicit on main -->
-<aside   role="complementary">...</aside>
-<footer  role="contentinfo">...</footer>
-<form    role="form">...</form>
+""" + code("""<!-- Landmark roles — help screen reader users navigate page sections -->
+<header role="banner">...</header>     <!-- site header -->
+<nav role="navigation">...</nav>       <!-- navigation -->
+<main role="main">...</main>           <!-- main content -->
+<aside role="complementary">...</aside><!-- sidebar -->
+<footer role="contentinfo">...</footer><!-- site footer -->
+
+<!-- Note: HTML5 elements like header, nav, main already have implicit roles -->
+<!-- The role attributes above are redundant but sometimes useful for clarity -->
 
 <!-- Widget roles — for custom interactive components -->
-<div role="button" tabindex="0">Custom button</div>
-<ul  role="listbox">
-  <li role="option" aria-selected="true">Option 1</li>
-</ul>
-<div role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-  <h2 id="dialog-title">Confirm Delete</h2>
+<div role="tablist">
+  <button role="tab" aria-selected="true">Tab 1</button>
+  <button role="tab" aria-selected="false">Tab 2</button>
 </div>
+<div role="tabpanel">Content for tab 1</div>
 """) + """
-<h2 class="lesson-section-title" id="states-properties">States and Properties</h2>
-""" + code("""<!-- aria-label — accessible name when visible text is absent -->
-<button aria-label="Close modal">✕</button>
+<h2 class="lesson-section-title" id="properties-states">ARIA Properties and States</h2>
+""" + code("""<!-- aria-label — provides an accessible name -->
+<button aria-label="Close dialog">×</button>
 
-<!-- aria-labelledby — point to an existing element for the name -->
-<section aria-labelledby="section-title">
-  <h2 id="section-title">Recent Orders</h2>
+<!-- aria-labelledby — points to an element that labels this one -->
+<section aria-labelledby="section-heading">
+  <h2 id="section-heading">Recent Projects</h2>
+  ...
 </section>
 
-<!-- aria-describedby — additional descriptive text -->
-<input aria-describedby="password-hint" type="password">
-<p id="password-hint">Must be at least 8 characters with one number</p>
+<!-- aria-describedby — points to additional description -->
+<input
+  type="password"
+  aria-describedby="password-hint"
+>
+<p id="password-hint">Password must be at least 8 characters</p>
 
-<!-- aria-expanded — open/closed state for dropdowns, accordions -->
+<!-- aria-hidden — hides from assistive technology -->
+<svg aria-hidden="true" focusable="false">...</svg>
+
+<!-- aria-expanded — state of expandable elements -->
 <button aria-expanded="false" aria-controls="menu">Menu</button>
 <ul id="menu" hidden>...</ul>
 
-<!-- aria-hidden — hide decorative elements from screen readers -->
-<span aria-hidden="true">🎉</span> Congratulations!
-
-<!-- role="alert" — announce dynamic content immediately -->
-<div role="alert" aria-live="polite">
-  Form submitted successfully!
+<!-- aria-live — announce dynamic content changes -->
+<div aria-live="polite" id="status">
+  <!-- content updated here is announced by screen readers -->
 </div>
 """),
     kc=[
-        ("What is the first rule of ARIA?","what-aria"),
-        ("What does aria-label do?","states-properties"),
-        ("What does aria-expanded communicate?","states-properties"),
-        ("When should you use role='alert'?","states-properties"),
+        ("What is the first rule of ARIA?","first-rule"),
+        ("What is aria-hidden used for?","properties-states"),
+        ("What does aria-live do?","properties-states"),
+        ("When should you use role='button' on a div?","first-rule"),
     ],
     assignments=[
-        "Add appropriate ARIA attributes to any custom components in your admin dashboard (dropdown menus, modals, tabs).",
-        "Read the ARIA Authoring Practices Guide to see correct patterns for common widgets.",
+        "Add appropriate ARIA attributes to any custom interactive components in your projects.",
+        "Read the MDN ARIA guides linked below.",
     ],
     resources=[
-        ("ARIA Authoring Practices Guide (APG)","https://www.w3.org/WAI/ARIA/apg/"),
         ("MDN — ARIA","https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA"),
-        ("YouTube — ARIA Explained (Google Chrome Developers)","https://www.youtube.com/watch?v=g9Qff0b-lHk"),
+        ("WAI-ARIA Authoring Practices","https://www.w3.org/WAI/ARIA/apg/"),
+        ("YouTube — ARIA Tutorial (Google Chrome Developers)","https://www.youtube.com/watch?v=g9Qff0b-lHk"),
     ])
 
     write("introduction-to-responsive-design","Introduction to Responsive Design",
-    intro="Responsive design means your website looks and works well on every screen size — from a 375px phone to a 2560px monitor. This lesson introduces the philosophy and tools behind responsive web development.",
+    intro="Responsive design means building websites that look and work well on every screen size — from a 320px mobile phone to a 4K monitor. This lesson introduces the philosophy and core techniques.",
     overview=[
-        "Define responsive design and its three core ingredients.",
-        "Understand the viewport meta tag.",
-        "Know the mobile-first approach and why it is preferred.",
+        "Understand what responsive design is and why it matters.",
+        "Know the three pillars of responsive design.",
+        "Understand the mobile-first approach.",
+        "Know the difference between responsive and adaptive design.",
     ],
     body="""
-<h2 class="lesson-section-title" id="what-is-rwd">What Is Responsive Design?</h2>
-<p>Responsive design is an approach where the layout, images, and typography adapt to the available space. A single codebase serves all screen sizes gracefully — no separate mobile site required.</p>
-<p>Ethan Marcotte coined the term in 2010 and defined three core ingredients:</p>
+<h2 class="lesson-section-title" id="what-is-responsive">What Is Responsive Design?</h2>
+<p>Responsive web design (RWD) is an approach where a website's layout and content fluidly adapt to the size of the device displaying it. The same HTML is served to all devices — CSS handles the presentation differences.</p>
+<p>This matters because over 60% of web traffic now comes from mobile devices. A site that only looks good on a desktop is failing the majority of its users.</p>
+
+<h2 class="lesson-section-title" id="three-pillars">The Three Pillars</h2>
 <ol>
-  <li><strong>Fluid grids</strong> — use relative units (%, fr, vw) instead of fixed pixel widths.</li>
-  <li><strong>Flexible images</strong> — images scale within their containers.</li>
-  <li><strong>Media queries</strong> — apply different CSS at different viewport widths.</li>
+  <li><strong>Fluid grids</strong> — layouts built with relative units (%, fr) rather than fixed pixels, so they stretch and compress naturally.</li>
+  <li><strong>Flexible images</strong> — images that scale within their containers and never overflow them.</li>
+  <li><strong>Media queries</strong> — CSS rules that apply only when the viewport matches certain conditions (e.g., screen width is below 768px).</li>
 </ol>
 
-<h2 class="lesson-section-title" id="viewport-meta">The Viewport Meta Tag</h2>
-<p>Without this tag, mobile browsers render your page at ~980px wide and scale it down — making everything tiny and unreadable:</p>
-""" + code("""<!-- Required in every HTML file — already in your boilerplate -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- width=device-width: use the device's actual screen width -->
-<!-- initial-scale=1.0:  no initial zoom -->
-""") + """
-<h2 class="lesson-section-title" id="mobile-first">Mobile-First Approach</h2>
-<p>Write your base CSS for the smallest screen first, then progressively enhance for larger screens using <code>min-width</code> media queries.</p>
-""" + code("""/* MOBILE FIRST — base styles for small screens */
+<h2 class="lesson-section-title" id="mobile-first">Mobile-First Design</h2>
+<p>Mobile-first means writing your base CSS for the smallest screens, then adding media queries to enhance the layout for larger screens. This is the recommended approach because:</p>
+<ul>
+  <li>It forces you to prioritise content — what is truly essential on a small screen?</li>
+  <li>It results in leaner CSS — you start minimal and add, rather than starting large and overriding.</li>
+  <li>Performance is better — mobile users only download styles they need.</li>
+</ul>
+""" + code("""/* Mobile-first: base styles for small screens */
 .container {
   padding: 1rem;
 }
-
 .card-grid {
   display: grid;
-  grid-template-columns: 1fr;  /* single column on mobile */
+  grid-template-columns: 1fr;   /* single column on mobile */
   gap: 1rem;
 }
 
-/* TABLET — enhance at 640px */
+/* Add more columns as the screen gets wider */
 @media (min-width: 640px) {
   .card-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* DESKTOP — enhance further at 1024px */
 @media (min-width: 1024px) {
-  .container { padding: 2rem; }
   .card-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .container {
+    padding: 2rem;
+  }
 }
-""") + """
-<div class="callout callout-tip">
-  <span class="callout-icon">💡</span>
-  <p>Mobile-first is better because mobile CSS is simpler (single column), and overriding simple with complex is easier than overriding complex with simple. It also performs better — mobile devices only download what they need.</p>
-</div>
-""",
+"""),
     kc=[
-        ("What are the three ingredients of responsive design?","what-is-rwd"),
-        ("What does the viewport meta tag do?","viewport-meta"),
-        ("Why is mobile-first preferred over desktop-first?","mobile-first"),
+        ("What are the three pillars of responsive design?","three-pillars"),
+        ("What does mobile-first mean in terms of how you write CSS?","mobile-first"),
+        ("Why is mobile-first recommended over desktop-first?","mobile-first"),
     ],
     assignments=[
-        "Read Ethan Marcotte's original 'Responsive Web Design' article (linked below) — the article that started it all.",
-        "Check each of your current projects to confirm they all have the viewport meta tag.",
+        "Read Ethan Marcotte's original 'Responsive Web Design' article — linked below.",
+        "Identify three websites you use daily. View them at mobile, tablet, and desktop widths. Note what changes between breakpoints.",
     ],
     resources=[
         ("A List Apart — Responsive Web Design (Ethan Marcotte)","https://alistapart.com/article/responsive-web-design/"),
         ("MDN — Responsive Design","https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design"),
-        ("YouTube — Responsive Web Design Introduction (Kevin Powell)","https://www.youtube.com/watch?v=bn-DQznwa14"),
+        ("YouTube — Responsive Design Explained (Kevin Powell)","https://www.youtube.com/watch?v=VQraviuwbzU"),
     ])
 
     write("natural-responsiveness","Natural Responsiveness",
-    intro="Before reaching for media queries, many elements can be made responsive naturally using the CSS techniques you already know. This lesson covers the layout approaches that adapt to screen size without breakpoints.",
+    intro="Many layout techniques create responsive results automatically without media queries. This lesson covers how to write CSS that is naturally fluid.",
     overview=[
-        "Use relative units to make text and spacing fluid.",
-        "Use auto-fit/auto-fill for responsive grids without media queries.",
-        "Apply min(), max(), and clamp() for adaptive sizing.",
-        "Use min-width and max-width to contain layouts.",
+        "Use relative units to create fluid typography and spacing.",
+        "Use Flexbox and Grid patterns that respond automatically.",
+        "Avoid fixed widths that break layouts.",
     ],
     body="""
-<h2 class="lesson-section-title" id="fluid-typography">Fluid Typography</h2>
-""" + code("""/* WITHOUT clamp: need media queries to control font size */
-h1 { font-size: 2rem; }
-@media (min-width: 768px)  { h1 { font-size: 2.5rem; } }
-@media (min-width: 1024px) { h1 { font-size: 3.5rem; } }
+<h2 class="lesson-section-title" id="fluid-type">Fluid Typography</h2>
+""" + code("""/* clamp() creates fluid type with no media queries */
+h1 { font-size: clamp(1.75rem, 4vw, 3rem);   }
+h2 { font-size: clamp(1.35rem, 3vw, 2.25rem); }
+p  { font-size: clamp(1rem,    1.5vw, 1.125rem); }
 
-/* WITH clamp: fluid scaling with no breakpoints */
-h1 { font-size: clamp(1.75rem, 5vw, 3.5rem); }
-/* Never smaller than 1.75rem, never bigger than 3.5rem,
-   scales smoothly with viewport in between */
+/* Fluid spacing */
+.section {
+  padding: clamp(2rem, 8vw, 6rem) clamp(1rem, 5vw, 3rem);
+}
 
-/* A readable line length at any screen size */
-p { max-width: 65ch; }
+/* Container that never gets too wide */
+.container {
+  width: min(90%, 1200px);  /* 90% on mobile, max 1200px on large screens */
+  margin-inline: auto;       /* centre it */
+}
 """) + """
-<h2 class="lesson-section-title" id="intrinsic-grid">Intrinsic Responsive Grid</h2>
-""" + code(""".grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+<h2 class="lesson-section-title" id="responsive-flex">Naturally Responsive Flexbox</h2>
+""" + code("""/* flex-wrap: wrap + flex: 1 1 min-width */
+/* Items wrap naturally when they run out of space */
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
-/* Breakdown:
-   auto-fit: create as many columns as fit
-   minmax: each column is at least 280px (or 100% if container is smaller)
-   1fr: columns grow to fill available space
-   Result: 1 column on phones, 2-3 on tablets, 4 on desktop — no media queries */
+
+.card {
+  flex: 1 1 280px;  /* items are at least 280px, fill space, wrap as needed */
+}
+
+/* Result: 4 columns on wide screens → 2 → 1 as width decreases */
+/* Zero media queries needed */
 """) + """
-<h2 class="lesson-section-title" id="contain">max-width and min-width for Containment</h2>
-""" + code(""".container {
-  width: min(90%, 1200px);  /* 90% on small screens, capped at 1200px */
-  margin-inline: auto;       /* centre horizontally */
-  padding-inline: 1rem;
+<h2 class="lesson-section-title" id="responsive-grid">Naturally Responsive Grid</h2>
+""" + code("""/* auto-fit + minmax — the most powerful responsive pattern */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
-/* Prevent images from overflowing */
+/* Image galleries */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+""") + """
+<h2 class="lesson-section-title" id="avoid-fixed">Avoiding Fixed Widths</h2>
+""" + code("""/* Fragile — breaks on small screens */
+.card { width: 400px; }
+
+/* Better — flexible with a maximum */
+.card {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Images — always include this */
 img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Sidebar that never gets too narrow */
-.sidebar {
-  width: max(200px, 25%);
+  display: block;
+  max-width: 100%;   /* image never overflows its container */
+  height: auto;      /* maintain aspect ratio */
 }
 """),
     kc=[
-        ("What does clamp(1.75rem, 5vw, 3.5rem) mean for font-size?","fluid-typography"),
-        ("How does auto-fit with minmax create a responsive grid without media queries?","intrinsic-grid"),
-        ("What does width: min(90%, 1200px) do?","contain"),
+        ("How does clamp() create responsive typography without media queries?","fluid-type"),
+        ("What CSS makes a Flexbox layout wrap naturally?","responsive-flex"),
+        ("Why should you use max-width instead of width for fixed-size elements?","avoid-fixed"),
     ],
     assignments=[
-        "Refactor a project's typography to use clamp() for all heading sizes. Remove the corresponding media query font-size overrides.",
-        "Replace a media-query-based card grid with auto-fit and minmax.",
+        "Rebuild a previous project's typography using clamp() for all font sizes.",
+        "Refactor a card grid to use auto-fit and minmax — remove any media queries that were only adjusting column counts.",
     ],
     resources=[
-        ("MDN — min()","https://developer.mozilla.org/en-US/docs/Web/CSS/min"),
-        ("CSS Tricks — A Complete Guide to CSS Media Queries","https://css-tricks.com/a-complete-guide-to-css-media-queries/"),
-        ("YouTube — Intrinsic Responsive Design (Kevin Powell)","https://www.youtube.com/watch?v=VsNAuGkCpQU"),
+        ("MDN — Responsive Images","https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images"),
+        ("YouTube — Stop using media queries (Kevin Powell)","https://www.youtube.com/watch?v=OwNyUkJ1WDM"),
+        ("CSS Tricks — A Complete Guide to CSS Functions","https://css-tricks.com/complete-guide-to-css-functions/"),
     ])
 
     write("responsive-images","Responsive Images",
-    intro="Images are typically the largest assets on a page. Serving the right image for each device — the right size, the right format, the right art direction — dramatically improves performance and user experience.",
+    intro="Images are the largest assets on most web pages. Serving the right image at the right size for each device dramatically improves performance and user experience.",
     overview=[
-        "Use max-width: 100% for basic image responsiveness.",
-        "Use srcset to serve different resolutions.",
-        "Use the picture element for art direction.",
-        "Choose the right image format for each use case.",
+            "Use the srcset attribute to serve different image resolutions.",
+            "Use the sizes attribute to describe image display widths.",
+            "Use the picture element for art direction.",
+            "Use modern image formats (WebP, AVIF) for better compression.",
     ],
     body="""
-<h2 class="lesson-section-title" id="basic">Basic Responsive Images</h2>
-""" + code("""/* Add to your CSS reset — images never overflow their container */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-""") + """
-<h2 class="lesson-section-title" id="srcset">srcset — Serving Different Resolutions</h2>
-""" + code("""<!-- srcset: list of images and their widths
-     sizes: which image to use at each viewport width -->
+<h2 class="lesson-section-title" id="srcset">srcset — Resolution Switching</h2>
+""" + code("""<!-- The browser picks the most appropriate image size -->
 <img
   src="hero-800.jpg"
   srcset="
     hero-400.jpg  400w,
     hero-800.jpg  800w,
     hero-1200.jpg 1200w,
-    hero-2400.jpg 2400w
+    hero-1600.jpg 1600w
   "
+  alt="A mountainous landscape at sunrise"
+>
+
+<!-- w descriptor = actual pixel width of the image file -->
+<!-- The browser uses this + sizes to pick the best option -->
+""") + """
+<h2 class="lesson-section-title" id="sizes">sizes — Telling the Browser the Display Size</h2>
+""" + code("""<img
+  srcset="hero-400.jpg 400w, hero-800.jpg 800w, hero-1200.jpg 1200w"
   sizes="
-    (max-width: 600px) 100vw,
-    (max-width: 1200px) 80vw,
+    (max-width: 640px)  100vw,
+    (max-width: 1024px) 80vw,
     1200px
   "
-  alt="A scenic mountain landscape"
+  src="hero-800.jpg"
+  alt="A mountainous landscape"
 >
-<!-- The browser picks the most appropriate image automatically
-     based on screen size and pixel density -->
+
+<!-- sizes reads as:
+   "On screens ≤640px: image fills 100% of viewport width"
+   "On screens ≤1024px: image fills 80% of viewport width"
+   "Otherwise: image is 1200px wide"
+-->
 """) + """
 <h2 class="lesson-section-title" id="picture">picture — Art Direction</h2>
 """ + code("""<!-- Show a different image crop depending on screen size -->
 <picture>
-  <!-- Wide landscape crop for large screens -->
+  <!-- Tall crop for mobile portrait screens -->
   <source
-    media="(min-width: 900px)"
-    srcset="hero-wide.jpg"
+    srcset="hero-mobile.jpg"
+    media="(max-width: 480px)"
   >
-  <!-- Square crop for medium screens -->
+
+  <!-- Square crop for tablet -->
   <source
-    media="(min-width: 500px)"
-    srcset="hero-square.jpg"
+    srcset="hero-tablet.jpg"
+    media="(max-width: 768px)"
   >
-  <!-- Tall portrait crop for phones -->
-  <img src="hero-portrait.jpg" alt="Our team at the annual conference">
+
+  <!-- Modern format with fallback -->
+  <source
+    srcset="hero.avif"
+    type="image/avif"
+  >
+  <source
+    srcset="hero.webp"
+    type="image/webp"
+  >
+
+  <!-- Fallback img — always required -->
+  <img src="hero.jpg" alt="A mountainous landscape">
 </picture>
 """) + """
 <h2 class="lesson-section-title" id="formats">Modern Image Formats</h2>
 <ul>
-  <li><strong>WebP</strong> — 25-35% smaller than JPEG/PNG with equivalent quality. Excellent browser support.</li>
-  <li><strong>AVIF</strong> — Even smaller than WebP. Growing support.</li>
-  <li><strong>JPEG</strong> — Photos. Still widely used as a fallback.</li>
-  <li><strong>PNG</strong> — Images needing transparency with no quality loss.</li>
-  <li><strong>SVG</strong> — Icons, logos, illustrations. Infinitely scalable.</li>
+  <li><strong>WebP</strong> — 25-35% smaller than JPEG/PNG at the same quality. Supported in all modern browsers.</li>
+  <li><strong>AVIF</strong> — Even smaller than WebP (30-50% smaller than JPEG). Excellent for photographs. Growing browser support.</li>
+  <li><strong>SVG</strong> — For icons and illustrations. Infinitely scalable, tiny file size.</li>
 </ul>
-""" + code("""<picture>
-  <source type="image/avif" srcset="hero.avif">
-  <source type="image/webp" srcset="hero.webp">
-  <img src="hero.jpg" alt="Description">
-</picture>
-"""),
+""",
     kc=[
-        ("What does max-width: 100% do for images?","basic"),
-        ("What is the difference between srcset and the picture element?","picture"),
-        ("What modern format should you prefer over JPEG for photos?","formats"),
+        ("What does the w descriptor in srcset represent?","srcset"),
+        ("What does the sizes attribute tell the browser?","sizes"),
+        ("When would you use the picture element over srcset?","picture"),
     ],
     assignments=[
-        "Convert a JPEG image to WebP using Squoosh (linked below) and implement it with a picture fallback.",
-        "Add srcset to the main hero image of your homepage project.",
+        "Convert a project's main hero image to use srcset with at least three sizes.",
+        "Convert an image to WebP format using Squoosh (linked below) and compare file sizes.",
     ],
     resources=[
         ("MDN — Responsive Images","https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images"),
@@ -2662,174 +2715,203 @@ img {
     ])
 
     write("media-queries","Media Queries",
-    intro="Media queries let you apply CSS conditionally based on viewport size, device capabilities, or user preferences. They are the final tool for handling what natural responsiveness cannot.",
+    intro="Media queries are the tool that lets you apply different CSS rules based on the characteristics of the device or viewport. They are the foundation of responsive design when natural responsiveness is not enough.",
     overview=[
-        "Write min-width and max-width media queries.",
-        "Use common breakpoints effectively.",
-        "Use media queries for user preferences: prefers-color-scheme, prefers-reduced-motion.",
-        "Know when not to use media queries.",
+            "Write media queries using min-width and max-width.",
+            "Use the mobile-first approach with min-width queries.",
+            "Query other media features: height, orientation, prefers-color-scheme, prefers-reduced-motion.",
+            "Understand modern container queries.",
     ],
     body="""
 <h2 class="lesson-section-title" id="syntax">Media Query Syntax</h2>
 """ + code("""/* Basic syntax */
-@media (min-width: 768px) {
-  /* styles applied when viewport is 768px or wider */
+@media media-type and (condition) {
+  /* CSS rules applied when condition is true */
 }
+
+/* Most common: screen width */
+@media (min-width: 768px) { ... }  /* mobile-first: adds styles from 768px up */
+@media (max-width: 767px) { ... }  /* desktop-first: adds styles below 768px */
 
 /* Multiple conditions */
-@media (min-width: 640px) and (max-width: 1024px) {
-  /* tablet range only */
+@media (min-width: 640px) and (max-width: 1023px) { ... }  /* tablet range */
+
+/* Common breakpoints */
+/* Mobile:  < 640px  (base styles in mobile-first) */
+/* Tablet:   640px+ */
+/* Desktop: 1024px+ */
+/* Wide:    1280px+ */
+""") + """
+<h2 class="lesson-section-title" id="mobile-first-queries">Mobile-First with min-width</h2>
+""" + code("""/* Base styles: mobile */
+.nav {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Target media type */
-@media screen and (min-width: 768px) { }
-@media print { }
+.hero-title {
+  font-size: 1.75rem;
+}
+
+.card-grid {
+  grid-template-columns: 1fr;
+}
+
+/* Tablet: 640px and up */
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 1024px and up */
+@media (min-width: 1024px) {
+  .nav {
+    flex-direction: row;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 """) + """
-<h2 class="lesson-section-title" id="breakpoints">Common Breakpoints</h2>
-""" + code("""/* Mobile-first — apply styles progressively */
-/* Base: < 640px (mobile) — no media query */
-
-/* Small: 640px — large phones, small tablets */
-@media (min-width: 640px)  { }
-
-/* Medium: 768px — tablets */
-@media (min-width: 768px)  { }
-
-/* Large: 1024px — laptops */
-@media (min-width: 1024px) { }
-
-/* XL: 1280px — desktops */
-@media (min-width: 1280px) { }
-
-/* 2XL: 1536px — wide screens */
-@media (min-width: 1536px) { }
-
-/* TIP: set breakpoints where your content breaks,
-   not at device sizes */
-""") + """
-<h2 class="lesson-section-title" id="preference-queries">User Preference Queries</h2>
-""" + code("""/* Respect the OS dark mode preference */
+<h2 class="lesson-section-title" id="user-preferences">User Preference Queries</h2>
+""" + code("""/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg:   #0f172a;
-    --text: #e2e8f0;
+    --text: #f1f5f9;
   }
 }
 
-/* Respect the OS reduced motion preference */
-/* Critical for users with vestibular disorders */
+/* Reduced motion — respect users who have set this in their OS */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
 
-/* High contrast preference */
-@media (prefers-contrast: high) {
-  .card {
-    border: 2px solid currentColor;
-  }
+/* Print styles */
+@media print {
+  .no-print { display: none; }
+  body { font-size: 12pt; color: black; }
 }
 """) + """
-<h2 class="lesson-section-title" id="when-not-to">When Not to Use Media Queries</h2>
-<p>Before adding a breakpoint, ask whether the problem can be solved with:</p>
-<ul>
-  <li><code>clamp()</code> for fluid typography and spacing</li>
-  <li><code>auto-fit</code>/<code>auto-fill</code> for responsive grids</li>
-  <li><code>min()</code>/<code>max()</code> for adaptive sizing</li>
-  <li>Flexbox wrapping with <code>flex-wrap: wrap</code></li>
-</ul>
-<p>Media queries are powerful but add complexity. Use them for structural layout changes that cannot be handled intrinsically.</p>
-""",
+<h2 class="lesson-section-title" id="container-queries">Container Queries</h2>
+<p>Media queries respond to the viewport size. Container queries respond to the size of the <em>parent element</em>. This is a newer feature with broad modern browser support:</p>
+""" + code("""/* Define a container */
+.card-wrapper {
+  container-type: inline-size;
+  container-name: card;
+}
+
+/* Style the card differently based on its OWN container width */
+@container card (min-width: 400px) {
+  .card {
+    display: flex;        /* horizontal layout when card is wide enough */
+    flex-direction: row;
+  }
+  .card-image {
+    width: 200px;
+  }
+}
+"""),
     kc=[
-        ("What is the difference between min-width and max-width queries?","syntax"),
-        ("Why should breakpoints be set where content breaks rather than at device sizes?","breakpoints"),
-        ("What does prefers-reduced-motion do and why is it important?","preference-queries"),
+        ("What is the difference between min-width and max-width media queries?","syntax"),
+        ("Why does mobile-first use min-width instead of max-width?","mobile-first-queries"),
+        ("What does prefers-reduced-motion do?","user-preferences"),
+        ("How do container queries differ from media queries?","container-queries"),
     ],
     assignments=[
-        "Add prefers-reduced-motion to your CSS reset and verify it disables animations.",
-        "Implement a dark mode using prefers-color-scheme and your existing CSS custom properties.",
-        "Read MDN's Using Media Queries guide linked below.",
+        "Make the Admin Dashboard project fully responsive using media queries. It should work well on mobile, tablet, and desktop.",
+        "Add prefers-color-scheme and prefers-reduced-motion queries to a project.",
     ],
     resources=[
-        ("MDN — Using Media Queries","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries"),
-        ("CSS Tricks — A Complete Guide to CSS Media Queries","https://css-tricks.com/a-complete-guide-to-css-media-queries/"),
-        ("YouTube — Media Queries (Kevin Powell)","https://www.youtube.com/watch?v=2KL-z9A56SQ"),
+        ("MDN — Media Queries","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries"),
+        ("MDN — Container Queries","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries"),
+        ("YouTube — Media Queries (Kevin Powell)","https://www.youtube.com/watch?v=K24lUqcT0Ms"),
     ])
 
     write("project-homepage","Project: Homepage",
-    intro="The capstone project for this course. Build a fully responsive, accessible personal portfolio homepage that showcases everything you have learned in Intermediate HTML and CSS.",
+    intro="The Homepage project is the capstone of this course. You will build a complete, responsive personal homepage that demonstrates every major technique covered — from semantic HTML and CSS Grid to accessibility and responsive images.",
     overview=[
-        "Build a complete responsive homepage from scratch.",
-        "Apply Grid and Flexbox appropriately throughout.",
-        "Implement accessibility best practices.",
-        "Use CSS custom properties for theming.",
-        "Publish on GitHub Pages.",
+            "Build a complete responsive homepage from scratch.",
+            "Apply CSS Grid, Flexbox, custom properties, and all CSS techniques from this course.",
+            "Ensure the page is accessible: good contrast, keyboard-navigable, semantic HTML.",
+            "Make it fully responsive across mobile, tablet, and desktop.",
+            "Publish the finished project on GitHub Pages.",
     ],
     body="""
 <h2 class="lesson-section-title" id="requirements">Requirements</h2>
 <ul>
-  <li><strong>Navigation</strong> — sticky header with logo, nav links, and a theme toggle button</li>
-  <li><strong>Hero section</strong> — large heading with clamp() typography, subtext, CTA buttons, and an image</li>
-  <li><strong>Skills/Technologies section</strong> — a responsive grid of skill cards using auto-fit</li>
-  <li><strong>Projects section</strong> — at least three project cards with image, title, description, and links</li>
-  <li><strong>Contact section</strong> — a form with name, email, and message fields</li>
-  <li><strong>Footer</strong> — social links and copyright</li>
-  <li><strong>Responsive</strong> — works on mobile, tablet, and desktop</li>
-  <li><strong>Accessible</strong> — keyboard navigable, skip link, semantic HTML, ARIA where needed</li>
-  <li><strong>Dark/light mode</strong> — using CSS custom properties and prefers-color-scheme</li>
+  <li><strong>Header</strong> — logo/name, navigation, skip link, mobile hamburger menu</li>
+  <li><strong>Hero section</strong> — responsive heading (clamp), subtext, CTA button, background image with proper alt/decorative handling</li>
+  <li><strong>About section</strong> — text + image in a two-column grid layout</li>
+  <li><strong>Projects section</strong> — responsive card grid using auto-fit/minmax, each card with an image, title, description, and link</li>
+  <li><strong>Skills section</strong> — a visual representation of your skills</li>
+  <li><strong>Contact section</strong> — accessible form with validation</li>
+  <li><strong>Footer</strong> — links and copyright</li>
+</ul>
+<p>Content can be real (your actual skills and projects) or placeholder — but the HTML structure and CSS must be complete.</p>
+
+<h2 class="lesson-section-title" id="requirements-checklist">Requirements Checklist</h2>
+<ul>
+  <li>CSS custom properties for the entire colour scheme</li>
+  <li>Modern CSS reset at the top of the stylesheet</li>
+  <li>Mobile-first responsive design with at least two breakpoints</li>
+  <li>Passes Lighthouse accessibility audit with a score of 90+</li>
+  <li>All images have appropriate alt text</li>
+  <li>All interactive elements are keyboard-accessible with visible focus styles</li>
+  <li>No outline: none anywhere in the CSS</li>
+  <li>Colour contrast meets AA standards throughout</li>
 </ul>
 
-<h2 class="lesson-section-title" id="setup">Setup</h2>
+<h2 class="lesson-section-title" id="workflow">Project Workflow</h2>
 """ + code("""mkdir ~/devpath-projects/personal-homepage
 cd ~/devpath-projects/personal-homepage
 git init
 touch index.html styles.css script.js
 code .
-""") + """
-<h2 class="lesson-section-title" id="checklist">Accessibility Checklist</h2>
-<ul>
-  <li>All images have descriptive alt text</li>
-  <li>Skip navigation link present</li>
-  <li>All interactive elements reachable by keyboard</li>
-  <li>Focus styles are visible and attractive</li>
-  <li>Colour contrast meets WCAG AA (4.5:1 for text)</li>
-  <li>Headings form a logical h1 → h2 → h3 hierarchy</li>
-  <li>Form labels are connected to inputs</li>
-  <li>prefers-reduced-motion removes animations</li>
-  <li>HTML lang attribute is set</li>
-  <li>Lighthouse accessibility score is 90+</li>
-</ul>
-<div class="callout callout-tip">
-  <span class="callout-icon">💡</span>
-  <p>This project goes in your portfolio. Take your time to make it genuinely good — the quality of this page is often the first impression future employers have of your skills.</p>
-</div>
-""",
+
+# Commit structure first
+git add .
+git commit -m "Add initial HTML structure"
+
+# Commit CSS in sections
+git commit -m "Add base styles and custom properties"
+git commit -m "Add header and hero section styles"
+# etc.
+
+# Publish when done
+# GitHub → Settings → Pages → main → / (root) → Save
+"""),
     kc=[
-        ("What CSS technique creates a responsive skills grid without media queries?","requirements"),
-        ("How do you implement a dark/light mode toggle?","requirements"),
+        ("What accessibility score should the page achieve on Lighthouse?","requirements-checklist"),
+        ("What CSS feature should handle all colour values throughout the stylesheet?","requirements-checklist"),
     ],
     assignments=[
-        "Build the homepage meeting all requirements above.",
-        "Run Lighthouse and fix all accessibility issues until you hit 90+ score.",
-        "Push to GitHub and publish on GitHub Pages.",
+        "Complete the Homepage project meeting all requirements and the checklist.",
+        "Run a Lighthouse audit and reach 90+ on Accessibility. Fix everything it flags.",
+        "Push to GitHub Pages and share the live URL.",
     ],
     resources=[
         ("MDN — Responsive Design","https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design"),
-        ("CSS Tricks — A Complete Guide to Grid","https://css-tricks.com/snippets/css/complete-guide-grid/"),
-        ("WebAIM — Web Accessibility Checklist","https://webaim.org/standards/wcag/checklist"),
+        ("Google Lighthouse Documentation","https://developer.chrome.com/docs/lighthouse/"),
         ("YouTube — Build a Responsive Website (Kevin Powell)","https://www.youtube.com/watch?v=p0bGHP-PXD4"),
     ])
 
-    print("\nAll 33 Intermediate HTML & CSS lessons seeded.")
+    print("\nAll 33 Intermediate HTML and CSS lessons seeded.")
+
     os.chdir(BASE)
     subprocess.run(["git","add","-A"], check=True)
-    subprocess.run(["git","commit","-m","Seed: Intermediate HTML and CSS — all 33 lessons complete"], check=True)
+    subprocess.run(["git","commit","-m","Seed: Intermediate HTML and CSS — all 33 lessons fully written"], check=True)
     subprocess.run(["git","push"], check=True)
     print("Pushed to GitHub.")
 

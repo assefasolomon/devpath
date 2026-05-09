@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>More CSS Properties | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="more-text-styles.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="advanced-selectors.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">More CSS Properties</span></nav><h1>More CSS Properties</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">More CSS Properties</span></nav><h1>More CSS Properties</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,76 +44,76 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>This lesson covers a collection of highly useful CSS properties that come up constantly in real projects but did not fit neatly into earlier lessons.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use overflow to control content that exceeds its container.</li><li>Apply opacity and visibility correctly.</li><li>Use background shorthand with gradients and multiple values.</li><li>Control element stacking with z-index.</li></ul></div>
+<div class="block-intro"><p>This lesson covers a set of highly useful CSS properties that did not fit neatly into earlier lessons but appear constantly in real projects: overflow, opacity, filter, transitions, and more.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Control overflow behaviour with the overflow property.</li><li>Use opacity and visibility.</li><li>Apply CSS filter effects.</li><li>Use the cursor property.</li><li>Control element stacking with z-index.</li></ul></div>
 
-<h2 class="lesson-section-title" id="overflow">overflow</h2>
-<div class="code-block"><pre><code>.card {
-  overflow: hidden;    /* clip content that exceeds the box */
-  overflow: scroll;    /* always show scrollbars */
-  overflow: auto;      /* scrollbars only when needed */
-  overflow: visible;   /* default — content flows outside the box */
+<h2 class="lesson-section-title" id="overflow">Overflow</h2>
+<div class="code-block"><pre><code>/* What happens when content is larger than its container */
+.container {
+  overflow: visible;  /* default — content spills outside */
+  overflow: hidden;   /* content is clipped at the border */
+  overflow: scroll;   /* always show scrollbars */
+  overflow: auto;     /* show scrollbars only when needed */
 }
 
-/* Control axes separately */
-.code-block {
-  overflow-x: auto;   /* horizontal scroll for wide code */
-  overflow-y: hidden;
-}
-</code></pre></div>
-<h2 class="lesson-section-title" id="opacity-visibility">opacity and visibility</h2>
-<div class="code-block"><pre><code>.faded   { opacity: 0.5; }        /* 50% transparent but still takes up space */
-.hidden  { opacity: 0; }           /* invisible but still takes up space */
-.gone    { visibility: hidden; }   /* invisible but still takes up space */
-.removed { display: none; }        /* invisible AND removed from layout flow */
+/* Control horizontal and vertical separately */
+.code-block { overflow-x: auto; }    /* horizontal scroll only */
+.sidebar    { overflow-y: auto; }    /* vertical scroll only */
 
-/* opacity: 0 vs visibility: hidden vs display: none */
-/* opacity: 0 — invisible, takes space, can receive events */
-/* visibility: hidden — invisible, takes space, cannot receive events */
-/* display: none — invisible, no space, no events */
-</code></pre></div>
-<h2 class="lesson-section-title" id="background">background Shorthand</h2>
-<div class="code-block"><pre><code>.hero {
-  /* Gradient */
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-
-  /* Image with fallback colour */
-  background: #1e3a8a url('hero.jpg') center/cover no-repeat;
-
-  /* Multiple backgrounds — first listed is on top */
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.4), transparent),
-    url('photo.jpg') center/cover no-repeat;
+/* text-overflow — what to show when text is clipped */
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;   /* shows "..." when text is too long */
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="z-index">z-index and Stacking Context</h2>
-<div class="code-block"><pre><code>/* z-index only works on positioned elements */
-/* (position: relative, absolute, fixed, or sticky) */
+<h2 class="lesson-section-title" id="opacity-visibility">Opacity and Visibility</h2>
+<div class="code-block"><pre><code>/* opacity — 0 (invisible) to 1 (fully visible) */
+/* Element still takes up space, can receive click events */
+.faded { opacity: 0.5; }
+.invisible-but-there { opacity: 0; }
 
-.modal-overlay {
-  position: fixed;
-  z-index: 1000;
-}
+/* visibility — hidden removes from visual display */
+/* Element STILL takes up space, cannot receive events */
+.hidden { visibility: hidden; }
 
-.dropdown {
-  position: absolute;
-  z-index: 100;
-}
-
-.card {
-  position: relative;
-  z-index: 1;
-}
-
-/* Higher z-index = closer to viewer */
-/* Stacking context: a new context is created by position + z-index, */
-/* opacity &lt; 1, transform, filter, and a few others */
+/* display:none — removes from layout entirely */
+.gone { display: none; }
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#overflow" data-target="overflow">What is the difference between overflow: hidden and overflow: auto?</a></li><li><a href="#opacity-visibility" data-target="opacity-visibility">What is the difference between opacity: 0, visibility: hidden, and display: none?</a></li><li><a href="#z-index" data-target="z-index">Why does z-index have no effect on a static element?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a card with overflow: hidden so a hover image scale effect stays clipped to the card boundary.</li><li>Create a modal overlay using position: fixed and z-index.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow" target="_blank" rel="noopener">MDN — overflow</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/z-index" target="_blank" rel="noopener">MDN — z-index</a></li><li><a href="https://philipwalton.com/articles/what-no-one-told-you-about-z-index/" target="_blank" rel="noopener">CSS Tricks — What No One Told You About z-index</a></li><li><a href="https://www.youtube.com/watch?v=DFemev-iEBY" target="_blank" rel="noopener">YouTube — CSS overflow (Kevin Powell)</a></li></ul></div>
+<h2 class="lesson-section-title" id="filters">CSS Filters</h2>
+<div class="code-block"><pre><code>/* Apply visual effects to any element */
+img { filter: grayscale(100%); }           /* black and white */
+img { filter: blur(4px); }                 /* blur */
+img { filter: brightness(1.2); }           /* brighter */
+img { filter: contrast(1.5); }             /* more contrast */
+img { filter: sepia(80%); }                /* sepia tone */
+img { filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); }
+
+/* Chain multiple filters */
+.hero-bg {
+  filter: brightness(0.7) contrast(1.2) blur(1px);
+}
+</code></pre></div>
+<h2 class="lesson-section-title" id="other">Other Useful Properties</h2>
+<div class="code-block"><pre><code>/* cursor — change the mouse cursor */
+button { cursor: pointer; }     /* hand cursor */
+.grab  { cursor: grab; }
+.loading { cursor: wait; }
+.no-select { cursor: not-allowed; }
+
+/* z-index — stacking order (only works on positioned elements) */
+.modal-backdrop { position: fixed; z-index: 100; }
+.modal          { position: fixed; z-index: 101; }
+.tooltip        { position: absolute; z-index: 50; }
+
+/* pointer-events — disable click interactions */
+.overlay { pointer-events: none; }
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#overflow" data-target="overflow">What is the difference between overflow: hidden and overflow: auto?</a></li><li><a href="#opacity-visibility" data-target="opacity-visibility">What is the difference between opacity: 0 and display: none?</a></li><li><a href="#filters" data-target="filters">How do you chain multiple CSS filters?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a card component with a hover effect that uses filter: brightness() and a smooth transition.</li><li>Create a text truncation component that shows ellipsis when text overflows a single line.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/overflow" target="_blank" rel="noopener">MDN — overflow</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter" target="_blank" rel="noopener">MDN — CSS filter</a></li><li><a href="https://www.youtube.com/watch?v=N5wpD9Ov_To" target="_blank" rel="noopener">YouTube — CSS Properties You Should Know (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="more-text-styles.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">More Text Styles</span></a><a href="advanced-selectors.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Advanced Selectors</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

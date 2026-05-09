@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project: Sign-Up Form | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="form-validation.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="introduction-to-grid.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Project: Sign-Up Form</span></nav><h1>Project: Sign-Up Form</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Project: Sign-Up Form</span></nav><h1>Project: Sign-Up Form</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,51 +44,56 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Build a polished, accessible sign-up form that uses everything from the Forms section — proper HTML structure, custom styling, and client-side validation.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Build a complete sign-up form with multiple field types.</li><li>Apply custom styling that overrides browser defaults.</li><li>Add client-side validation with styled error states.</li><li>Ensure the form is accessible.</li></ul></div>
+<div class="block-intro"><p>Put your form knowledge to work. You will build a complete, styled, and validated sign-up form — the kind found on real applications.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Build a visually polished sign-up form.</li><li>Apply custom form styling including focus states.</li><li>Implement HTML5 validation with meaningful error indicators.</li><li>Ensure the form is accessible and keyboard-navigable.</li></ul></div>
 
 <h2 class="lesson-section-title" id="requirements">Requirements</h2>
 <ul>
-  <li>A full-page layout with a background image or gradient on one side and the form on the other</li>
-  <li>Fields: first name, last name, email, phone number, password, confirm password</li>
-  <li>All fields required with appropriate validation attributes</li>
-  <li>A visual indicator when passwords do not match</li>
-  <li>Custom-styled inputs (no browser default appearance)</li>
-  <li>A submit button and a link to a hypothetical login page</li>
-  <li>Fully accessible: all labels connected, all errors announced</li>
+  <li>Fields: full name, username, email, password, confirm password</li>
+  <li>All fields validated appropriately (required, minlength, pattern where relevant)</li>
+  <li>Custom styling for default, focus, valid, and invalid states</li>
+  <li>A show/hide password toggle button</li>
+  <li>A terms and conditions checkbox (required before submit)</li>
+  <li>Fully keyboard-accessible: every element reachable and operable by Tab</li>
+  <li>Responsive: works on mobile and desktop</li>
 </ul>
 
-<h2 class="lesson-section-title" id="structure">Project Structure</h2>
+<h2 class="lesson-section-title" id="design-tips">Design Tips</h2>
+<ul>
+  <li>Use a two-column layout on wide screens, single column on mobile</li>
+  <li>Give the form a card-like container with padding and shadow</li>
+  <li>Use a brand colour for focus outlines and validation indicators</li>
+  <li>Error messages should appear below the relevant field, not as a browser alert</li>
+</ul>
+
+<h2 class="lesson-section-title" id="password-toggle">Password Toggle Snippet</h2>
+<div class="code-block"><pre><code>&lt;!-- HTML --&gt;
+&lt;div class="input-group"&gt;
+  &lt;input type="password" id="password" name="password" required&gt;
+  &lt;button type="button" id="toggle-password" aria-label="Show password"&gt;
+    👁
+  &lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- JavaScript --&gt;
+document.querySelector('#toggle-password').addEventListener('click', () =&gt; {
+  const input = document.querySelector('#password');
+  const isPassword = input.type === 'password';
+  input.type = isPassword ? 'text' : 'password';
+});
+</code></pre></div>
+<h2 class="lesson-section-title" id="workflow">Project Workflow</h2>
 <div class="code-block"><pre><code>mkdir ~/devpath-projects/sign-up-form
 cd ~/devpath-projects/sign-up-form
 git init
 touch index.html styles.css script.js
 code .
 </code></pre></div>
-<h2 class="lesson-section-title" id="password-check">Password Match Check</h2>
-<div class="code-block"><pre><code>// Check passwords match on input
-const password = document.getElementById('password');
-const confirm  = document.getElementById('confirm-password');
-const error    = document.getElementById('password-error');
-
-function checkPasswords() {
-  if (confirm.value &amp;&amp; confirm.value !== password.value) {
-    confirm.setCustomValidity('Passwords do not match');
-    error.textContent = 'Passwords do not match';
-  } else {
-    confirm.setCustomValidity('');
-    error.textContent = '';
-  }
-}
-
-password.addEventListener('input', checkPasswords);
-confirm.addEventListener('input', checkPasswords);
-</code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#password-check" data-target="password-check">What method sets a custom validation message on an input?</a></li><li><a href="#requirements" data-target="requirements">How do you visually show a validation error without JavaScript?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build the sign-up form meeting all requirements above.</li><li>Push to GitHub and publish on GitHub Pages.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms" target="_blank" rel="noopener">MDN — HTML Forms</a></li><li><a href="https://www.youtube.com/watch?v=a1ByMkEOBos" target="_blank" rel="noopener">YouTube — Sign Up Form Project (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#requirements" data-target="requirements">What pseudo-classes should you use for form validation states?</a></li><li><a href="#password-toggle" data-target="password-toggle">What attribute is needed to make a button inside a form NOT submit the form?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Complete the Sign-Up Form meeting all requirements above.</li><li>Push to GitHub and publish on GitHub Pages.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Styling_web_forms" target="_blank" rel="noopener">MDN — Styling Web Forms</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Advanced_form_styling" target="_blank" rel="noopener">MDN — Advanced Form Styling</a></li><li><a href="https://www.youtube.com/watch?v=okbByPWS1Xc" target="_blank" rel="noopener">YouTube — Style a Sign Up Form (Traversy Media)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="form-validation.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Form Validation</span></a><a href="introduction-to-grid.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Introduction to Grid</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

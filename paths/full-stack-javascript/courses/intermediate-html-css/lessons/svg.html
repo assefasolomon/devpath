@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SVG | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="emmet.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="html-tables.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">SVG</span></nav><h1>SVG</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">SVG</span></nav><h1>SVG</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link active">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,78 +44,73 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>SVG (Scalable Vector Graphics) is an XML-based image format that scales to any size without losing quality. It is the right choice for icons, logos, illustrations, and animations.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand what SVG is and when to use it over raster formats.</li><li>Read and write basic SVG markup.</li><li>Embed SVGs in HTML using inline, img, and background-image methods.</li><li>Style SVGs with CSS.</li></ul></div>
+<div class="block-intro"><p>SVG (Scalable Vector Graphics) lets you display graphics that stay perfectly sharp at any size — from a small icon to a billboard. Unlike images, SVG is written in code and can be styled with CSS.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand what SVG is and why it is used for icons and graphics.</li><li>Embed SVG inline in HTML and as an img src.</li><li>Style SVG elements with CSS.</li><li>Understand basic SVG shapes and attributes.</li></ul></div>
 
 <h2 class="lesson-section-title" id="what-is-svg">What Is SVG?</h2>
-<p>SVG describes shapes mathematically rather than storing pixel data. This means an SVG logo looks crisp on a phone screen and a 4K monitor — it never blurs. The tradeoff is that SVGs are better suited to geometric shapes and illustrations than complex photographs (use JPEG/WebP for photos).</p>
+<p>SVG is an XML-based format for describing two-dimensional graphics. Unlike raster images (PNG, JPG) which store pixel data, SVG stores mathematical descriptions of shapes. This means SVG graphics are infinitely scalable with no loss of quality — perfect for logos, icons, and illustrations.</p>
 
-<h2 class="lesson-section-title" id="basic-svg">Basic SVG Markup</h2>
-<div class="code-block"><pre><code>&lt;!-- SVG is XML — it lives in .svg files or directly in HTML --&gt;
-&lt;svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"&gt;
+<h2 class="lesson-section-title" id="basic-shapes">Basic SVG Shapes</h2>
+<div class="code-block"><pre><code>&lt;!-- SVG is written directly in HTML --&gt;
+&lt;svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="200" height="200"&gt;
 
-  &lt;!-- Circle: cx cy = centre, r = radius --&gt;
+  &lt;!-- Circle: cx/cy = center, r = radius --&gt;
   &lt;circle cx="50" cy="50" r="40" fill="#2563eb" /&gt;
 
-  &lt;!-- Rectangle: x y = top-left corner --&gt;
-  &lt;rect x="10" y="10" width="80" height="80" fill="none" stroke="#f0c040" stroke-width="4" /&gt;
+  &lt;!-- Rectangle: x/y = top-left corner --&gt;
+  &lt;rect x="10" y="10" width="80" height="40" fill="#1e3a8a" rx="8" /&gt;
 
-  &lt;!-- Line: x1 y1 = start, x2 y2 = end --&gt;
-  &lt;line x1="0" y1="50" x2="100" y2="50" stroke="red" stroke-width="2" /&gt;
+  &lt;!-- Line --&gt;
+  &lt;line x1="0" y1="0" x2="100" y2="100" stroke="#93c5fd" stroke-width="2" /&gt;
 
-  &lt;!-- Text --&gt;
-  &lt;text x="50" y="55" text-anchor="middle" fill="white" font-size="16"&gt;Hello&lt;/text&gt;
+  &lt;!-- Polygon --&gt;
+  &lt;polygon points="50,10 90,90 10,90" fill="#60a5fa" /&gt;
 
-  &lt;!-- Path: the most powerful SVG element --&gt;
-  &lt;path d="M 10 80 Q 50 10 90 80" stroke="#e05c7a" fill="none" stroke-width="3" /&gt;
+  &lt;!-- Path — the most powerful, draws anything --&gt;
+  &lt;path d="M 10 80 Q 50 10 90 80" stroke="#2563eb" fill="none" stroke-width="3" /&gt;
 
 &lt;/svg&gt;
 </code></pre></div>
-<h2 class="lesson-section-title" id="embedding">Three Ways to Embed SVG</h2>
-<div class="code-block"><pre><code>&lt;!-- 1. Inline — best for icons you want to style with CSS --&gt;
-&lt;button&gt;
-  &lt;svg viewBox="0 0 24 24" width="20" height="20"&gt;
-    &lt;path d="M12 2L2 7l10 5 10-5-10-5z" /&gt;
-  &lt;/svg&gt;
-  Save
-&lt;/button&gt;
+<h2 class="lesson-section-title" id="embedding">Ways to Embed SVG</h2>
+<div class="code-block"><pre><code>&lt;!-- 1. Inline SVG — full CSS/JS access, no extra HTTP request --&gt;
+&lt;svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;path d="M12 2L2 7l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2"/&gt;
+&lt;/svg&gt;
 
-&lt;!-- 2. img tag — simple, cacheable, but not styleable with CSS --&gt;
-&lt;img src="logo.svg" alt="Company logo" width="200"&gt;
+&lt;!-- 2. As an img tag — simple but no CSS access to internals --&gt;
+&lt;img src="logo.svg" alt="Company logo" width="120" height="40"&gt;
 
-&lt;!-- 3. CSS background-image — for decorative SVGs --&gt;
+&lt;!-- 3. As CSS background — decorative only, no accessibility --&gt;
 .hero {
   background-image: url('pattern.svg');
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="styling">Styling SVGs with CSS</h2>
-<div class="code-block"><pre><code>/* Inline SVGs can be styled directly with CSS */
+<h2 class="lesson-section-title" id="styling">Styling SVG with CSS</h2>
+<div class="code-block"><pre><code>/* SVG-specific CSS properties */
 svg {
-  width: 48px;
-  height: 48px;
+  fill: #2563eb;       /* fill colour of shapes */
+  stroke: #1e3a8a;     /* border/outline colour */
+  stroke-width: 2;     /* border thickness */
 }
 
-/* Style SVG-specific properties */
-.icon {
-  fill: currentColor;       /* inherits text colour from parent */
-  stroke: none;
-  transition: fill 0.2s;
-}
+/* Style specific SVG elements */
+svg circle { fill: #60a5fa; }
+svg rect   { fill: #1d4ed8; }
 
-.icon:hover {
-  fill: #2563eb;
-}
-
-/* Using CSS variables for theming */
-svg path {
-  fill: var(--icon-color, #64748b);
-}
+/* currentColor inherits the CSS color property — very useful for icons */
+.icon { color: #2563eb; }
+.icon svg { fill: currentColor; }
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#what-is-svg" data-target="what-is-svg">When should you use SVG instead of PNG/JPEG?</a></li><li><a href="#basic-svg" data-target="basic-svg">What is the difference between fill and stroke in SVG?</a></li><li><a href="#embedding" data-target="embedding">Which embedding method lets you style SVG with CSS?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Draw a simple house using only SVG shapes (rect, triangle path, circle for window) without any tools — just code.</li><li>Take any icon from heroicons.com, embed it inline, and style its colour and hover state with CSS.</li><li>Read MDN's SVG tutorial linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener">MDN — SVG Tutorial</a></li><li><a href="https://heroicons.com/" target="_blank" rel="noopener">Heroicons — Free SVG Icons</a></li><li><a href="https://www.youtube.com/watch?v=ZJSCl6XEdP8" target="_blank" rel="noopener">YouTube — SVG Explained (Fireship)</a></li><li><a href="https://css-tricks.com/using-svg/" target="_blank" rel="noopener">CSS Tricks — Using SVG</a></li></ul></div>
+<div class="callout callout-tip">
+  <span class="callout-icon">💡</span>
+  <p>Use <code>fill="currentColor"</code> on inline SVG icons. Then you can change the icon colour just by setting <code>color</code> on the parent element — no need to touch the SVG itself.</p>
+</div>
+
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#what-is-svg" data-target="what-is-svg">What is the main advantage of SVG over PNG for icons?</a></li><li><a href="#embedding" data-target="embedding">What are the three ways to embed SVG in HTML?</a></li><li><a href="#styling" data-target="styling">What does <code>fill: currentColor</code> do?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Create an SVG file containing at least four different shapes. Embed it inline in HTML and style the shapes with CSS.</li><li>Find a free SVG icon from a resource like Heroicons or Feather Icons. Embed it inline and change its colour using CSS.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener">MDN — SVG Tutorial</a></li><li><a href="https://heroicons.com/" target="_blank" rel="noopener">Heroicons — Free SVG Icons</a></li><li><a href="https://www.youtube.com/watch?v=ZJSCl6XEdP8" target="_blank" rel="noopener">YouTube — SVG Tutorial for Beginners (Web Dev Simplified)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="emmet.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Emmet</span></a><a href="html-tables.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Tables</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

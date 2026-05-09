@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emmet | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="int-html-css-intro.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="svg.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Emmet</span></nav><h1>Emmet</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Emmet</span></nav><h1>Emmet</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link active">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,10 +44,10 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Emmet is a toolkit built into VS Code that expands short abbreviations into full HTML and CSS. Once it becomes muscle memory, you will write markup significantly faster.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use Emmet to generate HTML boilerplate and elements.</li><li>Write nested structures, siblings, and repeated elements with one abbreviation.</li><li>Use Emmet for CSS property shortcuts.</li></ul></div>
+<div class="block-intro"><p>Emmet is a plugin built into VS Code that expands short abbreviations into full HTML and CSS. Once you learn it, writing HTML by hand feels painfully slow by comparison.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use Emmet abbreviations to generate HTML structure instantly.</li><li>Chain, nest, and multiply elements with Emmet syntax.</li><li>Use Emmet for CSS property shortcuts.</li></ul></div>
 
-<h2 class="lesson-section-title" id="html-abbreviations">HTML Abbreviations</h2>
+<h2 class="lesson-section-title" id="html-abbrev">HTML Abbreviations</h2>
 <p>Type an abbreviation in a <code>.html</code> file and press <kbd>Tab</kbd>:</p>
 <div class="code-block"><pre><code>! + Tab
 → Full HTML5 boilerplate
@@ -55,10 +55,14 @@
 div.container + Tab
 → &lt;div class="container"&gt;&lt;/div&gt;
 
-div#hero.section + Tab
-→ &lt;div id="hero" class="section"&gt;&lt;/div&gt;
+div#hero + Tab
+→ &lt;div id="hero"&gt;&lt;/div&gt;
 
-ul&gt;li*5 + Tab
+div.card.featured + Tab
+→ &lt;div class="card featured"&gt;&lt;/div&gt;
+</code></pre></div>
+<h2 class="lesson-section-title" id="nesting-multiplying">Nesting and Multiplying</h2>
+<div class="code-block"><pre><code>ul&gt;li*5 + Tab
 → &lt;ul&gt;
     &lt;li&gt;&lt;/li&gt;
     &lt;li&gt;&lt;/li&gt;
@@ -67,44 +71,55 @@ ul&gt;li*5 + Tab
     &lt;li&gt;&lt;/li&gt;
   &lt;/ul&gt;
 
-nav&gt;ul&gt;li*3&gt;a[href=#]{Link $} + Tab
+nav&gt;ul&gt;li*3&gt;a + Tab
 → &lt;nav&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href="#"&gt;Link 1&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href="#"&gt;Link 2&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href="#"&gt;Link 3&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/nav&gt;
-</code></pre></div>
-<h2 class="lesson-section-title" id="operators">Emmet Operators</h2>
-<ul>
-  <li><code>&gt;</code> — child: <code>div&gt;p</code> → p inside div</li>
-  <li><code>+</code> — sibling: <code>h1+p</code> → h1 then p</li>
-  <li><code>*</code> — multiply: <code>li*3</code> → three li elements</li>
-  <li><code>$</code> — counter: <code>item$*3</code> → item1, item2, item3</li>
-  <li><code>{}</code> — text content: <code>p{Hello}</code> → &lt;p&gt;Hello&lt;/p&gt;</li>
-  <li><code>[]</code> — custom attribute: <code>input[type=email]</code></li>
-  <li><code>()</code> — grouping: <code>(li&gt;a)*3</code></li>
-</ul>
 
-<h2 class="lesson-section-title" id="css-emmet">CSS Abbreviations</h2>
-<div class="code-block"><pre><code>/* In a .css file, type abbreviation + Tab */
-
-m10        → margin: 10px;
-p20        → padding: 20px;
-df         → display: flex;
-jcc        → justify-content: center;
-aic        → align-items: center;
-w100p      → width: 100%;
-bgc#fff    → background-color: #fff;
-fz1.5rem   → font-size: 1.5rem;
-fw700      → font-weight: 700;
+div.card*3 + Tab
+→ three div.card elements side by side
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#operators" data-target="operators">What does the Emmet operator > do?</a></li><li><a href="#html-abbreviations" data-target="html-abbreviations">How do you create five li elements with one Emmet abbreviation?</a></li><li><a href="#operators" data-target="operators">What does the $ symbol do in Emmet?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Open a new HTML file and recreate a full page structure (nav, header, main with three sections, footer) using only one Emmet abbreviation.</li><li>Read the full Emmet documentation linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://docs.emmet.io/" target="_blank" rel="noopener">Emmet — Official Docs</a></li><li><a href="https://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">Emmet — Cheat Sheet</a></li><li><a href="https://www.youtube.com/watch?v=EzGWXTASWWo" target="_blank" rel="noopener">YouTube — Emmet in VS Code (Kevin Powell)</a></li></ul></div>
+<h2 class="lesson-section-title" id="content-attributes">Content and Attributes</h2>
+<div class="code-block"><pre><code>h1{Hello World} + Tab
+→ &lt;h1&gt;Hello World&lt;/h1&gt;
+
+a[href=https://example.com]{Visit} + Tab
+→ &lt;a href="https://example.com"&gt;Visit&lt;/a&gt;
+
+input[type=email placeholder="Enter email"] + Tab
+→ &lt;input type="email" placeholder="Enter email"&gt;
+
+p.item$*3 + Tab
+→ &lt;p class="item1"&gt;&lt;/p&gt;
+  &lt;p class="item2"&gt;&lt;/p&gt;
+  &lt;p class="item3"&gt;&lt;/p&gt;
+</code></pre></div>
+<h2 class="lesson-section-title" id="sibling-climb">Siblings and Climbing</h2>
+<div class="code-block"><pre><code>/* + creates a sibling, ^ climbs up one level */
+div&gt;p+span + Tab
+→ &lt;div&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+
+header&gt;nav^main&gt;section + Tab
+→ &lt;header&gt;&lt;nav&gt;&lt;/nav&gt;&lt;/header&gt;
+  &lt;main&gt;&lt;section&gt;&lt;/section&gt;&lt;/main&gt;
+</code></pre></div>
+<div class="callout callout-tip">
+  <span class="callout-icon">💡</span>
+  <p>You do not need to memorise all of this now. Start with the basic element, class, ID, and multiplication syntax. Add more as you naturally want to type faster.</p>
+</div>
+
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#nesting-multiplying" data-target="nesting-multiplying">What does the Emmet abbreviation <code>ul>li*5</code> produce?</a></li><li><a href="#content-attributes" data-target="content-attributes">How do you add content inside an element with Emmet?</a></li><li><a href="#sibling-climb" data-target="sibling-climb">What does the <code>^</code> operator do?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Open a blank HTML file and reproduce the following structure using a single Emmet abbreviation: a nav containing an unordered list of five list items each containing an anchor tag.</li><li>Build the skeleton of a blog post page (header, nav, main with two article elements each containing h2 and p, sidebar, footer) using Emmet in one line.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://docs.emmet.io/" target="_blank" rel="noopener">Emmet Official Documentation</a></li><li><a href="https://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">Emmet Cheat Sheet</a></li><li><a href="https://www.youtube.com/watch?v=5BIAdWNcr8Y" target="_blank" rel="noopener">YouTube — Emmet in VS Code (Traversy Media)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="int-html-css-intro.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Introduction</span></a><a href="svg.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">SVG</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>

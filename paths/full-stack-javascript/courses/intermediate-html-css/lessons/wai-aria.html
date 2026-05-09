@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WAI-ARIA | DevPath</title>
-  <link rel="stylesheet" href="../../../../../../css/styles.css">
+  <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav"><a href="../../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../../index.html">Home</a></li><li><a href="../../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../index.html">Full Stack JS</a></li><li><a href="../../index.html">Intermediate HTML &amp; CSS</a></li></ul></nav>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
 <div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="meaningful-text.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="introduction-to-responsive-design.html" class="btn btn-blue">Next &#8594;</a></div></div>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../../index.html">Intermediate HTML &amp; CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">WAI-ARIA</span></nav><h1>WAI-ARIA</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">WAI-ARIA</span></nav><h1>WAI-ARIA</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-html-css-intro.html" class="sidebar-link">Introduction</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
 <a href="svg.html" class="sidebar-link">SVG</a>
 <a href="html-tables.html" class="sidebar-link">Tables</a>
@@ -33,7 +33,7 @@
 <a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
 <a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="introduction-to-web-accessibility.html" class="sidebar-link">Introduction to Web Accessibility</a>
-<a href="the-web-content-accessibility-guidelines.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
+<a href="wcag.html" class="sidebar-link">The Web Content Accessibility Guidelines</a>
 <a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
 <a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
 <a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
@@ -44,61 +44,74 @@
 <a href="media-queries.html" class="sidebar-link">Media Queries</a>
 <a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>WAI-ARIA (Web Accessibility Initiative – Accessible Rich Internet Applications) is a set of HTML attributes that communicate the role, state, and properties of elements to assistive technologies — especially for dynamic content that HTML alone cannot describe.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand the three types of ARIA attributes: roles, states, and properties.</li><li>Know when to use ARIA and when not to.</li><li>Apply common ARIA patterns correctly.</li></ul></div>
+<div class="block-intro"><p>WAI-ARIA (Accessible Rich Internet Applications) is a specification that lets you communicate additional semantic information to assistive technologies — information that HTML alone cannot express.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand when to use ARIA and when not to.</li><li>Use ARIA roles to define element purpose.</li><li>Use ARIA properties and states to convey dynamic information.</li><li>Follow the first rule of ARIA.</li></ul></div>
 
-<h2 class="lesson-section-title" id="what-aria">What ARIA Does</h2>
-<p>When you build a custom dropdown menu out of divs rather than a native <code>&lt;select&gt;</code>, screen readers have no idea what it is. ARIA lets you annotate it: "this is a listbox, these are options, this option is currently selected."</p>
-<p>The first rule of ARIA is: <strong>use native HTML elements before reaching for ARIA</strong>. A <code>&lt;button&gt;</code> already has the correct role, keyboard behaviour, and accessibility semantics. A <code>&lt;div role="button"&gt;</code> requires you to manually add everything the button provides for free.</p>
+<h2 class="lesson-section-title" id="first-rule">The First Rule of ARIA</h2>
+<p>The most important rule about ARIA is: <strong>do not use ARIA if you can use native HTML instead.</strong></p>
+<div class="code-block"><pre><code>&lt;!-- Do NOT do this --&gt;
+&lt;div role="button" tabindex="0" onclick="submit()"&gt;Submit&lt;/div&gt;
 
+&lt;!-- DO this — native HTML has all the semantics built in --&gt;
+&lt;button type="submit"&gt;Submit&lt;/button&gt;
+
+&lt;!-- ARIA is for cases where native HTML falls short:
+     - Custom interactive widgets (tabs, accordions, carousels)
+     - Dynamic content updates
+     - Complex relationships between elements              --&gt;
+</code></pre></div>
 <h2 class="lesson-section-title" id="roles">ARIA Roles</h2>
-<div class="code-block"><pre><code>&lt;!-- Landmark roles — help screen readers navigate the page --&gt;
-&lt;header  role="banner"&gt;...&lt;/header&gt;    &lt;!-- usually implicit on header --&gt;
-&lt;nav     role="navigation"&gt;...&lt;/nav&gt;  &lt;!-- usually implicit on nav --&gt;
-&lt;main    role="main"&gt;...&lt;/main&gt;        &lt;!-- usually implicit on main --&gt;
-&lt;aside   role="complementary"&gt;...&lt;/aside&gt;
-&lt;footer  role="contentinfo"&gt;...&lt;/footer&gt;
-&lt;form    role="form"&gt;...&lt;/form&gt;
+<div class="code-block"><pre><code>&lt;!-- Landmark roles — help screen reader users navigate page sections --&gt;
+&lt;header role="banner"&gt;...&lt;/header&gt;     &lt;!-- site header --&gt;
+&lt;nav role="navigation"&gt;...&lt;/nav&gt;       &lt;!-- navigation --&gt;
+&lt;main role="main"&gt;...&lt;/main&gt;           &lt;!-- main content --&gt;
+&lt;aside role="complementary"&gt;...&lt;/aside&gt;&lt;!-- sidebar --&gt;
+&lt;footer role="contentinfo"&gt;...&lt;/footer&gt;&lt;!-- site footer --&gt;
+
+&lt;!-- Note: HTML5 elements like header, nav, main already have implicit roles --&gt;
+&lt;!-- The role attributes above are redundant but sometimes useful for clarity --&gt;
 
 &lt;!-- Widget roles — for custom interactive components --&gt;
-&lt;div role="button" tabindex="0"&gt;Custom button&lt;/div&gt;
-&lt;ul  role="listbox"&gt;
-  &lt;li role="option" aria-selected="true"&gt;Option 1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div role="dialog" aria-modal="true" aria-labelledby="dialog-title"&gt;
-  &lt;h2 id="dialog-title"&gt;Confirm Delete&lt;/h2&gt;
+&lt;div role="tablist"&gt;
+  &lt;button role="tab" aria-selected="true"&gt;Tab 1&lt;/button&gt;
+  &lt;button role="tab" aria-selected="false"&gt;Tab 2&lt;/button&gt;
 &lt;/div&gt;
+&lt;div role="tabpanel"&gt;Content for tab 1&lt;/div&gt;
 </code></pre></div>
-<h2 class="lesson-section-title" id="states-properties">States and Properties</h2>
-<div class="code-block"><pre><code>&lt;!-- aria-label — accessible name when visible text is absent --&gt;
-&lt;button aria-label="Close modal"&gt;✕&lt;/button&gt;
+<h2 class="lesson-section-title" id="properties-states">ARIA Properties and States</h2>
+<div class="code-block"><pre><code>&lt;!-- aria-label — provides an accessible name --&gt;
+&lt;button aria-label="Close dialog"&gt;×&lt;/button&gt;
 
-&lt;!-- aria-labelledby — point to an existing element for the name --&gt;
-&lt;section aria-labelledby="section-title"&gt;
-  &lt;h2 id="section-title"&gt;Recent Orders&lt;/h2&gt;
+&lt;!-- aria-labelledby — points to an element that labels this one --&gt;
+&lt;section aria-labelledby="section-heading"&gt;
+  &lt;h2 id="section-heading"&gt;Recent Projects&lt;/h2&gt;
+  ...
 &lt;/section&gt;
 
-&lt;!-- aria-describedby — additional descriptive text --&gt;
-&lt;input aria-describedby="password-hint" type="password"&gt;
-&lt;p id="password-hint"&gt;Must be at least 8 characters with one number&lt;/p&gt;
+&lt;!-- aria-describedby — points to additional description --&gt;
+&lt;input
+  type="password"
+  aria-describedby="password-hint"
+&gt;
+&lt;p id="password-hint"&gt;Password must be at least 8 characters&lt;/p&gt;
 
-&lt;!-- aria-expanded — open/closed state for dropdowns, accordions --&gt;
+&lt;!-- aria-hidden — hides from assistive technology --&gt;
+&lt;svg aria-hidden="true" focusable="false"&gt;...&lt;/svg&gt;
+
+&lt;!-- aria-expanded — state of expandable elements --&gt;
 &lt;button aria-expanded="false" aria-controls="menu"&gt;Menu&lt;/button&gt;
 &lt;ul id="menu" hidden&gt;...&lt;/ul&gt;
 
-&lt;!-- aria-hidden — hide decorative elements from screen readers --&gt;
-&lt;span aria-hidden="true"&gt;🎉&lt;/span&gt; Congratulations!
-
-&lt;!-- role="alert" — announce dynamic content immediately --&gt;
-&lt;div role="alert" aria-live="polite"&gt;
-  Form submitted successfully!
+&lt;!-- aria-live — announce dynamic content changes --&gt;
+&lt;div aria-live="polite" id="status"&gt;
+  &lt;!-- content updated here is announced by screen readers --&gt;
 &lt;/div&gt;
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#what-aria" data-target="what-aria">What is the first rule of ARIA?</a></li><li><a href="#states-properties" data-target="states-properties">What does aria-label do?</a></li><li><a href="#states-properties" data-target="states-properties">What does aria-expanded communicate?</a></li><li><a href="#states-properties" data-target="states-properties">When should you use role='alert'?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add appropriate ARIA attributes to any custom components in your admin dashboard (dropdown menus, modals, tabs).</li><li>Read the ARIA Authoring Practices Guide to see correct patterns for common widgets.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener">ARIA Authoring Practices Guide (APG)</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA" target="_blank" rel="noopener">MDN — ARIA</a></li><li><a href="https://www.youtube.com/watch?v=g9Qff0b-lHk" target="_blank" rel="noopener">YouTube — ARIA Explained (Google Chrome Developers)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#first-rule" data-target="first-rule">What is the first rule of ARIA?</a></li><li><a href="#properties-states" data-target="properties-states">What is aria-hidden used for?</a></li><li><a href="#properties-states" data-target="properties-states">What does aria-live do?</a></li><li><a href="#first-rule" data-target="first-rule">When should you use role='button' on a div?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add appropriate ARIA attributes to any custom interactive components in your projects.</li><li>Read the MDN ARIA guides linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA" target="_blank" rel="noopener">MDN — ARIA</a></li><li><a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener">WAI-ARIA Authoring Practices</a></li><li><a href="https://www.youtube.com/watch?v=g9Qff0b-lHk" target="_blank" rel="noopener">YouTube — ARIA Tutorial (Google Chrome Developers)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="meaningful-text.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Meaningful Text</span></a><a href="introduction-to-responsive-design.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Introduction to Responsive Design</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
-<script src="../../../../../../js/main.js"></script>
+<script src="../../../../../js/main.js"></script>
 </body>
 </html>
