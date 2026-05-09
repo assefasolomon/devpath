@@ -60,19 +60,19 @@
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Links are what make the web a web. Images make it visual. This lesson covers both — including the accessibility requirement you must never skip.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Create links with the a element and href attribute.</li><li>Understand the difference between absolute and relative links.</li><li>Embed images with img using src and alt attributes.</li><li>Write meaningful alt text for accessibility.</li></ul></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Create links with the a element and href attribute.</li><li>Distinguish between absolute and relative links.</li><li>Embed images with img using src and alt.</li><li>Write meaningful alt text for accessibility.</li></ul></div>
 
 <h2 class="lesson-section-title" id="links">Creating Links</h2>
 <div class="code-block"><pre><code>&lt;!-- External link --&gt;
 &lt;a href="https://developer.mozilla.org"&gt;Visit MDN&lt;/a&gt;
 
-&lt;!-- Internal link to another page in your site --&gt;
+&lt;!-- Internal link --&gt;
 &lt;a href="about.html"&gt;About Us&lt;/a&gt;
 
 &lt;!-- Link to a section on the same page --&gt;
 &lt;a href="#contact"&gt;Jump to Contact&lt;/a&gt;
 
-&lt;!-- Opens in a new tab (always add rel="noopener" for security) --&gt;
+&lt;!-- Opens in a new tab — always add rel="noopener" for security --&gt;
 &lt;a href="https://github.com" target="_blank" rel="noopener noreferrer"&gt;
   GitHub
 &lt;/a&gt;
@@ -82,15 +82,9 @@
 &lt;a href="https://www.example.com/about.html"&gt;About&lt;/a&gt;
 
 &lt;!-- RELATIVE — relative to current file location --&gt;
-
-&lt;!-- Same folder --&gt;
-&lt;a href="about.html"&gt;About&lt;/a&gt;
-
-&lt;!-- Inside a subfolder --&gt;
-&lt;a href="recipes/pasta.html"&gt;Pasta&lt;/a&gt;
-
-&lt;!-- Up one level then into another folder --&gt;
-&lt;a href="../index.html"&gt;Home&lt;/a&gt;
+&lt;a href="about.html"&gt;About&lt;/a&gt;          &lt;!-- same folder --&gt;
+&lt;a href="recipes/pasta.html"&gt;Pasta&lt;/a&gt;  &lt;!-- subfolder --&gt;
+&lt;a href="../index.html"&gt;Home&lt;/a&gt;         &lt;!-- one level up --&gt;
 </code></pre></div>
 <h2 class="lesson-section-title" id="images">Images</h2>
 <div class="code-block"><pre><code>&lt;!-- Local image --&gt;
@@ -99,24 +93,22 @@
 &lt;!-- Remote image --&gt;
 &lt;img src="https://example.com/photo.png" alt="A mountain peak at dawn"&gt;
 
-&lt;!-- Set dimensions (always good practice) --&gt;
+&lt;!-- With explicit dimensions (always a good practice) --&gt;
 &lt;img src="avatar.jpg" alt="Profile photo" width="200" height="200"&gt;
 </code></pre></div>
 <h2 class="lesson-section-title" id="alt">Writing Good Alt Text</h2>
-<p>The <code>alt</code> attribute is read aloud by screen readers for visually impaired users. It is also displayed when the image fails to load.</p>
+<p>The <code>alt</code> attribute is read aloud by screen readers for visually impaired users and displayed when the image fails to load.</p>
 <div class="code-block"><pre><code>&lt;!-- Bad — meaningless --&gt;
 &lt;img src="img1.jpg" alt="image"&gt;
-&lt;img src="img1.jpg" alt=""&gt;  &lt;!-- blank is OK only for decorative images --&gt;
 
-&lt;!-- Good — describes what is shown --&gt;
-&lt;img src="team.jpg" alt="Five team members standing in front of our office"&gt;
-&lt;img src="logo.svg" alt="DevPath logo"&gt;
+&lt;!-- Good — descriptive --&gt;
+&lt;img src="team.jpg" alt="Five team members in front of our office building"&gt;
 
-&lt;!-- Decorative image — screen reader skips it --&gt;
+&lt;!-- Decorative image — screen reader should skip it --&gt;
 &lt;img src="divider.png" alt="" role="presentation"&gt;
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#links" data-target="links">What attribute specifies a link's destination?</a></li><li><a href="#abs-relative" data-target="abs-relative">What is the difference between an absolute and relative link?</a></li><li><a href="#alt" data-target="alt">Why is the alt attribute on images required?</a></li><li><a href="#links" data-target="links">What security attribute should accompany target='_blank'?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add a navigation bar with three relative links and at least two images with descriptive alt text to your project.</li><li>Build a three-page mini site where every page links to the other two using relative links.</li><li>Read WebAIM's alt text guide linked below.</li></ol></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#links" data-target="links">What attribute specifies a link's destination?</a></li><li><a href="#abs-relative" data-target="abs-relative">What is the difference between absolute and relative links?</a></li><li><a href="#alt" data-target="alt">Why is the alt attribute on images required?</a></li><li><a href="#links" data-target="links">What security attribute should accompany target='_blank'?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add a navigation bar with three relative links and two images with descriptive alt text to your project.</li><li>Build a three-page mini site where every page links to the other two using relative links.</li><li>Read WebAIM's alt text guide — linked below.</li></ol></div>
 <div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks" target="_blank" rel="noopener">MDN — Creating Hyperlinks</a></li><li><a href="https://webaim.org/techniques/alttext/" target="_blank" rel="noopener">WebAIM — Alternative Text Guide</a></li><li><a href="https://www.youtube.com/watch?v=ts_qze4KqKA" target="_blank" rel="noopener">YouTube — HTML Links and Images (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="lists.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Lists</span></a><a href="commit-messages.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Commit Messages</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>

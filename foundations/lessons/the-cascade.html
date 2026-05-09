@@ -59,33 +59,30 @@
 <a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>CSS stands for Cascading Style Sheets. That word — cascading — is the key. When multiple rules target the same element, the cascade determines which one wins.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Define specificity and explain how it resolves conflicts.</li><li>Understand the roles of specificity, inheritance, and source order.</li><li>Calculate the specificity weight of any selector.</li></ul></div>
+<div class="block-intro"><p>CSS stands for Cascading Style Sheets. The cascade is the algorithm that decides which rule wins when multiple rules target the same element.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Define specificity and explain how it resolves conflicts.</li><li>Understand specificity, inheritance, and source order.</li><li>Calculate specificity weight for any selector.</li></ul></div>
 
-<h2 class="lesson-section-title" id="cascade">What Is the Cascade?</h2>
-<p>The cascade evaluates three factors in order of priority:</p>
+<h2 class="lesson-section-title" id="cascade">The Three Factors</h2>
 <ol>
   <li><strong>Specificity</strong> — how precisely does the selector target the element?</li>
   <li><strong>Source order</strong> — when specificity ties, the later rule wins.</li>
-  <li><strong>Inheritance</strong> — some properties pass down from parent to child automatically.</li>
+  <li><strong>Inheritance</strong> — some properties pass from parent to child automatically.</li>
 </ol>
 
-<h2 class="lesson-section-title" id="specificity">Specificity</h2>
-<div class="code-block"><pre><code>/* Specificity weights (low → high) */
-
-/* Element: 0-0-1 */
+<h2 class="lesson-section-title" id="specificity">Specificity Weights</h2>
+<div class="code-block"><pre><code>/* Element: 0-0-1 */
 p { color: black; }
 
-/* Class: 0-1-0  — wins over element */
+/* Class: 0-1-0 — beats element */
 .intro { color: navy; }
 
-/* ID: 1-0-0  — wins over class */
-#hero-text { color: gold; }
+/* ID: 1-0-0 — beats class */
+#hero { color: gold; }
 
-/* Inline style: wins over all selectors */
+/* Inline style — beats all selectors */
 &lt;p style="color: red;"&gt;
 
-/* !important: nuclear option — avoid it */
+/* !important — beats everything. Use only as last resort. */
 p { color: purple !important; }
 
 /* Combined: class(0-1-0) + element(0-0-1) = 0-1-1 */
@@ -94,31 +91,27 @@ p { color: purple !important; }
 <h2 class="lesson-section-title" id="inheritance">Inheritance</h2>
 <div class="code-block"><pre><code>/* These properties ARE inherited by children */
 body {
-  font-family: 'Sora', sans-serif;  /* every element inherits this */
-  color: #334155;                    /* every text element inherits this */
+  font-family: 'Sora', sans-serif;
+  color: #334155;
   line-height: 1.75;
 }
 
-/* These properties are NOT inherited */
+/* These are NOT inherited — set explicitly on each element */
 div {
-  border: 1px solid #e2e8f0;  /* children do NOT get a border */
-  padding: 1rem;               /* children do NOT get padding */
-  width: 400px;                /* children do NOT inherit width */
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+  margin: 2rem;
 }
 </code></pre></div>
 <h2 class="lesson-section-title" id="source-order">Source Order</h2>
-<div class="code-block"><pre><code>/* When specificity is equal, later wins */
+<div class="code-block"><pre><code>/* Equal specificity — later rule wins */
 p { color: red; }
 p { color: blue; }
-/* Result: blue — it appears later */
-
-/* Order in HTML also matters for linked stylesheets */
-&lt;link rel="stylesheet" href="base.css"&gt;      &lt;!-- loaded first --&gt;
-&lt;link rel="stylesheet" href="overrides.css"&gt; &lt;!-- wins on ties --&gt;
+/* Result: blue */
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#cascade" data-target="cascade">What three factors does the cascade consider?</a></li><li><a href="#specificity" data-target="specificity">Which has higher specificity — a class or an ID?</a></li><li><a href="#inheritance" data-target="inheritance">Is the CSS color property inherited by child elements?</a></li><li><a href="#source-order" data-target="source-order">When two rules have identical specificity, which wins?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Open DevTools on any website. Inspect an element and look at the Styles pane. Find at least one overridden (strikethrough) rule and trace why it lost.</li><li>Work through The Odin Project's CSS Cascade exercises linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance" target="_blank" rel="noopener">MDN — Cascade and Inheritance</a></li><li><a href="https://github.com/TheOdinProject/css-exercises" target="_blank" rel="noopener">The Odin Project — CSS Foundations exercises</a></li><li><a href="https://specificity.keegan.st/" target="_blank" rel="noopener">CSS Specificity Calculator</a></li><li><a href="https://www.youtube.com/watch?v=c0kfcP_nD9E" target="_blank" rel="noopener">YouTube — CSS Specificity Explained (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#cascade" data-target="cascade">What three factors does the cascade consider?</a></li><li><a href="#specificity" data-target="specificity">Which has higher specificity — class or ID?</a></li><li><a href="#inheritance" data-target="inheritance">Is the CSS color property inherited by children?</a></li><li><a href="#source-order" data-target="source-order">When two rules have equal specificity, which wins?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Open DevTools on any page, inspect an element, and find at least one overridden (strikethrough) rule. Trace why it lost.</li><li>Work through the CSS Cascade exercises — linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance" target="_blank" rel="noopener">MDN — Cascade and Inheritance</a></li><li><a href="https://specificity.keegan.st/" target="_blank" rel="noopener">CSS Specificity Calculator</a></li><li><a href="https://www.youtube.com/watch?v=c0kfcP_nD9E" target="_blank" rel="noopener">YouTube — CSS Specificity Explained (Kevin Powell)</a></li><li><a href="https://github.com/TheOdinProject/css-exercises" target="_blank" rel="noopener">CSS Foundations Exercises (GitHub)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="intro-to-css.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Intro to CSS</span></a><a href="inspecting-html-and-css.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Inspecting HTML and CSS</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../js/main.js"></script>

@@ -59,26 +59,25 @@
 <a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>HTML is built from elements. Understanding exactly what an element is — and how tags, content, and attributes work together — gives you a solid foundation for everything that follows.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Explain the difference between an HTML element and an HTML tag.</li><li>Identify opening tags, closing tags, and self-closing (void) elements.</li><li>Understand how elements nest correctly inside one another.</li></ul></div>
+<div class="block-intro"><p>HTML is built from elements. Understanding exactly what an element is — and how tags, content, and attributes combine — gives you a solid foundation for everything that follows.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Explain the difference between an HTML element and a tag.</li><li>Identify opening tags, closing tags, and void elements.</li><li>Understand correct nesting.</li><li>Use attributes to add extra information to elements.</li></ul></div>
 
 <h2 class="lesson-section-title" id="elements">Elements and Tags</h2>
-<p>An <strong>HTML element</strong> is made up of an opening tag, content, and a closing tag working together:</p>
-<div class="code-block"><pre><code>&lt;!-- Structure of a standard HTML element --&gt;
+<p>An <strong>HTML element</strong> is an opening tag + content + closing tag working together:</p>
+<div class="code-block"><pre><code>&lt;!-- Standard element structure --&gt;
 &lt;tagname&gt;Content goes here&lt;/tagname&gt;
 
 &lt;!-- Real examples --&gt;
 &lt;p&gt;This is a paragraph.&lt;/p&gt;
-&lt;h1&gt;This is a top-level heading.&lt;/h1&gt;
+&lt;h1&gt;This is the main heading.&lt;/h1&gt;
 &lt;strong&gt;This text is bold.&lt;/strong&gt;
 &lt;em&gt;This text is italic.&lt;/em&gt;
 </code></pre></div>
-<p>The <strong>tag</strong> is just the part inside the angle brackets — <code>&lt;p&gt;</code> or <code>&lt;/p&gt;</code>. The <strong>element</strong> is the complete unit: opening tag + content + closing tag.</p>
+<p>The <strong>tag</strong> is the part inside angle brackets — <code>&lt;p&gt;</code>. The <strong>element</strong> is the complete unit: opening tag + content + closing tag.</p>
 
 <h2 class="lesson-section-title" id="void">Void Elements</h2>
-<p>Some elements have no content and no closing tag. These are called <strong>void elements</strong> or self-closing elements:</p>
-<div class="code-block"><pre><code>&lt;!-- Void elements — no closing tag needed --&gt;
-&lt;img src="sunset.jpg" alt="A golden sunset"&gt;
+<p>Some elements carry no content and have no closing tag. They are called <strong>void elements</strong>:</p>
+<div class="code-block"><pre><code>&lt;img src="sunset.jpg" alt="A golden sunset over the sea"&gt;
 &lt;input type="text" placeholder="Enter your name"&gt;
 &lt;br&gt;
 &lt;hr&gt;
@@ -86,7 +85,7 @@
 &lt;link rel="stylesheet" href="styles.css"&gt;
 </code></pre></div>
 <h2 class="lesson-section-title" id="nesting">Nesting Elements</h2>
-<p>Elements can contain other elements. The rule is strict: close tags in the reverse order you opened them — like removing stacked rings.</p>
+<p>Elements can live inside other elements. The rule: close tags in the reverse order you opened them.</p>
 <div class="code-block"><pre><code>&lt;!-- CORRECT — inner closes before outer --&gt;
 &lt;p&gt;I love &lt;strong&gt;web development&lt;/strong&gt; deeply.&lt;/p&gt;
 
@@ -95,20 +94,19 @@
   &lt;li&gt;Second &lt;em&gt;important&lt;/em&gt; item&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;!-- WRONG — tags overlap instead of nest --&gt;
+&lt;!-- WRONG — tags overlap --&gt;
 &lt;p&gt;I love &lt;strong&gt;web development&lt;/p&gt;&lt;/strong&gt;
 </code></pre></div>
 <h2 class="lesson-section-title" id="attributes">Attributes</h2>
-<p>Attributes give extra information to an element. They always live inside the opening tag:</p>
-<div class="code-block"><pre><code>&lt;!-- attribute="value" syntax --&gt;
-&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
-&lt;img src="photo.jpg" alt="Description of photo"&gt;
+<p>Attributes provide extra information and always live inside the opening tag:</p>
+<div class="code-block"><pre><code>&lt;a href="https://example.com"&gt;Visit Example&lt;/a&gt;
+&lt;img src="photo.jpg" alt="A description of the photo"&gt;
 &lt;input type="email" placeholder="you@example.com"&gt;
 &lt;div class="card" id="hero"&gt;Content&lt;/div&gt;
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#elements" data-target="elements">What is the difference between an HTML tag and an HTML element?</a></li><li><a href="#void" data-target="void">What is a void element? Name two examples.</a></li><li><a href="#nesting" data-target="nesting">What rule must you follow when nesting HTML elements?</a></li><li><a href="#attributes" data-target="attributes">Where do attributes go in an HTML element?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Without looking at any reference, write 8 different HTML elements from memory. Then verify each one on MDN.</li><li>Read MDN's 'Getting started with HTML' article, focusing on the 'Anatomy of an HTML element' section (linked below).</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started" target="_blank" rel="noopener">MDN — Getting Started with HTML</a></li><li><a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank" rel="noopener">YouTube — HTML Crash Course for Absolute Beginners (Traversy Media)</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="noopener">MDN — HTML Element Reference</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#elements" data-target="elements">What is the difference between an HTML tag and an element?</a></li><li><a href="#void" data-target="void">What is a void element? Name two examples.</a></li><li><a href="#nesting" data-target="nesting">What rule must you follow when nesting elements?</a></li><li><a href="#attributes" data-target="attributes">Where do attributes go in an HTML element?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Without looking at any reference, write 8 different HTML elements from memory. Then verify each on MDN.</li><li>Read MDN's 'Getting Started with HTML — anatomy of an HTML element' section — linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started" target="_blank" rel="noopener">MDN — Getting Started with HTML</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" rel="noopener">MDN — HTML Element Reference</a></li><li><a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank" rel="noopener">YouTube — HTML Crash Course for Absolute Beginners (Traversy Media)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="introduction-to-html-css.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Introduction to HTML and CSS</span></a><a href="html-boilerplate.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">HTML Boilerplate</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../js/main.js"></script>

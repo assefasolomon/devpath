@@ -59,52 +59,37 @@
 <a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Browser DevTools are your most powerful debugging tool. This lesson shows you how to inspect elements, test CSS changes live, and diagnose spacing problems in seconds.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Open and navigate browser DevTools.</li><li>Inspect any element to see its HTML and applied styles.</li><li>Edit CSS live in the browser to test changes.</li><li>Use the box model diagram to debug spacing.</li></ul></div>
+<div class="block-intro"><p>Browser DevTools are your most powerful debugging tool as a front-end developer. This lesson shows you how to inspect, test, and diagnose issues in seconds.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Open and navigate browser DevTools.</li><li>Inspect any element to see its HTML and applied styles.</li><li>Edit CSS live in the browser.</li><li>Use the box model diagram to debug spacing.</li></ul></div>
 
 <h2 class="lesson-section-title" id="opening">Opening DevTools</h2>
-<div class="code-block"><pre><code># Keyboard shortcut (all platforms)
-F12
-
-# Mac alternative
-Cmd + Option + I
-
-# Right-click method
-Right-click any element → Inspect
-
-# Find specific element
-Ctrl+Shift+C  /  Cmd+Shift+C
-Then click any element on the page
+<div class="code-block"><pre><code>F12                     # All platforms
+Cmd + Option + I        # Mac
+Right-click → Inspect   # Any element on the page
+Ctrl+Shift+C            # Click-to-inspect mode
 </code></pre></div>
 <h2 class="lesson-section-title" id="elements-panel">The Elements Panel</h2>
-<p>The Elements panel shows the live DOM — the HTML structure the browser built from your code. Select any element to see:</p>
-<ul>
-  <li>Its HTML in the tree on the left</li>
-  <li>Every CSS rule applied to it in the Styles pane on the right</li>
-  <li>Overridden rules shown with a strikethrough</li>
-  <li>Which file and line number each rule comes from</li>
-</ul>
+<p>Shows the live DOM — the HTML the browser built. Select any element to see every CSS rule applied to it in the Styles pane on the right. Overridden rules appear with a strikethrough, with a note showing which rule won.</p>
 
 <h2 class="lesson-section-title" id="live-css">Live CSS Editing</h2>
-<p>Edit CSS directly in DevTools to test changes without touching your files:</p>
 <ol>
   <li>Select an element in the Elements panel</li>
   <li>Click any property value in the Styles pane and change it</li>
   <li>Press Tab to jump to the next property</li>
-  <li>Click any blank space in a rule to add a new property</li>
-  <li>When satisfied, copy the values back into your actual CSS file</li>
+  <li>Click empty space in a rule to add a new property</li>
+  <li>Copy successful values back into your actual CSS file</li>
 </ol>
 <div class="callout callout-warn">
   <span class="callout-icon">⚠️</span>
-  <p>DevTools changes are temporary — they vanish on page reload. Always copy successful changes back to your stylesheet.</p>
+  <p>DevTools edits are temporary — they vanish on page reload. Always copy good changes back to your stylesheet.</p>
 </div>
 
-<h2 class="lesson-section-title" id="box-model-diagram">The Box Model Diagram</h2>
-<p>At the bottom of the Styles pane (or in the Computed tab) you will find a visual diagram of the selected element's box model. Hover over each area to highlight it on the page. This is the fastest way to answer "where is all this space coming from?"</p>
+<h2 class="lesson-section-title" id="box-model-view">Box Model Diagram</h2>
+<p>At the bottom of the Styles pane you will find a visual box model diagram. Hover over each area to highlight it on the page. This is the fastest way to answer "where is all this extra space coming from?"</p>
 
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#opening" data-target="opening">What keyboard shortcut opens DevTools?</a></li><li><a href="#elements-panel" data-target="elements-panel">What does a strikethrough on a CSS rule mean in DevTools?</a></li><li><a href="#live-css" data-target="live-css">How do you test a CSS change without touching your files?</a></li><li><a href="#box-model-diagram" data-target="box-model-diagram">Where in DevTools can you see the box model diagram?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Open DevTools on your Recipes project. Inspect the h1 and identify every CSS rule applied to it.</li><li>Use live editing to change the background colour and font of an element. Copy the values you like back into your stylesheet.</li><li>Watch the Chrome DevTools intro video linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.chrome.com/docs/devtools/css/" target="_blank" rel="noopener">Chrome DevTools — Get started with CSS</a></li><li><a href="https://www.youtube.com/watch?v=x4q86IjJFag" target="_blank" rel="noopener">YouTube — Chrome DevTools Full Tutorial (Traversy Media)</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools" target="_blank" rel="noopener">MDN — What are browser developer tools?</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#opening" data-target="opening">What keyboard shortcut opens DevTools?</a></li><li><a href="#elements-panel" data-target="elements-panel">What does a strikethrough on a CSS rule mean?</a></li><li><a href="#live-css" data-target="live-css">How do you test a CSS change without touching your files?</a></li><li><a href="#box-model-view" data-target="box-model-view">Where is the box model diagram in DevTools?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Open DevTools on your Recipes project. Inspect the h1 and trace every rule applied to it.</li><li>Use live editing to change a background colour and font. Copy the values back into your stylesheet.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.chrome.com/docs/devtools/css/" target="_blank" rel="noopener">Chrome DevTools — Get Started with CSS</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools" target="_blank" rel="noopener">MDN — What are browser developer tools?</a></li><li><a href="https://www.youtube.com/watch?v=x4q86IjJFag" target="_blank" rel="noopener">YouTube — Chrome DevTools Full Tutorial (Traversy Media)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="the-cascade.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">The Cascade</span></a><a href="the-box-model.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">The Box Model</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../js/main.js"></script>

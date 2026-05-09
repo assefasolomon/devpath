@@ -59,72 +59,53 @@
 <a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Flexbox is a CSS layout system that solves alignment problems that were previously hacks. Centering vertically used to be notoriously hard. With Flexbox it takes one line.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Activate Flexbox with display flex.</li><li>Understand flex containers and flex items.</li><li>Describe the main axis and cross axis.</li><li>Apply justify-content and align-items for alignment.</li></ul></div>
+<div class="block-intro"><p>Flexbox solves layout problems that were previously painful hacks. Vertically centring an element used to be notoriously difficult. With Flexbox it is one line.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Activate Flexbox with display: flex.</li><li>Understand flex containers and flex items.</li><li>Describe the main axis and cross axis.</li><li>Apply justify-content and align-items.</li></ul></div>
 
 <h2 class="lesson-section-title" id="container-items">Containers and Items</h2>
-<div class="code-block"><pre><code>&lt;!-- HTML: parent and children --&gt;
-&lt;div class="container"&gt;
+<div class="code-block"><pre><code>&lt;div class="container"&gt;
   &lt;div class="item"&gt;One&lt;/div&gt;
   &lt;div class="item"&gt;Two&lt;/div&gt;
   &lt;div class="item"&gt;Three&lt;/div&gt;
 &lt;/div&gt;
-</code></pre></div><div class="code-block"><pre><code>/* CSS: make the parent a flex container */
-.container {
-  display: flex;
+</code></pre></div><div class="code-block"><pre><code>.container {
+  display: flex;  /* children become flex items and line up in a row */
   gap: 1rem;
 }
-/* All three .item divs are now flex items */
-/* They line up in a row automatically */
 </code></pre></div>
 <h2 class="lesson-section-title" id="axes">Main Axis and Cross Axis</h2>
-<div class="code-block"><pre><code>/* Default: main axis is horizontal (left → right) */
-.container {
-  display: flex;
-  flex-direction: row; /* default */
-}
+<div class="code-block"><pre><code>/* Default: main axis = horizontal */
+.container { display: flex; flex-direction: row; }
 
-/* Switch: main axis becomes vertical (top → bottom) */
-.container {
-  display: flex;
-  flex-direction: column;
-}
+/* Switch: main axis = vertical */
+.container { display: flex; flex-direction: column; }
 </code></pre></div>
-<h2 class="lesson-section-title" id="alignment">Alignment Properties</h2>
-<div class="code-block"><pre><code>/* justify-content — aligns along the MAIN axis */
-/* align-items    — aligns along the CROSS axis */
+<h2 class="lesson-section-title" id="alignment">Alignment</h2>
+<div class="code-block"><pre><code>/* justify-content = main axis | align-items = cross axis */
 
-/* Centre items both horizontally and vertically */
-.centered-box {
+/* Centre everything — the classic "centring a div" */
+.centered {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 300px;
 }
 
-/* Space cards evenly with items at the top */
+/* Space cards evenly */
 .card-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 1.5rem;
 }
-
-/* Stack items vertically, centered */
-.stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
 </code></pre></div>
 <div class="callout callout-tip">
   <span class="callout-icon">💡</span>
-  <p>Play Flexbox Froggy (linked below) to build intuition for alignment through a game. It covers all alignment concepts from this and the next three lessons.</p>
+  <p>Play Flexbox Froggy — a game that covers all Flexbox alignment concepts through fun puzzles. It is one of the best ways to build intuition fast.</p>
 </div>
 
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#container-items" data-target="container-items">What CSS property activates Flexbox on a container?</a></li><li><a href="#axes" data-target="axes">What is the difference between the main axis and cross axis?</a></li><li><a href="#alignment" data-target="alignment">Which property aligns items along the main axis?</a></li><li><a href="#alignment" data-target="alignment">Which property aligns items along the cross axis?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a horizontal navigation bar with links spaced evenly using Flexbox.</li><li>Create a card that is perfectly centered both horizontally and vertically using Flexbox.</li><li>Play Flexbox Froggy and complete all 24 levels.</li></ol></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#container-items" data-target="container-items">What CSS property activates Flexbox?</a></li><li><a href="#axes" data-target="axes">What is the difference between main axis and cross axis?</a></li><li><a href="#alignment" data-target="alignment">Which property aligns items along the main axis?</a></li><li><a href="#alignment" data-target="alignment">Which property aligns items along the cross axis?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a horizontal nav bar with evenly spaced links using Flexbox.</li><li>Centre a div both horizontally and vertically using Flexbox.</li><li>Play Flexbox Froggy and complete all 24 levels.</li></ol></div>
 <div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://flexboxfroggy.com/" target="_blank" rel="noopener">Flexbox Froggy — Learn Flexbox with a game</a></li><li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener">CSS Tricks — A Complete Guide to Flexbox</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox" target="_blank" rel="noopener">MDN — Flexbox</a></li><li><a href="https://www.youtube.com/watch?v=JJSoEo8JSnc" target="_blank" rel="noopener">YouTube — Flexbox CSS in 20 Minutes (Traversy Media)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="block-and-inline.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Block and Inline</span></a><a href="growing-and-shrinking.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Growing and Shrinking</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>

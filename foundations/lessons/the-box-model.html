@@ -59,38 +59,22 @@
 <a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Every HTML element is a rectangular box. Understanding how these boxes are sized and spaced is the single most important concept for CSS layout.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Name the four areas of the CSS box model.</li><li>Understand the difference between content-box and border-box sizing.</li><li>Use margin, padding, and border effectively.</li></ul></div>
+<div class="block-intro"><p>Every HTML element is a rectangular box. Understanding how these boxes are sized and spaced is the single most important concept in CSS layout.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Name the four areas of the CSS box model.</li><li>Understand content-box vs border-box sizing.</li><li>Use margin and padding correctly.</li></ul></div>
 
 <h2 class="lesson-section-title" id="four-areas">The Four Areas</h2>
-<p>From inside out, every element's box has four layers:</p>
 <div class="code-block"><pre><code>.card {
-  /* CONTENT — width and height control this area */
-  width: 320px;
-  height: auto;
-
-  /* PADDING — space between content and border */
-  padding: 24px;
-
-  /* BORDER — line around the padding */
-  border: 2px solid #e2e8f0;
-
-  /* MARGIN — space outside the border, between elements */
-  margin: 32px;
+  width: 320px;                    /* CONTENT area */
+  padding: 24px;                   /* PADDING — inside, between content and border */
+  border: 2px solid #e2e8f0;       /* BORDER */
+  margin: 32px;                    /* MARGIN — outside, between this and neighbours */
 }
 </code></pre></div>
-<h2 class="lesson-section-title" id="box-sizing">The box-sizing Problem and Fix</h2>
-<div class="code-block"><pre><code>/* DEFAULT: content-box — width only applies to content */
-/* Actual rendered width = 300 + 24 + 24 + 2 + 2 = 352px */
-.box {
-  box-sizing: content-box;
-  width: 300px;
-  padding: 24px;
-  border: 2px solid black;
-}
+<h2 class="lesson-section-title" id="box-sizing">The border-box Fix</h2>
+<div class="code-block"><pre><code>/* DEFAULT content-box: actual width = 300 + 24 + 24 + 2 + 2 = 352px */
+.box { width: 300px; padding: 24px; border: 2px solid black; }
 
-/* BETTER: border-box — width includes padding and border */
-/* Actual rendered width = exactly 300px */
+/* border-box: actual width = exactly 300px */
 .box {
   box-sizing: border-box;
   width: 300px;
@@ -98,36 +82,32 @@
   border: 2px solid black;
 }
 
-/* Add this to EVERY stylesheet you write */
-*,
-*::before,
-*::after {
+/* Add this universal rule to EVERY stylesheet */
+*, *::before, *::after {
   box-sizing: border-box;
 }
 </code></pre></div>
 <h2 class="lesson-section-title" id="margin-padding">Margin vs. Padding</h2>
 <div class="code-block"><pre><code>/* PADDING — inside the element, background fills this area */
 .button {
-  padding: 12px 24px;       /* top/bottom  left/right */
-  padding: 12px 24px 12px 24px; /* top right bottom left */
-  background: #2563eb;      /* blue extends into padding */
+  padding: 12px 24px;
+  background: #2563eb;  /* blue extends into padding */
 }
 
 /* MARGIN — outside the element, always transparent */
-.card {
-  margin: 0 auto;           /* centre block element horizontally */
-  margin-top: 32px;
-  margin-bottom: 16px;
+.section {
+  margin: 0 auto;       /* centre a block element */
+  margin-bottom: 32px;
 }
 </code></pre></div>
 <div class="callout callout-tip">
   <span class="callout-icon">💡</span>
-  <p>Vertical margins between adjacent block elements collapse — only the larger value applies, not the sum. Use DevTools to investigate when spacing behaves unexpectedly.</p>
+  <p>Vertical margins between adjacent block elements <em>collapse</em> — only the larger value applies, not the sum. This surprises almost everyone the first time they encounter it.</p>
 </div>
 
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#four-areas" data-target="four-areas">Name the four box model areas from inside to outside.</a></li><li><a href="#box-sizing" data-target="box-sizing">What does box-sizing border-box change?</a></li><li><a href="#margin-padding" data-target="margin-padding">What is the practical difference between margin and padding?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add the universal border-box rule to your stylesheet. Build a card component with explicit padding, border, and margin, and verify dimensions in DevTools.</li><li>Work through The Odin Project's Box Model exercises linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" target="_blank" rel="noopener">MDN — The Box Model</a></li><li><a href="https://github.com/TheOdinProject/css-exercises" target="_blank" rel="noopener">The Odin Project — CSS Foundations exercises</a></li><li><a href="https://www.youtube.com/watch?v=rIO5326FgPE" target="_blank" rel="noopener">YouTube — The Box Model (Kevin Powell)</a></li><li><a href="https://css-tricks.com/the-css-box-model/" target="_blank" rel="noopener">CSS Tricks — The CSS Box Model</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#four-areas" data-target="four-areas">Name the four box model areas from inside to outside.</a></li><li><a href="#box-sizing" data-target="box-sizing">What does box-sizing: border-box change?</a></li><li><a href="#margin-padding" data-target="margin-padding">What is the practical difference between margin and padding?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add the universal border-box rule to your stylesheet. Build a card with explicit padding, border, and margin. Verify dimensions in DevTools.</li><li>Work through the Box Model exercises — linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" target="_blank" rel="noopener">MDN — The Box Model</a></li><li><a href="https://css-tricks.com/the-css-box-model/" target="_blank" rel="noopener">CSS Tricks — The CSS Box Model</a></li><li><a href="https://www.youtube.com/watch?v=rIO5326FgPE" target="_blank" rel="noopener">YouTube — The Box Model (Kevin Powell)</a></li><li><a href="https://github.com/TheOdinProject/css-exercises" target="_blank" rel="noopener">CSS Foundations Exercises (GitHub)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="inspecting-html-and-css.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Inspecting HTML and CSS</span></a><a href="block-and-inline.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Block and Inline</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../js/main.js"></script>

@@ -7,145 +7,96 @@
   <link rel="stylesheet" href="../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav">
-  <a href="../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
-  <ul class="nav-links">
-    <li><a href="../../index.html">Home</a></li>
-    <li><a href="../index.html">Foundations</a></li>
-    <li><a href="../../paths/full-stack-javascript/index.html">Full Stack JS</a></li>
-    <li><a href="../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li>
-  </ul>
-</nav>
-<div class="lesson-nav-bar">
-  <div class="lesson-nav-bar-group"><a href="text-editors.html" class="btn btn-blue-outline">← Previous</a></div>
-  <div class="lesson-nav-bar-group">
-    <button class="btn btn-green mark-complete-btn">Mark Completed</button>
-  </div>
-  <div class="lesson-nav-bar-group"><a href="setting-up-git.html" class="btn btn-blue">Next →</a></div>
-</div>
-<div class="page-header">
-  <div class="page-header-inner"><nav class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../index.html">Foundations</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Command Line Basics</span></nav><h1>Command Line Basics</h1></div>
-</div>
-<div class="lesson-layout">
-  <aside class="sidebar">
-  <div class="sidebar-course-title">Foundations</div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Introduction</div>
-    <a href="how-this-course-will-work.html" class="sidebar-link">How This Course Will Work</a>
-    <a href="introduction-to-web-dev.html" class="sidebar-link">Introduction to Web Development</a>
-    <a href="motivation-and-mindset.html" class="sidebar-link">Motivation and Mindset</a>
-    <a href="asking-for-help.html" class="sidebar-link">Asking For Help</a>
-    <a href="join-the-community.html" class="sidebar-link">Join the Community</a>
-  </div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Prerequisites</div>
-    <a href="computer-basics.html" class="sidebar-link">Computer Basics</a>
-    <a href="how-does-the-web-work.html" class="sidebar-link">How Does the Web Work?</a>
-    <a href="installation-overview.html" class="sidebar-link">Installation Overview</a>
-    <a href="installations.html" class="sidebar-link">Installations</a>
-    <a href="text-editors.html" class="sidebar-link">Text Editors</a>
-    <a href="command-line-basics.html" class="sidebar-link active">Command Line Basics</a>
-    <a href="setting-up-git.html" class="sidebar-link">Setting Up Git</a>
-  </div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Git Basics</div>
-    <a href="introduction-to-git.html" class="sidebar-link">Introduction to Git</a>
-    <a href="git-basics.html" class="sidebar-link">Git Basics</a>
-  </div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">HTML Foundations</div>
-    <a href="introduction-to-html-css.html" class="sidebar-link">Introduction to HTML and CSS</a>
-    <a href="elements-and-tags.html" class="sidebar-link">Elements and Tags</a>
-    <a href="html-boilerplate.html" class="sidebar-link">HTML Boilerplate</a>
-    <a href="working-with-text.html" class="sidebar-link">Working with Text</a>
-    <a href="lists.html" class="sidebar-link">Lists</a>
-    <a href="links-and-images.html" class="sidebar-link">Links and Images</a>
-    <a href="commit-messages.html" class="sidebar-link">Commit Messages</a>
-    <a href="project-recipes.html" class="sidebar-link is-project">Project: Recipes</a>
-  </div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">CSS Foundations</div>
-    <a href="intro-to-css.html" class="sidebar-link">Intro to CSS</a>
-    <a href="the-cascade.html" class="sidebar-link">The Cascade</a>
-    <a href="inspecting-html-and-css.html" class="sidebar-link">Inspecting HTML and CSS</a>
-    <a href="the-box-model.html" class="sidebar-link">The Box Model</a>
-    <a href="block-and-inline.html" class="sidebar-link">Block and Inline</a>
-  </div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Flexbox</div>
-    <a href="introduction-to-flexbox.html" class="sidebar-link">Introduction to Flexbox</a>
-    <a href="growing-and-shrinking.html" class="sidebar-link">Growing and Shrinking</a>
-    <a href="axes.html" class="sidebar-link">Axes</a>
-    <a href="alignment.html" class="sidebar-link">Alignment</a>
-    <a href="project-landing-page.html" class="sidebar-link is-project">Project: Landing Page</a>
-  </div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">JavaScript Basics</div>
-    <a href="variables-and-operators.html" class="sidebar-link">Variables and Operators</a>
-    <a href="data-types-and-conditionals.html" class="sidebar-link">Data Types and Conditionals</a>
-    <a href="javascript-developer-tools.html" class="sidebar-link">JavaScript Developer Tools</a>
-    <a href="function-basics.html" class="sidebar-link">Function Basics</a>
-    <a href="problem-solving.html" class="sidebar-link">Problem Solving</a>
-    <a href="understanding-errors.html" class="sidebar-link">Understanding Errors</a>
-    <a href="project-rock-paper-scissors.html" class="sidebar-link is-project">Project: Rock Paper Scissors</a>
-    <a href="clean-code.html" class="sidebar-link">Clean Code</a>
-    <a href="installing-nodejs.html" class="sidebar-link">Installing Node.js</a>
-    <a href="arrays-and-loops.html" class="sidebar-link">Arrays and Loops</a>
-    <a href="dom-manipulation-and-events.html" class="sidebar-link">DOM Manipulation and Events</a>
-    <a href="revisiting-rock-paper-scissors.html" class="sidebar-link">Revisiting Rock Paper Scissors</a>
-    <a href="project-etch-a-sketch.html" class="sidebar-link is-project">Project: Etch-a-Sketch</a>
-    <a href="object-basics.html" class="sidebar-link">Object Basics</a>
-    <a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
-  </div>
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Conclusion</div>
-    <a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
-  </div>
-</aside>
-  <main>
-    <div class="lesson-body">
-      <div class="block-intro"><p>The command line is the developer's power tool. Once comfortable with it, you will move through your file system and run programs faster than any graphical interface allows.</p></div>
-      <div class="block-overview">
-        <div class="block-overview-label">Lesson Overview</div>
-        <ul><li>Open the terminal on your operating system.</li><li>Navigate the file system using <code>pwd</code>, <code>ls</code>, and <code>cd</code>.</li><li>Create and delete files and directories from the command line.</li><li>Use time-saving terminal features like Tab completion and command history.</li></ul>
-      </div>
-      
+<nav class="site-nav"><a href="../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../index.html">Home</a></li><li><a href="../index.html">Foundations</a></li><li><a href="../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="text-editors.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="setting-up-git.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../index.html">Foundations</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Command Line Basics</span></nav><h1>Command Line Basics</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Foundations</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="how-this-course-will-work.html" class="sidebar-link">How This Course Will Work</a>
+<a href="introduction-to-web-dev.html" class="sidebar-link">Introduction to Web Development</a>
+<a href="motivation-and-mindset.html" class="sidebar-link">Motivation and Mindset</a>
+<a href="asking-for-help.html" class="sidebar-link">Asking For Help</a>
+<a href="join-the-community.html" class="sidebar-link">Join the Community</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Prerequisites</div><a href="computer-basics.html" class="sidebar-link">Computer Basics</a>
+<a href="how-does-the-web-work.html" class="sidebar-link">How Does the Web Work?</a>
+<a href="installation-overview.html" class="sidebar-link">Installation Overview</a>
+<a href="installations.html" class="sidebar-link">Installations</a>
+<a href="text-editors.html" class="sidebar-link">Text Editors</a>
+<a href="command-line-basics.html" class="sidebar-link active">Command Line Basics</a>
+<a href="setting-up-git.html" class="sidebar-link">Setting Up Git</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Git Basics</div><a href="introduction-to-git.html" class="sidebar-link">Introduction to Git</a>
+<a href="git-basics.html" class="sidebar-link">Git Basics</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">HTML Foundations</div><a href="introduction-to-html-css.html" class="sidebar-link">Introduction to HTML and CSS</a>
+<a href="elements-and-tags.html" class="sidebar-link">Elements and Tags</a>
+<a href="html-boilerplate.html" class="sidebar-link">HTML Boilerplate</a>
+<a href="working-with-text.html" class="sidebar-link">Working with Text</a>
+<a href="lists.html" class="sidebar-link">Lists</a>
+<a href="links-and-images.html" class="sidebar-link">Links and Images</a>
+<a href="commit-messages.html" class="sidebar-link">Commit Messages</a>
+<a href="project-recipes.html" class="sidebar-link is-project">Project: Recipes</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">CSS Foundations</div><a href="intro-to-css.html" class="sidebar-link">Intro to CSS</a>
+<a href="the-cascade.html" class="sidebar-link">The Cascade</a>
+<a href="inspecting-html-and-css.html" class="sidebar-link">Inspecting HTML and CSS</a>
+<a href="the-box-model.html" class="sidebar-link">The Box Model</a>
+<a href="block-and-inline.html" class="sidebar-link">Block and Inline</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Flexbox</div><a href="introduction-to-flexbox.html" class="sidebar-link">Introduction to Flexbox</a>
+<a href="growing-and-shrinking.html" class="sidebar-link">Growing and Shrinking</a>
+<a href="axes.html" class="sidebar-link">Axes</a>
+<a href="alignment.html" class="sidebar-link">Alignment</a>
+<a href="project-landing-page.html" class="sidebar-link is-project">Project: Landing Page</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">JavaScript Basics</div><a href="variables-and-operators.html" class="sidebar-link">Variables and Operators</a>
+<a href="data-types-and-conditionals.html" class="sidebar-link">Data Types and Conditionals</a>
+<a href="javascript-developer-tools.html" class="sidebar-link">JavaScript Developer Tools</a>
+<a href="function-basics.html" class="sidebar-link">Function Basics</a>
+<a href="problem-solving.html" class="sidebar-link">Problem Solving</a>
+<a href="understanding-errors.html" class="sidebar-link">Understanding Errors</a>
+<a href="project-rock-paper-scissors.html" class="sidebar-link is-project">Project: Rock Paper Scissors</a>
+<a href="clean-code.html" class="sidebar-link">Clean Code</a>
+<a href="installing-nodejs.html" class="sidebar-link">Installing Node.js</a>
+<a href="arrays-and-loops.html" class="sidebar-link">Arrays and Loops</a>
+<a href="dom-manipulation-and-events.html" class="sidebar-link">DOM Manipulation and Events</a>
+<a href="revisiting-rock-paper-scissors.html" class="sidebar-link">Revisiting Rock Paper Scissors</a>
+<a href="project-etch-a-sketch.html" class="sidebar-link is-project">Project: Etch-a-Sketch</a>
+<a href="object-basics.html" class="sidebar-link">Object Basics</a>
+<a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>The command line is the developer's power tool. Once comfortable with it you will navigate your file system and run programs faster than any graphical interface allows.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Open the terminal on your operating system.</li><li>Navigate the file system using <code>pwd</code>, <code>ls</code>, and <code>cd</code>.</li><li>Create and delete files and directories from the command line.</li><li>Use Tab completion and command history to work faster.</li></ul></div>
+
 <h2 class="lesson-section-title" id="opening">Opening the Terminal</h2>
 <ul>
   <li><strong>Mac:</strong> <code>Cmd+Space</code> → type "Terminal" → Enter</li>
   <li><strong>Linux:</strong> <code>Ctrl+Alt+T</code> or search your application menu</li>
-  <li><strong>Windows:</strong> Open WSL from the Start menu, or use the integrated terminal in VS Code</li>
+  <li><strong>Windows (WSL):</strong> Open Ubuntu from the Start menu, or use the VS Code integrated terminal</li>
 </ul>
 
 <h2 class="lesson-section-title" id="navigation">Navigating the File System</h2>
 <div class="code-block"><pre><code>pwd              # Print Working Directory — where are you right now?
-ls               # List files and folders here
-ls -la           # List all files (including hidden) with details
+ls               # List files and folders in current directory
+ls -la           # List all files including hidden ones, with details
 cd projects      # Change into the 'projects' folder
-cd ..            # Go up one level to the parent folder
-cd ~             # Go to your home directory (shortcut for /home/username)
-cd /             # Go to the root of the file system
+cd ..            # Go up one level to parent folder
+cd ~             # Go to your home directory
 cd -             # Go back to the previous directory
 </code></pre></div>
 <h2 class="lesson-section-title" id="creating">Creating and Removing Files</h2>
-<div class="code-block"><pre><code>mkdir my-folder          # Create a new directory
-mkdir -p a/b/c           # Create nested directories in one command
-touch index.html         # Create an empty file
-cp file.txt backup.txt   # Copy a file
-mv old-name.txt new-name.txt  # Rename or move a file
-rm old-file.txt          # Delete a file (no recycle bin!)
-rm -r old-folder         # Delete a folder and all contents (careful!)
+<div class="code-block"><pre><code>mkdir my-folder           # Create a new directory
+mkdir -p a/b/c            # Create nested directories at once
+touch index.html          # Create an empty file
+cp file.txt backup.txt    # Copy a file
+mv old.txt new.txt        # Rename or move a file
+rm old-file.txt           # Delete a file — no recycle bin!
+rm -r old-folder          # Delete a folder and all its contents
 </code></pre></div>
 <div class="callout callout-warn">
   <span class="callout-icon">⚠️</span>
-  <p><code>rm</code> permanently deletes files — they do not go to a recycle bin. Always double-check before running it, especially with the <code>-r</code> flag.</p>
+  <p><code>rm</code> permanently deletes files. Always double-check before running it — especially with <code>-r</code> which deletes entire directories.</p>
 </div>
 
 <h2 class="lesson-section-title" id="tips">Time-Saving Tips</h2>
-<div class="code-block"><pre><code># Tab completion — press Tab to auto-complete file/folder names
-cd Dev[Tab]   →  cd DevPath/
+<div class="code-block"><pre><code># Tab completion — press Tab to auto-complete names
+cd Dev[Tab]  →  cd DevPath/
 
-# Command history — press Up arrow to repeat previous commands
+# Up arrow — cycle through previous commands
 
 # Cancel a running command
 Ctrl+C
@@ -153,26 +104,13 @@ Ctrl+C
 # Clear the terminal screen
 clear
 
-# Show the last 10 commands you ran
-history | tail -10
+# Show recent command history
+history | tail -20
 </code></pre></div>
-      <div class="block-kc">
-        <div class="block-kc-label">Knowledge Check</div>
-        <p class="kc-note">Click any question to jump to the part of this lesson that answers it.</p>
-        <ol><li><a href="#navigation" data-target="navigation">What does <code>pwd</code> do?</a></li><li><a href="#navigation" data-target="navigation">How do you move up one level in the directory tree?</a></li><li><a href="#creating" data-target="creating">Why is <code>rm -r</code> dangerous?</a></li><li><a href="#tips" data-target="tips">What key auto-completes file and folder names?</a></li></ol>
-      </div>
-      <div class="block-assignments">
-        <div class="block-assignments-label">Assignments</div>
-        <ol><li>Open your terminal, navigate to your home directory and create the folder <code>devpath-projects/foundations</code> using the command line only.</li><li>Work through The Odin Project's Command Line Basics exercises (linked below).</li><li>Practice until navigating with <code>cd</code>, <code>ls</code>, and <code>pwd</code> feels natural — avoid using the file manager GUI for the rest of the day.</li></ol>
-      </div>
-      <div class="block-resources">
-        <div class="block-resources-label">Additional Resources</div>
-        <ul><li><a href="https://www.theodinproject.com/lessons/foundations-command-line-basics" target="_blank" rel="noopener">The Odin Project — Command Line Basics exercises</a></li><li><a href="http://linuxcommand.org/tlcl.php" target="_blank" rel="noopener">The Linux Command Line — free online book (William Shotts)</a></li><li><a href="https://www.youtube.com/watch?v=uwAqEzhyjtw" target="_blank" rel="noopener">YouTube — Command Line Crash Course (Traversy Media)</a></li><li><a href="https://www.youtube.com/watch?v=ZtqBQ68cfJc" target="_blank" rel="noopener">YouTube — Linux Terminal Full Course (freeCodeCamp)</a></li></ul>
-      </div>
-    </div>
-    <div class="lesson-pagination"><a href="text-editors.html" class="pagination-link prev"><span class="pagination-label">← Previous</span><span class="pagination-title">Text Editors</span></a><a href="setting-up-git.html" class="pagination-link next"><span class="pagination-label">Next →</span><span class="pagination-title">Setting Up Git</span></a></div>
-  </main>
-</div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#navigation" data-target="navigation">What does <code>pwd</code> do?</a></li><li><a href="#navigation" data-target="navigation">How do you move up one level in the directory tree?</a></li><li><a href="#creating" data-target="creating">Why is <code>rm -r</code> dangerous?</a></li><li><a href="#tips" data-target="tips">What key auto-completes file and folder names?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Open your terminal and create the folder <code>devpath-projects/foundations</code> using only command-line commands.</li><li>Work through the command line exercises linked below.</li><li>Avoid using your file manager GUI for the rest of the day — use the terminal instead.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="http://linuxcommand.org/tlcl.php" target="_blank" rel="noopener">The Linux Command Line — free online book (William Shotts)</a></li><li><a href="https://www.youtube.com/watch?v=uwAqEzhyjtw" target="_blank" rel="noopener">YouTube — Command Line Crash Course (Traversy Media)</a></li><li><a href="https://www.youtube.com/watch?v=ZtqBQ68cfJc" target="_blank" rel="noopener">YouTube — Linux Terminal Full Course (freeCodeCamp)</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="text-editors.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Text Editors</span></a><a href="setting-up-git.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Setting Up Git</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../js/main.js"></script>
 </body>

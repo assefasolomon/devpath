@@ -60,54 +60,48 @@
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Every HTML element has a default display behaviour. Understanding block versus inline is foundational for understanding why layouts behave the way they do.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Explain the difference between block and inline elements.</li><li>Know which common HTML elements are block-level and which are inline.</li><li>Use the display property to change an element's behaviour.</li><li>Understand inline-block and when it is useful.</li></ul></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Explain the difference between block and inline elements.</li><li>Know which common elements are block and which are inline.</li><li>Use the display property to change an element's behaviour.</li></ul></div>
 
 <h2 class="lesson-section-title" id="block">Block Elements</h2>
-<p>Block elements start on a new line and take up the full available width. You can freely set width, height, padding, and margin on them.</p>
+<p>Block elements start on a new line and take the full available width. You can freely set width, height, margin, and padding.</p>
 <div class="code-block"><pre><code>/* Common block elements */
 div, p, h1, h2, h3, h4, h5, h6,
 ul, ol, li, section, article,
 header, footer, nav, main, form
 </code></pre></div>
 <h2 class="lesson-section-title" id="inline">Inline Elements</h2>
-<p>Inline elements flow within text and only take up as much width as their content. Setting width, height, or vertical margins has no effect.</p>
+<p>Inline elements flow within surrounding text, taking only as much width as their content. Setting width, height, or vertical margin has no effect on them.</p>
 <div class="code-block"><pre><code>/* Common inline elements */
-span, a, strong, em, img,
-input, button, label, code
+span, a, strong, em, img, input, button, label, code
 
-&lt;!-- Inline elements flow within the surrounding text --&gt;
+&lt;!-- Inline elements flow naturally within text --&gt;
 &lt;p&gt;
-  Here is a paragraph with &lt;strong&gt;bold&lt;/strong&gt; and
-  &lt;a href="#"&gt;a link&lt;/a&gt; flowing naturally within the text.
+  A paragraph with &lt;strong&gt;bold&lt;/strong&gt; and
+  &lt;a href="#"&gt;a link&lt;/a&gt; flowing naturally within the sentence.
 &lt;/p&gt;
 </code></pre></div>
 <h2 class="lesson-section-title" id="display">Changing Display</h2>
-<div class="code-block"><pre><code>/* Override default display behaviour */
+<div class="code-block"><pre><code>/* Override default behaviour */
+span { display: block; }        /* inline → block */
+div  { display: inline; }       /* block → inline */
 
-/* Make inline span behave like a block */
-span { display: block; }
-
-/* Make block div behave inline */
-div { display: inline; }
-
-/* Best of both worlds — inline position, block sizing */
+/* Inline position + block sizing */
 .nav-item {
   display: inline-block;
   width: 120px;
   padding: 8px 16px;
-  text-align: center;
 }
 
 /* Remove from page entirely */
 .hidden { display: none; }
 
-/* Modern layouts use flex and grid instead */
-.container { display: flex; }
-.grid      { display: grid; }
+/* Modern layout methods */
+.row  { display: flex; }
+.grid { display: grid; }
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#block" data-target="block">What is the main visual difference between block and inline?</a></li><li><a href="#inline" data-target="inline">Why does setting width have no effect on an inline element?</a></li><li><a href="#display" data-target="display">What does display inline-block give you that plain inline does not?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>In DevTools, inspect a p (block) and a span (inline). Notice the computed display values and how they affect layout.</li><li>Work through The Odin Project's Block and Inline exercises linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow" target="_blank" rel="noopener">MDN — Block and Inline Layout in Normal Flow</a></li><li><a href="https://github.com/TheOdinProject/css-exercises" target="_blank" rel="noopener">The Odin Project — CSS Foundations exercises</a></li><li><a href="https://www.youtube.com/watch?v=x_i2gga-sYg" target="_blank" rel="noopener">YouTube — Block vs Inline vs Inline-Block (Web Dev Simplified)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#block" data-target="block">What is the main difference between block and inline elements?</a></li><li><a href="#inline" data-target="inline">Why does setting width have no effect on inline elements?</a></li><li><a href="#display" data-target="display">What does display: inline-block give you that inline does not?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>In DevTools, compare the computed display values of a p (block) and a span (inline).</li><li>Work through the Block and Inline exercises — linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow" target="_blank" rel="noopener">MDN — Block and Inline Layout</a></li><li><a href="https://github.com/TheOdinProject/css-exercises" target="_blank" rel="noopener">CSS Foundations Exercises (GitHub)</a></li><li><a href="https://www.youtube.com/watch?v=x_i2gga-sYg" target="_blank" rel="noopener">YouTube — Block vs Inline vs Inline-Block (Web Dev Simplified)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="the-box-model.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">The Box Model</span></a><a href="introduction-to-flexbox.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Introduction to Flexbox</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../js/main.js"></script>

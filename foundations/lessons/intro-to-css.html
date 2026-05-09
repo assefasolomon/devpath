@@ -59,8 +59,8 @@
 <a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>HTML gives your page structure. CSS gives it style. This lesson introduces how CSS works, how to write rules, and the three ways to attach styles to your HTML.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Write a CSS rule with selector, property, and value.</li><li>Use element, class, and ID selectors.</li><li>Know the three ways to add CSS and why external stylesheets are the right approach.</li></ul></div>
+<div class="block-intro"><p>HTML gives your page structure. CSS makes it beautiful. This lesson introduces how CSS rules work and the three ways to apply styles to HTML.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Write a CSS rule with selector, property, and value.</li><li>Use element, class, and ID selectors.</li><li>Know the three ways to add CSS and why external is always preferred.</li></ul></div>
 
 <h2 class="lesson-section-title" id="anatomy">Anatomy of a CSS Rule</h2>
 <div class="code-block"><pre><code>selector {
@@ -68,69 +68,48 @@
   property: value;
 }
 
-/* Real example */
+/* Example */
 p {
   color: #334155;
   font-size: 1.1rem;
   line-height: 1.75;
 }
 </code></pre></div>
-<ul>
-  <li><strong>Selector</strong> — targets which HTML elements to style</li>
-  <li><strong>Property</strong> — the aspect you are changing (color, size, spacing…)</li>
-  <li><strong>Value</strong> — the setting for that property</li>
-</ul>
+<h2 class="lesson-section-title" id="selectors">Selectors</h2>
+<div class="code-block"><pre><code>/* Element — every h1 on the page */
+h1 { color: #1e3a8a; }
 
-<h2 class="lesson-section-title" id="selectors">Basic Selectors</h2>
-<div class="code-block"><pre><code>/* Element selector — every h1 on the page */
-h1 {
-  font-size: 2.5rem;
-  color: #1e3a8a;
-}
-
-/* Class selector — any element with class="card" */
+/* Class — elements with class="card" */
 .card {
   background: #f8fafc;
   border-radius: 8px;
   padding: 1.5rem;
 }
 
-/* ID selector — the ONE element with id="hero" */
-#hero {
-  background: linear-gradient(135deg, #1e3a8a, #2563eb);
-  color: white;
-}
+/* ID — the one element with id="hero" */
+#hero { background: #1e3a8a; color: white; }
 
-/* Combining: p elements that are inside a .card */
-.card p {
-  font-size: 0.9rem;
-  color: #64748b;
-}
+/* Descendant — p inside .card only */
+.card p { font-size: 0.9rem; }
 </code></pre></div>
 <h2 class="lesson-section-title" id="three-ways">Three Ways to Add CSS</h2>
-<div class="code-block"><pre><code>&lt;!-- 1. INLINE — directly on the element. Avoid for real projects. --&gt;
-&lt;p style="color: red; font-weight: bold;"&gt;Warning text&lt;/p&gt;
+<div class="code-block"><pre><code>&lt;!-- 1. INLINE — on the element. Avoid for real projects. --&gt;
+&lt;p style="color: red;"&gt;Warning text&lt;/p&gt;
 
-&lt;!-- 2. INTERNAL — style block in the head. OK for tiny demos. --&gt;
-&lt;head&gt;
-  &lt;style&gt;
-    p { color: navy; }
-  &lt;/style&gt;
-&lt;/head&gt;
+&lt;!-- 2. INTERNAL — style block in head. OK for tiny demos only. --&gt;
+&lt;style&gt; p { color: navy; } &lt;/style&gt;
 
-&lt;!-- 3. EXTERNAL — separate .css file. Always use this for real work. --&gt;
-&lt;head&gt;
-  &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
+&lt;!-- 3. EXTERNAL — separate .css file. Always use this. --&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;
 </code></pre></div>
 <div class="callout callout-tip">
   <span class="callout-icon">💡</span>
-  <p>External stylesheets keep HTML clean, let you share styles across every page, and mean one CSS change updates the whole site simultaneously. Always use external stylesheets for real projects.</p>
+  <p>External stylesheets let one CSS file style every page. One change updates the whole site simultaneously.</p>
 </div>
 
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#anatomy" data-target="anatomy">What are the three parts of a CSS rule?</a></li><li><a href="#selectors" data-target="selectors">What is the difference between a class and an ID selector?</a></li><li><a href="#three-ways" data-target="three-ways">What are the three ways to add CSS and which is preferred?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Create a styles.css file and link it to your Recipes project. Add at least 8 style rules covering colour, font size, background, and spacing.</li><li>Work through The Odin Project's CSS Foundations exercises linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps" target="_blank" rel="noopener">MDN — CSS First Steps</a></li><li><a href="https://github.com/TheOdinProject/css-exercises" target="_blank" rel="noopener">The Odin Project — CSS Foundations exercises</a></li><li><a href="https://www.youtube.com/watch?v=1Rs2ND1ryYc" target="_blank" rel="noopener">YouTube — CSS Tutorial Zero to Hero (freeCodeCamp)</a></li><li><a href="https://www.youtube.com/watch?v=OEV8gMkCHXQ" target="_blank" rel="noopener">YouTube — CSS in 100 Seconds (Fireship)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#anatomy" data-target="anatomy">What are the three parts of a CSS rule?</a></li><li><a href="#selectors" data-target="selectors">What is the difference between a class and an ID selector?</a></li><li><a href="#three-ways" data-target="three-ways">Which method for adding CSS should you use for real projects?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Create <code>styles.css</code>, link it to your Recipes project, and add at least 8 style rules.</li><li>Work through the CSS Foundations exercises — linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps" target="_blank" rel="noopener">MDN — CSS First Steps</a></li><li><a href="https://github.com/TheOdinProject/css-exercises" target="_blank" rel="noopener">CSS Foundations Exercises (GitHub)</a></li><li><a href="https://www.youtube.com/watch?v=1Rs2ND1ryYc" target="_blank" rel="noopener">YouTube — CSS Tutorial Zero to Hero (freeCodeCamp)</a></li><li><a href="https://www.youtube.com/watch?v=OEV8gMkCHXQ" target="_blank" rel="noopener">YouTube — CSS in 100 Seconds (Fireship)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="project-recipes.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Project: Recipes</span></a><a href="the-cascade.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">The Cascade</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../js/main.js"></script>

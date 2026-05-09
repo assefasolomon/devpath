@@ -59,29 +59,24 @@
 <a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>HTML and CSS are the two foundational languages of the web. Every website you have ever visited is built on them. This lesson gives you a clear picture of what each language does and how they work together.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Describe what HTML is responsible for on a web page.</li><li>Describe what CSS is responsible for on a web page.</li><li>Understand the relationship between HTML and CSS.</li></ul></div>
+<div class="block-intro"><p>HTML and CSS are the two foundational languages of every website. This lesson gives you a clear picture of what each does before you start writing either one.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Describe what HTML is responsible for on a web page.</li><li>Describe what CSS is responsible for on a web page.</li><li>Understand why HTML and CSS are kept in separate files.</li></ul></div>
 
 <h2 class="lesson-section-title" id="html-role">What HTML Does</h2>
-<p><strong>HTML (HyperText Markup Language)</strong> defines the <em>structure</em> and <em>content</em> of a web page. It tells the browser what things <em>are</em> — this is a heading, this is a paragraph, this is an image, this is a navigation menu.</p>
-<p>Think of HTML as the skeleton of a building. It establishes the load-bearing structure without any visual decoration.</p>
+<p>HTML (HyperText Markup Language) defines the <strong>structure and content</strong> of a page. It tells the browser what things <em>are</em> — a heading, a paragraph, an image, a link. Think of it as the skeleton of a building.</p>
 <div class="code-block"><pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
-  &lt;head&gt;
-    &lt;title&gt;My Page&lt;/title&gt;
-  &lt;/head&gt;
   &lt;body&gt;
-    &lt;h1&gt;Welcome to My Site&lt;/h1&gt;
-    &lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+    &lt;h1&gt;Welcome&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
     &lt;img src="photo.jpg" alt="A photo"&gt;
+    &lt;a href="about.html"&gt;About&lt;/a&gt;
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre></div>
 <h2 class="lesson-section-title" id="css-role">What CSS Does</h2>
-<p><strong>CSS (Cascading Style Sheets)</strong> controls the <em>visual presentation</em> of HTML — colours, fonts, spacing, layout, animations. It answers the question: "How should this look?"</p>
-<p>Using the building analogy: CSS is the paint, the furniture, the lighting. The structure is already there from HTML — CSS makes it beautiful.</p>
-<div class="code-block"><pre><code>/* CSS targets HTML elements and applies visual styles */
-h1 {
+<p>CSS (Cascading Style Sheets) controls the <strong>visual presentation</strong> — colours, fonts, spacing, layout, animations. Using the building analogy: CSS is the paint, the furniture, the lighting.</p>
+<div class="code-block"><pre><code>h1 {
   color: #1d4ed8;
   font-size: 2.5rem;
   font-weight: 700;
@@ -92,21 +87,16 @@ p {
   line-height: 1.75;
   max-width: 65ch;
 }
-
-img {
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
 </code></pre></div>
 <h2 class="lesson-section-title" id="together">How They Work Together</h2>
-<p>HTML and CSS are separate languages kept in separate files on purpose. This separation of concerns keeps your code organised and maintainable. One HTML page can be completely restyled just by swapping its CSS file — without touching a single line of HTML.</p>
+<p>HTML and CSS are kept in separate files on purpose. This <em>separation of concerns</em> means one HTML page can be completely restyled just by swapping its CSS file — without touching any HTML.</p>
 <div class="callout callout-tip">
   <span class="callout-icon">💡</span>
-  <p>A useful mental model: HTML is the noun (what things <em>are</em>) and CSS is the adjective (how they <em>look</em>). JavaScript — which you will learn later — is the verb (what things <em>do</em>).</p>
+  <p>Mental model: HTML is the noun (what things <em>are</em>), CSS is the adjective (how they <em>look</em>), JavaScript is the verb (what they <em>do</em>).</p>
 </div>
 
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#html-role" data-target="html-role">What is HTML responsible for on a web page?</a></li><li><a href="#css-role" data-target="css-role">What is CSS responsible for on a web page?</a></li><li><a href="#together" data-target="together">Why are HTML and CSS kept in separate files?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Read the MDN article 'Getting Started with HTML' linked below.</li><li>Read the MDN article 'What is CSS?' linked below.</li></ol></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#html-role" data-target="html-role">What is HTML responsible for?</a></li><li><a href="#css-role" data-target="css-role">What is CSS responsible for?</a></li><li><a href="#together" data-target="together">Why are HTML and CSS in separate files?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Read MDN's 'Getting Started with HTML' — linked below.</li><li>Read MDN's 'What is CSS?' — linked below.</li></ol></div>
 <div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started" target="_blank" rel="noopener">MDN — Getting Started with HTML</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS" target="_blank" rel="noopener">MDN — What is CSS?</a></li><li><a href="https://www.youtube.com/watch?v=qz0aGYrrlhU" target="_blank" rel="noopener">YouTube — HTML and CSS for Beginners (Kevin Powell)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="git-basics.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Git Basics</span></a><a href="elements-and-tags.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Elements and Tags</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>

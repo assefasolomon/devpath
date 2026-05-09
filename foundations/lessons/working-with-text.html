@@ -59,12 +59,12 @@
 <a href="project-calculator.html" class="sidebar-link is-project">Project: Calculator</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Conclusion</div><a href="choose-your-path.html" class="sidebar-link">Choose Your Path Forward</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Most of what lives on a web page is text. This lesson covers the HTML elements for headings, paragraphs, and emphasis — and the important distinction between semantic and presentational markup.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use headings h1 through h6 with correct hierarchy.</li><li>Wrap body text in paragraph elements.</li><li>Use strong and em for semantic emphasis.</li><li>Write HTML comments.</li></ul></div>
+<div class="block-intro"><p>Most web page content is text. This lesson covers the HTML elements for headings, paragraphs, and emphasis — and the important distinction between semantic and presentational markup.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use headings h1–h6 correctly and semantically.</li><li>Wrap body text in paragraph elements.</li><li>Use strong and em for semantic emphasis.</li><li>Write HTML comments.</li></ul></div>
 
 <h2 class="lesson-section-title" id="headings">Headings</h2>
-<p>HTML provides six levels of headings. Use them to create a logical content hierarchy — not for visual size:</p>
-<div class="code-block"><pre><code>&lt;h1&gt;Site Name or Page Title&lt;/h1&gt;      &lt;!-- One per page --&gt;
+<p>HTML provides six heading levels. Use them to express logical content hierarchy — not for visual size:</p>
+<div class="code-block"><pre><code>&lt;h1&gt;Site Name or Page Title&lt;/h1&gt;      &lt;!-- one per page --&gt;
 &lt;h2&gt;Main Section Heading&lt;/h2&gt;
 &lt;h3&gt;Subsection Heading&lt;/h3&gt;
 &lt;h4&gt;Sub-subsection&lt;/h4&gt;
@@ -73,41 +73,38 @@
 </code></pre></div>
 <div class="callout callout-warn">
   <span class="callout-icon">⚠️</span>
-  <p>Every page should have exactly one <code>h1</code>. Never choose a heading level based on how big you want text to look — use CSS for that. Choose heading levels based on the logical structure of your content.</p>
+  <p>Every page should have exactly one <code>h1</code>. Never choose a heading level based on size — use CSS for that. Choose based on content structure.</p>
 </div>
 
 <h2 class="lesson-section-title" id="paragraphs">Paragraphs</h2>
-<div class="code-block"><pre><code>&lt;p&gt;This is the first paragraph. The browser automatically adds
-space between paragraphs.&lt;/p&gt;
+<div class="code-block"><pre><code>&lt;p&gt;This is the first paragraph. The browser adds space between paragraphs automatically.&lt;/p&gt;
 
-&lt;p&gt;This is the second paragraph. Notice each one is its own element —
-do not use br tags to fake paragraph spacing.&lt;/p&gt;
+&lt;p&gt;This is the second paragraph. Use separate p elements —
+never fake paragraph spacing with br tags.&lt;/p&gt;
 </code></pre></div>
 <h2 class="lesson-section-title" id="emphasis">Strong and Em</h2>
-<p>HTML distinguishes between <em>semantic</em> importance and <em>visual</em> styling:</p>
 <div class="code-block"><pre><code>&lt;!-- Semantic — carries meaning, not just visual style --&gt;
 &lt;p&gt;This step is &lt;strong&gt;critically important&lt;/strong&gt; — do not skip it.&lt;/p&gt;
 &lt;p&gt;The file must be named &lt;em&gt;exactly&lt;/em&gt; as shown.&lt;/p&gt;
 
-&lt;!-- Presentational only — avoid for content, use for genuine styling --&gt;
-&lt;b&gt;Bold without importance&lt;/b&gt;
-&lt;i&gt;Italic without emphasis&lt;/i&gt;
+&lt;!-- Presentational only — use only for genuine styling intent --&gt;
+&lt;b&gt;Bold with no importance&lt;/b&gt;
+&lt;i&gt;Italic with no emphasis&lt;/i&gt;
 </code></pre></div>
 <h2 class="lesson-section-title" id="comments">HTML Comments</h2>
-<div class="code-block"><pre><code>&lt;!-- Single line comment — browser ignores this --&gt;
+<div class="code-block"><pre><code>&lt;!-- Single-line comment — browser ignores this completely --&gt;
 
 &lt;!--
-  Multi-line comment.
-  Great for explaining complex sections or temporarily
-  disabling a block of HTML during debugging.
+  Multi-line comment — useful for explaining complex sections
+  or temporarily disabling a block during debugging.
 --&gt;
 
-&lt;p&gt;This paragraph is visible.&lt;/p&gt;
-&lt;!-- &lt;p&gt;This paragraph is commented out and hidden.&lt;/p&gt; --&gt;
+&lt;p&gt;This paragraph IS rendered.&lt;/p&gt;
+&lt;!-- &lt;p&gt;This paragraph is hidden.&lt;/p&gt; --&gt;
 </code></pre></div>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#headings" data-target="headings">How many h1 elements should a page have?</a></li><li><a href="#emphasis" data-target="emphasis">What is the semantic difference between strong and b?</a></li><li><a href="#paragraphs" data-target="paragraphs">Why should you avoid using br tags to separate paragraphs?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build an HTML page about any topic you enjoy. Use h1, h2, h3, at least four paragraphs, strong, em, and at least two comments.</li><li>Read MDN's 'HTML text fundamentals' article linked below.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals" target="_blank" rel="noopener">MDN — HTML Text Fundamentals</a></li><li><a href="https://www.youtube.com/watch?v=qz0aGYrrlhU" target="_blank" rel="noopener">YouTube — HTML Text and Headings (Kevin Powell)</a></li></ul></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#headings" data-target="headings">How many h1 elements should a page have?</a></li><li><a href="#emphasis" data-target="emphasis">What is the semantic difference between strong and b?</a></li><li><a href="#paragraphs" data-target="paragraphs">Why use p elements instead of br tags for paragraphs?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build an HTML page about any topic you enjoy. Include h1, h2, h3, four or more paragraphs, strong, em, and at least two comments.</li><li>Read MDN's 'HTML text fundamentals' — linked below.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals" target="_blank" rel="noopener">MDN — HTML Text Fundamentals</a></li><li><a href="https://www.youtube.com/watch?v=qz0aGYrrlhU" target="_blank" rel="noopener">YouTube — HTML Text and Headings (Kevin Powell)</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong" target="_blank" rel="noopener">MDN — The Strong element</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="html-boilerplate.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">HTML Boilerplate</span></a><a href="lists.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Lists</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../js/main.js"></script>
