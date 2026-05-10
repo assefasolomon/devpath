@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Positioning | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="advanced-selectors.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="css-functions.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Positioning</span></nav><h1>Positioning</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-intro.html" class="sidebar-link">Introduction</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
+<a href="svg.html" class="sidebar-link">SVG</a>
+<a href="tables.html" class="sidebar-link">Tables</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate CSS</div><a href="default-styles.html" class="sidebar-link">Default Styles</a>
+<a href="css-units.html" class="sidebar-link">CSS Units</a>
+<a href="more-text-styles.html" class="sidebar-link">More Text Styles</a>
+<a href="more-css-properties.html" class="sidebar-link">More CSS Properties</a>
+<a href="advanced-selectors.html" class="sidebar-link">Advanced Selectors</a>
+<a href="positioning.html" class="sidebar-link">Positioning</a>
+<a href="css-functions.html" class="sidebar-link">CSS Functions</a>
+<a href="custom-properties.html" class="sidebar-link">Custom Properties</a>
+<a href="browser-compatibility.html" class="sidebar-link">Browser Compatibility</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Forms</div><a href="form-basics.html" class="sidebar-link">Form Basics</a>
+<a href="form-validation.html" class="sidebar-link">Form Validation</a>
+<a href="project-sign-up-form.html" class="sidebar-link is-project">Project: Sign-Up Form</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Grid</div><a href="introduction-to-grid.html" class="sidebar-link">Introduction to Grid</a>
+<a href="creating-a-grid.html" class="sidebar-link">Creating a Grid</a>
+<a href="positioning-grid-elements.html" class="sidebar-link">Positioning Grid Elements</a>
+<a href="advanced-grid-properties.html" class="sidebar-link">Advanced Grid Properties</a>
+<a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
+<a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="intro-to-accessibility.html" class="sidebar-link">Introduction to Accessibility</a>
+<a href="wcag.html" class="sidebar-link">WCAG</a>
+<a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
+<a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
+<a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
+<a href="wai-aria.html" class="sidebar-link">WAI-ARIA</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Responsive Design</div><a href="intro-to-responsive-design.html" class="sidebar-link">Introduction to Responsive Design</a>
+<a href="natural-responsiveness.html" class="sidebar-link">Natural Responsiveness</a>
+<a href="responsive-images.html" class="sidebar-link">Responsive Images</a>
+<a href="media-queries.html" class="sidebar-link">Media Queries</a>
+<a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>CSS positioning is essential for tooltips, modals, sticky headers, and overlays in Rails views.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use static, relative, absolute, fixed, and sticky positioning.</li><li>Understand the containing block.</li><li>Use z-index correctly.</li></ul></div>
+
+<h2 class="lesson-section-title" id="overview">About This Lesson</h2>
+<p>This lesson covers the same material as the identical lesson in the Full Stack JavaScript path. The concepts are exactly the same — HTML and CSS are not language-specific. The only difference is context: you will apply these skills in Ruby on Rails ERB templates rather than React components.</p>
+<div class="callout callout-tip">
+  <span class="callout-icon">💡</span>
+  <p>If you completed the Full Stack JavaScript path first, this is a review. Focus on how these techniques apply inside ERB templates and Rails layouts.</p>
+</div>
+<h2 class="lesson-section-title" id="rails-context">Rails Context</h2>
+<p>In Rails, all CSS and HTML knowledge applies directly. Your stylesheets live in <code>app/assets/stylesheets/</code> or are managed by Tailwind/cssbundling. Your HTML lives in ERB templates in <code>app/views/</code>. Everything you learn in this lesson is used daily in Rails development.</p>
+
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#rails-context" data-target="rails-context">How does Positioning apply to Rails ERB templates?</a></li><li><a href="#overview" data-target="overview">What is the most important concept in Positioning?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Complete the Positioning exercises.</li><li>Apply this technique to one of your Rails views.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/" target="_blank" rel="noopener">MDN Web Docs</a></li><li><a href="https://css-tricks.com/" target="_blank" rel="noopener">CSS Tricks</a></li><li><a href="https://www.youtube.com/@KevinPowell" target="_blank" rel="noopener">YouTube — Kevin Powell CSS Channel</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="advanced-selectors.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Advanced Selectors</span></a><a href="css-functions.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">CSS Functions</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>
