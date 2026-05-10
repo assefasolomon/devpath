@@ -7,95 +7,123 @@
   <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav">
-  <a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
-  <ul class="nav-links">
-    <li><a href="../../../../../index.html">Home</a></li>
-    <li><a href="../../../../../foundations/index.html">Foundations</a></li>
-    <li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li>
-    <li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li>
-  </ul>
-</nav>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a> <span class="breadcrumb-sep">/</span> <a href="../../../../index.html">Full Stack JavaScript</a> <span class="breadcrumb-sep">/</span> <a href="../../index.html">React</a> <span class="breadcrumb-sep">/</span> <span class="breadcrumb-current">Handling Inputs and Rendering Lists</span></nav><h1>Handling Inputs and Rendering Lists</h1></div></div>
-<div class="lesson-layout">
-  <aside class="sidebar"><div class="sidebar-course-title">React</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Introduction to React</div>
-<a href="react-intro.html" class="sidebar-link">Introduction to React</a>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="rendering-techniques.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="project-cv-application.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a><span class="breadcrumb-sep">/</span><a href="../index.html">React</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Handling Inputs and Rendering Lists</span></nav><h1>Handling Inputs and Rendering Lists</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">React</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction to React</div><a href="react-intro.html" class="sidebar-link">Introduction to React</a>
 <a href="getting-started-with-react.html" class="sidebar-link">Getting Started with React</a>
 <a href="state-and-props.html" class="sidebar-link">State and Props</a>
 <a href="rendering-techniques.html" class="sidebar-link">Rendering Techniques</a>
-<a href="handling-inputs-and-rendering-lists.html" class="sidebar-link">Handling Inputs and Rendering Lists</a>
+<a href="handling-inputs-and-rendering-lists.html" class="sidebar-link">Handling Inputs and Lists</a>
 <a href="project-cv-application.html" class="sidebar-link is-project">Project: CV Application</a>
 <a href="passing-data-between-components.html" class="sidebar-link">Passing Data Between Components</a>
 <a href="project-memory-card.html" class="sidebar-link is-project">Project: Memory Card</a>
-</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Getting Deeper into React</div>
-<a href="more-on-state.html" class="sidebar-link">More on State</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Getting Deeper</div><a href="more-on-state.html" class="sidebar-link">More on State</a>
 <a href="refs-and-memoization.html" class="sidebar-link">Refs and Memoization</a>
 <a href="project-shopping-cart.html" class="sidebar-link is-project">Project: Shopping Cart</a>
-</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Hooks</div>
-<a href="introduction-to-react-hooks.html" class="sidebar-link">Introduction to React Hooks</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Hooks</div><a href="introduction-to-react-hooks.html" class="sidebar-link">Introduction to React Hooks</a>
 <a href="useeffect.html" class="sidebar-link">useEffect</a>
 <a href="custom-hooks.html" class="sidebar-link">Custom Hooks</a>
-</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Class Components</div>
-<a href="class-components.html" class="sidebar-link">Class Components</a>
-</div>
-<div class="sidebar-section"><div class="sidebar-section-label">React Ecosystem</div>
-<a href="react-router.html" class="sidebar-link">React Router</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Class Components</div><a href="class-components.html" class="sidebar-link">Class Components</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">React Ecosystem</div><a href="react-router.html" class="sidebar-link">React Router</a>
 <a href="fetching-data-in-react.html" class="sidebar-link">Fetching Data in React</a>
 <a href="introduction-to-state-management.html" class="sidebar-link">Introduction to State Management</a>
-<a href="managing-state-with-the-context-api.html" class="sidebar-link">Managing State with the Context API</a>
+<a href="managing-state-with-the-context-api.html" class="sidebar-link">Managing State with Context API</a>
 <a href="project-where-in-the-world.html" class="sidebar-link is-project">Project: Where in the World?</a>
-</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Testing React</div>
-<a href="introduction-to-react-testing.html" class="sidebar-link">Introduction to React Testing</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Testing React</div><a href="introduction-to-react-testing.html" class="sidebar-link">Introduction to React Testing</a>
 <a href="mocking-callbacks-and-components.html" class="sidebar-link">Mocking Callbacks and Components</a>
 <a href="project-battleship-react.html" class="sidebar-link is-project">Project: Battleship (React)</a>
-</div>
-</aside>
-  <main>
-    <div class="lesson-body">
-      <div class="block-intro"><div class="seed-notice"><strong>🌱 Content not yet seeded</strong>Replace this block with real content for <em>Handling Inputs and Rendering Lists</em>.</div></div>
-      <div class="block-overview">
-        <div class="block-overview-label">Lesson Overview</div>
-        <ul>
-          <li><!-- seed overview point 1 --></li>
-          <li><!-- seed overview point 2 --></li>
-          <li><!-- seed overview point 3 --></li>
-        </ul>
-      </div>
-      <!-- seed: add <h2 id="..."> content sections here -->
-      <div class="block-kc">
-        <div class="block-kc-label">Knowledge Check</div>
-        <p class="kc-note">Click a question to jump to the section that answers it.</p>
-        <ol>
-          <li><a href="#" data-target=""><!-- seed kc question 1 --></a></li>
-          <li><a href="#" data-target=""><!-- seed kc question 2 --></a></li>
-          <li><a href="#" data-target=""><!-- seed kc question 3 --></a></li>
-        </ol>
-      </div>
-      <div class="block-assignments">
-        <div class="block-assignments-label">Assignments</div>
-        <ol>
-          <li><!-- seed assignment 1 --></li>
-          <li><!-- seed assignment 2 --></li>
-        </ol>
-      </div>
-      <div class="block-resources">
-        <div class="block-resources-label">Additional Resources</div>
-        <ul>
-          <li><a href="https://www.theodinproject.com" target="_blank">The Odin Project — original reference</a></li>
-          <li><!-- seed resource 1 --></li>
-          <li><!-- seed resource 2 --></li>
-        </ul>
-      </div>
-    </div>
-    <div class="lesson-pagination"><a href="rendering-techniques.html" class="pagination-link prev"><span class="pagination-label">← Previous</span><span class="pagination-title">Rendering Techniques</span></a><a href="project-cv-application.html"  class="pagination-link next"><span class="pagination-label">Next →</span><span class="pagination-title">Project: CV Application</span></a></div>
-  </main>
-</div>
-<footer class="site-footer"><p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>. Architecture ready for content seeding.</p></footer>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>Controlled components are React's pattern for form inputs where React state is the single source of truth. This lesson covers controlled inputs, form submission, and more complex list rendering.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Build controlled form inputs.</li><li>Handle form submission in React.</li><li>Manage lists in state (add, remove, update items).</li></ul></div>
+
+<h2 class="lesson-section-title" id="controlled-inputs">Controlled Inputs</h2>
+<p>In a <strong>controlled component</strong>, the input's value is driven by React state. Every keystroke calls setState, which updates the state, which updates the input — React is always in control.</p>
+<div class="code-block"><pre><code>function SearchBar() {
+  const [query, setQuery] = useState('');
+
+  return (
+    &lt;div&gt;
+      &lt;input
+        type="text"
+        value={query}             /* controlled by state */
+        onChange={e =&gt; setQuery(e.target.value)}
+        placeholder="Search..."
+      /&gt;
+      &lt;p&gt;You typed: {query}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre></div>
+<h2 class="lesson-section-title" id="form-submission">Form Submission</h2>
+<div class="code-block"><pre><code>function AddTodoForm({ onAdd }) {
+  const [title, setTitle]       = useState('');
+  const [priority, setPriority] = useState('medium');
+
+  const handleSubmit = (e) =&gt; {
+    e.preventDefault();
+    if (!title.trim()) return;   // validation
+    onAdd({ title, priority, id: Date.now() });
+    setTitle('');                // reset form
+    setPriority('medium');
+  };
+
+  return (
+    &lt;form onSubmit={handleSubmit}&gt;
+      &lt;input
+        value={title}
+        onChange={e =&gt; setTitle(e.target.value)}
+        placeholder="New todo..."
+        required
+      /&gt;
+      &lt;select value={priority} onChange={e =&gt; setPriority(e.target.value)}&gt;
+        &lt;option value="high"&gt;High&lt;/option&gt;
+        &lt;option value="medium"&gt;Medium&lt;/option&gt;
+        &lt;option value="low"&gt;Low&lt;/option&gt;
+      &lt;/select&gt;
+      &lt;button type="submit"&gt;Add Todo&lt;/button&gt;
+    &lt;/form&gt;
+  );
+}
+</code></pre></div>
+<h2 class="lesson-section-title" id="list-state">Managing Lists in State</h2>
+<div class="code-block"><pre><code>function TodoApp() {
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = (todo) =&gt; {
+    setTodos(prev =&gt; [...prev, todo]);        // add — never mutate state directly
+  };
+
+  const removeTodo = (id) =&gt; {
+    setTodos(prev =&gt; prev.filter(t =&gt; t.id !== id));
+  };
+
+  const toggleTodo = (id) =&gt; {
+    setTodos(prev =&gt;
+      prev.map(t =&gt; t.id === id ? { ...t, done: !t.done } : t)
+    );
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;AddTodoForm onAdd={addTodo} /&gt;
+      {todos.map(todo =&gt; (
+        &lt;TodoItem
+          key={todo.id}
+          todo={todo}
+          onRemove={removeTodo}
+          onToggle={toggleTodo}
+        /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#controlled-inputs" data-target="controlled-inputs">What makes an input 'controlled' in React?</a></li><li><a href="#list-state" data-target="list-state">Why must you never mutate state arrays directly?</a></li><li><a href="#list-state" data-target="list-state">How do you update one item in a state array?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build the Todo App above with full add, remove, and toggle functionality.</li><li>Add a filter to show all/active/completed todos.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://react.dev/learn/reacting-to-input-with-state" target="_blank" rel="noopener">React — Reacting to Input with State</a></li><li><a href="https://react.dev/learn/updating-arrays-in-state" target="_blank" rel="noopener">React — Updating Arrays in State</a></li><li><a href="https://www.youtube.com/watch?v=SdzMgAjH37Q" target="_blank" rel="noopener">YouTube — React Forms (Web Dev Simplified)</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="rendering-techniques.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Rendering Techniques</span></a><a href="project-cv-application.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Project: CV Application</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../../../../js/main.js"></script>
 </body>
 </html>
