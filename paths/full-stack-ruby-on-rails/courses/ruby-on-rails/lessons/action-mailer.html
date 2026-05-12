@@ -3,98 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sending Emails with Action Mailer | DevPath</title>
+  <title>Action Mailer | DevPath</title>
   <link rel="stylesheet" href="../../../../../css/styles.css">
 </head>
 <body>
-<nav class="site-nav">
-  <a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
-  <ul class="nav-links">
-    <li><a href="../../../../../index.html">Home</a></li>
-    <li><a href="../../../../../foundations/index.html">Foundations</a></li>
-    <li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li>
-    <li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li>
-  </ul>
-</nav>
-<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../../index.html">Home</a> <span class="breadcrumb-sep">/</span> <a href="../../../../index.html">Full Stack Ruby on Rails</a> <span class="breadcrumb-sep">/</span> <a href="../../index.html">Ruby on Rails</a> <span class="breadcrumb-sep">/</span> <span class="breadcrumb-current">Sending Emails with Action Mailer</span></nav><h1>Sending Emails with Action Mailer</h1></div></div>
-<div class="lesson-layout">
-  <aside class="sidebar"><div class="sidebar-course-title">Ruby on Rails</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Introduction to Rails</div>
-<a href="rails-intro.html" class="sidebar-link">Introduction to Rails</a>
-<a href="getting-your-feet-wet.html" class="sidebar-link is-project">Getting Your Feet Wet</a>
-</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Routes, Views, Controllers, and Assets</div>
-<a href="routing.html" class="sidebar-link">Routing</a>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="api-basics.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="advanced-topics.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Ruby on Rails</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Action Mailer</span></nav><h1>Action Mailer</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Ruby on Rails</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="rails-intro.html" class="sidebar-link">Introduction to Rails</a>
+<a href="getting-your-feet-wet.html" class="sidebar-link">Getting Your Feet Wet</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">MVC Deep Dive</div><a href="routing.html" class="sidebar-link">Routing</a>
 <a href="controllers.html" class="sidebar-link">Controllers</a>
 <a href="views.html" class="sidebar-link">Views</a>
-<a href="the-asset-pipeline.html" class="sidebar-link">The Asset Pipeline</a>
-<a href="project-blog-app.html" class="sidebar-link is-project">Project: Blog App</a>
-</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Active Record</div>
-<a href="active-record-basics.html" class="sidebar-link">Active Record Basics</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Active Record</div><a href="active-record-basics.html" class="sidebar-link">Active Record Basics</a>
 <a href="active-record-queries.html" class="sidebar-link">Active Record Queries</a>
 <a href="active-record-associations.html" class="sidebar-link">Active Record Associations</a>
 <a href="project-micro-reddit.html" class="sidebar-link is-project">Project: Micro-Reddit</a>
-</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Forms and Authentication</div>
-<a href="forms-and-rails.html" class="sidebar-link">Forms and Rails</a>
-<a href="project-private-events.html" class="sidebar-link is-project">Project: Private Events</a>
-<a href="advanced-forms-and-active-record.html" class="sidebar-link">Advanced Forms and Active Record</a>
-<a href="project-flight-booker.html" class="sidebar-link is-project">Project: Flight Booker</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Forms and Auth</div><a href="forms-and-rails.html" class="sidebar-link">Forms and Rails</a>
+<a href="sessions-cookies-and-flashes.html" class="sidebar-link">Sessions, Cookies, Flashes</a>
 <a href="authentication.html" class="sidebar-link">Authentication</a>
 <a href="project-members-only.html" class="sidebar-link is-project">Project: Members Only</a>
-</div>
-<div class="sidebar-section"><div class="sidebar-section-label">Advanced Topics</div>
-<a href="installing-postgresql.html" class="sidebar-link">Installing PostgreSQL</a>
-<a href="sessions-cookies-and-flashes.html" class="sidebar-link">Sessions, Cookies, and Flashes</a>
-<a href="action-mailer.html" class="sidebar-link">Sending Emails with Action Mailer</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Advanced</div><a href="advanced-forms-and-active-record.html" class="sidebar-link">Advanced Forms and Active Record</a>
+<a href="project-private-events.html" class="sidebar-link is-project">Project: Private Events</a>
+<a href="project-blog-app.html" class="sidebar-link is-project">Project: Blog App</a>
+<a href="project-flight-booker.html" class="sidebar-link is-project">Project: Flight Booker</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">APIs and More</div><a href="api-basics.html" class="sidebar-link">API Basics</a>
+<a href="action-mailer.html" class="sidebar-link">Action Mailer</a>
 <a href="advanced-topics.html" class="sidebar-link">Advanced Topics</a>
-<a href="api-basics.html" class="sidebar-link">APIs and Building Your Own</a>
+<a href="the-asset-pipeline.html" class="sidebar-link">The Asset Pipeline</a>
 <a href="css-bundling.html" class="sidebar-link">CSS Bundling</a>
+<a href="installing-postgresql.html" class="sidebar-link">Installing PostgreSQL</a>
 <a href="project-odinbook.html" class="sidebar-link is-project">Project: Odin-Book</a>
-</div>
-</aside>
-  <main>
-    <div class="lesson-body">
-      <div class="block-intro"><div class="seed-notice"><strong>🌱 Content not yet seeded</strong>Replace this block with real content for <em>Sending Emails with Action Mailer</em>.</div></div>
-      <div class="block-overview">
-        <div class="block-overview-label">Lesson Overview</div>
-        <ul>
-          <li><!-- seed overview point 1 --></li>
-          <li><!-- seed overview point 2 --></li>
-          <li><!-- seed overview point 3 --></li>
-        </ul>
-      </div>
-      <!-- seed: add <h2 id="..."> content sections here -->
-      <div class="block-kc">
-        <div class="block-kc-label">Knowledge Check</div>
-        <p class="kc-note">Click a question to jump to the section that answers it.</p>
-        <ol>
-          <li><a href="#" data-target=""><!-- seed kc question 1 --></a></li>
-          <li><a href="#" data-target=""><!-- seed kc question 2 --></a></li>
-          <li><a href="#" data-target=""><!-- seed kc question 3 --></a></li>
-        </ol>
-      </div>
-      <div class="block-assignments">
-        <div class="block-assignments-label">Assignments</div>
-        <ol>
-          <li><!-- seed assignment 1 --></li>
-          <li><!-- seed assignment 2 --></li>
-        </ol>
-      </div>
-      <div class="block-resources">
-        <div class="block-resources-label">Additional Resources</div>
-        <ul>
-          <li><a href="https://www.theodinproject.com" target="_blank">The Odin Project — original reference</a></li>
-          <li><!-- seed resource 1 --></li>
-          <li><!-- seed resource 2 --></li>
-        </ul>
-      </div>
-    </div>
-    <div class="lesson-pagination"><a href="sessions-cookies-and-flashes.html" class="pagination-link prev"><span class="pagination-label">← Previous</span><span class="pagination-title">Sessions, Cookies, and Flashes</span></a><a href="advanced-topics.html"  class="pagination-link next"><span class="pagination-label">Next →</span><span class="pagination-title">Advanced Topics</span></a></div>
-  </main>
-</div>
-<footer class="site-footer"><p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>. Architecture ready for content seeding.</p></footer>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>Action Mailer lets your Rails application send emails — welcome emails, password resets, notifications. It uses the same template system as views.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Generate and configure a mailer.</li><li>Render HTML and plain-text email templates.</li><li>Send emails from controllers.</li><li>Test mailers with RSpec.</li><li>Use a background job for email delivery.</li></ul></div>
+<h2 class="lesson-section-title" id="setup">Setup</h2><div class="code-block"><pre><code>rails generate mailer UserMailer
+
+# app/mailers/user_mailer.rb
+class UserMailer &lt; ApplicationMailer
+  default from: 'noreply@myapp.com'
+
+  def welcome_email(user)
+    @user = user
+    @login_url = login_url
+    mail(to: @user.email, subject: 'Welcome to MyApp!')
+  end
+
+  def password_reset(user)
+    @user  = user
+    @token = user.generate_password_token!
+    mail(to: @user.email, subject: 'Reset your password')
+  end
+end
+</code></pre></div><div class="code-block"><pre><code>&lt;!-- app/views/user_mailer/welcome_email.html.erb --&gt;
+&lt;h1&gt;Welcome, &lt;%= @user.first_name %&gt;!&lt;/h1&gt;
+&lt;p&gt;Thanks for joining. &lt;%= link_to "Log in here", @login_url %&gt;&lt;/p&gt;
+
+&lt;!-- app/views/user_mailer/welcome_email.text.erb --&gt;
+Welcome, &lt;%= @user.first_name %&gt;!
+Log in at: &lt;%= @login_url %&gt;
+</code></pre></div><div class="code-block"><pre><code>UserMailer.welcome_email(@user).deliver_later   # async via ActiveJob
+UserMailer.welcome_email(@user).deliver_now     # synchronous
+
+# config/environments/development.rb
+config.action_mailer.delivery_method = :letter_opener
+# gem 'letter_opener', group: :development
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#setup" data-target="setup">What does deliver_later do?</a></li><li><a href="#setup" data-target="setup">Why provide both HTML and text email templates?</a></li><li><a href="#setup" data-target="setup">What gem previews emails in the browser during development?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add a welcome email to your registration flow.</li><li>Add a password reset email flow.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://guides.rubyonrails.org/action_mailer_basics.html" target="_blank" rel="noopener">Rails Guides — Action Mailer</a></li><li><a href="https://www.youtube.com/watch?v=bXV7mqEC3b8" target="_blank" rel="noopener">YouTube — Action Mailer (GoRails)</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="api-basics.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">API Basics</span></a><a href="advanced-topics.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Advanced Topics</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../../../../js/main.js"></script>
 </body>
 </html>
