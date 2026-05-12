@@ -37,7 +37,10 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Action Mailer lets your Rails application send emails — welcome emails, password resets, notifications. It uses the same template system as views.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Generate and configure a mailer.</li><li>Render HTML and plain-text email templates.</li><li>Send emails from controllers.</li><li>Test mailers with RSpec.</li><li>Use a background job for email delivery.</li></ul></div>
-<h2 class="lesson-section-title" id="setup">Setup</h2><div class="code-block"><pre><code>rails generate mailer UserMailer
+
+<h2 class="lesson-section-title" id="setup">Setup</h2>
+<div class="code-block"><pre><code># Generate a mailer
+rails generate mailer UserMailer
 
 # app/mailers/user_mailer.rb
 class UserMailer &lt; ApplicationMailer
@@ -62,11 +65,12 @@ end
 &lt;!-- app/views/user_mailer/welcome_email.text.erb --&gt;
 Welcome, &lt;%= @user.first_name %&gt;!
 Log in at: &lt;%= @login_url %&gt;
-</code></pre></div><div class="code-block"><pre><code>UserMailer.welcome_email(@user).deliver_later   # async via ActiveJob
+</code></pre></div><div class="code-block"><pre><code># Send from a controller or model
+UserMailer.welcome_email(@user).deliver_later   # async via ActiveJob
 UserMailer.welcome_email(@user).deliver_now     # synchronous
 
 # config/environments/development.rb
-config.action_mailer.delivery_method = :letter_opener
+config.action_mailer.delivery_method = :letter_opener  # preview in browser
 # gem 'letter_opener', group: :development
 </code></pre></div>
 <div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#setup" data-target="setup">What does deliver_later do?</a></li><li><a href="#setup" data-target="setup">Why provide both HTML and text email templates?</a></li><li><a href="#setup" data-target="setup">What gem previews emails in the browser during development?</a></li></ol></div>

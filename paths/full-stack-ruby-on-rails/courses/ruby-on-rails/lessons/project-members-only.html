@@ -37,7 +37,17 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Build a members-only message board using Rails. Non-members see messages but not who wrote them. Members see author information. Admins can delete messages.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Implement full authentication with has_secure_password.</li><li>Show different content based on membership status.</li><li>Implement admin-only actions.</li><li>Use before_action for authorisation.</li></ul></div>
-<h2 class="lesson-section-title" id="requirements">Requirements</h2><ul><li>Sign up with first name, last name, username, password</li><li>All users see messages but only members see author name and timestamp</li><li>A secret passcode form upgrades a user to member</li><li>Admins can delete any message (set admin flag directly in DB)</li><li>Members can create messages with a title and text</li></ul><div class="code-block"><pre><code>rails new members-only --database=postgresql
+
+<h2 class="lesson-section-title" id="requirements">Requirements</h2>
+<ul>
+  <li>Sign up with first name, last name, username, password</li>
+  <li>All users see messages but only members see author name and timestamp</li>
+  <li>A secret passcode form upgrades a user to member</li>
+  <li>Admins can delete any message (set admin flag directly in DB)</li>
+  <li>Members can create messages with a title and text</li>
+</ul>
+<div class="code-block"><pre><code>rails new members-only --database=postgresql
+cd members-only
 rails generate model User first_name:string last_name:string   username:string password_digest:string membership_status:boolean admin:boolean
 rails generate model Message title:string text:text user:references
 rails db:create db:migrate

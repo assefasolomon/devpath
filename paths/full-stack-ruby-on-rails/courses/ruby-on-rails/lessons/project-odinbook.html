@@ -37,15 +37,32 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>The Rails capstone. Build a Facebook-like social network using everything you have learned — authentication, associations, Active Storage for photos, Action Mailer for notifications, and real-time features.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Build a complete social networking application in Rails.</li><li>Implement OAuth login with OmniAuth.</li><li>Use Active Storage for profile and post images.</li><li>Implement friend requests, posts, likes, and a news feed.</li></ul></div>
-<h2 class="lesson-section-title" id="requirements">Requirements</h2><ul><li><strong>Authentication</strong> — sign up, log in, log out, and GitHub/Google OAuth login via OmniAuth</li><li><strong>Profiles</strong> — profile photo (Active Storage), bio, timeline of posts</li><li><strong>Posts</strong> — text and image posts; like and unlike posts</li><li><strong>Comments</strong> — comment on posts</li><li><strong>Friends</strong> — send, accept, reject friend requests; unfriend</li><li><strong>News Feed</strong> — posts from friends and self, newest first</li><li><strong>Notifications</strong> — friend request received (Action Mailer or in-app)</li><li>Deployed on Fly.io, Render, or Heroku</li></ul><div class="code-block"><pre><code>rails new odin-book --database=postgresql --css tailwind
+
+<h2 class="lesson-section-title" id="requirements">Requirements</h2>
+<ul>
+  <li><strong>Authentication</strong> — sign up, log in, log out, and GitHub/Google OAuth login via OmniAuth</li>
+  <li><strong>Profiles</strong> — profile photo (Active Storage), bio, timeline of posts</li>
+  <li><strong>Posts</strong> — text and image posts; like and unlike posts</li>
+  <li><strong>Comments</strong> — comment on posts</li>
+  <li><strong>Friends</strong> — send, accept, reject friend requests; unfriend</li>
+  <li><strong>News Feed</strong> — posts from friends and self, newest first</li>
+  <li><strong>Notifications</strong> — friend request received (Action Mailer or in-app)</li>
+  <li>Deployed on Fly.io, Render, or Heroku</li>
+</ul>
+<div class="code-block"><pre><code>rails new odin-book --database=postgresql --css tailwind
 cd odin-book
 
+# Key gems
 gem 'devise'
 gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
-gem 'image_processing'
-gem 'pagy'
-</code></pre></div><div class="callout callout-tip"><span class="callout-icon">💡</span><p>Plan your data model before writing code. Draw the ERD. Get associations right first — they are much harder to change later than views or controllers.</p></div>
+gem 'image_processing'   # for Active Storage variants
+gem 'pagy'               # pagination
+</code></pre></div>
+<div class="callout callout-tip">
+  <span class="callout-icon">💡</span>
+  <p>Plan your data model before writing code. Draw the ERD. Get associations right first — they are much harder to change later than views or controllers.</p>
+</div>
 <div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#requirements" data-target="requirements">What does OmniAuth provide?</a></li><li><a href="#requirements" data-target="requirements">How do you query a news feed of friend posts?</a></li></ol></div>
 <div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Complete Odin-Book meeting all requirements.</li><li>Deploy publicly and add the URL to your portfolio.</li></ol></div>
 <div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://github.com/heartcombo/devise" target="_blank" rel="noopener">Devise — GitHub</a></li><li><a href="https://github.com/omniauth/omniauth-github" target="_blank" rel="noopener">OmniAuth — GitHub Strategy</a></li><li><a href="https://www.youtube.com/watch?v=ByGJQpkQUYE" target="_blank" rel="noopener">YouTube — Social Network in Rails (GoRails)</a></li></ul></div>

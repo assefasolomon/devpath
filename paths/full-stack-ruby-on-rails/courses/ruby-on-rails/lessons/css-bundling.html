@@ -37,7 +37,15 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Modern Rails apps use CSS Bundling or Tailwind CSS instead of (or alongside) the traditional asset pipeline. This lesson covers the options available in Rails 7.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand the difference between Sprockets, Propshaft, and jsbundling.</li><li>Set up Tailwind CSS in a Rails 7 app.</li><li>Set up cssbundling-rails with PostCSS.</li><li>Understand importmaps for JavaScript.</li></ul></div>
-<h2 class="lesson-section-title" id="rails7-options">Rails 7 CSS Options</h2><ul><li><strong>Sprockets (classic)</strong> — the traditional asset pipeline. Still works, widely understood.</li><li><strong>Propshaft</strong> — modern, simpler replacement for Sprockets. No compilation, just fingerprinting.</li><li><strong>cssbundling-rails</strong> — delegates to an external bundler: PostCSS, Tailwind, Bootstrap, Bulma.</li><li><strong>importmap-rails</strong> — uses browser ES modules for JavaScript, no bundler needed.</li></ul><div class="code-block"><pre><code># Create a new Rails 7 app with Tailwind
+
+<h2 class="lesson-section-title" id="rails7-options">Rails 7 CSS Options</h2>
+<ul>
+  <li><strong>Sprockets (classic)</strong> — the traditional asset pipeline. Still works, widely understood.</li>
+  <li><strong>Propshaft</strong> — modern, simpler replacement for Sprockets. No compilation, just fingerprinting.</li>
+  <li><strong>cssbundling-rails</strong> — delegates to an external bundler: PostCSS, Tailwind, Bootstrap, Bulma.</li>
+  <li><strong>importmap-rails</strong> — uses browser ES modules for JavaScript, no bundler needed.</li>
+</ul>
+<div class="code-block"><pre><code># Create a new Rails 7 app with Tailwind
 rails new myapp --css tailwind --database=postgresql
 
 # Or add Tailwind to existing app
@@ -51,6 +59,7 @@ bin/dev   # runs Procfile.dev (foreman/overmind)
 @tailwind components;
 @tailwind utilities;
 
+/* Custom components */
 @layer components {
   .btn-primary {
     @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700;

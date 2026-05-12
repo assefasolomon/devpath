@@ -37,7 +37,9 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>PostgreSQL is the recommended database for Rails applications in production. This lesson covers installation, configuration, and switching from SQLite to PostgreSQL.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Install PostgreSQL on your operating system.</li><li>Configure database.yml for PostgreSQL.</li><li>Create development and test databases.</li><li>Use Rails with PostgreSQL-specific features.</li></ul></div>
-<h2 class="lesson-section-title" id="install">Installation</h2><div class="code-block"><pre><code># macOS (Homebrew)
+
+<h2 class="lesson-section-title" id="install">Installation</h2>
+<div class="code-block"><pre><code># macOS (Homebrew)
 brew install postgresql@16
 brew services start postgresql@16
 
@@ -70,7 +72,8 @@ test:
 production:
   &lt;&lt;: *default
   url: &lt;%= ENV['DATABASE_URL'] %&gt;
-</code></pre></div><div class="code-block"><pre><code>rails db:create
+</code></pre></div><div class="code-block"><pre><code># Create databases
+rails db:create
 
 # Or using psql directly
 createdb myapp_development

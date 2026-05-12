@@ -37,7 +37,19 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Ruby on Rails is a full-stack web framework built on Ruby that emphasises convention over configuration and the DRY principle. It lets you build complete web applications remarkably quickly.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand what Rails is and what it provides.</li><li>Know the MVC architecture Rails uses.</li><li>Understand convention over configuration.</li><li>Know the Rails directory structure.</li></ul></div>
-<h2 class="lesson-section-title" id="what-is-rails">What Is Rails?</h2><p>Rails is a full-stack web framework: it handles routing, controllers, views, database interactions, email, background jobs, caching, and testing — all in one package with strong conventions. The same conventions shared by millions of Rails developers means you can read and contribute to any Rails codebase immediately.</p><h2 class="lesson-section-title" id="mvc">MVC Architecture</h2><ul><li><strong>Model</strong> — represents data and business logic. Talks to the database via Active Record.</li><li><strong>View</strong> — templates that render HTML. ERB by default.</li><li><strong>Controller</strong> — receives requests, calls models, passes data to views.</li></ul><h2 class="lesson-section-title" id="conventions">Key Conventions</h2><div class="code-block"><pre><code># Convention: naming things right makes Rails wire everything automatically
+
+<h2 class="lesson-section-title" id="what-is-rails">What Is Rails?</h2>
+<p>Rails is a full-stack web framework: it handles routing, controllers, views, database interactions, email, background jobs, caching, and testing — all in one package with strong conventions. The same conventions shared by millions of Rails developers means you can read and contribute to any Rails codebase immediately.</p>
+
+<h2 class="lesson-section-title" id="mvc">MVC Architecture</h2>
+<ul>
+  <li><strong>Model</strong> — represents data and business logic. Talks to the database via Active Record.</li>
+  <li><strong>View</strong> — templates that render HTML. ERB by default.</li>
+  <li><strong>Controller</strong> — receives requests, calls models, passes data to views.</li>
+</ul>
+
+<h2 class="lesson-section-title" id="conventions">Key Conventions</h2>
+<div class="code-block"><pre><code># Convention: naming things right makes Rails wire everything automatically
 
 # Model:      singular, CamelCase    → User, BlogPost
 # Table:      plural, snake_case     → users, blog_posts
@@ -48,7 +60,9 @@
 # Rails infers all of these from a single name
 rails generate scaffold Post title:string body:text published:boolean
 # Creates: migration, model, controller, views, routes, tests — all correctly named
-</code></pre></div><h2 class="lesson-section-title" id="directory">Directory Structure</h2><div class="code-block"><pre><code>app/
+</code></pre></div>
+<h2 class="lesson-section-title" id="directory">Directory Structure</h2>
+<div class="code-block"><pre><code>app/
 ├── controllers/        ← Controller classes
 ├── models/             ← ActiveRecord models
 ├── views/              ← ERB templates

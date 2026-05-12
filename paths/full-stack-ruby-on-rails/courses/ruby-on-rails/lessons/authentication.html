@@ -37,13 +37,15 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Rails authentication involves securely storing passwords and managing login state. This lesson covers has_secure_password and building a complete authentication system from scratch before using the Devise gem.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use has_secure_password with bcrypt.</li><li>Build registration and login from scratch.</li><li>Use Devise for production authentication.</li><li>Implement remember_me functionality.</li></ul></div>
-<h2 class="lesson-section-title" id="has-secure-password">has_secure_password</h2><div class="code-block"><pre><code># Gemfile
+
+<h2 class="lesson-section-title" id="has-secure-password">has_secure_password</h2>
+<div class="code-block"><pre><code># Gemfile
 gem 'bcrypt'
 
 # User model
 class User &lt; ApplicationRecord
   has_secure_password
-  # Adds: password, password_confirmation attributes
+  # Automatically adds: password, password_confirmation attributes
   # Hashes password to password_digest before saving
   # Adds authenticate(password) method
 
@@ -81,9 +83,12 @@ def destroy
   reset_session
   redirect_to root_path, notice: "Logged out."
 end
-</code></pre></div><h2 class="lesson-section-title" id="devise">Devise</h2><div class="code-block"><pre><code># Gemfile
+</code></pre></div>
+<h2 class="lesson-section-title" id="devise">Devise</h2>
+<div class="code-block"><pre><code># Gemfile
 gem 'devise'
 
+# Setup
 rails generate devise:install
 rails generate devise User
 rails db:migrate
@@ -95,9 +100,10 @@ rails db:migrate
 # - Remember me
 # - Account locking
 
-before_action :authenticate_user!
-current_user
-user_signed_in?
+# In controllers
+before_action :authenticate_user!   # require login
+current_user                        # logged-in user
+user_signed_in?                     # boolean
 </code></pre></div>
 <div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#has-secure-password" data-target="has-secure-password">What does has_secure_password add to a model?</a></li><li><a href="#has-secure-password" data-target="has-secure-password">What does authenticate(password) return?</a></li><li><a href="#devise" data-target="devise">What does Devise provide that a manual implementation does not?</a></li></ol></div>
 <div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a complete authentication system from scratch using has_secure_password.</li><li>Then add Devise to a separate app and compare the two approaches.</li></ol></div>

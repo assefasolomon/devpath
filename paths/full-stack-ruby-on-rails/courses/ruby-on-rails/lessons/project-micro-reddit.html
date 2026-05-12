@@ -37,10 +37,21 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Build a simplified Reddit clone focusing entirely on the data layer — models, associations, and validations. No views or controllers yet.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Model Users, Posts (Links), and Comments with proper associations.</li><li>Add validations to all models.</li><li>Test the data layer in the Rails console.</li></ul></div>
-<h2 class="lesson-section-title" id="requirements">Requirements</h2><ul><li>User: username (unique, 3–20 chars), email (unique), password_digest</li><li>Post: title (required, max 200 chars), url (required, valid URL), user</li><li>Comment: body (required, max 1000 chars), user, post</li><li>A user has_many posts and comments</li><li>A post has_many comments and belongs_to user</li><li>A comment belongs_to both post and user</li></ul><div class="code-block"><pre><code>rails new micro-reddit --database=postgresql
+
+<h2 class="lesson-section-title" id="requirements">Requirements</h2>
+<ul>
+  <li>User: username (unique, 3–20 chars), email (unique), password_digest</li>
+  <li>Post: title (required, max 200 chars), url (required, valid URL), user</li>
+  <li>Comment: body (required, max 1000 chars), user, post</li>
+  <li>A user has_many posts and comments</li>
+  <li>A post has_many comments and belongs_to user</li>
+  <li>A comment belongs_to both post and user</li>
+</ul>
+<div class="code-block"><pre><code>rails new micro-reddit --database=postgresql
 cd micro-reddit
 rails db:create
 
+# Generate models with associations
 rails generate model User username:string email:string password_digest:string
 rails generate model Post title:string url:string user:references
 rails generate model Comment body:text user:references post:references

@@ -37,7 +37,10 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>This lesson covers the advanced Rails features you will encounter in real applications: background jobs, caching, websockets with Action Cable, and service objects.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use Active Job for background processing.</li><li>Implement caching with fragment and low-level caching.</li><li>Use service objects to organise complex business logic.</li><li>Understand Action Cable for real-time features.</li></ul></div>
-<h2 class="lesson-section-title" id="active-job">Active Job</h2><div class="code-block"><pre><code>rails generate job ProcessPayment
+
+<h2 class="lesson-section-title" id="active-job">Active Job</h2>
+<div class="code-block"><pre><code># Generate a job
+rails generate job ProcessPayment
 
 # app/jobs/process_payment_job.rb
 class ProcessPaymentJob &lt; ApplicationJob
@@ -50,10 +53,16 @@ class ProcessPaymentJob &lt; ApplicationJob
   end
 end
 
+# Enqueue from anywhere
 ProcessPaymentJob.perform_later(order.id)
 ProcessPaymentJob.set(wait: 5.minutes).perform_later(order.id)
 ProcessPaymentJob.set(wait_until: Date.tomorrow.noon).perform_later(order.id)
-</code></pre></div><h2 class="lesson-section-title" id="service-objects">Service Objects</h2><div class="code-block"><pre><code># app/services/user_registration_service.rb
+</code></pre></div>
+<h2 class="lesson-section-title" id="service-objects">Service Objects</h2>
+<div class="code-block"><pre><code># Fat models and controllers are a Rails anti-pattern
+# Service objects extract complex business logic into single-responsibility classes
+
+# app/services/user_registration_service.rb
 class UserRegistrationService
   def initialize(params)
     @params = params

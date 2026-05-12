@@ -37,7 +37,9 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Associations define the relationships between your models — belongs_to, has_many, has_one, and the powerful has_many :through. Getting associations right makes everything else easier.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Set up belongs_to and has_many associations.</li><li>Use has_many :through for many-to-many relationships.</li><li>Use has_one.</li><li>Understand dependent: :destroy.</li><li>Use polymorphic associations.</li></ul></div>
-<h2 class="lesson-section-title" id="basic-associations">Basic Associations</h2><div class="code-block"><pre><code># One-to-many
+
+<h2 class="lesson-section-title" id="basic-associations">Basic Associations</h2>
+<div class="code-block"><pre><code># One-to-many
 class User &lt; ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments
@@ -49,12 +51,15 @@ class Post &lt; ApplicationRecord
 end
 
 # Association methods Rails generates
-user.posts
+user.posts                   # all posts by this user
 user.posts.create(title: "Hello")
 user.posts.build(title: "Hello")  # not saved yet
-post.user
-post.build_user(name: "Bob")
-</code></pre></div><h2 class="lesson-section-title" id="has-many-through">has_many :through</h2><div class="code-block"><pre><code>class Post &lt; ApplicationRecord
+post.user                    # the user who wrote this post
+post.build_user(name: "Bob") # builds associated user
+</code></pre></div>
+<h2 class="lesson-section-title" id="has-many-through">has_many :through</h2>
+<div class="code-block"><pre><code># Many-to-many: posts have many tags through post_tags
+class Post &lt; ApplicationRecord
   has_many :post_tags
   has_many :tags, through: :post_tags
 end
@@ -69,10 +74,14 @@ class PostTag &lt; ApplicationRecord
   belongs_to :tag
 end
 
-post.tags
+# Usage
+post.tags                    # all tags for this post
 post.tags &lt;&lt; Tag.find_by(name: "Ruby")
-tag.posts
-</code></pre></div><h2 class="lesson-section-title" id="polymorphic">Polymorphic Associations</h2><div class="code-block"><pre><code>class Comment &lt; ApplicationRecord
+tag.posts                    # all posts with this tag
+</code></pre></div>
+<h2 class="lesson-section-title" id="polymorphic">Polymorphic Associations</h2>
+<div class="code-block"><pre><code># A Comment can belong to either a Post or a Photo
+class Comment &lt; ApplicationRecord
   belongs_to :commentable, polymorphic: true
 end
 
@@ -84,9 +93,11 @@ class Photo &lt; ApplicationRecord
   has_many :comments, as: :commentable
 end
 
-# Migration adds commentable_id and commentable_type columns
+# Migration
 # t.references :commentable, polymorphic: true, null: false
+# adds commentable_id and commentable_type columns
 
+# Usage
 post.comments
 photo.comments
 comment.commentable   # returns either a Post or Photo

@@ -37,7 +37,9 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Active Record is Rails' ORM (Object-Relational Mapper). It connects Ruby classes to database tables, letting you write Ruby code instead of SQL for most database operations.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Create and run database migrations.</li><li>Define models with validations.</li><li>Perform CRUD operations with Active Record methods.</li><li>Use callbacks.</li></ul></div>
-<h2 class="lesson-section-title" id="migrations">Migrations</h2><div class="code-block"><pre><code># Generate a migration
+
+<h2 class="lesson-section-title" id="migrations">Migrations</h2>
+<div class="code-block"><pre><code># Generate a migration
 rails generate migration CreatePosts title:string body:text published:boolean
 
 # db/migrate/20240101000000_create_posts.rb
@@ -61,7 +63,9 @@ rails db:migrate
 
 # Rollback last migration
 rails db:rollback
-</code></pre></div><h2 class="lesson-section-title" id="validations">Models and Validations</h2><div class="code-block"><pre><code># app/models/post.rb
+</code></pre></div>
+<h2 class="lesson-section-title" id="validations">Models and Validations</h2>
+<div class="code-block"><pre><code># app/models/post.rb
 class Post &lt; ApplicationRecord
   belongs_to :user
   has_many   :comments, dependent: :destroy
@@ -70,12 +74,15 @@ class Post &lt; ApplicationRecord
   validates :body,  presence: true
   validates :slug,  uniqueness: true, allow_blank: true
 
+  # Custom validation
   validate :publication_date_cannot_be_in_past
 
+  # Scopes — reusable query fragments
   scope :published, -&gt; { where(published: true) }
   scope :recent,    -&gt; { order(created_at: :desc) }
   scope :by_author, -&gt;(user) { where(user: user) }
 
+  # Callbacks
   before_save :generate_slug
   after_create :notify_subscribers
 

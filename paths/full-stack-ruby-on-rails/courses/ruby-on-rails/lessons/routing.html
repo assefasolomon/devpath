@@ -37,7 +37,9 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>The Rails router translates incoming HTTP requests into controller actions. Understanding routing deeply is key to building well-structured Rails applications.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use resources to generate RESTful routes.</li><li>Define custom routes.</li><li>Use nested routes.</li><li>Understand route helpers and path methods.</li><li>Use namespace and scope.</li></ul></div>
-<h2 class="lesson-section-title" id="resources">resources Routing</h2><div class="code-block"><pre><code># config/routes.rb
+
+<h2 class="lesson-section-title" id="resources">resources Routing</h2>
+<div class="code-block"><pre><code># config/routes.rb
 Rails.application.routes.draw do
   resources :posts
 end
@@ -55,7 +57,9 @@ end
 rails routes
 # or
 rails routes --grep posts
-</code></pre></div><h2 class="lesson-section-title" id="nested-routes">Nested Routes</h2><div class="code-block"><pre><code>resources :posts do
+</code></pre></div>
+<h2 class="lesson-section-title" id="nested-routes">Nested Routes</h2>
+<div class="code-block"><pre><code>resources :posts do
   resources :comments   # /posts/:post_id/comments
 end
 
@@ -70,7 +74,9 @@ resources :posts, shallow: true do
 end
 # GET /posts/:post_id/comments       → comments#index
 # GET /comments/:id                  → comments#show (not nested)
-</code></pre></div><h2 class="lesson-section-title" id="route-helpers">Route Helpers</h2><div class="code-block"><pre><code># Rails generates path/url helpers for every route
+</code></pre></div>
+<h2 class="lesson-section-title" id="route-helpers">Route Helpers</h2>
+<div class="code-block"><pre><code># Rails generates path/url helpers for every route
 posts_path                    # /posts
 new_post_path                 # /posts/new
 post_path(@post)              # /posts/42
@@ -80,7 +86,9 @@ post_comments_path(@post)     # /posts/42/comments
 # Use in views and controllers
 link_to "All Posts", posts_path
 redirect_to post_path(@post)
-</code></pre></div><h2 class="lesson-section-title" id="custom-routes">Custom Routes</h2><div class="code-block"><pre><code># Custom member routes (single resource)
+</code></pre></div>
+<h2 class="lesson-section-title" id="custom-routes">Custom Routes</h2>
+<div class="code-block"><pre><code># Custom member routes (single resource)
 resources :posts do
   member do
     patch :publish    # PATCH /posts/:id/publish

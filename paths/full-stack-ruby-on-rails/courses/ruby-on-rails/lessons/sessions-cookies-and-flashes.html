@@ -37,16 +37,25 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Sessions remember users across requests. Cookies store data in the browser. Flash messages communicate one-time notifications. Together they make web applications feel stateful.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand how the HTTP session works in Rails.</li><li>Store and read data from the session.</li><li>Use cookies for persistent storage.</li><li>Use flash messages for one-time notifications.</li></ul></div>
-<h2 class="lesson-section-title" id="sessions">Sessions</h2><div class="code-block"><pre><code># Sessions are stored server-side (or encrypted cookie)
+
+<h2 class="lesson-section-title" id="sessions">Sessions</h2>
+<div class="code-block"><pre><code># Sessions are stored server-side (or encrypted cookie)
+# Access via the session hash in any controller
+
+# Store data
 session[:user_id] = @user.id
 session[:cart]    = { items: [], total: 0 }
 
+# Read data
 current_user_id = session[:user_id]
 
+# Clear a key
 session.delete(:user_id)
-reset_session   # clear everything (logout)
 
-# ApplicationController — make current_user available everywhere
+# Clear everything (logout)
+reset_session
+
+# In ApplicationController — make current_user available everywhere
 class ApplicationController &lt; ActionController::Base
   helper_method :current_user, :logged_in?
 
@@ -62,16 +71,21 @@ class ApplicationController &lt; ActionController::Base
     redirect_to login_path, alert: "Please log in." unless logged_in?
   end
 end
-</code></pre></div><h2 class="lesson-section-title" id="flash">Flash Messages</h2><div class="code-block"><pre><code># In controllers
+</code></pre></div>
+<h2 class="lesson-section-title" id="flash">Flash Messages</h2>
+<div class="code-block"><pre><code># In controllers — set a flash message
 redirect_to @post, notice: "Post created successfully."
 redirect_to root_path, alert: "Something went wrong."
 
+# Custom flash key
 flash[:success] = "Profile updated!"
 flash[:error]   = "Invalid password."
 
-# In layout
+# In layout — display flash messages
 &lt;% flash.each do |type, message| %&gt;
-  &lt;div class="flash flash-&lt;%= type %&gt;"&gt;&lt;%= message %&gt;&lt;/div&gt;
+  &lt;div class="flash flash-&lt;%= type %&gt;"&gt;
+    &lt;%= message %&gt;
+  &lt;/div&gt;
 &lt;% end %&gt;
 
 # flash.now — only available in the current action (not after redirect)

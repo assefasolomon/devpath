@@ -37,9 +37,13 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Real applications have complex forms: nested attributes, dynamic fields, and multi-step processes. This lesson covers the techniques Rails provides for handling them.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use accepts_nested_attributes_for.</li><li>Build forms with nested models.</li><li>Use fields_for for nested forms.</li><li>Handle many-to-many form relationships.</li><li>Use virtual attributes.</li></ul></div>
-<h2 class="lesson-section-title" id="nested-attributes">Nested Attributes</h2><div class="code-block"><pre><code>class Post &lt; ApplicationRecord
+
+<h2 class="lesson-section-title" id="nested-attributes">Nested Attributes</h2>
+<div class="code-block"><pre><code># Model — allow creating/editing associated records in the same form
+class Post &lt; ApplicationRecord
   has_many :tags, through: :post_tags
   has_many :post_tags
+
   has_many :comments
   accepts_nested_attributes_for :comments,
     allow_destroy: true,

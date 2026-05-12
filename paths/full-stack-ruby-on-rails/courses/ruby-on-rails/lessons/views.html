@@ -37,22 +37,28 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Rails views are ERB templates that render HTML. They have access to instance variables set in the controller and can call helper methods. This lesson covers ERB, layouts, partials, and helpers.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Write ERB templates.</li><li>Use layouts for shared page structure.</li><li>Use partials for reusable view components.</li><li>Write and use view helpers.</li><li>Use Rails link and form helpers.</li></ul></div>
-<h2 class="lesson-section-title" id="erb">ERB Syntax</h2><div class="code-block"><pre><code>&lt;!-- app/views/posts/show.html.erb --&gt;
+
+<h2 class="lesson-section-title" id="erb">ERB Syntax</h2>
+<div class="code-block"><pre><code>&lt;!-- app/views/posts/show.html.erb --&gt;
 &lt;article class="post"&gt;
-  &lt;h1&gt;&lt;%= @post.title %&gt;&lt;/h1&gt;
+  &lt;h1&gt;&lt;%= @post.title %&gt;&lt;/h1&gt;       &lt;!-- outputs escaped value --&gt;
   &lt;p class="meta"&gt;
     Posted by &lt;%= @post.author.name %&gt;
     on &lt;%= @post.created_at.strftime("%B %d, %Y") %&gt;
   &lt;/p&gt;
+
   &lt;div class="body"&gt;
-    &lt;%= simple_format(@post.body) %&gt;
+    &lt;%= simple_format(@post.body) %&gt;  &lt;!-- converts newlines to &lt;br&gt;/&lt;p&gt; --&gt;
   &lt;/div&gt;
-  &lt;% if current_user == @post.author %&gt;
+
+  &lt;% if current_user == @post.author %&gt;  &lt;!-- no output --&gt;
     &lt;%= link_to "Edit", edit_post_path(@post), class: "btn" %&gt;
     &lt;%= button_to "Delete", @post, method: :delete, data: { turbo_confirm: "Sure?" } %&gt;
   &lt;% end %&gt;
 &lt;/article&gt;
-</code></pre></div><h2 class="lesson-section-title" id="layouts-partials">Layouts and Partials</h2><div class="code-block"><pre><code>&lt;!-- app/views/layouts/application.html.erb — shared layout --&gt;
+</code></pre></div>
+<h2 class="lesson-section-title" id="layouts-partials">Layouts and Partials</h2>
+<div class="code-block"><pre><code>&lt;!-- app/views/layouts/application.html.erb — shared layout --&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -64,7 +70,7 @@
   &lt;%= render "shared/navbar" %&gt;
   &lt;main&gt;
     &lt;%= render "shared/flash_messages" %&gt;
-    &lt;%= yield %&gt;
+    &lt;%= yield %&gt;                    &lt;!-- view content goes here --&gt;
   &lt;/main&gt;
   &lt;%= render "shared/footer" %&gt;
 &lt;/body&gt;
@@ -76,9 +82,9 @@
 &lt;/article&gt;
 
 &lt;!-- Render the partial --&gt;
-&lt;%= render @posts %&gt;
-&lt;%= render "posts/post", post: @post %&gt;
-&lt;%= render partial: "post", collection: @posts, as: :post %&gt;
+&lt;%= render @posts %&gt;               &lt;!-- Rails finds _post.html.erb automatically --&gt;
+&lt;%= render "posts/post", post: @post %&gt;   &lt;!-- explicit --&gt;
+&lt;%= render partial: "post", collection: @posts, as: :post %&gt;  &lt;!-- collection --&gt;
 </code></pre></div>
 <div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#erb" data-target="erb">What is the difference between <%= %> and <% %> in ERB?</a></li><li><a href="#layouts-partials" data-target="layouts-partials">What does yield do in a layout?</a></li><li><a href="#layouts-partials" data-target="layouts-partials">What is a partial and how do you render one?</a></li></ol></div>
 <div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add a shared navigation partial to your blog app.</li><li>Create a post card partial and use it on the index page with a collection render.</li></ol></div>

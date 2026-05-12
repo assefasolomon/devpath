@@ -37,7 +37,9 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Rails provides powerful form helpers that generate HTML forms tied to your models, handle CSRF protection automatically, and make handling form submissions clean and secure.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use form_with for model-backed forms.</li><li>Understand how Rails handles form parameters.</li><li>Display validation errors.</li><li>Use select, checkboxes, radio buttons, and file uploads.</li></ul></div>
-<h2 class="lesson-section-title" id="form-with">form_with</h2><div class="code-block"><pre><code>&lt;!-- app/views/posts/_form.html.erb --&gt;
+
+<h2 class="lesson-section-title" id="form-with">form_with</h2>
+<div class="code-block"><pre><code>&lt;!-- app/views/posts/_form.html.erb --&gt;
 &lt;%= form_with model: @post do |form| %&gt;
   &lt;% if @post.errors.any? %&gt;
     &lt;div class="error-messages"&gt;
@@ -72,14 +74,16 @@
 
   &lt;%= form.submit class: "btn btn-primary" %&gt;
 &lt;% end %&gt;
-</code></pre></div><h2 class="lesson-section-title" id="file-uploads">File Uploads with Active Storage</h2><div class="code-block"><pre><code># Set up Active Storage
+</code></pre></div>
+<h2 class="lesson-section-title" id="file-uploads">File Uploads with Active Storage</h2>
+<div class="code-block"><pre><code># Set up Active Storage
 rails active_storage:install
 rails db:migrate
 
 # Model
 class Post &lt; ApplicationRecord
-  has_one_attached :cover_image
-  has_many_attached :attachments
+  has_one_attached :cover_image       # single file
+  has_many_attached :attachments      # multiple files
 end
 
 # Form

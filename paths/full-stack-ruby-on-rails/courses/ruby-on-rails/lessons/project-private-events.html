@@ -37,7 +37,17 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Build a private events site where users can create events, invite others, and manage attendance. This project practises everything learned so far in the Rails course.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Design the database schema and associations.</li><li>Build complete CRUD for all resources.</li><li>Implement authentication and authorisation.</li><li>Deploy to a cloud platform.</li></ul></div>
-<h2 class="lesson-section-title" id="requirements">Requirements</h2><p>Build a private events site where users can create events, invite others, and manage attendance.</p><ul><li>Full authentication using has_secure_password or Devise</li><li>Authorisation — users can only edit/delete their own records</li><li>Proper validations on all models</li><li>Clean, semantic HTML with a well-styled interface</li><li>Deployed on a free hosting platform (Fly.io or Render)</li></ul><div class="code-block"><pre><code>rails new private-events --database=postgresql
+
+<h2 class="lesson-section-title" id="requirements">Requirements</h2>
+<p>Build a private events site where users can create events, invite others, and manage attendance.</p>
+<ul>
+  <li>Full authentication using has_secure_password or Devise</li>
+  <li>Authorisation — users can only edit/delete their own records</li>
+  <li>Proper validations on all models</li>
+  <li>Clean, semantic HTML with a well-styled interface</li>
+  <li>Deployed on a free hosting platform (Fly.io or Render)</li>
+</ul>
+<div class="code-block"><pre><code>rails new private-events --database=postgresql
 rails generate model User name:string email:string password_digest:string
 rails generate model Event title:string description:text creator:references date:datetime location:string
 rails generate model Attendance user:references event:references status:string

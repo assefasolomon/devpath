@@ -37,7 +37,9 @@
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Controllers are the bridge between routes and everything else — they receive requests, interact with models, and render responses. This lesson covers what every Rails controller does.</p></div>
 <div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand what a controller action does.</li><li>Access request params.</li><li>Use before_action filters.</li><li>Render views and redirect.</li><li>Use strong parameters.</li></ul></div>
-<h2 class="lesson-section-title" id="controller-actions">Controller Actions</h2><div class="code-block"><pre><code># app/controllers/posts_controller.rb
+
+<h2 class="lesson-section-title" id="controller-actions">Controller Actions</h2>
+<div class="code-block"><pre><code># app/controllers/posts_controller.rb
 class PostsController &lt; ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :require_login, except: [:index, :show]
@@ -86,7 +88,10 @@ class PostsController &lt; ApplicationController
     params.require(:post).permit(:title, :body, :published)
   end
 end
-</code></pre></div><h2 class="lesson-section-title" id="strong-params">Strong Parameters</h2><p>Strong parameters protect against mass assignment attacks by explicitly listing which parameters are allowed. Never pass <code>params</code> directly to a model.</p><div class="code-block"><pre><code># DANGEROUS — allows any parameter
+</code></pre></div>
+<h2 class="lesson-section-title" id="strong-params">Strong Parameters</h2>
+<p>Strong parameters protect against mass assignment attacks by explicitly listing which parameters are allowed. Never pass <code>params</code> directly to a model.</p>
+<div class="code-block"><pre><code># DANGEROUS — allows any parameter
 Post.new(params[:post])   # never do this
 
 # SAFE — only permitted fields pass through
