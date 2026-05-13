@@ -1,0 +1,854 @@
+#!/usr/bin/env python3
+"""Rails Path — Intermediate HTML and CSS (15 lessons)"""
+import os, subprocess
+
+BASE  = os.path.expanduser("~/devpath")
+RAILS = os.path.join(BASE, "paths", "full-stack-ruby-on-rails", "courses")
+ROOT  = "../../../../../"
+LOGO  = ('<svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" '
+         'stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 '
+         'L14 21 Z" fill="currentColor"/></svg>')
+
+def nav():
+    return (
+        '<nav class="site-nav">'
+        f'<a href="{ROOT}index.html" class="nav-logo">{LOGO} DevPath</a>'
+        '<ul class="nav-links">'
+        f'<li><a href="{ROOT}index.html">Home</a></li>'
+        f'<li><a href="{ROOT}foundations/index.html">Foundations</a></li>'
+        f'<li><a href="{ROOT}paths/full-stack-javascript/index.html">Full Stack JS</a></li>'
+        f'<li><a href="{ROOT}paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li>'
+        '</ul></nav>'
+    )
+
+def footer():
+    return '<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>'
+
+def code(s):
+    esc = s.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;")
+    return f'<div class="code-block"><pre><code>{esc}</code></pre></div>'
+
+def tip(t):
+    return f'<div class="callout callout-tip"><span class="callout-icon">💡</span><p>{t}</p></div>'
+
+def write(ldir, course_title, all_lessons, sidebar_html, slug,
+          title, intro, overview, body, kc, assignments, resources):
+    idx = next((i for i,l in enumerate(all_lessons) if l[0]==slug), None)
+    p = (all_lessons[idx-1][1], all_lessons[idx-1][0]+".html") if idx and idx>0 else None
+    n = (all_lessons[idx+1][1], all_lessons[idx+1][0]+".html") if idx is not None and idx<len(all_lessons)-1 else None
+    pb = f'<a href="{p[1]}" class="btn btn-blue-outline">&#8592; Previous</a>' if p else '<span></span>'
+    nb = f'<a href="{n[1]}" class="btn btn-blue">Next &#8594;</a>' if n else '<span></span>'
+    navb = (f'<div class="lesson-nav-bar">'
+            f'<div class="lesson-nav-bar-group">{pb}</div>'
+            f'<div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>'
+            f'<div class="lesson-nav-bar-group">{nb}</div></div>')
+    bc = (f'<nav class="breadcrumb"><a href="{ROOT}index.html">Home</a>'
+          f'<span class="breadcrumb-sep">/</span>'
+          f'<a href="{ROOT}paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a>'
+          f'<span class="breadcrumb-sep">/</span>'
+          f'<a href="../index.html">{course_title}</a>'
+          f'<span class="breadcrumb-sep">/</span>'
+          f'<span class="breadcrumb-current">{title}</span></nav>')
+    ov   = "".join(f"<li>{i}</li>" for i in overview)
+    kcli = "".join(f'<li><a href="#{k[1]}" data-target="{k[1]}">{k[0]}</a></li>' for k in kc)
+    asli = "".join(f"<li>{a}</li>" for a in assignments)
+    rsli = "".join(f'<li><a href="{r[1]}" target="_blank" rel="noopener">{r[0]}</a></li>' for r in resources)
+    ph = (f'<a href="{p[1]}" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span>'
+          f'<span class="pagination-title">{p[0]}</span></a>' if p else "<span></span>")
+    nh = (f'<a href="{n[1]}" class="pagination-link next"><span class="pagination-label">Next &#8594;</span>'
+          f'<span class="pagination-title">{n[0]}</span></a>' if n else "<span></span>")
+    html = (
+        '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
+        '  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+        f'  <title>{title} | DevPath</title>\n'
+        f'  <link rel="stylesheet" href="{ROOT}css/styles.css">\n'
+        '</head>\n<body>\n'
+        + nav() + '\n' + navb + '\n'
+        + f'<div class="page-header"><div class="page-header-inner">{bc}<h1>{title}</h1></div></div>\n'
+        + f'<div class="lesson-layout">{sidebar_html}<main><div class="lesson-body">\n'
+        + f'<div class="block-intro"><p>{intro}</p></div>\n'
+        + f'<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul>{ov}</ul></div>\n'
+        + body
+        + f'\n<div class="block-kc"><div class="block-kc-label">Knowledge Check</div>'
+        + '<p class="kc-note">Click any question to jump to the section that answers it.</p>'
+        + f'<ol>{kcli}</ol></div>\n'
+        + f'<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol>{asli}</ol></div>\n'
+        + f'<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul>{rsli}</ul></div>\n'
+        + f'</div><div class="lesson-pagination">{ph}{nh}</div></main></div>\n'
+        + footer() + '\n'
+        + f'<script src="{ROOT}js/main.js"></script>\n</body>\n</html>'
+    )
+    with open(os.path.join(ldir, f"{slug}.html"), "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"  ✓  {slug}")
+
+def write_index(course_dir, title, description, sections):
+    cards = ""
+    for sec, lessons in sections:
+        cards += f'<div class="index-section"><h2 class="index-section-title">{sec}</h2><ul class="index-lesson-list">'
+        for slug, ltitle, proj in lessons:
+            cls = "index-lesson-item" + (" is-project" if proj else "")
+            cards += f'<li class="{cls}"><a href="lessons/{slug}.html">{ltitle}</a></li>'
+        cards += "</ul></div>"
+    html = (
+        '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
+        '  <meta charset="UTF-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+        f'  <title>{title} | DevPath</title>\n'
+        f'  <link rel="stylesheet" href="{ROOT}css/styles.css">\n'
+        '</head>\n<body>\n' + nav() + '\n'
+        + f'<div class="page-header"><div class="page-header-inner">'
+        + f'<nav class="breadcrumb"><a href="{ROOT}index.html">Home</a><span class="breadcrumb-sep">/</span>'
+        + f'<a href="{ROOT}paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a>'
+        + f'<span class="breadcrumb-sep">/</span><span class="breadcrumb-current">{title}</span></nav>'
+        + f'<h1>{title}</h1><p class="course-description">{description}</p></div></div>\n'
+        + f'<div class="course-index">{cards}</div>\n'
+        + footer() + '\n'
+        + f'<script src="{ROOT}js/main.js"></script>\n</body>\n</html>'
+    )
+    with open(os.path.join(course_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"  ✓  index → {course_dir}/index.html")
+
+def seed_intermediate_html_css():
+    course_dir = os.path.join(RAILS, "intermediate-html-css")
+    ldir = os.path.join(course_dir, "lessons")
+    os.makedirs(ldir, exist_ok=True)
+
+    ALL = [
+        ("intro-intermediate-html-css",   "Introduction"),
+        ("emmet",                          "Emmet"),
+        ("svgs",                           "SVGs"),
+        ("tables",                         "Tables"),
+        ("default-styles",                 "Default Styles"),
+        ("css-units",                      "CSS Units"),
+        ("more-text-styles",               "More Text Styles"),
+        ("more-css-properties",            "More CSS Properties"),
+        ("advanced-selectors",             "Advanced Selectors"),
+        ("positioning",                    "Positioning"),
+        ("css-functions",                  "CSS Functions"),
+        ("custom-properties",              "Custom Properties"),
+        ("browser-compatibility",          "Browser Compatibility"),
+        ("frameworks-and-preprocessors",   "Frameworks and Preprocessors"),
+        ("project-admin-dashboard",        "Project: Admin Dashboard"),
+    ]
+
+    def lnk(sl, ti, proj=False):
+        cls = "sidebar-link" + (" is-project" if proj else "")
+        return f'<a href="{sl}.html" class="{cls}">{ti}</a>\n'
+
+    sidebar = (
+        '<aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div>'
+        '<div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div>'
+        + lnk("intro-intermediate-html-css", "Introduction")
+        + lnk("emmet", "Emmet")
+        + lnk("svgs", "SVGs")
+        + lnk("tables", "Tables")
+        + '</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate CSS</div>'
+        + lnk("default-styles", "Default Styles")
+        + lnk("css-units", "CSS Units")
+        + lnk("more-text-styles", "More Text Styles")
+        + lnk("more-css-properties", "More CSS Properties")
+        + lnk("advanced-selectors", "Advanced Selectors")
+        + lnk("positioning", "Positioning")
+        + lnk("css-functions", "CSS Functions")
+        + lnk("custom-properties", "Custom Properties")
+        + lnk("browser-compatibility", "Browser Compatibility")
+        + lnk("frameworks-and-preprocessors", "Frameworks and Preprocessors")
+        + '</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div>'
+        + lnk("project-admin-dashboard", "Project: Admin Dashboard", True)
+        + '</div></aside>'
+    )
+
+    def w(slug, title, intro, overview, body, kc, assignments, resources):
+        write(ldir, "Intermediate HTML and CSS", ALL, sidebar,
+              slug, title, intro, overview, body, kc, assignments, resources)
+
+    write_index(course_dir, "Intermediate HTML and CSS",
+        "Deepen your HTML and CSS skills — Emmet, SVGs, tables, advanced selectors, positioning, CSS functions, custom properties, and frameworks.",
+        [("Intermediate HTML", [
+            ("intro-intermediate-html-css","Introduction",False),
+            ("emmet","Emmet",False),("svgs","SVGs",False),("tables","Tables",False)]),
+         ("Intermediate CSS", [
+            ("default-styles","Default Styles",False),("css-units","CSS Units",False),
+            ("more-text-styles","More Text Styles",False),("more-css-properties","More CSS Properties",False),
+            ("advanced-selectors","Advanced Selectors",False),("positioning","Positioning",False),
+            ("css-functions","CSS Functions",False),("custom-properties","Custom Properties",False),
+            ("browser-compatibility","Browser Compatibility",False),
+            ("frameworks-and-preprocessors","Frameworks and Preprocessors",False)]),
+         ("Project",[("project-admin-dashboard","Project: Admin Dashboard",True)])])
+
+    w("intro-intermediate-html-css","Introduction",
+      intro="This course bridges the gap between basic HTML/CSS and the advanced techniques used in professional web development. You will cover intermediate HTML elements and deeper CSS concepts.",
+      overview=["Know what this course covers.","Understand how intermediate HTML/CSS fits into the Rails stack.","Set up a practice workspace."],
+      body=(
+        '<h2 class="lesson-section-title" id="overview">Course Overview</h2>'
+        "<p>In the Foundations course you learned the building blocks. Here you go deeper: semantic HTML, SVGs, tables, advanced CSS selectors, custom properties, and modern layout techniques. These skills are used every time you write ERB views in Rails.</p>"
+        + tip("Every lesson in this course has a practical exercise. Build the exercise before moving on.")
+      ),
+      kc=[("What topics does this course cover?","overview")],
+      assignments=["Create a folder ~/devpath-projects/intermediate-html-css for your exercises."],
+      resources=[("MDN — HTML Reference","https://developer.mozilla.org/en-US/docs/Web/HTML"),
+                 ("MDN — CSS Reference","https://developer.mozilla.org/en-US/docs/Web/CSS")])
+
+    w("emmet","Emmet",
+      intro="Emmet is a plugin built into VS Code that lets you write HTML and CSS with short abbreviations that expand into full markup. It dramatically speeds up writing templates.",
+      overview=["Use Emmet abbreviations to scaffold HTML quickly.","Use CSS Emmet shortcuts.","Know the most useful Emmet patterns for Rails ERB files."],
+      body=(
+        '<h2 class="lesson-section-title" id="html-emmet">HTML Abbreviations</h2>'
+        + code("""\
+# Type these and press Tab in VS Code:
+
+ul>li*5                  # <ul> with 5 <li> items
+nav>ul>li*3>a[href=#]    # nav > ul > 3 links
+.container>.card*3       # div.container with 3 div.card children
+h1{Hello World}          # <h1>Hello World</h1>
+input[type=email]#email  # <input type="email" id="email">
+form>input*3+button{Submit}
+
+# Numbering with $
+ul>li.item-$*5
+# => <li class="item-1"> ... <li class="item-5">
+""")
+        + '<h2 class="lesson-section-title" id="css-emmet">CSS Abbreviations</h2>'
+        + code("""\
+# In a CSS file:
+m10          # margin: 10px
+p10-20       # padding: 10px 20px
+df           # display: flex
+aic          # align-items: center
+jcc          # justify-content: center
+bgc#fff      # background-color: #fff
+fw700        # font-weight: 700
+""")
+      ),
+      kc=[("How do you create a ul with 5 li items using Emmet?","html-emmet"),
+          ("What does df expand to in CSS Emmet?","css-emmet")],
+      assignments=["In VS Code, practice every abbreviation above until you can do it without looking.",
+                   "Use Emmet to scaffold a full HTML page structure in under 30 seconds."],
+      resources=[("Emmet Cheat Sheet","https://docs.emmet.io/cheat-sheet/"),
+                 ("Emmet in VS Code","https://code.visualstudio.com/docs/editor/emmet")])
+
+    w("svgs","SVGs",
+      intro="SVGs (Scalable Vector Graphics) are XML-based images that scale to any size without losing quality. They are used for icons, logos, and illustrations throughout modern web applications.",
+      overview=["Understand SVG syntax and coordinate system.","Use SVG inline and as an img src.","Style SVGs with CSS.","Use SVG icons from a sprite or icon library."],
+      body=(
+        '<h2 class="lesson-section-title" id="svg-syntax">SVG Syntax</h2>'
+        + code("""\
+<!-- Inline SVG — can be styled with CSS -->
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+  <circle cx="50" cy="50" r="40" fill="currentColor" />
+  <rect x="20" y="20" width="30" height="30" fill="blue" />
+  <path d="M10 80 L50 10 L90 80 Z" fill="red" />
+  <text x="50" y="50" text-anchor="middle" font-size="12">SVG</text>
+</svg>
+""")
+        + '<h2 class="lesson-section-title" id="svg-css">Styling SVGs</h2>'
+        + code("""\
+/* Inline SVGs inherit currentColor */
+.icon { color: #3b82f6; }
+.icon svg { width: 24px; height: 24px; fill: currentColor; }
+
+/* Target SVG elements directly */
+svg circle { fill: tomato; }
+svg:hover path { stroke: navy; }
+""")
+        + '<h2 class="lesson-section-title" id="svg-use">SVG in Rails Views</h2>'
+        + code("""\
+<!-- As img tag — cannot be CSS-styled -->
+<img src="/assets/logo.svg" alt="Logo" width="120">
+
+<!-- Inline — full CSS/JS access — use a partial -->
+<!-- app/views/shared/_icon_check.html.erb -->
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+  <polyline points="20 6 9 17 4 12"/>
+</svg>
+
+<!-- Use it anywhere -->
+<%= render "shared/icon_check" %>
+""")
+      ),
+      kc=[("What is the difference between inline SVG and an img SVG?","svg-use"),
+          ("How do you make an SVG inherit the parent element's text color?","svg-css")],
+      assignments=["Draw a simple house using SVG rect and triangle path elements.",
+                   "Create an SVG icon partial in a Rails app and style it with CSS."],
+      resources=[("MDN — SVG Tutorial","https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial"),
+                 ("heroicons.com — Free SVG Icons","https://heroicons.com/")])
+
+    w("tables","Tables",
+      intro="HTML tables are for tabular data — rows and columns of related information. They are often misused for layout (don't do that), but are the right tool for data grids, pricing tables, and comparison pages.",
+      overview=["Build a complete HTML table with thead, tbody, tfoot.","Use colspan and rowspan.","Style tables with CSS.","Know when to use a table vs a list."],
+      body=(
+        '<h2 class="lesson-section-title" id="table-structure">Table Structure</h2>'
+        + code("""\
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Role</th>
+      <th scope="col">Joined</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alice</td>
+      <td>Admin</td>
+      <td>Jan 2024</td>
+    </tr>
+    <tr>
+      <td>Bob</td>
+      <td>Member</td>
+      <td>Feb 2024</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">2 users total</td>
+    </tr>
+  </tfoot>
+</table>
+""")
+        + '<h2 class="lesson-section-title" id="table-css">Styling Tables</h2>'
+        + code("""\
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+thead th { background: #f9fafb; font-weight: 600; }
+tbody tr:hover { background: #f0f9ff; }
+""")
+      ),
+      kc=[("What is the purpose of thead, tbody, and tfoot?","table-structure"),
+          ("What does colspan do?","table-structure"),
+          ("What CSS property removes the double border between cells?","table-css")],
+      assignments=["Build an HTML table showing 5 countries with population, capital, and continent columns.",
+                   "Style it with alternating row colors using CSS :nth-child."],
+      resources=[("MDN — HTML Tables","https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables")])
+
+    w("default-styles","Default Styles",
+      intro="Browsers apply default CSS to every HTML element — margins, padding, font sizes, and more. Understanding these defaults and how to reset or normalise them is essential for consistent cross-browser styling.",
+      overview=["Understand browser default (user-agent) styles.","Know the difference between a CSS reset and a normalise stylesheet.","Use box-sizing: border-box universally."],
+      body=(
+        '<h2 class="lesson-section-title" id="resets">CSS Resets and Normalise</h2>'
+        + code("""\
+/* Minimal modern reset — include at the top of your stylesheet */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+body { line-height: 1.5; -webkit-font-smoothing: antialiased; }
+img, video, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; }
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+""")
+        + tip("Tailwind CSS includes a reset (Preflight) automatically. If you use Tailwind in Rails you get this for free.")
+      ),
+      kc=[("What does box-sizing: border-box change?","resets"),
+          ("What is the difference between a CSS reset and normalize.css?","resets")],
+      assignments=["Add the minimal reset above to a project and observe what changes.",
+                   "Inspect default browser styles for h1, p, and ul in DevTools."],
+      resources=[("Josh Comeau's Modern CSS Reset","https://www.joshwcomeau.com/css/custom-css-reset/"),
+                 ("normalize.css","https://necolas.github.io/normalize.css/")])
+
+    w("css-units","CSS Units",
+      intro="CSS has many units for size and spacing. Choosing the right unit — px, em, rem, %, vw, vh, ch — determines how your layout responds to font size changes, screen size, and user preferences.",
+      overview=["Know when to use px, em, rem, %, vw/vh, and ch.","Understand how em and rem cascade.","Use relative units for accessible, responsive designs."],
+      body=(
+        '<h2 class="lesson-section-title" id="units">Unit Reference</h2>'
+        + code("""\
+/* px — absolute, ignores user font preferences */
+font-size: 16px;
+
+/* rem — relative to root (html) font size — USE FOR FONT SIZES */
+font-size: 1rem;     /* = 16px if root is 16px */
+font-size: 1.25rem;  /* = 20px */
+
+/* em — relative to PARENT element font size — USE FOR SPACING */
+padding: 1em;        /* = 1× the element's own font-size */
+margin-bottom: 0.5em;
+
+/* % — relative to parent dimension */
+width: 50%;          /* half of parent width */
+
+/* vw / vh — viewport width / height */
+height: 100vh;       /* full screen height */
+width: 100vw;
+
+/* ch — width of the "0" character — great for line length */
+max-width: 65ch;     /* readable paragraph width */
+
+/* clamp(min, preferred, max) — fluid sizing */
+font-size: clamp(1rem, 2.5vw, 1.5rem);
+""")
+      ),
+      kc=[("When should you use rem vs em?","units"),
+          ("What does 1ch equal?","units"),
+          ("What does clamp() do?","units")],
+      assignments=["Convert a layout from all-px to use rem for font sizes and em for spacing.",
+                   "Use clamp() to make a heading font size fluid between mobile and desktop."],
+      resources=[("MDN — CSS Values and Units","https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units")])
+
+    w("more-text-styles","More Text Styles",
+      intro="CSS has rich text styling beyond font-size and color. This lesson covers font loading, letter spacing, line height, text decoration, and web typography best practices.",
+      overview=["Load custom fonts with @font-face and Google Fonts.","Use line-height, letter-spacing, word-spacing.","Control text overflow and truncation.","Apply text-shadow and text-transform."],
+      body=(
+        '<h2 class="lesson-section-title" id="fonts">Custom Fonts</h2>'
+        + code("""\
+/* Google Fonts — add to <head> or @import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body { font-family: 'Inter', system-ui, sans-serif; }
+
+/* @font-face — self-hosted */
+@font-face {
+  font-family: 'MyFont';
+  src: url('/fonts/myfont.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;   /* show fallback while loading */
+}
+""")
+        + '<h2 class="lesson-section-title" id="text-props">Text Properties</h2>'
+        + code("""\
+p {
+  line-height: 1.6;           /* unitless — relative to font-size */
+  letter-spacing: 0.01em;
+  text-indent: 2em;
+}
+
+h1 { text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Truncate overflow text */
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Multi-line clamp */
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+""")
+      ),
+      kc=[("What does font-display: swap do?","fonts"),
+          ("How do you truncate text to one line with ellipsis?","text-props")],
+      assignments=["Add a Google Font to a Rails project and apply it to headings only.",
+                   "Build a card component that truncates the description at 3 lines."],
+      resources=[("Google Fonts","https://fonts.google.com/"),
+                 ("MDN — font-display","https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display")])
+
+    w("more-css-properties","More CSS Properties",
+      intro="This lesson covers CSS properties that come up constantly in real projects but aren't covered in introductory courses: overflow, opacity, cursor, border-radius, box-shadow, and object-fit.",
+      overview=["Control overflow with overflow, overflow-x, overflow-y.","Use opacity and visibility correctly.","Apply box-shadow and drop-shadow.","Use object-fit for images."],
+      body=(
+        '<h2 class="lesson-section-title" id="overflow">Overflow</h2>'
+        + code("""\
+.container { overflow: hidden; }   /* clip content */
+.scroll    { overflow: auto; }     /* scroll only when needed */
+.x-scroll  { overflow-x: auto; overflow-y: hidden; }
+
+/* Overflow and border-radius — clip child images */
+.card { border-radius: 8px; overflow: hidden; }
+""")
+        + '<h2 class="lesson-section-title" id="visual">Visual Properties</h2>'
+        + code("""\
+/* opacity vs visibility */
+.hidden   { opacity: 0; }          /* invisible but takes up space, can be transitioned */
+.gone     { visibility: hidden; }  /* invisible, takes up space, no transition */
+.removed  { display: none; }       /* removed from layout */
+
+/* box-shadow */
+.card { box-shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06); }
+.card:hover { box-shadow: 0 10px 25px rgba(0,0,0,.15); }
+
+/* object-fit — for img inside a fixed container */
+.avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.hero-img { width: 100%; height: 400px; object-fit: cover; object-position: top; }
+""")
+      ),
+      kc=[("What is the difference between opacity: 0 and display: none?","visual"),
+          ("What does object-fit: cover do to an image?","visual")],
+      assignments=["Build a team member card with a circular avatar using object-fit: cover.",
+                   "Add a hover box-shadow transition to a card component."],
+      resources=[("MDN — overflow","https://developer.mozilla.org/en-US/docs/Web/CSS/overflow"),
+                 ("MDN — object-fit","https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit")])
+
+    w("advanced-selectors","Advanced Selectors",
+      intro="CSS selectors go far beyond classes and IDs. Advanced selectors let you target elements by relationship, state, and content — keeping your HTML clean and your CSS precise.",
+      overview=["Use child, sibling, and descendant combinators.","Use :is(), :where(), :not(), :has().","Use attribute selectors.","Use pseudo-elements ::before and ::after."],
+      body=(
+        '<h2 class="lesson-section-title" id="combinators">Combinators</h2>'
+        + code("""\
+/* Descendant — any depth */       .parent .child { }
+/* Child — direct only */          .parent > .child { }
+/* Adjacent sibling */             h2 + p { margin-top: 0; }
+/* General sibling */              h2 ~ p { color: gray; }
+""")
+        + '<h2 class="lesson-section-title" id="pseudo">Pseudo-classes and Pseudo-elements</h2>'
+        + code("""\
+/* Structural pseudo-classes */
+li:first-child { font-weight: bold; }
+li:last-child  { border-bottom: none; }
+li:nth-child(odd)  { background: #f9fafb; }
+li:nth-child(3n+1) { color: red; }
+
+/* :is() — matches any of the list */
+:is(h1, h2, h3) { line-height: 1.2; }
+
+/* :not() */
+button:not([disabled]) { cursor: pointer; }
+
+/* :has() — parent selector (modern browsers) */
+.card:has(img) { padding: 0; }
+
+/* Attribute selectors */
+a[href^="https"] { color: green; }   /* starts with */
+a[href$=".pdf"]  { color: red; }     /* ends with */
+input[type="email"] { border: blue; }
+
+/* Pseudo-elements */
+p::first-line { font-weight: bold; }
+.required::after { content: " *"; color: red; }
+""")
+      ),
+      kc=[("What is the difference between > and a space combinator?","combinators"),
+          ("What does :has() allow you to do?","pseudo"),
+          ("What does ::after do?","pseudo")],
+      assignments=["Style a navigation menu using only combinators and pseudo-classes — no extra classes.",
+                   "Use ::before and ::after to add decorative quotes around a blockquote."],
+      resources=[("MDN — CSS Selectors","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors"),
+                 ("CSS Selectors Game — CSS Diner","https://flukeout.github.io/")])
+
+    w("positioning","Positioning",
+      intro="CSS positioning — static, relative, absolute, fixed, and sticky — controls exactly where elements appear. Getting positioning right is essential for modals, dropdowns, tooltips, and sticky headers.",
+      overview=["Understand all five position values.","Use absolute positioning relative to a positioned parent.","Build a sticky header and a fixed overlay.","Use z-index correctly."],
+      body=(
+        '<h2 class="lesson-section-title" id="position-values">Position Values</h2>'
+        + code("""\
+/* static (default) — normal document flow */
+.box { position: static; }
+
+/* relative — offset from normal position, creates stacking context */
+.box { position: relative; top: 10px; left: 20px; }
+
+/* absolute — removed from flow, positioned relative to nearest positioned ancestor */
+.parent { position: relative; }
+.badge  { position: absolute; top: -8px; right: -8px; }
+
+/* fixed — relative to viewport, stays on scroll */
+.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; }
+
+/* sticky — hybrid: relative until scroll threshold, then fixed */
+.table-header { position: sticky; top: 0; background: white; }
+""")
+        + '<h2 class="lesson-section-title" id="z-index">z-index and Stacking Contexts</h2>'
+        + code("""\
+/* z-index only works on positioned elements (not static) */
+.modal-overlay { position: fixed; z-index: 200; }
+.modal         { position: fixed; z-index: 201; }
+.navbar        { position: fixed; z-index: 100; }
+
+/* A new stacking context is created by:
+   - position + z-index other than auto
+   - opacity < 1
+   - transform
+   - will-change */
+""")
+      ),
+      kc=[("What is the difference between fixed and sticky positioning?","position-values"),
+          ("What does absolute positioning use as its reference point?","position-values"),
+          ("What creates a new stacking context?","z-index")],
+      assignments=["Build a card with an absolute-positioned badge (like an unread count notification).",
+                   "Build a sticky table header that stays visible when scrolling a long table."],
+      resources=[("MDN — position","https://developer.mozilla.org/en-US/docs/Web/CSS/position"),
+                 ("CSS Tricks — z-index","https://css-tricks.com/almanac/properties/z/z-index/")])
+
+    w("css-functions","CSS Functions",
+      intro="CSS has dozens of built-in functions. This lesson covers the most useful ones: calc(), clamp(), min(), max(), var(), and the transform functions.",
+      overview=["Use calc() for dynamic sizing.","Use clamp(), min(), max() for responsive values.","Use CSS custom properties with var().","Use transform functions for movement and scaling."],
+      body=(
+        '<h2 class="lesson-section-title" id="calc-clamp">calc() and Fluid Sizing</h2>'
+        + code("""\
+/* calc — mix units */
+.sidebar { width: calc(100% - 280px); }
+.card    { padding: calc(1rem + 2vw); }
+
+/* min() — smallest of the values */
+.container { width: min(90%, 1200px); }   /* max-width: 1200px but never > 90% */
+
+/* max() — largest of the values */
+font-size: max(1rem, 2.5vw);   /* never smaller than 1rem */
+
+/* clamp(min, preferred, max) */
+h1 { font-size: clamp(1.5rem, 5vw, 3rem); }
+.content { width: clamp(300px, 80%, 800px); }
+""")
+        + '<h2 class="lesson-section-title" id="transforms">Transform Functions</h2>'
+        + code("""\
+/* translate — move without affecting layout */
+.modal { transform: translateX(-50%) translateY(-50%); }
+
+/* Center an absolute element */
+.centered {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* scale, rotate */
+.icon:hover { transform: scale(1.1) rotate(5deg); }
+
+/* Combined with transition */
+.btn { transition: transform 150ms ease; }
+.btn:hover { transform: translateY(-2px); }
+""")
+      ),
+      kc=[("What does calc() allow that plain values don't?","calc-clamp"),
+          ("How do you use clamp() to create a fluid font size?","calc-clamp"),
+          ("How do you perfectly center an absolutely-positioned element?","transforms")],
+      assignments=["Use clamp() for all font sizes in a small project.",
+                   "Use translate(-50%, -50%) to center a modal dialog."],
+      resources=[("MDN — CSS Functions","https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions"),
+                 ("CSS Tricks — clamp()","https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/")])
+
+    w("custom-properties","Custom Properties",
+      intro="CSS custom properties (variables) let you define values once and reuse them everywhere. They are the foundation of theming, dark mode, and design systems.",
+      overview=["Define and use CSS custom properties.","Scope variables to components.","Build a simple theme system with custom properties.","Implement dark mode with prefers-color-scheme."],
+      body=(
+        '<h2 class="lesson-section-title" id="variables">Custom Properties</h2>'
+        + code("""\
+/* Define on :root — available everywhere */
+:root {
+  --color-primary:    #3b82f6;
+  --color-secondary:  #10b981;
+  --color-text:       #111827;
+  --color-bg:         #ffffff;
+  --spacing-sm:       0.5rem;
+  --spacing-md:       1rem;
+  --spacing-lg:       2rem;
+  --radius:           8px;
+  --shadow:           0 1px 3px rgba(0,0,0,.1);
+  --font-sans:        'Inter', system-ui, sans-serif;
+}
+
+/* Use with var() */
+.btn {
+  background: var(--color-primary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Fallback value */
+color: var(--color-brand, #3b82f6);
+""")
+        + '<h2 class="lesson-section-title" id="dark-mode">Dark Mode</h2>'
+        + code("""\
+:root {
+  --color-bg:   #ffffff;
+  --color-text: #111827;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:   #111827;
+    --color-text: #f9fafb;
+  }
+}
+
+body { background: var(--color-bg); color: var(--color-text); }
+/* All components automatically switch — no extra CSS needed */
+""")
+      ),
+      kc=[("Where do you define global CSS custom properties?","variables"),
+          ("How do you implement dark mode with custom properties?","dark-mode"),
+          ("How do you provide a fallback for a custom property?","variables")],
+      assignments=["Convert a project to use custom properties for all colors, spacing, and border-radius.",
+                   "Add dark mode using prefers-color-scheme and custom properties."],
+      resources=[("MDN — Custom Properties","https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties"),
+                 ("CSS Tricks — Custom Properties Guide","https://css-tricks.com/a-complete-guide-to-custom-properties/")])
+
+    w("browser-compatibility","Browser Compatibility",
+      intro="CSS features have different levels of support across browsers and versions. This lesson covers how to check compatibility, use fallbacks, and progressively enhance your stylesheets.",
+      overview=["Use caniuse.com to check feature support.","Write fallbacks for unsupported CSS.","Use @supports for feature queries.","Understand vendor prefixes and autoprefixer."],
+      body=(
+        '<h2 class="lesson-section-title" id="feature-queries">@supports</h2>'
+        + code("""\
+/* @supports — apply styles only if browser supports a property */
+@supports (display: grid) {
+  .layout { display: grid; grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Fallback for non-supporting browsers */
+.layout { display: flex; flex-wrap: wrap; }  /* fallback */
+@supports (display: grid) {
+  .layout { display: grid; }                 /* enhancement */
+}
+
+/* Check for :has() support */
+@supports selector(:has(a, b)) {
+  .card:has(img) { padding: 0; }
+}
+""")
+        + '<h2 class="lesson-section-title" id="autoprefixer">Autoprefixer</h2>'
+        + code("""\
+# Autoprefixer automatically adds vendor prefixes based on your target browsers
+# In a Rails + PostCSS setup:
+
+# postcss.config.js
+module.exports = {
+  plugins: { autoprefixer: {} }
+}
+
+# .browserslistrc
+> 1%
+last 2 versions
+not dead
+
+# You write:        transform: rotate(45deg);
+# Autoprefixer adds: -webkit-transform: rotate(45deg);
+""")
+      ),
+      kc=[("What does @supports do?","feature-queries"),
+          ("What does autoprefixer do?","autoprefixer")],
+      assignments=["Check three CSS features you've used on caniuse.com and note their support levels.",
+                   "Add @supports fallbacks for CSS Grid in a layout you've built."],
+      resources=[("Can I Use","https://caniuse.com/"),
+                 ("MDN — @supports","https://developer.mozilla.org/en-US/docs/Web/CSS/@supports")])
+
+    w("frameworks-and-preprocessors","Frameworks and Preprocessors",
+      intro="CSS frameworks like Bootstrap and Tailwind, and preprocessors like Sass, extend what plain CSS can do. This lesson covers when and why to use them, and how they integrate with Rails.",
+      overview=["Understand the difference between utility-first and component-based CSS frameworks.","Know when to use Bootstrap vs Tailwind.","Understand what Sass adds to CSS.","Know how Rails integrates CSS frameworks."],
+      body=(
+        '<h2 class="lesson-section-title" id="frameworks">CSS Frameworks</h2>'
+        + code("""\
+# Bootstrap — component-based, opinionated design system
+# Install in Rails:
+bundle add bootstrap
+# Gives you: pre-styled buttons, cards, modals, navbars, grid
+# Pro: fast prototyping, familiar to many devs
+# Con: sites look alike, hard to customise deeply
+
+# Tailwind CSS — utility-first
+# Install in Rails 7:
+rails new myapp --css tailwind
+# Gives you: single-purpose utility classes
+# Pro: fully customisable, no specificity wars, great for custom designs
+# Con: verbose HTML, learning curve
+
+<!-- Bootstrap -->
+<button class="btn btn-primary">Save</button>
+
+<!-- Tailwind -->
+<button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Save</button>
+""")
+        + '<h2 class="lesson-section-title" id="sass">Sass/SCSS</h2>'
+        + code("""\
+// Sass adds: variables, nesting, mixins, functions, partials
+
+// Variables (use CSS custom properties instead in modern projects)
+$color-primary: #3b82f6;
+
+// Nesting
+.card {
+  padding: 1rem;
+  &:hover { box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+  &__title { font-size: 1.25rem; }   // BEM with &
+}
+
+// Mixin
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero { @include flex-center; }
+
+// Rails includes Sass via sassc-rails or dartsass-rails
+gem 'dartsass-rails'
+""")
+      ),
+      kc=[("What is the difference between Bootstrap and Tailwind?","frameworks"),
+          ("What does Sass add that plain CSS does not have?","sass"),
+          ("How do you add Tailwind to a new Rails 7 app?","frameworks")],
+      assignments=["Build the same button component in both Bootstrap and Tailwind and compare.",
+                   "Add Sass to a Rails project and use nesting and a mixin."],
+      resources=[("Tailwind CSS Docs","https://tailwindcss.com/docs"),
+                 ("Bootstrap Docs","https://getbootstrap.com/docs/"),
+                 ("Sass Documentation","https://sass-lang.com/documentation/")])
+
+    w("project-admin-dashboard","Project: Admin Dashboard",
+      intro="Build a responsive admin dashboard using HTML and CSS only. This project exercises positioning, grid, custom properties, advanced selectors, and everything else from this course.",
+      overview=["Build a fixed sidebar navigation.","Create a responsive grid of stat cards.","Build a data table with hover styles.","Apply a consistent design system using custom properties."],
+      body=(
+        '<h2 class="lesson-section-title" id="requirements">Requirements</h2>'
+        "<ul>"
+        "<li>Fixed sidebar with navigation links and a logo</li>"
+        "<li>Top header bar with search input and user avatar</li>"
+        "<li>Grid of 4 stat cards (Total Users, Revenue, Orders, Growth)</li>"
+        "<li>Recent activity table with 5 rows</li>"
+        "<li>Responsive: sidebar collapses on mobile</li>"
+        "<li>Dark mode via prefers-color-scheme and CSS custom properties</li>"
+        "</ul>"
+        + code("""\
+mkdir ~/devpath-projects/intermediate-html-css/admin-dashboard
+cd ~/devpath-projects/intermediate-html-css/admin-dashboard
+touch index.html styles.css
+
+# Recommended structure:
+# index.html
+# styles/
+#   reset.css
+#   variables.css
+#   layout.css
+#   components.css
+""")
+        + tip("Design the layout in CSS Grid first (sidebar | main), then fill in the components. Use custom properties for all colors before writing a single element style.")
+      ),
+      kc=[("How do you create a fixed sidebar that doesn't push content?","requirements"),
+          ("How do you implement dark mode with only CSS?","requirements")],
+      assignments=["Complete the Admin Dashboard meeting all requirements.",
+                   "Make it fully responsive with a hamburger menu on mobile.",
+                   "Push to GitHub and deploy on Netlify or GitHub Pages."],
+      resources=[("CSS Grid Guide — CSS Tricks","https://css-tricks.com/snippets/css/complete-guide-grid/"),
+                 ("Dribbble — Dashboard Inspiration","https://dribbble.com/tags/admin-dashboard")])
+
+    print(f"  Intermediate HTML & CSS: {len(ALL)} lessons done")
+
+def main():
+    seed_intermediate_html_css()
+    print("\nCommitting...")
+    os.chdir(BASE)
+    subprocess.run(["git","add","-A"], check=True)
+    subprocess.run(["git","commit","-m","Seed Intermediate HTML & CSS (15 lessons)"], check=True)
+    subprocess.run(["git","push"], check=True)
+    print("Done.")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

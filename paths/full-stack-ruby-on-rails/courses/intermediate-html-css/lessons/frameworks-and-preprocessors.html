@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frameworks and Preprocessors | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="browser-compatibility.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="project-admin-dashboard.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Frameworks and Preprocessors</span></nav><h1>Frameworks and Preprocessors</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="intro-intermediate-html-css.html" class="sidebar-link">Introduction</a>
+<a href="emmet.html" class="sidebar-link">Emmet</a>
+<a href="svgs.html" class="sidebar-link">SVGs</a>
+<a href="tables.html" class="sidebar-link">Tables</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate CSS</div><a href="default-styles.html" class="sidebar-link">Default Styles</a>
+<a href="css-units.html" class="sidebar-link">CSS Units</a>
+<a href="more-text-styles.html" class="sidebar-link">More Text Styles</a>
+<a href="more-css-properties.html" class="sidebar-link">More CSS Properties</a>
+<a href="advanced-selectors.html" class="sidebar-link">Advanced Selectors</a>
+<a href="positioning.html" class="sidebar-link">Positioning</a>
+<a href="css-functions.html" class="sidebar-link">CSS Functions</a>
+<a href="custom-properties.html" class="sidebar-link">Custom Properties</a>
+<a href="browser-compatibility.html" class="sidebar-link">Browser Compatibility</a>
+<a href="frameworks-and-preprocessors.html" class="sidebar-link">Frameworks and Preprocessors</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div><a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>CSS frameworks like Bootstrap and Tailwind, and preprocessors like Sass, extend what plain CSS can do. This lesson covers when and why to use them, and how they integrate with Rails.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand the difference between utility-first and component-based CSS frameworks.</li><li>Know when to use Bootstrap vs Tailwind.</li><li>Understand what Sass adds to CSS.</li><li>Know how Rails integrates CSS frameworks.</li></ul></div>
+<h2 class="lesson-section-title" id="frameworks">CSS Frameworks</h2><div class="code-block"><pre><code># Bootstrap — component-based, opinionated design system
+# Install in Rails:
+bundle add bootstrap
+# Gives you: pre-styled buttons, cards, modals, navbars, grid
+# Pro: fast prototyping, familiar to many devs
+# Con: sites look alike, hard to customise deeply
+
+# Tailwind CSS — utility-first
+# Install in Rails 7:
+rails new myapp --css tailwind
+# Gives you: single-purpose utility classes
+# Pro: fully customisable, no specificity wars, great for custom designs
+# Con: verbose HTML, learning curve
+
+&lt;!-- Bootstrap --&gt;
+&lt;button class="btn btn-primary"&gt;Save&lt;/button&gt;
+
+&lt;!-- Tailwind --&gt;
+&lt;button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"&gt;Save&lt;/button&gt;
+</code></pre></div><h2 class="lesson-section-title" id="sass">Sass/SCSS</h2><div class="code-block"><pre><code>// Sass adds: variables, nesting, mixins, functions, partials
+
+// Variables (use CSS custom properties instead in modern projects)
+$color-primary: #3b82f6;
+
+// Nesting
+.card {
+  padding: 1rem;
+  &amp;:hover { box-shadow: 0 4px 12px rgba(0,0,0,.1); }
+  &amp;__title { font-size: 1.25rem; }   // BEM with &amp;
+}
+
+// Mixin
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero { @include flex-center; }
+
+// Rails includes Sass via sassc-rails or dartsass-rails
+gem 'dartsass-rails'
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#frameworks" data-target="frameworks">What is the difference between Bootstrap and Tailwind?</a></li><li><a href="#sass" data-target="sass">What does Sass add that plain CSS does not have?</a></li><li><a href="#frameworks" data-target="frameworks">How do you add Tailwind to a new Rails 7 app?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build the same button component in both Bootstrap and Tailwind and compare.</li><li>Add Sass to a Rails project and use nesting and a mixin.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://tailwindcss.com/docs" target="_blank" rel="noopener">Tailwind CSS Docs</a></li><li><a href="https://getbootstrap.com/docs/" target="_blank" rel="noopener">Bootstrap Docs</a></li><li><a href="https://sass-lang.com/documentation/" target="_blank" rel="noopener">Sass Documentation</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="browser-compatibility.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Browser Compatibility</span></a><a href="project-admin-dashboard.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Project: Admin Dashboard</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

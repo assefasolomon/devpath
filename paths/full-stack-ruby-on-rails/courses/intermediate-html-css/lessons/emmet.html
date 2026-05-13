@@ -8,11 +8,11 @@
 </head>
 <body>
 <nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
-<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="int-intro.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="svg.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="intro-intermediate-html-css.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="svgs.html" class="btn btn-blue">Next &#8594;</a></div></div>
 <div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Emmet</span></nav><h1>Emmet</h1></div></div>
-<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML and CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Introduction</div><a href="int-intro.html" class="sidebar-link">Introduction</a>
-</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="emmet.html" class="sidebar-link">Emmet</a>
-<a href="svg.html" class="sidebar-link">SVG</a>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="intro-intermediate-html-css.html" class="sidebar-link">Introduction</a>
+<a href="emmet.html" class="sidebar-link">Emmet</a>
+<a href="svgs.html" class="sidebar-link">SVGs</a>
 <a href="tables.html" class="sidebar-link">Tables</a>
 </div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate CSS</div><a href="default-styles.html" class="sidebar-link">Default Styles</a>
 <a href="css-units.html" class="sidebar-link">CSS Units</a>
@@ -23,43 +23,36 @@
 <a href="css-functions.html" class="sidebar-link">CSS Functions</a>
 <a href="custom-properties.html" class="sidebar-link">Custom Properties</a>
 <a href="browser-compatibility.html" class="sidebar-link">Browser Compatibility</a>
-</div><div class="sidebar-section"><div class="sidebar-section-label">Forms</div><a href="form-basics.html" class="sidebar-link">Form Basics</a>
-<a href="form-validation.html" class="sidebar-link">Form Validation</a>
-<a href="project-sign-up-form.html" class="sidebar-link is-project">Project: Sign-Up Form</a>
-</div><div class="sidebar-section"><div class="sidebar-section-label">Grid</div><a href="introduction-to-grid.html" class="sidebar-link">Introduction to Grid</a>
-<a href="creating-a-grid.html" class="sidebar-link">Creating a Grid</a>
-<a href="positioning-grid-elements.html" class="sidebar-link">Positioning Grid Elements</a>
-<a href="advanced-grid-properties.html" class="sidebar-link">Advanced Grid Properties</a>
-<a href="using-flexbox-and-grid.html" class="sidebar-link">Using Flexbox and Grid</a>
-<a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
-</div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="intro-to-accessibility.html" class="sidebar-link">Introduction to Accessibility</a>
-<a href="wcag.html" class="sidebar-link">WCAG</a>
-<a href="accessible-colors.html" class="sidebar-link">Accessible Colors</a>
-<a href="keyboard-navigation.html" class="sidebar-link">Keyboard Navigation</a>
-<a href="meaningful-text.html" class="sidebar-link">Meaningful Text</a>
-<a href="wai-aria.html" class="sidebar-link">WAI-ARIA</a>
-</div><div class="sidebar-section"><div class="sidebar-section-label">Responsive Design</div><a href="intro-to-responsive-design.html" class="sidebar-link">Introduction to Responsive Design</a>
-<a href="natural-responsiveness.html" class="sidebar-link">Natural Responsiveness</a>
-<a href="responsive-images.html" class="sidebar-link">Responsive Images</a>
-<a href="media-queries.html" class="sidebar-link">Media Queries</a>
-<a href="project-homepage.html" class="sidebar-link is-project">Project: Homepage</a>
+<a href="frameworks-and-preprocessors.html" class="sidebar-link">Frameworks and Preprocessors</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div><a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
 </div></aside><main><div class="lesson-body">
-<div class="block-intro"><p>Emmet expands abbreviations into full HTML instantly in VS Code — a major productivity boost for writing Rails ERB templates.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use Emmet abbreviations for HTML structure.</li><li>Chain, nest, and multiply elements.</li><li>Use Emmet inside .erb files.</li></ul></div>
+<div class="block-intro"><p>Emmet is a plugin built into VS Code that lets you write HTML and CSS with short abbreviations that expand into full markup. It dramatically speeds up writing templates.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use Emmet abbreviations to scaffold HTML quickly.</li><li>Use CSS Emmet shortcuts.</li><li>Know the most useful Emmet patterns for Rails ERB files.</li></ul></div>
+<h2 class="lesson-section-title" id="html-emmet">HTML Abbreviations</h2><div class="code-block"><pre><code># Type these and press Tab in VS Code:
 
-<h2 class="lesson-section-title" id="overview">About This Lesson</h2>
-<p>This lesson covers the same material as the identical lesson in the Full Stack JavaScript path. The concepts are exactly the same — HTML and CSS are not language-specific. The only difference is context: you will apply these skills in Ruby on Rails ERB templates rather than React components.</p>
-<div class="callout callout-tip">
-  <span class="callout-icon">💡</span>
-  <p>If you completed the Full Stack JavaScript path first, this is a review. Focus on how these techniques apply inside ERB templates and Rails layouts.</p>
-</div>
-<h2 class="lesson-section-title" id="rails-context">Rails Context</h2>
-<p>In Rails, all CSS and HTML knowledge applies directly. Your stylesheets live in <code>app/assets/stylesheets/</code> or are managed by Tailwind/cssbundling. Your HTML lives in ERB templates in <code>app/views/</code>. Everything you learn in this lesson is used daily in Rails development.</p>
+ul&gt;li*5                  # &lt;ul&gt; with 5 &lt;li&gt; items
+nav&gt;ul&gt;li*3&gt;a[href=#]    # nav &gt; ul &gt; 3 links
+.container&gt;.card*3       # div.container with 3 div.card children
+h1{Hello World}          # &lt;h1&gt;Hello World&lt;/h1&gt;
+input[type=email]#email  # &lt;input type="email" id="email"&gt;
+form&gt;input*3+button{Submit}
 
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#rails-context" data-target="rails-context">How does Emmet apply to Rails ERB templates?</a></li><li><a href="#overview" data-target="overview">What is the most important concept in Emmet?</a></li></ol></div>
-<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Complete the Emmet exercises.</li><li>Apply this technique to one of your Rails views.</li></ol></div>
-<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/" target="_blank" rel="noopener">MDN Web Docs</a></li><li><a href="https://css-tricks.com/" target="_blank" rel="noopener">CSS Tricks</a></li><li><a href="https://www.youtube.com/@KevinPowell" target="_blank" rel="noopener">YouTube — Kevin Powell CSS Channel</a></li></ul></div>
-</div><div class="lesson-pagination"><a href="int-intro.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Introduction</span></a><a href="svg.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">SVG</span></a></div></main></div>
+# Numbering with $
+ul&gt;li.item-$*5
+# =&gt; &lt;li class="item-1"&gt; ... &lt;li class="item-5"&gt;
+</code></pre></div><h2 class="lesson-section-title" id="css-emmet">CSS Abbreviations</h2><div class="code-block"><pre><code># In a CSS file:
+m10          # margin: 10px
+p10-20       # padding: 10px 20px
+df           # display: flex
+aic          # align-items: center
+jcc          # justify-content: center
+bgc#fff      # background-color: #fff
+fw700        # font-weight: 700
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#html-emmet" data-target="html-emmet">How do you create a ul with 5 li items using Emmet?</a></li><li><a href="#css-emmet" data-target="css-emmet">What does df expand to in CSS Emmet?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>In VS Code, practice every abbreviation above until you can do it without looking.</li><li>Use Emmet to scaffold a full HTML page structure in under 30 seconds.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">Emmet Cheat Sheet</a></li><li><a href="https://code.visualstudio.com/docs/editor/emmet" target="_blank" rel="noopener">Emmet in VS Code</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="intro-intermediate-html-css.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Introduction</span></a><a href="svgs.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">SVGs</span></a></div></main></div>
 <footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
 <script src="../../../../../js/main.js"></script>
 </body>

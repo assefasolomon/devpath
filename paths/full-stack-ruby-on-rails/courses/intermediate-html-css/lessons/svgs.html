@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVGs | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="emmet.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="tables.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Intermediate HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">SVGs</span></nav><h1>SVGs</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Intermediate HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate HTML</div><a href="intro-intermediate-html-css.html" class="sidebar-link">Introduction</a>
+<a href="emmet.html" class="sidebar-link">Emmet</a>
+<a href="svgs.html" class="sidebar-link">SVGs</a>
+<a href="tables.html" class="sidebar-link">Tables</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Intermediate CSS</div><a href="default-styles.html" class="sidebar-link">Default Styles</a>
+<a href="css-units.html" class="sidebar-link">CSS Units</a>
+<a href="more-text-styles.html" class="sidebar-link">More Text Styles</a>
+<a href="more-css-properties.html" class="sidebar-link">More CSS Properties</a>
+<a href="advanced-selectors.html" class="sidebar-link">Advanced Selectors</a>
+<a href="positioning.html" class="sidebar-link">Positioning</a>
+<a href="css-functions.html" class="sidebar-link">CSS Functions</a>
+<a href="custom-properties.html" class="sidebar-link">Custom Properties</a>
+<a href="browser-compatibility.html" class="sidebar-link">Browser Compatibility</a>
+<a href="frameworks-and-preprocessors.html" class="sidebar-link">Frameworks and Preprocessors</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div><a href="project-admin-dashboard.html" class="sidebar-link is-project">Project: Admin Dashboard</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>SVGs (Scalable Vector Graphics) are XML-based images that scale to any size without losing quality. They are used for icons, logos, and illustrations throughout modern web applications.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand SVG syntax and coordinate system.</li><li>Use SVG inline and as an img src.</li><li>Style SVGs with CSS.</li><li>Use SVG icons from a sprite or icon library.</li></ul></div>
+<h2 class="lesson-section-title" id="svg-syntax">SVG Syntax</h2><div class="code-block"><pre><code>&lt;!-- Inline SVG — can be styled with CSS --&gt;
+&lt;svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="50" height="50"&gt;
+  &lt;circle cx="50" cy="50" r="40" fill="currentColor" /&gt;
+  &lt;rect x="20" y="20" width="30" height="30" fill="blue" /&gt;
+  &lt;path d="M10 80 L50 10 L90 80 Z" fill="red" /&gt;
+  &lt;text x="50" y="50" text-anchor="middle" font-size="12"&gt;SVG&lt;/text&gt;
+&lt;/svg&gt;
+</code></pre></div><h2 class="lesson-section-title" id="svg-css">Styling SVGs</h2><div class="code-block"><pre><code>/* Inline SVGs inherit currentColor */
+.icon { color: #3b82f6; }
+.icon svg { width: 24px; height: 24px; fill: currentColor; }
+
+/* Target SVG elements directly */
+svg circle { fill: tomato; }
+svg:hover path { stroke: navy; }
+</code></pre></div><h2 class="lesson-section-title" id="svg-use">SVG in Rails Views</h2><div class="code-block"><pre><code>&lt;!-- As img tag — cannot be CSS-styled --&gt;
+&lt;img src="/assets/logo.svg" alt="Logo" width="120"&gt;
+
+&lt;!-- Inline — full CSS/JS access — use a partial --&gt;
+&lt;!-- app/views/shared/_icon_check.html.erb --&gt;
+&lt;svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+  &lt;polyline points="20 6 9 17 4 12"/&gt;
+&lt;/svg&gt;
+
+&lt;!-- Use it anywhere --&gt;
+&lt;%= render "shared/icon_check" %&gt;
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#svg-use" data-target="svg-use">What is the difference between inline SVG and an img SVG?</a></li><li><a href="#svg-css" data-target="svg-css">How do you make an SVG inherit the parent element's text color?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Draw a simple house using SVG rect and triangle path elements.</li><li>Create an SVG icon partial in a Rails app and style it with CSS.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial" target="_blank" rel="noopener">MDN — SVG Tutorial</a></li><li><a href="https://heroicons.com/" target="_blank" rel="noopener">heroicons.com — Free SVG Icons</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="emmet.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Emmet</span></a><a href="tables.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Tables</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>
