@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Database Interview Questions | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="ruby-and-rails-interviews.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="system-design-basics.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Getting Hired</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Database Interview Questions</span></nav><h1>Database Interview Questions</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Getting Hired</div><div class="sidebar-section"><div class="sidebar-section-label">Preparing for Your Job Search</div><a href="preparing-for-job-search.html" class="sidebar-link">Preparing for Your Job Search</a>
+<a href="building-your-portfolio.html" class="sidebar-link">Building Your Portfolio</a>
+<a href="cleaning-up-your-github.html" class="sidebar-link">Cleaning Up Your GitHub</a>
+<a href="building-your-resume.html" class="sidebar-link">Building Your Resume</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Applying and Interviewing</div><a href="applying-for-jobs.html" class="sidebar-link">Applying for Jobs</a>
+<a href="preparing-for-interviews.html" class="sidebar-link">Preparing for Interviews</a>
+<a href="conducting-the-search.html" class="sidebar-link">Conducting the Job Search</a>
+<a href="handling-offers.html" class="sidebar-link">Handling Job Offers</a>
+<a href="professional-networking.html" class="sidebar-link">Professional Networking</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Technical Interview Prep</div><a href="ruby-and-rails-interviews.html" class="sidebar-link">Ruby and Rails Interview Questions</a>
+<a href="databases-interviews.html" class="sidebar-link">Database Interview Questions</a>
+<a href="system-design-basics.html" class="sidebar-link">System Design Basics</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>SQL and database design questions are common in Rails interviews. Junior developers are expected to understand basic query writing, indexing, and when to use specific database features.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Answer SQL query questions confidently.</li><li>Explain indexing and when to add indexes.</li><li>Describe database design and normalisation.</li><li>Understand Rails-specific database patterns.</li></ul></div>
+<h2 class="lesson-section-title" id="sql-questions">Common SQL Questions</h2><div class="code-block"><pre><code>-- Q: What is the difference between INNER JOIN and LEFT JOIN?
+-- A: INNER JOIN returns only rows where the join condition matches in both tables.
+--    LEFT JOIN returns all rows from the left table, with NULLs for non-matching right rows.
+
+-- Example: find all users, with their post count (including users with 0 posts)
+SELECT users.name, COUNT(posts.id) AS post_count
+FROM users
+LEFT JOIN posts ON posts.user_id = users.id
+GROUP BY users.id, users.name;
+-- INNER JOIN would exclude users with no posts.
+
+-- Q: What is the difference between WHERE and HAVING?
+-- A: WHERE filters rows before grouping.
+--    HAVING filters groups after GROUP BY.
+SELECT user_id, COUNT(*) AS post_count
+FROM posts
+WHERE published = true          -- filter rows first
+GROUP BY user_id
+HAVING COUNT(*) &gt; 5;           -- then filter groups
+
+-- Q: What does EXPLAIN ANALYZE do?
+-- A: Shows the query execution plan and actual run time.
+--    Use it to find slow queries and missing indexes.
+EXPLAIN ANALYZE SELECT * FROM posts WHERE user_id = 42;
+</code></pre></div><h2 class="lesson-section-title" id="indexing">Indexing</h2><div class="code-block"><pre><code>-- Q: What is a database index and when should you add one?
+-- A: An index is a data structure (usually B-tree) that speeds up lookups
+--    on a column at the cost of slightly slower writes and extra storage.
+
+-- Add an index when:
+-- 1. You query a column frequently in WHERE, JOIN, or ORDER BY
+-- 2. The column has high cardinality (many unique values)
+-- 3. The table has many rows (1,000+ is a rough threshold)
+
+-- In Rails migrations:
+add_index :posts, :user_id                          # single column
+add_index :posts, [:user_id, :created_at]           # composite
+add_index :users, :email, unique: true              # unique constraint
+
+-- Q: What is a composite index and when is it useful?
+-- A: An index on multiple columns. Useful when you frequently filter
+--    by two columns together (e.g. user_id AND created_at).
+--    Order matters: (user_id, created_at) helps queries on user_id alone
+--    but NOT queries on created_at alone.
+
+-- Q: What is an N+1 at the database level?
+-- A: Running N individual SELECT queries instead of one JOIN/IN query.
+--    Rails' .includes() fixes this by using one IN () query.
+</code></pre></div><h2 class="lesson-section-title" id="design-questions">Design Questions</h2><div class="code-block"><pre><code>-- Q: What is database normalisation?
+-- A: Organising tables to reduce redundancy and improve data integrity.
+--    1NF: no repeating groups, atomic values.
+--    2NF: no partial dependencies on composite keys.
+--    3NF: no transitive dependencies (non-key columns depend only on the key).
+
+-- Q: When would you denormalise?
+-- A: When read performance is critical and data changes rarely.
+--    E.g. storing a cached post_count on users to avoid COUNT(*) every page load.
+--    Rails counter_cache: belongs_to :user, counter_cache: true
+
+-- Q: What is the difference between a SQL and NoSQL database?
+-- A: SQL (PostgreSQL, MySQL) — structured, relational, ACID transactions, schema-first.
+--    NoSQL (MongoDB, Redis) — flexible schema, horizontal scaling, eventual consistency.
+--    Rails uses SQL by default. Redis is often added for caching/queues (Sidekiq).
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#sql-questions" data-target="sql-questions">What is the difference between INNER JOIN and LEFT JOIN?</a></li><li><a href="#indexing" data-target="indexing">When should you add a database index?</a></li><li><a href="#sql-questions" data-target="sql-questions">What is the difference between WHERE and HAVING?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Open a Rails console on one of your projects and run Post.all.explain. Read the output.</li><li>Answer every question in this lesson out loud without looking at the answers.</li><li>Draw the ERD for your OdinBook database from memory, then check it against your schema.rb.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://www.postgresql.org/docs/current/using-explain.html" target="_blank" rel="noopener">PostgreSQL — EXPLAIN Documentation</a></li><li><a href="https://use-the-index-luke.com/" target="_blank" rel="noopener">Use The Index, Luke — Indexing Guide</a></li><li><a href="https://sqlzoo.net/" target="_blank" rel="noopener">SQLZoo — Interactive Practice</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="ruby-and-rails-interviews.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Ruby and Rails Interview Questions</span></a><a href="system-design-basics.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">System Design Basics</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

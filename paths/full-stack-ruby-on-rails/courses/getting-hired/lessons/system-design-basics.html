@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Design Basics | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="databases-interviews.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><span></span></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Getting Hired</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">System Design Basics</span></nav><h1>System Design Basics</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Getting Hired</div><div class="sidebar-section"><div class="sidebar-section-label">Preparing for Your Job Search</div><a href="preparing-for-job-search.html" class="sidebar-link">Preparing for Your Job Search</a>
+<a href="building-your-portfolio.html" class="sidebar-link">Building Your Portfolio</a>
+<a href="cleaning-up-your-github.html" class="sidebar-link">Cleaning Up Your GitHub</a>
+<a href="building-your-resume.html" class="sidebar-link">Building Your Resume</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Applying and Interviewing</div><a href="applying-for-jobs.html" class="sidebar-link">Applying for Jobs</a>
+<a href="preparing-for-interviews.html" class="sidebar-link">Preparing for Interviews</a>
+<a href="conducting-the-search.html" class="sidebar-link">Conducting the Job Search</a>
+<a href="handling-offers.html" class="sidebar-link">Handling Job Offers</a>
+<a href="professional-networking.html" class="sidebar-link">Professional Networking</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Technical Interview Prep</div><a href="ruby-and-rails-interviews.html" class="sidebar-link">Ruby and Rails Interview Questions</a>
+<a href="databases-interviews.html" class="sidebar-link">Database Interview Questions</a>
+<a href="system-design-basics.html" class="sidebar-link">System Design Basics</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>Junior developers are not expected to design distributed systems, but you should be able to discuss how a web application is structured, how to scale a Rails app, and what happens when things go wrong.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand the basic architecture of a deployed Rails application.</li><li>Know the main strategies for scaling a web app.</li><li>Discuss caching, background jobs, and CDNs.</li><li>Answer basic system design questions in an interview.</li></ul></div>
+<h2 class="lesson-section-title" id="architecture">Rails App Architecture</h2><div class="code-block"><pre><code># A deployed Rails app has these layers:
+
+# Browser / Client
+#   ↓ HTTPS
+# CDN (Cloudflare, Fastly) — caches static assets, DDoS protection
+#   ↓
+# Load Balancer (Fly.io Proxy, AWS ALB) — distributes traffic across app servers
+#   ↓
+# App Servers (Puma) — multiple Rails processes handling requests
+#   ↓
+# Database (PostgreSQL) — primary + optional read replicas
+#   ↓
+# Background Workers (Sidekiq + Redis) — async jobs (emails, file processing)
+#   ↓
+# File Storage (S3 / Active Storage) — user-uploaded files
+#   ↓
+# Cache (Redis / Memcached) — session data, fragment caches, low-level caches
+#   ↓
+# External APIs (Stripe, SendGrid, Twilio, etc.)
+</code></pre></div><h2 class="lesson-section-title" id="scaling">Scaling a Rails App</h2><div class="code-block"><pre><code># Vertical scaling — bigger server (more RAM/CPU). Simple, has limits.
+# Horizontal scaling — more servers behind a load balancer.
+
+# Common scaling strategies in Rails:
+
+# 1. Database indexing — fastest win for slow query performance
+# 2. Caching
+#    - Fragment caching: cache parts of views
+#      &lt;%= cache @post do %&gt; ... &lt;% end %&gt;
+#    - Low-level caching:
+#      Rails.cache.fetch("user_#{id}_stats", expires_in: 5.minutes) { ... }
+#    - HTTP caching: ETag / Last-Modified headers
+
+# 3. Background jobs (Sidekiq)
+#    Move slow work (emails, image processing, API calls) out of the request cycle
+
+# 4. Database read replicas
+#    Route read-heavy queries to a replica to reduce primary load
+
+# 5. CDN for assets
+#    Serve CSS/JS/images from edge servers close to the user
+
+# 6. Database connection pooling (PgBouncer)
+#    Reuse DB connections instead of creating new ones per request
+</code></pre></div><h2 class="lesson-section-title" id="interview-approach">Approaching System Design in an Interview</h2><div class="code-block"><pre><code># If asked a system design question (e.g. "Design a URL shortener"):
+
+# Step 1 — Clarify requirements (2 min)
+# "How many URLs per day? Read-heavy or write-heavy?
+#  Any analytics needed? Custom short codes?"
+
+# Step 2 — Sketch the basic architecture
+# Browser → Rails app → PostgreSQL
+# Redirect route: GET /:code → look up long URL → redirect
+
+# Step 3 — Discuss the data model
+# CREATE TABLE short_urls (
+#   id SERIAL PRIMARY KEY,
+#   code VARCHAR(10) UNIQUE NOT NULL,
+#   original_url TEXT NOT NULL,
+#   click_count INTEGER DEFAULT 0,
+#   created_at TIMESTAMP
+# );
+
+# Step 4 — Discuss scaling concerns
+# "At high traffic, the redirect lookup is a hot path.
+#  I'd add an index on code and consider caching it in Redis
+#  with a short TTL to avoid hitting the DB on every redirect."
+
+# Step 5 — Mention what you'd add later
+# "For analytics I'd log clicks asynchronously via a background job
+#  so it doesn't slow down the redirect."
+</code></pre></div><div class="callout callout-tip"><span class="callout-icon">💡</span><p>At the junior level, interviewers want to see structured thinking, not perfect answers. Show you can break a problem down, consider trade-offs, and ask the right questions.</p></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#architecture" data-target="architecture">What are the main layers in a deployed Rails application?</a></li><li><a href="#scaling" data-target="scaling">What are three strategies for scaling a Rails app?</a></li><li><a href="#interview-approach" data-target="interview-approach">What are the five steps for approaching a system design question?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Draw the architecture of your OdinBook deployment from memory, then check it.</li><li>Practice the URL shortener system design question out loud, following the five steps.</li><li>Read the High Scalability blog for one example of how a real Rails company scaled.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="http://highscalability.com/" target="_blank" rel="noopener">High Scalability Blog</a></li><li><a href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener">The System Design Primer (GitHub)</a></li><li><a href="https://www.youtube.com/watch?v=i53Gi_K3o7I" target="_blank" rel="noopener">YouTube — System Design for Beginners (NeetCode)</a></li><li><a href="https://sidekiq.org/" target="_blank" rel="noopener">Sidekiq — Background Jobs for Ruby</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="databases-interviews.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Database Interview Questions</span></a><span></span></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

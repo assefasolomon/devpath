@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruby and Rails Interview Questions | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="professional-networking.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="databases-interviews.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Getting Hired</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Ruby and Rails Interview Questions</span></nav><h1>Ruby and Rails Interview Questions</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Getting Hired</div><div class="sidebar-section"><div class="sidebar-section-label">Preparing for Your Job Search</div><a href="preparing-for-job-search.html" class="sidebar-link">Preparing for Your Job Search</a>
+<a href="building-your-portfolio.html" class="sidebar-link">Building Your Portfolio</a>
+<a href="cleaning-up-your-github.html" class="sidebar-link">Cleaning Up Your GitHub</a>
+<a href="building-your-resume.html" class="sidebar-link">Building Your Resume</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Applying and Interviewing</div><a href="applying-for-jobs.html" class="sidebar-link">Applying for Jobs</a>
+<a href="preparing-for-interviews.html" class="sidebar-link">Preparing for Interviews</a>
+<a href="conducting-the-search.html" class="sidebar-link">Conducting the Job Search</a>
+<a href="handling-offers.html" class="sidebar-link">Handling Job Offers</a>
+<a href="professional-networking.html" class="sidebar-link">Professional Networking</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Technical Interview Prep</div><a href="ruby-and-rails-interviews.html" class="sidebar-link">Ruby and Rails Interview Questions</a>
+<a href="databases-interviews.html" class="sidebar-link">Database Interview Questions</a>
+<a href="system-design-basics.html" class="sidebar-link">System Design Basics</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>Technical interviews for Rails roles follow predictable patterns. This lesson gives you the most common questions, model answers, and the concepts behind them so you can answer confidently.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Answer common Ruby language questions.</li><li>Answer common Rails framework questions.</li><li>Walk through your projects confidently.</li><li>Understand what depth of answer is expected at the junior level.</li></ul></div>
+<h2 class="lesson-section-title" id="ruby-questions">Common Ruby Questions</h2><div class="code-block"><pre><code># Q: What is the difference between a Symbol and a String?
+# A: Symbols are immutable, unique identifiers stored once in memory.
+#    Strings are mutable objects; each occurrence is a new object.
+#    Use symbols for hash keys and identifiers; strings for text data.
+:name.object_id == :name.object_id  # true — same object
+"name".object_id == "name".object_id  # false — different objects
+
+# Q: What are blocks, Procs, and Lambdas? How do they differ?
+# A: All three are callable pieces of code.
+#    Blocks — anonymous, passed to methods with do..end or {}.
+#    Procs   — blocks saved as objects. Lenient on argument count.
+#              return exits the enclosing method.
+#    Lambdas — strict Procs. Check argument count.
+#              return exits only the lambda itself.
+
+# Q: What does attr_accessor do?
+# A: Creates getter and setter instance methods for the named attribute.
+class Person
+  attr_accessor :name  # equivalent to:
+  def name; @name; end
+  def name=(val); @name = val; end
+end
+
+# Q: Explain Ruby's object model.
+# A: Everything in Ruby is an object — including classes and nil.
+#    Every object has a class. Every class has a superclass.
+#    Methods are looked up through the ancestor chain:
+#    Object → Kernel → BasicObject.
+#    Modules are inserted into the ancestor chain with include/prepend.
+
+# Q: What is the difference between include and extend?
+# A: include adds module methods as instance methods.
+#    extend adds module methods as class methods.
+</code></pre></div><h2 class="lesson-section-title" id="rails-questions">Common Rails Questions</h2><div class="code-block"><pre><code># Q: Explain the Rails request-response cycle.
+# A: 1. Browser sends HTTP request to server.
+#    2. Router (config/routes.rb) matches URL to controller#action.
+#    3. Controller action runs: fetches data from models, assigns @vars.
+#    4. Rails renders the matching view template (ERB).
+#    5. HTML response sent back to browser.
+
+# Q: What is Active Record and what pattern does it implement?
+# A: Active Record is Rails' ORM. It implements the Active Record pattern:
+#    each database table maps to a Ruby class; each row is an instance.
+#    It provides query, validation, association, and callback methods.
+
+# Q: What is the N+1 query problem and how do you fix it?
+# A: N+1 occurs when you load N records then run 1 additional query
+#    for each — e.g. loading posts then calling post.user for each.
+#    Fix: Post.includes(:user) — eager-loads all users in one query.
+
+# Q: What is the difference between render and redirect_to?
+# A: render — renders a view template without a new HTTP request.
+#             Used when you want to re-show a form (e.g. after validation failure).
+#    redirect_to — sends a 302 HTTP response, browser makes a new request.
+#                  Used after a successful action (Post/Redirect/Get pattern).
+
+# Q: What are strong parameters and why do we need them?
+# A: Strong parameters (params.require().permit()) protect against
+#    mass assignment attacks where a malicious user sends extra fields
+#    (e.g. admin: true) that get written to the database.
+
+# Q: What is a Rails migration and why is it important?
+# A: Migrations are version-controlled database schema changes.
+#    They let the whole team apply the same schema changes in order,
+#    making the database state reproducible from git history.
+
+# Q: What is a scope in Active Record?
+# A: A reusable query fragment defined on the model:
+scope :published, -&gt; { where(published: true).order(created_at: :desc) }
+# Called as: Post.published — chainable with other queries.
+
+# Q: Explain the difference between has_many :through and has_and_belongs_to_many.
+# A: Both model many-to-many. has_many :through uses an explicit join model
+#    (PostTag) which can have its own attributes and validations.
+#    HABTM uses an automatic join table with no model — simpler but limited.
+</code></pre></div><h2 class="lesson-section-title" id="project-walkthrough">Walking Through Your Projects</h2><div class="code-block"><pre><code># Interviewers will say: "Walk me through one of your projects."
+# Structure your answer:
+
+# 1. What problem does it solve / what does it do? (1–2 sentences)
+# 2. What is the tech stack and why did you choose it? (1 sentence)
+# 3. What was the hardest technical challenge? (2–3 sentences)
+# 4. What would you do differently if you rebuilt it? (1–2 sentences)
+
+# Example for OdinBook:
+# "OdinBook is a social network built with Rails 7, PostgreSQL, and Tailwind.
+# The hardest part was modelling friend requests — a user can send, receive,
+# accept, or reject a request, and I needed both directions of the friendship
+# to be queryable efficiently. I used a self-referential has_many :through
+# with a separate Friendship model that stores requester, receiver, and status.
+# If I rebuilt it, I'd add proper pagination from the start — my news feed
+# query gets expensive fast without it."
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#ruby-questions" data-target="ruby-questions">What is the difference between a Symbol and a String in Ruby?</a></li><li><a href="#rails-questions" data-target="rails-questions">Explain the Rails request-response cycle in order.</a></li><li><a href="#rails-questions" data-target="rails-questions">What is the difference between render and redirect_to?</a></li><li><a href="#project-walkthrough" data-target="project-walkthrough">How should you structure a project walkthrough answer?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Answer every question in this lesson out loud, without reading the answers. Time yourself.</li><li>Record a 3-minute project walkthrough for OdinBook using the four-part structure.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://github.com/brookr/rails-interview-questions" target="_blank" rel="noopener">Rails Interview Questions (GitHub)</a></li><li><a href="https://www.toptal.com/ruby/interview-questions" target="_blank" rel="noopener">Ruby Interview Questions (Big List)</a></li><li><a href="https://www.youtube.com/watch?v=sUhBE6bVQQw" target="_blank" rel="noopener">YouTube — Rails Developer Interview (GoRails)</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="professional-networking.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Professional Networking</span></a><a href="databases-interviews.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Database Interview Questions</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>
