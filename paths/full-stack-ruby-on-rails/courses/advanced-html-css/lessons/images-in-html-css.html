@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Images in HTML/CSS | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="media-queries.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="css-grid-advanced.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Advanced HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Images in HTML/CSS</span></nav><h1>Images in HTML/CSS</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Advanced HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Animation</div><a href="animation.html" class="sidebar-link">Animation</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="accessibility.html" class="sidebar-link">Accessibility</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Responsive Design</div><a href="responsive-design.html" class="sidebar-link">Responsive Design</a>
+<a href="css-grid.html" class="sidebar-link">CSS Grid</a>
+<a href="natural-responsiveness.html" class="sidebar-link">Natural Responsiveness</a>
+<a href="media-queries.html" class="sidebar-link">Media Queries</a>
+<a href="images-in-html-css.html" class="sidebar-link">Images in HTML/CSS</a>
+<a href="css-grid-advanced.html" class="sidebar-link">CSS Grid — Advanced</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Performance</div><a href="performance.html" class="sidebar-link">Performance</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div><a href="project-personal-portfolio.html" class="sidebar-link is-project">Project: Personal Portfolio</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>Images are the heaviest assets on most web pages. This lesson covers responsive images, modern formats, lazy loading, and techniques for using images in CSS — essential for performance and quality.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use srcset and sizes for responsive images.</li><li>Use modern image formats: WebP, AVIF.</li><li>Implement lazy loading.</li><li>Use CSS background images correctly.</li><li>Optimise images for the web.</li></ul></div>
+<h2 class="lesson-section-title" id="responsive-images">Responsive Images</h2><div class="code-block"><pre><code>&lt;!-- srcset — let the browser pick the right size --&gt;
+&lt;img
+  src="photo-800.jpg"
+  srcset="photo-400.jpg 400w, photo-800.jpg 800w, photo-1600.jpg 1600w"
+  sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 800px"
+  alt="A mountain landscape"
+  loading="lazy"
+  width="800" height="533"
+&gt;
+
+&lt;!-- picture — art direction, different crop at different sizes --&gt;
+&lt;picture&gt;
+  &lt;source media="(max-width: 600px)" srcset="photo-portrait.webp"&gt;
+  &lt;source srcset="photo-landscape.webp" type="image/webp"&gt;
+  &lt;img src="photo-landscape.jpg" alt="Photo" loading="lazy"&gt;
+&lt;/picture&gt;
+</code></pre></div><h2 class="lesson-section-title" id="formats">Modern Image Formats</h2><div class="code-block"><pre><code># Format comparison (same image):
+# JPEG: 240 KB  — good for photos, no transparency
+# PNG:  420 KB  — lossless, transparency, icons
+# WebP:  85 KB  — 25-35% smaller than JPEG, transparency, modern browsers
+# AVIF:  55 KB  — best compression, good browser support (2023+)
+
+# In Rails with Active Storage variants:
+@post.cover_image.variant(format: :webp, resize_to_limit: [800, nil])
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#responsive-images" data-target="responsive-images">What does srcset do?</a></li><li><a href="#formats" data-target="formats">What is the difference between WebP and AVIF?</a></li><li><a href="#responsive-images" data-target="responsive-images">What does loading='lazy' do?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Convert all images in a project to use srcset with 3 sizes.</li><li>Add lazy loading to all below-the-fold images.</li><li>Convert a JPEG to WebP and compare file sizes.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images" target="_blank" rel="noopener">MDN — Responsive Images</a></li><li><a href="https://squoosh.app/" target="_blank" rel="noopener">Squoosh — Image Compression Tool</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="media-queries.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Media Queries</span></a><a href="css-grid-advanced.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">CSS Grid — Advanced</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

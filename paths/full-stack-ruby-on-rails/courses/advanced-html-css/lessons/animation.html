@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><span></span></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="accessibility.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Advanced HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Animation</span></nav><h1>Animation</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Advanced HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Animation</div><a href="animation.html" class="sidebar-link">Animation</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="accessibility.html" class="sidebar-link">Accessibility</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Responsive Design</div><a href="responsive-design.html" class="sidebar-link">Responsive Design</a>
+<a href="css-grid.html" class="sidebar-link">CSS Grid</a>
+<a href="natural-responsiveness.html" class="sidebar-link">Natural Responsiveness</a>
+<a href="media-queries.html" class="sidebar-link">Media Queries</a>
+<a href="images-in-html-css.html" class="sidebar-link">Images in HTML/CSS</a>
+<a href="css-grid-advanced.html" class="sidebar-link">CSS Grid — Advanced</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Performance</div><a href="performance.html" class="sidebar-link">Performance</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div><a href="project-personal-portfolio.html" class="sidebar-link is-project">Project: Personal Portfolio</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>CSS animations and transitions bring interfaces to life. Done well, they guide attention and communicate state. This lesson covers transitions, keyframe animations, and the motion principles behind good UI animation.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use transition for hover and state changes.</li><li>Write @keyframes animations.</li><li>Use animation shorthand properties.</li><li>Follow motion design principles.</li></ul></div>
+<h2 class="lesson-section-title" id="transitions">Transitions</h2><div class="code-block"><pre><code>/* transition: property duration easing delay */
+.btn {
+  background: #3b82f6;
+  transition: background 200ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+.btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59,130,246,.4);
+}
+
+/* transition: all — convenient but can cause performance issues */
+/* Prefer specific properties */
+
+/* Easing functions */
+ease          /* slow-fast-slow (default) */
+ease-in       /* slow start */
+ease-out      /* slow end — best for elements leaving the screen */
+ease-in-out   /* slow start and end */
+linear        /* constant speed */
+cubic-bezier(.17,.67,.83,.67)  /* custom */
+</code></pre></div><h2 class="lesson-section-title" id="keyframes">Keyframe Animations</h2><div class="code-block"><pre><code>@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Apply */
+.modal    { animation: fadeIn 250ms ease forwards; }
+.badge    { animation: pulse 2s ease-in-out infinite; }
+.spinner  { animation: spin 800ms linear infinite; }
+
+/* animation shorthand: name duration easing delay iterations direction fill-mode */
+.alert { animation: fadeIn 300ms ease-out 100ms 1 normal both; }
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; }
+}
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#transitions" data-target="transitions">What is the difference between transition and animation?</a></li><li><a href="#keyframes" data-target="keyframes">What does animation-fill-mode: forwards do?</a></li><li><a href="#keyframes" data-target="keyframes">How do you respect the user's reduced-motion preference?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Add a fadeIn animation to a modal dialog.</li><li>Build a loading spinner using a CSS keyframe animation.</li><li>Add prefers-reduced-motion support to all animations.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations" target="_blank" rel="noopener">MDN — CSS Animations</a></li><li><a href="https://cubic-bezier.com/" target="_blank" rel="noopener">Cubic Bezier Tool</a></li><li><a href="https://m3.material.io/styles/motion/overview" target="_blank" rel="noopener">Motion Design Principles — Material Design</a></li></ul></div>
+</div><div class="lesson-pagination"><span></span><a href="accessibility.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Accessibility</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

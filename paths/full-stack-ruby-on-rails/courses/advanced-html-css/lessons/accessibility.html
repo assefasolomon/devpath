@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="animation.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="responsive-design.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Advanced HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Accessibility</span></nav><h1>Accessibility</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Advanced HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Animation</div><a href="animation.html" class="sidebar-link">Animation</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="accessibility.html" class="sidebar-link">Accessibility</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Responsive Design</div><a href="responsive-design.html" class="sidebar-link">Responsive Design</a>
+<a href="css-grid.html" class="sidebar-link">CSS Grid</a>
+<a href="natural-responsiveness.html" class="sidebar-link">Natural Responsiveness</a>
+<a href="media-queries.html" class="sidebar-link">Media Queries</a>
+<a href="images-in-html-css.html" class="sidebar-link">Images in HTML/CSS</a>
+<a href="css-grid-advanced.html" class="sidebar-link">CSS Grid — Advanced</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Performance</div><a href="performance.html" class="sidebar-link">Performance</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div><a href="project-personal-portfolio.html" class="sidebar-link is-project">Project: Personal Portfolio</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>Accessibility (a11y) means building web experiences that work for everyone — including people using screen readers, keyboard navigation, or assistive technology. It is both an ethical requirement and a legal one in many countries.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand WCAG guidelines.</li><li>Write semantic HTML for screen readers.</li><li>Use ARIA attributes correctly.</li><li>Test accessibility with keyboard navigation and screen readers.</li><li>Meet color contrast requirements.</li></ul></div>
+<h2 class="lesson-section-title" id="semantic-html">Semantic HTML</h2><div class="code-block"><pre><code>&lt;!-- BAD — div soup --&gt;
+&lt;div class="header"&gt;&lt;div class="nav"&gt;&lt;div class="nav-link" onclick="go()"&gt;Home&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="main"&gt;&lt;div class="article"&gt;&lt;div class="heading"&gt;Title&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;!-- GOOD — semantic HTML --&gt;
+&lt;header&gt;
+  &lt;nav&gt;
+    &lt;a href="/"&gt;Home&lt;/a&gt;
+    &lt;a href="/about"&gt;About&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;p&gt;Content&lt;/p&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;
+
+&lt;!-- Interactive elements must be focusable --&gt;
+&lt;!-- BAD: --&gt;  &lt;div onclick="submit()"&gt;Submit&lt;/div&gt;
+&lt;!-- GOOD: --&gt; &lt;button type="submit"&gt;Submit&lt;/button&gt;
+</code></pre></div><h2 class="lesson-section-title" id="aria">ARIA</h2><div class="code-block"><pre><code>&lt;!-- ARIA labels for elements without visible text --&gt;
+&lt;button aria-label="Close dialog"&gt;
+  &lt;svg&gt;...&lt;/svg&gt;
+&lt;/button&gt;
+
+&lt;!-- Live regions — announce dynamic content to screen readers --&gt;
+&lt;div aria-live="polite" aria-atomic="true"&gt;
+  &lt;%= flash[:notice] %&gt;
+&lt;/div&gt;
+
+&lt;!-- Role for custom interactive elements --&gt;
+&lt;div role="button" tabindex="0" aria-pressed="false"&gt;Toggle&lt;/div&gt;
+
+&lt;!-- Hiding decorative elements from screen readers --&gt;
+&lt;img src="decoration.png" alt="" aria-hidden="true"&gt;
+
+&lt;!-- Describing form fields --&gt;
+&lt;label for="email"&gt;Email address&lt;/label&gt;
+&lt;input type="email" id="email" aria-describedby="email-hint" required&gt;
+&lt;p id="email-hint"&gt;We will send a confirmation to this address.&lt;/p&gt;
+</code></pre></div><h2 class="lesson-section-title" id="color-contrast">Color Contrast</h2><div class="code-block"><pre><code>/* WCAG AA requires:
+   - 4.5:1 contrast ratio for normal text
+   - 3:1 for large text (18px+ or 14px+ bold)
+   - 3:1 for UI components and graphics */
+
+/* Check with: https://webaim.org/resources/contrastchecker/ */
+
+/* Good combinations: */
+color: #111827;  background: #ffffff;  /* 16.1:1 */
+color: #ffffff;  background: #1d4ed8;  /* 5.9:1 */
+
+/* Failing: */
+color: #9ca3af;  background: #ffffff;  /* 2.9:1 — too low */
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#semantic-html" data-target="semantic-html">Why must interactive elements be actual buttons or links?</a></li><li><a href="#aria" data-target="aria">What does aria-live do?</a></li><li><a href="#color-contrast" data-target="color-contrast">What contrast ratio does WCAG AA require for normal text?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Audit a project page with a keyboard only (Tab, Enter, Space). Fix any issues.</li><li>Install the axe DevTools browser extension and fix all critical errors on a page.</li><li>Check all text color/background combinations in a project for WCAG AA compliance.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noopener">WebAIM — Contrast Checker</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility" target="_blank" rel="noopener">MDN — Accessibility</a></li><li><a href="https://www.deque.com/axe/devtools/" target="_blank" rel="noopener">axe DevTools Browser Extension</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="animation.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Animation</span></a><a href="responsive-design.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Responsive Design</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

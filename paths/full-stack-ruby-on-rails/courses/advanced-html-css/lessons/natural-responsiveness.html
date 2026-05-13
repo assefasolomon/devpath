@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural Responsiveness | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="css-grid.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="media-queries.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Advanced HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Natural Responsiveness</span></nav><h1>Natural Responsiveness</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Advanced HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Animation</div><a href="animation.html" class="sidebar-link">Animation</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="accessibility.html" class="sidebar-link">Accessibility</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Responsive Design</div><a href="responsive-design.html" class="sidebar-link">Responsive Design</a>
+<a href="css-grid.html" class="sidebar-link">CSS Grid</a>
+<a href="natural-responsiveness.html" class="sidebar-link">Natural Responsiveness</a>
+<a href="media-queries.html" class="sidebar-link">Media Queries</a>
+<a href="images-in-html-css.html" class="sidebar-link">Images in HTML/CSS</a>
+<a href="css-grid-advanced.html" class="sidebar-link">CSS Grid — Advanced</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Performance</div><a href="performance.html" class="sidebar-link">Performance</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div><a href="project-personal-portfolio.html" class="sidebar-link is-project">Project: Personal Portfolio</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>The best responsive layouts don't need many media queries because the CSS is written to be naturally fluid. This lesson covers intrinsic sizing, logical properties, and writing CSS that responds automatically.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use intrinsic sizing: min-content, max-content, fit-content.</li><li>Use logical properties for internationalisation.</li><li>Write fluid layouts that need fewer media queries.</li></ul></div>
+<h2 class="lesson-section-title" id="intrinsic">Intrinsic Sizing</h2><div class="code-block"><pre><code>/* min-content — shrink to smallest possible size */
+.tag { width: min-content; white-space: nowrap; }
+
+/* max-content — expand to fit all content */
+.tooltip { width: max-content; }
+
+/* fit-content — use available space up to max-content */
+.label { width: fit-content; }
+
+/* Naturally fluid column layout */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 1.5rem;
+}
+/* This grid reflows naturally — no media queries needed */
+</code></pre></div><h2 class="lesson-section-title" id="logical">Logical Properties</h2><div class="code-block"><pre><code>/* Physical → Logical equivalents */
+margin-top    → margin-block-start
+margin-bottom → margin-block-end
+margin-left   → margin-inline-start
+margin-right  → margin-inline-end
+padding-left  → padding-inline-start
+width         → inline-size
+height        → block-size
+
+/* Why: logical properties work in RTL languages automatically */
+.card { padding-inline: 1.5rem; margin-block: 1rem; }
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#intrinsic" data-target="intrinsic">What is the difference between min-content and max-content?</a></li><li><a href="#logical" data-target="logical">What problem do logical properties solve?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Rewrite a layout using logical properties instead of margin-left/right.</li><li>Build a card grid that reflows with no media queries using auto-fill and minmax.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties" target="_blank" rel="noopener">MDN — Logical Properties</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="css-grid.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">CSS Grid</span></a><a href="media-queries.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Media Queries</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

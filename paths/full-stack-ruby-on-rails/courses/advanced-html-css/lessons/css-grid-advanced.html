@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Grid — Advanced | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="images-in-html-css.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="performance.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Advanced HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">CSS Grid — Advanced</span></nav><h1>CSS Grid — Advanced</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Advanced HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Animation</div><a href="animation.html" class="sidebar-link">Animation</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="accessibility.html" class="sidebar-link">Accessibility</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Responsive Design</div><a href="responsive-design.html" class="sidebar-link">Responsive Design</a>
+<a href="css-grid.html" class="sidebar-link">CSS Grid</a>
+<a href="natural-responsiveness.html" class="sidebar-link">Natural Responsiveness</a>
+<a href="media-queries.html" class="sidebar-link">Media Queries</a>
+<a href="images-in-html-css.html" class="sidebar-link">Images in HTML/CSS</a>
+<a href="css-grid-advanced.html" class="sidebar-link">CSS Grid — Advanced</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Performance</div><a href="performance.html" class="sidebar-link">Performance</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div><a href="project-personal-portfolio.html" class="sidebar-link is-project">Project: Personal Portfolio</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>Building on the CSS Grid basics, this lesson covers dense packing, subgrid, grid animations, and real-world layout patterns used in production Rails applications.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Use grid-auto-flow: dense for masonry-like layouts.</li><li>Use subgrid to align nested elements.</li><li>Build a magazine-style layout.</li><li>Debug Grid with browser DevTools.</li></ul></div>
+<h2 class="lesson-section-title" id="dense">Dense Packing</h2><div class="code-block"><pre><code>/* grid-auto-flow: dense — fill holes left by spanning items */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: 200px;
+  gap: 1rem;
+  grid-auto-flow: dense;
+}
+.gallery .featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+</code></pre></div><h2 class="lesson-section-title" id="subgrid">Subgrid</h2><div class="code-block"><pre><code>/* subgrid — nested elements participate in parent grid tracks */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr auto;  /* image | content | footer */
+}
+
+.card {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;  /* use parent's row definitions */
+}
+
+/* Result: all cards have perfectly aligned image, content, and footer rows
+   regardless of content length */
+</code></pre></div><div class="callout callout-tip"><span class="callout-icon">💡</span><p>Open Grid DevTools in Firefox (right-click → Inspect → Grid overlay) to visualise your grid tracks. Far easier than guessing from the code.</p></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#dense" data-target="dense">What does grid-auto-flow: dense do?</a></li><li><a href="#subgrid" data-target="subgrid">What problem does subgrid solve?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Build a photo gallery with dense auto-flow and some featured (spanning) images.</li><li>Build a 3-card layout using subgrid so all footers align at the same row.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Subgrid" target="_blank" rel="noopener">MDN — subgrid</a></li><li><a href="https://css-tricks.com/almanac/properties/g/grid-auto-flow/" target="_blank" rel="noopener">CSS Tricks — Grid Auto Flow</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="images-in-html-css.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Images in HTML/CSS</span></a><a href="performance.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Performance</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>

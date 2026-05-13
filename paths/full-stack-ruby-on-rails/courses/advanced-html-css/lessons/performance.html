@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Performance | DevPath</title>
+  <link rel="stylesheet" href="../../../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav"><a href="../../../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a><ul class="nav-links"><li><a href="../../../../../index.html">Home</a></li><li><a href="../../../../../foundations/index.html">Foundations</a></li><li><a href="../../../../../paths/full-stack-javascript/index.html">Full Stack JS</a></li><li><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li></ul></nav>
+<div class="lesson-nav-bar"><div class="lesson-nav-bar-group"><a href="css-grid-advanced.html" class="btn btn-blue-outline">&#8592; Previous</a></div><div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div><div class="lesson-nav-bar-group"><a href="project-personal-portfolio.html" class="btn btn-blue">Next &#8594;</a></div></div>
+<div class="page-header"><div class="page-header-inner"><nav class="breadcrumb"><a href="../../../../../index.html">Home</a><span class="breadcrumb-sep">/</span><a href="../../../../../paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a><span class="breadcrumb-sep">/</span><a href="../index.html">Advanced HTML and CSS</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Performance</span></nav><h1>Performance</h1></div></div>
+<div class="lesson-layout"><aside class="sidebar"><div class="sidebar-course-title">Advanced HTML &amp; CSS</div><div class="sidebar-section"><div class="sidebar-section-label">Animation</div><a href="animation.html" class="sidebar-link">Animation</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Accessibility</div><a href="accessibility.html" class="sidebar-link">Accessibility</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Responsive Design</div><a href="responsive-design.html" class="sidebar-link">Responsive Design</a>
+<a href="css-grid.html" class="sidebar-link">CSS Grid</a>
+<a href="natural-responsiveness.html" class="sidebar-link">Natural Responsiveness</a>
+<a href="media-queries.html" class="sidebar-link">Media Queries</a>
+<a href="images-in-html-css.html" class="sidebar-link">Images in HTML/CSS</a>
+<a href="css-grid-advanced.html" class="sidebar-link">CSS Grid — Advanced</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Performance</div><a href="performance.html" class="sidebar-link">Performance</a>
+</div><div class="sidebar-section"><div class="sidebar-section-label">Project</div><a href="project-personal-portfolio.html" class="sidebar-link is-project">Project: Personal Portfolio</a>
+</div></aside><main><div class="lesson-body">
+<div class="block-intro"><p>Web performance directly affects user experience, SEO rankings, and conversion rates. This lesson covers the metrics that matter, the most impactful optimisations, and how to measure performance.</p></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand Core Web Vitals: LCP, FID/INP, CLS.</li><li>Optimise images, fonts, and CSS.</li><li>Use browser caching and the asset pipeline.</li><li>Measure performance with Lighthouse and PageSpeed Insights.</li></ul></div>
+<h2 class="lesson-section-title" id="core-web-vitals">Core Web Vitals</h2><div class="code-block"><pre><code># LCP — Largest Contentful Paint — when the main content loads
+# Target: &lt; 2.5 seconds
+# Common causes: large unoptimised hero images, slow server, render-blocking resources
+# Fix: optimise images, preload hero image, use CDN
+
+# CLS — Cumulative Layout Shift — unexpected layout jumps
+# Target: &lt; 0.1
+# Common causes: images/ads without width/height, late-loading fonts
+# Fix: always set width + height on img, use font-display: swap
+
+# INP — Interaction to Next Paint — responsiveness
+# Target: &lt; 200ms
+# Common causes: heavy JavaScript on the main thread
+# Fix: defer non-critical JS, use web workers for heavy computation
+</code></pre></div><h2 class="lesson-section-title" id="optimisations">Key Optimisations</h2><div class="code-block"><pre><code>&lt;!-- Preload critical assets --&gt;
+&lt;link rel="preload" as="image" href="hero.webp" fetchpriority="high"&gt;
+&lt;link rel="preload" as="font" href="/fonts/inter.woff2" crossorigin&gt;
+
+&lt;!-- Defer non-critical JavaScript --&gt;
+&lt;script src="analytics.js" defer&gt;&lt;/script&gt;
+&lt;script src="chat-widget.js" async&gt;&lt;/script&gt;
+
+&lt;!-- Image optimisation checklist --&gt;
+&lt;!-- ✓ Use WebP/AVIF format --&gt;
+&lt;!-- ✓ Set width and height attributes --&gt;
+&lt;!-- ✓ Use loading="lazy" for below-fold images --&gt;
+&lt;!-- ✓ Use srcset for responsive images --&gt;
+&lt;!-- ✓ Compress with Squoosh or Sharp --&gt;
+
+# Rails production optimisations (automatic):
+# ✓ Asset fingerprinting (cache busting)
+# ✓ CSS/JS concatenation and minification
+# ✓ Gzip/Brotli compression (configure on your host)
+</code></pre></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#core-web-vitals" data-target="core-web-vitals">What does LCP measure?</a></li><li><a href="#core-web-vitals" data-target="core-web-vitals">What causes CLS and how do you fix it?</a></li><li><a href="#optimisations" data-target="optimisations">What does the preload link hint do?</a></li></ol></div>
+<div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Run Lighthouse on a deployed project and record your scores.</li><li>Fix at least one LCP issue and one CLS issue and re-run Lighthouse.</li><li>Add width and height to every img tag in a project.</li></ol></div>
+<div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">Google PageSpeed Insights</a></li><li><a href="https://web.dev/vitals/" target="_blank" rel="noopener">web.dev — Core Web Vitals</a></li><li><a href="https://squoosh.app/" target="_blank" rel="noopener">Squoosh — Image Optimiser</a></li></ul></div>
+</div><div class="lesson-pagination"><a href="css-grid-advanced.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">CSS Grid — Advanced</span></a><a href="project-personal-portfolio.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Project: Personal Portfolio</span></a></div></main></div>
+<footer class="site-footer"><p>DevPath — A free, open, project-based web development curriculum.</p></footer>
+<script src="../../../../../js/main.js"></script>
+</body>
+</html>
