@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project: Matrix Operations for ML | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="08-numpy-math-and-statistics.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="10-pandas-introduction.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Project: Matrix Operations for ML</span>
+    </nav>
+    <h1>Project: Matrix Operations for ML</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link active is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>This project puts everything from Unit 2 into practice. You will build a NumPy-powered toolkit that implements the core mathematical operations behind a single neural network forward pass — without using any ML framework. By the end, you will have implemented data normalisation, a linear layer, three activation functions, and a loss function entirely from scratch using NumPy.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Project Overview</div>
+        <ul>
+          <li>Normalise a dataset using min-max and z-score normalisation.</li>
+          <li>Implement a linear (fully connected) layer using matrix multiplication.</li>
+          <li>Implement ReLU, Sigmoid, and Softmax activation functions.</li>
+          <li>Compute Mean Squared Error (MSE) and Cross-Entropy loss.</li>
+          <li>Organise all functions into a <code>nn_utils.py</code> module.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="requirements">Requirements</h2>
+      <ul>
+        <li>All functions must live in <code>nn_utils.py</code> with docstrings.</li>
+        <li><code>main.py</code> imports from <code>nn_utils.py</code> and demonstrates each function with printed output.</li>
+        <li>Use only NumPy — no Scikit-learn, TensorFlow, or PyTorch.</li>
+        <li>All functions must handle arbitrary input shapes correctly.</li>
+      </ul>
+
+      <h2 class="lesson-section-title" id="expected-output">Expected Output</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>$ python3 main.py
+
+--- Data Normalisation ---
+Original:      [ 10  25   5  40  15]
+Min-Max:       [0.143 0.571 0.    1.    0.286]
+Z-Score:       [-0.39  0.56 -0.78  1.52  0.09]
+
+--- Linear Layer ---
+Input shape:   (4, 3)
+Weights shape: (3, 2)
+Output shape:  (4, 2)
+Output:
+[[ 0.56  1.23]
+ [ 0.12 -0.45]
+ [ 1.02  0.78]
+ [-0.33  0.91]]
+
+--- Activation Functions ---
+ReLU:     [0.   0.   0.   0.5  1.2  2.3]
+Sigmoid:  [0.269 0.378 0.5   0.622 0.731 0.881]
+Softmax:  [0.045 0.12  0.33  0.505] — sums to 1.0
+
+--- Loss Functions ---
+MSE Loss:          0.0425
+Cross-Entropy:     0.3512</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="starter-code">Starter Code</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># nn_utils.py
+import numpy as np
+
+def minmax_normalise(X):
+    """Normalise array to range [0, 1] using min-max scaling."""
+    # YOUR CODE HERE
+    # formula: (X - X.min()) / (X.max() - X.min())
+
+def zscore_normalise(X):
+    """Standardise array to mean=0, std=1."""
+    # YOUR CODE HERE
+    # formula: (X - X.mean()) / X.std()
+
+def linear_layer(X, W, b=None):
+    """
+    Compute a linear transformation: output = X @ W + b
+    X: input matrix of shape (n_samples, n_features)
+    W: weight matrix of shape (n_features, n_outputs)
+    b: bias vector of shape (n_outputs,) — optional
+    """
+    # YOUR CODE HERE
+
+def relu(X):
+    """Apply ReLU activation: max(0, x) element-wise."""
+    # YOUR CODE HERE
+    # Hint: np.maximum(0, X)
+
+def sigmoid(X):
+    """Apply sigmoid activation: 1 / (1 + exp(-x))."""
+    # YOUR CODE HERE
+
+def softmax(X):
+    """
+    Apply softmax activation.
+    Subtract max for numerical stability before exp.
+    """
+    # YOUR CODE HERE
+    # formula: exp(x - max(x)) / sum(exp(x - max(x)))
+
+def mse_loss(y_true, y_pred):
+    """Compute Mean Squared Error loss."""
+    # YOUR CODE HERE
+    # formula: mean((y_true - y_pred) ** 2)
+
+def cross_entropy_loss(y_true, y_pred):
+    """
+    Compute Cross-Entropy loss for classification.
+    y_pred values must be probabilities (use softmax first).
+    Clip predictions to avoid log(0).
+    """
+    # YOUR CODE HERE
+    # formula: -mean(y_true * log(y_pred))
+    # Hint: np.clip(y_pred, 1e-15, 1 - 1e-15)</code></pre>
+      </div>
+
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># main.py
+import numpy as np
+from nn_utils import (minmax_normalise, zscore_normalise,
+                      linear_layer, relu, sigmoid, softmax,
+                      mse_loss, cross_entropy_loss)
+
+np.random.seed(42)
+
+print("--- Data Normalisation ---")
+data = np.array([10, 25, 5, 40, 15], dtype=float)
+print(f"Original:      {data}")
+print(f"Min-Max:       {minmax_normalise(data).round(3)}")
+print(f"Z-Score:       {zscore_normalise(data).round(2)}")
+
+print("\n--- Linear Layer ---")
+X = np.random.randn(4, 3)     # 4 samples, 3 features
+W = np.random.randn(3, 2)     # 3 inputs, 2 outputs
+b = np.zeros(2)
+out = linear_layer(X, W, b)
+print(f"Input shape:   {X.shape}")
+print(f"Weights shape: {W.shape}")
+print(f"Output shape:  {out.shape}")
+print(f"Output:\n{out.round(2)}")
+
+print("\n--- Activation Functions ---")
+x = np.array([-2.0, -1.0, 0.0, 0.5, 1.2, 2.3])
+print(f"ReLU:     {relu(x)}")
+print(f"Sigmoid:  {sigmoid(x).round(3)}")
+logits = np.array([1.0, 2.0, 3.5, 4.1])
+probs = softmax(logits)
+print(f"Softmax:  {probs.round(3)} — sums to {probs.sum():.1f}")
+
+print("\n--- Loss Functions ---")
+y_true = np.array([1.0, 0.0, 1.0, 1.0])
+y_pred = np.array([0.9, 0.2, 0.8, 0.7])
+print(f"MSE Loss:          {mse_loss(y_true, y_pred):.4f}")
+
+y_true_ce = np.array([0, 0, 1, 0])   # one-hot
+y_pred_ce = softmax(np.array([0.5, 1.0, 2.5, 0.3]))
+print(f"Cross-Entropy:     {cross_entropy_loss(y_true_ce, y_pred_ce):.4f}")
+
+if __name__ == "__main__":
+    pass</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="hints">Hints</h2>
+      <ul>
+        <li><strong>ReLU:</strong> <code>np.maximum(0, X)</code> is the cleanest one-liner.</li>
+        <li><strong>Sigmoid:</strong> <code>1 / (1 + np.exp(-X))</code>.</li>
+        <li><strong>Softmax stability:</strong> subtract <code>X.max()</code> before applying <code>np.exp()</code> to prevent overflow.</li>
+        <li><strong>Cross-entropy:</strong> use <code>np.clip(y_pred, 1e-15, 1 - 1e-15)</code> before <code>np.log()</code> to avoid <code>log(0) = -inf</code>.</li>
+        <li><strong>Linear layer bias:</strong> check if <code>b is not None</code> before adding it.</li>
+      </ul>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>These exact functions — ReLU, sigmoid, softmax, cross-entropy — are what TensorFlow and PyTorch implement under the hood. You are not just learning NumPy; you are learning how deep learning actually works.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="extensions">Extension Challenges</h2>
+      <ul>
+        <li>Implement <strong>tanh</strong> activation: <code>(exp(x) - exp(-x)) / (exp(x) + exp(-x))</code>.</li>
+        <li>Implement <strong>batch normalisation</strong>: normalise each feature column across a batch.</li>
+        <li>Implement a full forward pass: normalise input → linear layer → ReLU → linear layer → softmax → cross-entropy loss.</li>
+        <li>Add a function that generates a random mini-batch of size <code>n</code> from a dataset.</li>
+      </ul>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Submission Checklist</div>
+        <ol>
+          <li><code>python3 main.py</code> runs without errors and prints all sections.</li>
+          <li>All 8 functions are in <code>nn_utils.py</code> with docstrings.</li>
+          <li>Softmax output sums to exactly 1.0.</li>
+          <li>Cross-entropy does not produce <code>nan</code> or <code>inf</code>.</li>
+          <li>Linear layer output shape matches expected dimensions.</li>
+          <li>(Optional) At least one extension challenge implemented.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://numpy.org/doc/stable/reference/routines.linalg.html" target="_blank" rel="noopener">NumPy Official Docs — Linear Algebra</a></li>
+          <li><a href="https://numpy.org/doc/stable/reference/routines.math.html" target="_blank" rel="noopener">NumPy Official Docs — Mathematical Functions</a></li>
+          <li><a href="https://realpython.com/numpy-array-programming/" target="_blank" rel="noopener">Real Python — NumPy Array Programming</a></li>
+          <li><a href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank" rel="noopener">YouTube — But what is a neural network? (3Blue1Brown)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=QUT1VHiLmmI" target="_blank" rel="noopener">YouTube — NumPy Full Course (freeCodeCamp)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=w8yWXqWQYmU" target="_blank" rel="noopener">YouTube — Neural Networks from Scratch in NumPy (Sentdex)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="08-numpy-math-and-statistics.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Mathematical &amp; Statistical Functions</span>
+      </a>
+      <a href="10-pandas-introduction.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Introduction to Pandas &amp; DataFrames</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematical &amp; Statistical Functions | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="07-numpy-indexing-and-slicing.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="09-project-matrix-operations.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Mathematical &amp; Statistical Functions</span>
+    </nav>
+    <h1>Mathematical &amp; Statistical Functions</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link active">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>NumPy ships with a comprehensive library of mathematical and statistical functions that operate on entire arrays in one call. These functions are the building blocks of every AI algorithm — from computing loss functions and activation functions to normalising datasets and analysing model performance. This lesson covers the functions you will reach for every single day.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Use aggregate functions: <code>sum</code>, <code>min</code>, <code>max</code>, <code>mean</code>, <code>std</code>, <code>var</code>.</li>
+          <li>Apply functions along a specific axis of a 2D array.</li>
+          <li>Use universal functions (ufuncs): <code>np.sqrt</code>, <code>np.exp</code>, <code>np.log</code>, <code>np.abs</code>.</li>
+          <li>Perform matrix operations: dot product, matrix multiplication, transpose.</li>
+          <li>Sort arrays and find unique values.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="aggregates">Aggregate Functions</h2>
+      <p>Aggregate functions reduce an array to a single value or a smaller array. Every AI metric — accuracy, loss, mean squared error — is an aggregate.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+scores = np.array([0.72, 0.85, 0.91, 0.68, 0.95, 0.78, 0.83])
+
+print(np.sum(scores))    # 5.72
+print(np.min(scores))    # 0.68
+print(np.max(scores))    # 0.95
+print(np.mean(scores))   # 0.817
+print(np.median(scores)) # 0.83
+print(np.std(scores))    # 0.089  — standard deviation
+print(np.var(scores))    # 0.008  — variance
+
+# Equivalent method syntax
+print(scores.mean())
+print(scores.std())
+print(scores.max())
+
+# argmin / argmax — index of the min/max value
+print(np.argmin(scores))  # 3  (value 0.68)
+print(np.argmax(scores))  # 4  (value 0.95)</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="axis">Working Along an Axis</h2>
+      <p>For 2D arrays you can apply aggregate functions along <code>axis=0</code> (down columns) or <code>axis=1</code> (across rows). This is essential when working with datasets where rows are samples and columns are features.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+# 4 students, 3 exam scores each
+results = np.array([[85, 90, 78],
+                    [92, 88, 95],
+                    [70, 75, 80],
+                    [88, 92, 85]])
+
+# axis=0 — aggregate DOWN each column (per exam)
+print(np.mean(results, axis=0))
+# [83.75 86.25 84.5] — average score per exam
+
+# axis=1 — aggregate ACROSS each row (per student)
+print(np.mean(results, axis=1))
+# [84.33 91.67 75.   88.33] — average score per student
+
+print(np.max(results, axis=1))   # best score per student
+print(np.sum(results, axis=0))   # total per exam</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>A simple way to remember axes: <code>axis=0</code> collapses rows (operates down), <code>axis=1</code> collapses columns (operates across). In ML: axis=0 is usually "per feature", axis=1 is "per sample".</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="ufuncs">Universal Functions (ufuncs)</h2>
+      <p>Ufuncs are NumPy functions that apply element-wise to every value in an array with no loop. They are the fastest way to apply mathematical transformations to your data.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+x = np.array([1.0, 4.0, 9.0, 16.0, 25.0])
+
+print(np.sqrt(x))      # [1. 2. 3. 4. 5.]
+print(np.square(x))    # [  1.  16.  81. 256. 625.]
+print(np.abs(np.array([-3, -1, 0, 2, 4])))  # [3 1 0 2 4]
+
+# Exponential and log — core to loss functions
+logits = np.array([2.0, 1.0, 0.1])
+print(np.exp(logits))   # [ 7.389  2.718  1.105]
+print(np.log(x))        # [0.    1.386 2.197 2.773 3.219]
+print(np.log2(x))       # [0.    2.    3.170 4.    4.644]
+
+# Trigonometric — used in positional encodings, signal processing
+angles = np.linspace(0, np.pi, 5)
+print(np.sin(angles).round(2))  # [0.   0.71 1.   0.71 0.  ]
+print(np.cos(angles).round(2))  # [ 1.   0.71  0.  -0.71 -1.]</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="linear-algebra">Matrix Operations</h2>
+      <p>Matrix operations are the heart of neural networks. Every layer of a neural network is a matrix multiplication followed by a function application.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+A = np.array([[1, 2],
+              [3, 4]])
+
+B = np.array([[5, 6],
+              [7, 8]])
+
+# Transpose — flip rows and columns
+print(A.T)
+# [[1 3]
+#  [2 4]]
+
+# Element-wise multiplication (NOT matrix multiply)
+print(A * B)
+# [[ 5 12]
+#  [21 32]]
+
+# Matrix multiplication — use @ operator or np.dot()
+print(A @ B)
+# [[19 22]
+#  [43 50]]
+
+print(np.dot(A, B))   # same result
+
+# Dot product of two 1D vectors
+v1 = np.array([1, 2, 3])
+v2 = np.array([4, 5, 6])
+print(np.dot(v1, v2))  # 32  (1*4 + 2*5 + 3*6)
+
+# Determinant and inverse — used in linear regression
+print(np.linalg.det(A))       # -2.0
+print(np.linalg.inv(A))       # inverse of A
+print(np.linalg.norm(v1))     # 3.742 — Euclidean length</code></pre>
+      </div>
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ️</span>
+        <span>The <code>@</code> operator for matrix multiplication was introduced in Python 3.5. Always use <code>@</code> for matrix multiplication and <code>*</code> only when you want element-wise multiplication.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="sorting">Sorting and Unique Values</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+scores = np.array([0.72, 0.91, 0.65, 0.85, 0.91, 0.78])
+
+# Sort ascending (returns new array)
+print(np.sort(scores))
+# [0.65 0.72 0.78 0.85 0.91 0.91]
+
+# argsort — indices that would sort the array
+order = np.argsort(scores)
+print(order)   # indices of ascending order
+
+# Sort descending
+print(np.sort(scores)[::-1])
+
+# Unique values and their counts
+labels = np.array([0, 1, 2, 1, 0, 2, 2, 1])
+unique, counts = np.unique(labels, return_counts=True)
+print(unique)  # [0 1 2]
+print(counts)  # [2 3 3] — class distribution</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="clipping-rounding">Clipping and Rounding</h2>
+      <p>Clipping and rounding are common preprocessing steps — clipping keeps values within a valid range, rounding controls precision.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+raw = np.array([-0.5, 0.2, 1.3, 0.8, -0.1, 1.0])
+
+# clip — values below min become min, above max become max
+clipped = np.clip(raw, 0.0, 1.0)
+print(clipped)  # [0.  0.2 1.  0.8 0.  1. ]
+
+# round
+vals = np.array([0.1234, 0.5678, 0.9999])
+print(np.round(vals, 2))   # [0.12 0.57 1.  ]
+print(np.floor(vals))      # [0. 0. 0.]
+print(np.ceil(vals))       # [1. 1. 1.]</code></pre>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#aggregates">What does <code>np.argmax()</code> return — the maximum value or its index?</a></li>
+          <li><a href="#axis">What is the difference between <code>axis=0</code> and <code>axis=1</code>?</a></li>
+          <li><a href="#ufuncs">Name three NumPy ufuncs and where they are used in AI.</a></li>
+          <li><a href="#linear-algebra">What is the difference between <code>A * B</code> and <code>A @ B</code> in NumPy?</a></li>
+          <li><a href="#sorting">What does <code>np.unique(labels, return_counts=True)</code> give you?</a></li>
+          <li><a href="#clipping-rounding">What does <code>np.clip(array, 0, 1)</code> do?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Create a 5×4 matrix of random floats between 0 and 100. Compute and print: the mean, min, max, and standard deviation of the entire matrix; the mean of each column (<code>axis=0</code>); the sum of each row (<code>axis=1</code>); the index of the maximum value in the entire matrix using <code>np.argmax()</code>.</li>
+          <li>Implement the <strong>softmax function</strong> using only NumPy: <code>softmax(x) = exp(x) / sum(exp(x))</code>. Apply it to the array <code>[2.0, 1.0, 0.1]</code> and verify the output sums to 1.0.</li>
+          <li>Create two 3×3 matrices A and B. Compute: element-wise multiplication; matrix multiplication using <code>@</code>; the transpose of A; the dot product of the first row of A with the first column of B.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://numpy.org/doc/stable/reference/routines.math.html" target="_blank" rel="noopener">NumPy Official Docs — Mathematical Functions</a></li>
+          <li><a href="https://numpy.org/doc/stable/reference/routines.statistics.html" target="_blank" rel="noopener">NumPy Official Docs — Statistical Functions</a></li>
+          <li><a href="https://numpy.org/doc/stable/reference/routines.linalg.html" target="_blank" rel="noopener">NumPy Official Docs — Linear Algebra</a></li>
+          <li><a href="https://www.youtube.com/watch?v=QUT1VHiLmmI" target="_blank" rel="noopener">YouTube — NumPy Full Course (freeCodeCamp)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=GB9ByFAIAH4" target="_blank" rel="noopener">YouTube — NumPy Math and Statistics (Keith Galli)</a></li>
+          <li><a href="https://realpython.com/numpy-array-programming/" target="_blank" rel="noopener">Real Python — NumPy Array Programming</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="07-numpy-indexing-and-slicing.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Array Operations, Indexing &amp; Slicing</span>
+      </a>
+      <a href="09-project-matrix-operations.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Project: Matrix Operations for ML</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
