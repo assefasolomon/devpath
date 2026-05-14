@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to NumPy &amp; Arrays | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="05-project-data-calculator.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="07-numpy-indexing-and-slicing.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Introduction to NumPy &amp; Arrays</span>
+    </nav>
+    <h1>Introduction to NumPy &amp; Arrays</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link active">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>NumPy (Numerical Python) is the foundation of the entire Python AI and data science stack. Every major library — Pandas, Scikit-learn, TensorFlow, PyTorch — is built on top of it. At its core, NumPy provides the <strong>ndarray</strong>: a fast, memory-efficient multi-dimensional array that replaces Python lists for numerical work. This lesson teaches you how to create and understand NumPy arrays from the ground up.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Understand why NumPy arrays are faster and more efficient than Python lists.</li>
+          <li>Create arrays using <code>np.array()</code>, <code>np.zeros()</code>, <code>np.ones()</code>, <code>np.arange()</code>, and <code>np.linspace()</code>.</li>
+          <li>Understand array attributes: <code>shape</code>, <code>ndim</code>, <code>dtype</code>, and <code>size</code>.</li>
+          <li>Create 1D, 2D, and 3D arrays.</li>
+          <li>Reshape arrays with <code>reshape()</code>.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="why-numpy">Why NumPy?</h2>
+      <p>Python lists are flexible but slow for numerical computation. NumPy arrays store data in contiguous memory blocks using a fixed data type, which makes operations up to 100x faster than equivalent list operations.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+# Python list — slow for math
+py_list = [1, 2, 3, 4, 5]
+doubled = [x * 2 for x in py_list]   # loop required
+
+# NumPy array — fast vectorised operation
+np_array = np.array([1, 2, 3, 4, 5])
+doubled = np_array * 2                # no loop needed
+print(doubled)  # [2 4 6 8 10]</code></pre>
+      </div>
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ️</span>
+        <span>In AI, you work with millions of numbers — pixel values, weights, activations. NumPy makes these operations practical. Without it, training even a simple neural network would take hours instead of seconds.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="creating-arrays">Creating Arrays</h2>
+      <p>NumPy provides many functions for creating arrays. These are the ones you will use most often in AI work.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+# From a Python list
+a = np.array([10, 20, 30, 40, 50])
+print(a)        # [10 20 30 40 50]
+
+# 2D array from a list of lists
+matrix = np.array([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+print(matrix)
+
+# Array of zeros — common for initialising weights
+zeros = np.zeros((3, 4))   # 3 rows, 4 columns
+print(zeros)
+
+# Array of ones
+ones = np.ones((2, 3))
+print(ones)
+
+# Array filled with a constant
+fives = np.full((2, 2), 5)
+print(fives)
+
+# Identity matrix — used in linear algebra
+eye = np.eye(3)
+print(eye)</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="ranges">arange and linspace</h2>
+      <p><code>np.arange()</code> creates evenly spaced values like Python's <code>range()</code> but returns an array. <code>np.linspace()</code> creates a specific number of evenly spaced values between two endpoints — essential for plotting and generating input ranges.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># arange(start, stop, step)
+epochs = np.arange(1, 11)          # [1 2 3 4 5 6 7 8 9 10]
+even   = np.arange(0, 20, 2)       # [0 2 4 6 8 10 12 14 16 18]
+floats = np.arange(0, 1, 0.1)      # [0.  0.1  0.2 ... 0.9]
+
+# linspace(start, stop, num) — includes both endpoints
+x = np.linspace(0, 1, 5)           # [0.   0.25 0.5  0.75 1.  ]
+x100 = np.linspace(0, 2*np.pi, 100)  # 100 points for plotting sin/cos
+
+print(epochs)
+print(x)</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="random">Random Arrays</h2>
+      <p>Random arrays are essential in AI for weight initialisation, data shuffling, and generating synthetic datasets.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>np.random.seed(42)   # set seed for reproducibility
+
+# Uniform random values between 0 and 1
+rand = np.random.rand(3, 3)
+print(rand)
+
+# Standard normal distribution (mean=0, std=1)
+randn = np.random.randn(3, 3)
+print(randn)
+
+# Random integers between low and high
+labels = np.random.randint(0, 10, size=(5,))
+print(labels)   # e.g. [6 3 7 4 6]
+
+# Shuffle an array in place
+data = np.arange(10)
+np.random.shuffle(data)
+print(data)</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Always set <code>np.random.seed()</code> at the top of any script that uses random numbers. This makes your results reproducible — essential for scientific work and debugging.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="attributes">Array Attributes</h2>
+      <p>Every NumPy array has attributes that describe its structure. Understanding these is essential before doing any AI work.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+# Simulate a batch of 32 images: 32 samples, 28x28 pixels, 1 channel
+images = np.zeros((32, 28, 28, 1))
+
+print(images.shape)   # (32, 28, 28, 1) — dimensions
+print(images.ndim)    # 4              — number of dimensions
+print(images.size)    # 25088          — total number of elements
+print(images.dtype)   # float64        — data type
+
+# Common dtypes in AI
+weights = np.array([0.1, 0.2, 0.3], dtype=np.float32)
+classes = np.array([0, 1, 2, 1, 0], dtype=np.int32)
+print(weights.dtype)  # float32
+print(classes.dtype)  # int32</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="reshape">Reshaping Arrays</h2>
+      <p>Reshaping is one of the most common operations in AI — you constantly need to change array dimensions to match what a model expects.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+a = np.arange(12)
+print(a)         # [ 0  1  2  3  4  5  6  7  8  9 10 11]
+print(a.shape)   # (12,)
+
+# Reshape to 3 rows, 4 columns
+b = a.reshape(3, 4)
+print(b)
+# [[ 0  1  2  3]
+#  [ 4  5  6  7]
+#  [ 8  9 10 11]]
+
+# Use -1 to let NumPy calculate one dimension automatically
+c = a.reshape(4, -1)   # 4 rows, NumPy figures out columns = 3
+print(c.shape)         # (4, 3)
+
+# Flatten back to 1D
+flat = b.flatten()
+print(flat)            # [ 0  1  2  3  4  5  6  7  8  9 10 11]
+
+# Add a dimension — common before feeding data to models
+d = a.reshape(1, -1)   # shape (1, 12) — add batch dimension
+print(d.shape)</code></pre>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#why-numpy">Why are NumPy arrays faster than Python lists for numerical work?</a></li>
+          <li><a href="#creating-arrays">What is the difference between <code>np.zeros()</code> and <code>np.ones()</code>?</a></li>
+          <li><a href="#ranges">What is the difference between <code>np.arange()</code> and <code>np.linspace()</code>?</a></li>
+          <li><a href="#attributes">What do <code>shape</code>, <code>ndim</code>, <code>size</code>, and <code>dtype</code> tell you about an array?</a></li>
+          <li><a href="#reshape">What does passing <code>-1</code> to <code>reshape()</code> do?</a></li>
+          <li><a href="#random">Why should you set <code>np.random.seed()</code> in your scripts?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Create the following arrays and print their <code>shape</code>, <code>ndim</code>, <code>dtype</code>, and <code>size</code>: (a) a 1D array of integers from 1 to 20; (b) a 4×4 matrix of zeros with <code>dtype=float32</code>; (c) a 3×3 identity matrix; (d) 50 evenly spaced values between 0 and 10.</li>
+          <li>Create a 1D array of 24 integers using <code>np.arange()</code>. Reshape it into: (a) a 2D array of shape (6, 4); (b) a 3D array of shape (2, 3, 4). Print the shape after each reshape.</li>
+          <li>Set <code>np.random.seed(0)</code> and create: (a) a 5×5 array of random floats between 0 and 1; (b) a 1D array of 10 random integers between 0 and 100 representing fake model predictions. Print both arrays and their dtypes.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://numpy.org/doc/stable/user/absolute_beginners.html" target="_blank" rel="noopener">NumPy Official Docs — NumPy for Absolute Beginners</a></li>
+          <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html" target="_blank" rel="noopener">NumPy Official Docs — ndarray reference</a></li>
+          <li><a href="https://realpython.com/numpy-array-programming/" target="_blank" rel="noopener">Real Python — NumPy Array Programming</a></li>
+          <li><a href="https://www.youtube.com/watch?v=QUT1VHiLmmI" target="_blank" rel="noopener">YouTube — NumPy Full Course (freeCodeCamp)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=GB9ByFAIAH4" target="_blank" rel="noopener">YouTube — Complete NumPy Tutorial (Keith Galli)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=8Mpc9ukltVA" target="_blank" rel="noopener">YouTube — NumPy Tutorial for Beginners (Sentdex)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="05-project-data-calculator.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Project: Data Calculator CLI</span>
+      </a>
+      <a href="07-numpy-indexing-and-slicing.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Array Operations, Indexing &amp; Slicing</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

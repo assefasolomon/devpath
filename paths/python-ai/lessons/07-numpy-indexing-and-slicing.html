@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Operations, Indexing &amp; Slicing | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="06-numpy-introduction.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="08-numpy-math-and-statistics.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Array Operations, Indexing &amp; Slicing</span>
+    </nav>
+    <h1>Array Operations, Indexing &amp; Slicing</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link active">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Knowing how to create arrays is only the beginning. In real AI work, you constantly need to access specific elements, extract subsets, filter by condition, and perform mathematical operations across entire arrays without writing a single loop. This lesson teaches you the indexing, slicing, and vectorised operation techniques that make NumPy so powerful.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Access elements and slices in 1D and 2D arrays.</li>
+          <li>Use boolean masks to filter arrays by condition.</li>
+          <li>Use fancy indexing to select multiple elements at once.</li>
+          <li>Perform vectorised arithmetic operations on arrays.</li>
+          <li>Understand broadcasting — how NumPy handles arrays of different shapes.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="indexing-1d">Indexing 1D Arrays</h2>
+      <p>NumPy indexing works like Python list indexing — zero-based, negative indices count from the end.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+scores = np.array([0.72, 0.85, 0.91, 0.68, 0.95, 0.78])
+
+print(scores[0])    # 0.72  — first element
+print(scores[-1])   # 0.78  — last element
+print(scores[2])    # 0.91
+
+# Slicing: [start:stop:step]  stop is exclusive
+print(scores[1:4])  # [0.85 0.91 0.68]
+print(scores[:3])   # [0.72 0.85 0.91]
+print(scores[3:])   # [0.68 0.95 0.78]
+print(scores[::2])  # [0.72 0.91 0.95] — every other element
+print(scores[::-1]) # reversed array</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="indexing-2d">Indexing 2D Arrays</h2>
+      <p>For 2D arrays use <code>array[row, column]</code>. This is the syntax you will use constantly when working with datasets, weight matrices, and image data.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+# Simulate a 4x3 dataset: 4 samples, 3 features
+data = np.array([[1.2, 0.5, 3.1],
+                 [2.4, 1.1, 0.8],
+                 [0.9, 2.7, 1.5],
+                 [3.3, 0.2, 2.9]])
+
+print(data[0, 1])    # 0.5  — row 0, col 1
+print(data[2, :])    # [0.9 2.7 1.5] — entire row 2
+print(data[:, 0])    # [1.2 2.4 0.9 3.3] — entire column 0
+print(data[1:3, :])  # rows 1 and 2, all columns
+print(data[:2, 1:])  # rows 0-1, columns 1-2</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="boolean-masking">Boolean Masking</h2>
+      <p>Boolean masking is one of the most powerful NumPy features. You apply a condition to an array to get a boolean array, then use that to filter values — no loops needed.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+scores = np.array([0.72, 0.85, 0.91, 0.68, 0.95, 0.78])
+
+# Create a boolean mask
+mask = scores >= 0.80
+print(mask)    # [False  True  True False  True False]
+
+# Apply mask to filter values
+passing = scores[mask]
+print(passing) # [0.85 0.91 0.95]
+
+# One-liner
+high = scores[scores >= 0.80]
+print(high)    # [0.85 0.91 0.95]
+
+# Count how many pass
+print(np.sum(scores >= 0.80))  # 3
+
+# Combine conditions
+mid_range = scores[(scores >= 0.70) &amp; (scores &lt; 0.90)]
+print(mid_range)  # [0.72 0.85 0.78]</code></pre>
+      </div>
+      <div class="callout callout-warn">
+        <span class="callout-icon">⚠️</span>
+        <span>Use <code>&amp;</code> (and) and <code>|</code> (or) for combining NumPy boolean conditions — not Python's <code>and</code> / <code>or</code>. Each condition must be wrapped in parentheses.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="fancy-indexing">Fancy Indexing</h2>
+      <p>Fancy indexing lets you select multiple specific elements or rows using an array of indices.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+labels = np.array(["cat", "dog", "bird", "fish", "frog"])
+
+# Select specific indices
+selected = labels[[0, 2, 4]]
+print(selected)  # ['cat' 'bird' 'frog']
+
+# Select specific rows from a 2D array
+data = np.array([[10, 20],
+                 [30, 40],
+                 [50, 60],
+                 [70, 80]])
+
+rows = data[[0, 2, 3]]
+print(rows)
+# [[10 20]
+#  [50 60]
+#  [70 80]]</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="vectorised-ops">Vectorised Operations</h2>
+      <p>NumPy applies arithmetic operations element-wise across entire arrays — no loops required. This is called <strong>vectorisation</strong> and it is the key to fast AI code.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+a = np.array([1, 2, 3, 4, 5])
+b = np.array([10, 20, 30, 40, 50])
+
+print(a + b)      # [11 22 33 44 55]
+print(a * b)      # [ 10  40  90 160 250]
+print(b / a)      # [10. 10. 10. 10. 10.]
+print(a ** 2)     # [ 1  4  9 16 25]
+print(np.sqrt(a)) # [1.    1.414 1.732 2.    2.236]
+
+# Scalar operations broadcast to every element
+pixels = np.array([120, 200, 85, 255, 30])
+normalised = pixels / 255.0
+print(normalised)  # [0.471 0.784 0.333 1.    0.118]</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="broadcasting">Broadcasting</h2>
+      <p>Broadcasting is how NumPy handles arithmetic between arrays of different shapes. Instead of raising an error, NumPy automatically expands the smaller array to match the larger one.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import numpy as np
+
+# Add a scalar to every element
+a = np.array([1, 2, 3])
+print(a + 10)   # [11 12 13]
+
+# Add a 1D array to each row of a 2D array
+matrix = np.array([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+bias = np.array([10, 20, 30])
+print(matrix + bias)
+# [[11 22 33]
+#  [14 25 36]
+#  [17 28 39]]
+
+# Normalise each column by its max value
+col_max = matrix.max(axis=0)   # [7 8 9]
+normalised = matrix / col_max
+print(normalised.round(2))</code></pre>
+      </div>
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ️</span>
+        <span>Broadcasting is used everywhere in AI — adding bias vectors to weight matrices, normalising batches of images, computing loss across a batch. Understanding it saves you from many shape-mismatch errors.</span>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#indexing-2d">How do you select an entire row from a 2D NumPy array? An entire column?</a></li>
+          <li><a href="#boolean-masking">What is a boolean mask and how do you apply it to filter an array?</a></li>
+          <li><a href="#boolean-masking">Why must you use <code>&amp;</code> instead of <code>and</code> when combining NumPy conditions?</a></li>
+          <li><a href="#vectorised-ops">What is vectorisation and why is it faster than using a loop?</a></li>
+          <li><a href="#broadcasting">In your own words, explain what broadcasting does.</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Create a 5×4 matrix of random integers between 1 and 100 using <code>np.random.randint()</code>. Then: (a) print the second row; (b) print the third column; (c) print the top-left 2×2 submatrix; (d) print the last row in reverse order.</li>
+          <li>Create a 1D array of 20 random floats between 0 and 1 representing model confidence scores. Use boolean masking to: (a) find all scores above 0.7; (b) count how many scores are below 0.5; (c) replace all scores below 0.5 with 0 (hint: use <code>array[mask] = 0</code>).</li>
+          <li>Create a 3×3 matrix. Without using a loop: (a) add 5 to every element; (b) multiply every element by 2; (c) normalise the matrix so all values are between 0 and 1 using min-max normalisation: <code>(x - min) / (max - min)</code>.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://numpy.org/doc/stable/user/basics.indexing.html" target="_blank" rel="noopener">NumPy Official Docs — Indexing on ndarrays</a></li>
+          <li><a href="https://numpy.org/doc/stable/user/basics.broadcasting.html" target="_blank" rel="noopener">NumPy Official Docs — Broadcasting</a></li>
+          <li><a href="https://realpython.com/numpy-array-programming/" target="_blank" rel="noopener">Real Python — Array Programming with NumPy</a></li>
+          <li><a href="https://www.youtube.com/watch?v=QUT1VHiLmmI" target="_blank" rel="noopener">YouTube — NumPy Full Course (freeCodeCamp)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=GB9ByFAIAH4" target="_blank" rel="noopener">YouTube — NumPy Indexing and Slicing (Keith Galli)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="06-numpy-introduction.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Introduction to NumPy &amp; Arrays</span>
+      </a>
+      <a href="08-numpy-math-and-statistics.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Mathematical &amp; Statistical Functions</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
