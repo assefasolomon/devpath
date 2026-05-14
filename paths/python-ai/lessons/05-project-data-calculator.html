@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project: Data Calculator CLI | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="04-functions-and-modules.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="06-numpy-introduction.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Project: Data Calculator CLI</span>
+    </nav>
+    <h1>Project: Data Calculator CLI</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link active is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>It's time to put Unit 1 into practice. You will build a command-line tool that accepts a list of numbers from the user and computes a full statistical summary. This project uses only pure Python — no NumPy yet — so you cement your understanding of data types, loops, functions, and modules before relying on libraries to do the work.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Project Overview</div>
+        <ul>
+          <li>Build a CLI tool that takes numeric input from the user in a loop.</li>
+          <li>Compute mean, median, mode, variance, and standard deviation using pure Python.</li>
+          <li>Organise your code into a <code>stats.py</code> module and a <code>main.py</code> entry point.</li>
+          <li>Handle edge cases: empty input, non-numeric input, division by zero.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="requirements">Requirements</h2>
+      <ul>
+        <li>Prompt the user to enter numbers one at a time, stopping when they type <code>done</code>.</li>
+        <li>Reject non-numeric input gracefully — no crashes.</li>
+        <li>Compute and display: count, sum, minimum, maximum, mean, median, mode, variance, and standard deviation.</li>
+        <li>All statistical functions must live in a separate <code>stats.py</code> module with docstrings.</li>
+        <li><code>main.py</code> handles user interaction only — no stat logic lives there.</li>
+      </ul>
+
+      <h2 class="lesson-section-title" id="expected-output">Expected Output</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>$ python3 main.py
+
+Data Calculator — enter numbers one at a time.
+Type 'done' when finished.
+
+Enter a number: 10
+Enter a number: 20
+Enter a number: 15
+Enter a number: abc
+  Invalid input. Please enter a number.
+Enter a number: 25
+Enter a number: 10
+Enter a number: done
+
+--- Results ---
+Count      : 5
+Sum        : 80.0
+Minimum    : 10.0
+Maximum    : 25.0
+Mean       : 16.0
+Median     : 15.0
+Mode       : 10.0
+Variance   : 30.0
+Std Dev    : 5.48</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="starter-code">Starter Code</h2>
+      <p>Use this structure as your guide. Fill in the function bodies yourself.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># stats.py
+
+def mean(numbers):
+    """Return the arithmetic mean of a list of numbers."""
+    # YOUR CODE HERE
+
+def median(numbers):
+    """Return the median value of a list of numbers."""
+    # Hint: sort a copy, then find the middle index
+
+def mode(numbers):
+    """Return the most frequently occurring value."""
+    # Hint: use a dict to count occurrences
+
+def variance(numbers):
+    """Return the population variance."""
+    # Hint: average of squared differences from the mean
+
+def std_dev(numbers):
+    """Return the population standard deviation."""
+    # Hint: square root of variance — use math.sqrt()</code></pre>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># main.py
+from stats import mean, median, mode, variance, std_dev
+
+def collect_numbers():
+    """Prompt the user and return a list of floats."""
+    numbers = []
+    print("\nData Calculator — enter numbers one at a time.")
+    print("Type 'done' when finished.\n")
+    while True:
+        entry = input("Enter a number: ").strip()
+        if entry.lower() == "done":
+            break
+        try:
+            numbers.append(float(entry))
+        except ValueError:
+            print("  Invalid input. Please enter a number.")
+    return numbers
+
+def display_results(numbers):
+    """Print a statistical summary."""
+    if not numbers:
+        print("No numbers entered.")
+        return
+    print("\n--- Results ---")
+    print(f"{'Count':<12}: {len(numbers)}")
+    print(f"{'Sum':<12}: {sum(numbers)}")
+    print(f"{'Minimum':<12}: {min(numbers)}")
+    print(f"{'Maximum':<12}: {max(numbers)}")
+    print(f"{'Mean':<12}: {mean(numbers):.1f}")
+    print(f"{'Median':<12}: {median(numbers):.1f}")
+    print(f"{'Mode':<12}: {mode(numbers):.1f}")
+    print(f"{'Variance':<12}: {variance(numbers):.1f}")
+    print(f"{'Std Dev':<12}: {std_dev(numbers):.2f}")
+
+if __name__ == "__main__":
+    data = collect_numbers()
+    display_results(data)</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="hints">Hints</h2>
+      <ul>
+        <li><strong>Median:</strong> Sort with <code>sorted(numbers)</code>. If length is even, average the two middle values.</li>
+        <li><strong>Mode:</strong> Build a frequency dict with a loop, then use <code>max(freq, key=freq.get)</code>.</li>
+        <li><strong>Variance:</strong> <code>sum((x - m)**2 for x in numbers) / len(numbers)</code> where <code>m</code> is the mean.</li>
+        <li><strong>Std Dev:</strong> <code>import math</code> then <code>math.sqrt(variance(numbers))</code>.</li>
+      </ul>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Always use <code>if __name__ == "__main__":</code> at the bottom of <code>main.py</code>. This ensures the script only runs when executed directly, not when imported as a module.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="extensions">Extension Challenges</h2>
+      <ul>
+        <li>Add a <code>percentile(numbers, p)</code> function that returns the p-th percentile.</li>
+        <li>Let the user enter all numbers on one line separated by commas: <code>10, 20, 15, 25</code>.</li>
+        <li>Save the results to a <code>results.txt</code> file alongside printing them.</li>
+        <li>Add an option to load numbers from a plain text file (one number per line).</li>
+      </ul>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Submission Checklist</div>
+        <ol>
+          <li>Project runs without errors from the terminal using <code>python3 main.py</code>.</li>
+          <li>All 5 stat functions are in <code>stats.py</code> with docstrings.</li>
+          <li><code>main.py</code> handles I/O only — no stat logic lives there.</li>
+          <li>Non-numeric input does not crash the program.</li>
+          <li>Typing <code>done</code> with no numbers shows a friendly message.</li>
+          <li>(Optional) At least one extension challenge implemented.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://docs.python.org/3/library/functions.html" target="_blank" rel="noopener">Official Python Docs — Built-in Functions</a></li>
+          <li><a href="https://docs.python.org/3/library/math.html" target="_blank" rel="noopener">Official Python Docs — math module</a></li>
+          <li><a href="https://realpython.com/python-statistics/" target="_blank" rel="noopener">Real Python — Python Statistics Fundamentals</a></li>
+          <li><a href="https://www.youtube.com/watch?v=XKHEtdqhLK8" target="_blank" rel="noopener">YouTube — Python Project for Beginners: Build a Calculator (Tech With Tim)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=SqvVm3QiQVU" target="_blank" rel="noopener">YouTube — How to Structure a Python Project (ArjanCodes)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="04-functions-and-modules.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Functions, Modules &amp; Packages</span>
+      </a>
+      <a href="06-numpy-introduction.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Introduction to NumPy &amp; Arrays</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
+

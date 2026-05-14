@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Types, Variables &amp; Operators | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="01-introduction-to-python-for-ai.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="03-control-flow.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Data Types, Variables &amp; Operators</span>
+    </nav>
+    <h1>Data Types, Variables &amp; Operators</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link active">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Every value in a Python program has a type. Whether you are storing a temperature reading, a patient name, or a list of model predictions, Python's built-in data types give you the right tool for the job. Understanding types and how to manipulate them with operators is the foundation of all AI data pipelines.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Work with Python's core types: <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>, <code>list</code>, <code>tuple</code>, <code>dict</code>, and <code>set</code>.</li>
+          <li>Declare variables using Python's snake_case convention.</li>
+          <li>Use arithmetic, comparison, logical, and membership operators.</li>
+          <li>Convert between types with type casting.</li>
+          <li>Format strings using f-strings.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="variables">Variables</h2>
+      <p>A variable is a name that refers to a value. Python uses dynamic typing — you don't declare the type, Python infers it. Variable names should be lowercase with underscores (<strong>snake_case</strong>), descriptive, and never start with a number.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>learning_rate = 0.001
+num_epochs = 50
+model_name = "ResNet50"
+is_trained = False
+
+print(type(learning_rate))   # &lt;class 'float'&gt;
+print(type(num_epochs))      # &lt;class 'int'&gt;
+print(type(model_name))      # &lt;class 'str'&gt;
+print(type(is_trained))      # &lt;class 'bool'&gt;</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="numeric">Numeric Types: int and float</h2>
+      <p>Integers (<code>int</code>) are whole numbers. Floats (<code>float</code>) are decimal numbers. In AI, floats are everywhere — model weights, loss values, probabilities, and pixel intensities are all floats.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>samples = 1000          # int
+accuracy = 0.9423       # float
+loss = 1.4e-3           # scientific notation = 0.0014
+
+print(10 + 3)    # 13   — addition
+print(10 - 3)    # 7    — subtraction
+print(10 * 3)    # 30   — multiplication
+print(10 / 3)    # 3.333 — true division (always float)
+print(10 // 3)   # 3    — floor division
+print(10 % 3)    # 1    — modulo (remainder)
+print(10 ** 3)   # 1000 — exponentiation
+
+print(abs(-5))            # 5
+print(round(3.14159, 2))  # 3.14</code></pre>
+      </div>
+      <div class="callout callout-warn">
+        <span class="callout-icon">⚠️</span>
+        <span>Floating-point arithmetic is not always exact. <code>0.1 + 0.2</code> gives <code>0.30000000000000004</code> due to IEEE 754 binary representation. Use <code>round()</code> when displaying results.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="strings">Strings</h2>
+      <p>Strings (<code>str</code>) store text. In AI you use them for dataset paths, column names, labels, and log messages. Python strings are immutable — operations always return a new string.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>dataset_path = "/data/train/images"
+label = "cat"
+
+# f-strings — the modern way to format strings
+epoch = 5
+acc = 0.9423
+print(f"Epoch {epoch}: accuracy = {acc:.2f}")
+# Epoch 5: accuracy = 0.94
+
+print(label.upper())           # 'CAT'
+print(label.capitalize())      # 'Cat'
+print("  hello  ".strip())     # 'hello'
+print("a,b,c".split(","))      # ['a', 'b', 'c']
+print("hello".replace("l","r"))# 'herro'
+print(len("neural network"))   # 14
+
+# Slicing
+path = "/data/train/images"
+print(path[0])     # '/'
+print(path[-6:])   # 'images'
+print(path[1:5])   # 'data'</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="collections">Lists, Tuples, Dicts, and Sets</h2>
+      <p>Python's collection types let you group multiple values. Each has different characteristics that matter when working with data.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># List — ordered, mutable, allows duplicates
+scores = [0.92, 0.87, 0.95, 0.91]
+scores.append(0.98)
+scores[0] = 0.93
+print(scores[1])    # 0.87
+print(len(scores))  # 5
+
+# Tuple — ordered, immutable
+image_size = (224, 224, 3)
+print(image_size[2])  # 3
+
+# Dictionary — key-value pairs
+model_config = {
+    "architecture": "ResNet50",
+    "learning_rate": 0.001,
+    "epochs": 100,
+    "batch_size": 32
+}
+print(model_config["learning_rate"])  # 0.001
+model_config["dropout"] = 0.5
+print(list(model_config.keys()))
+
+# Set — unordered, unique values only
+labels = {"cat", "dog", "cat", "bird"}
+print(labels)  # {'cat', 'dog', 'bird'}</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="operators">Comparison and Logical Operators</h2>
+      <p>Comparison operators return a boolean (<code>True</code> or <code>False</code>). Logical operators combine boolean expressions. These are essential in conditionals and data filtering.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>accuracy = 0.95
+threshold = 0.90
+
+print(accuracy > threshold)    # True
+print(accuracy == threshold)   # False
+print(accuracy != threshold)   # True
+print(accuracy >= 0.95)        # True
+
+is_overfitting = True
+val_accuracy = 0.80
+
+print(accuracy > threshold and not is_overfitting)  # False
+print(accuracy > threshold or val_accuracy > 0.75)  # True
+
+classes = ["cat", "dog", "bird"]
+print("cat" in classes)       # True
+print("fish" not in classes)  # True</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="type-casting">Type Casting</h2>
+      <p>You can convert between types using constructor functions. This is common when reading data from files or user input.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>print(int(3.9))       # 3   — truncates, does not round
+print(float(5))       # 5.0
+print(str(100))       # '100'
+print(bool(0))        # False
+print(bool(1))        # True
+print(bool(""))       # False — empty string is falsy
+print(bool("hello"))  # True
+
+# Reading input always gives a string
+age_input = "28"
+age = int(age_input)
+print(age + 2)        # 30</code></pre>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#variables">What naming convention does Python use for variables and why?</a></li>
+          <li><a href="#numeric">What is the difference between <code>/</code> and <code>//</code> in Python?</a></li>
+          <li><a href="#strings">How do you format a variable inside a string in modern Python?</a></li>
+          <li><a href="#collections">What is the difference between a list and a tuple?</a></li>
+          <li><a href="#operators">What does the <code>in</code> operator do?</a></li>
+          <li><a href="#type-casting">What does <code>int(3.9)</code> return and why?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Create variables representing an ML experiment: <code>model_name</code> (string), <code>num_layers</code> (int), <code>dropout_rate</code> (float), <code>is_pretrained</code> (bool), <code>class_labels</code> (list of 5 strings). Print each variable and its type using <code>type()</code>.</li>
+          <li>Write a script that stores a model's training accuracy (float) and uses an f-string to print: <code>"Model achieved XX.X% accuracy after N epochs."</code> — format the accuracy as a percentage with 1 decimal place.</li>
+          <li>Create a dictionary called <code>hyperparameters</code> with at least 5 keys. Add a new key after creation, update one value, and print all keys and values using a loop.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://docs.python.org/3/library/stdtypes.html" target="_blank" rel="noopener">Official Python Docs — Built-in Types</a></li>
+          <li><a href="https://docs.python.org/3/tutorial/introduction.html" target="_blank" rel="noopener">Official Python Tutorial — An Informal Introduction to Python</a></li>
+          <li><a href="https://realpython.com/python-data-types/" target="_blank" rel="noopener">Real Python — Basic Data Types in Python</a></li>
+          <li><a href="https://www.youtube.com/watch?v=khKv-8q7YmY" target="_blank" rel="noopener">YouTube — Python Data Types Tutorial (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Z1Yd7upQsXY" target="_blank" rel="noopener">YouTube — Python Variables and Data Types (Tech With Tim)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="01-introduction-to-python-for-ai.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Introduction to Python for AI</span>
+      </a>
+      <a href="03-control-flow.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Control Flow: Loops &amp; Conditionals</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

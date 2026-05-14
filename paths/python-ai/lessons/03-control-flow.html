@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control Flow: Loops &amp; Conditionals | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="02-data-types-and-variables.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="04-functions-and-modules.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Control Flow: Loops &amp; Conditionals</span>
+    </nav>
+    <h1>Control Flow: Loops &amp; Conditionals</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link active">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Control flow is how a program makes decisions and repeats work. In AI and data pipelines, conditionals decide how to handle missing values or outliers, and loops process every row in a dataset or every epoch of training. Mastering these patterns is essential before working with any data library.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Use <code>if</code>, <code>elif</code>, and <code>else</code> to branch logic.</li>
+          <li>Use <code>for</code> loops to iterate over sequences and ranges.</li>
+          <li>Use <code>while</code> loops for condition-based repetition.</li>
+          <li>Control loop execution with <code>break</code>, <code>continue</code>, and <code>pass</code>.</li>
+          <li>Write concise list comprehensions.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="conditionals">Conditionals: if / elif / else</h2>
+      <p>Python uses indentation (4 spaces) to define blocks — there are no curly braces. The <code>if</code> statement evaluates a condition and runs its block only when the condition is <code>True</code>.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>accuracy = 0.87
+
+if accuracy >= 0.95:
+    print("Excellent — deploy to production")
+elif accuracy >= 0.80:
+    print("Good — continue tuning")
+elif accuracy >= 0.60:
+    print("Mediocre — review architecture")
+else:
+    print("Poor — check data quality")
+
+# Output: Good — continue tuning</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Python has a one-line ternary expression: <code>label = "pass" if score &gt;= 0.5 else "fail"</code>. Use it for simple assignments, but prefer full <code>if/else</code> blocks for complex logic.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="for-loops">for Loops</h2>
+      <p>The <code>for</code> loop iterates over any sequence — a list, string, dictionary, or range. It is the workhorse of data processing.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># Iterate over a list
+losses = [1.42, 1.10, 0.83, 0.61, 0.45]
+for loss in losses:
+    print(f"Loss: {loss:.2f}")
+
+# range(start, stop, step)
+for epoch in range(1, 6):
+    print(f"Epoch {epoch}")
+
+# enumerate — gives index AND value
+labels = ["cat", "dog", "bird"]
+for i, label in enumerate(labels):
+    print(f"{i}: {label}")
+
+# Iterate over a dictionary
+config = {"lr": 0.001, "batch": 32, "epochs": 50}
+for key, value in config.items():
+    print(f"{key} = {value}")</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="while-loops">while Loops</h2>
+      <p>The <code>while</code> loop runs as long as its condition stays <code>True</code>. In AI it is useful for training loops that run until a loss threshold is reached.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>loss = 2.0
+epoch = 0
+
+while loss > 0.5:
+    loss *= 0.75
+    epoch += 1
+    print(f"Epoch {epoch}: loss = {loss:.4f}")
+
+print(f"Converged after {epoch} epochs")</code></pre>
+      </div>
+      <div class="callout callout-warn">
+        <span class="callout-icon">⚠️</span>
+        <span>Always ensure a <code>while</code> loop's condition will eventually become <code>False</code>, or add a maximum iteration counter — otherwise your program will loop forever.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="break-continue">break, continue, and pass</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>accuracies = [0.72, 0.81, 0.95, 0.60, 0.88]
+
+# break — exit the loop immediately
+for acc in accuracies:
+    if acc >= 0.95:
+        print(f"Target reached: {acc}")
+        break
+
+# continue — skip to the next iteration
+for acc in accuracies:
+    if acc < 0.80:
+        continue
+    print(f"Accepted: {acc}")
+
+# pass — placeholder for empty blocks
+for acc in accuracies:
+    if acc < 0.70:
+        pass
+    else:
+        print(f"OK: {acc}")</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="comprehensions">List Comprehensions</h2>
+      <p>List comprehensions are a concise, Pythonic way to build a new list by transforming or filtering an existing sequence. They replace many simple <code>for</code> loops in one readable line.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>raw_scores = [0.92, 0.45, 0.87, 0.30, 0.95, 0.61]
+
+# Transform: multiply each score by 100
+percentages = [score * 100 for score in raw_scores]
+# [92.0, 45.0, 87.0, 30.0, 95.0, 61.0]
+
+# Filter: keep only passing scores
+passing = [s for s in raw_scores if s >= 0.60]
+# [0.92, 0.87, 0.95, 0.61]
+
+# Transform + filter combined
+high_pct = [round(s * 100, 1) for s in raw_scores if s >= 0.80]
+# [92.0, 87.0, 95.0]
+
+# Dictionary comprehension
+labels = ["cat", "dog", "bird"]
+label_to_id = {label: i for i, label in enumerate(labels)}
+# {'cat': 0, 'dog': 1, 'bird': 2}</code></pre>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#conditionals">How does Python define code blocks — what replaces curly braces?</a></li>
+          <li><a href="#for-loops">What does <code>enumerate()</code> give you that a plain <code>for</code> loop does not?</a></li>
+          <li><a href="#while-loops">When would you choose a <code>while</code> loop over a <code>for</code> loop?</a></li>
+          <li><a href="#break-continue">What is the difference between <code>break</code> and <code>continue</code>?</a></li>
+          <li><a href="#comprehensions">Rewrite as a list comprehension: <code>result = []</code> then <code>for x in range(10): result.append(x**2)</code>.</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Write a training simulation: start with <code>loss = 3.0</code>. Use a <code>while</code> loop that reduces loss by 15% each epoch and prints the epoch number and loss. Stop when loss drops below <code>0.1</code> or after 100 epochs. Print how many epochs it took.</li>
+          <li>Given a list of 10 model accuracy scores (floats between 0 and 1), use a list comprehension to: (a) convert all to percentages; (b) filter only scores above 80%; (c) produce a list of "PASS"/"FAIL" strings based on a 75% threshold.</li>
+          <li>Create a dictionary of 5 student names mapped to their exam scores. Loop through it and print a personalised message: "Excellent" for 90+, "Pass" for 60–89, "Fail" for below 60.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://docs.python.org/3/tutorial/controlflow.html" target="_blank" rel="noopener">Official Python Docs — More Control Flow Tools</a></li>
+          <li><a href="https://realpython.com/python-conditional-statements/" target="_blank" rel="noopener">Real Python — Conditional Statements in Python</a></li>
+          <li><a href="https://realpython.com/list-comprehension-python/" target="_blank" rel="noopener">Real Python — When to Use a List Comprehension</a></li>
+          <li><a href="https://www.youtube.com/watch?v=6iF8Xb7Z3wQ" target="_blank" rel="noopener">YouTube — Python Loops and Conditionals (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=3dt4OGnU5sM" target="_blank" rel="noopener">YouTube — List Comprehensions in Python (Tech With Tim)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="02-data-types-and-variables.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Data Types, Variables &amp; Operators</span>
+      </a>
+      <a href="04-functions-and-modules.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Functions, Modules &amp; Packages</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

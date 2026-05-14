@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learn Full-Stack Web Development | DevPath</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .path-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+    .path-card {
+      flex: 1 1 0;
+      min-width: 200px;
+    }
+  </style>
 </head>
 <body>
 <nav class="site-nav">
@@ -14,6 +27,7 @@
     <li><a href="foundations/index.html">Foundations</a></li>
     <li><a href="paths/full-stack-javascript/index.html">Full Stack JS</a></li>
     <li><a href="paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li>
+    <li><a href="paths/python-ai/index.html">Python for AI</a></li>
   </ul>
 </nav>
 <section class="hero">
@@ -26,7 +40,10 @@
   </div>
 </section>
 <section class="section">
-  <div class="section-header"><h2>Choose Your Learning Path</h2><p>All paths start with Foundations. After that, pick the track that fits your goals.</p></div>
+  <div class="section-header">
+    <h2>Choose Your Learning Path</h2>
+    <p>All paths start with Foundations. After that, pick the track that fits your goals.</p>
+  </div>
   <div class="path-grid">
     <a href="foundations/index.html" class="path-card" data-path="foundations">
       <div class="path-card-icon">🧱</div>
@@ -46,9 +63,17 @@
       <p>Learn Ruby, then harness Rails to build polished web applications from back to front.</p>
       <div class="path-tags"><span class="tag">Ruby</span><span class="tag">Rails</span><span class="tag">SQL</span><span class="tag">MVC</span></div>
     </a>
+    <a href="paths/python-ai/index.html" class="path-card" data-path="python-ai">
+      <div class="path-card-icon">🐍</div>
+      <h3>Python for AI</h3>
+      <p>Master Python, NumPy, Pandas, and Matplotlib — the core data toolkit for every AI and Machine Learning engineer.</p>
+      <div class="path-tags"><span class="tag">Python</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span></div>
+    </a>
   </div>
 </section>
-<footer class="site-footer"><p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>. Architecture ready for content seeding.</p></footer>
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
 <script src="js/main.js"></script>
 </body>
 </html>

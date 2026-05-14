@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Functions, Modules &amp; Packages | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="03-control-flow.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="05-project-data-calculator.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Functions, Modules &amp; Packages</span>
+    </nav>
+    <h1>Functions, Modules &amp; Packages</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link active">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Functions are reusable blocks of code that take inputs and return outputs. In AI workflows, you wrap every repeated operation — data cleaning, feature engineering, metric calculation — into a function. Modules and packages let you organise those functions and tap into Python's vast library ecosystem.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Define functions with <code>def</code>, parameters, default values, and return statements.</li>
+          <li>Understand variable scope: local vs global.</li>
+          <li>Write lambda functions for short one-line operations.</li>
+          <li>Import standard library modules and third-party packages.</li>
+          <li>Organise your own code into modules.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="defining-functions">Defining Functions</h2>
+      <p>Use the <code>def</code> keyword to define a function. A function can accept parameters, compute something, and <code>return</code> a result. Good AI code wraps each pipeline stage into its own function.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>def calculate_accuracy(correct, total):
+    """Return accuracy as a float between 0 and 1."""
+    if total == 0:
+        return 0.0
+    return correct / total
+
+result = calculate_accuracy(87, 100)
+print(result)          # 0.87
+print(f"{result:.1%}") # 87.0%</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="default-args">Default Arguments and *args / **kwargs</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># Default argument — used when caller omits it
+def train_model(epochs=10, learning_rate=0.001, verbose=True):
+    for epoch in range(1, epochs + 1):
+        if verbose:
+            print(f"Epoch {epoch}/{epochs} — lr={learning_rate}")
+
+train_model()               # uses all defaults
+train_model(epochs=5)       # override just epochs
+train_model(50, 0.0001, False)
+
+# *args — variable number of positional arguments
+def average(*scores):
+    return sum(scores) / len(scores)
+
+print(average(0.9, 0.85, 0.92))  # 0.89
+
+# **kwargs — variable number of keyword arguments
+def log_metrics(**metrics):
+    for name, value in metrics.items():
+        print(f"  {name}: {value:.4f}")
+
+log_metrics(loss=0.231, accuracy=0.912, f1=0.905)</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="return-values">Return Values</h2>
+      <p>Functions can return multiple values as a tuple — useful for returning a result alongside metadata.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>def evaluate_model(predictions, labels):
+    """Return accuracy and number of errors."""
+    correct = sum(p == l for p, l in zip(predictions, labels))
+    total = len(labels)
+    accuracy = correct / total
+    errors = total - correct
+    return accuracy, errors
+
+preds  = [1, 0, 1, 1, 0]
+actual = [1, 0, 0, 1, 1]
+
+acc, errs = evaluate_model(preds, actual)
+print(f"Accuracy: {acc:.0%}, Errors: {errs}")
+# Accuracy: 60%, Errors: 2</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="scope">Variable Scope</h2>
+      <p>Variables defined inside a function are <strong>local</strong> — they only exist within that function. Variables defined outside are <strong>global</strong>.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>threshold = 0.80  # global variable
+
+def check_accuracy(acc):
+    result = "pass" if acc >= threshold else "fail"  # reads global
+    return result
+
+print(check_accuracy(0.92))  # pass
+print(check_accuracy(0.71))  # fail
+
+# result is not accessible here — it is local to check_accuracy</code></pre>
+      </div>
+      <div class="callout callout-warn">
+        <span class="callout-icon">⚠️</span>
+        <span>Avoid modifying global variables inside functions — it makes code hard to debug. Pass values as parameters and return results instead.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="lambda">Lambda Functions</h2>
+      <p>A lambda is a small anonymous function defined in a single expression. Commonly used with <code>sorted()</code>, <code>map()</code>, and <code>filter()</code>.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>normalize = lambda x, max_val: x / max_val
+print(normalize(128, 255))  # 0.502
+
+# Sort models by accuracy descending
+models = [
+    {"name": "ModelA", "accuracy": 0.87},
+    {"name": "ModelB", "accuracy": 0.92},
+    {"name": "ModelC", "accuracy": 0.79},
+]
+ranked = sorted(models, key=lambda m: m["accuracy"], reverse=True)
+for m in ranked:
+    print(f"{m['name']}: {m['accuracy']}")</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="modules">Importing Modules</h2>
+      <p>A module is any Python file. Python's standard library includes hundreds of useful modules. Third-party packages like NumPy and Pandas are imported the same way after installing with pip.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># Import whole module
+import math
+print(math.sqrt(144))  # 12.0
+print(math.pi)         # 3.14159...
+
+# Import specific names
+from math import log, exp
+print(log(10))         # 2.302...
+
+# Standard aliases used in every AI project
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="own-modules">Creating Your Own Module</h2>
+      <p>Any <code>.py</code> file is a module. Create <code>metrics.py</code> in the same directory and import from it in any other file.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># metrics.py
+def accuracy(correct, total):
+    """Return accuracy as a float."""
+    return correct / total if total else 0.0
+
+def precision(true_positives, false_positives):
+    """Return precision score."""
+    denom = true_positives + false_positives
+    return true_positives / denom if denom else 0.0</code></pre>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># main.py — import and use your module
+from metrics import accuracy, precision
+
+print(accuracy(90, 100))   # 0.9
+print(precision(45, 5))    # 0.9</code></pre>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#defining-functions">What keyword defines a function in Python and what does <code>return</code> do?</a></li>
+          <li><a href="#default-args">What is the difference between <code>*args</code> and <code>**kwargs</code>?</a></li>
+          <li><a href="#return-values">How do you return multiple values from a Python function?</a></li>
+          <li><a href="#scope">What is the difference between a local and a global variable?</a></li>
+          <li><a href="#lambda">When would you use a lambda instead of a regular function?</a></li>
+          <li><a href="#modules">What is the standard alias for NumPy when importing it?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Write a function <code>normalise(value, min_val, max_val)</code> that returns a min-max normalised value between 0 and 1. Include a docstring. Test it with at least 5 values.</li>
+          <li>Write a function <code>summarise_scores(scores)</code> that accepts a list of floats and returns a dictionary containing the minimum, maximum, mean, and count. Use only built-in Python — no NumPy yet.</li>
+          <li>Create a module called <code>ai_utils.py</code> with at least two functions from this lesson. Import and use them in a separate <code>main.py</code> file.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions" target="_blank" rel="noopener">Official Python Docs — Defining Functions</a></li>
+          <li><a href="https://docs.python.org/3/tutorial/modules.html" target="_blank" rel="noopener">Official Python Docs — Modules</a></li>
+          <li><a href="https://realpython.com/defining-your-own-python-function/" target="_blank" rel="noopener">Real Python — Defining Your Own Python Function</a></li>
+          <li><a href="https://www.youtube.com/watch?v=9Os0o3wzS_I" target="_blank" rel="noopener">YouTube — Python Functions (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=BVfCWuca9nw" target="_blank" rel="noopener">YouTube — Python Modules and Packages (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=25ovCm9jKfA" target="_blank" rel="noopener">YouTube — Lambda Functions in Python (Sentdex)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="03-control-flow.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Control Flow: Loops &amp; Conditionals</span>
+      </a>
+      <a href="05-project-data-calculator.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Project: Data Calculator CLI</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

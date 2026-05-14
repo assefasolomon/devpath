@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to Python for AI | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo">
+    <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>
+    DevPath
+  </a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="../index.html" class="btn btn-blue-outline">&#8592; Course Index</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="02-data-types-and-variables.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Introduction to Python for AI</span>
+    </nav>
+    <h1>Introduction to Python for AI</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link active">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Python has become the dominant language of Artificial Intelligence and Data Science — not by accident, but because its readable syntax, massive ecosystem, and interactive tools make it ideal for exploring data, building models, and communicating results. This lesson explains why Python is the right choice for AI work and gets your environment ready to write real code.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Understand why Python is the primary language for AI and Data Science.</li>
+          <li>Install Python and set up a working development environment.</li>
+          <li>Write and run your first Python script using the interactive interpreter.</li>
+          <li>Understand what pip is and how to install AI libraries.</li>
+          <li>Get familiar with Jupyter Notebooks.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="why-python">Why Python for AI?</h2>
+      <p>Python is used by over 85% of data scientists as their primary tool. Several factors make it the go-to language for AI:</p>
+      <ul>
+        <li><strong>Readable syntax</strong> — Python reads almost like English, so you focus on the problem, not the language.</li>
+        <li><strong>Rich ecosystem</strong> — NumPy, Pandas, Matplotlib, Scikit-learn, TensorFlow, and PyTorch are all Python-first.</li>
+        <li><strong>Interactive development</strong> — Jupyter Notebooks let you write code, see results, and document thinking in one place.</li>
+        <li><strong>Community</strong> — The largest open-source AI community means fast answers and continuous library updates.</li>
+      </ul>
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ️</span>
+        <span>Every major AI framework — TensorFlow, PyTorch, Scikit-learn, Hugging Face Transformers — has Python as its primary interface. Learning Python is learning the language of modern AI.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="installation">Installing Python</h2>
+      <p>The recommended approach for AI work is to install Python through <strong>Anaconda</strong>, a distribution that bundles Python with the most important data science libraries.</p>
+      <ol>
+        <li>Download Anaconda from <a href="https://www.anaconda.com/download" target="_blank" rel="noopener">anaconda.com/download</a>.</li>
+        <li>Run the installer and accept default settings.</li>
+        <li>Open <strong>Anaconda Navigator</strong> and launch <strong>Jupyter Notebook</strong> or <strong>VS Code</strong>.</li>
+      </ol>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Prefer a lighter setup? Install Python directly from <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org</a> and use <code>pip</code> to install libraries individually.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="first-script">Your First Python Script</h2>
+      <p>Open a terminal and type <code>python3</code> to enter the interactive interpreter.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>>>> print("Hello, AI world!")
+Hello, AI world!
+
+>>> 2 + 2
+4
+
+>>> "Python" * 3
+'PythonPythonPython'</code></pre>
+      </div>
+      <p>To write a saved script, create a file <code>hello.py</code> and run it:</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># hello.py
+name = "AI Engineer"
+print(f"Hello, {name}!")
+
+import sys
+print("Python version:", sys.version)</code></pre>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>$ python3 hello.py
+Hello, AI Engineer!
+Python version: 3.11.5</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="pip">Installing Libraries with pip</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># Install the core AI/Data Science stack
+pip install numpy pandas matplotlib
+
+# Verify
+pip show numpy</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="jupyter">Jupyter Notebooks</h2>
+      <p>Jupyter Notebooks are the standard tool for AI and data work. Code, output, and explanation all live in the same document.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># Launch from terminal
+jupyter notebook
+# or
+jupyter lab</code></pre>
+      </div>
+      <p>A browser tab opens at <code>http://localhost:8888</code>. Press <strong>Shift + Enter</strong> to run a cell.</p>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#why-python">Name three reasons why Python is preferred for AI development.</a></li>
+          <li><a href="#installation">What is Anaconda and why is it recommended for data science?</a></li>
+          <li><a href="#pip">What command installs NumPy, Pandas, and Matplotlib at once?</a></li>
+          <li><a href="#jupyter">What is a Jupyter Notebook and how do you run a cell?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Install Python. Open the interactive interpreter and run at least 5 expressions — arithmetic, strings, and a <code>print()</code> call.</li>
+          <li>Create <code>setup_check.py</code>. Import <code>sys</code>, <code>numpy</code>, <code>pandas</code>, and <code>matplotlib</code>. Print each version using <code>.__version__</code>.</li>
+          <li>Open a Jupyter Notebook. Write a Markdown heading "My Python for AI Setup" in cell 1. Run your version-check code in cell 2.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://docs.python.org/3/tutorial/index.html" target="_blank" rel="noopener">Official Python Tutorial — docs.python.org</a></li>
+          <li><a href="https://www.anaconda.com/download" target="_blank" rel="noopener">Anaconda Distribution — anaconda.com</a></li>
+          <li><a href="https://jupyter.org/documentation" target="_blank" rel="noopener">Jupyter Documentation — jupyter.org</a></li>
+          <li><a href="https://www.youtube.com/watch?v=rfscVS0vtbw" target="_blank" rel="noopener">YouTube — Learn Python Full Course (freeCodeCamp)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=HW29067qVWk" target="_blank" rel="noopener">YouTube — Jupyter Notebook Tutorial (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=_uQrJ0TkZlc" target="_blank" rel="noopener">YouTube — Python for Beginners (Programming with Mosh)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="../index.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Python for AI — Course Index</span>
+      </a>
+      <a href="02-data-types-and-variables.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Data Types, Variables &amp; Operators</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
