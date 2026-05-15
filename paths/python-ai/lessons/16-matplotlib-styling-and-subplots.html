@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styling, Subplots &amp; Customization | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="15-matplotlib-chart-types.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="17-capstone-project.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Styling, Subplots &amp; Customization</span>
+    </nav>
+    <h1>Styling, Subplots &amp; Customization</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link active">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>A chart that communicates clearly is more valuable than one that is merely correct. Professional data scientists spend time making their visualisations clean, consistent, and readable. This lesson teaches you how to use Matplotlib's styling system, create multi-panel figures with subplots, and customise every element of a chart so your work looks publication-ready.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Apply built-in styles with <code>plt.style.use()</code>.</li>
+          <li>Create multi-panel figures with <code>plt.subplots(rows, cols)</code>.</li>
+          <li>Share axes between subplots.</li>
+          <li>Customise tick marks, tick labels, and spines.</li>
+          <li>Add annotations and text to charts.</li>
+          <li>Use <code>plt.tight_layout()</code> and <code>plt.subplots_adjust()</code> for spacing.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="styles">Built-in Styles</h2>
+      <p>Matplotlib ships with dozens of built-in styles. Applying a style changes the background, colours, fonts, and grid in one line — no manual configuration needed.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# List all available styles
+print(plt.style.available)
+
+# Apply a style — must be called before creating the figure
+plt.style.use("seaborn-v0_8-darkgrid")
+
+x = np.linspace(0, 10, 100)
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.plot(x, np.sin(x), label="sin(x)")
+ax.plot(x, np.cos(x), label="cos(x)")
+ax.set_title("Styled Chart — seaborn-darkgrid")
+ax.legend()
+plt.tight_layout()
+plt.show()
+
+# Other useful styles:
+# "ggplot"           — R's ggplot2 look
+# "fivethirtyeight"  — FiveThirtyEight journalism style
+# "bmh"              — Bayesian Methods for Hackers
+# "seaborn-v0_8-whitegrid"  — clean white background
+# "dark_background"  — dark theme</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Use <code>with plt.style.context("ggplot"):</code> to apply a style only inside a block without changing the global default for the rest of your script.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="subplots">Creating Subplots</h2>
+      <p><code>plt.subplots(rows, cols)</code> creates a grid of axes. This is how you build a dashboard of related charts in a single figure.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+np.random.seed(42)
+x = np.linspace(0, 10, 100)
+
+# 2 rows, 2 columns — 4 subplots
+fig, axes = plt.subplots(2, 2, figsize=(10, 7))
+
+# axes is a 2D array — access with [row, col]
+axes[0, 0].plot(x, np.sin(x), color="steelblue")
+axes[0, 0].set_title("Line: sin(x)")
+
+axes[0, 1].bar(["A", "B", "C", "D"],
+               [0.85, 0.92, 0.78, 0.95],
+               color="tomato")
+axes[0, 1].set_title("Bar Chart")
+
+axes[1, 0].scatter(np.random.randn(50),
+                   np.random.randn(50),
+                   alpha=0.6, color="mediumseagreen")
+axes[1, 0].set_title("Scatter Plot")
+
+axes[1, 1].hist(np.random.normal(0, 1, 300),
+                bins=20, color="mediumpurple", edgecolor="white")
+axes[1, 1].set_title("Histogram")
+
+# Add a title for the whole figure
+fig.suptitle("Data Visualisation Dashboard", fontsize=16, fontweight="bold")
+
+plt.tight_layout()
+plt.savefig("dashboard.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="shared-axes">Shared Axes</h2>
+      <p>When subplots show related data, sharing axes makes comparison easier and keeps scales consistent.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+epochs = np.arange(1, 31)
+np.random.seed(0)
+train_loss = 2.0 * np.exp(-0.1 * epochs) + np.random.normal(0, 0.05, 30)
+val_loss   = 2.0 * np.exp(-0.09 * epochs) + np.random.normal(0, 0.07, 30)
+train_acc  = 1 - np.exp(-0.12 * epochs) + np.random.normal(0, 0.02, 30)
+val_acc    = 1 - np.exp(-0.10 * epochs) + np.random.normal(0, 0.03, 30)
+
+# Share x-axis — both plots scroll together
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9, 6), sharex=True)
+
+ax1.plot(epochs, train_loss, label="Train Loss", color="steelblue")
+ax1.plot(epochs, val_loss, label="Val Loss", color="tomato", linestyle="--")
+ax1.set_ylabel("Loss")
+ax1.legend()
+ax1.grid(True, alpha=0.3)
+ax1.set_title("Training Curves")
+
+ax2.plot(epochs, train_acc, label="Train Acc", color="steelblue")
+ax2.plot(epochs, val_acc, label="Val Acc", color="tomato", linestyle="--")
+ax2.set_ylabel("Accuracy")
+ax2.set_xlabel("Epoch")
+ax2.legend()
+ax2.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.savefig("training_curves.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="ticks">Customising Ticks and Spines</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots(figsize=(8, 4))
+x = np.linspace(0, 2 * np.pi, 100)
+ax.plot(x, np.sin(x), color="steelblue", linewidth=2)
+
+# Custom tick positions and labels
+ax.set_xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi])
+ax.set_xticklabels(["0", "π/2", "π", "3π/2", "2π"], fontsize=11)
+
+# Tick direction and size
+ax.tick_params(axis="both", direction="in", length=6, width=1.2)
+
+# Remove top and right spines for a cleaner look
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
+ax.set_title("Sine Wave — Custom Ticks")
+ax.set_ylabel("sin(x)")
+plt.tight_layout()
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="annotations">Annotations and Text</h2>
+      <p>Annotations draw the reader's attention to a specific point or region in the chart. Use them to highlight maximums, thresholds, or key events.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+np.random.seed(1)
+epochs = np.arange(1, 21)
+loss = 2.0 * np.exp(-0.2 * epochs) + np.random.normal(0, 0.04, 20)
+best_epoch = np.argmin(loss) + 1
+best_loss  = loss[best_epoch - 1]
+
+fig, ax = plt.subplots(figsize=(9, 4))
+ax.plot(epochs, loss, color="steelblue", linewidth=2)
+
+# Annotate the best point with an arrow
+ax.annotate(
+    f"Best: {best_loss:.3f}",
+    xy=(best_epoch, best_loss),
+    xytext=(best_epoch + 3, best_loss + 0.3),
+    arrowprops=dict(arrowstyle="->", color="tomato"),
+    fontsize=11, color="tomato"
+)
+
+# Mark the point with a dot
+ax.scatter([best_epoch], [best_loss], color="tomato", zorder=5, s=80)
+
+# Add a horizontal threshold line
+ax.axhline(0.3, color="gray", linestyle=":", linewidth=1.5,
+           label="Target threshold")
+
+ax.set_title("Loss with Best Epoch Annotated")
+ax.set_xlabel("Epoch")
+ax.set_ylabel("Loss")
+ax.legend()
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig("annotated_loss.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="layout">Layout and Spacing</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+fig, axes = plt.subplots(1, 3, figsize=(12, 4))
+x = np.linspace(0, 10, 100)
+
+for i, ax in enumerate(axes):
+    ax.plot(x, np.sin(x + i), color=["steelblue", "tomato", "seagreen"][i])
+    ax.set_title(f"Panel {i+1}")
+    ax.set_xlabel("x")
+    ax.grid(True, alpha=0.3)
+
+# tight_layout — auto-fix overlapping labels
+plt.tight_layout()
+
+# Or fine-tune manually
+# plt.subplots_adjust(left=0.05, right=0.95,
+#                     top=0.90, bottom=0.12,
+#                     wspace=0.3, hspace=0.4)
+
+fig.suptitle("Three Panel Figure", fontsize=14, y=1.02)
+plt.savefig("three_panels.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#styles">How do you apply a built-in style to a Matplotlib figure?</a></li>
+          <li><a href="#subplots">How do you access the third subplot in a 2×2 grid?</a></li>
+          <li><a href="#shared-axes">When would you use <code>sharex=True</code> between subplots?</a></li>
+          <li><a href="#annotations">What is the difference between <code>ax.text()</code> and <code>ax.annotate()</code>?</a></li>
+          <li><a href="#layout">What does <code>plt.tight_layout()</code> fix automatically?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Create a 2×2 subplot figure showing 4 different chart types (line, bar, scatter, histogram) all using the same <code>"ggplot"</code> style. Add a <code>fig.suptitle()</code>. Save as <code>four_charts.png</code>.</li>
+          <li>Simulate 25 epochs of training and validation loss. Create a 2×1 figure with shared x-axis: top panel shows loss, bottom panel shows accuracy. Both panels must have legends, labels, and grids. Save as <code>shared_axes.png</code>.</li>
+          <li>Create a line chart of any dataset. Annotate the maximum and minimum points with arrows and labels showing their values. Add a horizontal line showing the mean. Remove the top and right spines. Save as <code>annotated_chart.png</code>.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html" target="_blank" rel="noopener">Matplotlib Official Docs — Style Sheets Reference</a></li>
+          <li><a href="https://matplotlib.org/stable/tutorials/intermediate/arranging_axes.html" target="_blank" rel="noopener">Matplotlib Official Docs — Arranging Axes</a></li>
+          <li><a href="https://matplotlib.org/stable/tutorials/text/annotations.html" target="_blank" rel="noopener">Matplotlib Official Docs — Annotations</a></li>
+          <li><a href="https://realpython.com/python-matplotlib-guide/" target="_blank" rel="noopener">Real Python — Python Plotting with Matplotlib</a></li>
+          <li><a href="https://www.youtube.com/watch?v=UO98lJQ3QGI" target="_blank" rel="noopener">YouTube — Matplotlib Subplots and Styling (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=3Xc3CA655Y4" target="_blank" rel="noopener">YouTube — Matplotlib Full Course (freeCodeCamp)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="15-matplotlib-chart-types.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Chart Types: Line, Bar, Scatter &amp; Histogram</span>
+      </a>
+      <a href="17-capstone-project.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Capstone: Full Data Analysis &amp; Visualization Report</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capstone: Full Data Analysis &amp; Visualization Report | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="16-matplotlib-styling-and-subplots.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="../index.html" class="btn btn-blue">Course Index &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Capstone: Full Data Analysis &amp; Visualization Report</span>
+    </nav>
+    <h1>🏆 Capstone: Full Data Analysis &amp; Visualization Report</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link active is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Congratulations on reaching the capstone. This is your final project for the Python for AI path — a complete, end-to-end data analysis and visualisation report that combines everything you have learned across all four units. You will load real data, clean it with Pandas, analyse it with NumPy, and communicate your findings with a professional multi-panel Matplotlib figure. This is what real data science work looks like.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Project Overview</div>
+        <ul>
+          <li>Load and clean a real dataset using Pandas.</li>
+          <li>Perform numerical analysis using NumPy.</li>
+          <li>Answer five analytical questions with code and printed findings.</li>
+          <li>Produce a professional 6-panel visualisation figure saved as a PNG.</li>
+          <li>Organise everything into clean, modular Python files.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="dataset">The Dataset</h2>
+      <p>Use the <strong>World Happiness Report dataset</strong>. Download it and save as <code>happiness.csv</code>.</p>
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ️</span>
+        <span>Download from: <a href="https://raw.githubusercontent.com/datasets/world-happiness/main/data/2023.csv" target="_blank" rel="noopener">World Happiness Report 2023 — CSV</a>. Save as <code>happiness.csv</code> in your project folder. Key columns: <code>Country name</code>, <code>Ladder score</code> (happiness score), <code>Logged GDP per capita</code>, <code>Social support</code>, <code>Healthy life expectancy</code>, <code>Freedom to make life choices</code>, <code>Generosity</code>, <code>Perceptions of corruption</code>, <code>Regional indicator</code>.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="requirements">Requirements</h2>
+      <ul>
+        <li>Code split into two files: <code>analysis.py</code> (data loading, cleaning, analysis) and <code>visualise.py</code> (all charts).</li>
+        <li><code>main.py</code> imports and runs both modules in sequence.</li>
+        <li>All functions must have docstrings.</li>
+        <li>Use <code>plt.style.use("seaborn-v0_8-whitegrid")</code> for all charts.</li>
+        <li>Final figure saved as <code>happiness_report.png</code> at <code>dpi=150</code>.</li>
+        <li>Script runs end-to-end with <code>python3 main.py</code>.</li>
+      </ul>
+
+      <h2 class="lesson-section-title" id="analytical-questions">Five Analytical Questions</h2>
+      <p>Your <code>analysis.py</code> must answer all five questions with printed output:</p>
+      <ol>
+        <li><strong>Which are the top 10 happiest countries</strong> and what are their scores?</li>
+        <li><strong>Which region has the highest average happiness score</strong>?</li>
+        <li><strong>What is the correlation</strong> between GDP per capita and happiness score?</li>
+        <li><strong>Which factor</strong> (GDP, social support, health, freedom, generosity, corruption) <strong>correlates most strongly</strong> with happiness?</li>
+        <li><strong>How does average happiness differ</strong> between the top and bottom 25% of countries by GDP?</li>
+      </ol>
+
+      <h2 class="lesson-section-title" id="required-charts">Six Required Charts</h2>
+      <p>Your <code>visualise.py</code> must produce a single 3×2 figure containing all six charts:</p>
+      <ol>
+        <li><strong>Top 15 countries</strong> — horizontal bar chart of happiness scores, colour-coded by region.</li>
+        <li><strong>Regional averages</strong> — bar chart of mean happiness score per region, sorted descending.</li>
+        <li><strong>GDP vs Happiness</strong> — scatter plot with a trend line, coloured by region.</li>
+        <li><strong>Distribution of happiness scores</strong> — histogram with mean and median lines annotated.</li>
+        <li><strong>Factor correlations</strong> — horizontal bar chart showing correlation of each factor with happiness score.</li>
+        <li><strong>Top vs Bottom GDP quartile</strong> — side-by-side bar chart comparing mean happiness.</li>
+      </ol>
+
+      <h2 class="lesson-section-title" id="file-structure">File Structure</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>capstone/
+├── happiness.csv          # dataset
+├── analysis.py            # data loading, cleaning, analysis functions
+├── visualise.py           # all 6 charts in one figure
+├── main.py                # runs analysis then visualise
+└── happiness_report.png   # output — generated by running main.py</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="starter-code">Starter Code</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># analysis.py
+import pandas as pd
+import numpy as np
+
+def load_and_clean(filepath):
+    """Load happiness CSV and return a cleaned DataFrame."""
+    df = pd.read_csv(filepath)
+    # YOUR CODE HERE:
+    # - Print shape and column names
+    # - Check and handle missing values
+    # - Rename columns to shorter names if needed
+    # - Return cleaned df
+
+def top_countries(df, n=10):
+    """Return top N happiest countries."""
+    # YOUR CODE HERE
+
+def regional_averages(df):
+    """Return mean happiness score per region, sorted descending."""
+    # YOUR CODE HERE
+
+def gdp_correlation(df):
+    """Return Pearson correlation between GDP and happiness."""
+    # YOUR CODE HERE — use np.corrcoef()
+
+def factor_correlations(df):
+    """Return correlation of each factor with happiness score."""
+    factors = [
+        "Logged GDP per capita",
+        "Social support",
+        "Healthy life expectancy",
+        "Freedom to make life choices",
+        "Generosity",
+        "Perceptions of corruption"
+    ]
+    # YOUR CODE HERE — correlate each factor with Ladder score
+
+def gdp_quartile_happiness(df):
+    """Compare mean happiness between top and bottom 25% GDP countries."""
+    # YOUR CODE HERE — use pd.qcut() or manual percentile with np.percentile()
+
+def print_findings(df):
+    """Print all five analytical findings."""
+    print("\n" + "="*50)
+    print(" WORLD HAPPINESS REPORT — KEY FINDINGS")
+    print("="*50)
+    # YOUR CODE HERE — call each function and print results</code></pre>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># visualise.py
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.style.use("seaborn-v0_8-whitegrid")
+
+def build_report(df):
+    """Build and save the 6-panel happiness report figure."""
+    fig, axes = plt.subplots(3, 2, figsize=(14, 16))
+    fig.suptitle("World Happiness Report 2023 — Data Analysis",
+                 fontsize=18, fontweight="bold", y=0.98)
+
+    # Panel 1 — Top 15 countries horizontal bar chart
+    ax = axes[0, 0]
+    # YOUR CODE HERE
+
+    # Panel 2 — Regional averages bar chart
+    ax = axes[0, 1]
+    # YOUR CODE HERE
+
+    # Panel 3 — GDP vs Happiness scatter plot
+    ax = axes[1, 0]
+    # YOUR CODE HERE
+    # Hint: use np.polyfit() and np.poly1d() for the trend line
+
+    # Panel 4 — Histogram of happiness scores
+    ax = axes[1, 1]
+    # YOUR CODE HERE
+    # Hint: add axvline for mean and median
+
+    # Panel 5 — Factor correlations horizontal bar chart
+    ax = axes[2, 0]
+    # YOUR CODE HERE
+
+    # Panel 6 — Top vs Bottom GDP quartile comparison
+    ax = axes[2, 1]
+    # YOUR CODE HERE
+
+    plt.tight_layout()
+    plt.savefig("happiness_report.png", dpi=150, bbox_inches="tight")
+    print("\nFigure saved: happiness_report.png")
+    plt.show()</code></pre>
+      </div>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># main.py
+from analysis import load_and_clean, print_findings
+from visualise import build_report
+
+if __name__ == "__main__":
+    df = load_and_clean("happiness.csv")
+    print_findings(df)
+    build_report(df)</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="hints">Hints</h2>
+      <ul>
+        <li><strong>Correlation:</strong> <code>np.corrcoef(df["col1"], df["col2"])[0, 1]</code> returns the Pearson r.</li>
+        <li><strong>Trend line:</strong> <code>coeffs = np.polyfit(x, y, 1)</code> then <code>trend = np.poly1d(coeffs)(x)</code>.</li>
+        <li><strong>GDP quartiles:</strong> <code>q25 = df["gdp"].quantile(0.25)</code> and <code>q75 = df["gdp"].quantile(0.75)</code>.</li>
+        <li><strong>Colour by region:</strong> use <code>pd.Categorical(df["region"]).codes</code> as a colour array in scatter.</li>
+        <li><strong>Rotating labels:</strong> <code>ax.tick_params(axis="x", rotation=45)</code>.</li>
+        <li><strong>Figure spacing:</strong> call <code>plt.tight_layout()</code> before <code>savefig()</code> to prevent label clipping.</li>
+      </ul>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Build one chart at a time. Get each panel working individually before assembling them into the 3×2 figure. Use <code>fig, ax = plt.subplots()</code> for each while developing, then move the code into <code>build_report()</code> once it works.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="extensions">Extension Challenges</h2>
+      <ul>
+        <li>Add a 7th panel: a box plot showing the distribution of happiness scores per region.</li>
+        <li>Add country name labels to the 5 happiest and 5 least happy points on the scatter plot.</li>
+        <li>Export a summary statistics table to a CSV file alongside the PNG.</li>
+        <li>Repeat the entire analysis for a different year's dataset and compare results.</li>
+      </ul>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Submission Checklist</div>
+        <ol>
+          <li><code>python3 main.py</code> runs end-to-end without errors.</li>
+          <li>All five analytical questions are answered with printed output.</li>
+          <li>All six panels are in the figure — properly labelled with titles, axis labels, and legends where needed.</li>
+          <li><code>happiness_report.png</code> is saved at <code>dpi=150</code>.</li>
+          <li>All functions in <code>analysis.py</code> and <code>visualise.py</code> have docstrings.</li>
+          <li>Code is clean — no unused imports, no magic numbers without comments.</li>
+          <li>(Optional) At least one extension challenge completed.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://worldhappiness.report" target="_blank" rel="noopener">World Happiness Report — Official Site</a></li>
+          <li><a href="https://pandas.pydata.org/docs/user_guide/index.html" target="_blank" rel="noopener">Pandas Official User Guide</a></li>
+          <li><a href="https://numpy.org/doc/stable/reference/routines.statistics.html" target="_blank" rel="noopener">NumPy Statistical Functions Reference</a></li>
+          <li><a href="https://matplotlib.org/stable/gallery/index.html" target="_blank" rel="noopener">Matplotlib Gallery — Chart Inspiration</a></li>
+          <li><a href="https://realpython.com/python-matplotlib-guide/" target="_blank" rel="noopener">Real Python — Matplotlib Guide</a></li>
+          <li><a href="https://www.youtube.com/watch?v=3Xc3CA655Y4" target="_blank" rel="noopener">YouTube — Matplotlib Full Course (freeCodeCamp)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=yzIMircGU5I" target="_blank" rel="noopener">YouTube — Full EDA and Visualization Project (freeCodeCamp)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="16-matplotlib-styling-and-subplots.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Styling, Subplots &amp; Customization</span>
+      </a>
+      <a href="../index.html" class="pagination-link next">
+        <span class="pagination-label">&#8594; Finished!</span>
+        <span class="pagination-title">Return to Python for AI — Course Index</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
