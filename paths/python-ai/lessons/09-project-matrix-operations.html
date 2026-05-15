@@ -299,6 +299,88 @@ if __name__ == "__main__":
       setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     });
   }
+<pre><code># main.py (continued from starter code above)
+
+# --- Loss ---
+print("\n=== Loss ===")
+final_weights = np.random.randn(4, 1) * 0.1
+predictions   = sigmoid(after_relu @ final_weights)
+targets       = np.array([[1],[0],[1],[1],[0],[1]], dtype=float)
+
+print(f"Predictions shape : {predictions.shape}")
+print(f"Targets shape     : {targets.shape}")
+loss = mse_loss(predictions, targets)
+print(f"MSE Loss          : {loss:.4f}")</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="hints">Hints</h2>
+      <ul>
+        <li><strong>normalise:</strong> <code>col_min = data.min(axis=0)</code>, <code>col_max = data.max(axis=0)</code>, then <code>(data - col_min) / (col_max - col_min)</code>.</li>
+        <li><strong>relu:</strong> <code>np.maximum(0, x)</code> — one line.</li>
+        <li><strong>softmax:</strong> Subtract <code>x.max(axis=1, keepdims=True)</code> before <code>np.exp()</code> to prevent overflow.</li>
+        <li><strong>forward_pass:</strong> <code>inputs @ weights + bias</code> — one line.</li>
+        <li><strong>mse_loss:</strong> <code>np.mean((predictions - targets) ** 2)</code> — one line.</li>
+      </ul>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Print the <code>.shape</code> of every array at every step. Shape mismatches are the most common error in NumPy and deep learning — catching them early saves hours of debugging.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="extensions">Extension Challenges</h2>
+      <ul>
+        <li>Add a second layer to the network: <code>layer1 → relu → layer2 → sigmoid</code>.</li>
+        <li>Implement binary cross-entropy loss: <code>-mean(y * log(p) + (1-y) * log(1-p))</code>.</li>
+        <li>Add a <code>summary(weights, bias)</code> function that prints the number of parameters.</li>
+        <li>Implement z-score normalisation as an alternative to min-max in <code>nn_utils.py</code>.</li>
+      </ul>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Submission Checklist</div>
+        <ol>
+          <li><code>python3 main.py</code> runs without errors and prints all shapes.</li>
+          <li>All 6 functions are in <code>nn_utils.py</code> with docstrings.</li>
+          <li>Shapes are correct at every step — verified by reading the printed output.</li>
+          <li><code>np.random.seed(42)</code> is set in <code>main.py</code>.</li>
+          <li>(Optional) At least one extension challenge is implemented.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.dot.html" target="_blank" rel="noopener">NumPy Official Docs — numpy.dot</a></li>
+          <li><a href="https://numpy.org/doc/stable/reference/generated/numpy.maximum.html" target="_blank" rel="noopener">NumPy Official Docs — numpy.maximum (ReLU)</a></li>
+          <li><a href="https://realpython.com/numpy-array-programming/" target="_blank" rel="noopener">Real Python — Array Programming with NumPy</a></li>
+          <li><a href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank" rel="noopener">YouTube — But what is a neural network? (3Blue1Brown)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=QUT1VHiLmmI" target="_blank" rel="noopener">YouTube — NumPy Full Course (freeCodeCamp)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="08-numpy-math-and-statistics.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Mathematical &amp; Statistical Functions</span>
+      </a>
+      <a href="10-pandas-introduction.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Introduction to Pandas &amp; DataFrames</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
 </script>
 </body>
-</html>

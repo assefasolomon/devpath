@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grouping, Merging &amp; Aggregation | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="11-pandas-cleaning-and-transformation.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="13-project-exploratory-data-analysis.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Grouping, Merging &amp; Aggregation</span>
+    </nav>
+    <h1>Grouping, Merging &amp; Aggregation</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link active">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>After loading and cleaning data, the next step is to extract meaningful insights. Grouping lets you split a dataset by a category and compute statistics for each group. Merging lets you combine multiple DataFrames into one — exactly like SQL JOIN operations. These are the two most powerful tools in a data scientist's Pandas toolkit.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Use <code>groupby()</code> to split data into groups and compute aggregations.</li>
+          <li>Use <code>agg()</code> to compute multiple statistics at once.</li>
+          <li>Use <code>pivot_table()</code> to reshape data into a summary table.</li>
+          <li>Merge DataFrames with <code>merge()</code> using inner, left, right, and outer joins.</li>
+          <li>Concatenate DataFrames vertically and horizontally with <code>concat()</code>.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="groupby">groupby — Split, Apply, Combine</h2>
+      <p><code>groupby()</code> follows the split-apply-combine pattern: split the data by a category, apply a function to each group, combine the results into a new DataFrame.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+data = {
+    "city":    ["Addis", "Nairobi", "Addis", "Lagos", "Nairobi", "Lagos", "Addis"],
+    "product": ["A", "B", "B", "A", "A", "B", "A"],
+    "sales":   [200, 350, 180, 420, 310, 290, 250],
+    "units":   [10, 15, 8, 20, 14, 12, 11]
+}
+df = pd.DataFrame(data)
+
+# Group by one column and compute mean
+print(df.groupby("city")["sales"].mean())
+# Addis      210.0
+# Lagos      355.0
+# Nairobi    330.0
+
+# Group by one column, compute multiple stats
+print(df.groupby("city")["sales"].agg(["mean", "sum", "max", "count"]))
+
+# Group by multiple columns
+print(df.groupby(["city", "product"])["sales"].sum())</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="agg">Custom Aggregation with agg()</h2>
+      <p><code>agg()</code> lets you apply different functions to different columns in one step.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+data = {
+    "city":  ["Addis", "Nairobi", "Addis", "Lagos", "Nairobi", "Lagos"],
+    "sales": [200, 350, 180, 420, 310, 290],
+    "units": [10, 15, 8, 20, 14, 12]
+}
+df = pd.DataFrame(data)
+
+# Different aggregations per column
+result = df.groupby("city").agg(
+    total_sales=("sales", "sum"),
+    avg_sales=("sales", "mean"),
+    max_units=("units", "max"),
+    num_records=("units", "count")
+)
+print(result)
+#          total_sales  avg_sales  max_units  num_records
+# Addis            380      190.0         10            2
+# Lagos            710      355.0         20            2
+# Nairobi          660      330.0         15            2</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="pivot">Pivot Tables</h2>
+      <p>A pivot table reshapes data into a summary matrix — rows are one category, columns are another, values are an aggregation. This is the same as Excel's PivotTable feature.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+data = {
+    "city":    ["Addis", "Nairobi", "Addis", "Lagos", "Nairobi", "Lagos", "Addis"],
+    "product": ["A", "B", "B", "A", "A", "B", "A"],
+    "sales":   [200, 350, 180, 420, 310, 290, 250]
+}
+df = pd.DataFrame(data)
+
+pivot = pd.pivot_table(
+    df,
+    values="sales",       # what to aggregate
+    index="city",         # rows
+    columns="product",    # columns
+    aggfunc="sum",        # how to aggregate
+    fill_value=0          # replace NaN with 0
+)
+print(pivot)
+# product    A    B
+# city
+# Addis    450  180
+# Lagos    420  290
+# Nairobi  310  350</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="merge">Merging DataFrames</h2>
+      <p><code>pd.merge()</code> combines two DataFrames on a common column — exactly like SQL JOIN. The <code>how</code> parameter controls which rows to keep.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+students = pd.DataFrame({
+    "student_id": [1, 2, 3, 4],
+    "name":       ["Alice", "Bob", "Carol", "David"]
+})
+
+scores = pd.DataFrame({
+    "student_id": [1, 2, 3, 5],
+    "score":      [0.85, 0.92, 0.78, 0.95]
+})
+
+# Inner join — only rows that exist in BOTH
+inner = pd.merge(students, scores, on="student_id", how="inner")
+print(inner)
+# student_id   name  score
+#          1  Alice   0.85
+#          2    Bob   0.92
+#          3  Carol   0.78
+
+# Left join — all rows from left, match from right
+left = pd.merge(students, scores, on="student_id", how="left")
+print(left)
+# student_id   name  score
+#          1  Alice   0.85
+#          2    Bob   0.92
+#          3  Carol   0.78
+#          4  David    NaN  ← David has no score
+
+# Outer join — all rows from both
+outer = pd.merge(students, scores, on="student_id", how="outer")
+print(outer)</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Use <strong>inner</strong> when you only want records that exist in both datasets. Use <strong>left</strong> when you want to keep all records from the primary dataset and add information from a secondary one where available.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="concat">Concatenating DataFrames</h2>
+      <p><code>pd.concat()</code> stacks DataFrames vertically (more rows) or horizontally (more columns). Use it when combining data from multiple files or sources with the same structure.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+batch1 = pd.DataFrame({
+    "name":  ["Alice", "Bob"],
+    "score": [0.85, 0.92]
+})
+
+batch2 = pd.DataFrame({
+    "name":  ["Carol", "David", "Eve"],
+    "score": [0.78, 0.95, 0.88]
+})
+
+# Vertical stack — axis=0 (default)
+combined = pd.concat([batch1, batch2], ignore_index=True)
+print(combined)
+#     name  score
+# 0  Alice   0.85
+# 1    Bob   0.92
+# 2  Carol   0.78
+# 3  David   0.95
+# 4    Eve   0.88
+
+# Horizontal stack — axis=1
+extra = pd.DataFrame({"grade": ["B", "A", "C", "A", "B"]})
+full = pd.concat([combined, extra], axis=1)
+print(full)</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="sort-rank">Sorting and Ranking</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+data = {
+    "name":  ["Alice", "Bob", "Carol", "David", "Eve"],
+    "score": [0.85, 0.92, 0.78, 0.95, 0.88],
+    "age":   [24, 31, 28, 35, 22]
+}
+df = pd.DataFrame(data)
+
+# Sort by one column
+print(df.sort_values("score", ascending=False))
+
+# Sort by multiple columns
+print(df.sort_values(["score", "age"], ascending=[False, True]))
+
+# Rank — assign rank to each value
+df["rank"] = df["score"].rank(ascending=False).astype(int)
+print(df.sort_values("rank"))</code></pre>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#groupby">Describe the split-apply-combine pattern that <code>groupby()</code> follows.</a></li>
+          <li><a href="#agg">How do you compute different aggregations on different columns in one step?</a></li>
+          <li><a href="#pivot">What is a pivot table and when would you use one?</a></li>
+          <li><a href="#merge">What is the difference between an inner join and a left join?</a></li>
+          <li><a href="#concat">What is the difference between <code>concat(axis=0)</code> and <code>concat(axis=1)</code>?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Create a sales DataFrame with columns: <code>region</code>, <code>product</code>, <code>month</code>, <code>revenue</code>, <code>units_sold</code> — at least 12 rows across 3 regions and 2 products. Use <code>groupby()</code> and <code>agg()</code> to compute: total revenue per region, average units per product, and the best-performing region by total revenue.</li>
+          <li>Create a pivot table from the sales DataFrame showing total revenue for each region (rows) and product (columns). Which cell has the highest value?</li>
+          <li>Create two separate DataFrames — one with customer IDs and names, one with customer IDs and purchase amounts. Merge them with an inner join. Then add a third batch of customers using <code>concat()</code>. Sort the final result by purchase amount descending.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://pandas.pydata.org/docs/user_guide/groupby.html" target="_blank" rel="noopener">Pandas Official Docs — Group By</a></li>
+          <li><a href="https://pandas.pydata.org/docs/user_guide/merging.html" target="_blank" rel="noopener">Pandas Official Docs — Merging and Joining</a></li>
+          <li><a href="https://pandas.pydata.org/docs/reference/api/pandas.pivot_table.html" target="_blank" rel="noopener">Pandas Official Docs — pivot_table</a></li>
+          <li><a href="https://realpython.com/pandas-groupby/" target="_blank" rel="noopener">Real Python — Pandas GroupBy</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Yc06ne9hpEo" target="_blank" rel="noopener">YouTube — Pandas GroupBy and Aggregation (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=e60ItwlZTKM" target="_blank" rel="noopener">YouTube — Pandas Merging and Joining (Keith Galli)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="11-pandas-cleaning-and-transformation.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Data Cleaning &amp; Transformation</span>
+      </a>
+      <a href="13-project-exploratory-data-analysis.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Project: Exploratory Data Analysis</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

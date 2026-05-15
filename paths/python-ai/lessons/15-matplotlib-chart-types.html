@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chart Types: Line, Bar, Scatter &amp; Histogram | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="14-matplotlib-introduction.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="16-matplotlib-styling-and-subplots.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Chart Types: Line, Bar, Scatter &amp; Histogram</span>
+    </nav>
+    <h1>Chart Types: Line, Bar, Scatter &amp; Histogram</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link active">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Choosing the right chart type is just as important as the data itself. A line chart communicates trends over time. A bar chart compares categories. A scatter plot reveals relationships between two variables. A histogram shows how data is distributed. This lesson teaches you when and how to use each of these four essential chart types in AI and data science work.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Create line charts for trends and time series data.</li>
+          <li>Create bar charts and horizontal bar charts for category comparisons.</li>
+          <li>Create scatter plots for correlation and cluster visualisation.</li>
+          <li>Create histograms for distribution analysis.</li>
+          <li>Know when to use each chart type.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="line-chart">Line Chart — Trends Over Time</h2>
+      <p>Use a line chart when your x-axis represents time or a continuous sequence and you want to show how a value changes. In AI, line charts are used to visualise training loss and accuracy over epochs.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+epochs = np.arange(1, 21)
+train_loss = 2.5 * np.exp(-0.2 * epochs) + np.random.normal(0, 0.05, 20)
+val_loss   = 2.5 * np.exp(-0.18 * epochs) + np.random.normal(0, 0.08, 20)
+
+fig, ax = plt.subplots(figsize=(9, 4))
+
+ax.plot(epochs, train_loss, color="steelblue",
+        linewidth=2, label="Training Loss")
+ax.plot(epochs, val_loss, color="tomato",
+        linewidth=2, linestyle="--", label="Validation Loss")
+
+ax.set_title("Training vs Validation Loss", fontsize=14)
+ax.set_xlabel("Epoch")
+ax.set_ylabel("Loss")
+ax.legend()
+ax.grid(True, linestyle="--", alpha=0.4)
+plt.tight_layout()
+plt.savefig("loss_curve.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="bar-chart">Bar Chart — Comparing Categories</h2>
+      <p>Use a bar chart when comparing discrete categories. In AI, bar charts are used to compare model performance across classes or datasets.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+models  = ["ResNet50", "VGG16", "MobileNet", "EfficientNet"]
+accuracy = [0.923,     0.901,   0.887,       0.941]
+
+fig, ax = plt.subplots(figsize=(8, 5))
+
+bars = ax.bar(models, accuracy,
+              color=["steelblue", "tomato", "mediumseagreen", "mediumpurple"],
+              width=0.5, edgecolor="white")
+
+# Add value labels on top of each bar
+for bar, val in zip(bars, accuracy):
+    ax.text(bar.get_x() + bar.get_width() / 2,
+            bar.get_height() + 0.005,
+            f"{val:.1%}",
+            ha="center", va="bottom", fontsize=10)
+
+ax.set_title("Model Accuracy Comparison", fontsize=14)
+ax.set_ylabel("Accuracy")
+ax.set_ylim(0.85, 0.97)
+ax.grid(True, axis="y", linestyle="--", alpha=0.4)
+plt.tight_layout()
+plt.savefig("model_accuracy.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="horizontal-bar">Horizontal Bar Chart</h2>
+      <p>Use a horizontal bar chart when category names are long or when ranking is the main message.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+
+features   = ["Age", "Income", "Education", "Experience", "Location"]
+importance = [0.31,  0.28,     0.19,        0.14,         0.08]
+
+# Sort by importance
+sorted_pairs = sorted(zip(importance, features))
+importance_s, features_s = zip(*sorted_pairs)
+
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.barh(features_s, importance_s, color="steelblue", edgecolor="white")
+
+ax.set_title("Feature Importance", fontsize=14)
+ax.set_xlabel("Importance Score")
+ax.grid(True, axis="x", linestyle="--", alpha=0.4)
+plt.tight_layout()
+plt.savefig("feature_importance.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="scatter-plot">Scatter Plot — Relationships Between Variables</h2>
+      <p>Use a scatter plot to show how two continuous variables relate. In AI, scatter plots reveal correlations, clusters, and outliers in your data.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+np.random.seed(42)
+
+# Simulate two features and a binary class label
+n = 100
+class0_x = np.random.normal(2, 0.8, n)
+class0_y = np.random.normal(2, 0.8, n)
+class1_x = np.random.normal(4, 0.8, n)
+class1_y = np.random.normal(4, 0.8, n)
+
+fig, ax = plt.subplots(figsize=(7, 6))
+
+ax.scatter(class0_x, class0_y, color="steelblue",
+           alpha=0.6, label="Class 0", edgecolors="white", s=60)
+ax.scatter(class1_x, class1_y, color="tomato",
+           alpha=0.6, label="Class 1", edgecolors="white", s=60)
+
+ax.set_title("Feature Space — Two Classes", fontsize=14)
+ax.set_xlabel("Feature 1")
+ax.set_ylabel("Feature 2")
+ax.legend()
+ax.grid(True, linestyle="--", alpha=0.3)
+plt.tight_layout()
+plt.savefig("scatter_classes.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Use <code>alpha</code> (transparency) between 0.4 and 0.7 on scatter plots with many points — it prevents overplotting and lets you see where data is dense.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="histogram">Histogram — Data Distribution</h2>
+      <p>A histogram shows how values are distributed across a range. In AI, histograms help you spot skewed data, outliers, and whether your features need normalisation.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+np.random.seed(0)
+
+# Simulate model prediction confidence scores
+scores = np.concatenate([
+    np.random.normal(0.85, 0.08, 300),  # mostly correct predictions
+    np.random.normal(0.40, 0.10, 100)   # uncertain predictions
+])
+scores = np.clip(scores, 0, 1)
+
+fig, ax = plt.subplots(figsize=(8, 4))
+
+ax.hist(scores, bins=30, color="steelblue",
+        edgecolor="white", alpha=0.8)
+
+# Add vertical line at threshold
+ax.axvline(0.5, color="tomato", linestyle="--",
+           linewidth=2, label="Decision threshold (0.5)")
+
+ax.set_title("Distribution of Prediction Confidence", fontsize=14)
+ax.set_xlabel("Confidence Score")
+ax.set_ylabel("Count")
+ax.legend()
+ax.grid(True, axis="y", linestyle="--", alpha=0.4)
+plt.tight_layout()
+plt.savefig("confidence_distribution.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="when-to-use">When to Use Each Chart Type</h2>
+      <ul>
+        <li><strong>Line chart</strong> — data changes over time or a continuous sequence (loss curves, stock prices, sensor readings).</li>
+        <li><strong>Bar chart</strong> — comparing a metric across a small number of discrete categories (model accuracy, class counts).</li>
+        <li><strong>Horizontal bar</strong> — same as bar chart but when category labels are long or you are showing a ranking.</li>
+        <li><strong>Scatter plot</strong> — relationship between two numerical variables (feature correlation, cluster visualisation).</li>
+        <li><strong>Histogram</strong> — distribution of a single numerical variable (feature distribution, prediction scores).</li>
+      </ul>
+      <div class="callout callout-warn">
+        <span class="callout-icon">⚠️</span>
+        <span>Never use a pie chart for more than 5 categories — bar charts communicate proportions more accurately. Avoid 3D charts entirely — they distort perception and add no information.</span>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#line-chart">When is a line chart the right choice over a bar chart?</a></li>
+          <li><a href="#bar-chart">How do you add a value label on top of each bar in a bar chart?</a></li>
+          <li><a href="#scatter-plot">Why would you set <code>alpha</code> to less than 1 on a scatter plot?</a></li>
+          <li><a href="#histogram">What does <code>bins</code> control in a histogram?</a></li>
+          <li><a href="#when-to-use">Which chart type would you use to show the distribution of training loss values?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Simulate 30 epochs of training. Create arrays for training accuracy and validation accuracy that both improve over time (use <code>np.log</code> or <code>1 - np.exp(-x)</code>). Plot both on the same line chart with proper labels, legend, title, and grid. Save as <code>accuracy_curve.png</code>.</li>
+          <li>Create a bar chart comparing the F1 score of 5 different classifiers (make up the values). Add value labels on each bar. Use a different color for the best-performing model. Save as <code>f1_comparison.png</code>.</li>
+          <li>Generate two clusters of 150 points each using <code>np.random.normal()</code> with different means. Plot them as a scatter plot with different colors and a legend. Add a title and axis labels. Save as <code>clusters.png</code>.</li>
+          <li>Generate 500 random ages between 18 and 80 using a realistic distribution. Plot a histogram with 20 bins. Add a vertical line at the mean age. Label the line in the legend. Save as <code>age_distribution.png</code>.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://matplotlib.org/stable/plot_types/index.html" target="_blank" rel="noopener">Matplotlib Official Docs — Plot Types</a></li>
+          <li><a href="https://matplotlib.org/stable/api/axes_api.html" target="_blank" rel="noopener">Matplotlib Official Docs — Axes API</a></li>
+          <li><a href="https://realpython.com/python-histograms/" target="_blank" rel="noopener">Real Python — Python Histograms</a></li>
+          <li><a href="https://www.youtube.com/watch?v=UO98lJQ3QGI" target="_blank" rel="noopener">YouTube — Matplotlib Chart Types (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=3Xc3CA655Y4" target="_blank" rel="noopener">YouTube — Matplotlib Full Course (freeCodeCamp)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="14-matplotlib-introduction.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Introduction to Matplotlib</span>
+      </a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Styling, Subplots &amp; Customization</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

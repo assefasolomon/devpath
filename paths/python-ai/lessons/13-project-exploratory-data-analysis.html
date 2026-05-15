@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project: Exploratory Data Analysis | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="12-pandas-grouping-and-merging.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="14-matplotlib-introduction.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Project: Exploratory Data Analysis</span>
+    </nav>
+    <h1>Project: Exploratory Data Analysis</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link active is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Exploratory Data Analysis (EDA) is the process of investigating a dataset to understand its structure, spot patterns, find anomalies, and form hypotheses before building any model. Every professional data scientist runs a full EDA before touching a model. This project puts everything from Unit 3 together into one realistic pipeline using a real-world dataset.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Project Overview</div>
+        <ul>
+          <li>Load and inspect a real dataset using Pandas.</li>
+          <li>Clean the data: handle missing values, fix types, remove duplicates.</li>
+          <li>Compute descriptive statistics and group summaries.</li>
+          <li>Answer five specific analytical questions about the dataset.</li>
+          <li>Export a clean, analysis-ready CSV file.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="dataset">The Dataset</h2>
+      <p>Use the <strong>Titanic dataset</strong> — one of the most famous beginner datasets in data science. Download it from the link below and save it as <code>titanic.csv</code> in your project folder.</p>
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ️</span>
+        <span>Download the Titanic dataset from: <a href="https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv" target="_blank" rel="noopener">Titanic CSV — datasciencedojo/datasets</a>. Save it as <code>titanic.csv</code> in the same folder as your script.</span>
+      </div>
+      <p>Key columns you will work with:</p>
+      <ul>
+        <li><code>Survived</code> — 0 = did not survive, 1 = survived</li>
+        <li><code>Pclass</code> — passenger class: 1 = first, 2 = second, 3 = third</li>
+        <li><code>Name</code> — passenger name</li>
+        <li><code>Sex</code> — male or female</li>
+        <li><code>Age</code> — age in years (has missing values)</li>
+        <li><code>Fare</code> — ticket price</li>
+        <li><code>Embarked</code> — port of embarkation: C, Q, or S</li>
+      </ul>
+
+      <h2 class="lesson-section-title" id="requirements">Requirements</h2>
+      <ul>
+        <li>All code lives in a single <code>eda.py</code> file.</li>
+        <li>Each section is separated by a clear printed heading.</li>
+        <li>The script runs end-to-end without errors using <code>python3 eda.py</code>.</li>
+        <li>A cleaned version of the dataset is saved as <code>titanic_clean.csv</code>.</li>
+      </ul>
+
+      <h2 class="lesson-section-title" id="expected-output">Expected Output Structure</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>$ python3 eda.py
+
+========================================
+ 1. LOAD AND INSPECT
+========================================
+Shape: (891, 12)
+Columns: ['PassengerId', 'Survived', 'Pclass', ...]
+Missing values:
+  Age         177
+  Cabin       687
+  Embarked      2
+
+========================================
+ 2. CLEAN
+========================================
+Filled Age with median: 28.0
+Dropped Cabin column (too many missing)
+Dropped 2 rows with missing Embarked
+Removed 0 duplicates
+Clean shape: (889, 11)
+
+========================================
+ 3. DESCRIPTIVE STATISTICS
+========================================
+         Age        Fare
+count  889.00      889.00
+mean    29.37       32.20
+std     13.02       49.69
+min      0.42        0.00
+max     80.00      512.33
+
+========================================
+ 4. ANALYTICAL QUESTIONS
+========================================
+Q1 — Survival rate overall       : 38.3%
+Q2 — Survival rate by sex        :
+  female    74.2%
+  male      18.9%
+Q3 — Survival rate by class      :
+  1st       63.0%
+  2nd       47.3%
+  3rd       24.2%
+Q4 — Average fare by class       :
+  1st       84.15
+  2nd       20.66
+  3rd       13.68
+Q5 — Top 5 most expensive fares  :
+  512.33, 512.33, 512.33, 263.00, 263.00
+
+========================================
+ 5. EXPORT
+========================================
+Saved titanic_clean.csv (889 rows, 11 cols)</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="starter-code">Starter Code</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code># eda.py
+import pandas as pd
+
+def section(title):
+    """Print a formatted section heading."""
+    print(f"\n{'='*40}")
+    print(f" {title}")
+    print(f"{'='*40}")
+
+# -----------------------------------------------
+# 1. LOAD AND INSPECT
+# -----------------------------------------------
+section("1. LOAD AND INSPECT")
+
+df = pd.read_csv("titanic.csv")
+
+print(f"Shape: {df.shape}")
+print(f"Columns: {list(df.columns)}")
+print("\nMissing values:")
+missing = df.isnull().sum()
+print(missing[missing > 0])
+
+# -----------------------------------------------
+# 2. CLEAN
+# -----------------------------------------------
+section("2. CLEAN")
+
+# YOUR CODE HERE:
+# Fill Age missing values with the median
+# Drop the Cabin column (too many missing)
+# Drop rows where Embarked is missing
+# Remove any duplicate rows
+# Print the shape after cleaning
+
+# -----------------------------------------------
+# 3. DESCRIPTIVE STATISTICS
+# -----------------------------------------------
+section("3. DESCRIPTIVE STATISTICS")
+
+# YOUR CODE HERE:
+# Print describe() for Age and Fare columns only
+
+# -----------------------------------------------
+# 4. ANALYTICAL QUESTIONS
+# -----------------------------------------------
+section("4. ANALYTICAL QUESTIONS")
+
+# Q1 — What is the overall survival rate?
+# YOUR CODE HERE
+
+# Q2 — What is the survival rate by sex?
+# YOUR CODE HERE
+
+# Q3 — What is the survival rate by passenger class?
+# YOUR CODE HERE
+
+# Q4 — What is the average fare by passenger class?
+# YOUR CODE HERE
+
+# Q5 — What are the top 5 most expensive fares?
+# YOUR CODE HERE
+
+# -----------------------------------------------
+# 5. EXPORT
+# -----------------------------------------------
+section("5. EXPORT")
+
+# YOUR CODE HERE:
+# Save cleaned DataFrame to titanic_clean.csv
+# Print confirmation with shape</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="hints">Hints</h2>
+      <ul>
+        <li><strong>Survival rate:</strong> <code>df["Survived"].mean()</code> gives the proportion of survivors.</li>
+        <li><strong>Survival rate by group:</strong> <code>df.groupby("Sex")["Survived"].mean()</code></li>
+        <li><strong>Formatting as percentage:</strong> multiply by 100 and round to 1 decimal.</li>
+        <li><strong>Top 5 fares:</strong> <code>df["Fare"].nlargest(5)</code></li>
+        <li><strong>Class labels:</strong> map <code>Pclass</code> values 1, 2, 3 to "1st", "2nd", "3rd" using <code>.map()</code> before printing.</li>
+      </ul>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Structure your script with the <code>section()</code> helper from the start. Clean, readable output is just as important as correct output — data scientists communicate findings to non-technical stakeholders every day.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="extensions">Extension Challenges</h2>
+      <ul>
+        <li>Add a Q6: what is the survival rate by embarkation port?</li>
+        <li>Create a new column <code>AgeGroup</code>: "Child" (&lt;18), "Adult" (18–60), "Senior" (&gt;60). Compute survival rate per age group.</li>
+        <li>Find the passenger with the highest fare who did not survive.</li>
+        <li>Compute a correlation matrix between <code>Survived</code>, <code>Age</code>, <code>Fare</code>, and <code>Pclass</code> using <code>df.corr()</code>.</li>
+      </ul>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Submission Checklist</div>
+        <ol>
+          <li><code>python3 eda.py</code> runs end-to-end without any errors.</li>
+          <li>All 5 cleaning steps are implemented with printed confirmation.</li>
+          <li>All 5 analytical questions are answered with formatted output.</li>
+          <li><code>titanic_clean.csv</code> is saved correctly.</li>
+          <li>Code is clean — each section separated by the <code>section()</code> heading.</li>
+          <li>(Optional) At least one extension challenge completed.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://pandas.pydata.org/docs/user_guide/index.html" target="_blank" rel="noopener">Pandas Official User Guide</a></li>
+          <li><a href="https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv" target="_blank" rel="noopener">Titanic Dataset — Direct CSV Download</a></li>
+          <li><a href="https://realpython.com/pandas-python-explore-dataset/" target="_blank" rel="noopener">Real Python — Exploring Datasets with Pandas</a></li>
+          <li><a href="https://www.youtube.com/watch?v=vmEHCJofslg" target="_blank" rel="noopener">YouTube — Pandas EDA Tutorial (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=yzIMircGU5I" target="_blank" rel="noopener">YouTube — EDA with Pandas Full Walkthrough (freeCodeCamp)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="12-pandas-grouping-and-merging.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Grouping, Merging &amp; Aggregation</span>
+      </a>
+      <a href="14-matplotlib-introduction.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Introduction to Matplotlib</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

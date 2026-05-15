@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to Matplotlib | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="13-project-exploratory-data-analysis.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="15-matplotlib-chart-types.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Introduction to Matplotlib</span>
+    </nav>
+    <h1>Introduction to Matplotlib</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link active">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Matplotlib is Python's foundational data visualization library. Every chart, graph, and plot you see in AI research papers, data science notebooks, and technical reports is almost certainly created with Matplotlib or a library built on top of it. This lesson teaches you how Matplotlib is structured and how to produce your first clean, labelled charts from scratch.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Understand Matplotlib's two interfaces: pyplot and object-oriented.</li>
+          <li>Create a figure and axes using <code>plt.subplots()</code>.</li>
+          <li>Add titles, axis labels, legends, and grid lines.</li>
+          <li>Save figures to PNG and PDF files.</li>
+          <li>Plot directly from a Pandas DataFrame.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="two-interfaces">Two Interfaces: pyplot vs Object-Oriented</h2>
+      <p>Matplotlib has two ways to create charts. The <strong>pyplot interface</strong> is quick and script-like. The <strong>object-oriented (OO) interface</strong> gives you full control and is the professional standard for complex figures.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# pyplot interface — quick and simple
+plt.plot(x, y)
+plt.title("Sine Wave")
+plt.xlabel("x")
+plt.ylabel("sin(x)")
+plt.show()
+
+# Object-oriented interface — recommended
+fig, ax = plt.subplots()
+ax.plot(x, y)
+ax.set_title("Sine Wave")
+ax.set_xlabel("x")
+ax.set_ylabel("sin(x)")
+plt.show()</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Always use the object-oriented interface (<code>fig, ax = plt.subplots()</code>) for any chart you will share or publish. It makes the code easier to read, debug, and extend — especially when you have multiple subplots.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="figure-anatomy">Anatomy of a Matplotlib Figure</h2>
+      <p>Understanding the structure of a Matplotlib figure prevents confusion when customising charts.</p>
+      <ul>
+        <li><strong>Figure</strong> — the entire canvas. Can contain one or more axes.</li>
+        <li><strong>Axes</strong> — a single plot area with its own x and y axis, title, and labels. Not the same as "axis".</li>
+        <li><strong>Axis</strong> — the x or y number line on an Axes object.</li>
+        <li><strong>Artist</strong> — everything drawn on the figure: lines, text, ticks, markers.</li>
+      </ul>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 2 * np.pi, 100)
+
+fig, ax = plt.subplots(figsize=(8, 4))  # width=8, height=4 inches
+
+ax.plot(x, np.sin(x), label="sin(x)")
+ax.plot(x, np.cos(x), label="cos(x)")
+
+# Labels and title
+ax.set_title("Sine and Cosine", fontsize=14, fontweight="bold")
+ax.set_xlabel("Angle (radians)")
+ax.set_ylabel("Value")
+
+# Legend
+ax.legend()
+
+# Grid
+ax.grid(True, linestyle="--", alpha=0.5)
+
+# Axis limits
+ax.set_xlim(0, 2 * np.pi)
+ax.set_ylim(-1.5, 1.5)
+
+plt.tight_layout()
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="saving">Saving Figures</h2>
+      <p>Always save your figures as files when working on a project — do not rely on the interactive window. Use <code>savefig()</code> before <code>show()</code>.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots(figsize=(8, 4))
+x = np.linspace(0, 10, 100)
+ax.plot(x, np.sin(x))
+ax.set_title("Sine Wave")
+
+# Save before show()
+fig.savefig("sine_wave.png", dpi=150, bbox_inches="tight")
+fig.savefig("sine_wave.pdf", bbox_inches="tight")
+
+plt.show()
+print("Figure saved.")</code></pre>
+      </div>
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ️</span>
+        <span><code>dpi=150</code> sets resolution (dots per inch). Use 150 for screen, 300 for print. <code>bbox_inches="tight"</code> removes whitespace around the figure. Always use both when saving for a report or presentation.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="colors-styles">Colors, Line Styles, and Markers</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 50)
+
+fig, ax = plt.subplots(figsize=(9, 4))
+
+# Color — name, hex, or RGB
+ax.plot(x, np.sin(x), color="steelblue", label="sin")
+
+# Line style: '-' solid, '--' dashed, ':' dotted, '-.' dash-dot
+ax.plot(x, np.cos(x), color="#e74c3c", linestyle="--", label="cos")
+
+# Line width
+ax.plot(x, np.sin(x) * 0.5, linewidth=3, color="green", label="0.5*sin")
+
+# Markers: 'o' circle, 's' square, '^' triangle, 'D' diamond
+ax.plot(x[::5], np.sin(x[::5]), marker="o", linestyle="none",
+        color="orange", markersize=8, label="sample points")
+
+ax.legend()
+ax.set_title("Line Styles, Colors and Markers")
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="pandas-plot">Plotting Directly from Pandas</h2>
+      <p>Pandas DataFrames have a built-in <code>.plot()</code> method that calls Matplotlib under the hood. It is great for quick exploration.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+data = {
+    "month":   ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    "revenue": [1200, 1500, 1100, 1800, 2100, 1900],
+    "costs":   [800,  900,  850,  1100, 1200, 1050]
+}
+df = pd.DataFrame(data)
+
+# Line plot from DataFrame
+ax = df.plot(x="month", y=["revenue", "costs"],
+             kind="line", figsize=(8, 4),
+             title="Revenue vs Costs")
+ax.set_xlabel("Month")
+ax.set_ylabel("Amount (USD)")
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig("revenue_costs.png", dpi=150, bbox_inches="tight")
+plt.show()</code></pre>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#two-interfaces">What is the difference between the pyplot interface and the object-oriented interface?</a></li>
+          <li><a href="#figure-anatomy">What is the difference between a Figure and an Axes in Matplotlib?</a></li>
+          <li><a href="#saving">Why should you call <code>savefig()</code> before <code>show()</code>?</a></li>
+          <li><a href="#colors-styles">How do you set a dashed line style and a custom color on a plot?</a></li>
+          <li><a href="#pandas-plot">How do you plot a DataFrame column directly without writing Matplotlib code manually?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Using the object-oriented interface, plot <code>y = x²</code> and <code>y = x³</code> on the same axes for x from -5 to 5. Add a title, axis labels, legend, and grid. Save the figure as <code>polynomials.png</code>.</li>
+          <li>Create a DataFrame of monthly temperature readings for two cities over 12 months (you can make up the values). Plot both cities as lines on the same axes using the Pandas <code>.plot()</code> method. Label axes, add a title, and save.</li>
+          <li>Experiment with at least 4 different line styles, 4 colors (mix names and hex codes), and 3 different marker types. Create a single figure showing all combinations with a legend. Save as <code>styles.png</code>.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://matplotlib.org/stable/tutorials/introductory/usage.html" target="_blank" rel="noopener">Matplotlib Official Docs — Usage Guide</a></li>
+          <li><a href="https://matplotlib.org/stable/gallery/index.html" target="_blank" rel="noopener">Matplotlib Official Gallery — Examples</a></li>
+          <li><a href="https://realpython.com/python-matplotlib-guide/" target="_blank" rel="noopener">Real Python — Python Plotting with Matplotlib</a></li>
+          <li><a href="https://www.youtube.com/watch?v=UO98lJQ3QGI" target="_blank" rel="noopener">YouTube — Matplotlib Tutorial (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=3Xc3CA655Y4" target="_blank" rel="noopener">YouTube — Matplotlib Full Course (freeCodeCamp)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=DAQNHzOcO5A" target="_blank" rel="noopener">YouTube — Matplotlib for Beginners (Sentdex)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="13-project-exploratory-data-analysis.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Project: Exploratory Data Analysis</span>
+      </a>
+      <a href="15-matplotlib-chart-types.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Chart Types: Line, Bar, Scatter &amp; Histogram</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

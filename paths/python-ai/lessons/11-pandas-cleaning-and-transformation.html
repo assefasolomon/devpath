@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Cleaning &amp; Transformation | DevPath</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
+</head>
+<body>
+<nav class="site-nav">
+  <a href="../../../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg> DevPath</a>
+  <ul class="nav-links">
+    <li><a href="../../../index.html">Home</a></li>
+    <li><a href="../../../foundations/index.html">Foundations</a></li>
+    <li><a href="../index.html">Python for AI</a></li>
+  </ul>
+</nav>
+
+<div class="lesson-nav-bar">
+  <div class="lesson-nav-bar-group"><a href="10-pandas-introduction.html" class="btn btn-blue-outline">&#8592; Previous</a></div>
+  <div class="lesson-nav-bar-group"><button class="btn btn-green mark-complete-btn">Mark Completed</button></div>
+  <div class="lesson-nav-bar-group"><a href="12-pandas-grouping-and-merging.html" class="btn btn-blue">Next &#8594;</a></div>
+</div>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <nav class="breadcrumb">
+      <a href="../../../index.html">Home</a><span class="breadcrumb-sep">/</span>
+      <a href="../index.html">Python for AI</a><span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Data Cleaning &amp; Transformation</span>
+    </nav>
+    <h1>Data Cleaning &amp; Transformation</h1>
+  </div>
+</div>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-course-title">Python for AI</div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 1 — Python Foundations</div>
+      <a href="01-introduction-to-python-for-ai.html" class="sidebar-link">Introduction to Python for AI</a>
+      <a href="02-data-types-and-variables.html" class="sidebar-link">Data Types, Variables &amp; Operators</a>
+      <a href="03-control-flow.html" class="sidebar-link">Control Flow: Loops &amp; Conditionals</a>
+      <a href="04-functions-and-modules.html" class="sidebar-link">Functions, Modules &amp; Packages</a>
+      <a href="05-project-data-calculator.html" class="sidebar-link is-project">Project: Data Calculator CLI</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 2 — NumPy</div>
+      <a href="06-numpy-introduction.html" class="sidebar-link">Introduction to NumPy &amp; Arrays</a>
+      <a href="07-numpy-indexing-and-slicing.html" class="sidebar-link">Array Operations, Indexing &amp; Slicing</a>
+      <a href="08-numpy-math-and-statistics.html" class="sidebar-link">Mathematical &amp; Statistical Functions</a>
+      <a href="09-project-matrix-operations.html" class="sidebar-link is-project">Project: Matrix Operations for ML</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 3 — Pandas</div>
+      <a href="10-pandas-introduction.html" class="sidebar-link">Introduction to Pandas &amp; DataFrames</a>
+      <a href="11-pandas-cleaning-and-transformation.html" class="sidebar-link active">Data Cleaning &amp; Transformation</a>
+      <a href="12-pandas-grouping-and-merging.html" class="sidebar-link">Grouping, Merging &amp; Aggregation</a>
+      <a href="13-project-exploratory-data-analysis.html" class="sidebar-link is-project">Project: Exploratory Data Analysis</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Unit 4 — Matplotlib</div>
+      <a href="14-matplotlib-introduction.html" class="sidebar-link">Introduction to Matplotlib</a>
+      <a href="15-matplotlib-chart-types.html" class="sidebar-link">Chart Types: Line, Bar, Scatter &amp; Histogram</a>
+      <a href="16-matplotlib-styling-and-subplots.html" class="sidebar-link">Styling, Subplots &amp; Customization</a>
+      <a href="17-capstone-project.html" class="sidebar-link is-project">Capstone: Full Analysis Report</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="lesson-body">
+
+      <div class="block-intro">
+        <p>Real-world data is messy. Missing values, wrong data types, duplicate rows, inconsistent formatting — these problems exist in every dataset you will ever work with. Data scientists spend up to 80% of their time cleaning data before any modelling begins. This lesson teaches you the Pandas tools to handle every common cleaning scenario.</p>
+      </div>
+
+      <div class="block-overview">
+        <div class="block-overview-label">Lesson Overview</div>
+        <ul>
+          <li>Detect and handle missing values with <code>isnull()</code>, <code>dropna()</code>, and <code>fillna()</code>.</li>
+          <li>Remove duplicate rows with <code>drop_duplicates()</code>.</li>
+          <li>Rename columns and change data types with <code>astype()</code>.</li>
+          <li>Add new columns and transform existing ones.</li>
+          <li>Apply custom functions to columns with <code>apply()</code> and <code>map()</code>.</li>
+        </ul>
+      </div>
+
+      <h2 class="lesson-section-title" id="missing">Handling Missing Values</h2>
+      <p>Missing values appear as <code>NaN</code> (Not a Number) in Pandas. Always check for them as the first step of any data cleaning pipeline.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+import numpy as np
+
+df = pd.DataFrame({
+    "name":  ["Alice", "Bob", None, "David", "Eve"],
+    "age":   [24, None, 28, 45, 35],
+    "score": [0.92, 0.85, 0.78, None, 0.88]
+})
+
+# Detect missing values
+print(df.isnull())          # True where value is missing
+print(df.isnull().sum())    # count of NaN per column
+print(df.isnull().sum().sum())  # total missing values
+
+# Drop rows with ANY missing value
+clean = df.dropna()
+print(clean.shape)  # (3, 3)
+
+# Drop rows only if ALL values are missing
+df.dropna(how="all")
+
+# Drop columns with missing values
+df.dropna(axis=1)
+
+# Fill missing values
+df["age"].fillna(df["age"].mean(), inplace=True)    # with mean
+df["score"].fillna(df["score"].median(), inplace=True)  # with median
+df["name"].fillna("Unknown", inplace=True)           # with constant
+
+print(df.isnull().sum())  # should all be 0 now</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="callout-icon">💡</span>
+        <span>Use <code>inplace=True</code> to modify the DataFrame directly, or assign the result: <code>df = df.fillna(0)</code>. Both are equivalent — pick one style and stick to it.</span>
+      </div>
+
+      <h2 class="lesson-section-title" id="duplicates">Removing Duplicates</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>df = pd.DataFrame({
+    "name":  ["Alice", "Bob", "Alice", "Carol", "Bob"],
+    "score": [0.92, 0.85, 0.92, 0.78, 0.85]
+})
+
+print(df.duplicated())          # True for duplicate rows
+print(df.duplicated().sum())    # 2 duplicates
+
+# Remove duplicate rows — keep first occurrence
+df = df.drop_duplicates()
+print(df.shape)  # (3, 2)
+
+# Remove duplicates based on specific column
+df.drop_duplicates(subset=["name"], keep="last")</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="dtypes">Renaming and Changing Data Types</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    "Name": ["Alice", "Bob", "Carol"],
+    "AGE": ["24", "32", "28"],       # stored as strings — wrong
+    "Score": [0.92, 0.85, 0.78]
+})
+
+# Rename columns
+df = df.rename(columns={"Name": "name", "AGE": "age", "Score": "score"})
+print(df.columns)  # ['name', 'age', 'score']
+
+# Change data type
+df["age"] = df["age"].astype(int)
+print(df.dtypes)
+# name      object
+# age        int64
+# score    float64
+
+# Convert to category — saves memory for low-cardinality columns
+df["name"] = df["name"].astype("category")</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="new-columns">Adding and Transforming Columns</h2>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    "name":  ["Alice", "Bob", "Carol", "David"],
+    "score": [0.92, 0.85, 0.78, 0.95]
+})
+
+# Add a new column
+df["percentage"] = df["score"] * 100
+df["passed"]     = df["score"] >= 0.80
+
+# Add a grade column using a function
+def assign_grade(score):
+    if score >= 0.90: return "A"
+    elif score >= 0.80: return "B"
+    elif score >= 0.70: return "C"
+    else: return "F"
+
+df["grade"] = df["score"].apply(assign_grade)
+print(df)
+#     name  score  percentage  passed grade
+# 0  Alice   0.92        92.0    True     A
+# 1    Bob   0.85        85.0    True     B
+# 2  Carol   0.78        78.0   False     C
+# 3  David   0.95        95.0    True     A</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="apply-map">apply() and map()</h2>
+      <p><code>apply()</code> runs a function on each element or row of a DataFrame. <code>map()</code> is used on a Series to substitute values.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    "name":  ["alice", "BOB", "Carol"],
+    "score": [0.92, 0.85, 0.78]
+})
+
+# apply() on a column — normalise names
+df["name"] = df["name"].apply(str.title)
+print(df["name"])  # ['Alice', 'Bob', 'Carol']
+
+# apply() with lambda
+df["score_pct"] = df["score"].apply(lambda x: round(x * 100, 1))
+
+# map() — substitute values using a dictionary
+grade_map = {"Alice": "senior", "Bob": "junior", "Carol": "junior"}
+df["level"] = df["name"].map(grade_map)
+print(df)</code></pre>
+      </div>
+
+      <h2 class="lesson-section-title" id="string-ops">String Operations</h2>
+      <p>Pandas provides vectorised string methods via <code>.str</code> — no loops needed for cleaning text columns.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>import pandas as pd
+
+df = pd.DataFrame({
+    "email": ["  Alice@Gmail.COM ", "bob@yahoo.com", "CAROL@hotmail.com  "]
+})
+
+# Clean email column
+df["email"] = (df["email"]
+    .str.strip()        # remove leading/trailing spaces
+    .str.lower()        # convert to lowercase
+)
+print(df["email"])
+# ['alice@gmail.com', 'bob@yahoo.com', 'carol@hotmail.com']
+
+# Extract domain
+df["domain"] = df["email"].str.split("@").str[1]
+print(df["domain"])  # ['gmail.com', 'yahoo.com', 'hotmail.com']
+
+# Check if contains a substring
+print(df["email"].str.contains("gmail"))  # [True, False, False]</code></pre>
+      </div>
+
+      <div class="block-kc">
+        <div class="block-kc-label">Knowledge Check</div>
+        <p class="kc-note">Click any question to jump to the section that answers it.</p>
+        <ol>
+          <li><a href="#missing">What is the difference between <code>dropna()</code> and <code>fillna()</code>?</a></li>
+          <li><a href="#missing">What does <code>df.isnull().sum()</code> tell you?</a></li>
+          <li><a href="#dtypes">Why might a numeric column be stored as a string and how do you fix it?</a></li>
+          <li><a href="#apply-map">What is the difference between <code>apply()</code> and <code>map()</code>?</a></li>
+          <li><a href="#string-ops">How do you access string methods on a Pandas column?</a></li>
+        </ol>
+      </div>
+
+      <div class="block-assignments">
+        <div class="block-assignments-label">Assignments</div>
+        <ol>
+          <li>Create a DataFrame with at least 10 rows and 5 columns that intentionally contains: 3 missing values, 2 duplicate rows, and one numeric column stored as a string. Write a cleaning pipeline that: detects and reports all issues, fills missing numerics with the column mean, fills missing strings with "Unknown", removes duplicates, and fixes the wrong data type.</li>
+          <li>Add three new columns to your cleaned DataFrame: (a) a column that categorises a numeric score as "High", "Medium", or "Low" using <code>apply()</code>; (b) a boolean column indicating whether a condition is met; (c) a column derived by combining two existing columns (e.g. full name from first + last).</li>
+          <li>Create a DataFrame with a messy <code>email</code> column (mixed case, extra spaces). Use <code>.str</code> methods to: strip whitespace, lowercase all emails, extract the domain, and filter only Gmail addresses.</li>
+        </ol>
+      </div>
+
+      <div class="block-resources">
+        <div class="block-resources-label">Additional Resources</div>
+        <ul>
+          <li><a href="https://pandas.pydata.org/docs/user_guide/missing_data.html" target="_blank" rel="noopener">Pandas Official Docs — Working with Missing Data</a></li>
+          <li><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.apply.html" target="_blank" rel="noopener">Pandas Official Docs — DataFrame.apply</a></li>
+          <li><a href="https://realpython.com/python-pandas-tricks/" target="_blank" rel="noopener">Real Python — 10 Tricks for Data Cleaning with Pandas</a></li>
+          <li><a href="https://www.youtube.com/watch?v=vmEHCJofslg" target="_blank" rel="noopener">YouTube — Pandas Data Cleaning Tutorial (Corey Schafer)</a></li>
+          <li><a href="https://www.youtube.com/watch?v=2uvysYbKdjM" target="_blank" rel="noopener">YouTube — Data Cleaning with Pandas (Keith Galli)</a></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="lesson-pagination">
+      <a href="10-pandas-introduction.html" class="pagination-link prev">
+        <span class="pagination-label">&#8592; Previous</span>
+        <span class="pagination-title">Introduction to Pandas &amp; DataFrames</span>
+      </a>
+      <a href="12-pandas-grouping-and-merging.html" class="pagination-link next">
+        <span class="pagination-label">Next &#8594;</span>
+        <span class="pagination-title">Grouping, Merging &amp; Aggregation</span>
+      </a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank">The Odin Project</a>.</p>
+</footer>
+<script src="../../../js/main.js"></script>
+<script>
+  function copyCode(btn) {
+    const code = btn.nextElementSibling.querySelector('code').innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.textContent = 'Copied!'; btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+</script>
+</body>
+</html>
