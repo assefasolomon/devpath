@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Payment | DevPath</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .submit-wrap {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: .875rem;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: color var(--transition);
+    }
+    .back-link:hover { color: var(--text); }
+
+    .submit-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: .4rem;
+    }
+    .submit-sub {
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    /* Payment instructions box */
+    .instructions-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .instructions-title {
+      font-size: .8rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .plan-summary {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+    .plan-summary-name {
+      font-weight: 700;
+      color: var(--heading);
+      font-size: .95rem;
+    }
+    .plan-summary-amount {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .ref-code-box {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ref-label {
+      font-size: .75rem;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 3px;
+    }
+    .ref-code {
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--secondary);
+      letter-spacing: .1em;
+    }
+    .copy-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 5px 12px;
+      font-size: .78rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: var(--font-ui);
+      transition: all var(--transition);
+    }
+    .copy-btn:hover { border-color: var(--primary); color: var(--primary-light); }
+    .copy-btn.copied { border-color: var(--green); color: var(--green); }
+
+    .payment-methods {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .75rem;
+    }
+    .pm-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: .875rem 1rem;
+    }
+    .pm-box-title {
+      font-size: .78rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+      margin-bottom: .4rem;
+    }
+    .pm-box-value {
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+    .pm-box-name {
+      font-size: .8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Submission form */
+    .form-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+    }
+    .form-box-title {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 1.25rem;
+    }
+    .form-field { margin-bottom: 1.1rem; }
+    .form-field label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+    .form-field input,
+    .form-field select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      color: var(--heading);
+      font-size: .95rem;
+      font-family: var(--font-ui);
+      outline: none;
+      transition: border-color var(--transition);
+      box-sizing: border-box;
+    }
+    .form-field input:focus,
+    .form-field select:focus { border-color: var(--primary); }
+    .form-field select option { background: var(--surface); }
+
+    .submit-btn {
+      width: 100%;
+      padding: .85rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: var(--font-ui);
+      transition: all var(--transition);
+      margin-top: .25rem;
+    }
+    .submit-btn:hover { background: var(--primary-hover); }
+    .submit-btn:disabled { opacity: .6; cursor: not-allowed; }
+
+    .error-msg {
+      background: rgba(239,68,68,.1);
+      border: 1px solid rgba(239,68,68,.3);
+      border-radius: var(--radius-sm);
+      padding: .75rem 1rem;
+      font-size: .875rem;
+      color: #ef4444;
+      margin-bottom: 1rem;
+      display: none;
+    }
+    .error-msg.show { display: block; }
+
+    .success-box {
+      background: rgba(16,185,129,.08);
+      border: 1px solid rgba(16,185,129,.3);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      text-align: center;
+      display: none;
+    }
+    .success-box.show { display: block; }
+    .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .success-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: .5rem;
+    }
+    .success-text {
+      color: var(--text-muted);
+      font-size: .9rem;
+      line-height: 1.7;
+    }
+
+    .pending-notice {
+      background: rgba(251,191,36,.08);
+      border: 1px solid rgba(251,191,36,.3);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: none;
+    }
+    .pending-notice.show { display: block; }
+    .pending-notice h3 {
+      color: #fbbf24;
+      font-size: 1rem;
+      margin-bottom: .5rem;
+    }
+    .pending-notice p {
+      color: var(--text-muted);
+      font-size: .875rem;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 28 28" fill="none">
+      <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/>
+    </svg>
+    DevPath
+  </a>
+</nav>
+
+<div class="submit-wrap">
+
+  <a href="pay.html" class="back-link">← Back to plans</a>
+
+  <div class="submit-title">Complete Your Payment</div>
+  <div class="submit-sub">
+    Transfer the amount below to our Telebirr or CBE account.
+    Then fill in the form with your transaction details and we will verify within 1–2 hours.
+  </div>
+
+  <!-- Pending notice -->
+  <div class="pending-notice" id="pending-notice">
+    <h3>⏳ Payment Under Review</h3>
+    <p>We have received your payment submission and are verifying it.
+       This usually takes 1–2 hours during business hours.
+       You will get access as soon as we confirm your transfer.</p>
+  </div>
+
+  <!-- Instructions -->
+  <div class="instructions-box" id="instructions-box">
+
+    <div class="instructions-title">Step 1 — Your order summary</div>
+    <div class="plan-summary">
+      <div>
+        <div class="plan-summary-name" id="summary-plan">Loading...</div>
+        <div style="font-size:.78rem;color:var(--text-muted);margin-top:2px">
+          Lifetime access · One-time payment
+        </div>
+      </div>
+      <div class="plan-summary-amount" id="summary-amount">—</div>
+    </div>
+
+    <div class="instructions-title">Step 2 — Use this reference code when paying</div>
+    <div class="ref-code-box">
+      <div>
+        <div class="ref-label">Your reference code</div>
+        <div class="ref-code" id="ref-code">Loading...</div>
+      </div>
+      <button class="copy-btn" id="copy-btn" onclick="copyRef()">Copy</button>
+    </div>
+    <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:1.25rem">
+      ⚠️ Include this code in your transfer note/description so we can match your payment.
+    </p>
+
+    <div class="instructions-title">Step 3 — Transfer to one of these accounts</div>
+    <div class="payment-methods">
+      <div class="pm-box">
+        <div class="pm-box-title">📱 Telebirr</div>
+        <div class="pm-box-value" id="telebirr-number">Loading...</div>
+        <div class="pm-box-name"  id="telebirr-name">Loading...</div>
+      </div>
+      <div class="pm-box">
+        <div class="pm-box-title">🏦 CBE</div>
+        <div class="pm-box-value" id="cbe-account">Loading...</div>
+        <div class="pm-box-name"  id="cbe-name">Loading...</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Submission form -->
+  <div class="form-box" id="form-box">
+    <div class="form-box-title">Step 4 — Tell us you have paid</div>
+
+    <div class="error-msg" id="error-msg"></div>
+
+    <div class="form-field">
+      <label>Your reference code</label>
+      <input type="text" id="ref-input" placeholder="PAY-XXXXX" style="text-transform:uppercase">
+    </div>
+
+    <div class="form-field">
+      <label>Your transaction ID (from Telebirr/CBE SMS)</label>
+      <input type="text" id="tx-input" placeholder="e.g. TXN1234567890">
+    </div>
+
+    <div class="form-field">
+      <label>Payment method</label>
+      <select id="method-select">
+        <option value="">Select method...</option>
+        <option value="telebirr">Telebirr</option>
+        <option value="cbe">CBE (Commercial Bank of Ethiopia)</option>
+        <option value="awash">Awash Bank</option>
+        <option value="bank_transfer">Other Bank Transfer</option>
+      </select>
+    </div>
+
+    <button class="submit-btn" id="submit-btn" onclick="submitPayment()">
+      Submit Payment Details
+    </button>
+  </div>
+
+  <!-- Success message -->
+  <div class="success-box" id="success-box">
+    <div class="success-icon">🎉</div>
+    <div class="success-title">Payment Submitted!</div>
+    <div class="success-text">
+      Thank you! We will verify your payment within 1–2 hours.<br>
+      Once verified, you will have full access to all your courses.<br><br>
+      <strong>Reference: <span id="success-ref"></span></strong>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  let paymentData = null;
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    // Check login
+    const meRes  = await fetch('/api/auth/me', { credentials: 'include' });
+    const meData = await meRes.json();
+
+    if (!meData.user) {
+      window.location.href = '/login.html?reason=login_required';
+      return;
+    }
+    if (meData.user.is_admin) {
+      window.location.href = '/admin.html';
+      return;
+    }
+    if (meData.user.payment_status === 'verified') {
+      window.location.href = '/dashboard.html';
+      return;
+    }
+
+    // Check payment status from server
+    const statusRes  = await fetch('/api/payment/status', { credentials: 'include' });
+    const statusData = await statusRes.json();
+
+    if (statusData.status === 'pending') {
+      // Already submitted — show pending notice
+      document.getElementById('pending-notice').classList.add('show');
+      document.getElementById('form-box').style.display = 'none';
+      populateInstructions(statusData);
+      return;
+    }
+
+    // Try to get data from sessionStorage (from pay.html)
+    const stored = sessionStorage.getItem('payment_data');
+    if (stored) {
+      paymentData = JSON.parse(stored);
+      populateInstructions(paymentData);
+      document.getElementById('ref-input').value = paymentData.reference_code;
+      return;
+    }
+
+    // If no stored data but has pending payment
+    if (statusData.status !== 'none') {
+      populateInstructions(statusData);
+      document.getElementById('ref-input').value = statusData.reference_code;
+      return;
+    }
+
+    // No plan selected — go back
+    window.location.href = '/pay.html';
+  });
+
+  function populateInstructions(data) {
+    const planNames = { starter: 'Starter Plan', pro: 'Pro Plan', team: 'Team Plan' };
+    document.getElementById('summary-plan').textContent =
+      planNames[data.plan] || data.plan_name || 'Your Plan';
+    document.getElementById('summary-amount').textContent =
+      (data.amount || '—') + ' ETB';
+    document.getElementById('ref-code').textContent =
+      data.reference_code || '—';
+
+    if (data.telebirr_number) {
+      document.getElementById('telebirr-number').textContent = data.telebirr_number;
+      document.getElementById('telebirr-name').textContent   = data.telebirr_name;
+      document.getElementById('cbe-account').textContent     = data.cbe_account;
+      document.getElementById('cbe-name').textContent        = data.cbe_name;
+    }
+  }
+
+  function copyRef() {
+    const code = document.getElementById('ref-code').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  async function submitPayment() {
+    const reference_code   = document.getElementById('ref-input').value.trim().toUpperCase();
+    const user_tx_id       = document.getElementById('tx-input').value.trim();
+    const payment_method   = document.getElementById('method-select').value;
+    const btn              = document.getElementById('submit-btn');
+    const errorEl          = document.getElementById('error-msg');
+
+    errorEl.classList.remove('show');
+
+    if (!reference_code || !user_tx_id || !payment_method) {
+      errorEl.textContent = 'All fields are required.';
+      errorEl.classList.add('show');
+      return;
+    }
+
+    btn.disabled    = true;
+    btn.textContent = 'Submitting...';
+
+    try {
+      const res  = await fetch('/api/payment/submit', {
+        method:      'POST',
+        headers:     { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body:        JSON.stringify({ reference_code, user_tx_id, payment_method })
+      });
+      const data = await res.json();
+
+      if (!res.ok) {
+        errorEl.textContent = data.error || 'Submission failed.';
+        errorEl.classList.add('show');
+        btn.disabled    = false;
+        btn.textContent = 'Submit Payment Details';
+        return;
+      }
+
+      // Show success
+      sessionStorage.removeItem('payment_data');
+      document.getElementById('instructions-box').style.display = 'none';
+      document.getElementById('form-box').style.display         = 'none';
+      document.getElementById('success-ref').textContent        = reference_code;
+      document.getElementById('success-box').classList.add('show');
+
+    } catch (err) {
+      errorEl.textContent = 'Network error. Please try again.';
+      errorEl.classList.add('show');
+      btn.disabled    = false;
+      btn.textContent = 'Submit Payment Details';
+    }
+  }
+</script>
+</body>
+</html>

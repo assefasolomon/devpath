@@ -6,10 +6,10 @@
   <title>Learn Full-Stack Web Development | DevPath</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* ── PRICING SECTION ── */
+    /* ── PRICING ── */
     .pricing-section {
       padding: 5rem 2rem 3rem;
-      max-width: 1100px;
+      max-width: 560px;
       margin: 0 auto;
     }
     .pricing-eyebrow {
@@ -32,296 +32,123 @@
       text-align: center;
       color: var(--text-muted);
       font-size: .95rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
-
-    /* plan cards */
-    .plan-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-      margin-bottom: 3rem;
-    }
-    .plan-card {
+    .plan-box {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      position: relative;
-      transition: all var(--transition);
-      cursor: pointer;
-    }
-    .plan-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-    .plan-card.featured {
       border: 2px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      text-align: center;
+      position: relative;
     }
-    .plan-card.selected {
-      border: 2px solid var(--primary);
-      box-shadow: 0 0 0 4px rgba(37,99,235,.12);
-    }
-    .plan-badge {
+    .plan-box-badge {
       position: absolute;
-      top: -13px; left: 50%;
+      top: -14px; left: 50%;
       transform: translateX(-50%);
       background: var(--accent);
       color: #000;
-      font-size: .7rem;
+      font-size: .72rem;
       font-weight: 700;
-      padding: 3px 14px;
+      padding: 3px 18px;
       border-radius: 20px;
-      white-space: nowrap;
       font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: .06em;
+      letter-spacing: .08em;
+      white-space: nowrap;
     }
-    .plan-icon {
-      font-size: 1.6rem;
-      margin-bottom: .75rem;
-    }
+    .plan-icon { font-size: 3rem; margin-bottom: 1rem; }
     .plan-name {
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--heading);
-      margin-bottom: .25rem;
+      margin-bottom: .4rem;
     }
-    .plan-desc {
-      font-size: .85rem;
+    .plan-tagline {
+      font-size: .9rem;
       color: var(--text-muted);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
       line-height: 1.6;
     }
-    .plan-price {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      margin-bottom: 1.25rem;
-    }
+    .plan-price { margin-bottom: 1.75rem; }
     .price-amount {
-      font-size: 2.4rem;
+      font-size: 3.5rem;
       font-weight: 700;
       color: var(--heading);
+      line-height: 1;
     }
-    .price-period {
-      font-size: .82rem;
+    .price-currency {
+      font-size: 1.2rem;
       color: var(--text-muted);
       font-family: var(--font-mono);
-    }
-    .price-was {
-      font-size: .82rem;
-      color: var(--text-muted);
-      text-decoration: line-through;
       margin-left: 4px;
+    }
+    .price-note {
+      font-size: .8rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      margin-top: .4rem;
     }
     .plan-features {
       list-style: none;
-      margin-bottom: 1.5rem;
+      text-align: left;
+      margin-bottom: 2rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
     }
     .plan-features li {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: .875rem;
+      gap: 10px;
+      font-size: .9rem;
       color: var(--text);
-      padding: 5px 0;
+      padding: .5rem 0;
       border-bottom: 1px solid var(--border);
     }
     .plan-features li:last-child { border-bottom: none; }
-    .feat-y { color: var(--green); }
-    .feat-n { color: var(--border); }
-    .feat-na { opacity: .35; }
-    .plan-btn {
+    .feat-y { color: var(--green); font-size: 1rem; }
+    .get-btn {
+      display: block;
       width: 100%;
-      padding: .75rem;
-      border-radius: var(--radius);
-      font-size: .9rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all var(--transition);
-      font-family: var(--font-ui);
-    }
-    .plan-btn-outline {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-    .plan-btn-outline:hover {
-      border-color: var(--primary-light);
-      color: var(--primary-light);
-    }
-    .plan-btn-solid {
+      padding: 1rem;
       background: var(--primary);
-      border: none;
       color: #fff;
-    }
-    .plan-btn-solid:hover { background: var(--primary-hover); }
-
-    /* checkout box */
-    .checkout-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    .checkout-title {
+      border: none;
+      border-radius: var(--radius);
       font-size: 1.05rem;
       font-weight: 700;
-      color: var(--heading);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .checkout-title em {
-      font-style: normal;
-      color: var(--green);
-    }
-    .selected-plan-bar {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-    .selected-plan-name {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--heading);
-    }
-    .selected-plan-sub {
-      font-size: .75rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      margin-top: 2px;
-    }
-    .selected-plan-price {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .pm-label {
-      font-family: var(--font-mono);
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      color: var(--text-muted);
-      margin-bottom: .6rem;
-    }
-    .pm-tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .pm-tab {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 7px 16px;
-      color: var(--text-muted);
-      font-size: .85rem;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-family: var(--font-ui);
       transition: all var(--transition);
-      font-family: var(--font-ui);
-    }
-    .pm-tab:hover { border-color: var(--primary); color: var(--text); }
-    .pm-tab.active {
-      border-color: var(--primary);
-      color: var(--primary-light);
-      background: var(--primary-glow);
-    }
-    .form-field { margin-bottom: 1rem; }
-    .form-field label {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--text-muted);
-      margin-bottom: 5px;
-    }
-    .form-field input {
-      width: 100%;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 9px 12px;
-      color: var(--heading);
-      font-size: .9rem;
-      font-family: var(--font-ui);
-      outline: none;
-      transition: border-color var(--transition);
-    }
-    .form-field input:focus { border-color: var(--primary); }
-    .form-field input::placeholder { color: var(--text-muted); opacity: .5; }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .method-alt {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
+      text-decoration: none;
       text-align: center;
-      color: var(--text-muted);
-      font-size: .9rem;
-      display: none;
-      margin-bottom: 1rem;
+      box-sizing: border-box;
     }
-    .method-alt .alt-icon {
-      font-size: 2rem;
-      margin-bottom: .5rem;
-    }
-    .secure-note {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+    .get-btn:hover { background: var(--primary-hover); color: #fff; }
+    .pay-note {
+      text-align: center;
       font-size: .78rem;
       color: var(--text-muted);
+      margin-top: .75rem;
       font-family: var(--font-mono);
-      margin: 1rem 0;
     }
-    .secure-note .lock { color: var(--green); }
-    .pay-btn {
-      width: 100%;
-      padding: .85rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: var(--font-ui);
-      transition: all var(--transition);
-    }
-    .pay-btn:hover { background: var(--primary-hover); }
-    .pay-btn.success { background: var(--green); cursor: default; }
 
     /* ── FAQ ── */
     .faq-section {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
       padding: 0 2rem 5rem;
     }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 1.25rem 0;
+    .faq-title {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 2rem;
     }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1.1rem 0; }
     .faq-q {
-      font-size: .97rem;
+      font-size: .95rem;
       font-weight: 700;
       color: var(--heading);
       cursor: pointer;
@@ -334,13 +161,12 @@
     .faq-q:hover { color: var(--secondary); }
     .faq-chev {
       color: var(--text-muted);
-      font-size: 1rem;
       transition: transform var(--transition);
       flex-shrink: 0;
     }
     .faq-chev.open { transform: rotate(180deg); }
     .faq-a {
-      font-size: .9rem;
+      font-size: .875rem;
       color: var(--text-muted);
       margin-top: .75rem;
       line-height: 1.75;
@@ -352,30 +178,30 @@
     .footer-full {
       background: var(--surface);
       border-top: 1px solid var(--border);
-      padding: 3.5rem 2rem 2rem;
+      padding: 3rem 2rem 2rem;
     }
     .footer-inner { max-width: 1100px; margin: 0 auto; }
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 2rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .footer-brand-name {
       display: flex;
       align-items: center;
       gap: .5rem;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--primary-light);
       margin-bottom: .75rem;
     }
-    .footer-brand-name svg { width: 22px; height: 22px; }
+    .footer-brand-name svg { width: 20px; height: 20px; }
     .footer-brand p {
       font-size: .85rem;
       color: var(--text-muted);
       line-height: 1.7;
-      max-width: 240px;
+      max-width: 220px;
     }
     .footer-col h4 {
       font-family: var(--font-mono);
@@ -390,8 +216,8 @@
       font-size: .875rem;
       color: var(--text-muted);
       margin-bottom: .5rem;
-      transition: color var(--transition);
       text-decoration: none;
+      transition: color var(--transition);
     }
     .footer-col a:hover { color: var(--secondary); }
     .footer-bottom {
@@ -419,16 +245,13 @@
       color: var(--text-muted);
       font-size: .75rem;
       font-weight: 700;
-      transition: all var(--transition);
       text-decoration: none;
+      transition: all var(--transition);
       font-family: var(--font-mono);
     }
-    .social-link:hover {
-      border-color: var(--primary);
-      color: var(--primary-light);
-    }
+    .social-link:hover { border-color: var(--primary); color: var(--primary-light); }
 
-    /* path-grid one row */
+    /* path grid one row */
     .path-grid {
       display: flex;
       flex-wrap: nowrap;
@@ -440,7 +263,6 @@
 
     @media (max-width: 768px) {
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .form-row { grid-template-columns: 1fr; }
       .path-grid { flex-wrap: wrap; }
     }
     @media (max-width: 480px) {
@@ -461,21 +283,19 @@
   </a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="foundations/index.html">Foundations</a></li>
-    <li><a href="paths/full-stack-javascript/index.html">Full Stack JS</a></li>
-    <li><a href="paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a></li>
-    <li><a href="paths/python-ai/index.html">Python for AI</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="register.html">Register</a></li>
+    <li><a href="login.html" id="nav-login">Login</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <span class="hero-label">Free · Open · Project-Based</span>
+  <span class="hero-label">Structured · Project-Based · Ethiopian Payment</span>
   <h1>Your path to becoming a<br><em>full-stack developer</em></h1>
-  <p>A structured, hands-on curriculum that takes you from zero to job-ready. No fees. No fluff.</p>
+  <p>A structured, hands-on curriculum that takes you from zero to job-ready. Pay once via Telebirr or CBE — access everything forever.</p>
   <div class="hero-actions">
-    <a href="foundations/index.html" class="btn btn-primary">Start with Foundations →</a>
+    <a href="register.html" class="btn btn-primary">Get Started →</a>
     <a href="#pricing" class="btn btn-outline">View Pricing</a>
   </div>
 </section>
@@ -484,225 +304,106 @@
 <section class="section">
   <div class="section-header">
     <h2>Choose Your Learning Path</h2>
-    <p>All paths start with Foundations. After that, pick the track that fits your goals.</p>
+    <p>All paths are included in one payment. Pick where to start.</p>
   </div>
   <div class="path-grid">
-    <a href="foundations/index.html" class="path-card" data-path="foundations">
+    <div class="path-card" data-path="foundations">
       <div class="path-card-icon">🧱</div>
       <h3>Foundations</h3>
-      <p>Start here — no exceptions. HTML, CSS, JavaScript, Git, and the command line through real projects.</p>
+      <p>Start here — HTML, CSS, JavaScript, Git, and the command line through real projects.</p>
       <div class="path-tags">
         <span class="tag">HTML &amp; CSS</span>
         <span class="tag">JavaScript</span>
         <span class="tag">Git</span>
-        <span class="tag">5 projects</span>
       </div>
-    </a>
-    <a href="paths/full-stack-javascript/index.html" class="path-card" data-path="js">
+    </div>
+    <div class="path-card" data-path="js">
       <div class="path-card-icon">⚡</div>
       <h3>Full Stack JavaScript</h3>
-      <p>Go deep with JavaScript. React on the front-end, Node.js and Express on the back-end, PostgreSQL for data.</p>
+      <p>React on the front-end, Node.js and Express on the back-end, PostgreSQL for data.</p>
       <div class="path-tags">
-        <span class="tag">JavaScript</span>
         <span class="tag">React</span>
         <span class="tag">Node.js</span>
         <span class="tag">PostgreSQL</span>
       </div>
-    </a>
-    <a href="paths/full-stack-ruby-on-rails/index.html" class="path-card" data-path="rails">
+    </div>
+    <div class="path-card" data-path="rails">
       <div class="path-card-icon">💎</div>
       <h3>Full Stack Ruby on Rails</h3>
-      <p>Learn Ruby, then harness Rails to build polished web applications from back to front.</p>
+      <p>Learn Ruby, then harness Rails to build polished web applications.</p>
       <div class="path-tags">
         <span class="tag">Ruby</span>
         <span class="tag">Rails</span>
         <span class="tag">SQL</span>
-        <span class="tag">MVC</span>
       </div>
-    </a>
-    <a href="paths/python-ai/index.html" class="path-card" data-path="python-ai">
+    </div>
+    <div class="path-card" data-path="python-ai">
       <div class="path-card-icon">🐍</div>
       <h3>Python for AI</h3>
-      <p>Master Python, NumPy, Pandas, and Matplotlib — the core data toolkit for every AI and ML engineer.</p>
+      <p>Master Python, NumPy, Pandas, and Matplotlib for AI and data science.</p>
       <div class="path-tags">
         <span class="tag">Python</span>
         <span class="tag">NumPy</span>
         <span class="tag">Pandas</span>
-        <span class="tag">Matplotlib</span>
       </div>
-    </a>
+    </div>
   </div>
 </section>
 
 <!-- PRICING -->
 <div id="pricing" class="pricing-section">
-  <div class="pricing-eyebrow">Simple · One-time · No subscriptions</div>
-  <div class="pricing-title">Invest once. Learn forever.</div>
-  <div class="pricing-sub">Pay once and get lifetime access — including all future updates. No monthly fees, no surprises.</div>
+  <div class="pricing-eyebrow">Ethiopian Payment · One-time · No subscription</div>
+  <div class="pricing-title">One plan. Everything included.</div>
+  <div class="pricing-sub">Pay once via Telebirr or CBE. Get lifetime access to all 4 paths.</div>
 
-  <div class="plan-grid">
-
-    <!-- STARTER -->
-    <div class="plan-card" id="card-starter" onclick="selectPlan('starter')">
-      <div class="plan-icon">🌱</div>
-      <div class="plan-name">Starter</div>
-      <div class="plan-desc">Everything you need to get moving with the fundamentals of web development.</div>
-      <div class="plan-price">
-        <span class="price-amount">$49</span>
-        <span class="price-period">one-time</span>
-      </div>
-      <ul class="plan-features">
-        <li><span class="feat-y">✓</span> Foundations path</li>
-        <li><span class="feat-y">✓</span> 40+ lessons</li>
-        <li><span class="feat-y">✓</span> Community access</li>
-        <li><span class="feat-y">✓</span> Certificate of completion</li>
-        <li><span class="feat-n">✗</span><span class="feat-na"> AI mentor</span></li>
-        <li><span class="feat-n">✗</span><span class="feat-na"> Live code environment</span></li>
-        <li><span class="feat-n">✗</span><span class="feat-na"> Priority support</span></li>
-      </ul>
-      <button class="plan-btn plan-btn-outline">Select Starter</button>
-    </div>
-
-    <!-- PRO -->
-    <div class="plan-card featured" id="card-pro" onclick="selectPlan('pro')">
-      <div class="plan-badge">⭐ Most popular</div>
-      <div class="plan-icon">🚀</div>
-      <div class="plan-name">Pro</div>
-      <div class="plan-desc">Full access to every path, AI mentoring, and live coding environments.</div>
-      <div class="plan-price">
-        <span class="price-amount">$149</span>
-        <span class="price-period">one-time</span>
-        <span class="price-was">$199</span>
-      </div>
-      <ul class="plan-features">
-        <li><span class="feat-y">✓</span> All 4 learning paths</li>
-        <li><span class="feat-y">✓</span> 200+ lessons</li>
-        <li><span class="feat-y">✓</span> AI mentor (unlimited)</li>
-        <li><span class="feat-y">✓</span> Live code environment</li>
-        <li><span class="feat-y">✓</span> Priority support</li>
-        <li><span class="feat-y">✓</span> Certificate of completion</li>
-        <li><span class="feat-y">✓</span> Future path updates</li>
-      </ul>
-      <button class="plan-btn plan-btn-solid">Select Pro</button>
-    </div>
-
-    <!-- TEAM -->
-    <div class="plan-card" id="card-team" onclick="selectPlan('team')">
-      <div class="plan-icon">👥</div>
-      <div class="plan-name">Team</div>
-      <div class="plan-desc">Everything in Pro for your whole engineering team with admin controls.</div>
-      <div class="plan-price">
-        <span class="price-amount">$399</span>
-        <span class="price-period">up to 10 seats</span>
-      </div>
-      <ul class="plan-features">
-        <li><span class="feat-y">✓</span> Everything in Pro</li>
-        <li><span class="feat-y">✓</span> Team dashboard</li>
-        <li><span class="feat-y">✓</span> Progress tracking</li>
-        <li><span class="feat-y">✓</span> Admin controls</li>
-        <li><span class="feat-y">✓</span> Dedicated support</li>
-        <li><span class="feat-y">✓</span> Custom onboarding</li>
-        <li><span class="feat-y">✓</span> Invoicing available</li>
-      </ul>
-      <button class="plan-btn plan-btn-outline">Select Team</button>
-    </div>
-
-  </div>
-
-  <!-- CHECKOUT -->
-  <div class="checkout-box" id="checkout">
-    <div class="checkout-title">🔒 <em>Secure</em> checkout</div>
-
-    <div class="selected-plan-bar">
+  <div class="plan-box">
+    <div class="plan-box-badge">🔥 Everything included</div>
+    <div class="plan-icon">🚀</div>
+    <div class="plan-name">DevPath Full Access</div>
+    <div class="plan-tagline">All 4 learning paths, 200+ lessons, real projects, and all future content — forever.</div>
+    <div class="plan-price">
       <div>
-        <div class="selected-plan-name" id="plan-name-label">Select a plan above</div>
-        <div class="selected-plan-sub" id="plan-sub-label">Click any plan to begin</div>
+        <span class="price-amount">599</span>
+        <span class="price-currency">ETB</span>
       </div>
-      <div class="selected-plan-price" id="plan-price-label">—</div>
+      <div class="price-note">one-time payment · no monthly fees</div>
     </div>
-
-    <div class="pm-label">Payment method</div>
-    <div class="pm-tabs">
-      <button class="pm-tab active" id="tab-card" onclick="switchMethod('card')">💳 Card</button>
-      <button class="pm-tab" id="tab-paypal" onclick="switchMethod('paypal')">🅿️ PayPal</button>
-      <button class="pm-tab" id="tab-crypto" onclick="switchMethod('crypto')">₿ Crypto</button>
-    </div>
-
-    <!-- CARD FORM -->
-    <div id="form-card">
-      <div class="form-field">
-        <label>Cardholder name</label>
-        <input type="text" placeholder="Your full name">
-      </div>
-      <div class="form-field">
-        <label>Card number</label>
-        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" oninput="fmtCard(this)">
-      </div>
-      <div class="form-row">
-        <div class="form-field">
-          <label>Expiry</label>
-          <input type="text" placeholder="MM / YY" maxlength="7">
-        </div>
-        <div class="form-field">
-          <label>CVC</label>
-          <input type="text" placeholder="123" maxlength="3">
-        </div>
-      </div>
-      <div class="form-field">
-        <label>Email</label>
-        <input type="email" placeholder="you@example.com">
-      </div>
-    </div>
-
-    <!-- PAYPAL -->
-    <div class="method-alt" id="form-paypal">
-      <div class="alt-icon">🅿️</div>
-      <p>You will be redirected to PayPal to complete your purchase securely.</p>
-    </div>
-
-    <!-- CRYPTO -->
-    <div class="method-alt" id="form-crypto">
-      <div class="alt-icon">₿</div>
-      <p style="margin-bottom:.75rem">Send exact amount to the wallet address below:</p>
-      <div style="background:var(--code-bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;font-family:var(--font-mono);font-size:.8rem;color:var(--secondary);word-break:break-all">0x4f3E8b2...8aB2c9D1</div>
-      <p style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">BTC, ETH, and USDC accepted</p>
-    </div>
-
-    <div class="secure-note">
-      <span class="lock">🔒</span>
-      256-bit SSL &nbsp;·&nbsp; PCI DSS compliant &nbsp;·&nbsp; 30-day money-back guarantee
-    </div>
-
-    <button class="pay-btn" id="pay-btn" onclick="handlePay()">
-      Pay <span id="pay-amount">—</span> — Get instant access
-    </button>
+    <ul class="plan-features">
+      <li><span class="feat-y">✓</span> Python for AI — NumPy, Pandas, Matplotlib</li>
+      <li><span class="feat-y">✓</span> Full Stack JavaScript — React, Node.js</li>
+      <li><span class="feat-y">✓</span> Full Stack Ruby on Rails</li>
+      <li><span class="feat-y">✓</span> Foundations — HTML, CSS, JavaScript, Git</li>
+      <li><span class="feat-y">✓</span> 200+ lessons with real projects</li>
+      <li><span class="feat-y">✓</span> Certificate of completion</li>
+      <li><span class="feat-y">✓</span> All future content included free</li>
+    </ul>
+    <a href="register.html" class="get-btn">Get Full Access — 599 ETB</a>
+    <div class="pay-note">🔒 Pay via Telebirr or CBE · Verified within 1–2 hours</div>
   </div>
 </div>
 
 <!-- FAQ -->
 <div class="faq-section">
-  <div class="pricing-title" style="margin-bottom:.4rem">Frequently asked questions</div>
-  <div class="pricing-sub" style="margin-bottom:2rem">Everything you need to know before purchasing.</div>
-
+  <div class="faq-title">Frequently asked questions</div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(0)">Is this really a one-time payment? <span class="faq-chev" id="chev-0">▾</span></div>
-    <div class="faq-a" id="faq-0">Yes — pay once and access your plan forever. No recurring charges, no hidden fees. Future updates to your purchased paths are included at no extra cost.</div>
+    <div class="faq-q" onclick="toggleFaq(0)">How do I pay? <span class="faq-chev" id="chev-0">▾</span></div>
+    <div class="faq-a" id="faq-0">After registering, you will receive a unique reference code. Transfer 599 ETB to our Telebirr or CBE account using that code as your transfer note. Then submit your transaction ID on our site and we verify within 1–2 hours.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(1)">What is the refund policy? <span class="faq-chev" id="chev-1">▾</span></div>
-    <div class="faq-a" id="faq-1">We offer a 30-day money-back guarantee, no questions asked. Contact support within 30 days of purchase for a full refund.</div>
+    <div class="faq-q" onclick="toggleFaq(1)">Which payment methods are accepted? <span class="faq-chev" id="chev-1">▾</span></div>
+    <div class="faq-a" id="faq-1">We accept Telebirr, CBE (Commercial Bank of Ethiopia), Awash Bank, and other Ethiopian bank transfers. No international cards or PayPal required.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(2)">Can I upgrade from Starter to Pro later? <span class="faq-chev" id="chev-2">▾</span></div>
-    <div class="faq-a" id="faq-2">Yes. You pay only the difference between plans. Contact support with your order ID and we will send an upgrade invoice within 24 hours.</div>
+    <div class="faq-q" onclick="toggleFaq(2)">How long until I get access? <span class="faq-chev" id="chev-2">▾</span></div>
+    <div class="faq-a" id="faq-2">We verify payments within 1–2 hours during business hours (8am–8pm). Once verified you get instant access to all courses.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(3)">Do I get access to new courses added in the future? <span class="faq-chev" id="chev-3">▾</span></div>
-    <div class="faq-a" id="faq-3">Pro and Team holders get all new content added to their included paths free. Brand new paths outside your plan are sold separately.</div>
+    <div class="faq-q" onclick="toggleFaq(3)">Is this a one-time payment? <span class="faq-chev" id="chev-3">▾</span></div>
+    <div class="faq-a" id="faq-3">Yes — pay once and access everything forever. No subscriptions, no hidden fees. Future content additions are also included at no extra cost.</div>
   </div>
   <div class="faq-item">
-    <div class="faq-q" onclick="toggleFaq(4)">Is DevPath suitable for complete beginners? <span class="faq-chev" id="chev-4">▾</span></div>
-    <div class="faq-a" id="faq-4">Absolutely. The Foundations path assumes zero prior knowledge. Over 60% of our learners had never written code before starting.</div>
+    <div class="faq-q" onclick="toggleFaq(4)">What if I already paid but don't have access? <span class="faq-chev" id="chev-4">▾</span></div>
+    <div class="faq-a" id="faq-4">Log in to your account and check the status on the payment page. If your payment was submitted but not yet verified, it means we are still checking. If it has been more than 2 hours contact us directly.</div>
   </div>
 </div>
 
@@ -712,43 +413,42 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="footer-brand-name">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 28 28" fill="none">
             <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/>
             <path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/>
           </svg>
           DevPath
         </div>
-        <p>Structured, hands-on learning for developers who want to move fast and build things that matter.</p>
+        <p>Structured, hands-on learning for Ethiopian developers who want to build things that matter.</p>
       </div>
       <div class="footer-col">
-        <h4>Product</h4>
+        <h4>Learn</h4>
+        <a href="register.html">Get Started</a>
         <a href="#pricing">Pricing</a>
-        <a href="#">Changelog</a>
-        <a href="#">Roadmap</a>
-        <a href="#">Status</a>
+        <a href="login.html">Login</a>
       </div>
       <div class="footer-col">
         <h4>Paths</h4>
-        <a href="foundations/index.html">Foundations</a>
-        <a href="paths/full-stack-javascript/index.html">Full Stack JS</a>
-        <a href="paths/full-stack-ruby-on-rails/index.html">Full Stack Rails</a>
-        <a href="paths/python-ai/index.html">Python for AI</a>
+        <a href="login.html">Foundations</a>
+        <a href="login.html">Full Stack JS</a>
+        <a href="login.html">Ruby on Rails</a>
+        <a href="login.html">Python for AI</a>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
-        <a href="#">About</a>
-        <a href="#">Blog</a>
+        <h4>Support</h4>
+        <a href="#">Contact Us</a>
+        <a href="#">FAQ</a>
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 DevPath — inspired by <a href="https://www.theodinproject.com" target="_blank" style="color:var(--text-muted)">The Odin Project</a>.</p>
+      <p>© 2025 DevPath — Built for Ethiopian developers.</p>
       <div class="social-links">
-        <a href="#" class="social-link" title="GitHub">GH</a>
-        <a href="#" class="social-link" title="Twitter">TW</a>
-        <a href="#" class="social-link" title="Discord">DC</a>
-        <a href="#" class="social-link" title="LinkedIn">LI</a>
+        <a href="#" class="social-link">GH</a>
+        <a href="#" class="social-link">TG</a>
+        <a href="#" class="social-link">TW</a>
+        <a href="#" class="social-link">LI</a>
       </div>
     </div>
   </div>
@@ -756,64 +456,33 @@
 
 <script src="js/main.js"></script>
 <script>
-  const plans = {
-    starter: { name: 'Starter plan', sub: 'Foundations path · 40+ lessons',       price: '$49'  },
-    pro:     { name: 'Pro plan',     sub: 'All paths · AI mentor · 200+ lessons',  price: '$149' },
-    team:    { name: 'Team plan',    sub: 'Up to 10 seats · Everything in Pro',     price: '$399' }
-  };
-
-  function selectPlan(id) {
-    ['starter','pro','team'].forEach(p =>
-      document.getElementById('card-'+p).classList.remove('selected')
-    );
-    document.getElementById('card-'+id).classList.add('selected');
-    const p = plans[id];
-    document.getElementById('plan-name-label').textContent  = p.name;
-    document.getElementById('plan-sub-label').textContent   = p.sub;
-    document.getElementById('plan-price-label').textContent = p.price;
-    document.getElementById('pay-amount').textContent       = p.price;
-    document.getElementById('checkout').scrollIntoView({ behavior:'smooth', block:'start' });
-  }
-
-  function switchMethod(m) {
-    ['card','paypal','crypto'].forEach(x => {
-      document.getElementById('tab-'+x).classList.remove('active');
-      document.getElementById('form-'+x).style.display = 'none';
-    });
-    document.getElementById('tab-'+m).classList.add('active');
-    document.getElementById('form-'+m).style.display = 'block';
-  }
-
-  function fmtCard(el) {
-    let v = el.value.replace(/\D/g,'').substring(0,16);
-    el.value = v.replace(/(.{4})/g,'$1 ').trim();
-  }
+  // Update nav if already logged in
+  fetch('/api/auth/me', { credentials: 'include' })
+    .then(r => r.json())
+    .then(data => {
+      if (data.user) {
+        const loginLink = document.getElementById('nav-login');
+        if (data.user.is_admin) {
+          loginLink.textContent = 'Admin Panel';
+          loginLink.href = '/admin.html';
+        } else if (data.user.payment_status === 'verified') {
+          loginLink.textContent = 'My Courses';
+          loginLink.href = '/dashboard.html';
+        } else {
+          loginLink.textContent = 'My Account';
+          loginLink.href = '/pay.html';
+        }
+      }
+    }).catch(() => {});
 
   function toggleFaq(i) {
-    const a = document.getElementById('faq-'+i);
-    const c = document.getElementById('chev-'+i);
+    const a    = document.getElementById('faq-'+i);
+    const c    = document.getElementById('chev-'+i);
     const open = a.classList.contains('open');
     document.querySelectorAll('.faq-a').forEach(x => x.classList.remove('open'));
     document.querySelectorAll('.faq-chev').forEach(x => x.classList.remove('open'));
     if (!open) { a.classList.add('open'); c.classList.add('open'); }
   }
-
-  function handlePay() {
-    const btn = document.getElementById('pay-btn');
-    const amt = document.getElementById('pay-amount').textContent;
-    if (amt === '—') { alert('Please select a plan first.'); return; }
-    btn.textContent = 'Processing...';
-    btn.disabled = true;
-    btn.style.opacity = '.6';
-    setTimeout(() => {
-      btn.textContent = '✓ Payment successful — check your email!';
-      btn.classList.add('success');
-      btn.style.opacity = '1';
-    }, 1800);
-  }
-
-  document.getElementById('form-paypal').style.display = 'none';
-  document.getElementById('form-crypto').style.display = 'none';
 </script>
 </body>
 </html>
