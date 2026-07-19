@@ -18,14 +18,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// ── PUBLIC STATIC FILES ──────────────────────────────────
-// Serve everything in devpath/ EXCEPT /paths/ (which is protected below)
-app.use(express.static(path.join(__dirname, '..'), {
-  index: 'index.html',
-  extensions: ['html']
-}));
-
-// ── API ROUTES ───────────────────────────────────────────
+// ── API ROUTES (before static files) ────────────────────
 const authRoutes    = require('./routes/auth');
 const paymentRoutes = require('./routes/payment');
 const adminRoutes   = require('./routes/admin');
@@ -39,35 +32,46 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', time: new Date().toISOString() });
 });
 
-// ── PROTECTED ROUTES ─────────────────────────────────────
+// ── PROTECTED ROUTES (before public static) ──────────────
+// These MUST come before express.static so they are checked first
 const { protect, requireVerified } = require('./middleware/protect');
 
-// Protect /paths/ directory — must be logged in AND verified
+// Block /paths/ — requires login + verified payment
 app.use('/paths', protect, requireVerified, (req, res, next) => {
   express.static(path.join(__dirname, '..', 'paths'))(req, res, next);
 });
 
-// Protect /foundations/ directory
+// Block /foundations/ — requires login + verified payment
 app.use('/foundations', protect, requireVerified, (req, res, next) => {
   express.static(path.join(__dirname, '..', 'foundations'))(req, res, next);
 });
 
-// Protect dashboard
+// Block /dashboard.html — requires login + verified payment
 app.get('/dashboard.html', protect, requireVerified, (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'dashboard.html'));
 });
 
-// ── CATCH-ALL: serve index.html for unknown routes ───────
-app.use((req, res, next) => {
-  // If it's an API route that wasn't matched
+// Block /admin.html — requires login + admin
+app.get('/admin.html', protect, (req, res, next) => {
+  if (!req.user.is_admin) {
+    return res.redirect('/login.html?reason=admin_required');
+  }
+  res.sendFile(path.join(__dirname, '..', 'admin.html'));
+});
+
+// ── PUBLIC STATIC FILES (after protected routes) ─────────
+// Only runs if none of the protected routes matched
+app.use(express.static(path.join(__dirname, '..'), {
+  index: 'index.html',
+  extensions: ['html']
+}));
+
+// ── 404 HANDLER ──────────────────────────────────────────
+app.use((req, res) => {
   if (req.path.startsWith('/api/')) {
     return res.status(404).json({ error: 'Route not found' });
   }
-  // For everything else serve index.html
-  const file = path.join(__dirname, '..', 'index.html');
-  res.sendFile(file, err => {
-    if (err) res.status(404).send('Page not found');
-  });
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 // ── GLOBAL ERROR HANDLER ─────────────────────────────────
@@ -84,7 +88,7 @@ process.on('uncaughtException', err => {
   console.error('❌ Uncaught Exception:', err.message);
 });
 
-process.on('unhandledRejection', (reason) => {
+process.on('unhandledRejection', reason => {
   console.error('❌ Unhandled Rejection:', reason);
 });
 
@@ -92,7 +96,4 @@ process.on('unhandledRejection', (reason) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ DevPath server running on http://localhost:${PORT}`);
-  console.log(`   Home:    http://localhost:${PORT}`);
-  console.log(`   Admin:   http://localhost:${PORT}/admin.html`);
-  console.log(`   Login:   http://localhost:${PORT}/login.html`);
 });

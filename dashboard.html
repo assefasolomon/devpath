@@ -6,61 +6,28 @@
   <title>Dashboard | DevPath</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .dash-wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-    .welcome {
-      margin-bottom: 2.5rem;
-    }
-    .welcome h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: var(--heading);
-      margin-bottom: .35rem;
-    }
-    .welcome p { color: var(--text-muted); }
-    .paths-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap: 1.25rem;
-    }
-    .path-link {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.75rem;
-      text-decoration: none;
-      color: inherit;
-      transition: all var(--transition);
-      display: block;
-    }
-    .path-link:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-      border-color: var(--primary);
-    }
-    .path-icon { font-size: 2rem; margin-bottom: .75rem; }
-    .path-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--heading);
-      margin-bottom: .4rem;
-    }
-    .path-desc { font-size: .875rem; color: var(--text-muted); line-height: 1.6; }
-    .path-arrow {
-      font-size: .875rem;
-      color: var(--primary-light);
-      margin-top: 1rem;
-      font-weight: 600;
-    }
-    .dash-nav {
+    body { background: var(--bg); }
+    .dash-wrap { max-width: 960px; margin: 0 auto; padding: 2.5rem 2rem; }
+    .dash-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-    .dash-user { font-size: .875rem; color: var(--text-muted); }
-    .dash-user strong { color: var(--heading); }
+    .dash-user-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--heading);
+    }
+    .dash-user-email {
+      font-size: .85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
     .logout-btn {
       background: transparent;
       border: 1px solid var(--border);
@@ -73,17 +40,158 @@
       transition: all var(--transition);
     }
     .logout-btn:hover { border-color: #ef4444; color: #ef4444; }
-    .badge-verified {
+
+    /* Payment status card */
+    .status-card {
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .status-card.verified {
+      background: rgba(16,185,129,.08);
+      border: 1px solid rgba(16,185,129,.3);
+    }
+    .status-card.pending {
+      background: rgba(251,191,36,.08);
+      border: 1px solid rgba(251,191,36,.3);
+    }
+    .status-card.none {
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .status-card.rejected {
+      background: rgba(239,68,68,.08);
+      border: 1px solid rgba(239,68,68,.3);
+    }
+    .status-icon { font-size: 2rem; margin-bottom: .25rem; }
+    .status-title { font-size: 1rem; font-weight: 700; color: var(--heading); }
+    .status-desc  { font-size: .85rem; color: var(--text-muted); margin-top: 2px; }
+    .status-action {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: .6rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: .875rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: var(--font-ui);
+      transition: all var(--transition);
+    }
+    .status-action:hover { background: var(--primary-hover); color: #fff; }
+
+    /* Payment details */
+    .payment-details {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .payment-details h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 1rem;
+    }
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+      gap: 1rem;
+    }
+    .detail-item { }
+    .detail-label {
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+    }
+    .detail-value {
+      font-size: .9rem;
+      color: var(--heading);
+      font-weight: 600;
+    }
+    .badge {
       display: inline-block;
-      background: rgba(16,185,129,.15);
-      color: #10b981;
+      padding: 2px 10px;
       border-radius: 20px;
       font-size: .72rem;
       font-weight: 700;
-      padding: 2px 10px;
       font-family: var(--font-mono);
       text-transform: uppercase;
-      margin-left: 8px;
+    }
+    .badge-verified { background: rgba(16,185,129,.15); color: #10b981; }
+    .badge-pending  { background: rgba(251,191,36,.15);  color: #fbbf24; }
+    .badge-rejected { background: rgba(239,68,68,.15);   color: #ef4444; }
+    .badge-none     { background: var(--surface-2); color: var(--text-muted); }
+
+    /* Courses section */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 1.25rem;
+    }
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 1.25rem;
+    }
+    .course-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--transition);
+      display: block;
+      position: relative;
+    }
+    .course-card.unlocked:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary);
+    }
+    .course-card.locked {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+    .course-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .course-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: .35rem;
+    }
+    .course-desc {
+      font-size: .82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: .75rem;
+    }
+    .course-status {
+      font-size: .75rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .course-status.open { color: var(--green); }
+    .course-status.lock { color: var(--text-muted); }
+    .lock-icon {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-size: 1.1rem;
+      opacity: .4;
     }
   </style>
 </head>
@@ -101,74 +209,230 @@
 
 <div class="dash-wrap">
 
-  <div class="dash-nav">
-    <div class="dash-user">
-      Welcome, <strong id="user-name">...</strong>
-      <span class="badge-verified">✓ Verified</span>
+  <div class="dash-top">
+    <div>
+      <div class="dash-user-name" id="user-name">Loading...</div>
+      <div class="dash-user-email" id="user-email"></div>
     </div>
     <button class="logout-btn" onclick="logout()">Logout</button>
   </div>
 
-  <div class="welcome">
-    <h1>Your Learning Paths</h1>
-    <p>You have full access to all paths. Pick up where you left off.</p>
+  <!-- Payment status card -->
+  <div class="status-card" id="status-card">
+    <div>
+      <div class="status-icon" id="status-icon">⏳</div>
+      <div class="status-title" id="status-title">Loading...</div>
+      <div class="status-desc"  id="status-desc"></div>
+    </div>
+    <div id="status-action-wrap"></div>
   </div>
 
-  <div class="paths-grid">
-    <a href="/paths/python-ai/index.html" class="path-link">
-      <div class="path-icon">🐍</div>
-      <div class="path-title">Python for AI</div>
-      <div class="path-desc">Master Python, NumPy, Pandas, and Matplotlib for AI and data science.</div>
-      <div class="path-arrow">Start learning →</div>
-    </a>
-    <a href="/foundations/index.html" class="path-link">
-      <div class="path-icon">🧱</div>
-      <div class="path-title">Foundations</div>
-      <div class="path-desc">HTML, CSS, JavaScript, Git, and the command line through real projects.</div>
-      <div class="path-arrow">Start learning →</div>
-    </a>
-    <a href="/paths/full-stack-javascript/index.html" class="path-link">
-      <div class="path-icon">⚡</div>
-      <div class="path-title">Full Stack JavaScript</div>
-      <div class="path-desc">React, Node.js, Express, and PostgreSQL — the complete JS stack.</div>
-      <div class="path-arrow">Start learning →</div>
-    </a>
-    <a href="/paths/full-stack-ruby-on-rails/index.html" class="path-link">
-      <div class="path-icon">💎</div>
-      <div class="path-title">Full Stack Ruby on Rails</div>
-      <div class="path-desc">Ruby and Rails — build polished production web applications.</div>
-      <div class="path-arrow">Start learning →</div>
-    </a>
+  <!-- Payment details (shown if has payment) -->
+  <div class="payment-details" id="payment-details" style="display:none">
+    <h3>Payment Details</h3>
+    <div class="detail-grid">
+      <div class="detail-item">
+        <div class="detail-label">Plan</div>
+        <div class="detail-value" id="detail-plan">—</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Amount</div>
+        <div class="detail-value" id="detail-amount">—</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Reference</div>
+        <div class="detail-value" id="detail-ref">—</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Method</div>
+        <div class="detail-value" id="detail-method">—</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Status</div>
+        <div class="detail-value" id="detail-status">—</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Submitted</div>
+        <div class="detail-value" id="detail-date">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Courses -->
+  <div class="section-title" id="courses-title">Your Courses</div>
+  <div class="courses-grid" id="courses-grid">
+    <!-- filled by JS -->
   </div>
 
 </div>
 
 <script>
+  const COURSES = [
+    {
+      icon:  '🧱',
+      title: 'Foundations',
+      desc:  'HTML, CSS, JavaScript, Git, and the command line through real projects.',
+      url:   '/foundations/index.html'
+    },
+    {
+      icon:  '⚡',
+      title: 'Full Stack JavaScript',
+      desc:  'React, Node.js, Express, and PostgreSQL — the complete JS stack.',
+      url:   '/paths/full-stack-javascript/index.html'
+    },
+    {
+      icon:  '💎',
+      title: 'Full Stack Ruby on Rails',
+      desc:  'Ruby and Rails — build polished production web applications.',
+      url:   '/paths/full-stack-ruby-on-rails/index.html'
+    },
+    {
+      icon:  '🐍',
+      title: 'Python for AI',
+      desc:  'Python, NumPy, Pandas, and Matplotlib for AI and data science.',
+      url:   '/paths/python-ai/index.html'
+    }
+  ];
+
   window.addEventListener('DOMContentLoaded', async () => {
-    const res  = await fetch('/api/auth/me', { credentials: 'include' });
-    const data = await res.json();
+    try {
+      const meRes  = await fetch('/api/auth/me', { credentials: 'include' });
+      const meData = await meRes.json();
 
-    if (!data.user) {
-      window.location.href = '/login.html?reason=login_required';
-      return;
-    }
-    if (data.user.is_admin) {
-      window.location.href = '/admin.html';
-      return;
-    }
-    if (data.user.payment_status !== 'verified') {
-      window.location.href = '/pay.html';
-      return;
-    }
+      if (!meData.user) {
+        window.location.href = '/login.html?reason=login_required';
+        return;
+      }
+      if (meData.user.is_admin) {
+        window.location.href = '/admin.html';
+        return;
+      }
 
-    document.getElementById('user-name').textContent =
-      `${data.user.first_name} ${data.user.last_name}`;
+      const user = meData.user;
+      document.getElementById('user-name').textContent =
+        user.first_name + ' ' + user.last_name;
+      document.getElementById('user-email').textContent = user.email;
+
+      // Load payment status
+      const payRes  = await fetch('/api/payment/status', { credentials: 'include' });
+      const payData = await payRes.json();
+
+      renderStatus(payData, user);
+      renderCourses(payData.status === 'verified');
+
+    } catch (err) {
+      console.error(err);
+      window.location.href = '/login.html';
+    }
   });
+
+  function renderStatus(pay, user) {
+    const card       = document.getElementById('status-card');
+    const icon       = document.getElementById('status-icon');
+    const title      = document.getElementById('status-title');
+    const desc       = document.getElementById('status-desc');
+    const actionWrap = document.getElementById('status-action-wrap');
+    const details    = document.getElementById('payment-details');
+
+    if (pay.status === 'verified') {
+      card.className  = 'status-card verified';
+      icon.textContent  = '✅';
+      title.textContent = 'Payment Verified — Full Access Active';
+      desc.textContent  = 'You have lifetime access to all DevPath courses.';
+      actionWrap.innerHTML = '';
+
+      // Show payment details
+      details.style.display = 'block';
+      document.getElementById('detail-plan').textContent   = 'DevPath Full Access';
+      document.getElementById('detail-amount').textContent = pay.amount + ' ETB';
+      document.getElementById('detail-ref').textContent    = pay.reference_code || '—';
+      document.getElementById('detail-method').textContent = pay.payment_method || '—';
+      document.getElementById('detail-status').innerHTML   = '<span class="badge badge-verified">Verified</span>';
+      document.getElementById('detail-date').textContent   = pay.verified_at
+        ? new Date(pay.verified_at).toLocaleString('en-GB') : '—';
+
+    } else if (pay.status === 'pending') {
+      card.className = 'status-card pending';
+      icon.textContent  = '⏳';
+      title.textContent = 'Payment Under Review';
+      desc.textContent  = 'We received your payment details and are verifying your transfer. This takes 1–2 hours.';
+      actionWrap.innerHTML = '';
+
+      details.style.display = 'block';
+      document.getElementById('detail-plan').textContent   = 'DevPath Full Access';
+      document.getElementById('detail-amount').textContent = pay.amount + ' ETB';
+      document.getElementById('detail-ref').textContent    = pay.reference_code || '—';
+      document.getElementById('detail-method').textContent = pay.payment_method || '—';
+      document.getElementById('detail-status').innerHTML   = '<span class="badge badge-pending">Pending</span>';
+      document.getElementById('detail-date').textContent   = pay.submitted_at
+        ? new Date(pay.submitted_at).toLocaleString('en-GB') : '—';
+
+    } else if (pay.status === 'rejected') {
+      card.className = 'status-card rejected';
+      icon.textContent  = '❌';
+      title.textContent = 'Payment Not Verified';
+      desc.textContent  = 'Your payment could not be verified. Please try again or contact support.';
+      actionWrap.innerHTML = `<a href="/submit-payment.html" class="status-action">Try Again</a>`;
+
+    } else {
+      card.className = 'status-card none';
+      icon.textContent  = '💳';
+      title.textContent = 'No Payment Found';
+      desc.textContent  = 'Complete your payment to unlock all courses.';
+      actionWrap.innerHTML = `<a href="/pay.html" class="status-action">Pay Now — 599 ETB</a>`;
+    }
+  }
+
+  function renderCourses(unlocked) {
+    const grid  = document.getElementById('courses-grid');
+    const title = document.getElementById('courses-title');
+
+    title.textContent = unlocked
+      ? '✅ Your Courses — All Unlocked'
+      : '🔒 Courses — Complete Payment to Unlock';
+
+    grid.innerHTML = COURSES.map(c => {
+      if (unlocked) {
+        return `
+          <a href="${c.url}" class="course-card unlocked">
+            <div class="course-icon">${c.icon}</div>
+            <div class="course-title">${c.title}</div>
+            <div class="course-desc">${c.desc}</div>
+            <div class="course-status open">▶ Start learning</div>
+          </a>
+        `;
+      } else {
+        return `
+          <div class="course-card locked">
+            <span class="lock-icon">🔒</span>
+            <div class="course-icon">${c.icon}</div>
+            <div class="course-title">${c.title}</div>
+            <div class="course-desc">${c.desc}</div>
+            <div class="course-status lock">Locked — pay to unlock</div>
+          </div>
+        `;
+      }
+    }).join('');
+  }
 
   async function logout() {
     await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
     window.location.href = '/login.html';
   }
+
+  // Auto-refresh status every 30 seconds (so user sees when admin verifies)
+  setInterval(async () => {
+    try {
+      const res  = await fetch('/api/payment/status', { credentials: 'include' });
+      const data = await res.json();
+      const meRes  = await fetch('/api/auth/me', { credentials: 'include' });
+      const meData = await meRes.json();
+      if (meData.user) {
+        renderStatus(data, meData.user);
+        renderCourses(data.status === 'verified');
+      }
+    } catch (err) {}
+  }, 30000);
 </script>
 </body>
 </html>

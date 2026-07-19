@@ -68,7 +68,10 @@ router.post('/register', async (req, res) => {
     const user  = result.rows[0];
     const token = generateToken(user.id);
     setTokenCookie(res, token);
-
+// Send welcome email (non-blocking)
+    sendWelcomeEmail(user).catch(err =>
+      console.error('Welcome email error:', err.message)
+    );
     res.status(201).json({
       message: 'Account created successfully.',
       user: {
@@ -210,5 +213,30 @@ router.get('/me', async (req, res) => {
     res.status(401).json({ error: 'Invalid or expired session.' });
   }
 });
-
+async function sendWelcomeEmail(user) {
+  if (!process.env.SMTP_USER) return;
+  const nodemailer = require('nodemailer');
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: parseInt(process.env.SMTP_PORT) || 587,
+    secure: false,
+    auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS }
+  });
+  await transporter.sendMail({
+    from:    `"DevPath" <${process.env.SMTP_USER}>`,
+    to:      user.email,
+    subject: '👋 Welcome to DevPath!',
+    html: `
+      <h2>Welcome to DevPath, ${user.first_name}!</h2>
+      <p>Your account has been created successfully.</p>
+      <p><strong>Next step:</strong> Complete your payment to unlock all courses.</p>
+      <p><a href="http://localhost:3000/pay.html"
+            style="background:#2563eb;color:#fff;padding:10px 24px;
+                   border-radius:6px;text-decoration:none;font-weight:bold">
+        Complete Payment →
+      </a></p>
+      <br><p>— The DevPath Team</p>
+    `
+  });
+}
 module.exports = router;
