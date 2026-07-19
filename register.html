@@ -6,13 +6,13 @@
   <title>Register | DevPath</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    body { background: var(--bg); }
     .auth-wrap {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 2rem;
-      background: var(--bg);
     }
     .auth-box {
       background: var(--surface);
@@ -102,17 +102,24 @@
       font-weight: 600;
     }
     .auth-footer a:hover { text-decoration: underline; }
-    .error-msg {
-      background: rgba(239,68,68,.1);
-      border: 1px solid rgba(239,68,68,.3);
+    .msg {
       border-radius: var(--radius-sm);
       padding: .75rem 1rem;
       font-size: .875rem;
-      color: #ef4444;
       margin-bottom: 1.25rem;
       display: none;
     }
-    .error-msg.show { display: block; }
+    .msg.show { display: block; }
+    .msg.error {
+      background: rgba(239,68,68,.1);
+      border: 1px solid rgba(239,68,68,.3);
+      color: #ef4444;
+    }
+    .msg.success {
+      background: rgba(16,185,129,.1);
+      border: 1px solid rgba(16,185,129,.3);
+      color: #10b981;
+    }
   </style>
 </head>
 <body>
@@ -127,40 +134,62 @@
     </a>
     <div class="auth-title">Create your account</div>
     <div class="auth-sub">Join DevPath and start learning today.</div>
-    <div class="error-msg" id="error-msg"></div>
+
+    <div class="msg error"   id="error-msg"></div>
+    <div class="msg success" id="success-msg"></div>
+
     <div class="form-row">
       <div class="form-field">
         <label>First name</label>
-        <input type="text" id="first_name" placeholder="Assefa">
+        <input type="text" id="first_name"
+               placeholder="Assefa"
+               autocomplete="given-name">
       </div>
       <div class="form-field">
         <label>Last name</label>
-        <input type="text" id="last_name" placeholder="Solomon">
+        <input type="text" id="last_name"
+               placeholder="Solomon"
+               autocomplete="family-name">
       </div>
     </div>
+
     <div class="form-field">
       <label>Email address</label>
-      <input type="email" id="email" placeholder="you@example.com">
+      <input type="email" id="email"
+             placeholder="you@example.com"
+             autocomplete="email">
     </div>
+
     <div class="form-field">
       <label>Password</label>
-      <input type="password" id="password" placeholder="At least 6 characters">
+      <input type="password" id="password"
+             placeholder="At least 6 characters"
+             autocomplete="new-password">
     </div>
+
     <button class="submit-btn" id="submit-btn" onclick="handleRegister()">
       Create account
     </button>
+
     <div class="auth-footer">
-      Already have an account? <a href="login.html">Log in</a>
+      Already have an account?
+      <a href="login.html">Log in</a>
     </div>
   </div>
 </div>
+
 <script>
+  // If already logged in redirect
   fetch('/api/auth/me', { credentials: 'include' })
     .then(r => r.json())
     .then(data => {
-      if (data.user) {
-        window.location.href = data.user.is_admin
-          ? '/admin.html' : '/pay.html';
+      if (!data.user) return;
+      if (data.user.is_admin) {
+        window.location.href = '/admin.html';
+      } else if (data.user.payment_status === 'verified') {
+        window.location.href = '/dashboard.html';
+      } else {
+        window.location.href = '/pay.html';
       }
     }).catch(() => {});
 
@@ -171,11 +200,19 @@
     const password   = document.getElementById('password').value;
     const btn        = document.getElementById('submit-btn');
     const errorEl    = document.getElementById('error-msg');
+    const successEl  = document.getElementById('success-msg');
 
     errorEl.classList.remove('show');
+    successEl.classList.remove('show');
 
+    // Validate
     if (!first_name || !last_name || !email || !password) {
       errorEl.textContent = 'All fields are required.';
+      errorEl.classList.add('show');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errorEl.textContent = 'Please enter a valid email address.';
       errorEl.classList.add('show');
       return;
     }
@@ -198,14 +235,19 @@
       const data = await res.json();
 
       if (!res.ok) {
-        errorEl.textContent = data.error || 'Registration failed.';
+        errorEl.textContent = data.error || 'Registration failed. Please try again.';
         errorEl.classList.add('show');
         btn.disabled    = false;
         btn.textContent = 'Create account';
         return;
       }
 
-      window.location.href = '/pay.html';
+      successEl.textContent = 'Account created! Redirecting to payment...';
+      successEl.classList.add('show');
+
+      setTimeout(() => {
+        window.location.href = '/pay.html';
+      }, 1000);
 
     } catch (err) {
       errorEl.textContent = 'Network error. Please try again.';

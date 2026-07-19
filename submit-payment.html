@@ -3,103 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Submit Payment | DevPath</title>
+  <title>Complete Payment | DevPath</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .submit-wrap {
-      max-width: 580px;
+    body { background: var(--bg); }
+    .wrap {
+      max-width: 600px;
       margin: 0 auto;
       padding: 3rem 2rem;
     }
     .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-block;
       color: var(--text-muted);
       font-size: .875rem;
       text-decoration: none;
       margin-bottom: 2rem;
-      transition: color var(--transition);
     }
     .back-link:hover { color: var(--text); }
-
-    .submit-title {
-      font-size: 1.6rem;
+    .page-title {
+      font-size: 1.75rem;
       font-weight: 700;
       color: var(--heading);
       margin-bottom: .4rem;
     }
-    .submit-sub {
+    .page-sub {
       color: var(--text-muted);
       font-size: .9rem;
       margin-bottom: 2rem;
       line-height: 1.7;
     }
 
-    /* Payment instructions box */
-    .instructions-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
+    /* pending notice */
+    .notice {
       border-radius: var(--radius-lg);
       padding: 1.5rem;
       margin-bottom: 2rem;
     }
-    .instructions-title {
-      font-size: .8rem;
+    .notice.pending {
+      background: rgba(251,191,36,.08);
+      border: 1px solid rgba(251,191,36,.3);
+    }
+    .notice.pending h3 { color: #fbbf24; margin-bottom: .4rem; }
+    .notice.pending p  { color: var(--text-muted); font-size: .875rem; line-height: 1.7; }
+
+    /* step boxes */
+    .step-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .step-label {
       font-family: var(--font-mono);
+      font-size: .7rem;
       text-transform: uppercase;
-      letter-spacing: .08em;
+      letter-spacing: .1em;
       color: var(--text-muted);
-      margin-bottom: 1rem;
+      margin-bottom: .75rem;
     }
 
-    .plan-summary {
+    /* plan summary */
+    .plan-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       background: var(--surface-2);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1rem 1.25rem;
+      padding: .875rem 1.25rem;
+    }
+    .plan-row-name { font-weight: 700; color: var(--heading); }
+    .plan-row-sub  { font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
+    .plan-row-price { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+
+    /* reference code */
+    .ref-box {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.25rem;
-    }
-    .plan-summary-name {
-      font-weight: 700;
-      color: var(--heading);
-      font-size: .95rem;
-    }
-    .plan-summary-amount {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    .ref-code-box {
-      background: var(--code-bg);
+      background: var(--code-bg, #0f0f1a);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1rem 1.25rem;
-      margin-bottom: 1.25rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: .875rem 1.25rem;
+      margin-bottom: .75rem;
     }
-    .ref-label {
-      font-size: .75rem;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 3px;
-    }
-    .ref-code {
-      font-size: 1.3rem;
-      font-weight: 700;
-      font-family: var(--font-mono);
-      color: var(--secondary);
-      letter-spacing: .1em;
-    }
-    .copy-btn {
+    .ref-label { font-size: .72rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
+    .ref-code  { font-size: 1.4rem; font-weight: 700; font-family: var(--font-mono); color: var(--secondary); letter-spacing: .12em; }
+    .copy-btn  {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
@@ -112,51 +103,31 @@
     }
     .copy-btn:hover { border-color: var(--primary); color: var(--primary-light); }
     .copy-btn.copied { border-color: var(--green); color: var(--green); }
+    .ref-note {
+      font-size: .8rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .ref-note strong { color: #fbbf24; }
 
-    .payment-methods {
+    /* payment accounts */
+    .accounts-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: .75rem;
     }
-    .pm-box {
+    .account-box {
       background: var(--surface-2);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: .875rem 1rem;
     }
-    .pm-box-title {
-      font-size: .78rem;
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      color: var(--text-muted);
-      margin-bottom: .4rem;
-    }
-    .pm-box-value {
-      font-size: .95rem;
-      font-weight: 700;
-      color: var(--heading);
-    }
-    .pm-box-name {
-      font-size: .8rem;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
+    .account-type { font-size: .72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); margin-bottom: .35rem; }
+    .account-num  { font-size: 1rem; font-weight: 700; color: var(--heading); }
+    .account-name { font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
 
-    /* Submission form */
-    .form-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-    }
-    .form-box-title {
-      font-size: .9rem;
-      font-weight: 700;
-      color: var(--heading);
-      margin-bottom: 1.25rem;
-    }
-    .form-field { margin-bottom: 1.1rem; }
+    /* form */
+    .form-field { margin-bottom: 1rem; }
     .form-field label {
       display: block;
       font-family: var(--font-mono);
@@ -182,11 +153,12 @@
     }
     .form-field input:focus,
     .form-field select:focus { border-color: var(--primary); }
+    .form-field input::placeholder { color: var(--text-muted); opacity: .5; }
     .form-field select option { background: var(--surface); }
 
     .submit-btn {
       width: 100%;
-      padding: .85rem;
+      padding: .9rem;
       background: var(--primary);
       color: #fff;
       border: none;
@@ -196,63 +168,48 @@
       cursor: pointer;
       font-family: var(--font-ui);
       transition: all var(--transition);
-      margin-top: .25rem;
     }
     .submit-btn:hover { background: var(--primary-hover); }
     .submit-btn:disabled { opacity: .6; cursor: not-allowed; }
 
-    .error-msg {
-      background: rgba(239,68,68,.1);
-      border: 1px solid rgba(239,68,68,.3);
+    .msg {
       border-radius: var(--radius-sm);
       padding: .75rem 1rem;
       font-size: .875rem;
-      color: #ef4444;
       margin-bottom: 1rem;
       display: none;
     }
-    .error-msg.show { display: block; }
+    .msg.show { display: block; }
+    .msg.error {
+      background: rgba(239,68,68,.1);
+      border: 1px solid rgba(239,68,68,.3);
+      color: #ef4444;
+    }
 
+    /* success */
     .success-box {
       background: rgba(16,185,129,.08);
       border: 1px solid rgba(16,185,129,.3);
       border-radius: var(--radius-lg);
-      padding: 2rem;
+      padding: 2.5rem;
       text-align: center;
       display: none;
     }
     .success-box.show { display: block; }
-    .success-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .success-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--heading);
-      margin-bottom: .5rem;
-    }
-    .success-text {
-      color: var(--text-muted);
-      font-size: .9rem;
-      line-height: 1.7;
-    }
-
-    .pending-notice {
-      background: rgba(251,191,36,.08);
-      border: 1px solid rgba(251,191,36,.3);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      display: none;
-    }
-    .pending-notice.show { display: block; }
-    .pending-notice h3 {
-      color: #fbbf24;
-      font-size: 1rem;
-      margin-bottom: .5rem;
-    }
-    .pending-notice p {
-      color: var(--text-muted);
-      font-size: .875rem;
-      line-height: 1.7;
+    .success-icon  { font-size: 3.5rem; margin-bottom: 1rem; }
+    .success-title { font-size: 1.4rem; font-weight: 700; color: var(--heading); margin-bottom: .75rem; }
+    .success-text  { color: var(--text-muted); font-size: .9rem; line-height: 1.8; }
+    .success-ref   {
+      display: inline-block;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: .5rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      color: var(--secondary);
+      margin: .75rem 0;
+      letter-spacing: .1em;
     }
   </style>
 </head>
@@ -268,186 +225,214 @@
   </a>
 </nav>
 
-<div class="submit-wrap">
+<div class="wrap">
 
-  <a href="pay.html" class="back-link">← Back to plans</a>
+  <a href="pay.html" class="back-link">← Back</a>
 
-  <div class="submit-title">Complete Your Payment</div>
-  <div class="submit-sub">
-    Transfer the amount below to our Telebirr or CBE account.
-    Then fill in the form with your transaction details and we will verify within 1–2 hours.
-  </div>
-
-  <!-- Pending notice -->
-  <div class="pending-notice" id="pending-notice">
+  <!-- PENDING NOTICE — shown if already submitted -->
+  <div class="notice pending" id="pending-notice" style="display:none">
     <h3>⏳ Payment Under Review</h3>
-    <p>We have received your payment submission and are verifying it.
-       This usually takes 1–2 hours during business hours.
-       You will get access as soon as we confirm your transfer.</p>
+    <p>Your payment has been submitted and is being verified. This usually takes 1–2 hours during business hours (8am–8pm). You will have full course access as soon as we confirm your transfer.</p>
   </div>
 
-  <!-- Instructions -->
-  <div class="instructions-box" id="instructions-box">
+  <div class="page-title">Complete Your Payment</div>
+  <div class="page-sub">Transfer 599 ETB to one of the accounts below, then fill in your transaction details.</div>
 
-    <div class="instructions-title">Step 1 — Your order summary</div>
-    <div class="plan-summary">
+  <!-- STEP 1: Order summary -->
+  <div class="step-box" id="step1">
+    <div class="step-label">Step 1 — Your order</div>
+    <div class="plan-row">
       <div>
-        <div class="plan-summary-name" id="summary-plan">Loading...</div>
-        <div style="font-size:.78rem;color:var(--text-muted);margin-top:2px">
-          Lifetime access · One-time payment
-        </div>
+        <div class="plan-row-name">DevPath Full Access</div>
+        <div class="plan-row-sub">Lifetime access · All 4 paths</div>
       </div>
-      <div class="plan-summary-amount" id="summary-amount">—</div>
+      <div class="plan-row-price">599 ETB</div>
     </div>
+  </div>
 
-    <div class="instructions-title">Step 2 — Use this reference code when paying</div>
-    <div class="ref-code-box">
+  <!-- STEP 2: Reference code -->
+  <div class="step-box" id="step2">
+    <div class="step-label">Step 2 — Your unique reference code</div>
+    <div class="ref-box">
       <div>
-        <div class="ref-label">Your reference code</div>
+        <div class="ref-label">Reference code</div>
         <div class="ref-code" id="ref-code">Loading...</div>
       </div>
       <button class="copy-btn" id="copy-btn" onclick="copyRef()">Copy</button>
     </div>
-    <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:1.25rem">
-      ⚠️ Include this code in your transfer note/description so we can match your payment.
+    <p class="ref-note">
+      <strong>⚠️ Important:</strong> When making your transfer, include this code in the
+      <strong>description / note</strong> field so we can match your payment.
     </p>
-
-    <div class="instructions-title">Step 3 — Transfer to one of these accounts</div>
-    <div class="payment-methods">
-      <div class="pm-box">
-        <div class="pm-box-title">📱 Telebirr</div>
-        <div class="pm-box-value" id="telebirr-number">Loading...</div>
-        <div class="pm-box-name"  id="telebirr-name">Loading...</div>
-      </div>
-      <div class="pm-box">
-        <div class="pm-box-title">🏦 CBE</div>
-        <div class="pm-box-value" id="cbe-account">Loading...</div>
-        <div class="pm-box-name"  id="cbe-name">Loading...</div>
-      </div>
-    </div>
-
   </div>
 
-  <!-- Submission form -->
-  <div class="form-box" id="form-box">
-    <div class="form-box-title">Step 4 — Tell us you have paid</div>
+  <!-- STEP 3: Payment accounts -->
+  <div class="step-box" id="step3">
+    <div class="step-label">Step 3 — Transfer to one of these accounts</div>
+    <div class="accounts-grid">
+      <div class="account-box">
+        <div class="account-type">📱 Telebirr</div>
+        <div class="account-num" id="telebirr-number">Loading...</div>
+        <div class="account-name" id="telebirr-name">Loading...</div>
+      </div>
+      <div class="account-box">
+        <div class="account-type">🏦 CBE</div>
+        <div class="account-num" id="cbe-account">Loading...</div>
+        <div class="account-name" id="cbe-name">Loading...</div>
+      </div>
+    </div>
+  </div>
 
-    <div class="error-msg" id="error-msg"></div>
+  <!-- STEP 4: Submit details -->
+  <div class="step-box" id="step4">
+    <div class="step-label">Step 4 — Tell us you have paid</div>
+
+    <div class="msg error" id="error-msg"></div>
 
     <div class="form-field">
       <label>Your reference code</label>
-      <input type="text" id="ref-input" placeholder="PAY-XXXXX" style="text-transform:uppercase">
+      <input type="text" id="ref-input"
+             placeholder="PAY-XXXXX"
+             style="text-transform:uppercase;letter-spacing:.08em">
     </div>
 
     <div class="form-field">
-      <label>Your transaction ID (from Telebirr/CBE SMS)</label>
-      <input type="text" id="tx-input" placeholder="e.g. TXN1234567890">
+      <label>Transaction ID (from your Telebirr/CBE SMS)</label>
+      <input type="text" id="tx-input"
+             placeholder="e.g. TXN1234567890">
     </div>
 
     <div class="form-field">
-      <label>Payment method</label>
+      <label>Payment method used</label>
       <select id="method-select">
         <option value="">Select method...</option>
-        <option value="telebirr">Telebirr</option>
-        <option value="cbe">CBE (Commercial Bank of Ethiopia)</option>
-        <option value="awash">Awash Bank</option>
-        <option value="bank_transfer">Other Bank Transfer</option>
+        <option value="telebirr">📱 Telebirr</option>
+        <option value="cbe">🏦 CBE (Commercial Bank of Ethiopia)</option>
+        <option value="awash">🏦 Awash Bank</option>
+        <option value="bank_transfer">🏦 Other Bank Transfer</option>
       </select>
     </div>
 
     <button class="submit-btn" id="submit-btn" onclick="submitPayment()">
-      Submit Payment Details
+      ✓ Submit Payment — I have transferred 599 ETB
     </button>
   </div>
 
-  <!-- Success message -->
+  <!-- SUCCESS -->
   <div class="success-box" id="success-box">
     <div class="success-icon">🎉</div>
-    <div class="success-title">Payment Submitted!</div>
+    <div class="success-title">Payment Submitted Successfully!</div>
     <div class="success-text">
-      Thank you! We will verify your payment within 1–2 hours.<br>
-      Once verified, you will have full access to all your courses.<br><br>
-      <strong>Reference: <span id="success-ref"></span></strong>
+      Thank you! Your payment reference is:<br>
+      <span class="success-ref" id="success-ref"></span><br>
+      We will verify your transfer within <strong>1–2 hours</strong>.<br>
+      Once verified you will have full access to all courses.<br><br>
+      <em style="color:var(--text-muted);font-size:.85rem">
+        You can close this page. We will send confirmation to your email.
+      </em>
     </div>
   </div>
 
 </div>
 
 <script>
-  let paymentData = null;
+  let currentRefCode = '';
 
   window.addEventListener('DOMContentLoaded', async () => {
     // Check login
-    const meRes  = await fetch('/api/auth/me', { credentials: 'include' });
-    const meData = await meRes.json();
+    try {
+      const meRes  = await fetch('/api/auth/me', { credentials: 'include' });
+      const meData = await meRes.json();
 
-    if (!meData.user) {
-      window.location.href = '/login.html?reason=login_required';
-      return;
-    }
-    if (meData.user.is_admin) {
-      window.location.href = '/admin.html';
-      return;
-    }
-    if (meData.user.payment_status === 'verified') {
-      window.location.href = '/dashboard.html';
-      return;
-    }
-
-    // Check payment status from server
-    const statusRes  = await fetch('/api/payment/status', { credentials: 'include' });
-    const statusData = await statusRes.json();
-
-    if (statusData.status === 'pending') {
-      // Already submitted — show pending notice
-      document.getElementById('pending-notice').classList.add('show');
-      document.getElementById('form-box').style.display = 'none';
-      populateInstructions(statusData);
+      if (!meData.user) {
+        window.location.href = '/login.html?reason=login_required';
+        return;
+      }
+      if (meData.user.is_admin) {
+        window.location.href = '/admin.html';
+        return;
+      }
+      if (meData.user.payment_status === 'verified') {
+        window.location.href = '/dashboard.html';
+        return;
+      }
+    } catch (err) {
+      window.location.href = '/login.html';
       return;
     }
 
-    // Try to get data from sessionStorage (from pay.html)
+    // Check existing payment status from server
+    try {
+      const statusRes  = await fetch('/api/payment/status', { credentials: 'include' });
+      const statusData = await statusRes.json();
+
+      if (statusData.status === 'pending' && statusData.user_tx_id) {
+        // Already submitted — show pending notice
+        document.getElementById('pending-notice').style.display = 'block';
+        document.getElementById('step4').style.display = 'none';
+        populateFromData(statusData);
+        return;
+      }
+
+      if (statusData.status === 'pending' && !statusData.user_tx_id) {
+        // Has reference but not yet submitted — populate from server
+        populateFromData(statusData);
+        return;
+      }
+    } catch (err) {}
+
+    // Try sessionStorage from pay.html
     const stored = sessionStorage.getItem('payment_data');
     if (stored) {
-      paymentData = JSON.parse(stored);
-      populateInstructions(paymentData);
-      document.getElementById('ref-input').value = paymentData.reference_code;
+      populateFromData(JSON.parse(stored));
       return;
     }
 
-    // If no stored data but has pending payment
-    if (statusData.status !== 'none') {
-      populateInstructions(statusData);
-      document.getElementById('ref-input').value = statusData.reference_code;
-      return;
-    }
-
-    // No plan selected — go back
+    // No payment data — go back to pay page
     window.location.href = '/pay.html';
   });
 
-  function populateInstructions(data) {
-    const planNames = { starter: 'Starter Plan', pro: 'Pro Plan', team: 'Team Plan' };
-    document.getElementById('summary-plan').textContent =
-      planNames[data.plan] || data.plan_name || 'Your Plan';
-    document.getElementById('summary-amount').textContent =
-      (data.amount || '—') + ' ETB';
+  function populateFromData(data) {
+    currentRefCode = data.reference_code || '';
+
     document.getElementById('ref-code').textContent =
       data.reference_code || '—';
+    document.getElementById('ref-input').value =
+      data.reference_code || '';
 
+    // Payment account details
     if (data.telebirr_number) {
       document.getElementById('telebirr-number').textContent = data.telebirr_number;
-      document.getElementById('telebirr-name').textContent   = data.telebirr_name;
-      document.getElementById('cbe-account').textContent     = data.cbe_account;
-      document.getElementById('cbe-name').textContent        = data.cbe_name;
+      document.getElementById('telebirr-name').textContent   = data.telebirr_name || '';
+    }
+    if (data.cbe_account) {
+      document.getElementById('cbe-account').textContent = data.cbe_account;
+      document.getElementById('cbe-name').textContent    = data.cbe_name || '';
+    }
+
+    // If no account info stored, fetch from API
+    if (!data.telebirr_number) {
+      fetch('/api/payment/info', { credentials: 'include' })
+        .then(r => r.json())
+        .then(d => {
+          if (d.telebirr_number) {
+            document.getElementById('telebirr-number').textContent = d.telebirr_number;
+            document.getElementById('telebirr-name').textContent   = d.telebirr_name || '';
+          }
+          if (d.cbe_account) {
+            document.getElementById('cbe-account').textContent = d.cbe_account;
+            document.getElementById('cbe-name').textContent    = d.cbe_name || '';
+          }
+        }).catch(() => {});
     }
   }
 
   function copyRef() {
     const code = document.getElementById('ref-code').textContent;
+    if (!code || code === '—' || code === 'Loading...') return;
     navigator.clipboard.writeText(code).then(() => {
       const btn = document.getElementById('copy-btn');
-      btn.textContent = 'Copied!';
+      btn.textContent = '✓ Copied!';
       btn.classList.add('copied');
       setTimeout(() => {
         btn.textContent = 'Copy';
@@ -457,16 +442,26 @@
   }
 
   async function submitPayment() {
-    const reference_code   = document.getElementById('ref-input').value.trim().toUpperCase();
-    const user_tx_id       = document.getElementById('tx-input').value.trim();
-    const payment_method   = document.getElementById('method-select').value;
-    const btn              = document.getElementById('submit-btn');
-    const errorEl          = document.getElementById('error-msg');
+    const reference_code = document.getElementById('ref-input').value.trim().toUpperCase();
+    const user_tx_id     = document.getElementById('tx-input').value.trim();
+    const payment_method = document.getElementById('method-select').value;
+    const btn            = document.getElementById('submit-btn');
+    const errorEl        = document.getElementById('error-msg');
 
     errorEl.classList.remove('show');
 
-    if (!reference_code || !user_tx_id || !payment_method) {
-      errorEl.textContent = 'All fields are required.';
+    if (!reference_code) {
+      errorEl.textContent = 'Please enter your reference code.';
+      errorEl.classList.add('show');
+      return;
+    }
+    if (!user_tx_id) {
+      errorEl.textContent = 'Please enter your transaction ID from the SMS receipt.';
+      errorEl.classList.add('show');
+      return;
+    }
+    if (!payment_method) {
+      errorEl.textContent = 'Please select the payment method you used.';
       errorEl.classList.add('show');
       return;
     }
@@ -484,25 +479,29 @@
       const data = await res.json();
 
       if (!res.ok) {
-        errorEl.textContent = data.error || 'Submission failed.';
+        errorEl.textContent = data.error || 'Submission failed. Please try again.';
         errorEl.classList.add('show');
         btn.disabled    = false;
-        btn.textContent = 'Submit Payment Details';
+        btn.textContent = '✓ Submit Payment — I have transferred 599 ETB';
         return;
       }
 
-      // Show success
+      // Clear sessionStorage
       sessionStorage.removeItem('payment_data');
-      document.getElementById('instructions-box').style.display = 'none';
-      document.getElementById('form-box').style.display         = 'none';
-      document.getElementById('success-ref').textContent        = reference_code;
+
+      // Show success
+      document.getElementById('step1').style.display = 'none';
+      document.getElementById('step2').style.display = 'none';
+      document.getElementById('step3').style.display = 'none';
+      document.getElementById('step4').style.display = 'none';
+      document.getElementById('success-ref').textContent = reference_code;
       document.getElementById('success-box').classList.add('show');
 
     } catch (err) {
       errorEl.textContent = 'Network error. Please try again.';
       errorEl.classList.add('show');
       btn.disabled    = false;
-      btn.textContent = 'Submit Payment Details';
+      btn.textContent = '✓ Submit Payment — I have transferred 599 ETB';
     }
   }
 </script>

@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register | DevPath</title>
+  <title>Login | DevPath</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    body { background: var(--bg); }
     .auth-wrap {
       min-height: 100vh;
       display: flex;
@@ -19,7 +20,7 @@
       border-radius: var(--radius-lg);
       padding: 2.5rem;
       width: 100%;
-      max-width: 440px;
+      max-width: 420px;
     }
     .auth-logo {
       display: flex;
@@ -42,11 +43,6 @@
       font-size: .875rem;
       color: var(--text-muted);
       margin-bottom: 2rem;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
     }
     .form-field { margin-bottom: 1.1rem; }
     .form-field label {
@@ -101,30 +97,29 @@
       font-weight: 600;
     }
     .auth-footer a:hover { text-decoration: underline; }
-    .error-msg {
-      background: rgba(239,68,68,.1);
-      border: 1px solid rgba(239,68,68,.3);
+    .msg {
       border-radius: var(--radius-sm);
       padding: .75rem 1rem;
       font-size: .875rem;
-      color: #ef4444;
       margin-bottom: 1.25rem;
       display: none;
     }
-    .error-msg.show { display: block; }
-    .terms {
-      font-size: .78rem;
-      color: var(--text-muted);
-      text-align: center;
-      margin-top: 1rem;
-      line-height: 1.6;
+    .msg.show { display: block; }
+    .msg.error {
+      background: rgba(239,68,68,.1);
+      border: 1px solid rgba(239,68,68,.3);
+      color: #ef4444;
+    }
+    .msg.warn {
+      background: rgba(251,191,36,.1);
+      border: 1px solid rgba(251,191,36,.3);
+      color: #fbbf24;
     }
   </style>
 </head>
 <body>
 <div class="auth-wrap">
   <div class="auth-box">
-
     <a href="index.html" class="auth-logo">
       <svg viewBox="0 0 28 28" fill="none">
         <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/>
@@ -132,114 +127,126 @@
       </svg>
       DevPath
     </a>
+    <div class="auth-title">Welcome back</div>
+    <div class="auth-sub">Log in to access your courses.</div>
 
-    <div class="auth-title">Create your account</div>
-    <div class="auth-sub">Join DevPath and start learning today.</div>
-
-    <div class="error-msg" id="error-msg"></div>
-
-    <div class="form-row">
-      <div class="form-field">
-        <label>First name</label>
-        <input type="text" id="first_name" placeholder="Assefa" autocomplete="given-name">
-      </div>
-      <div class="form-field">
-        <label>Last name</label>
-        <input type="text" id="last_name" placeholder="Solomon" autocomplete="family-name">
-      </div>
-    </div>
+    <div class="msg warn" id="warn-msg"></div>
+    <div class="msg error" id="error-msg"></div>
 
     <div class="form-field">
       <label>Email address</label>
-      <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+      <input type="email" id="email"
+             placeholder="you@example.com"
+             autocomplete="email">
     </div>
-
     <div class="form-field">
       <label>Password</label>
-      <input type="password" id="password" placeholder="At least 6 characters" autocomplete="new-password">
+      <input type="password" id="password"
+             placeholder="••••••••"
+             autocomplete="current-password">
     </div>
 
-    <button class="submit-btn" id="submit-btn" onclick="handleRegister()">
-      Create account
+    <button class="submit-btn" id="submit-btn" onclick="handleLogin()">
+      Log in
     </button>
 
-    <div class="terms">
-      By registering you agree to our Terms of Service and Privacy Policy.
-    </div>
-
     <div class="auth-footer">
-      Already have an account?
-      <a href="login.html">Log in</a>
+      Don't have an account?
+      <a href="register.html">Create one free</a>
     </div>
-
   </div>
 </div>
 
 <script>
-  // If already logged in redirect
+  // Show reason message if redirected here
+  const params = new URLSearchParams(window.location.search);
+  const reason = params.get('reason');
+  const reasonMap = {
+    login_required:    'Please log in to access this page.',
+    session_expired:   'Your session has expired. Please log in again.',
+    account_not_found: 'Account not found. Please log in again.',
+    payment_required:  'Please complete payment to access courses.',
+    admin_required:    'Admin access required.',
+    error:             'Something went wrong. Please log in again.',
+  };
+  if (reason && reasonMap[reason]) {
+    const el = document.getElementById('warn-msg');
+    el.textContent = reasonMap[reason];
+    el.classList.add('show');
+  }
+
+  // If already logged in redirect appropriately
   fetch('/api/auth/me', { credentials: 'include' })
     .then(r => r.json())
     .then(data => {
-      if (data.user) {
-        window.location.href = data.user.is_admin
-          ? '/admin.html' : '/pay.html';
+      if (!data.user) return;
+      if (data.user.is_admin) {
+        window.location.href = '/admin.html';
+      } else if (data.user.payment_status === 'verified') {
+        window.location.href = '/dashboard.html';
+      } else if (data.user.payment_status === 'pending') {
+        window.location.href = '/submit-payment.html';
+      } else {
+        window.location.href = '/pay.html';
       }
     }).catch(() => {});
 
-  async function handleRegister() {
-    const first_name = document.getElementById('first_name').value.trim();
-    const last_name  = document.getElementById('last_name').value.trim();
-    const email      = document.getElementById('email').value.trim();
-    const password   = document.getElementById('password').value;
-    const btn        = document.getElementById('submit-btn');
-    const errorEl    = document.getElementById('error-msg');
+  async function handleLogin() {
+    const email    = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const btn      = document.getElementById('submit-btn');
+    const errorEl  = document.getElementById('error-msg');
 
     errorEl.classList.remove('show');
 
-    if (!first_name || !last_name || !email || !password) {
-      errorEl.textContent = 'All fields are required.';
-      errorEl.classList.add('show');
-      return;
-    }
-    if (password.length < 6) {
-      errorEl.textContent = 'Password must be at least 6 characters.';
+    if (!email || !password) {
+      errorEl.textContent = 'Please enter your email and password.';
       errorEl.classList.add('show');
       return;
     }
 
     btn.disabled    = true;
-    btn.textContent = 'Creating account...';
+    btn.textContent = 'Logging in...';
 
     try {
-      const res  = await fetch('/api/auth/register', {
+      const res  = await fetch('/api/auth/login', {
         method:      'POST',
         headers:     { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body:        JSON.stringify({ first_name, last_name, email, password })
+        body:        JSON.stringify({ email, password })
       });
       const data = await res.json();
 
       if (!res.ok) {
-        errorEl.textContent = data.error || 'Registration failed.';
+        errorEl.textContent = data.error || 'Login failed. Please try again.';
         errorEl.classList.add('show');
         btn.disabled    = false;
-        btn.textContent = 'Create account';
+        btn.textContent = 'Log in';
         return;
       }
 
-      // Registration successful — go to payment page
-      window.location.href = '/pay.html';
+      // Redirect based on role and payment status
+      if (data.user.is_admin) {
+        window.location.href = '/admin.html';
+      } else if (data.user.payment_status === 'verified') {
+        window.location.href = '/dashboard.html';
+      } else if (data.user.payment_status === 'pending') {
+        window.location.href = '/submit-payment.html';
+      } else {
+        window.location.href = '/pay.html';
+      }
 
     } catch (err) {
       errorEl.textContent = 'Network error. Please try again.';
       errorEl.classList.add('show');
       btn.disabled    = false;
-      btn.textContent = 'Create account';
+      btn.textContent = 'Log in';
     }
   }
 
+  // Allow Enter key to submit
   document.addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleRegister();
+    if (e.key === 'Enter') handleLogin();
   });
 </script>
 </body>
