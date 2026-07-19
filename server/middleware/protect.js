@@ -2,7 +2,6 @@ const jwt  = require('jsonwebtoken');
 const pool = require('../db');
 require('dotenv').config();
 
-// ── protect ──────────────────────────────────────────────
 async function protect(req, res, next) {
   try {
     const token = req.cookies?.devpath_token;
@@ -32,6 +31,9 @@ async function protect(req, res, next) {
 
     if (result.rows.length === 0) {
       res.clearCookie('devpath_token');
+      if (req.path.startsWith('/api/')) {
+        return res.status(401).json({ error: 'User not found.' });
+      }
       return res.redirect('/login.html?reason=account_not_found');
     }
 
@@ -39,51 +41,54 @@ async function protect(req, res, next) {
     next();
 
   } catch (err) {
-    console.error('protect middleware error:', err.message);
+    console.error('protect error:', err.message);
     res.clearCookie('devpath_token');
+    if (req.path.startsWith('/api/')) {
+      return res.status(500).json({ error: 'Authentication error.' });
+    }
     return res.redirect('/login.html?reason=error');
   }
 }
 
-// ── requireVerified ──────────────────────────────────────
 async function requireVerified(req, res, next) {
   try {
-    // Admin always has full access
     if (req.user?.is_admin) return next();
 
     const result = await pool.query(
-      `SELECT status, expires_at FROM payments
-       WHERE user_id = $1
-       AND status = 'verified'
-       ORDER BY submitted_at DESC
-       LIMIT 1`,
+      `SELECT status FROM payments
+       WHERE user_id = $1 AND status = 'verified'
+       ORDER BY submitted_at DESC LIMIT 1`,
       [req.user.id]
     );
 
-    if (result.rows.length === 0) {
-      // Check for pending
-      const pending = await pool.query(
-        `SELECT status FROM payments
-         WHERE user_id = $1
-         ORDER BY submitted_at DESC
-         LIMIT 1`,
-        [req.user.id]
-      );
+    if (result.rows.length > 0) {
+      return next();
+    }
 
-      if (pending.rows.length > 0 && pending.rows[0].status === 'pending') {
-        return res.redirect('/submit-payment.html?reason=payment_pending');
+    // Check for pending
+    const pending = await pool.query(
+      `SELECT status, user_tx_id FROM payments
+       WHERE user_id = $1
+       ORDER BY submitted_at DESC LIMIT 1`,
+      [req.user.id]
+    );
+
+    if (pending.rows.length > 0) {
+      const p = pending.rows[0];
+      if (p.status === 'pending' && p.user_tx_id) {
+        // Submitted and waiting
+        return res.redirect('/dashboard.html?status=pending');
       }
-
-      return res.redirect('/pay.html?reason=payment_required');
+      if (p.status === 'pending' && !p.user_tx_id) {
+        // Has reference but not submitted yet
+        return res.redirect('/submit-payment.html');
+      }
+      if (p.status === 'rejected') {
+        return res.redirect('/pay.html?reason=rejected');
+      }
     }
 
-    // Check expiry
-    const payment = result.rows[0];
-    if (payment.expires_at && new Date(payment.expires_at) < new Date()) {
-      return res.redirect('/pay.html?reason=payment_expired');
-    }
-
-    next();
+    return res.redirect('/pay.html?reason=payment_required');
 
   } catch (err) {
     console.error('requireVerified error:', err.message);
@@ -91,7 +96,6 @@ async function requireVerified(req, res, next) {
   }
 }
 
-// ── requireAdmin ─────────────────────────────────────────
 async function requireAdmin(req, res, next) {
   try {
     if (!req.user?.is_admin) {

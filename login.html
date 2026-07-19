@@ -6,162 +6,59 @@
   <title>Login | DevPath</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    body { background: var(--bg); }
-    .auth-wrap {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .auth-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      width: 100%;
-      max-width: 420px;
-    }
-    .auth-logo {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--primary-light);
-      margin-bottom: 2rem;
-      text-decoration: none;
-    }
-    .auth-logo svg { width: 24px; height: 24px; }
-    .auth-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--heading);
-      margin-bottom: .35rem;
-    }
-    .auth-sub {
-      font-size: .875rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-    .form-field { margin-bottom: 1.1rem; }
-    .form-field label {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--text-muted);
-      margin-bottom: 5px;
-    }
-    .form-field input {
-      width: 100%;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-      color: var(--heading);
-      font-size: .95rem;
-      font-family: var(--font-ui);
-      outline: none;
-      transition: border-color var(--transition);
-      box-sizing: border-box;
-    }
-    .form-field input:focus { border-color: var(--primary); }
-    .form-field input::placeholder { color: var(--text-muted); opacity: .5; }
-    .submit-btn {
-      width: 100%;
-      padding: .85rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: var(--font-ui);
-      transition: all var(--transition);
-      margin-top: .5rem;
-    }
-    .submit-btn:hover { background: var(--primary-hover); }
-    .submit-btn:disabled { opacity: .6; cursor: not-allowed; }
-    .auth-footer {
-      text-align: center;
-      margin-top: 1.5rem;
-      font-size: .875rem;
-      color: var(--text-muted);
-    }
-    .auth-footer a {
-      color: var(--primary-light);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .auth-footer a:hover { text-decoration: underline; }
-    .msg {
-      border-radius: var(--radius-sm);
-      padding: .75rem 1rem;
-      font-size: .875rem;
-      margin-bottom: 1.25rem;
-      display: none;
-    }
-    .msg.show { display: block; }
-    .msg.error {
-      background: rgba(239,68,68,.1);
-      border: 1px solid rgba(239,68,68,.3);
-      color: #ef4444;
-    }
-    .msg.warn {
-      background: rgba(251,191,36,.1);
-      border: 1px solid rgba(251,191,36,.3);
-      color: #fbbf24;
-    }
+    body{background:var(--bg)}
+    .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+    .auth-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;width:100%;max-width:420px}
+    .auth-logo{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.2rem;color:var(--primary-light);margin-bottom:2rem;text-decoration:none}
+    .auth-logo svg{width:24px;height:24px}
+    .auth-title{font-size:1.5rem;font-weight:700;color:var(--heading);margin-bottom:.3rem}
+    .auth-sub{font-size:.875rem;color:var(--text-muted);margin-bottom:2rem}
+    .field{margin-bottom:1rem}
+    .field label{display:block;font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:5px}
+    .field input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;color:var(--heading);font-size:.95rem;font-family:var(--font-ui);outline:none;transition:border-color var(--transition);box-sizing:border-box}
+    .field input:focus{border-color:var(--primary)}
+    .field input::placeholder{color:var(--text-muted);opacity:.5}
+    .submit-btn{width:100%;padding:.85rem;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-size:1rem;font-weight:700;cursor:pointer;font-family:var(--font-ui);transition:all var(--transition);margin-top:.5rem}
+    .submit-btn:hover{background:var(--primary-hover)}
+    .submit-btn:disabled{opacity:.6;cursor:not-allowed}
+    .auth-foot{text-align:center;margin-top:1.5rem;font-size:.875rem;color:var(--text-muted)}
+    .auth-foot a{color:var(--primary-light);text-decoration:none;font-weight:600}
+    .auth-foot a:hover{text-decoration:underline}
+    .msg{border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.875rem;margin-bottom:1rem;display:none}
+    .msg.show{display:block}
+    .msg.error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#ef4444}
+    .msg.warn{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);color:#fbbf24}
   </style>
 </head>
 <body>
 <div class="auth-wrap">
   <div class="auth-box">
     <a href="index.html" class="auth-logo">
-      <svg viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/>
-        <path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/>
-      </svg>
+      <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>
       DevPath
     </a>
     <div class="auth-title">Welcome back</div>
     <div class="auth-sub">Log in to access your courses.</div>
-
     <div class="msg warn" id="warn-msg"></div>
     <div class="msg error" id="error-msg"></div>
-
-    <div class="form-field">
+    <div class="field">
       <label>Email address</label>
-      <input type="email" id="email"
-             placeholder="you@example.com"
-             autocomplete="email">
+      <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
     </div>
-    <div class="form-field">
+    <div class="field">
       <label>Password</label>
-      <input type="password" id="password"
-             placeholder="••••••••"
-             autocomplete="current-password">
+      <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
     </div>
-
-    <button class="submit-btn" id="submit-btn" onclick="handleLogin()">
-      Log in
-    </button>
-
-    <div class="auth-footer">
-      Don't have an account?
-      <a href="register.html">Create one free</a>
+    <button class="submit-btn" id="btn" onclick="handleLogin()">Log in</button>
+    <div class="auth-foot">
+      Don't have an account? <a href="register.html">Create one free</a>
     </div>
   </div>
 </div>
-
 <script>
-  // Show reason message if redirected here
-  const params = new URLSearchParams(window.location.search);
-  const reason = params.get('reason');
-  const reasonMap = {
+  // Show reason message
+  const p = new URLSearchParams(location.search);
+  const msgs = {
     login_required:    'Please log in to access this page.',
     session_expired:   'Your session has expired. Please log in again.',
     account_not_found: 'Account not found. Please log in again.',
@@ -169,85 +66,67 @@
     admin_required:    'Admin access required.',
     error:             'Something went wrong. Please log in again.',
   };
-  if (reason && reasonMap[reason]) {
+  const reason = p.get('reason');
+  if (reason && msgs[reason]) {
     const el = document.getElementById('warn-msg');
-    el.textContent = reasonMap[reason];
+    el.textContent = msgs[reason];
     el.classList.add('show');
   }
 
-  // If already logged in redirect appropriately
-  fetch('/api/auth/me', { credentials: 'include' })
+  // Redirect if already logged in
+  fetch('/api/auth/me', {credentials:'include'})
     .then(r => r.json())
-    .then(data => {
-      if (!data.user) return;
-      if (data.user.is_admin) {
-        window.location.href = '/admin.html';
-      } else if (data.user.payment_status === 'verified') {
-        window.location.href = '/dashboard.html';
-      } else if (data.user.payment_status === 'pending') {
-        window.location.href = '/submit-payment.html';
-      } else {
-        window.location.href = '/pay.html';
-      }
+    .then(d => {
+      if (!d.user) return;
+      redirect(d.user);
     }).catch(() => {});
+
+  function redirect(user) {
+    if (user.is_admin)                        return location.href = '/admin.html';
+    if (user.payment_status === 'verified')   return location.href = '/dashboard.html';
+    if (user.payment_status === 'pending')    return location.href = '/dashboard.html';
+    location.href = '/pay.html';
+  }
 
   async function handleLogin() {
     const email    = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
-    const btn      = document.getElementById('submit-btn');
-    const errorEl  = document.getElementById('error-msg');
-
-    errorEl.classList.remove('show');
+    const btn      = document.getElementById('btn');
+    const errEl    = document.getElementById('error-msg');
+    errEl.classList.remove('show');
 
     if (!email || !password) {
-      errorEl.textContent = 'Please enter your email and password.';
-      errorEl.classList.add('show');
+      errEl.textContent = 'Please enter your email and password.';
+      errEl.classList.add('show');
       return;
     }
-
-    btn.disabled    = true;
+    btn.disabled = true;
     btn.textContent = 'Logging in...';
 
     try {
       const res  = await fetch('/api/auth/login', {
-        method:      'POST',
-        headers:     { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body:        JSON.stringify({ email, password })
+        method:'POST', credentials:'include',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({email, password})
       });
       const data = await res.json();
-
       if (!res.ok) {
-        errorEl.textContent = data.error || 'Login failed. Please try again.';
-        errorEl.classList.add('show');
-        btn.disabled    = false;
+        errEl.textContent = data.error || 'Login failed.';
+        errEl.classList.add('show');
+        btn.disabled = false;
         btn.textContent = 'Log in';
         return;
       }
-
-      // Redirect based on role and payment status
-      if (data.user.is_admin) {
-        window.location.href = '/admin.html';
-      } else if (data.user.payment_status === 'verified') {
-        window.location.href = '/dashboard.html';
-      } else if (data.user.payment_status === 'pending') {
-        window.location.href = '/submit-payment.html';
-      } else {
-        window.location.href = '/pay.html';
-      }
-
+      redirect(data.user);
     } catch (err) {
-      errorEl.textContent = 'Network error. Please try again.';
-      errorEl.classList.add('show');
-      btn.disabled    = false;
+      errEl.textContent = 'Network error. Please try again.';
+      errEl.classList.add('show');
+      btn.disabled = false;
       btn.textContent = 'Log in';
     }
   }
 
-  // Allow Enter key to submit
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleLogin();
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); });
 </script>
 </body>
 </html>

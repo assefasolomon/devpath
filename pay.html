@@ -6,197 +6,68 @@
   <title>Get Access | DevPath</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    body { background: var(--bg); }
-    .pay-wrap {
-      max-width: 560px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
-    }
-    .user-bar {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: .75rem 1.25rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      font-size: .875rem;
-    }
-    .user-bar span { color: var(--text-muted); }
-    .user-bar strong { color: var(--heading); }
-    .logout-link {
-      color: var(--text-muted);
-      font-size: .8rem;
-      cursor: pointer;
-      background: none;
-      border: none;
-      font-family: var(--font-ui);
-      text-decoration: underline;
-    }
-    .logout-link:hover { color: #ef4444; }
-    .pay-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-    .pay-header h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--heading);
-      margin-bottom: .5rem;
-    }
-    .pay-header p {
-      color: var(--text-muted);
-      font-size: .95rem;
-      line-height: 1.7;
-    }
-    .plan-box {
-      background: var(--surface);
-      border: 2px solid var(--accent);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      text-align: center;
-      position: relative;
-    }
-    .plan-badge {
-      position: absolute;
-      top: -14px; left: 50%;
-      transform: translateX(-50%);
-      background: var(--accent);
-      color: #000;
-      font-size: .72rem;
-      font-weight: 700;
-      padding: 3px 18px;
-      border-radius: 20px;
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      white-space: nowrap;
-    }
-    .plan-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .plan-name {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--heading);
-      margin-bottom: .4rem;
-    }
-    .plan-tagline {
-      font-size: .9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.75rem;
-      line-height: 1.6;
-    }
-    .plan-price { margin-bottom: 1.75rem; }
-    .price-amount {
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: var(--heading);
-      line-height: 1;
-    }
-    .price-currency {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      margin-left: 4px;
-    }
-    .price-note {
-      font-size: .8rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      margin-top: .4rem;
-    }
-    .plan-features {
-      list-style: none;
-      text-align: left;
-      margin-bottom: 2rem;
-      border-top: 1px solid var(--border);
-      padding-top: 1.25rem;
-    }
-    .plan-features li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .9rem;
-      color: var(--text);
-      padding: .5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .plan-features li:last-child { border-bottom: none; }
-    .feat-y { color: var(--green); }
-    .get-btn {
-      width: 100%;
-      padding: 1rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 1.05rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: var(--font-ui);
-      transition: all var(--transition);
-    }
-    .get-btn:hover { background: var(--primary-hover); }
-    .get-btn:disabled { opacity: .6; cursor: not-allowed; }
-    .pay-note {
-      text-align: center;
-      font-size: .78rem;
-      color: var(--text-muted);
-      margin-top: .75rem;
-      font-family: var(--font-mono);
-    }
-    .msg {
-      border-radius: var(--radius-sm);
-      padding: .75rem 1rem;
-      font-size: .875rem;
-      margin-top: 1rem;
-      display: none;
-      text-align: left;
-    }
-    .msg.show { display: block; }
-    .msg.error {
-      background: rgba(239,68,68,.1);
-      border: 1px solid rgba(239,68,68,.3);
-      color: #ef4444;
-    }
+    body{background:var(--bg)}
+    .wrap{max-width:580px;margin:0 auto;padding:2.5rem 2rem}
+    .user-bar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;font-size:.875rem}
+    .user-bar span{color:var(--text-muted)}
+    .user-bar strong{color:var(--heading)}
+    .logout-btn{background:none;border:none;color:var(--text-muted);font-size:.8rem;cursor:pointer;text-decoration:underline;font-family:var(--font-ui)}
+    .logout-btn:hover{color:#ef4444}
+    .page-title{font-size:1.75rem;font-weight:700;color:var(--heading);margin-bottom:.4rem;text-align:center}
+    .page-sub{color:var(--text-muted);font-size:.9rem;margin-bottom:2rem;line-height:1.7;text-align:center}
+    .plan-box{background:var(--surface);border:2px solid var(--accent);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;position:relative}
+    .plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;font-size:.72rem;font-weight:700;padding:3px 18px;border-radius:20px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+    .plan-icon{font-size:3rem;margin-bottom:1rem}
+    .plan-name{font-size:1.5rem;font-weight:700;color:var(--heading);margin-bottom:.35rem}
+    .plan-tagline{font-size:.9rem;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6}
+    .plan-price{margin-bottom:1.75rem}
+    .price-num{font-size:3.5rem;font-weight:700;color:var(--heading);line-height:1}
+    .price-cur{font-size:1.2rem;color:var(--text-muted);font-family:var(--font-mono);margin-left:4px}
+    .price-note{font-size:.8rem;color:var(--text-muted);font-family:var(--font-mono);margin-top:.35rem}
+    .plan-features{list-style:none;text-align:left;margin-bottom:2rem;border-top:1px solid var(--border);padding-top:1.25rem}
+    .plan-features li{display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--text);padding:.45rem 0;border-bottom:1px solid var(--border)}
+    .plan-features li:last-child{border-bottom:none}
+    .feat-y{color:var(--green)}
+    .get-btn{width:100%;padding:1rem;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:var(--font-ui);transition:all var(--transition)}
+    .get-btn:hover{background:var(--primary-hover)}
+    .get-btn:disabled{opacity:.6;cursor:not-allowed}
+    .pay-note{text-align:center;font-size:.78rem;color:var(--text-muted);margin-top:.75rem;font-family:var(--font-mono)}
+    .msg{border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.875rem;margin-top:1rem;display:none;text-align:left}
+    .msg.show{display:block}
+    .msg.error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#ef4444}
+    .rejected-box{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;display:none}
+    .rejected-box h3{color:#ef4444;margin-bottom:.5rem}
+    .rejected-box p{color:var(--text-muted);font-size:.875rem;line-height:1.7}
   </style>
 </head>
 <body>
-
 <nav class="site-nav">
   <a href="index.html" class="nav-logo">
-    <svg viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/>
-      <path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/>
-    </svg>
+    <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>
     DevPath
   </a>
 </nav>
-
-<div class="pay-wrap">
-
+<div class="wrap">
   <div class="user-bar">
     <span>Logged in as <strong id="user-name">...</strong></span>
-    <button class="logout-link" onclick="logout()">Logout</button>
+    <button class="logout-btn" onclick="logout()">Logout</button>
   </div>
 
-  <div class="pay-header">
-    <h1>Get Full Access</h1>
-    <p>One payment via Telebirr or CBE. Lifetime access to every course, lesson, and project.</p>
+  <div class="rejected-box" id="rejected-box">
+    <h3>❌ Previous Payment Was Rejected</h3>
+    <p id="rejected-reason">Your previous payment could not be verified. You can submit a new payment below.</p>
   </div>
+
+  <div class="page-title">Get Full Access</div>
+  <div class="page-sub">One payment via Telebirr or CBE. Lifetime access to everything.</div>
 
   <div class="plan-box">
     <div class="plan-badge">🔥 Everything included</div>
     <div class="plan-icon">🚀</div>
     <div class="plan-name">DevPath Full Access</div>
-    <div class="plan-tagline">
-      All 4 learning paths, 200+ lessons, real projects, and all future content — forever.
-    </div>
+    <div class="plan-tagline">All 4 paths, 200+ lessons, real projects, future content — forever.</div>
     <div class="plan-price">
-      <div>
-        <span class="price-amount">599</span>
-        <span class="price-currency">ETB</span>
-      </div>
+      <div><span class="price-num">599</span><span class="price-cur">ETB</span></div>
       <div class="price-note">one-time payment · no monthly fees</div>
     </div>
     <ul class="plan-features">
@@ -206,95 +77,92 @@
       <li><span class="feat-y">✓</span> Foundations — HTML, CSS, JavaScript, Git</li>
       <li><span class="feat-y">✓</span> 200+ lessons with real projects</li>
       <li><span class="feat-y">✓</span> Certificate of completion</li>
-      <li><span class="feat-y">✓</span> All future content included free</li>
+      <li><span class="feat-y">✓</span> All future content free</li>
     </ul>
-
     <button class="get-btn" id="get-btn" onclick="getAccess()">
       Get Full Access — 599 ETB
     </button>
-    <div class="pay-note">
-      🔒 Pay via Telebirr or CBE · Verified within 1–2 hours
-    </div>
+    <div class="pay-note">🔒 Pay via Telebirr or CBE · Verified within 1–2 hours</div>
     <div class="msg error" id="error-msg"></div>
   </div>
-
 </div>
-
 <script>
-  // Check login and payment status
   window.addEventListener('DOMContentLoaded', async () => {
     try {
-      const res  = await fetch('/api/auth/me', { credentials: 'include' });
+      const res  = await fetch('/api/auth/me', {credentials:'include'});
       const data = await res.json();
-
-      if (!data.user) {
-        window.location.href = '/login.html?reason=login_required';
-        return;
-      }
-      if (data.user.is_admin) {
-        window.location.href = '/admin.html';
-        return;
-      }
-      if (data.user.payment_status === 'verified') {
-        window.location.href = '/dashboard.html';
-        return;
-      }
-      if (data.user.payment_status === 'pending') {
-        window.location.href = '/submit-payment.html';
-        return;
-      }
+      if (!data.user) { location.href = '/login.html?reason=login_required'; return; }
+      if (data.user.is_admin) { location.href = '/admin.html'; return; }
+      if (data.user.payment_status === 'verified') { location.href = '/dashboard.html'; return; }
 
       document.getElementById('user-name').textContent =
         data.user.first_name + ' ' + data.user.last_name;
 
+      // Check for rejected payment
+      const statusRes  = await fetch('/api/payment/status', {credentials:'include'});
+      const statusData = await statusRes.json();
+      if (statusData.status === 'pending' && statusData.user_tx_id) {
+        // Already submitted — go to dashboard to see status
+        location.href = '/dashboard.html';
+        return;
+      }
+      if (statusData.status === 'rejected') {
+        const box = document.getElementById('rejected-box');
+        box.style.display = 'block';
+        if (statusData.notes) {
+          document.getElementById('rejected-reason').textContent =
+            'Reason: ' + statusData.notes;
+        }
+      }
     } catch (err) {
-      window.location.href = '/login.html';
+      location.href = '/login.html';
     }
   });
 
   async function getAccess() {
     const btn     = document.getElementById('get-btn');
-    const errorEl = document.getElementById('error-msg');
-    errorEl.classList.remove('show');
-
+    const errEl   = document.getElementById('error-msg');
+    errEl.classList.remove('show');
     btn.disabled    = true;
-    btn.textContent = 'Generating reference code...';
+    btn.textContent = 'Preparing payment...';
 
     try {
-      const res  = await fetch('/api/payment/generate-reference', {
-        method:      'POST',
-        headers:     { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body:        JSON.stringify({ plan: 'pro' })
+      const res  = await fetch('/api/payment/initialize', {
+        method:'POST', credentials:'include',
+        headers:{'Content-Type':'application/json'},
+        body: '{}'
       });
       const data = await res.json();
 
       if (!res.ok) {
-        errorEl.textContent = data.error || 'Something went wrong. Please try again.';
-        errorEl.classList.add('show');
+        errEl.textContent = data.error || 'Something went wrong.';
+        errEl.classList.add('show');
         btn.disabled    = false;
         btn.textContent = 'Get Full Access — 599 ETB';
         return;
       }
 
-      // Save payment data and go to submission page
+      // If already submitted, go to dashboard
+      if (data.already_pending && data.has_tx_id) {
+        location.href = '/dashboard.html';
+        return;
+      }
+
+      // Save payment data for submit page
       sessionStorage.setItem('payment_data', JSON.stringify(data));
-      window.location.href = '/submit-payment.html';
+      location.href = '/submit-payment.html';
 
     } catch (err) {
-      errorEl.textContent = 'Network error. Please try again.';
-      errorEl.classList.add('show');
+      errEl.textContent = 'Network error. Please try again.';
+      errEl.classList.add('show');
       btn.disabled    = false;
       btn.textContent = 'Get Full Access — 599 ETB';
     }
   }
 
   async function logout() {
-    await fetch('/api/auth/logout', {
-      method: 'POST',
-      credentials: 'include'
-    });
-    window.location.href = '/login.html';
+    await fetch('/api/auth/logout', {method:'POST', credentials:'include'});
+    location.href = '/login.html';
   }
 </script>
 </body>

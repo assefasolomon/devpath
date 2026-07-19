@@ -6,191 +6,72 @@
   <title>Register | DevPath</title>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    body { background: var(--bg); }
-    .auth-wrap {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .auth-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      width: 100%;
-      max-width: 440px;
-    }
-    .auth-logo {
-      display: flex;
-      align-items: center;
-      gap: .5rem;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--primary-light);
-      margin-bottom: 2rem;
-      text-decoration: none;
-    }
-    .auth-logo svg { width: 24px; height: 24px; }
-    .auth-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--heading);
-      margin-bottom: .35rem;
-    }
-    .auth-sub {
-      font-size: .875rem;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-    .form-field { margin-bottom: 1.1rem; }
-    .form-field label {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: .7rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: var(--text-muted);
-      margin-bottom: 5px;
-    }
-    .form-field input {
-      width: 100%;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 10px 12px;
-      color: var(--heading);
-      font-size: .95rem;
-      font-family: var(--font-ui);
-      outline: none;
-      transition: border-color var(--transition);
-      box-sizing: border-box;
-    }
-    .form-field input:focus { border-color: var(--primary); }
-    .form-field input::placeholder { color: var(--text-muted); opacity: .5; }
-    .submit-btn {
-      width: 100%;
-      padding: .85rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: var(--font-ui);
-      transition: all var(--transition);
-      margin-top: .5rem;
-    }
-    .submit-btn:hover { background: var(--primary-hover); }
-    .submit-btn:disabled { opacity: .6; cursor: not-allowed; }
-    .auth-footer {
-      text-align: center;
-      margin-top: 1.5rem;
-      font-size: .875rem;
-      color: var(--text-muted);
-    }
-    .auth-footer a {
-      color: var(--primary-light);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .auth-footer a:hover { text-decoration: underline; }
-    .msg {
-      border-radius: var(--radius-sm);
-      padding: .75rem 1rem;
-      font-size: .875rem;
-      margin-bottom: 1.25rem;
-      display: none;
-    }
-    .msg.show { display: block; }
-    .msg.error {
-      background: rgba(239,68,68,.1);
-      border: 1px solid rgba(239,68,68,.3);
-      color: #ef4444;
-    }
-    .msg.success {
-      background: rgba(16,185,129,.1);
-      border: 1px solid rgba(16,185,129,.3);
-      color: #10b981;
-    }
+    body{background:var(--bg)}
+    .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
+    .auth-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;width:100%;max-width:440px}
+    .auth-logo{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.2rem;color:var(--primary-light);margin-bottom:2rem;text-decoration:none}
+    .auth-logo svg{width:24px;height:24px}
+    .auth-title{font-size:1.5rem;font-weight:700;color:var(--heading);margin-bottom:.3rem}
+    .auth-sub{font-size:.875rem;color:var(--text-muted);margin-bottom:2rem}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .field{margin-bottom:1rem}
+    .field label{display:block;font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:5px}
+    .field input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;color:var(--heading);font-size:.95rem;font-family:var(--font-ui);outline:none;transition:border-color var(--transition);box-sizing:border-box}
+    .field input:focus{border-color:var(--primary)}
+    .field input::placeholder{color:var(--text-muted);opacity:.5}
+    .submit-btn{width:100%;padding:.85rem;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-size:1rem;font-weight:700;cursor:pointer;font-family:var(--font-ui);transition:all var(--transition);margin-top:.5rem}
+    .submit-btn:hover{background:var(--primary-hover)}
+    .submit-btn:disabled{opacity:.6;cursor:not-allowed}
+    .auth-foot{text-align:center;margin-top:1.5rem;font-size:.875rem;color:var(--text-muted)}
+    .auth-foot a{color:var(--primary-light);text-decoration:none;font-weight:600}
+    .auth-foot a:hover{text-decoration:underline}
+    .msg{border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.875rem;margin-bottom:1rem;display:none}
+    .msg.show{display:block}
+    .msg.error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#ef4444}
+    .msg.success{background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);color:#10b981}
   </style>
 </head>
 <body>
 <div class="auth-wrap">
   <div class="auth-box">
     <a href="index.html" class="auth-logo">
-      <svg viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/>
-        <path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/>
-      </svg>
+      <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>
       DevPath
     </a>
     <div class="auth-title">Create your account</div>
     <div class="auth-sub">Join DevPath and start learning today.</div>
-
     <div class="msg error"   id="error-msg"></div>
     <div class="msg success" id="success-msg"></div>
-
     <div class="form-row">
-      <div class="form-field">
+      <div class="field">
         <label>First name</label>
-        <input type="text" id="first_name"
-               placeholder="Assefa"
-               autocomplete="given-name">
+        <input type="text" id="first_name" placeholder="Assefa" autocomplete="given-name">
       </div>
-      <div class="form-field">
+      <div class="field">
         <label>Last name</label>
-        <input type="text" id="last_name"
-               placeholder="Solomon"
-               autocomplete="family-name">
+        <input type="text" id="last_name" placeholder="Solomon" autocomplete="family-name">
       </div>
     </div>
-
-    <div class="form-field">
+    <div class="field">
       <label>Email address</label>
-      <input type="email" id="email"
-             placeholder="you@example.com"
-             autocomplete="email">
+      <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
     </div>
-
-    <div class="form-field">
+    <div class="field">
       <label>Password</label>
-      <input type="password" id="password"
-             placeholder="At least 6 characters"
-             autocomplete="new-password">
+      <input type="password" id="password" placeholder="At least 6 characters" autocomplete="new-password">
     </div>
-
-    <button class="submit-btn" id="submit-btn" onclick="handleRegister()">
-      Create account
-    </button>
-
-    <div class="auth-footer">
-      Already have an account?
-      <a href="login.html">Log in</a>
-    </div>
+    <button class="submit-btn" id="btn" onclick="handleRegister()">Create account</button>
+    <div class="auth-foot">Already have an account? <a href="login.html">Log in</a></div>
   </div>
 </div>
-
 <script>
-  // If already logged in redirect
-  fetch('/api/auth/me', { credentials: 'include' })
+  // Redirect if already logged in
+  fetch('/api/auth/me', {credentials:'include'})
     .then(r => r.json())
-    .then(data => {
-      if (!data.user) return;
-      if (data.user.is_admin) {
-        window.location.href = '/admin.html';
-      } else if (data.user.payment_status === 'verified') {
-        window.location.href = '/dashboard.html';
-      } else {
-        window.location.href = '/pay.html';
-      }
+    .then(d => {
+      if (!d.user) return;
+      if (d.user.is_admin) location.href = '/admin.html';
+      else location.href = '/pay.html';
     }).catch(() => {});
 
   async function handleRegister() {
@@ -198,68 +79,58 @@
     const last_name  = document.getElementById('last_name').value.trim();
     const email      = document.getElementById('email').value.trim();
     const password   = document.getElementById('password').value;
-    const btn        = document.getElementById('submit-btn');
-    const errorEl    = document.getElementById('error-msg');
-    const successEl  = document.getElementById('success-msg');
+    const btn        = document.getElementById('btn');
+    const errEl      = document.getElementById('error-msg');
+    const sucEl      = document.getElementById('success-msg');
 
-    errorEl.classList.remove('show');
-    successEl.classList.remove('show');
+    errEl.classList.remove('show');
+    sucEl.classList.remove('show');
 
-    // Validate
     if (!first_name || !last_name || !email || !password) {
-      errorEl.textContent = 'All fields are required.';
-      errorEl.classList.add('show');
-      return;
+      errEl.textContent = 'All fields are required.';
+      errEl.classList.add('show'); return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errorEl.textContent = 'Please enter a valid email address.';
-      errorEl.classList.add('show');
-      return;
+      errEl.textContent = 'Please enter a valid email address.';
+      errEl.classList.add('show'); return;
     }
     if (password.length < 6) {
-      errorEl.textContent = 'Password must be at least 6 characters.';
-      errorEl.classList.add('show');
-      return;
+      errEl.textContent = 'Password must be at least 6 characters.';
+      errEl.classList.add('show'); return;
     }
 
-    btn.disabled    = true;
+    btn.disabled = true;
     btn.textContent = 'Creating account...';
 
     try {
       const res  = await fetch('/api/auth/register', {
-        method:      'POST',
-        headers:     { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body:        JSON.stringify({ first_name, last_name, email, password })
+        method:'POST', credentials:'include',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({first_name, last_name, email, password})
       });
       const data = await res.json();
 
       if (!res.ok) {
-        errorEl.textContent = data.error || 'Registration failed. Please try again.';
-        errorEl.classList.add('show');
-        btn.disabled    = false;
+        errEl.textContent = data.error || 'Registration failed.';
+        errEl.classList.add('show');
+        btn.disabled = false;
         btn.textContent = 'Create account';
         return;
       }
 
-      successEl.textContent = 'Account created! Redirecting to payment...';
-      successEl.classList.add('show');
-
-      setTimeout(() => {
-        window.location.href = '/pay.html';
-      }, 1000);
+      sucEl.textContent = '✓ Account created! Redirecting to payment...';
+      sucEl.classList.add('show');
+      setTimeout(() => { location.href = '/pay.html'; }, 1200);
 
     } catch (err) {
-      errorEl.textContent = 'Network error. Please try again.';
-      errorEl.classList.add('show');
-      btn.disabled    = false;
+      errEl.textContent = 'Network error. Please try again.';
+      errEl.classList.add('show');
+      btn.disabled = false;
       btn.textContent = 'Create account';
     }
   }
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Enter') handleRegister();
-  });
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') handleRegister(); });
 </script>
 </body>
 </html>
