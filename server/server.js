@@ -6,11 +6,28 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors({ origin: true, credentials: true }));
+// ── CORS — allow your Render domain ──────────────────────
+const allowedOrigins = [
+  process.env.APP_URL,
+  'http://localhost:3000'
+].filter(Boolean);
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
+// ── Request logger ────────────────────────────────────────
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} ${req.method} ${req.path}`);
   next();
@@ -26,7 +43,11 @@ app.use('/api/payment', paymentRoutes);
 app.use('/api/admin',   adminRoutes);
 
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', time: new Date().toISOString() });
+  res.json({
+    status:      'ok',
+    environment: process.env.NODE_ENV || 'development',
+    time:        new Date().toISOString()
+  });
 });
 
 // ── PROTECTED ROUTES — must come before static ────────────
@@ -51,9 +72,9 @@ app.get('/admin.html', protect, (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'admin.html'));
 });
 
-// ── PUBLIC STATIC — after protected routes ────────────────
+// ── PUBLIC STATIC ─────────────────────────────────────────
 app.use(express.static(path.join(__dirname, '..'), {
-  index: 'index.html',
+  index:      'index.html',
   extensions: ['html']
 }));
 
@@ -74,10 +95,12 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something went wrong.');
 });
 
-process.on('uncaughtException',   err => console.error('Uncaught:', err.message));
-process.on('unhandledRejection',  err => console.error('Unhandled:', err));
+process.on('uncaughtException',  err => console.error('Uncaught:', err.message));
+process.on('unhandledRejection', err => console.error('Unhandled:', err));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`✅ DevPath server: http://localhost:${PORT}`);
+  console.log(`✅ Freelance Skills Hub running on port ${PORT}`);
+  console.log(`   Environment: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`   App URL:     ${process.env.APP_URL || 'http://localhost:' + PORT}`);
 });
