@@ -3,60 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | DevPath</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Login | Freelance Skills Hub</title>
+  <link rel="stylesheet" href="css/brand.css">
   <style>
-    body{background:var(--bg)}
-    .auth-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
-    .auth-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem;width:100%;max-width:420px}
-    .auth-logo{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.2rem;color:var(--primary-light);margin-bottom:2rem;text-decoration:none}
-    .auth-logo svg{width:24px;height:24px}
-    .auth-title{font-size:1.5rem;font-weight:700;color:var(--heading);margin-bottom:.3rem}
-    .auth-sub{font-size:.875rem;color:var(--text-muted);margin-bottom:2rem}
-    .field{margin-bottom:1rem}
-    .field label{display:block;font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:5px}
-    .field input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;color:var(--heading);font-size:.95rem;font-family:var(--font-ui);outline:none;transition:border-color var(--transition);box-sizing:border-box}
-    .field input:focus{border-color:var(--primary)}
-    .field input::placeholder{color:var(--text-muted);opacity:.5}
-    .submit-btn{width:100%;padding:.85rem;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-size:1rem;font-weight:700;cursor:pointer;font-family:var(--font-ui);transition:all var(--transition);margin-top:.5rem}
-    .submit-btn:hover{background:var(--primary-hover)}
-    .submit-btn:disabled{opacity:.6;cursor:not-allowed}
-    .auth-foot{text-align:center;margin-top:1.5rem;font-size:.875rem;color:var(--text-muted)}
-    .auth-foot a{color:var(--primary-light);text-decoration:none;font-weight:600}
-    .auth-foot a:hover{text-decoration:underline}
-    .msg{border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.875rem;margin-bottom:1rem;display:none}
-    .msg.show{display:block}
-    .msg.error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#ef4444}
-    .msg.warn{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);color:#fbbf24}
+    .auth-left-content { position: relative; z-index: 1; color: #fff; max-width: 380px; }
+    .auth-left-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 3rem; text-decoration: none; }
+    .auth-left-logo-icon { width: 40px; height: 40px; background: rgba(255,255,255,.15); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .auth-left-logo-icon svg { width: 24px; height: 24px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .auth-left-logo-name { font-size: 1rem; font-weight: 700; color: #fff; }
+    .auth-left-content h2 { font-size: 2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.25; }
+    .auth-left-content h2 em { font-style: normal; color: #86EFAC; }
+    .auth-left-content p { font-size: .95rem; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 2rem; }
+    .auth-benefits { list-style: none; }
+    .auth-benefits li { display: flex; align-items: center; gap: 10px; font-size: .875rem; color: rgba(255,255,255,.85); margin-bottom: .875rem; }
+    .auth-benefits li::before { content: '✓'; color: #22C55E; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+    .auth-box-title { font-size: 1.6rem; font-weight: 800; color: var(--heading); margin-bottom: .3rem; }
+    .auth-box-sub { font-size: .875rem; color: var(--text-muted); margin-bottom: 2rem; }
+    .auth-divider { text-align: center; font-size: .78rem; color: var(--text-muted); margin: 1.25rem 0; }
+    .auth-foot { text-align: center; margin-top: 1.5rem; font-size: .875rem; color: var(--text-muted); }
+    .auth-foot a { color: var(--brand-primary); text-decoration: none; font-weight: 600; }
+    .auth-foot a:hover { text-decoration: underline; }
+    .back-link { display: inline-flex; align-items: center; gap: 4px; font-size: .78rem; color: var(--text-muted); text-decoration: none; margin-bottom: 1.5rem; }
+    .back-link:hover { color: var(--brand-primary); }
   </style>
 </head>
 <body>
-<div class="auth-wrap">
-  <div class="auth-box">
-    <a href="index.html" class="auth-logo">
-      <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>
-      DevPath
-    </a>
-    <div class="auth-title">Welcome back</div>
-    <div class="auth-sub">Log in to access your courses.</div>
-    <div class="msg warn" id="warn-msg"></div>
-    <div class="msg error" id="error-msg"></div>
-    <div class="field">
-      <label>Email address</label>
-      <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
-    </div>
-    <div class="field">
-      <label>Password</label>
-      <input type="password" id="password" placeholder="••••••••" autocomplete="current-password">
-    </div>
-    <button class="submit-btn" id="btn" onclick="handleLogin()">Log in</button>
-    <div class="auth-foot">
-      Don't have an account? <a href="register.html">Create one free</a>
+<div class="auth-layout">
+
+  <!-- Left panel -->
+  <div class="auth-left">
+    <div class="auth-left-content">
+      <a href="index.html" class="auth-left-logo">
+        <div class="auth-left-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <span class="auth-left-logo-name">Freelance Skills Hub</span>
+      </a>
+      <h2>Welcome back to your <em>learning journey</em></h2>
+      <p>Log in to access your courses, track your progress, and continue building the skills that clients pay for.</p>
+      <ul class="auth-benefits">
+        <li>200+ lessons across 4 learning paths</li>
+        <li>Python, JavaScript, Rails &amp; Foundations</li>
+        <li>Real projects you can show clients</li>
+        <li>Pay once via Telebirr or CBE</li>
+      </ul>
     </div>
   </div>
+
+  <!-- Right panel -->
+  <div class="auth-right">
+    <div class="auth-box">
+      <a href="index.html" class="back-link">← Back to home</a>
+      <div class="auth-box-title">Welcome back</div>
+      <div class="auth-box-sub">Log in to access your courses</div>
+
+      <div class="alert alert-warning" id="warn-msg"></div>
+      <div class="alert alert-error"   id="error-msg"></div>
+
+      <div class="fsh-form-group">
+        <label class="fsh-label">Email address</label>
+        <input class="fsh-input" type="email" id="email" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="fsh-form-group">
+        <label class="fsh-label">Password</label>
+        <input class="fsh-input" type="password" id="password" placeholder="••••••••" autocomplete="current-password">
+      </div>
+
+      <button class="btn btn-primary btn-lg" id="btn" onclick="handleLogin()" style="width:100%;margin-top:.25rem">
+        Log in to Freelance Skills Hub
+      </button>
+
+      <div class="auth-divider">— or —</div>
+
+      <div class="auth-foot">
+        Don't have an account? <a href="register.html">Create one free</a>
+      </div>
+    </div>
+  </div>
+
 </div>
 <script>
-  // Show reason message
   const p = new URLSearchParams(location.search);
   const msgs = {
     login_required:    'Please log in to access this page.',
@@ -69,11 +95,10 @@
   const reason = p.get('reason');
   if (reason && msgs[reason]) {
     const el = document.getElementById('warn-msg');
-    el.textContent = msgs[reason];
+    el.textContent = '⚠ ' + msgs[reason];
     el.classList.add('show');
   }
 
-  // Redirect if already logged in
   fetch('/api/auth/me', {credentials:'include'})
     .then(r => r.json())
     .then(d => {
@@ -82,9 +107,9 @@
     }).catch(() => {});
 
   function redirect(user) {
-    if (user.is_admin)                        return location.href = '/admin.html';
-    if (user.payment_status === 'verified')   return location.href = '/dashboard.html';
-    if (user.payment_status === 'pending')    return location.href = '/dashboard.html';
+    if (user.is_admin)                       return location.href = '/admin.html';
+    if (user.payment_status === 'verified')  return location.href = '/dashboard.html';
+    if (user.payment_status === 'pending')   return location.href = '/dashboard.html';
     location.href = '/pay.html';
   }
 
@@ -96,10 +121,10 @@
     errEl.classList.remove('show');
 
     if (!email || !password) {
-      errEl.textContent = 'Please enter your email and password.';
-      errEl.classList.add('show');
-      return;
+      errEl.textContent = '✕ Please enter your email and password.';
+      errEl.classList.add('show'); return;
     }
+
     btn.disabled = true;
     btn.textContent = 'Logging in...';
 
@@ -110,22 +135,22 @@
         body: JSON.stringify({email, password})
       });
       const data = await res.json();
+
       if (!res.ok) {
-        errEl.textContent = data.error || 'Login failed.';
+        errEl.textContent = '✕ ' + (data.error || 'Login failed.');
         errEl.classList.add('show');
         btn.disabled = false;
-        btn.textContent = 'Log in';
+        btn.textContent = 'Log in to Freelance Skills Hub';
         return;
       }
       redirect(data.user);
     } catch (err) {
-      errEl.textContent = 'Network error. Please try again.';
+      errEl.textContent = '✕ Network error. Please try again.';
       errEl.classList.add('show');
       btn.disabled = false;
-      btn.textContent = 'Log in';
+      btn.textContent = 'Log in to Freelance Skills Hub';
     }
   }
-
   document.addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); });
 </script>
 </body>

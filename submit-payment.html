@@ -3,124 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complete Payment | DevPath</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Complete Payment | Freelance Skills Hub</title>
+  <link rel="stylesheet" href="css/brand.css">
   <style>
-    body{background:var(--bg)}
-    .wrap{max-width:620px;margin:0 auto;padding:2.5rem 2rem}
-    .back{display:inline-block;color:var(--text-muted);font-size:.875rem;text-decoration:none;margin-bottom:2rem}
-    .back:hover{color:var(--text)}
-    .page-title{font-size:1.6rem;font-weight:700;color:var(--heading);margin-bottom:.4rem}
-    .page-sub{color:var(--text-muted);font-size:.9rem;margin-bottom:2rem;line-height:1.7}
-    .step-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.25rem}
-    .step-label{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:.875rem;display:flex;align-items:center;gap:8px}
-    .step-num{background:var(--primary);color:#fff;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0}
-    .plan-row{display:flex;justify-content:space-between;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:.875rem 1.25rem}
-    .plan-row-name{font-weight:700;color:var(--heading);font-size:.95rem}
+    .wrap{max-width:660px;margin:0 auto;padding:2.5rem 2rem}
+    .back-link{display:inline-flex;align-items:center;gap:4px;color:var(--text-muted);font-size:.875rem;text-decoration:none;margin-bottom:2rem}
+    .back-link:hover{color:var(--brand-primary)}
+    .page-title{font-size:1.75rem;font-weight:800;color:var(--heading);margin-bottom:.4rem}
+    .page-sub{color:var(--text-muted);font-size:.9rem;line-height:1.7;margin-bottom:2rem}
+    .step-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem;box-shadow:var(--shadow-sm)}
+    .step-header{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+    .step-num{width:28px;height:28px;border-radius:50%;background:var(--brand-primary);color:#fff;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .step-title{font-size:.875rem;font-weight:700;color:var(--heading);text-transform:uppercase;letter-spacing:.05em}
+    .plan-row{display:flex;justify-content:space-between;align-items:center;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:.875rem 1.25rem}
+    .plan-row-name{font-weight:700;color:var(--heading)}
     .plan-row-sub{font-size:.78rem;color:var(--text-muted);margin-top:2px}
-    .plan-row-price{font-size:1.5rem;font-weight:700;color:var(--accent)}
-    .ref-box{display:flex;justify-content:space-between;align-items:center;background:var(--code-bg,#0a0a18);border:1px solid var(--border);border-radius:var(--radius);padding:.875rem 1.25rem;margin-bottom:.75rem}
-    .ref-label{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:3px}
-    .ref-code{font-size:1.4rem;font-weight:700;font-family:var(--font-mono);color:var(--secondary);letter-spacing:.12em}
-    .copy-btn{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:5px 12px;font-size:.78rem;color:var(--text-muted);cursor:pointer;font-family:var(--font-ui);transition:all var(--transition)}
-    .copy-btn:hover{border-color:var(--primary);color:var(--primary-light)}
-    .copy-btn.copied{border-color:var(--green);color:var(--green)}
-    .ref-note{font-size:.82rem;color:var(--text-muted);line-height:1.6}
-    .ref-note strong{color:#fbbf24}
-    .accounts-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-    .account-box{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:.875rem 1rem}
-    .account-type{font-size:.72rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.35rem}
-    .account-num{font-size:1rem;font-weight:700;color:var(--heading)}
-    .account-name{font-size:.78rem;color:var(--text-muted);margin-top:2px}
-    .field{margin-bottom:1rem}
-    .field label{display:block;font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);margin-bottom:5px}
-    .field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;color:var(--heading);font-size:.95rem;font-family:var(--font-ui);outline:none;transition:border-color var(--transition);box-sizing:border-box}
-    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary)}
-    .field input::placeholder,.field textarea::placeholder{color:var(--text-muted);opacity:.5}
-    .field select option{background:var(--surface)}
-    .field textarea{resize:vertical;min-height:70px}
-    .submit-btn{width:100%;padding:.9rem;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-size:1rem;font-weight:700;cursor:pointer;font-family:var(--font-ui);transition:all var(--transition)}
-    .submit-btn:hover{background:var(--primary-hover)}
-    .submit-btn:disabled{opacity:.6;cursor:not-allowed}
-    .msg{border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.875rem;margin-bottom:1rem;display:none}
-    .msg.show{display:block}
-    .msg.error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#ef4444}
-    .pending-box{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);border-radius:var(--radius-lg);padding:1.5rem;display:none;margin-bottom:2rem}
-    .pending-box h3{color:#fbbf24;margin-bottom:.5rem}
-    .pending-box p{color:var(--text-muted);font-size:.875rem;line-height:1.7}
-    .success-box{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;display:none}
-    .success-box.show{display:block}
+    .plan-row-price{font-size:1.5rem;font-weight:800;color:var(--brand-primary)}
+    .ref-box{display:flex;justify-content:space-between;align-items:center;background:#F0FDF4;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:.875rem}
+    .ref-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-secondary);margin-bottom:3px}
+    .ref-code{font-size:1.5rem;font-weight:800;font-family:var(--font-mono);color:var(--brand-primary);letter-spacing:.12em}
+    .copy-btn{background:var(--brand-primary);border:none;color:#fff;padding:6px 16px;border-radius:var(--radius);font-size:.78rem;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:all var(--transition);white-space:nowrap}
+    .copy-btn:hover{background:var(--brand-secondary)}
+    .copy-btn.copied{background:var(--green)}
+    .ref-warning{background:#FFFBEB;border:1px solid #FDE68A;border-radius:var(--radius);padding:.75rem 1rem;font-size:.82rem;color:#92400E;line-height:1.6}
+    .ref-warning strong{color:#78350F}
+    .accounts-grid{display:grid;grid-template-columns:1fr 1fr;gap:.875rem}
+    .account-card{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.125rem}
+    .account-type{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:.5rem}
+    .account-num{font-size:1rem;font-weight:700;color:var(--heading);font-family:var(--font-mono)}
+    .account-name{font-size:.78rem;color:var(--text-muted);margin-top:3px}
+    .pending-notice{background:#FFFBEB;border:1px solid #FDE68A;border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:2rem}
+    .pending-notice h3{color:#92400E;margin-bottom:.4rem;font-size:.95rem}
+    .pending-notice p{color:#78350F;font-size:.875rem;line-height:1.7}
+    .success-card{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:2.5rem;text-align:center;display:none}
+    .success-card.show{display:block}
     .success-icon{font-size:3.5rem;margin-bottom:1rem}
-    .success-title{font-size:1.4rem;font-weight:700;color:var(--heading);margin-bottom:.75rem}
-    .success-detail{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0;text-align:left}
-    .success-row{display:flex;justify-content:space-between;font-size:.875rem;padding:.4rem 0;border-bottom:1px solid var(--border)}
+    .success-title{font-size:1.4rem;font-weight:800;color:#166534;margin-bottom:.5rem}
+    .success-sub{color:var(--brand-secondary);font-size:.9rem;line-height:1.7;margin-bottom:1.5rem}
+    .success-table{background:#fff;border:1px solid #BBF7D0;border-radius:var(--radius-lg);overflow:hidden;margin-bottom:1.5rem;text-align:left}
+    .success-row{display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;border-bottom:1px solid #DCFCE7;font-size:.875rem}
     .success-row:last-child{border-bottom:none}
     .success-row span:first-child{color:var(--text-muted)}
-    .success-row span:last-child{color:var(--heading);font-weight:600;font-family:var(--font-mono)}
-    .dash-link{display:inline-block;background:var(--primary);color:#fff;padding:.6rem 1.5rem;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:.9rem;margin-top:1rem;transition:all var(--transition)}
-    .dash-link:hover{background:var(--primary-hover);color:#fff}
+    .success-row span:last-child{font-weight:600;color:var(--heading);font-family:var(--font-mono)}
+    @media(max-width:480px){.accounts-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-<nav class="site-nav">
-  <a href="index.html" class="nav-logo">
-    <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>
-    DevPath
+
+<nav class="fsh-nav">
+  <a href="index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Learn · Build · Earn</span>
+    </div>
   </a>
 </nav>
+
 <div class="wrap">
-  <a href="pay.html" class="back">← Back</a>
+  <a href="pay.html" class="back-link">← Back to payment</a>
 
   <!-- Already submitted notice -->
-  <div class="pending-box" id="pending-box">
+  <div class="pending-notice" id="pending-notice" style="display:none">
     <h3>⏳ Payment Already Submitted</h3>
-    <p>You have already submitted payment details. We are verifying your transfer.
-       Check your <a href="/dashboard.html" style="color:var(--primary-light)">dashboard</a>
+    <p>You already submitted your payment details. We are verifying your transfer.
+       <a href="/dashboard.html" style="color:var(--brand-primary);font-weight:600">Check your dashboard</a>
        for the current status.</p>
   </div>
 
   <div id="main-content">
     <div class="page-title">Complete Your Payment</div>
-    <div class="page-sub">Transfer 599 ETB to one of the accounts below, then fill in your transaction details so we can verify your payment.</div>
+    <div class="page-sub">Follow these 4 steps to complete your enrollment in Freelance Skills Hub.</div>
 
-    <!-- Step 1: Order summary -->
-    <div class="step-box">
-      <div class="step-label"><span class="step-num">1</span> Your order</div>
+    <!-- Step 1 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div class="step-title">Your order</div>
+      </div>
       <div class="plan-row">
         <div>
-          <div class="plan-row-name">DevPath Full Access</div>
-          <div class="plan-row-sub">Lifetime access · All 4 paths included</div>
+          <div class="plan-row-name">Freelance Skills Hub Full Access</div>
+          <div class="plan-row-sub">Lifetime access · All 4 paths · 200+ lessons</div>
         </div>
         <div class="plan-row-price">599 ETB</div>
       </div>
     </div>
 
-    <!-- Step 2: Reference code -->
-    <div class="step-box">
-      <div class="step-label"><span class="step-num">2</span> Your unique reference code</div>
+    <!-- Step 2 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div class="step-title">Your unique reference code</div>
+      </div>
       <div class="ref-box">
         <div>
-          <div class="ref-label">Reference code</div>
+          <div class="ref-label">Reference Code</div>
           <div class="ref-code" id="ref-code">Loading...</div>
         </div>
         <button class="copy-btn" id="copy-btn" onclick="copyRef()">Copy</button>
       </div>
-      <p class="ref-note">
-        <strong>⚠️ Important:</strong> When making your transfer, include this code
-        in the <strong>description / note / reason</strong> field so we can match your payment automatically.
-      </p>
+      <div class="ref-warning">
+        <strong>⚠ Important:</strong> When making your transfer, include this code in the
+        <strong>description / note / reason</strong> field so we can match your payment.
+      </div>
     </div>
 
-    <!-- Step 3: Account details -->
-    <div class="step-box">
-      <div class="step-label"><span class="step-num">3</span> Transfer to one of these accounts</div>
+    <!-- Step 3 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div class="step-title">Transfer to one of these accounts</div>
+      </div>
       <div class="accounts-grid">
-        <div class="account-box">
+        <div class="account-card">
           <div class="account-type">📱 Telebirr</div>
           <div class="account-num" id="telebirr-number">Loading...</div>
           <div class="account-name" id="telebirr-name">Loading...</div>
         </div>
-        <div class="account-box">
+        <div class="account-card">
           <div class="account-type">🏦 CBE</div>
           <div class="account-num" id="cbe-account">Loading...</div>
           <div class="account-name" id="cbe-name">Loading...</div>
@@ -128,53 +135,74 @@
       </div>
     </div>
 
-    <!-- Step 4: Submit details -->
-    <div class="step-box">
-      <div class="step-label"><span class="step-num">4</span> Submit your transaction details</div>
-      <div class="msg error" id="error-msg"></div>
-      <div class="field">
-        <label>Your reference code</label>
-        <input type="text" id="ref-input" placeholder="PAY-XXXXX"
+    <!-- Step 4 -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div class="step-title">Submit your transaction details</div>
+      </div>
+
+      <div class="alert alert-error" id="error-msg"></div>
+
+      <div class="fsh-form-group">
+        <label class="fsh-label">Your reference code</label>
+        <input class="fsh-input" type="text" id="ref-input"
+               placeholder="PAY-XXXXX"
                style="text-transform:uppercase;letter-spacing:.1em;font-family:var(--font-mono)">
       </div>
-      <div class="field">
-        <label>Transaction ID (from your SMS receipt)</label>
-        <input type="text" id="tx-input" placeholder="e.g. TXN1234567890">
+      <div class="fsh-form-group">
+        <label class="fsh-label">
+          Transaction ID
+          <span style="font-weight:400;color:var(--text-muted)">(from your Telebirr/CBE SMS)</span>
+        </label>
+        <input class="fsh-input" type="text" id="tx-input" placeholder="e.g. TXN1234567890">
       </div>
-      <div class="field">
-        <label>Payment method used</label>
-        <select id="method-select">
-          <option value="">Select payment method...</option>
+      <div class="fsh-form-group">
+        <label class="fsh-label">Payment method used</label>
+        <select class="fsh-select" id="method-select">
+          <option value="">Select how you paid...</option>
           <option value="telebirr">📱 Telebirr</option>
           <option value="cbe">🏦 CBE (Commercial Bank of Ethiopia)</option>
           <option value="awash">🏦 Awash Bank</option>
           <option value="bank_transfer">🏦 Other Bank Transfer</option>
         </select>
       </div>
-      <div class="field">
-        <label>Note (optional)</label>
-        <textarea id="note-input" placeholder="Any additional information..."></textarea>
+      <div class="fsh-form-group">
+        <label class="fsh-label">
+          Additional note
+          <span style="font-weight:400;color:var(--text-muted)">(optional)</span>
+        </label>
+        <textarea class="fsh-textarea" id="note-input"
+                  placeholder="Any additional information about your payment..."></textarea>
       </div>
-      <button class="submit-btn" id="submit-btn" onclick="submitPayment()">
+
+      <button class="btn btn-primary btn-lg" id="submit-btn" onclick="submitPayment()"
+              style="width:100%;justify-content:center">
         ✓ I Have Transferred 599 ETB — Submit Details
       </button>
     </div>
   </div>
 
   <!-- Success state -->
-  <div class="success-box" id="success-box">
+  <div class="success-card" id="success-box">
     <div class="success-icon">🎉</div>
     <div class="success-title">Payment Details Submitted!</div>
-    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1rem">
-      We will verify your transfer within <strong>1–2 hours</strong>. You will receive an email when verified.
-    </p>
-    <div class="success-detail" id="success-detail"></div>
-    <a href="/dashboard.html" class="dash-link">View Payment Status →</a>
+    <div class="success-sub">
+      We will verify your transfer within <strong>1–2 hours</strong> during business hours.<br>
+      You will receive an email when your payment is verified.
+    </div>
+    <div class="success-table" id="success-table"></div>
+    <a href="/dashboard.html" class="btn btn-primary btn-lg"
+       style="width:100%;justify-content:center;text-decoration:none">
+      View Payment Status →
+    </a>
   </div>
 </div>
 
 <script>
-  let paymentData = null;
+  const methodNames = {
+    telebirr:'Telebirr', cbe:'CBE', awash:'Awash Bank', bank_transfer:'Bank Transfer'
+  };
 
   window.addEventListener('DOMContentLoaded', async () => {
     // Auth check
@@ -186,50 +214,47 @@
       if (meData.user.payment_status === 'verified') { location.href = '/dashboard.html'; return; }
     } catch (e) { location.href = '/login.html'; return; }
 
-    // Check if already submitted
+    // Check payment status from server
     try {
       const statusRes  = await fetch('/api/payment/status', {credentials:'include'});
       const statusData = await statusRes.json();
 
       if (statusData.status === 'pending' && statusData.user_tx_id) {
-        // Already submitted — show notice
-        document.getElementById('pending-box').style.display = 'block';
-        document.getElementById('main-content').style.display = 'none';
+        document.getElementById('pending-notice').style.display = 'block';
+        document.getElementById('main-content').style.display   = 'none';
         return;
       }
 
       if (statusData.status === 'pending' && !statusData.user_tx_id) {
-        // Has reference code but not submitted — use server data
+        // Has reference but not yet submitted — load from server
         populatePage(statusData);
         return;
       }
     } catch (e) {}
 
-    // Use sessionStorage data from pay.html
+    // Use sessionStorage from pay.html
     const stored = sessionStorage.getItem('payment_data');
     if (stored) {
-      paymentData = JSON.parse(stored);
-      populatePage(paymentData);
+      populatePage(JSON.parse(stored));
       return;
     }
 
-    // No data — go back to pay
+    // No data at all — go back
     location.href = '/pay.html';
   });
 
   function populatePage(data) {
-    const refCode = data.reference_code || '';
-    document.getElementById('ref-code').textContent  = refCode;
-    document.getElementById('ref-input').value       = refCode;
-    document.getElementById('telebirr-number').textContent = data.telebirr_number || '0928344248';
-    document.getElementById('telebirr-name').textContent   = data.telebirr_name   || 'Solomon Assefa';
-    document.getElementById('cbe-account').textContent     = data.cbe_account     || '1000416780882';
-    document.getElementById('cbe-name').textContent        = data.cbe_name        || 'Solomon Assefa';
+    document.getElementById('ref-code').textContent  = data.reference_code || '—';
+    document.getElementById('ref-input').value       = data.reference_code || '';
+    document.getElementById('telebirr-number').textContent = data.telebirr_number || '—';
+    document.getElementById('telebirr-name').textContent   = data.telebirr_name   || '—';
+    document.getElementById('cbe-account').textContent     = data.cbe_account     || '—';
+    document.getElementById('cbe-name').textContent        = data.cbe_name        || '—';
   }
 
   function copyRef() {
     const code = document.getElementById('ref-code').textContent;
-    if (!code || code === 'Loading...') return;
+    if (!code || code === 'Loading...' || code === '—') return;
     navigator.clipboard.writeText(code).then(() => {
       const btn = document.getElementById('copy-btn');
       btn.textContent = '✓ Copied!';
@@ -249,13 +274,16 @@
     errEl.classList.remove('show');
 
     if (!reference_code) {
-      errEl.textContent = 'Please enter your reference code.'; errEl.classList.add('show'); return;
+      errEl.textContent = '✕ Please enter your reference code.';
+      errEl.classList.add('show'); return;
     }
     if (!user_tx_id) {
-      errEl.textContent = 'Please enter your transaction ID from the SMS.'; errEl.classList.add('show'); return;
+      errEl.textContent = '✕ Please enter the transaction ID from your SMS receipt.';
+      errEl.classList.add('show'); return;
     }
     if (!payment_method) {
-      errEl.textContent = 'Please select your payment method.'; errEl.classList.add('show'); return;
+      errEl.textContent = '✕ Please select the payment method you used.';
+      errEl.classList.add('show'); return;
     }
 
     btn.disabled    = true;
@@ -270,21 +298,18 @@
       const data = await res.json();
 
       if (!res.ok) {
-        errEl.textContent = data.error || 'Submission failed. Please try again.';
+        errEl.textContent = '✕ ' + (data.error || 'Submission failed.');
         errEl.classList.add('show');
         btn.disabled    = false;
         btn.textContent = '✓ I Have Transferred 599 ETB — Submit Details';
         return;
       }
 
-      // Clear storage
+      // Clear sessionStorage
       sessionStorage.removeItem('payment_data');
 
-      // Show success
-      const methodNames = {
-        telebirr:'Telebirr', cbe:'CBE', awash:'Awash Bank', bank_transfer:'Bank Transfer'
-      };
-      document.getElementById('success-detail').innerHTML = `
+      // Build success table
+      document.getElementById('success-table').innerHTML = `
         <div class="success-row">
           <span>Reference Code</span>
           <span>${data.reference_code}</span>
@@ -303,10 +328,10 @@
         </div>
         <div class="success-row">
           <span>Status</span>
-          <span style="color:#fbbf24">⏳ Pending Verification</span>
+          <span style="color:#D97706">⏳ Pending Verification</span>
         </div>
         <div class="success-row">
-          <span>Submitted At</span>
+          <span>Submitted</span>
           <span>${new Date(data.submitted_at).toLocaleString('en-GB')}</span>
         </div>
       `;
@@ -315,7 +340,7 @@
       document.getElementById('success-box').classList.add('show');
 
     } catch (err) {
-      errEl.textContent = 'Network error. Please try again.';
+      errEl.textContent = '✕ Network error. Please try again.';
       errEl.classList.add('show');
       btn.disabled    = false;
       btn.textContent = '✓ I Have Transferred 599 ETB — Submit Details';

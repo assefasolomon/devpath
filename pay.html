@@ -3,89 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Access | DevPath</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Get Full Access | Freelance Skills Hub</title>
+  <link rel="stylesheet" href="css/brand.css">
   <style>
-    body{background:var(--bg)}
-    .wrap{max-width:580px;margin:0 auto;padding:2.5rem 2rem}
-    .user-bar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:.75rem 1.25rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;font-size:.875rem}
-    .user-bar span{color:var(--text-muted)}
-    .user-bar strong{color:var(--heading)}
-    .logout-btn{background:none;border:none;color:var(--text-muted);font-size:.8rem;cursor:pointer;text-decoration:underline;font-family:var(--font-ui)}
-    .logout-btn:hover{color:#ef4444}
-    .page-title{font-size:1.75rem;font-weight:700;color:var(--heading);margin-bottom:.4rem;text-align:center}
-    .page-sub{color:var(--text-muted);font-size:.9rem;margin-bottom:2rem;line-height:1.7;text-align:center}
-    .plan-box{background:var(--surface);border:2px solid var(--accent);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;position:relative}
-    .plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;font-size:.72rem;font-weight:700;padding:3px 18px;border-radius:20px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
-    .plan-icon{font-size:3rem;margin-bottom:1rem}
-    .plan-name{font-size:1.5rem;font-weight:700;color:var(--heading);margin-bottom:.35rem}
-    .plan-tagline{font-size:.9rem;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6}
-    .plan-price{margin-bottom:1.75rem}
-    .price-num{font-size:3.5rem;font-weight:700;color:var(--heading);line-height:1}
-    .price-cur{font-size:1.2rem;color:var(--text-muted);font-family:var(--font-mono);margin-left:4px}
-    .price-note{font-size:.8rem;color:var(--text-muted);font-family:var(--font-mono);margin-top:.35rem}
-    .plan-features{list-style:none;text-align:left;margin-bottom:2rem;border-top:1px solid var(--border);padding-top:1.25rem}
-    .plan-features li{display:flex;align-items:center;gap:10px;font-size:.9rem;color:var(--text);padding:.45rem 0;border-bottom:1px solid var(--border)}
-    .plan-features li:last-child{border-bottom:none}
-    .feat-y{color:var(--green)}
-    .get-btn{width:100%;padding:1rem;background:var(--primary);color:#fff;border:none;border-radius:var(--radius);font-size:1.05rem;font-weight:700;cursor:pointer;font-family:var(--font-ui);transition:all var(--transition)}
-    .get-btn:hover{background:var(--primary-hover)}
-    .get-btn:disabled{opacity:.6;cursor:not-allowed}
-    .pay-note{text-align:center;font-size:.78rem;color:var(--text-muted);margin-top:.75rem;font-family:var(--font-mono)}
-    .msg{border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.875rem;margin-top:1rem;display:none;text-align:left}
-    .msg.show{display:block}
-    .msg.error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#ef4444}
-    .rejected-box{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.3);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:2rem;display:none}
-    .rejected-box h3{color:#ef4444;margin-bottom:.5rem}
-    .rejected-box p{color:var(--text-muted);font-size:.875rem;line-height:1.7}
+    .pay-wrap { max-width: 580px; margin: 0 auto; padding: 2.5rem 2rem; }
+    .user-bar { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg); padding: .875rem 1.25rem; display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; box-shadow: var(--shadow-sm); }
+    .user-bar-left { font-size: .875rem; }
+    .user-bar-left span { color: var(--text-muted); }
+    .user-bar-left strong { color: var(--heading); }
+    .logout-btn { background: none; border: none; color: var(--text-muted); font-size: .8rem; cursor: pointer; text-decoration: underline; font-family: var(--font-sans); padding: 0; }
+    .logout-btn:hover { color: var(--red); }
+    .page-header { text-align: center; margin-bottom: 2.5rem; }
+    .page-header h1 { font-size: 2rem; font-weight: 800; color: var(--heading); margin-bottom: .5rem; }
+    .page-header p { color: var(--text-muted); font-size: .95rem; line-height: 1.7; }
+    .price-card { background: #fff; border: 2px solid var(--brand-accent); border-radius: var(--radius-xl); padding: 2.5rem; text-align: center; position: relative; box-shadow: 0 8px 30px rgba(34,197,94,.12); }
+    .price-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--brand-accent); color: #fff; font-size: .72rem; font-weight: 700; padding: 4px 20px; border-radius: 999px; white-space: nowrap; text-transform: uppercase; letter-spacing: .06em; }
+    .price-icon { font-size: 2.75rem; margin-bottom: 1rem; }
+    .price-name { font-size: 1.4rem; font-weight: 800; color: var(--heading); margin-bottom: .35rem; }
+    .price-tagline { font-size: .9rem; color: var(--text-muted); margin-bottom: 1.75rem; line-height: 1.6; }
+    .price-amount { margin-bottom: 1.75rem; }
+    .price-num { font-size: 3.5rem; font-weight: 900; color: var(--heading); line-height: 1; }
+    .price-cur { font-size: 1.2rem; color: var(--text-muted); font-weight: 600; margin-left: 4px; }
+    .price-note { font-size: .78rem; color: var(--text-muted); margin-top: .4rem; }
+    .price-features { list-style: none; text-align: left; margin-bottom: 2rem; border-top: 1px solid var(--border); padding-top: 1.25rem; }
+    .price-features li { display: flex; align-items: center; gap: 10px; font-size: .9rem; color: var(--text); padding: .5rem 0; border-bottom: 1px solid var(--border); }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features .ck { color: var(--brand-accent); font-weight: 700; font-size: 1rem; }
+    .rejected-notice { background: #FEF2F2; border: 1px solid #FECACA; border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+    .rejected-notice h3 { color: #991B1B; font-size: .95rem; margin-bottom: .35rem; }
+    .rejected-notice p { color: #7F1D1D; font-size: .85rem; line-height: 1.6; }
   </style>
 </head>
 <body>
-<nav class="site-nav">
-  <a href="index.html" class="nav-logo">
-    <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>
-    DevPath
+
+<nav class="fsh-nav">
+  <a href="index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Learn · Build · Earn</span>
+    </div>
   </a>
 </nav>
-<div class="wrap">
+
+<div class="pay-wrap">
   <div class="user-bar">
-    <span>Logged in as <strong id="user-name">...</strong></span>
+    <div class="user-bar-left">
+      <span>Logged in as </span><strong id="user-name">...</strong>
+    </div>
     <button class="logout-btn" onclick="logout()">Logout</button>
   </div>
 
-  <div class="rejected-box" id="rejected-box">
+  <div class="rejected-notice" id="rejected-notice" style="display:none">
     <h3>❌ Previous Payment Was Rejected</h3>
-    <p id="rejected-reason">Your previous payment could not be verified. You can submit a new payment below.</p>
+    <p id="rejected-reason">Your previous payment could not be verified. Please submit a new payment below.</p>
   </div>
 
-  <div class="page-title">Get Full Access</div>
-  <div class="page-sub">One payment via Telebirr or CBE. Lifetime access to everything.</div>
+  <div class="page-header">
+    <h1>Get Full Access</h1>
+    <p>One payment via Telebirr or CBE. Lifetime access to all 4 learning paths and 200+ lessons.</p>
+  </div>
 
-  <div class="plan-box">
-    <div class="plan-badge">🔥 Everything included</div>
-    <div class="plan-icon">🚀</div>
-    <div class="plan-name">DevPath Full Access</div>
-    <div class="plan-tagline">All 4 paths, 200+ lessons, real projects, future content — forever.</div>
-    <div class="plan-price">
+  <div class="price-card">
+    <div class="price-badge">🔥 Everything Included — Lifetime Access</div>
+    <div class="price-icon">🚀</div>
+    <div class="price-name">Freelance Skills Hub Full Access</div>
+    <div class="price-tagline">All 4 paths, 200+ lessons, real projects, future content — forever.</div>
+    <div class="price-amount">
       <div><span class="price-num">599</span><span class="price-cur">ETB</span></div>
-      <div class="price-note">one-time payment · no monthly fees</div>
+      <div class="price-note">one-time payment · no monthly fees · no hidden costs</div>
     </div>
-    <ul class="plan-features">
-      <li><span class="feat-y">✓</span> Python for AI — NumPy, Pandas, Matplotlib</li>
-      <li><span class="feat-y">✓</span> Full Stack JavaScript — React, Node.js</li>
-      <li><span class="feat-y">✓</span> Full Stack Ruby on Rails</li>
-      <li><span class="feat-y">✓</span> Foundations — HTML, CSS, JavaScript, Git</li>
-      <li><span class="feat-y">✓</span> 200+ lessons with real projects</li>
-      <li><span class="feat-y">✓</span> Certificate of completion</li>
-      <li><span class="feat-y">✓</span> All future content free</li>
+    <ul class="price-features">
+      <li><span class="ck">✓</span> Python for AI — NumPy, Pandas, Matplotlib</li>
+      <li><span class="ck">✓</span> Full Stack JavaScript — React, Node.js</li>
+      <li><span class="ck">✓</span> Full Stack Ruby on Rails</li>
+      <li><span class="ck">✓</span> Web Development Foundations</li>
+      <li><span class="ck">✓</span> 200+ lessons with real projects</li>
+      <li><span class="ck">✓</span> Certificate of completion</li>
+      <li><span class="ck">✓</span> All future content free forever</li>
     </ul>
-    <button class="get-btn" id="get-btn" onclick="getAccess()">
+    <button class="btn btn-primary btn-lg" id="get-btn" onclick="getAccess()" style="width:100%;justify-content:center">
       Get Full Access — 599 ETB
     </button>
-    <div class="pay-note">🔒 Pay via Telebirr or CBE · Verified within 1–2 hours</div>
-    <div class="msg error" id="error-msg"></div>
+    <div class="price-note" style="margin-top:.875rem">
+      🔒 Pay via Telebirr or CBE · Verified within 1–2 hours
+    </div>
+    <div class="alert alert-error" id="error-msg" style="margin-top:1rem;text-align:left"></div>
   </div>
 </div>
+
 <script>
   window.addEventListener('DOMContentLoaded', async () => {
     try {
@@ -94,69 +102,54 @@
       if (!data.user) { location.href = '/login.html?reason=login_required'; return; }
       if (data.user.is_admin) { location.href = '/admin.html'; return; }
       if (data.user.payment_status === 'verified') { location.href = '/dashboard.html'; return; }
-
       document.getElementById('user-name').textContent =
         data.user.first_name + ' ' + data.user.last_name;
 
-      // Check for rejected payment
       const statusRes  = await fetch('/api/payment/status', {credentials:'include'});
       const statusData = await statusRes.json();
+
       if (statusData.status === 'pending' && statusData.user_tx_id) {
-        // Already submitted — go to dashboard to see status
-        location.href = '/dashboard.html';
-        return;
+        location.href = '/dashboard.html'; return;
       }
       if (statusData.status === 'rejected') {
-        const box = document.getElementById('rejected-box');
-        box.style.display = 'block';
+        const notice = document.getElementById('rejected-notice');
+        notice.style.display = 'block';
         if (statusData.notes) {
-          document.getElementById('rejected-reason').textContent =
-            'Reason: ' + statusData.notes;
+          document.getElementById('rejected-reason').textContent = 'Reason: ' + statusData.notes;
         }
       }
-    } catch (err) {
-      location.href = '/login.html';
-    }
+    } catch (e) { location.href = '/login.html'; }
   });
 
   async function getAccess() {
-    const btn     = document.getElementById('get-btn');
-    const errEl   = document.getElementById('error-msg');
+    const btn   = document.getElementById('get-btn');
+    const errEl = document.getElementById('error-msg');
     errEl.classList.remove('show');
-    btn.disabled    = true;
-    btn.textContent = 'Preparing payment...';
+    btn.disabled = true; btn.textContent = 'Preparing payment...';
 
     try {
       const res  = await fetch('/api/payment/initialize', {
         method:'POST', credentials:'include',
-        headers:{'Content-Type':'application/json'},
-        body: '{}'
+        headers:{'Content-Type':'application/json'}, body:'{}'
       });
       const data = await res.json();
 
       if (!res.ok) {
-        errEl.textContent = data.error || 'Something went wrong.';
+        errEl.textContent = '✕ ' + (data.error || 'Something went wrong.');
         errEl.classList.add('show');
-        btn.disabled    = false;
-        btn.textContent = 'Get Full Access — 599 ETB';
-        return;
+        btn.disabled = false; btn.textContent = 'Get Full Access — 599 ETB'; return;
       }
 
-      // If already submitted, go to dashboard
       if (data.already_pending && data.has_tx_id) {
-        location.href = '/dashboard.html';
-        return;
+        location.href = '/dashboard.html'; return;
       }
 
-      // Save payment data for submit page
       sessionStorage.setItem('payment_data', JSON.stringify(data));
       location.href = '/submit-payment.html';
-
-    } catch (err) {
-      errEl.textContent = 'Network error. Please try again.';
+    } catch (e) {
+      errEl.textContent = '✕ Network error. Please try again.';
       errEl.classList.add('show');
-      btn.disabled    = false;
-      btn.textContent = 'Get Full Access — 599 ETB';
+      btn.disabled = false; btn.textContent = 'Get Full Access — 599 ETB';
     }
   }
 

@@ -3,179 +3,203 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Panel | DevPath</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Admin Panel | Freelance Skills Hub</title>
+  <link rel="stylesheet" href="css/brand.css">
   <style>
-    body{background:var(--bg)}
-    .wrap{max-width:1100px;margin:0 auto;padding:2rem}
-    .admin-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:1rem}
-    .admin-top h1{font-size:1.4rem;font-weight:700;color:var(--heading)}
-    .admin-user{font-size:.82rem;color:var(--text-muted);margin-top:3px}
-    .top-actions{display:flex;gap:.5rem;align-items:center}
-    .refresh-btn{background:var(--primary);border:none;color:#fff;padding:.4rem 1rem;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font-ui);font-size:.85rem;transition:all var(--transition)}
-    .refresh-btn:hover{background:var(--primary-hover)}
-    .logout-btn{background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:.4rem 1rem;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font-ui);font-size:.85rem;transition:all var(--transition)}
-    .logout-btn:hover{border-color:#ef4444;color:#ef4444}
+    body{background:var(--surface-2)}
+    .wrap{max-width:1200px;margin:0 auto;padding:2rem}
+    .admin-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;flex-wrap:wrap;gap:1rem}
+    .admin-top-left h1{font-size:1.4rem;font-weight:800;color:var(--heading);display:flex;align-items:center;gap:8px}
+    .admin-top-left p{font-size:.82rem;color:var(--text-muted);margin-top:3px}
+    .admin-top-right{display:flex;gap:.5rem}
     /* Stats */
-    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-bottom:2rem}
-    .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;text-align:center}
-    .stat-num{font-size:2rem;font-weight:700;color:var(--accent)}
-    .stat-num.green{color:var(--green)}
-    .stat-num.red{color:#ef4444}
-    .stat-num.blue{color:var(--primary-light)}
-    .stat-label{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-top:4px}
-    /* Search + filter */
-    .filter-bar{display:flex;gap:.75rem;margin-bottom:1.25rem;flex-wrap:wrap;align-items:center}
-    .filter-bar input{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:7px 12px;color:var(--heading);font-size:.875rem;font-family:var(--font-ui);outline:none;flex:1;min-width:200px;transition:border-color var(--transition)}
-    .filter-bar input:focus{border-color:var(--primary)}
-    .filter-bar input::placeholder{color:var(--text-muted);opacity:.5}
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1rem;margin-bottom:2rem}
+    .stat{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem;text-align:center;box-shadow:var(--shadow-sm)}
+    .stat-num{font-size:2rem;font-weight:800;line-height:1}
+    .stat-num.accent{color:var(--brand-accent)}
+    .stat-num.yellow{color:#D97706}
+    .stat-num.red{color:#DC2626}
+    .stat-num.blue{color:#2563EB}
+    .stat-label{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-top:6px}
     /* Tabs */
-    .tabs{display:flex;gap:.5rem;margin-bottom:1.25rem;flex-wrap:wrap}
-    .tab{padding:.45rem 1.1rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text-muted);font-size:.85rem;cursor:pointer;font-family:var(--font-ui);transition:all var(--transition)}
-    .tab:hover{border-color:var(--primary);color:var(--text)}
-    .tab.active{background:var(--primary);border-color:var(--primary);color:#fff}
+    .panel{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);overflow:hidden}
+    .panel-header{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .tabs{display:flex;gap:.375rem;flex-wrap:wrap}
+    .tab{padding:.45rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius-full);background:#fff;color:var(--text-muted);font-size:.82rem;font-weight:600;cursor:pointer;font-family:var(--font-sans);transition:all var(--transition);white-space:nowrap}
+    .tab:hover{border-color:var(--brand-primary);color:var(--brand-primary)}
+    .tab.active{background:var(--brand-primary);border-color:var(--brand-primary);color:#fff}
+    .search-box{display:flex;gap:.5rem;align-items:center}
+    .search-box input{background:var(--surface-2);border:1.5px solid var(--border);border-radius:var(--radius-full);padding:7px 14px;color:var(--heading);font-size:.82rem;font-family:var(--font-sans);outline:none;width:260px;transition:border-color var(--transition)}
+    .search-box input:focus{border-color:var(--brand-accent);background:#fff}
+    .search-box input::placeholder{color:var(--text-muted)}
     /* Table */
-    .table-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;overflow-x:auto}
+    .table-wrap{overflow-x:auto}
     table{width:100%;border-collapse:collapse;min-width:700px}
-    th{background:var(--surface-2);padding:.7rem 1rem;text-align:left;font-size:.72rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);border-bottom:1px solid var(--border);white-space:nowrap}
-    td{padding:.8rem 1rem;font-size:.85rem;color:var(--text);border-bottom:1px solid var(--border);vertical-align:middle}
+    th{padding:.875rem 1.25rem;text-align:left;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);border-bottom:2px solid var(--border);white-space:nowrap;background:#FAFAFA}
+    td{padding:.875rem 1.25rem;font-size:.875rem;color:var(--text);border-bottom:1px solid var(--border);vertical-align:middle}
     tr:last-child td{border-bottom:none}
-    tr:hover td{background:rgba(255,255,255,.02)}
-    .badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.7rem;font-weight:700;font-family:var(--font-mono);text-transform:uppercase}
-    .badge-pending{background:rgba(251,191,36,.15);color:#fbbf24}
-    .badge-verified{background:rgba(16,185,129,.15);color:#10b981}
-    .badge-rejected{background:rgba(239,68,68,.15);color:#ef4444}
-    .action-btn{padding:4px 12px;border-radius:var(--radius-sm);font-size:.78rem;font-weight:700;cursor:pointer;border:none;font-family:var(--font-ui);transition:all var(--transition);margin-right:4px;white-space:nowrap}
-    .btn-verify{background:var(--green);color:#000}
-    .btn-verify:hover{opacity:.85}
-    .btn-reject{background:#ef4444;color:#fff}
-    .btn-reject:hover{opacity:.85}
-    .btn-revoke{background:#f59e0b;color:#000}
-    .btn-revoke:hover{opacity:.85}
-    .empty{text-align:center;padding:3rem;color:var(--text-muted);font-size:.9rem}
+    tr:hover td{background:#FAFFFE}
+    .user-cell-name{font-weight:700;color:var(--heading);font-size:.875rem}
+    .user-cell-email{font-size:.75rem;color:var(--text-muted);margin-top:1px}
+    .ref-mono{font-family:var(--font-mono);font-size:.82rem;color:var(--brand-primary);font-weight:600}
+    .tx-mono{font-family:var(--font-mono);font-size:.78rem;color:var(--text-muted)}
+    .action-group{display:flex;gap:.375rem;flex-wrap:wrap}
+    .action-btn{padding:5px 12px;border-radius:var(--radius-full);font-size:.75rem;font-weight:700;cursor:pointer;border:none;font-family:var(--font-sans);transition:all var(--transition);white-space:nowrap}
+    .btn-approve{background:#DCFCE7;color:#166534}
+    .btn-approve:hover{background:#166534;color:#fff}
+    .btn-reject-a{background:#FEE2E2;color:#991B1B}
+    .btn-reject-a:hover{background:#991B1B;color:#fff}
+    .btn-revoke{background:#FEF9C3;color:#854D0E}
+    .btn-revoke:hover{background:#854D0E;color:#fff}
+    .empty{text-align:center;padding:3.5rem;color:var(--text-muted);font-size:.875rem}
+    .empty-icon{font-size:2.5rem;margin-bottom:.75rem}
     /* Modal */
-    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:100;padding:1rem}
-    .modal-overlay.open{display:flex}
-    .modal{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;max-width:480px;width:100%}
-    .modal h3{color:var(--heading);margin-bottom:.75rem;font-size:1.1rem}
-    .modal p{color:var(--text-muted);font-size:.875rem;margin-bottom:1rem;line-height:1.6}
-    .modal textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 12px;color:var(--heading);font-family:var(--font-ui);font-size:.875rem;resize:vertical;min-height:80px;outline:none;margin-bottom:1rem;box-sizing:border-box;transition:border-color var(--transition)}
-    .modal textarea:focus{border-color:var(--primary)}
-    .modal-req{font-size:.78rem;color:#ef4444;margin-bottom:.75rem;display:none}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:200;padding:1rem;backdrop-filter:blur(2px)}
+    .overlay.open{display:flex}
+    .modal{background:#fff;border-radius:var(--radius-xl);padding:2rem;max-width:480px;width:100%;box-shadow:var(--shadow-xl)}
+    .modal-title{font-size:1.1rem;font-weight:800;color:var(--heading);margin-bottom:.5rem}
+    .modal-desc{font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem;line-height:1.6}
+    .modal-req{font-size:.78rem;color:var(--red);margin-bottom:.75rem;display:none}
     .modal-req.show{display:block}
-    .modal-actions{display:flex;gap:.75rem;justify-content:flex-end}
-    .btn-cancel{background:var(--surface-2);border:1px solid var(--border);color:var(--text);padding:.5rem 1.25rem;border-radius:var(--radius-sm);cursor:pointer;font-family:var(--font-ui)}
-    .btn-confirm{padding:.5rem 1.25rem;border-radius:var(--radius-sm);border:none;cursor:pointer;font-weight:700;font-family:var(--font-ui)}
-    .btn-confirm.green{background:var(--green);color:#000}
-    .btn-confirm.red{background:#ef4444;color:#fff}
+    .modal-actions{display:flex;gap:.75rem;justify-content:flex-end;margin-top:1.25rem}
     /* Toast */
-    .toast{position:fixed;bottom:2rem;right:2rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.5rem;font-size:.875rem;color:var(--heading);box-shadow:var(--shadow);transform:translateY(100px);opacity:0;transition:all .3s ease;z-index:200;max-width:360px}
+    .toast{position:fixed;bottom:2rem;right:2rem;background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1rem 1.5rem;font-size:.875rem;color:var(--heading);box-shadow:var(--shadow-xl);transform:translateY(100px);opacity:0;transition:all .3s ease;z-index:300;max-width:380px;display:flex;align-items:center;gap:8px}
     .toast.show{transform:translateY(0);opacity:1}
-    .toast.success{border-left:4px solid var(--green)}
-    .toast.error{border-left:4px solid #ef4444}
-    .ref-code{font-family:var(--font-mono);font-size:.82rem;color:var(--secondary)}
-    .user-name-cell{font-weight:600;color:var(--heading)}
-    .user-email-cell{font-size:.78rem;color:var(--text-muted);margin-top:1px}
+    .toast-success{border-left:4px solid var(--brand-accent)}
+    .toast-error{border-left:4px solid var(--red)}
+    @media(max-width:768px){.search-box input{width:180px}}
   </style>
 </head>
 <body>
-<nav class="site-nav">
-  <a href="index.html" class="nav-logo">
-    <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="currentColor" stroke-width="1.8"/><path d="M8 14 L14 7 L20 14 L14 21 Z" fill="currentColor"/></svg>
-    DevPath
+
+<nav class="fsh-nav">
+  <a href="index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Admin Panel</span>
+    </div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="index.html" class="btn btn-ghost btn-sm">View Site</a>
+    <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+  </div>
 </nav>
 
 <div class="wrap">
   <div class="admin-top">
-    <div>
-      <h1>🛡️ Admin Panel</h1>
-      <div class="admin-user" id="admin-label">Loading...</div>
+    <div class="admin-top-left">
+      <h1>🛡 Admin Dashboard</h1>
+      <p id="admin-label">Loading...</p>
     </div>
-    <div class="top-actions">
-      <button class="refresh-btn" onclick="loadAll()">↻ Refresh</button>
-      <button class="logout-btn" onclick="logout()">Logout</button>
+    <div class="admin-top-right">
+      <button class="btn btn-primary btn-sm" onclick="loadAll()">↻ Refresh</button>
     </div>
   </div>
 
   <!-- Stats -->
-  <div class="stats-grid">
-    <div class="stat-card"><div class="stat-num blue" id="s-users">—</div><div class="stat-label">Users</div></div>
-    <div class="stat-card"><div class="stat-num" id="s-pending">—</div><div class="stat-label">Pending</div></div>
-    <div class="stat-card"><div class="stat-num green" id="s-verified">—</div><div class="stat-label">Verified</div></div>
-    <div class="stat-card"><div class="stat-num red" id="s-rejected">—</div><div class="stat-label">Rejected</div></div>
-    <div class="stat-card"><div class="stat-num green" id="s-revenue">—</div><div class="stat-label">Revenue (ETB)</div></div>
-  </div>
-
-  <!-- Tabs + search -->
-  <div class="tabs">
-    <button class="tab active" id="tab-pending"  onclick="switchTab('pending')">⏳ Pending</button>
-    <button class="tab"        id="tab-verified" onclick="switchTab('verified')">✅ Verified</button>
-    <button class="tab"        id="tab-rejected" onclick="switchTab('rejected')">❌ Rejected</button>
-    <button class="tab"        id="tab-users"    onclick="switchTab('users')">👥 Users</button>
-  </div>
-
-  <div class="filter-bar" id="search-bar">
-    <input type="text" id="search-input" placeholder="Search by name, email, reference, or transaction ID..."
-           oninput="doSearch()">
-  </div>
-
-  <!-- Payments table -->
-  <div id="payments-section">
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Reference</th>
-            <th>TX ID</th>
-            <th>Amount</th>
-            <th>Method</th>
-            <th>Status</th>
-            <th>Submitted</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="payments-body">
-          <tr><td colspan="8" class="empty">Loading...</td></tr>
-        </tbody>
-      </table>
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num blue" id="s-users">—</div>
+      <div class="stat-label">Total Users</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num yellow" id="s-pending">—</div>
+      <div class="stat-label">Pending</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num accent" id="s-verified">—</div>
+      <div class="stat-label">Verified</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num red" id="s-rejected">—</div>
+      <div class="stat-label">Rejected</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num accent" id="s-revenue">—</div>
+      <div class="stat-label">Revenue (ETB)</div>
     </div>
   </div>
 
-  <!-- Users table -->
-  <div id="users-section" style="display:none">
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Payment Status</th>
-            <th>Reference</th>
-            <th>Amount</th>
-            <th>Joined</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="users-body">
-          <tr><td colspan="7" class="empty">Loading...</td></tr>
-        </tbody>
-      </table>
+  <!-- Main panel -->
+  <div class="panel">
+    <div class="panel-header">
+      <div class="tabs">
+        <button class="tab active" id="tab-pending"  onclick="switchTab('pending')">⏳ Pending</button>
+        <button class="tab"        id="tab-verified" onclick="switchTab('verified')">✅ Verified</button>
+        <button class="tab"        id="tab-rejected" onclick="switchTab('rejected')">❌ Rejected</button>
+        <button class="tab"        id="tab-users"    onclick="switchTab('users')">👥 Users</button>
+      </div>
+      <div class="search-box">
+        <input type="text" id="search-input"
+               placeholder="Search name, email, reference, TX ID..."
+               oninput="doSearch()">
+      </div>
+    </div>
+
+    <!-- Payments table -->
+    <div id="payments-section">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Reference</th>
+              <th>Transaction ID</th>
+              <th>Amount</th>
+              <th>Method</th>
+              <th>Status</th>
+              <th>Submitted</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="payments-body">
+            <tr><td colspan="8" class="empty"><div class="empty-icon">⏳</div>Loading payments...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Users table -->
+    <div id="users-section" style="display:none">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Payment Status</th>
+              <th>Reference</th>
+              <th>Amount</th>
+              <th>Method</th>
+              <th>Joined</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="users-body">
+            <tr><td colspan="7" class="empty"><div class="empty-icon">👥</div>Loading users...</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- Modal -->
-<div class="modal-overlay" id="modal">
+<div class="overlay" id="modal">
   <div class="modal">
-    <h3 id="modal-title">Confirm</h3>
-    <p  id="modal-desc"></p>
-    <div class="modal-req" id="modal-req">This field is required.</div>
-    <textarea id="modal-notes" placeholder="Notes..."></textarea>
+    <div class="modal-title" id="modal-title">Confirm</div>
+    <div class="modal-desc"  id="modal-desc"></div>
+    <div class="modal-req"   id="modal-req">This field is required.</div>
+    <textarea class="fsh-textarea" id="modal-notes" placeholder="Notes..."></textarea>
     <div class="modal-actions">
-      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
-      <button class="btn-confirm" id="modal-confirm" onclick="confirmAction()">Confirm</button>
+      <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" id="modal-confirm" onclick="confirmAction()">Confirm</button>
     </div>
   </div>
 </div>
@@ -188,19 +212,21 @@
   let pendingAction = null;
   let searchTimer   = null;
 
+  const methodNames = {
+    telebirr:'Telebirr', cbe:'CBE', awash:'Awash Bank', bank_transfer:'Bank Transfer'
+  };
+
   window.addEventListener('DOMContentLoaded', async () => {
-    // Auth check
     const res  = await fetch('/api/auth/me', {credentials:'include'});
     const data = await res.json();
     if (!res.ok || !data.user?.is_admin) {
-      location.href = '/login.html?reason=admin_required';
-      return;
+      location.href = '/login.html?reason=admin_required'; return;
     }
     document.getElementById('admin-label').textContent =
-      `${data.user.first_name} ${data.user.last_name} · ${data.user.email}`;
+      data.user.first_name + ' ' + data.user.last_name + ' · ' + data.user.email;
 
     await loadAll();
-    setInterval(loadAll, 30000); // auto-refresh every 30s
+    setInterval(loadAll, 30000);
   });
 
   async function loadAll() {
@@ -212,13 +238,13 @@
   async function loadStats() {
     try {
       const res  = await fetch('/api/admin/stats', {credentials:'include'});
-      const data = await res.json();
-      document.getElementById('s-users').textContent   = data.total_users ?? '—';
-      document.getElementById('s-pending').textContent = data.pending ?? '—';
-      document.getElementById('s-verified').textContent= data.verified ?? '—';
-      document.getElementById('s-rejected').textContent= data.rejected ?? '—';
-      document.getElementById('s-revenue').textContent =
-        data.total_revenue ? data.total_revenue.toLocaleString() + ' ETB' : '0 ETB';
+      const d    = await res.json();
+      document.getElementById('s-users').textContent    = d.total_users ?? '—';
+      document.getElementById('s-pending').textContent  = d.pending ?? '—';
+      document.getElementById('s-verified').textContent = d.verified ?? '—';
+      document.getElementById('s-rejected').textContent = d.rejected ?? '—';
+      document.getElementById('s-revenue').textContent  =
+        d.total_revenue ? d.total_revenue.toLocaleString() + ' ETB' : '0 ETB';
     } catch (e) {}
   }
 
@@ -230,15 +256,13 @@
     document.getElementById('payments-section').style.display = tab === 'users' ? 'none' : 'block';
     document.getElementById('users-section').style.display    = tab === 'users' ? 'block' : 'none';
     document.getElementById('search-input').value = '';
-    if (tab === 'users') loadUsers();
-    else loadPayments(tab);
+    if (tab === 'users') loadUsers(); else loadPayments(tab);
   }
 
   function doSearch() {
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => {
-      if (currentTab === 'users') loadUsers();
-      else loadPayments(currentTab);
+      if (currentTab === 'users') loadUsers(); else loadPayments(currentTab);
     }, 300);
   }
 
@@ -248,39 +272,44 @@
     if (search) params.set('search', search);
 
     try {
-      const res  = await fetch(`/api/admin/payments?${params}`, {credentials:'include'});
+      const res  = await fetch('/api/admin/payments?' + params, {credentials:'include'});
       const data = await res.json();
       const tbody = document.getElementById('payments-body');
 
       if (!data.payments?.length) {
-        tbody.innerHTML = `<tr><td colspan="8" class="empty">No ${status} payments found.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="8" class="empty">
+          <div class="empty-icon">${status === 'pending' ? '⏳' : status === 'verified' ? '✅' : '❌'}</div>
+          No ${status} payments found.
+        </td></tr>`;
         return;
       }
-
-      const methodNames = {telebirr:'Telebirr',cbe:'CBE',awash:'Awash',bank_transfer:'Bank'};
 
       tbody.innerHTML = data.payments.map(p => `
         <tr>
           <td>
-            <div class="user-name-cell">${p.first_name} ${p.last_name}</div>
-            <div class="user-email-cell">${p.user_email}</div>
+            <div class="user-cell-name">${p.first_name} ${p.last_name}</div>
+            <div class="user-cell-email">${p.user_email}</div>
           </td>
-          <td><span class="ref-code">${p.reference_code}</span></td>
-          <td style="font-family:var(--font-mono);font-size:.78rem">${p.user_tx_id || '—'}</td>
-          <td>${parseFloat(p.amount).toLocaleString()} ${p.currency}</td>
-          <td style="text-transform:capitalize">${methodNames[p.payment_method] || p.payment_method || '—'}</td>
-          <td><span class="badge badge-${p.status}">${p.status}</span></td>
+          <td><span class="ref-mono">${p.reference_code}</span></td>
+          <td><span class="tx-mono">${p.user_tx_id || '—'}</span></td>
+          <td style="font-weight:600">${parseFloat(p.amount).toLocaleString()} ${p.currency}</td>
+          <td>${methodNames[p.payment_method] || p.payment_method || '—'}</td>
+          <td>${statusBadge(p.status)}</td>
           <td style="font-size:.78rem;color:var(--text-muted);white-space:nowrap">
             ${p.submitted_at ? new Date(p.submitted_at).toLocaleString('en-GB') : '—'}
           </td>
           <td>
-            ${p.status === 'pending' && p.user_tx_id ? `
-              <button class="action-btn btn-verify" onclick="openModal('verify',${p.id},'${p.first_name} ${p.last_name}',false)">✓ Verify</button>
-              <button class="action-btn btn-reject" onclick="openModal('reject',${p.id},'${p.first_name} ${p.last_name}',true)">✗ Reject</button>
-            ` : ''}
-            ${p.status === 'pending' && !p.user_tx_id ? `<span style="color:var(--text-muted);font-size:.78rem">Awaiting TX details</span>` : ''}
-            ${p.status === 'verified' ? `<button class="action-btn btn-revoke" onclick="openModal('revoke',${p.id},'${p.first_name} ${p.last_name}',true)">Revoke</button>` : ''}
-            ${p.status === 'rejected' ? `<span style="color:var(--text-muted);font-size:.78rem">—</span>` : ''}
+            <div class="action-group">
+              ${p.status === 'pending' && p.user_tx_id ? `
+                <button class="action-btn btn-approve" onclick="openModal('verify',${p.id},'${esc(p.first_name+' '+p.last_name)}',false)">✓ Approve</button>
+                <button class="action-btn btn-reject-a" onclick="openModal('reject',${p.id},'${esc(p.first_name+' '+p.last_name)}',true)">✗ Reject</button>
+              ` : ''}
+              ${p.status === 'pending' && !p.user_tx_id
+                ? `<span style="font-size:.75rem;color:var(--text-muted)">Awaiting TX details</span>` : ''}
+              ${p.status === 'verified'
+                ? `<button class="action-btn btn-revoke" onclick="openModal('revoke',${p.id},'${esc(p.first_name+' '+p.last_name)}',true)">Revoke</button>` : ''}
+              ${p.status === 'rejected' ? `<span style="font-size:.75rem;color:var(--text-muted)">—</span>` : ''}
+            </div>
           </td>
         </tr>
       `).join('');
@@ -291,7 +320,7 @@
   }
 
   async function loadUsers() {
-    const search = document.getElementById('search-input').value.trim();
+    const search = document.getElementById('search-input').value.trim().toLowerCase();
     try {
       const res  = await fetch('/api/admin/users', {credentials:'include'});
       const data = await res.json();
@@ -299,31 +328,32 @@
 
       let users = data.users || [];
       if (search) {
-        const q = search.toLowerCase();
         users = users.filter(u =>
-          u.first_name.toLowerCase().includes(q) ||
-          u.last_name.toLowerCase().includes(q) ||
-          u.email.toLowerCase().includes(q) ||
-          (u.reference_code || '').toLowerCase().includes(q)
+          (u.first_name + ' ' + u.last_name).toLowerCase().includes(search) ||
+          u.email.toLowerCase().includes(search) ||
+          (u.reference_code || '').toLowerCase().includes(search)
         );
       }
 
       if (!users.length) {
-        tbody.innerHTML = `<tr><td colspan="7" class="empty">No users found.</td></tr>`;
+        tbody.innerHTML = `<tr><td colspan="7" class="empty"><div class="empty-icon">👥</div>No users found.</td></tr>`;
         return;
       }
 
       tbody.innerHTML = users.map(u => `
         <tr>
-          <td class="user-name-cell">${u.first_name} ${u.last_name}</td>
-          <td style="font-size:.85rem">${u.email}</td>
-          <td><span class="badge badge-${u.payment_status || 'none'}">${u.payment_status || 'none'}</span></td>
-          <td><span class="ref-code">${u.reference_code || '—'}</span></td>
+          <td>
+            <div class="user-cell-name">${u.first_name} ${u.last_name}</div>
+            <div class="user-cell-email">${u.email}</div>
+          </td>
+          <td>${statusBadge(u.payment_status || 'none')}</td>
+          <td><span class="ref-mono">${u.reference_code || '—'}</span></td>
           <td>${u.amount ? parseFloat(u.amount).toLocaleString() + ' ETB' : '—'}</td>
+          <td>${methodNames[u.payment_method] || u.payment_method || '—'}</td>
           <td style="font-size:.78rem;color:var(--text-muted)">${new Date(u.created_at).toLocaleDateString('en-GB')}</td>
           <td>
             ${u.payment_status === 'verified'
-              ? `<button class="action-btn btn-revoke" onclick="openModal('revoke-user',${u.id},'${u.first_name} ${u.last_name}',true)">Revoke Access</button>`
+              ? `<button class="action-btn btn-revoke" onclick="openModal('revoke-user',${u.id},'${esc(u.first_name+' '+u.last_name)}',true)">Revoke Access</button>`
               : '—'
             }
           </td>
@@ -335,36 +365,43 @@
     }
   }
 
-  // Modal
+  function statusBadge(status) {
+    const map = {
+      verified:`<span class="badge badge-green">✓ Verified</span>`,
+      pending: `<span class="badge badge-yellow">⏳ Pending</span>`,
+      rejected:`<span class="badge badge-red">✗ Rejected</span>`,
+      none:    `<span class="badge badge-gray">None</span>`,
+    };
+    return map[status] || `<span class="badge badge-gray">${status}</span>`;
+  }
+
+  function esc(str) { return str.replace(/'/g, "\\'"); }
+
   function openModal(action, id, name, requireNotes) {
-    pendingAction = { action, id, name, requireNotes };
+    pendingAction = {action, id, name, requireNotes};
     const modal   = document.getElementById('modal');
-    const title   = document.getElementById('modal-title');
-    const desc    = document.getElementById('modal-desc');
-    const confirm = document.getElementById('modal-confirm');
-    const notes   = document.getElementById('modal-notes');
     const req     = document.getElementById('modal-req');
+    const notes   = document.getElementById('modal-notes');
+    const confirm = document.getElementById('modal-confirm');
 
     notes.value = '';
     req.classList.remove('show');
-    notes.placeholder = requireNotes ? 'Required...' : 'Optional notes...';
+    notes.placeholder = requireNotes ? 'Required — please provide a reason...' : 'Optional notes...';
 
-    if (action === 'verify') {
-      title.textContent   = '✅ Verify Payment';
-      desc.textContent    = `Verify payment for ${name}? This will unlock their course access immediately.`;
-      confirm.textContent = 'Verify Payment';
-      confirm.className   = 'btn-confirm green';
-    } else if (action === 'reject') {
-      title.textContent   = '❌ Reject Payment';
-      desc.textContent    = `Reject payment from ${name}? Please provide a reason so the user knows what to do.`;
-      confirm.textContent = 'Reject Payment';
-      confirm.className   = 'btn-confirm red';
-    } else {
-      title.textContent   = '⚠️ Revoke Access';
-      desc.textContent    = `Revoke access for ${name}? They will lose course access immediately.`;
-      confirm.textContent = 'Revoke Access';
-      confirm.className   = 'btn-confirm red';
-    }
+    const configs = {
+      verify:      {title:'✅ Approve Payment',     desc:`Approve payment for <strong>${name}</strong>? This will grant them immediate course access and send a confirmation email.`, btn:'Approve Payment',   cls:'btn btn-primary'},
+      reject:      {title:'❌ Reject Payment',      desc:`Reject payment from <strong>${name}</strong>? They will receive an email with your reason.`, btn:'Reject Payment',    cls:'btn btn-outline', style:'background:#DC2626;color:#fff;border-color:#DC2626'},
+      revoke:      {title:'⚠ Revoke Access',       desc:`Revoke course access for <strong>${name}</strong>?`, btn:'Revoke Access',    cls:'btn btn-outline', style:'background:#DC2626;color:#fff;border-color:#DC2626'},
+      'revoke-user':{title:'⚠ Revoke User Access', desc:`Revoke all course access for <strong>${name}</strong>?`, btn:'Revoke Access', cls:'btn btn-outline', style:'background:#DC2626;color:#fff;border-color:#DC2626'},
+    };
+
+    const cfg = configs[action];
+    document.getElementById('modal-title').textContent  = cfg.title;
+    document.getElementById('modal-desc').innerHTML     = cfg.desc;
+    confirm.textContent = cfg.btn;
+    confirm.className   = cfg.cls;
+    if (cfg.style) confirm.setAttribute('style', cfg.style);
+    else confirm.removeAttribute('style');
 
     modal.classList.add('open');
   }
@@ -376,25 +413,25 @@
 
   async function confirmAction() {
     if (!pendingAction) return;
-    const { action, id, requireNotes } = pendingAction;
+    const {action, id, requireNotes} = pendingAction;
     const notes = document.getElementById('modal-notes').value.trim();
     const req   = document.getElementById('modal-req');
 
     if (requireNotes && !notes) {
-      req.classList.add('show');
-      return;
+      req.classList.add('show'); return;
     }
 
-    let url;
-    if (action === 'verify')     url = `/api/admin/verify/${id}`;
-    if (action === 'reject')     url = `/api/admin/reject/${id}`;
-    if (action === 'revoke')     url = `/api/admin/reject/${id}`;
-    if (action === 'revoke-user') url = `/api/admin/revoke/${id}`;
+    const urlMap = {
+      'verify':       `/api/admin/verify/${id}`,
+      'reject':       `/api/admin/reject/${id}`,
+      'revoke':       `/api/admin/reject/${id}`,
+      'revoke-user':  `/api/admin/revoke/${id}`,
+    };
 
     closeModal();
 
     try {
-      const res  = await fetch(url, {
+      const res  = await fetch(urlMap[action], {
         method:'POST', credentials:'include',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({notes})
@@ -402,20 +439,20 @@
       const data = await res.json();
 
       if (res.ok) {
-        showToast(data.message || 'Action completed.', 'success');
+        showToast('✓ ' + (data.message || 'Action completed.'), 'success');
         await loadAll();
       } else {
-        showToast(data.error || 'Action failed.', 'error');
+        showToast('✕ ' + (data.error || 'Action failed.'), 'error');
       }
     } catch (e) {
-      showToast('Network error. Please try again.', 'error');
+      showToast('✕ Network error. Please try again.', 'error');
     }
   }
 
   function showToast(msg, type) {
     const t = document.getElementById('toast');
     t.textContent = msg;
-    t.className   = `toast ${type} show`;
+    t.className   = `toast toast-${type} show`;
     setTimeout(() => { t.className = 'toast'; }, 4000);
   }
 
@@ -424,7 +461,6 @@
     location.href = '/login.html';
   }
 
-  // Close modal on outside click
   document.getElementById('modal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
   });
