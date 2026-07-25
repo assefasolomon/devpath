@@ -244,12 +244,39 @@
   });
 
   function populatePage(data) {
-    document.getElementById('ref-code').textContent  = data.reference_code || '—';
-    document.getElementById('ref-input').value       = data.reference_code || '';
-    document.getElementById('telebirr-number').textContent = data.telebirr_number || '—';
-    document.getElementById('telebirr-name').textContent   = data.telebirr_name   || '—';
-    document.getElementById('cbe-account').textContent     = data.cbe_account     || '—';
-    document.getElementById('cbe-name').textContent        = data.cbe_name        || '—';
+    document.getElementById('ref-code').textContent = data.reference_code || '—';
+    document.getElementById('ref-input').value      = data.reference_code || '';
+
+    // Set account details if available
+    if (data.telebirr_number && data.telebirr_number !== 'Not configured') {
+      document.getElementById('telebirr-number').textContent = data.telebirr_number;
+      document.getElementById('telebirr-name').textContent   = data.telebirr_name || '';
+    }
+    if (data.cbe_account && data.cbe_account !== 'Not configured') {
+      document.getElementById('cbe-account').textContent = data.cbe_account;
+      document.getElementById('cbe-name').textContent    = data.cbe_name || '';
+    }
+
+    // Always fetch fresh account details from server as backup
+    fetchAccountDetails();
+  }
+
+  async function fetchAccountDetails() {
+    try {
+      const res  = await fetch('/api/payment/info', { credentials: 'include' });
+      const data = await res.json();
+
+      if (data.telebirr_number && data.telebirr_number !== 'Not configured') {
+        document.getElementById('telebirr-number').textContent = data.telebirr_number;
+        document.getElementById('telebirr-name').textContent   = data.telebirr_name || '';
+      }
+      if (data.cbe_account && data.cbe_account !== 'Not configured') {
+        document.getElementById('cbe-account').textContent = data.cbe_account;
+        document.getElementById('cbe-name').textContent    = data.cbe_name || '';
+      }
+    } catch (e) {
+      console.error('Failed to fetch account details:', e);
+    }
   }
 
   function copyRef() {

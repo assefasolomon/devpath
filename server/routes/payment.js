@@ -35,32 +35,41 @@ function generateRefCode() {
 // Returns plan + account details — used by pay.html on load
 router.get('/details', protect, async (req, res) => {
   try {
+    const accounts = getAccountDetails();  
+// GET /api/payment/info
+// Returns account details — always includes Telebirr and CBE
+router.get('/info', protect, async (req, res) => {
+  try {
     const accounts = getAccountDetails();
 
-    // Check if user already has a payment
     const existing = await pool.query(
       `SELECT * FROM payments WHERE user_id = $1
        ORDER BY submitted_at DESC LIMIT 1`,
       [req.user.id]
     );
 
-    if (existing.rows.length > 0 && existing.rows[0].status === 'verified') {
+    if (existing.rows.length > 0) {
+      const p = existing.rows[0];
       return res.json({
-        already_paid: true,
-        status: 'verified',
+        has_payment:    true,
+        status:         p.status,
+        plan:           p.plan,
+        amount:         p.amount,
+        reference_code: p.reference_code,
+        submitted_at:   p.submitted_at,
+        user_tx_id:     p.user_tx_id,
         ...accounts
       });
     }
 
     res.json({
-      already_paid: false,
-      plan: PLAN,
+      has_payment: false,
       ...accounts
     });
 
   } catch (err) {
-    console.error('Payment details error:', err.message);
-    res.status(500).json({ error: 'Failed to load payment details.' });
+    console.error('Payment info error:', err.message);
+    res.status(500).json({ error: 'Failed to load payment info.' });
   }
 });
 
