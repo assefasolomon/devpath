@@ -1,13 +1,16 @@
 const express = require('express');
 const pool    = require('../db');
-const email   = require('../email');
 const { protect, requireAdmin } = require('../middleware/protect');
 require('dotenv').config();
 
 const router = express.Router();
+
+// All admin routes require login + admin role
 router.use(protect, requireAdmin);
 
+// ────────────────────────────────────────────────────────
 // GET /api/admin/stats
+// ────────────────────────────────────────────────────────
 router.get('/stats', async (req, res) => {
   try {
     const stats = await pool.query(`
@@ -18,9 +21,11 @@ router.get('/stats', async (req, res) => {
         COALESCE(SUM(amount) FILTER (WHERE status = 'verified'), 0) AS total_revenue
       FROM payments
     `);
+
     const users = await pool.query(
       `SELECT COUNT(*) AS total FROM users WHERE is_admin = FALSE`
     );
+
     const s = stats.rows[0];
     res.json({
       pending:       parseInt(s.pending),
@@ -29,13 +34,16 @@ router.get('/stats', async (req, res) => {
       total_revenue: parseFloat(s.total_revenue),
       total_users:   parseInt(users.rows[0].total)
     });
+
   } catch (err) {
     console.error('Stats error:', err.message);
     res.status(500).json({ error: 'Failed to load stats.' });
   }
 });
 
+// ────────────────────────────────────────────────────────
 // GET /api/admin/payments?status=pending&search=xxx
+// ────────────────────────────────────────────────────────
 router.get('/payments', async (req, res) => {
   try {
     const { status, search } = req.query;
@@ -46,6 +54,7 @@ router.get('/payments', async (req, res) => {
       params.push(status);
       where += ` AND p.status = $${params.length}`;
     }
+
     if (search?.trim()) {
       params.push(`%${search.trim()}%`);
       const n = params.length;
@@ -73,13 +82,16 @@ router.get('/payments', async (req, res) => {
     `, params);
 
     res.json({ payments: result.rows, total: result.rows.length });
+
   } catch (err) {
-    console.error('Payments error:', err.message);
+    console.error('Admin payments error:', err.message);
     res.status(500).json({ error: 'Failed to load payments.' });
   }
 });
 
+// ────────────────────────────────────────────────────────
 // GET /api/admin/users
+// ────────────────────────────────────────────────────────
 router.get('/users', async (req, res) => {
   try {
     const result = await pool.query(`
@@ -87,26 +99,36 @@ router.get('/users', async (req, res) => {
         u.id, u.email, u.first_name, u.last_name, u.created_at,
         p.status         AS payment_status,
         p.plan           AS payment_plan,
-        p.amount, p.reference_code,
-        p.user_tx_id, p.payment_method,
-        p.submitted_at, p.verified_at
+        p.amount,
+        p.reference_code,
+        p.user_tx_id,
+        p.payment_method,
+        p.submitted_at,
+        p.verified_at
       FROM users u
       LEFT JOIN payments p ON p.user_id = u.id
         AND p.id = (
-          SELECT id FROM payments WHERE user_id = u.id
-          ORDER BY submitted_at DESC LIMIT 1
+          SELECT id FROM payments
+          WHERE user_id = u.id
+          ORDER BY submitted_at DESC
+          LIMIT 1
         )
       WHERE u.is_admin = FALSE
       ORDER BY u.created_at DESC
     `);
+
     res.json({ users: result.rows });
+
   } catch (err) {
-    console.error('Users error:', err.message);
+    console.error('Admin users error:', err.message);
     res.status(500).json({ error: 'Failed to load users.' });
   }
 });
 
+// ────────────────────────────────────────────────────────
 // POST /api/admin/verify/:id
+// Approve a payment — unlocks course access
+// ────────────────────────────────────────────────────────
 router.post('/verify/:id', async (req, res) => {
   try {
     const { id }    = req.params;
@@ -115,7 +137,8 @@ router.post('/verify/:id', async (req, res) => {
     // Get payment with user info
     const pResult = await pool.query(
       `SELECT p.*, u.email, u.first_name, u.last_name
-       FROM payments p JOIN users u ON p.user_id = u.id
+       FROM payments p
+       JOIN users u ON p.user_id = u.id
        WHERE p.id = $1`,
       [id]
     );
@@ -136,7 +159,7 @@ router.post('/verify/:id', async (req, res) => {
       });
     }
 
-    // Verify payment
+    // Update to verified
     await pool.query(
       `UPDATE payments
        SET status      = 'verified',
@@ -147,10 +170,13 @@ router.post('/verify/:id', async (req, res) => {
       [req.user.id, notes || null, id]
     );
 
-    // Send verification email (non-blocking)
-    const user    = { email: p.email, first_name: p.first_name };
-    const payment = { amount: p.amount, reference_code: p.reference_code };
-    email.sendPaymentVerifiedEmail(user, payment).catch(() => {});
+    // Send confirmation email (non-blocking)
+    try {
+      const emailModule = require('../email');
+      const user        = { email: p.email, first_name: p.first_name };
+      const payment     = { amount: p.amount, reference_code: p.reference_code };
+      emailModule.sendPaymentVerifiedEmail(user, payment).catch(() => {});
+    } catch (e) {}
 
     res.json({
       message:    `✅ Payment verified. ${p.first_name} ${p.last_name} now has full access.`,
@@ -164,7 +190,10 @@ router.post('/verify/:id', async (req, res) => {
   }
 });
 
+// ────────────────────────────────────────────────────────
 // POST /api/admin/reject/:id
+// Reject a payment
+// ────────────────────────────────────────────────────────
 router.post('/reject/:id', async (req, res) => {
   try {
     const { id }    = req.params;
@@ -176,7 +205,8 @@ router.post('/reject/:id', async (req, res) => {
 
     const pResult = await pool.query(
       `SELECT p.*, u.email, u.first_name
-       FROM payments p JOIN users u ON p.user_id = u.id
+       FROM payments p
+       JOIN users u ON p.user_id = u.id
        WHERE p.id = $1`,
       [id]
     );
@@ -188,7 +218,7 @@ router.post('/reject/:id', async (req, res) => {
     const p = pResult.rows[0];
 
     if (p.status === 'verified') {
-      return res.status(400).json({ error: 'Cannot reject a verified payment.' });
+      return res.status(400).json({ error: 'Cannot reject an already verified payment.' });
     }
 
     await pool.query(
@@ -202,11 +232,17 @@ router.post('/reject/:id', async (req, res) => {
     );
 
     // Send rejection email (non-blocking)
-    const user    = { email: p.email, first_name: p.first_name };
-    const payment = { reference_code: p.reference_code };
-    email.sendPaymentRejectedEmail(user, payment, notes.trim()).catch(() => {});
+    try {
+      const emailModule = require('../email');
+      const user        = { email: p.email, first_name: p.first_name };
+      const payment     = { reference_code: p.reference_code };
+      emailModule.sendPaymentRejectedEmail(user, payment, notes.trim()).catch(() => {});
+    } catch (e) {}
 
-    res.json({ message: 'Payment rejected.', payment_id: parseInt(id) });
+    res.json({
+      message:    'Payment rejected.',
+      payment_id: parseInt(id)
+    });
 
   } catch (err) {
     console.error('Reject error:', err.message);
@@ -214,19 +250,25 @@ router.post('/reject/:id', async (req, res) => {
   }
 });
 
+// ────────────────────────────────────────────────────────
 // POST /api/admin/revoke/:userId
+// Revoke access from a user
+// ────────────────────────────────────────────────────────
 router.post('/revoke/:userId', async (req, res) => {
   try {
     const { userId } = req.params;
     const { notes  } = req.body;
 
     await pool.query(
-      `UPDATE payments SET status = 'rejected', notes = $1
+      `UPDATE payments
+       SET status = 'rejected',
+           notes  = $1
        WHERE user_id = $2 AND status = 'verified'`,
       [notes || 'Access revoked by admin', userId]
     );
 
-    res.json({ message: 'Access revoked.' });
+    res.json({ message: 'User access revoked.' });
+
   } catch (err) {
     console.error('Revoke error:', err.message);
     res.status(500).json({ error: 'Failed to revoke access.' });
