@@ -46,7 +46,11 @@ app.get('/api/health', (req, res) => {
   res.json({
     status:      'ok',
     environment: process.env.NODE_ENV || 'development',
-    time:        new Date().toISOString()
+    time:        new Date().toISOString(),
+    telebirr:    process.env.TELEBIRR_NUMBER ? 'set' : 'NOT SET',
+    cbe:         process.env.CBE_ACCOUNT    ? 'set' : 'NOT SET',
+    admin_email: process.env.ADMIN_EMAIL    ? 'set' : 'NOT SET',
+    jwt:         process.env.JWT_SECRET     ? 'set' : 'NOT SET',
   });
 });
 
