@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrance Exam Preparation | Freelance Skills Hub</title>
+  <link rel="stylesheet" href="../css/brand.css">
+  <style>
+    .hero-exam {
+      background: linear-gradient(135deg, #0F172A 0%, #14532D 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .hero-exam h1 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: .75rem;
+      letter-spacing: -.02em;
+    }
+    .hero-exam h1 em { font-style: normal; color: #22C55E; }
+    .hero-exam p {
+      color: rgba(255,255,255,.75);
+      font-size: 1.05rem;
+      max-width: 560px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(34,197,94,.15);
+      border: 1px solid rgba(34,197,94,.3);
+      color: #86EFAC;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+    .section-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--brand-primary);
+      margin-bottom: .75rem;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--heading);
+      margin-bottom: .4rem;
+    }
+    .section-sub {
+      font-size: .9rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    /* Grade cards */
+    .grades-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    .grade-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--transition);
+      display: block;
+      position: relative;
+    }
+    .grade-card.active {
+      border-color: var(--brand-accent);
+      box-shadow: 0 4px 20px rgba(34,197,94,.15);
+    }
+    .grade-card.active:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(34,197,94,.2);
+    }
+    .grade-card.locked { opacity: .6; cursor: not-allowed; }
+    .grade-icon { font-size: 2.5rem; margin-bottom: .875rem; }
+    .grade-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--heading);
+      margin-bottom: .35rem;
+    }
+    .grade-desc {
+      font-size: .82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1rem;
+    }
+    .grade-subjects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-bottom: 1rem;
+    }
+    .subject-pill {
+      background: var(--surface-2);
+      color: var(--text-muted);
+      font-size: .68rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .subject-pill.green {
+      background: #DCFCE7;
+      color: #166534;
+    }
+    .grade-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+    .grade-status.open { color: var(--brand-accent); }
+    .grade-status.locked { color: var(--text-muted); }
+    .lock-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--surface-2);
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: .7rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .active-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: #DCFCE7;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: .7rem;
+      color: #166534;
+      font-weight: 700;
+    }
+    /* Past exams */
+    .past-exams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .exam-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      text-align: center;
+      opacity: .55;
+      cursor: not-allowed;
+    }
+    .exam-icon { font-size: 2rem; margin-bottom: .5rem; }
+    .exam-year { font-size: 1.1rem; font-weight: 800; color: var(--heading); }
+    .exam-sub  { font-size: .78rem; color: var(--text-muted); margin-top: 3px; }
+    .exam-lock { font-size: .72rem; color: var(--text-muted); margin-top: .75rem; font-weight: 600; }
+    /* Progress banner */
+    .progress-banner {
+      background: linear-gradient(135deg, #F0FDF4, #DCFCE7);
+      border: 1.5px solid #86EFAC;
+      border-radius: var(--radius-xl);
+      padding: 1.5rem 2rem;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .progress-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .progress-text h3 { font-size: 1rem; font-weight: 800; color: #166534; margin-bottom: .25rem; }
+    .progress-text p  { font-size: .875rem; color: var(--brand-secondary); line-height: 1.6; }
+    .progress-action { margin-left: auto; }
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Entrance Exam Prep</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Back to Home</a>
+    <a href="../dashboard.html" class="btn btn-primary btn-sm">My Dashboard</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-exam">
+  <div class="hero-badge">🇪🇹 Ethiopian University Entrance Exam</div>
+  <h1>Entrance Exam<br><em>Preparation Package</em></h1>
+  <p>Comprehensive preparation for Ethiopian students in Grades 9–12. Natural Science and Social Science streams — all subjects covered.</p>
+</div>
+
+<div class="wrap">
+
+  <!-- Progress banner -->
+  <div class="progress-banner">
+    <div class="progress-icon">🚀</div>
+    <div class="progress-text">
+      <h3>Currently Building: Grade 12 Natural Science — Mathematics</h3>
+      <p>We are seeding Grade 12 Mathematics lessons one by one. All other grades and subjects will be unlocked as content is added. Check back regularly for updates.</p>
+    </div>
+    <div class="progress-action">
+      <a href="grade-12/natural-science/mathematics/index.html" class="btn btn-primary btn-sm">
+        Start Grade 12 Math →
+      </a>
+    </div>
+  </div>
+
+  <!-- Grades -->
+  <div class="section-label">Select Your Grade</div>
+  <div class="section-title">Choose Your Grade Level</div>
+  <div class="section-sub">Click on your grade to see available subjects and lessons.</div>
+
+  <div class="grades-grid">
+
+    <!-- Grade 12 — ACTIVE -->
+    <a href="grade-12/index.html" class="grade-card active">
+      <div class="active-badge">🔓 Active</div>
+      <div class="grade-icon">📚</div>
+      <div class="grade-name">Grade 12</div>
+      <div class="grade-desc">Final year preparation. The most critical year for university entrance exam success.</div>
+      <div class="grade-subjects">
+        <span class="subject-pill green">Mathematics</span>
+        <span class="subject-pill">Physics</span>
+        <span class="subject-pill">Chemistry</span>
+        <span class="subject-pill">Biology</span>
+        <span class="subject-pill">English</span>
+        <span class="subject-pill">Aptitude</span>
+      </div>
+      <div class="grade-status open">▶ 1 subject available</div>
+    </a>
+
+    <!-- Grade 11 — LOCKED -->
+    <div class="grade-card locked">
+      <div class="lock-badge">🔒 Coming Soon</div>
+      <div class="grade-icon">📖</div>
+      <div class="grade-name">Grade 11</div>
+      <div class="grade-desc">Build on Grade 10 foundations with advanced concepts in all subjects.</div>
+      <div class="grade-subjects">
+        <span class="subject-pill">Mathematics</span>
+        <span class="subject-pill">Physics</span>
+        <span class="subject-pill">Chemistry</span>
+        <span class="subject-pill">Biology</span>
+        <span class="subject-pill">English</span>
+      </div>
+      <div class="grade-status locked">🔒 Content being prepared</div>
+    </div>
+
+    <!-- Grade 10 — LOCKED -->
+    <div class="grade-card locked">
+      <div class="lock-badge">🔒 Coming Soon</div>
+      <div class="grade-icon">📝</div>
+      <div class="grade-name">Grade 10</div>
+      <div class="grade-desc">Strengthen core skills and concepts across Natural and Social Science streams.</div>
+      <div class="grade-subjects">
+        <span class="subject-pill">Mathematics</span>
+        <span class="subject-pill">Physics</span>
+        <span class="subject-pill">Chemistry</span>
+        <span class="subject-pill">Biology</span>
+        <span class="subject-pill">English</span>
+      </div>
+      <div class="grade-status locked">🔒 Content being prepared</div>
+    </div>
+
+    <!-- Grade 9 — LOCKED -->
+    <div class="grade-card locked">
+      <div class="lock-badge">🔒 Coming Soon</div>
+      <div class="grade-icon">✏️</div>
+      <div class="grade-name">Grade 9</div>
+      <div class="grade-desc">Start strong. Master the foundational concepts that all future learning builds on.</div>
+      <div class="grade-subjects">
+        <span class="subject-pill">Mathematics</span>
+        <span class="subject-pill">Physics</span>
+        <span class="subject-pill">Chemistry</span>
+        <span class="subject-pill">Biology</span>
+        <span class="subject-pill">English</span>
+      </div>
+      <div class="grade-status locked">🔒 Content being prepared</div>
+    </div>
+
+  </div>
+
+  <!-- Past Exams -->
+  <div class="section-label">Past Entrance Exams</div>
+  <div class="section-title">Previous Years' Exam Questions</div>
+  <div class="section-sub">Full exam papers with detailed answers and explanations — coming soon.</div>
+
+  <div class="past-exams-grid">
+    <div class="exam-card">
+      <div class="exam-icon">📄</div>
+      <div class="exam-year">2023 Exam</div>
+      <div class="exam-sub">All subjects · With solutions</div>
+      <div class="exam-lock">🔒 Coming Soon</div>
+    </div>
+    <div class="exam-card">
+      <div class="exam-icon">📄</div>
+      <div class="exam-year">2022 Exam</div>
+      <div class="exam-sub">All subjects · With solutions</div>
+      <div class="exam-lock">🔒 Coming Soon</div>
+    </div>
+    <div class="exam-card">
+      <div class="exam-icon">📄</div>
+      <div class="exam-year">2021 Exam</div>
+      <div class="exam-sub">All subjects · With solutions</div>
+      <div class="exam-lock">🔒 Coming Soon</div>
+    </div>
+    <div class="exam-card">
+      <div class="exam-icon">📄</div>
+      <div class="exam-year">2020 Exam</div>
+      <div class="exam-sub">All subjects · With solutions</div>
+      <div class="exam-lock">🔒 Coming Soon</div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Entrance Exam Preparation</p>
+      <p>Built for Ethiopian students preparing for university entrance</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Check authentication
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => {
+      if (!d.user) { location.href = '/login.html?reason=login_required'; }
+    }).catch(() => {});
+</script>
+</body>
+</html>

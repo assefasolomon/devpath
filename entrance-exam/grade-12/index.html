@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade 12 | Entrance Exam Prep</title>
+  <link rel="stylesheet" href="../../css/brand.css">
+  <style>
+    .grade-hero {
+      background: linear-gradient(135deg, #0F172A 0%, #14532D 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .grade-hero h1 { font-size: 2.25rem; font-weight: 900; color: #fff; margin-bottom: .5rem; }
+    .grade-hero p  { color: rgba(255,255,255,.7); font-size: .95rem; max-width: 500px; margin: 0 auto; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+    .stream-tabs {
+      display: flex; gap: .75rem; margin-bottom: 2rem; flex-wrap: wrap;
+    }
+    .stream-tab {
+      padding: .6rem 1.5rem;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--text-muted);
+      font-size: .875rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all var(--transition);
+    }
+    .stream-tab.active {
+      background: var(--brand-primary);
+      border-color: var(--brand-primary);
+      color: #fff;
+    }
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .subject-card {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--transition);
+      display: block;
+      position: relative;
+    }
+    .subject-card.active:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(34,197,94,.15);
+      border-color: var(--brand-accent);
+    }
+    .subject-card.locked { opacity: .55; cursor: not-allowed; }
+    .subject-icon { font-size: 2.25rem; margin-bottom: .75rem; }
+    .subject-name { font-size: 1.05rem; font-weight: 800; color: var(--heading); margin-bottom: .35rem; }
+    .subject-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1rem; }
+    .subject-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: .78rem;
+    }
+    .lessons-count { color: var(--brand-primary); font-weight: 700; }
+    .lock-tag {
+      background: var(--surface-2);
+      color: var(--text-muted);
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: .7rem;
+      font-weight: 600;
+    }
+    .open-tag {
+      background: #DCFCE7;
+      color: #166534;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: .7rem;
+      font-weight: 700;
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 6px;
+      font-size: .82rem; color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+    .breadcrumb a { color: var(--brand-primary); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Prep</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Exam Hub</a>
+    <a href="../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="grade-hero">
+  <h1>Grade 12 Entrance Prep</h1>
+  <p>Choose your stream and subject to start preparing for the Ethiopian University Entrance Examination.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../index.html">Home</a> ›
+    <a href="../index.html">Entrance Exam</a> ›
+    <span>Grade 12</span>
+  </div>
+
+  <!-- Stream tabs -->
+  <div class="stream-tabs">
+    <button class="stream-tab active" onclick="showStream('natural')">🔬 Natural Science</button>
+    <button class="stream-tab" onclick="showStream('social')">📊 Social Science</button>
+  </div>
+
+  <!-- Natural Science subjects -->
+  <div id="natural-subjects">
+    <div class="subjects-grid">
+
+      <!-- Mathematics — ACTIVE -->
+      <a href="natural-science/mathematics/index.html" class="subject-card active">
+        <div class="subject-icon">📐</div>
+        <div class="subject-name">Mathematics</div>
+        <div class="subject-desc">Sequences, Calculus, Statistics, Linear Programming and Mathematical Proofs — complete Grade 12 curriculum.</div>
+        <div class="subject-meta">
+          <span class="lessons-count">7 units · 35+ lessons</span>
+          <span class="open-tag">🔓 Available</span>
+        </div>
+      </a>
+
+      <!-- Physics — LOCKED -->
+      <div class="subject-card locked">
+        <div class="subject-icon">⚡</div>
+        <div class="subject-name">Physics</div>
+        <div class="subject-desc">Vectors, Motion, Forces, Electricity, Magnetism, Waves and Modern Physics.</div>
+        <div class="subject-meta">
+          <span class="lessons-count">Coming soon</span>
+          <span class="lock-tag">🔒 Locked</span>
+        </div>
+      </div>
+
+      <!-- Chemistry — LOCKED -->
+      <div class="subject-card locked">
+        <div class="subject-icon">🧪</div>
+        <div class="subject-name">Chemistry</div>
+        <div class="subject-desc">Atomic Structure, Chemical Bonding, Thermochemistry, Electrochemistry and Organic Chemistry.</div>
+        <div class="subject-meta">
+          <span class="lessons-count">Coming soon</span>
+          <span class="lock-tag">🔒 Locked</span>
+        </div>
+      </div>
+
+      <!-- Biology — LOCKED -->
+      <div class="subject-card locked">
+        <div class="subject-icon">🧬</div>
+        <div class="subject-name">Biology</div>
+        <div class="subject-desc">Cell Biology, Genetics, Evolution, Ecology and Human Physiology.</div>
+        <div class="subject-meta">
+          <span class="lessons-count">Coming soon</span>
+          <span class="lock-tag">🔒 Locked</span>
+        </div>
+      </div>
+
+      <!-- English — LOCKED -->
+      <div class="subject-card locked">
+        <div class="subject-icon">📝</div>
+        <div class="subject-name">English</div>
+        <div class="subject-desc">Reading Comprehension, Grammar, Vocabulary and Writing Skills for the entrance exam.</div>
+        <div class="subject-meta">
+          <span class="lessons-count">Coming soon</span>
+          <span class="lock-tag">🔒 Locked</span>
+        </div>
+      </div>
+
+      <!-- Aptitude — LOCKED -->
+      <div class="subject-card locked">
+        <div class="subject-icon">🧠</div>
+        <div class="subject-name">Aptitude</div>
+        <div class="subject-desc">Logical Reasoning, Numerical Ability, Spatial Reasoning and Problem Solving.</div>
+        <div class="subject-meta">
+          <span class="lessons-count">Coming soon</span>
+          <span class="lock-tag">🔒 Locked</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Social Science subjects -->
+  <div id="social-subjects" style="display:none">
+    <div class="subjects-grid">
+      <div class="subject-card locked">
+        <div class="subject-icon">📐</div>
+        <div class="subject-name">Mathematics</div>
+        <div class="subject-desc">Statistics, Probability, Linear Programming and applied mathematics for Social Science stream.</div>
+        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
+      </div>
+      <div class="subject-card locked">
+        <div class="subject-icon">💰</div>
+        <div class="subject-name">Economics</div>
+        <div class="subject-desc">Microeconomics, Macroeconomics, Ethiopian Economy and Global Economic Issues.</div>
+        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
+      </div>
+      <div class="subject-card locked">
+        <div class="subject-icon">🌍</div>
+        <div class="subject-name">Geography</div>
+        <div class="subject-desc">Physical Geography, Human Geography, Ethiopian Geography and Environmental Issues.</div>
+        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
+      </div>
+      <div class="subject-card locked">
+        <div class="subject-icon">📜</div>
+        <div class="subject-name">History</div>
+        <div class="subject-desc">Ethiopian History, African History, World History and Contemporary Issues.</div>
+        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
+      </div>
+      <div class="subject-card locked">
+        <div class="subject-icon">📝</div>
+        <div class="subject-name">English</div>
+        <div class="subject-desc">Reading Comprehension, Grammar, Vocabulary and Writing Skills.</div>
+        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
+      </div>
+      <div class="subject-card locked">
+        <div class="subject-icon">🧠</div>
+        <div class="subject-name">Aptitude</div>
+        <div class="subject-desc">Logical Reasoning, Verbal Ability, Numerical Skills and Problem Solving.</div>
+        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+
+  function showStream(stream) {
+    document.getElementById('natural-subjects').style.display = stream === 'natural' ? 'block' : 'none';
+    document.getElementById('social-subjects').style.display  = stream === 'social'  ? 'block' : 'none';
+    document.querySelectorAll('.stream-tab').forEach((t, i) => {
+      t.classList.toggle('active', (i === 0 && stream === 'natural') || (i === 1 && stream === 'social'));
+    });
+  }
+</script>
+</body>
+</html>
