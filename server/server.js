@@ -64,6 +64,10 @@ app.use('/paths', protect, requireVerified, (req, res, next) => {
 app.use('/foundations', protect, requireVerified, (req, res, next) => {
   express.static(path.join(__dirname, '..', 'foundations'))(req, res, next);
 });
+// Protect entrance exam content
+app.use('/entrance-exam', protect, requireVerified, (req, res, next) => {
+  express.static(path.join(__dirname, '..', 'entrance-exam'))(req, res, next);
+});
 
 app.get('/dashboard.html', protect, (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'dashboard.html'));
