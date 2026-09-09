@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4: Arithmetic Series | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem;display:flex;align-items:center;gap:6px}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1.05rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-problem strong{color:var(--brand-primary)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .math-display{background:var(--surface-2);border-radius:var(--radius);padding:.75rem 1.25rem;font-family:'Georgia',serif;font-size:1rem;color:var(--brand-primary);text-align:center;margin:.875rem 0;border-left:3px solid var(--brand-accent)}
+    .sum-visual{display:flex;flex-wrap:wrap;gap:.35rem;margin:1rem 0;align-items:center}
+    .sum-term{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;border-radius:var(--radius);font-size:.875rem;font-weight:700;font-family:'Georgia',serif}
+    .sum-plus{color:var(--brand-primary);font-size:1.1rem;font-weight:700}
+    .sum-equals{color:var(--heading);font-size:1.1rem;font-weight:700;margin:0 .25rem}
+    .sum-result{background:var(--brand-accent);color:#fff;padding:.5rem 1rem;border-radius:var(--radius);font-size:.95rem;font-weight:800;font-family:'Georgia',serif}
+    .gauss-box{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #BFDBFE;border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem}
+    .gauss-title{font-size:.875rem;font-weight:700;color:#1E40AF;margin-bottom:.875rem;display:flex;align-items:center;gap:6px}
+    .gauss-row{display:flex;justify-content:space-between;margin-bottom:.5rem;font-family:'Georgia',serif;font-size:.9rem}
+    .gauss-row span{color:var(--brand-primary);font-weight:700}
+    .gauss-row .pair{color:#1E40AF;font-weight:700}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;color:#fff;font-weight:700}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div>Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div>Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div>Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div>Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div>Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div>Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div>Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="unit1-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div>L1: Intro to Sequences ✓</a>
+      <a href="unit1-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div>L2: Arithmetic Sequences ✓</a>
+      <a href="unit1-lesson3.html" class="sidebar-link"><div class="sidebar-dot"></div>L3: Geometric Sequences ✓</a>
+      <a href="unit1-lesson4.html" class="sidebar-link active"><div class="sidebar-dot"></div>L4: Arithmetic Series</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L5: Geometric Series 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 1 · Lesson 4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Sequences and Series</div>
+      <h1>∑ Arithmetic Series</h1>
+      <p>Learn to find the sum of arithmetic sequences. The sum formula is one of the most tested topics on the Ethiopian entrance exam — master it here with clear derivations, worked examples, and exam-style practice.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">From sequences to sums</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In the previous lessons you learned how to find individual terms of a sequence. Now we go further — what if you need to find the <strong>sum of all terms</strong>? For example, a company pays its workers increasing daily wages: 100 ETB on day 1, 110 ETB on day 2, 120 ETB on day 3, and so on. What is the total pay after 30 days?
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Adding all terms one by one would take a long time. Fortunately, there is a beautiful formula — discovered by the mathematician Gauss as a child — that lets you find the sum instantly.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define an arithmetic series and use sigma notation</li>
+          <li>Derive and use the sum formula: <strong>Sₙ = n/2 · (a₁ + aₙ)</strong></li>
+          <li>Use the alternative form: <strong>Sₙ = n/2 · (2a₁ + (n−1)d)</strong></li>
+          <li>Find the number of terms, first term, or common difference from a given sum</li>
+          <li>Solve real-world problems involving the sum of arithmetic sequences</li>
+          <li>Apply sigma notation to express series compactly</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with visual aids</div>
+        </div>
+      </div>
+
+      <div class="definition-box">
+        <div class="def-label">📌 Definition — Arithmetic Series</div>
+        <p>An <strong>arithmetic series</strong> is the sum of the terms of an arithmetic sequence. If the sequence is a₁, a₂, a₃, ..., aₙ then the series is:<br><br>
+        <strong>Sₙ = a₁ + a₂ + a₃ + ... + aₙ</strong><br><br>
+        Sₙ denotes the sum of the first n terms.</p>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 The Story of Gauss — Deriving the Formula</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          At age 10, Carl Friedrich Gauss was asked by his teacher to add the numbers 1 to 100. While classmates added one by one, Gauss finished in seconds by noticing a pattern:
+        </p>
+
+        <div class="gauss-box">
+          <div class="gauss-title">💡 Gauss's Pairing Trick</div>
+          <div class="gauss-row">
+            <span>Forward:&nbsp;&nbsp;</span>
+            <span>1 + 2 + 3 + ... + 98 + 99 + 100</span>
+          </div>
+          <div class="gauss-row">
+            <span>Backward:</span>
+            <span>100 + 99 + 98 + ... + 3 + 2 + 1</span>
+          </div>
+          <div style="border-top:1.5px solid #BFDBFE;margin:.75rem 0;padding-top:.75rem">
+            <div style="font-size:.875rem;color:#1E40AF;font-weight:600">Each pair sums to 101: (1+100), (2+99), (3+98), ...</div>
+            <div style="font-size:.875rem;color:#1E40AF;margin-top:.35rem">There are 100 pairs, so 2·S = 100 × 101 = 10,100</div>
+            <div style="font-size:.875rem;color:#1E40AF;font-weight:700;margin-top:.35rem">Therefore S = 10,100 / 2 = 5,050</div>
+          </div>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text)">
+          This same idea gives us the general formula for any arithmetic series.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Deriving the Sum Formula</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">Write the series forwards and backwards then add:</p>
+
+        <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem 1.25rem;font-family:'Georgia',serif;font-size:.875rem;margin-bottom:1rem">
+          <div style="margin-bottom:.35rem">Sₙ = a₁ &nbsp;+&nbsp; (a₁+d) &nbsp;+&nbsp; (a₁+2d) &nbsp;+&nbsp; ... &nbsp;+&nbsp; aₙ</div>
+          <div style="margin-bottom:.35rem">Sₙ = aₙ &nbsp;+&nbsp; (aₙ−d) &nbsp;+&nbsp; (aₙ−2d) &nbsp;+&nbsp; ... &nbsp;+&nbsp; a₁</div>
+          <div style="border-top:1.5px solid var(--border);padding-top:.5rem;color:var(--brand-primary);font-weight:700">2Sₙ = n(a₁ + aₙ) &nbsp;&nbsp;⟹&nbsp;&nbsp; Sₙ = n/2 · (a₁ + aₙ)</div>
+        </div>
+
+        <p style="font-size:.875rem;color:var(--text-muted)">Since aₙ = a₁ + (n−1)d, substituting gives the second form:</p>
+        <div class="math-display" style="font-size:1.15rem;font-weight:700">Sₙ = n/2 · [2a₁ + (n−1)d]</div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Two Forms of the Sum Formula</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.25rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.625rem">Form 1 — Use when aₙ is known</div>
+            <div style="font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:var(--brand-primary)">Sₙ = n/2 · (a₁ + aₙ)</div>
+            <div style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">n = number of terms<br>a₁ = first term, aₙ = last term</div>
+          </div>
+          <div style="background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:var(--radius-xl);padding:1.25rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#1E40AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.625rem">Form 2 — Use when d is known</div>
+            <div style="font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:#2563EB">Sₙ = n/2 · [2a₁ + (n−1)d]</div>
+            <div style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">n = terms, a₁ = first, d = difference</div>
+          </div>
+        </div>
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">⚠ Which Form to Use?</div>
+          <p>If the problem gives you the last term (aₙ) use Form 1. If the problem gives you the common difference (d) but not the last term, use Form 2. Both give the same answer when used correctly.</p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Sigma Notation</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          Sigma notation (∑) is a compact way to write a series. The Greek letter Σ means "sum of":
+        </p>
+        <div class="math-display">∑(k=1 to n) aₖ = a₁ + a₂ + a₃ + ... + aₙ</div>
+        <p style="font-size:.875rem;color:var(--text-muted)">
+          Example: ∑(k=1 to 5) (2k+1) = 3 + 5 + 7 + 9 + 11 = 35<br>
+          The variable k starts at 1, goes up to 5, and we substitute each value into 2k+1.
+        </p>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Working Backwards — Finding Unknown Values</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          Sometimes the exam gives you the sum and asks you to find n, a₁, or d. Use algebra:
+        </p>
+        <div class="definition-box">
+          <div class="def-label">Strategy — Finding n when Sₙ is given</div>
+          <p>
+            Substitute the known values into Sₙ = n/2 · [2a₁ + (n−1)d] and solve the resulting quadratic equation in n.<br><br>
+            Example: If S₁₀ = 145 and a₁ = 5, find d.<br>
+            145 = 10/2 · [2(5) + (10−1)d]<br>
+            145 = 5 · [10 + 9d]<br>
+            29 = 10 + 9d &nbsp;⟹&nbsp; 9d = 19 &nbsp;⟹&nbsp; d = 19/9
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.6 Sum of the First n Natural Numbers</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          A special and frequently tested case: the sum of 1 + 2 + 3 + ... + n:
+        </p>
+        <div class="math-display" style="font-size:1.2rem;font-weight:700">1 + 2 + 3 + ... + n = n(n+1)/2</div>
+        <p style="font-size:.875rem;color:var(--text-muted)">
+          This follows directly from the sum formula with a₁ = 1, d = 1:<br>
+          Sₙ = n/2 · (2·1 + (n−1)·1) = n/2 · (n+1) = n(n+1)/2
+        </p>
+      </div>
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">All arithmetic series formulas — memorize these</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📐 Lesson 4 — Arithmetic Series Formulas</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Sum Formula — Form 1</div>
+            <div class="formula-math">Sₙ = n/2 · (a₁ + aₙ)</div>
+            <div class="formula-note">Use when first and last term are known</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Sum Formula — Form 2</div>
+            <div class="formula-math">Sₙ = n/2 · [2a₁ + (n−1)d]</div>
+            <div class="formula-note">Use when d is known but last term is not</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Natural Numbers Sum</div>
+            <div class="formula-math">1+2+...+n = n(n+1)/2</div>
+            <div class="formula-note">Special case with a₁=1 and d=1</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">nth Term (review)</div>
+            <div class="formula-math">aₙ = a₁ + (n−1)d</div>
+            <div class="formula-note">Needed to find aₙ before using Form 1</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Sigma Notation</div>
+            <div class="formula-math">∑(k=1 to n) aₖ = Sₙ</div>
+            <div class="formula-note">Compact way to write a series</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Average of AP Terms</div>
+            <div class="formula-math">Sₙ/n = (a₁ + aₙ)/2</div>
+            <div class="formula-note">Sum ÷ n = average of first and last term</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 1</span>
+          <span class="example-title">Basic Sum Using Form 1</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the sum of the arithmetic series: 3 + 7 + 11 + 15 + ... + 47</div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">Identify: <span class="math">a₁ = 3, d = 4, aₙ = 47</span></div></div>
+          <div class="example-step">
+            <span class="step-badge">Step 2</span>
+            <div class="step-text">Find n using aₙ = a₁ + (n−1)d:<br>
+              <span class="math">47 = 3 + (n−1)(4) &nbsp;⟹&nbsp; 44 = 4(n−1) &nbsp;⟹&nbsp; n−1 = 11 &nbsp;⟹&nbsp; n = 12</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 3</span>
+            <div class="step-text">Apply Form 1:<br>
+              <span class="math">S₁₂ = 12/2 · (3 + 47) = 6 · 50 = 300</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ The sum is <strong>300</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 2</span>
+          <span class="example-title">Sum Using Form 2</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the sum of the first 20 terms of the arithmetic sequence with a₁ = 5 and d = 3.</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text"><span class="math">a₁ = 5, d = 3, n = 20</span></div></div>
+          <div class="example-step">
+            <span class="step-badge">Apply</span>
+            <div class="step-text">Use Form 2 since d is given and last term is not:<br>
+              <span class="math">S₂₀ = 20/2 · [2(5) + (20−1)(3)]</span><br>
+              <span class="math">= 10 · [10 + 57]</span><br>
+              <span class="math">= 10 · 67 = 670</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ S₂₀ = <strong>670</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 3</span>
+          <span class="example-title">Finding d from the Sum</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> The sum of the first 10 terms of an arithmetic sequence is 200, and the first term is 5. Find the common difference.</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text"><span class="math">S₁₀ = 200, a₁ = 5, n = 10</span></div></div>
+          <div class="example-step">
+            <span class="step-badge">Substitute</span>
+            <div class="step-text">Use Form 2:<br>
+              <span class="math">200 = 10/2 · [2(5) + (10−1)d]</span><br>
+              <span class="math">200 = 5 · [10 + 9d]</span><br>
+              <span class="math">40 = 10 + 9d &nbsp;⟹&nbsp; 9d = 30 &nbsp;⟹&nbsp; d = 10/3</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ The common difference is <strong>d = 10/3</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 4</span>
+          <span class="example-title">Sigma Notation</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Evaluate ∑(k=1 to 8) (3k + 1)</div>
+          <div class="example-step">
+            <span class="step-badge">Step 1</span>
+            <div class="step-text">Write out first and last terms:<br>
+              <span class="math">k=1: 3(1)+1 = 4 &nbsp;&nbsp; k=8: 3(8)+1 = 25</span><br>
+              So a₁ = 4, a₈ = 25, n = 8
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 2</span>
+            <div class="step-text">Apply Form 1:<br>
+              <span class="math">S₈ = 8/2 · (4 + 25) = 4 · 29 = 116</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ ∑(k=1 to 8) (3k+1) = <strong>116</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 5</span>
+          <span class="example-title">Real-World Word Problem</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A worker earns 1,200 ETB in the first month and receives a 100 ETB raise each month. What are the total earnings over 12 months?</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a₁ = 1,200, d = 100, n = 12</span></div></div>
+          <div class="example-step">
+            <span class="step-badge">Apply</span>
+            <div class="step-text">
+              <span class="math">S₁₂ = 12/2 · [2(1,200) + (12−1)(100)]</span><br>
+              <span class="math">= 6 · [2,400 + 1,100]</span><br>
+              <span class="math">= 6 · 3,500 = 21,000 ETB</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Total earnings over 12 months = <strong>21,000 ETB</strong></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">What is the sum of the first 10 terms of the arithmetic series with a₁ = 2 and d = 3?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div>125</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div>145</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div>155</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div>165</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Find the sum: 5 + 10 + 15 + 20 + ... + 100</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div>500</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div>1,050</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div>1,025</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div>950</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">The sum of the first n terms of an AP is 153. If a₁ = 3 and d = 2, what is n?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div>7</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div>8</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div>9</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div>11</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Evaluate ∑(k=1 to 6) (2k − 1)</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','D')"><div class="option-letter">A</div>25</div>
+          <div class="quiz-option" onclick="answer(4,'B','D')"><div class="option-letter">B</div>30</div>
+          <div class="quiz-option" onclick="answer(4,'C','D')"><div class="option-letter">C</div>33</div>
+          <div class="quiz-option" onclick="answer(4,'D','D')"><div class="option-letter">D</div>36</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A student saves 50 ETB in week 1 and increases savings by 10 ETB each week. How much total savings after 8 weeks?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div>640 ETB</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div>680 ETB</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div>720 ETB</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div>760 ETB</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit1-lesson5.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Arithmetic Series</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem">Watch these to reinforce this lesson:</p>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+arithmetic+series+sum" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Arithmetic Series — Sum Formula</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+arithmetic+series+word+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Arithmetic Series Word Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+sigma+notation+series" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Sigma Notation and Series</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+sum+of+natural+numbers" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Sum of Natural Numbers Formula</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 4</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Arithmetic Series</div>
+        <ul class="summary-list">
+          <li>An arithmetic series is the sum of terms of an arithmetic sequence: Sₙ = a₁ + a₂ + ... + aₙ</li>
+          <li>Form 1: <strong>Sₙ = n/2 · (a₁ + aₙ)</strong> — use when both first and last terms are known.</li>
+          <li>Form 2: <strong>Sₙ = n/2 · [2a₁ + (n−1)d]</strong> — use when d is known but last term is not.</li>
+          <li>The sum of natural numbers 1 to n is <strong>n(n+1)/2</strong> — memorize this formula.</li>
+          <li>Sigma notation ∑ means "sum of" — substitute each value of k into the formula.</li>
+          <li>To find n from Sₙ: substitute known values and solve the resulting quadratic in n.</li>
+          <li>The average of an AP = Sₙ/n = (a₁ + aₙ)/2 = middle term.</li>
+          <li>For real-world problems: identify a₁ (starting value), d (fixed increase), and n (number of periods).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit1-lesson3.html" class="btn btn-ghost">← Lesson 3: Geometric Sequences</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 4 of 5</div>
+      <a href="unit1-lesson5.html" class="btn btn-primary">Next: Geometric Series →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+
+  const answers   = {};
+  const correct   = {1:'C', 2:'B', 3:'C', 4:'D', 5:'B'};
+  const feedbacks = {
+    1:{C:'✓ Correct! S₁₀ = 10/2·[2(2)+(10−1)(3)] = 5·[4+27] = 5·31 = 155.',wrong:'✗ S₁₀ = 10/2·[2(2)+(9)(3)] = 5·[4+27] = 5·31 = 155.'},
+    2:{B:'✓ Correct! n=20 (100/5=20 terms). S₂₀ = 20/2·(5+100) = 10·105 = 1,050.',wrong:'✗ n=20 terms. S = 20/2·(5+100) = 10·105 = 1,050.'},
+    3:{C:'✓ Correct! 153 = n/2·[6+(n−1)2] = n/2·[2n+4] = n(n+2). n²+2n−153=0. (n+17)(n−9)=0. n=9.',wrong:'✗ 153 = n/2·[2(3)+(n−1)(2)] = n(n+2). Solve n²+2n−153=0 to get n=9.'},
+    4:{D:'✓ Correct! k=1: 1, k=6: 11. S₆ = 6/2·(1+11) = 3·12 = 36.',wrong:'✗ a₁=2(1)−1=1, a₆=2(6)−1=11. S₆ = 6/2·(1+11) = 3·12 = 36.'},
+    5:{B:'✓ Correct! S₈ = 8/2·[2(50)+(8−1)(10)] = 4·[100+70] = 4·170 = 680 ETB.',wrong:'✗ S₈ = 8/2·[2(50)+(7)(10)] = 4·[100+70] = 4·170 = 680 ETB.'},
+  };
+
+  let answered = 0;
+
+  function answer(qNum, chosen, correctAns) {
+    if (answers[qNum]) return;
+    answers[qNum] = chosen;
+    answered++;
+    const card    = document.getElementById('q' + qNum);
+    const options = card.querySelectorAll('.quiz-option');
+    const fb      = document.getElementById('q' + qNum + '-feedback');
+    const letters = ['A','B','C','D'];
+    options.forEach((opt,i) => {
+      opt.classList.add('disabled');
+      if (letters[i] === correctAns) opt.classList.add('correct');
+      else if (letters[i] === chosen && chosen !== correctAns) opt.classList.add('wrong');
+    });
+    const isCorrect = chosen === correctAns;
+    fb.textContent = isCorrect ? feedbacks[qNum][correctAns] : feedbacks[qNum].wrong;
+    fb.className   = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+    updateProgress();
+    if (answered === 5) showScore();
+  }
+
+  function showScore() {
+    const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent = score + '/5';
+    const labels = ['📖 Review and retake.','📖 Keep studying.','📖 Almost there!','👍 Good work!','👍 Almost perfect!','🎉 Perfect! Lesson 4 mastered!'];
+    document.getElementById('score-label').textContent = labels[score];
+  }
+
+  function retakeQuiz() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    answered = 0;
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o => { o.className='quiz-option'; });
+      document.getElementById('q'+i+'-feedback').className = 'quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress() {
+    document.getElementById('progress-fill').style.width = (answered/5*100)+'%';
+  }
+
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections = ['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll', () => {
+    let current = 'intro';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l => {
+      const t = l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active', t === current);
+    });
+  });
+</script>
+</body>
+</html>
