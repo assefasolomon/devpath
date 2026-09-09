@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3: Geometric Sequences | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem;display:flex;align-items:center;gap:6px}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1.05rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-problem strong{color:var(--brand-primary)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .math-display{background:var(--surface-2);border-radius:var(--radius);padding:.75rem 1.25rem;font-family:'Georgia',serif;font-size:1rem;color:var(--brand-primary);text-align:center;margin:.875rem 0;border-left:3px solid var(--brand-accent)}
+    .geo-visual{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin:1rem 0;overflow-x:auto}
+    .geo-term{background:var(--brand-primary);color:#fff;padding:.7rem 1.1rem;font-size:.875rem;font-weight:700;font-family:'Georgia',serif;white-space:nowrap}
+    .geo-term:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+    .geo-ratio{background:var(--brand-light);color:var(--brand-primary);padding:.7rem .6rem;font-size:.75rem;font-weight:800;white-space:nowrap}
+    .geo-last{background:var(--brand-accent);color:#fff;padding:.7rem 1.1rem;font-size:.875rem;font-weight:700;border-radius:0 var(--radius) var(--radius) 0;font-family:'Georgia',serif}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;color:#fff;font-weight:700}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div>Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div>Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div>Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div>Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div>Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div>Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div>Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="unit1-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div>L1: Intro to Sequences ✓</a>
+      <a href="unit1-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div>L2: Arithmetic Sequences ✓</a>
+      <a href="unit1-lesson3.html" class="sidebar-link active"><div class="sidebar-dot"></div>L3: Geometric Sequences</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L4: Arithmetic Series 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L5: Geometric Series 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 1 · Lesson 3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Sequences and Series</div>
+      <h1>✖️ Geometric Sequences</h1>
+      <p>Master geometric sequences — a key topic on the Ethiopian entrance exam. Learn to find any term, identify common ratios, insert geometric means, and solve real-world exponential growth problems.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">Why geometric sequences matter</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Imagine a bacterial colony that doubles every hour. Or an investment that grows 10% every year. Or a bouncing ball that reaches 80% of its previous height on each bounce. These are all examples of <strong>geometric sequences</strong> — sequences that grow or shrink by a constant multiplicative factor.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          While arithmetic sequences involve <strong>adding</strong> a constant difference, geometric sequences involve <strong>multiplying</strong> by a constant ratio. Both types are heavily tested on the Ethiopian entrance exam.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define a geometric sequence and identify its common ratio r</li>
+          <li>Use the nth term formula: <strong>aₙ = a₁ · rⁿ⁻¹</strong></li>
+          <li>Find any term when given a₁ and r</li>
+          <li>Find a₁ or r from two given terms</li>
+          <li>Insert geometric means between two numbers</li>
+          <li>Identify the effect of r on sequence behavior</li>
+          <li>Solve real-world problems involving geometric growth and decay</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with visual aids</div>
+        </div>
+      </div>
+
+      <div class="definition-box">
+        <div class="def-label">📌 Definition — Geometric Sequence</div>
+        <p>A <strong>geometric sequence</strong> (also called a geometric progression or GP) is a sequence in which each term after the first is obtained by multiplying the preceding term by a fixed non-zero constant <strong>r</strong>, called the <strong>common ratio</strong>.</p>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 The Common Ratio</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">The common ratio <strong>r</strong> is found by dividing any term by the previous term:</p>
+        <div class="math-display">r = a₂/a₁ = a₃/a₂ = a₄/a₃ = aₙ₊₁/aₙ</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1rem">
+          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:.5rem">r > 1 (grows)</div>
+            <div style="font-family:Georgia,serif;font-size:.9rem;color:var(--brand-primary);font-weight:700">2, 6, 18, 54, ...</div>
+            <div style="font-size:.75rem;color:var(--text-muted);margin-top:.35rem">r = 3</div>
+          </div>
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#991B1B;text-transform:uppercase;margin-bottom:.5rem">0 &lt; r &lt; 1 (shrinks)</div>
+            <div style="font-family:Georgia,serif;font-size:.9rem;color:#DC2626;font-weight:700">64, 32, 16, 8, ...</div>
+            <div style="font-size:.75rem;color:var(--text-muted);margin-top:.35rem">r = 1/2</div>
+          </div>
+          <div style="background:#FDF4FF;border:1px solid #E9D5FF;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#7C3AED;text-transform:uppercase;margin-bottom:.5rem">r &lt; 0 (alternates)</div>
+            <div style="font-family:Georgia,serif;font-size:.9rem;color:#7C3AED;font-weight:700">2, −6, 18, −54, ...</div>
+            <div style="font-size:.75rem;color:var(--text-muted);margin-top:.35rem">r = −3</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 The nth Term Formula</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">Starting from a₁ and multiplying by r repeatedly:</p>
+        <div class="geo-visual">
+          <div class="geo-term">a₁</div>
+          <div class="geo-ratio">×r</div>
+          <div class="geo-term">a₁r</div>
+          <div class="geo-ratio">×r</div>
+          <div class="geo-term">a₁r²</div>
+          <div class="geo-ratio">×r</div>
+          <div class="geo-term">a₁r³</div>
+          <div class="geo-ratio">...</div>
+          <div class="geo-last">a₁rⁿ⁻¹</div>
+        </div>
+        <div class="math-display" style="font-size:1.2rem;font-weight:700">aₙ = a₁ · rⁿ⁻¹</div>
+        <p style="font-size:.875rem;color:var(--text-muted)">Where: <strong>aₙ</strong> = nth term, <strong>a₁</strong> = first term, <strong>r</strong> = common ratio, <strong>n</strong> = position</p>
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">⚠ Most Common Mistake</div>
+          <p>Students often write aₙ = a₁ · rⁿ instead of a₁ · rⁿ⁻¹. The exponent is n MINUS 1, because the first term has r⁰ = 1 (multiply by r zero times).</p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Finding r from Two Non-Consecutive Terms</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">If you know two terms aₘ and aₙ you can find r by dividing their equations:</p>
+        <div class="math-display">aₙ / aₘ = rⁿ⁻ᵐ &nbsp;⟹&nbsp; r = ⁽ⁿ⁻ᵐ⁾√(aₙ/aₘ)</div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Geometric Means</h3>
+        <div class="definition-box">
+          <div class="def-label">Method — Inserting k Geometric Means between a and b</div>
+          <p>
+            Total terms = k + 2. Common ratio: <strong>r = (b/a)^(1/(k+1))</strong><br><br>
+            Example: Insert 2 geometric means between 3 and 24.<br>
+            r = (24/3)^(1/3) = 8^(1/3) = 2<br>
+            Sequence: 3, <u>6, 12</u>, 24
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Arithmetic vs Geometric Comparison</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:.85rem">
+          <thead>
+            <tr style="background:var(--brand-primary);color:#fff">
+              <th style="padding:.625rem 1rem;text-align:left">Property</th>
+              <th style="padding:.625rem 1rem;text-align:left">Arithmetic</th>
+              <th style="padding:.625rem 1rem;text-align:left">Geometric</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:var(--surface-2)">
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-weight:600">Operation</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">Add d each time</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">Multiply by r each time</td>
+            </tr>
+            <tr>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-weight:600">Constant</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">d = aₙ₊₁ − aₙ</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">r = aₙ₊₁ / aₙ</td>
+            </tr>
+            <tr style="background:var(--surface-2)">
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-weight:600">nth term</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">a₁ + (n−1)d</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">a₁ · rⁿ⁻¹</td>
+            </tr>
+            <tr>
+              <td style="padding:.625rem 1rem;font-weight:600">Example use</td>
+              <td style="padding:.625rem 1rem">Salary raises, rows of seats</td>
+              <td style="padding:.625rem 1rem">Population growth, compound interest</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.6 Real-World Applications</h3>
+        <ul style="padding-left:1.25rem;font-size:.875rem;line-height:2;color:var(--text)">
+          <li><strong>Population growth:</strong> Population × constant factor each year (r = 1 + growth rate)</li>
+          <li><strong>Compound interest:</strong> Money × (1 + rate) each period</li>
+          <li><strong>Bacterial growth:</strong> Colony doubles every hour (r = 2)</li>
+          <li><strong>Radioactive decay:</strong> Amount halved every half-life (r = 0.5)</li>
+          <li><strong>Bouncing ball:</strong> Height × constant fraction each bounce</li>
+        </ul>
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">⚠ Strategy for Word Problems</div>
+          <p>Step 1: Find a₁ (initial value). Step 2: Find r (multiplication factor). Step 3: Write aₙ = a₁ · rⁿ⁻¹. Step 4: Substitute and solve. For growth: r = 1 + rate. For decay: r = 1 − rate.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">All geometric sequence formulas — memorize these</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📐 Lesson 3 — Geometric Sequence Formulas</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">nth Term Formula</div>
+            <div class="formula-math">aₙ = a₁ · rⁿ⁻¹</div>
+            <div class="formula-note">Main formula — exponent is n MINUS 1</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Common Ratio</div>
+            <div class="formula-math">r = aₙ₊₁ / aₙ</div>
+            <div class="formula-note">Divide any term by the previous one</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">From Two Terms</div>
+            <div class="formula-math">r = ⁽ⁿ⁻ᵐ⁾√(aₙ/aₘ)</div>
+            <div class="formula-note">When consecutive terms not given</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Geometric Means</div>
+            <div class="formula-math">r = (b/a)^(1/(k+1))</div>
+            <div class="formula-note">k means inserted between a and b</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Middle Term Property</div>
+            <div class="formula-math">aₘ² = aₘ₋ₖ · aₘ₊ₖ</div>
+            <div class="formula-note">Middle term² = product of equidistant terms</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Growth/Decay Rate</div>
+            <div class="formula-math">r = 1 ± rate</div>
+            <div class="formula-note">+ for growth, − for decay</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 1</span>
+          <span class="example-title">Finding the nth Term</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> The first term of a geometric sequence is 3 and the common ratio is 2. Find the 6th term.</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text"><span class="math">a₁ = 3, r = 2, n = 6</span></div></div>
+          <div class="example-step"><span class="step-badge">Apply</span><div class="step-text"><span class="math">a₆ = 3 · 2⁶⁻¹ = 3 · 2⁵ = 3 · 32 = 96</span></div></div>
+          <div class="example-answer">✅ The 6th term is <strong>96</strong> — Sequence: 3, 6, 12, 24, 48, 96 ✓</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 2</span>
+          <span class="example-title">Finding r and a₁ from Two Terms</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> In a geometric sequence, a₂ = 6 and a₅ = 48. Find the common ratio and first term.</div>
+          <div class="example-step">
+            <span class="step-badge">Step 1</span>
+            <div class="step-text">Write equations:<br>
+              <span class="math">a₂ = a₁ · r = 6 &nbsp;...(i)</span><br>
+              <span class="math">a₅ = a₁ · r⁴ = 48 &nbsp;...(ii)</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 2</span>
+            <div class="step-text">Divide (ii) by (i):<br>
+              <span class="math">r³ = 48/6 = 8 &nbsp;⟹&nbsp; r = 2</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 3</span>
+            <div class="step-text">Substitute into (i):<br>
+              <span class="math">a₁ · 2 = 6 &nbsp;⟹&nbsp; a₁ = 3</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ <strong>r = 2</strong> and <strong>a₁ = 3</strong> — Sequence: 3, 6, 12, 24, 48 ✓</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 3</span>
+          <span class="example-title">Inserting Geometric Means</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Insert 3 geometric means between 2 and 162.</div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">Total terms = 3 + 2 = 5. So a₁ = 2, a₅ = 162.</div></div>
+          <div class="example-step">
+            <span class="step-badge">Step 2</span>
+            <div class="step-text">Find r:<br>
+              <span class="math">r = (162/2)^(1/4) = 81^(1/4) = (3⁴)^(1/4) = 3</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 3</span>
+            <div class="step-text">Sequence with a₁ = 2, r = 3:<br>
+              <span class="math">2, 6, 18, 54, 162</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ The 3 geometric means are <strong>6, 18, 54</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 4</span>
+          <span class="example-title">Negative Common Ratio</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A geometric sequence has a₁ = 4 and r = −2. Find the first 5 terms and the 8th term.</div>
+          <div class="example-step">
+            <span class="step-badge">Step 1</span>
+            <div class="step-text">Generate terms by multiplying by −2:<br>
+              <span class="math">4, −8, 16, −32, 64</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 2</span>
+            <div class="step-text">Find a₈:<br>
+              <span class="math">a₈ = 4 · (−2)⁷ = 4 · (−128) = −512</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ First 5 terms: <strong>4, −8, 16, −32, 64</strong> &nbsp;|&nbsp; 8th term: <strong>−512</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 5</span>
+          <span class="example-title">Real-World — Population Growth</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A town has a population of 10,000. The population grows at 5% per year. What is the population after 4 years?</div>
+          <div class="example-step">
+            <span class="step-badge">Identify</span>
+            <div class="step-text">
+              <span class="math">a₁ = 10,000, &nbsp; r = 1.05, &nbsp; n = 5 (after 4 years = 5th term)</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Apply</span>
+            <div class="step-text">
+              <span class="math">a₅ = 10,000 · (1.05)⁴ = 10,000 · 1.2155 ≈ 12,155</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Population after 4 years ≈ <strong>12,155</strong></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The first term of a geometric sequence is 5 and the common ratio is 3. What is the 4th term?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div>45</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div>105</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div>135</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div>405</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">In a geometric sequence, a₁ = 2 and a₄ = 54. What is the common ratio?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div>2</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div>3</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div>6</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div>9</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">One geometric mean is inserted between 4 and 36. What is that mean?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div>8</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div>12</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div>18</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div>20</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which sequence has a common ratio of −2?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','D')"><div class="option-letter">A</div>3, 6, 12, 24, ...</div>
+          <div class="quiz-option" onclick="answer(4,'B','D')"><div class="option-letter">B</div>1, −1, 1, −1, ...</div>
+          <div class="quiz-option" onclick="answer(4,'C','D')"><div class="option-letter">C</div>2, 0, −2, −4, ...</div>
+          <div class="quiz-option" onclick="answer(4,'D','D')"><div class="option-letter">D</div>1, −2, 4, −8, ...</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A bacteria colony starts with 500 cells and doubles every hour. How many bacteria are there after 5 hours?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div>5,000</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div>8,000</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div>16,000</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div>32,000</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Course Index →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Geometric Sequences</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem">Watch these videos to reinforce this lesson:</p>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+geometric+sequences" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Geometric Sequences — Full Lesson</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+geometric+sequence+nth+term" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Finding the nth Term of a Geometric Sequence</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+geometric+sequence+word+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Geometric Sequence Word Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+geometric+means" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Inserting Geometric Means</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 3</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Geometric Sequences</div>
+        <ul class="summary-list">
+          <li>A geometric sequence multiplies each term by a constant ratio r: found by r = aₙ₊₁ / aₙ</li>
+          <li>The nth term formula is <strong>aₙ = a₁ · rⁿ⁻¹</strong> — the exponent is n MINUS 1, not n.</li>
+          <li>If r > 1 the sequence grows; if 0 &lt; r &lt; 1 it shrinks; if r &lt; 0 signs alternate.</li>
+          <li>To find r from two terms: divide their equations to eliminate a₁, then take the appropriate root.</li>
+          <li>To insert k geometric means between a and b: r = (b/a)^(1/(k+1)).</li>
+          <li>The middle term squared equals the product of equidistant terms: aₘ² = aₘ₋ₖ · aₘ₊ₖ.</li>
+          <li>For real-world growth/decay: r = 1 + rate (growth) or r = 1 − rate (decay).</li>
+          <li>Key difference: arithmetic ADDS d every step, geometric MULTIPLIES by r every step.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit1-lesson2.html" class="btn btn-ghost">← Lesson 2: Arithmetic Sequences</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 3 of 5</div>
+      <a href="unit1-lesson4.html" class="btn btn-primary">Next: Arithmetic Series →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+
+  const answers   = {};
+  const correct   = {1:'C', 2:'B', 3:'B', 4:'D', 5:'C'};
+  const feedbacks = {
+    1:{C:'✓ Correct! a₄ = 5 · 3³ = 5 · 27 = 135.',wrong:'✗ Use aₙ = a₁·rⁿ⁻¹: a₄ = 5 · 3³ = 5 · 27 = 135.'},
+    2:{B:'✓ Correct! 54 = 2·r³ → r³ = 27 → r = 3.',wrong:'✗ a₄ = a₁·r³: 54 = 2·r³, r³ = 27, r = 3.'},
+    3:{B:'✓ Correct! r = √(36/4) = √9 = 3. Mean = 4 × 3 = 12.',wrong:'✗ r = √(36/4) = 3. Sequence: 4, 12, 36. Mean = 12.'},
+    4:{D:'✓ Correct! 1, −2, 4, −8: ratios are all −2. Constant r = −2.',wrong:'✗ Check ratios: 1→−2→4→−8 gives ratio = −2 each time.'},
+    5:{C:'✓ Correct! After 5 hours, n = 6. a₆ = 500 · 2⁵ = 500 · 32 = 16,000.',wrong:'✗ After 5 hours n = 6. a₆ = 500 · 2⁵ = 16,000.'},
+  };
+
+  let answered = 0;
+
+  function answer(qNum, chosen, correctAns) {
+    if (answers[qNum]) return;
+    answers[qNum] = chosen;
+    answered++;
+    const card    = document.getElementById('q' + qNum);
+    const options = card.querySelectorAll('.quiz-option');
+    const fb      = document.getElementById('q' + qNum + '-feedback');
+    const letters = ['A','B','C','D'];
+    options.forEach((opt,i) => {
+      opt.classList.add('disabled');
+      if (letters[i] === correctAns) opt.classList.add('correct');
+      else if (letters[i] === chosen && chosen !== correctAns) opt.classList.add('wrong');
+    });
+    const isCorrect = chosen === correctAns;
+    fb.textContent = isCorrect ? feedbacks[qNum][correctAns] : feedbacks[qNum].wrong;
+    fb.className   = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+    updateProgress();
+    if (answered === 5) showScore();
+  }
+
+  function showScore() {
+    const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent = score + '/5';
+    const labels = ['📖 Review and retake.','📖 Keep studying.','📖 Almost there!','👍 Good! Check mistakes.','👍 Almost perfect!','🎉 Perfect! Lesson 3 mastered!'];
+    document.getElementById('score-label').textContent = labels[score];
+  }
+
+  function retakeQuiz() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    answered = 0;
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o => { o.className = 'quiz-option'; });
+      document.getElementById('q'+i+'-feedback').className = 'quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress() {
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+  }
+
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections = ['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll', () => {
+    let current = 'intro';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l => {
+      const t = l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active', t === current);
+    });
+  });
+</script>
+</body>
+</html>
