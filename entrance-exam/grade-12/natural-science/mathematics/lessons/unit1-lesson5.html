@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5: Geometric Series | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem;display:flex;align-items:center;gap:6px}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1.05rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-problem strong{color:var(--brand-primary)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .math-display{background:var(--surface-2);border-radius:var(--radius);padding:.75rem 1.25rem;font-family:'Georgia',serif;font-size:1rem;color:var(--brand-primary);text-align:center;margin:.875rem 0;border-left:3px solid var(--brand-accent)}
+    .convergence-visual{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+    .conv-card{border-radius:var(--radius-lg);padding:1rem;text-align:center}
+    .conv-card.converges{background:#F0FDF4;border:1.5px solid #86EFAC}
+    .conv-card.diverges{background:#FEF2F2;border:1.5px solid #FECACA}
+    .conv-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .conv-title.g{color:#166534}
+    .conv-title.r{color:#991B1B}
+    .conv-seq{font-family:Georgia,serif;font-size:.875rem;font-weight:700;margin-bottom:.35rem}
+    .conv-seq.g{color:var(--brand-primary)}
+    .conv-seq.r{color:#DC2626}
+    .conv-note{font-size:.72rem;color:var(--text-muted)}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .unit-complete-banner{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem;text-align:center;margin-top:2rem;color:#fff}
+    .unit-complete-banner h3{font-size:1.25rem;font-weight:800;margin-bottom:.5rem}
+    .unit-complete-banner p{color:rgba(255,255,255,.75);font-size:.9rem;margin-bottom:1.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;color:#fff;font-weight:700}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}.convergence-visual{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 5</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div>Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div>Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div>Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div>Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div>Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div>Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div>Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="unit1-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div>L1: Intro to Sequences ✓</a>
+      <a href="unit1-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div>L2: Arithmetic Sequences ✓</a>
+      <a href="unit1-lesson3.html" class="sidebar-link"><div class="sidebar-dot"></div>L3: Geometric Sequences ✓</a>
+      <a href="unit1-lesson4.html" class="sidebar-link"><div class="sidebar-dot"></div>L4: Arithmetic Series ✓</a>
+      <a href="unit1-lesson5.html" class="sidebar-link active"><div class="sidebar-dot"></div>L5: Geometric Series</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 1 · Lesson 5
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Sequences and Series — Final Lesson</div>
+      <h1>∞ Geometric Series and Infinite Series</h1>
+      <p>Learn to find the sum of geometric series — both finite and infinite. Understand convergence, one of the most beautiful ideas in mathematics, and apply it to real-world problems like compound interest and bouncing balls.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">From geometric sequences to their sums</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          You have already learned how geometric sequences work — each term multiplied by a constant ratio r. Now the question is: what happens when you <strong>add all those terms together</strong>?
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          More interestingly — what if the sequence goes on <strong>forever</strong>? Can an infinite sum of numbers give a finite answer? The surprising answer is: <strong>yes</strong>, but only under certain conditions. This idea of infinite series is one of the most powerful concepts in all of mathematics.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Find the sum of a finite geometric series using <strong>Sₙ = a₁(1 − rⁿ)/(1 − r)</strong></li>
+          <li>Determine whether an infinite geometric series converges or diverges</li>
+          <li>Find the sum of a convergent infinite series: <strong>S∞ = a₁/(1 − r)</strong> when |r| &lt; 1</li>
+          <li>Convert repeating decimals to fractions using infinite series</li>
+          <li>Solve real-world problems involving geometric series</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with visual aids</div>
+        </div>
+      </div>
+
+      <div class="definition-box">
+        <div class="def-label">📌 Definition — Geometric Series</div>
+        <p>A <strong>geometric series</strong> is the sum of the terms of a geometric sequence. If the sequence is a₁, a₁r, a₁r², ..., a₁rⁿ⁻¹ then the series is:<br><br>
+        <strong>Sₙ = a₁ + a₁r + a₁r² + a₁r³ + ... + a₁rⁿ⁻¹</strong></p>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Deriving the Finite Sum Formula</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">Write Sₙ, then multiply both sides by r, then subtract:</p>
+        <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem 1.25rem;font-family:'Georgia',serif;font-size:.875rem;margin-bottom:1rem;line-height:1.9">
+          <div>Sₙ &nbsp;= a₁ + a₁r + a₁r² + ... + a₁rⁿ⁻¹</div>
+          <div>rSₙ = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a₁r + a₁r² + ... + a₁rⁿ⁻¹ + a₁rⁿ</div>
+          <div style="border-top:1.5px solid var(--border);padding-top:.5rem;margin-top:.5rem;color:var(--brand-primary);font-weight:700">
+            Sₙ − rSₙ = a₁ − a₁rⁿ<br>
+            Sₙ(1 − r) = a₁(1 − rⁿ)<br>
+            Sₙ = a₁(1 − rⁿ) / (1 − r), &nbsp; r ≠ 1
+          </div>
+        </div>
+        <div class="math-display" style="font-size:1.15rem;font-weight:700">
+          Sₙ = a₁(1 − rⁿ) / (1 − r) &nbsp;&nbsp; (r ≠ 1)
+        </div>
+        <div class="note-box">
+          <div class="note-label">⚠ Alternative Form</div>
+          <p>When r > 1, it is more convenient to write: <strong>Sₙ = a₁(rⁿ − 1) / (r − 1)</strong>. Both forms give the same answer — use whichever avoids negative denominators.</p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Special Case: r = 1</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          When r = 1, all terms are equal to a₁. The formula above does not apply (division by zero). Instead:
+        </p>
+        <div class="math-display">Sₙ = n · a₁ &nbsp;&nbsp; (when r = 1)</div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Infinite Geometric Series — Convergence</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          What happens when n → ∞? The key is the behavior of rⁿ:
+        </p>
+        <div class="convergence-visual">
+          <div class="conv-card converges">
+            <div class="conv-title g">Converges (|r| &lt; 1)</div>
+            <div class="conv-seq g">1/2 + 1/4 + 1/8 + ...</div>
+            <div class="conv-note">r = 1/2. As n→∞, rⁿ→0.<br>Sum approaches a finite value.</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;font-weight:700;color:#166534;margin-top:.5rem">S∞ = 1</div>
+          </div>
+          <div class="conv-card diverges">
+            <div class="conv-title r">Diverges (|r| ≥ 1)</div>
+            <div class="conv-seq r">2 + 4 + 8 + 16 + ...</div>
+            <div class="conv-note">r = 2. As n→∞, rⁿ→∞.<br>Sum grows without bound.</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;font-weight:700;color:#991B1B;margin-top:.5rem">S∞ = ∞ (no sum)</div>
+          </div>
+        </div>
+        <div class="definition-box" style="margin-top:1rem">
+          <div class="def-label">📌 Convergence Rule</div>
+          <p>An infinite geometric series <strong>converges</strong> (has a finite sum) if and only if <strong>|r| &lt; 1</strong>.<br>
+          When |r| &lt; 1, as n→∞, rⁿ→0, so:<br><br>
+          <strong>S∞ = a₁ / (1 − r)</strong> &nbsp;&nbsp; (only valid when |r| &lt; 1)</p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Repeating Decimals as Infinite Series</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          Every repeating decimal can be written as an infinite geometric series and converted to a fraction — a classic entrance exam topic.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">Example — Convert 0.333... to a fraction</div>
+          <p>
+            0.333... = 0.3 + 0.03 + 0.003 + ...<br>
+            This is a geometric series with a₁ = 0.3 and r = 0.1<br>
+            Since |r| = 0.1 &lt; 1, it converges:<br>
+            S∞ = 0.3 / (1 − 0.1) = 0.3 / 0.9 = <strong>1/3</strong> ✓
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">⚠ Exam Tip</div>
+          <p>Converting repeating decimals to fractions using infinite geometric series appears frequently on the Ethiopian entrance exam. Always check |r| &lt; 1 before applying S∞ = a₁/(1−r).</p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Comparison of All Series Formulas</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:.85rem">
+          <thead>
+            <tr style="background:var(--brand-primary);color:#fff">
+              <th style="padding:.625rem 1rem;text-align:left">Series Type</th>
+              <th style="padding:.625rem 1rem;text-align:left">Formula</th>
+              <th style="padding:.625rem 1rem;text-align:left">When to use</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:var(--surface-2)">
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-weight:600">Arithmetic</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">Sₙ = n/2·(a₁+aₙ)</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">First and last term known</td>
+            </tr>
+            <tr>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-weight:600">Arithmetic</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">Sₙ = n/2·[2a₁+(n−1)d]</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">d known, last term not</td>
+            </tr>
+            <tr style="background:var(--surface-2)">
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-weight:600">Geometric (finite)</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">Sₙ = a₁(1−rⁿ)/(1−r)</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">Any r ≠ 1, finite n</td>
+            </tr>
+            <tr>
+              <td style="padding:.625rem 1rem;font-weight:600">Geometric (infinite)</td>
+              <td style="padding:.625rem 1rem;font-family:Georgia,serif;color:var(--brand-primary)">S∞ = a₁/(1−r)</td>
+              <td style="padding:.625rem 1rem">Only when |r| &lt; 1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">All geometric series formulas — memorize these</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📐 Lesson 5 — Geometric Series Formulas</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Finite Sum (r &lt; 1)</div>
+            <div class="formula-math">Sₙ = a₁(1−rⁿ)/(1−r)</div>
+            <div class="formula-note">Use when r is a fraction less than 1</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Finite Sum (r &gt; 1)</div>
+            <div class="formula-math">Sₙ = a₁(rⁿ−1)/(r−1)</div>
+            <div class="formula-note">Use when r is greater than 1</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Special Case r = 1</div>
+            <div class="formula-math">Sₙ = n · a₁</div>
+            <div class="formula-note">All terms are equal to a₁</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Infinite Sum</div>
+            <div class="formula-math">S∞ = a₁/(1−r)</div>
+            <div class="formula-note">Only valid when |r| &lt; 1</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Convergence Condition</div>
+            <div class="formula-math">|r| &lt; 1</div>
+            <div class="formula-note">Series converges iff |r| &lt; 1</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Repeating Decimal</div>
+            <div class="formula-math">0.ddd... = d/9</div>
+            <div class="formula-note">Use S∞ with a₁=0.d, r=0.1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 1</span>
+          <span class="example-title">Finite Geometric Series</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the sum of the first 6 terms of the geometric series 2 + 6 + 18 + 54 + ...</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a₁ = 2, &nbsp; r = 3, &nbsp; n = 6</span></div></div>
+          <div class="example-step">
+            <span class="step-badge">Apply</span>
+            <div class="step-text">Since r = 3 &gt; 1, use Sₙ = a₁(rⁿ−1)/(r−1):<br>
+              <span class="math">S₆ = 2(3⁶ − 1)/(3 − 1) = 2(729 − 1)/2 = 728</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ S₆ = <strong>728</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 2</span>
+          <span class="example-title">Finite Series with Fractional Ratio</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the sum of the first 5 terms of 16 + 8 + 4 + 2 + ...</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a₁ = 16, &nbsp; r = 1/2, &nbsp; n = 5</span></div></div>
+          <div class="example-step">
+            <span class="step-badge">Apply</span>
+            <div class="step-text">Since r = 1/2 &lt; 1, use Sₙ = a₁(1−rⁿ)/(1−r):<br>
+              <span class="math">S₅ = 16(1 − (1/2)⁵)/(1 − 1/2)</span><br>
+              <span class="math">= 16(1 − 1/32)/(1/2)</span><br>
+              <span class="math">= 16 · (31/32) · 2 = 16 · 31/16 = 31</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ S₅ = <strong>31</strong> — Verify: 16+8+4+2+1 = 31 ✓</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 3</span>
+          <span class="example-title">Infinite Geometric Series</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the sum of the infinite series: 12 + 4 + 4/3 + 4/9 + ...</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a₁ = 12, &nbsp; r = 4/12 = 1/3</span></div></div>
+          <div class="example-step"><span class="step-badge">Check</span><div class="step-text">|r| = 1/3 &lt; 1 ✓ — series converges</div></div>
+          <div class="example-step">
+            <span class="step-badge">Apply</span>
+            <div class="step-text">
+              <span class="math">S∞ = a₁/(1−r) = 12/(1 − 1/3) = 12/(2/3) = 12 × 3/2 = 18</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ S∞ = <strong>18</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 4</span>
+          <span class="example-title">Repeating Decimal to Fraction</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Express 0.272727... as a fraction.</div>
+          <div class="example-step">
+            <span class="step-badge">Step 1</span>
+            <div class="step-text">Write as infinite series:<br>
+              <span class="math">0.272727... = 0.27 + 0.0027 + 0.000027 + ...</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 2</span>
+            <div class="step-text">Identify: <span class="math">a₁ = 0.27, &nbsp; r = 0.01</span><br>
+              |r| = 0.01 &lt; 1 ✓ — converges
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 3</span>
+            <div class="step-text">Apply S∞ formula:<br>
+              <span class="math">S∞ = 0.27/(1 − 0.01) = 0.27/0.99 = 27/99 = 3/11</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ 0.272727... = <strong>3/11</strong> — Verify: 3 ÷ 11 = 0.2727... ✓</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 5</span>
+          <span class="example-title">Real-World — Bouncing Ball</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A ball is dropped from a height of 10 m. Each time it bounces it rises to 3/5 of its previous height. What is the total distance traveled by the ball?</div>
+          <div class="example-step">
+            <span class="step-badge">Step 1</span>
+            <div class="step-text">The ball falls 10m, then bounces up and down repeatedly.<br>
+              Total distance = 10 (first fall) + 2 × (sum of all bounce heights)<br>
+              Each bounce: heights are 6, 3.6, 2.16, ... (geometric with a₁=6, r=3/5)
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 2</span>
+            <div class="step-text">Sum of infinite bounces (each counted twice — up and down):<br>
+              <span class="math">S∞ = 6/(1 − 3/5) = 6/(2/5) = 6 × 5/2 = 15</span><br>
+              Total bounce distance = 2 × 15 = 30m
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 3</span>
+            <div class="step-text">Add initial fall:<br>
+              <span class="math">Total = 10 + 30 = 40m</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Total distance traveled = <strong>40 metres</strong></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">What is the sum of the first 5 terms of the geometric series 3 + 6 + 12 + 24 + ...?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div>90</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div>93</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div>96</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div>99</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Find the sum to infinity: 8 + 4 + 2 + 1 + ...</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div>12</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div>15</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div>16</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div>18</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Which of the following infinite geometric series converges?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','D')"><div class="option-letter">A</div>1 + 2 + 4 + 8 + ... (r = 2)</div>
+          <div class="quiz-option" onclick="answer(3,'B','D')"><div class="option-letter">B</div>3 + 3 + 3 + 3 + ... (r = 1)</div>
+          <div class="quiz-option" onclick="answer(3,'C','D')"><div class="option-letter">C</div>5 + 10 + 20 + ... (r = 2)</div>
+          <div class="quiz-option" onclick="answer(3,'D','D')"><div class="option-letter">D</div>6 + 2 + 2/3 + 2/9 + ... (r = 1/3)</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Express 0.444... as a fraction.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div>2/5</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div>4/10</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div>4/9</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div>1/2</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The sum to infinity of a geometric series is 20 and the first term is 8. What is the common ratio?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div>1/4</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div>3/5</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div>2/5</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div>1/3</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Course Index →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Geometric Series</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem">Watch these to reinforce this lesson:</p>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+geometric+series+sum" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Geometric Series — Sum Formula</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+infinite+geometric+series" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Infinite Geometric Series and Convergence</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+repeating+decimal+fraction+geometric+series" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Repeating Decimals as Fractions using Geometric Series</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+geometric+series+word+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Geometric Series Word Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 5</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Geometric Series</div>
+        <ul class="summary-list">
+          <li>A geometric series is the sum of a geometric sequence: Sₙ = a₁ + a₁r + a₁r² + ... + a₁rⁿ⁻¹</li>
+          <li>Finite sum formula: <strong>Sₙ = a₁(1−rⁿ)/(1−r)</strong> for r ≠ 1, or a₁(rⁿ−1)/(r−1) when r &gt; 1.</li>
+          <li>When r = 1, all terms are equal: Sₙ = n·a₁.</li>
+          <li>An infinite geometric series converges only when <strong>|r| &lt; 1</strong>.</li>
+          <li>Infinite sum formula: <strong>S∞ = a₁/(1−r)</strong> — only apply when |r| &lt; 1.</li>
+          <li>Every repeating decimal is an infinite geometric series and can be converted to a fraction.</li>
+          <li>For repeating decimals: use a₁ = first repeating block as decimal, r = 10⁻ᵏ where k = length of block.</li>
+          <li>Always check convergence before applying S∞. If |r| ≥ 1 the series has no finite sum.</li>
+        </ul>
+      </div>
+
+      <!-- Unit 1 complete banner -->
+      <div class="unit-complete-banner">
+        <h3>🎉 Unit 1 Complete — Sequences and Series</h3>
+        <p>You have finished all 5 lessons of Unit 1. You now know arithmetic and geometric sequences, arithmetic and geometric series, and infinite series. These topics appear in almost every entrance exam.</p>
+        <a href="../index.html" class="btn btn-accent btn-lg">View All Units →</a>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit1-lesson4.html" class="btn btn-ghost">← Lesson 4: Arithmetic Series</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 5 of 5 · Unit Complete ✅</div>
+      <a href="../index.html" class="btn btn-primary">Course Index →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+
+  const answers   = {};
+  const correct   = {1:'B', 2:'C', 3:'D', 4:'C', 5:'B'};
+  const feedbacks = {
+    1:{B:'✓ Correct! S₅ = 3(2⁵−1)/(2−1) = 3(32−1)/1 = 3×31 = 93.',wrong:'✗ S₅ = 3(2⁵−1)/(2−1) = 3×31 = 93.'},
+    2:{C:'✓ Correct! r=1/2, |r|<1. S∞ = 8/(1−1/2) = 8/(1/2) = 16.',wrong:'✗ r=1/2. S∞ = 8/(1−0.5) = 8/0.5 = 16.'},
+    3:{D:'✓ Correct! Only D has |r| = 1/3 < 1, so it converges.',wrong:'✗ A series converges only when |r| < 1. Only D has r = 1/3 which satisfies this.'},
+    4:{C:'✓ Correct! a₁=0.4, r=0.1. S∞ = 0.4/(1−0.1) = 0.4/0.9 = 4/9.',wrong:'✗ 0.444... = 0.4+0.04+... with r=0.1. S∞ = 0.4/0.9 = 4/9.'},
+    5:{B:'✓ Correct! S∞ = a₁/(1−r): 20 = 8/(1−r), 1−r = 8/20 = 2/5, r = 3/5.',wrong:'✗ 20 = 8/(1−r) → 1−r = 8/20 = 2/5 → r = 1 − 2/5 = 3/5.'},
+  };
+
+  let answered = 0;
+
+  function answer(qNum, chosen, correctAns) {
+    if (answers[qNum]) return;
+    answers[qNum] = chosen;
+    answered++;
+    const card    = document.getElementById('q' + qNum);
+    const options = card.querySelectorAll('.quiz-option');
+    const fb      = document.getElementById('q' + qNum + '-feedback');
+    const letters = ['A','B','C','D'];
+    options.forEach((opt,i) => {
+      opt.classList.add('disabled');
+      if (letters[i] === correctAns) opt.classList.add('correct');
+      else if (letters[i] === chosen && chosen !== correctAns) opt.classList.add('wrong');
+    });
+    const isCorrect = chosen === correctAns;
+    fb.textContent = isCorrect ? feedbacks[qNum][correctAns] : feedbacks[qNum].wrong;
+    fb.className   = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+    updateProgress();
+    if (answered === 5) showScore();
+  }
+
+  function showScore() {
+    const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent = score + '/5';
+    const labels = ['📖 Review and retake.','📖 Keep studying.','📖 Almost there!','👍 Good work!','👍 Almost perfect!','🎉 Perfect! Unit 1 complete!'];
+    document.getElementById('score-label').textContent = labels[score];
+  }
+
+  function retakeQuiz() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    answered = 0;
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o => { o.className='quiz-option'; });
+      document.getElementById('q'+i+'-feedback').className = 'quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress() {
+    document.getElementById('progress-fill').style.width = (answered/5*100)+'%';
+  }
+
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections = ['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll', () => {
+    let current = 'intro';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l => {
+      const t = l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active', t === current);
+    });
+  });
+</script>
+</body>
+</html>
