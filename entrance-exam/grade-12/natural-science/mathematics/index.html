@@ -6,6 +6,10 @@
   <title>Grade 12 Mathematics | Entrance Exam Prep</title>
   <link rel="stylesheet" href="../../../../css/brand.css">
   <style>
+    /* Hide body until auth confirms (prevents FOUC / flash of protected content) */
+    body { visibility: hidden; }
+    body.authed { visibility: visible; }
+
     .course-hero {
       background: linear-gradient(135deg, #0F172A 0%, #14532D 100%);
       padding: 3rem 2rem;
@@ -37,10 +41,14 @@
 
     .breadcrumb {
       display: flex; align-items: center; gap: 6px;
-      font-size: .82rem; color: var(--text-muted);
+      font-size: .82rem;
+      color: var(--text-muted, #64748b);
       margin-bottom: 2rem;
     }
-    .breadcrumb a { color: var(--brand-primary); text-decoration: none; }
+    .breadcrumb a {
+      color: var(--brand-primary, #22C55E);
+      text-decoration: none;
+    }
     .breadcrumb a:hover { text-decoration: underline; }
 
     /* ── Unit section ── */
@@ -49,8 +57,8 @@
     .unit-header {
       display: flex; align-items: center; gap: 12px;
       padding: 1rem 1.25rem;
-      background: var(--brand-primary);
-      border-radius: var(--radius-lg);
+      background: var(--brand-primary, #22C55E);
+      border-radius: var(--radius-lg, 12px);
       margin-bottom: 1rem;
       color: #fff;
     }
@@ -73,8 +81,8 @@
     /* ── Lesson item — shared base ── */
     .lesson-item {
       background: #fff;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-lg);
+      border: 1.5px solid var(--border, #e2e8f0);
+      border-radius: var(--radius-lg, 12px);
       padding: 1rem 1.25rem;
       display: flex;
       align-items: center;
@@ -82,14 +90,14 @@
       gap: 1rem;
       text-decoration: none;
       color: inherit;
-      transition: all var(--transition);
+      transition: all var(--transition, 200ms ease);
       cursor: pointer;
     }
 
     /* Available lessons */
     .lesson-item.available:hover {
-      border-color: var(--brand-accent);
-      box-shadow: var(--shadow);
+      border-color: var(--brand-accent, #22C55E);
+      box-shadow: var(--shadow, 0 4px 12px rgba(0,0,0,.08));
       transform: translateX(4px);
     }
 
@@ -99,23 +107,24 @@
       cursor: not-allowed;
       pointer-events: none;
     }
+    .lesson-item.locked * { cursor: not-allowed; }
 
     .lesson-left  { display: flex; align-items: center; gap: .875rem; }
     .lesson-right { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; }
 
     .lesson-num {
       width: 32px; height: 32px; border-radius: 50%;
-      background: var(--brand-light);
-      color: var(--brand-primary);
+      background: var(--brand-light, #dcfce7);
+      color: var(--brand-primary, #22C55E);
       display: flex; align-items: center; justify-content: center;
       font-size: .78rem; font-weight: 800; flex-shrink: 0;
     }
     .lesson-num.done {
-      background: var(--brand-primary);
+      background: var(--brand-primary, #22C55E);
       color: #fff;
     }
-    .lesson-title { font-size: .9rem; font-weight: 700; color: var(--heading); }
-    .lesson-desc  { font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
+    .lesson-title { font-size: .9rem; font-weight: 700; color: var(--heading, #0f172a); }
+    .lesson-desc  { font-size: .78rem; color: var(--text-muted, #64748b); margin-top: 2px; }
 
     .lesson-badge {
       font-size: .7rem; font-weight: 600;
@@ -123,7 +132,7 @@
       white-space: nowrap;
     }
     .badge-available { background: #DCFCE7; color: #166534; }
-    .badge-locked    { background: var(--surface-2); color: var(--text-muted); }
+    .badge-locked    { background: var(--surface-2, #f1f5f9); color: var(--text-muted, #64748b); }
     .badge-quiz      { background: #DBEAFE; color: #1E40AF; }
   </style>
 </head>
@@ -185,439 +194,193 @@
     <span>Mathematics</span>
   </div>
 
-  <!-- ═══════════════════════════════════
-       UNIT 1
-  ═══════════════════════════════════ -->
-  <div class="unit-section">
-    <div class="unit-header">
-      <div class="unit-num">1</div>
-      <div>
-        <div class="unit-title">Sequences and Series</div>
-        <div class="unit-sub">Arithmetic, Geometric and Infinite Series</div>
-      </div>
-    </div>
-    <div class="lessons-list">
-
-      <a href="lessons/unit1-lesson1.html" class="lesson-item available">
-        <div class="lesson-left">
-          <div class="lesson-num done">1</div>
-          <div>
-            <div class="lesson-title">Introduction to Sequences</div>
-            <div class="lesson-desc">Definition, notation, types and patterns of sequences</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-available">✓ Available</span>
-          <span class="lesson-badge badge-quiz">5 Quizzes</span>
-        </div>
-      </a>
-
-      <a href="lessons/unit1-lesson2.html" class="lesson-item available">
-        <div class="lesson-left">
-          <div class="lesson-num done">2</div>
-          <div>
-            <div class="lesson-title">Arithmetic Sequences</div>
-            <div class="lesson-desc">Common difference, nth term formula and applications</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-available">✓ Available</span>
-          <span class="lesson-badge badge-quiz">5 Quizzes</span>
-        </div>
-      </a>
-
-      <a href="lessons/unit1-lesson3.html" class="lesson-item available">
-        <div class="lesson-left">
-          <div class="lesson-num done">3</div>
-          <div>
-            <div class="lesson-title">Geometric Sequences</div>
-            <div class="lesson-desc">Common ratio, nth term and geometric means</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-available">✓ Available</span>
-          <span class="lesson-badge badge-quiz">5 Quizzes</span>
-        </div>
-      </a>
-
-      <a href="lessons/unit1-lesson4.html" class="lesson-item available">
-        <div class="lesson-left">
-          <div class="lesson-num done">4</div>
-          <div>
-            <div class="lesson-title">Arithmetic Series</div>
-            <div class="lesson-desc">Sum of arithmetic sequences and applications</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-available">✓ Available</span>
-          <span class="lesson-badge badge-quiz">5 Quizzes</span>
-        </div>
-      </a>
-
-            <a href="lessons/unit1-lesson5.html" class="lesson-item available">
-        <div class="lesson-left">
-          <div class="lesson-num done">5</div>
-          <div>
-            <div class="lesson-title">Geometric Series and Infinite Series</div>
-            <div class="lesson-desc">Sum of geometric series, convergence and applications</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-available">✓ Available</span>
-          <span class="lesson-badge badge-quiz">5 Quizzes</span>
-        </div>
-      </a>
-          
-  
-  </div>
-
-  <!-- ═══════════════════════════════════
-       UNIT 2
-  ═══════════════════════════════════ -->
-  <div class="unit-section">
-    <div class="unit-header">
-      <div class="unit-num">2</div>
-      <div>
-        <div class="unit-title">Introduction to Limits and Continuity</div>
-        <div class="unit-sub">Limits, Continuity and their applications</div>
-      </div>
-    </div>
-    <div class="lessons-list">
-
-            <a href="lessons/unit2-lesson1.html" class="lesson-item available">
-        <div class="lesson-left">
-          <div class="lesson-num done">1</div>
-          <div>
-            <div class="lesson-title">Concept of a Limit</div>
-            <div class="lesson-desc">Intuitive approach, notation and existence of limits</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-available">✓ Available</span>
-          <span class="lesson-badge badge-quiz">5 Quizzes</span>
-        </div>
-      </a>
-      </div>
-
-            <a href="lessons/unit2-lesson2.html" class="lesson-item available">
-        <div class="lesson-left">
-          <div class="lesson-num done">2</div>
-          <div>
-            <div class="lesson-title">Limit Theorems</div>
-            <div class="lesson-desc">Rules for computing limits algebraically</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-available">✓ Available</span>
-          <span class="lesson-badge badge-quiz">5 Quizzes</span>
-        </div>
-      </a>
-            <div class="lesson-desc">Rules for computing limits algebraically</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">3</div>
-          <div>
-            <div class="lesson-title">One-Sided Limits</div>
-            <div class="lesson-desc">Left-hand and right-hand limits</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">4</div>
-          <div>
-            <div class="lesson-title">Continuity of Functions</div>
-            <div class="lesson-desc">Definition, types of discontinuity and Intermediate Value Theorem</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════
-       UNIT 3
-  ═══════════════════════════════════ -->
-  <div class="unit-section">
-    <div class="unit-header">
-      <div class="unit-num">3</div>
-      <div>
-        <div class="unit-title">Introduction to Differential Calculus</div>
-        <div class="unit-sub">Derivatives and their applications</div>
-      </div>
-    </div>
-    <div class="lessons-list">
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">1</div>
-          <div>
-            <div class="lesson-title">The Derivative</div>
-            <div class="lesson-desc">Definition using limits, slope of tangent line</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">2</div>
-          <div>
-            <div class="lesson-title">Rules of Differentiation</div>
-            <div class="lesson-desc">Power, product, quotient and chain rules</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">3</div>
-          <div>
-            <div class="lesson-title">Higher Order Derivatives</div>
-            <div class="lesson-desc">Second and higher derivatives and their meaning</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">4</div>
-          <div>
-            <div class="lesson-title">Applications of Derivatives</div>
-            <div class="lesson-desc">Increasing/decreasing, extrema, optimization problems</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════
-       UNIT 4
-  ═══════════════════════════════════ -->
-  <div class="unit-section">
-    <div class="unit-header">
-      <div class="unit-num">4</div>
-      <div>
-        <div class="unit-title">Introduction to Integral Calculus</div>
-        <div class="unit-sub">Integration and applications</div>
-      </div>
-    </div>
-    <div class="lessons-list">
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">1</div>
-          <div>
-            <div class="lesson-title">Antiderivatives and Indefinite Integrals</div>
-            <div class="lesson-desc">Basic integration rules and techniques</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">2</div>
-          <div>
-            <div class="lesson-title">Definite Integrals</div>
-            <div class="lesson-desc">Fundamental Theorem of Calculus</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">3</div>
-          <div>
-            <div class="lesson-title">Applications of Integration</div>
-            <div class="lesson-desc">Area under curves and between curves</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════
-       UNIT 5
-  ═══════════════════════════════════ -->
-  <div class="unit-section">
-    <div class="unit-header">
-      <div class="unit-num">5</div>
-      <div>
-        <div class="unit-title">Statistics and Probability</div>
-        <div class="unit-sub">Data analysis, probability theory and distributions</div>
-      </div>
-    </div>
-    <div class="lessons-list">
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">1</div>
-          <div>
-            <div class="lesson-title">Statistical Data Analysis</div>
-            <div class="lesson-desc">Measures of central tendency and dispersion</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">2</div>
-          <div>
-            <div class="lesson-title">Introduction to Probability</div>
-            <div class="lesson-desc">Sample space, events and probability rules</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">3</div>
-          <div>
-            <div class="lesson-title">Probability Distributions</div>
-            <div class="lesson-desc">Binomial, normal distribution and applications</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════
-       UNIT 6
-  ═══════════════════════════════════ -->
-  <div class="unit-section">
-    <div class="unit-header">
-      <div class="unit-num">6</div>
-      <div>
-        <div class="unit-title">Linear Programming</div>
-        <div class="unit-sub">Optimization of linear functions with constraints</div>
-      </div>
-    </div>
-    <div class="lessons-list">
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">1</div>
-          <div>
-            <div class="lesson-title">Linear Inequalities in Two Variables</div>
-            <div class="lesson-desc">Graphing and feasible regions</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">2</div>
-          <div>
-            <div class="lesson-title">Linear Programming Problems</div>
-            <div class="lesson-desc">Formulation, graphical method and applications</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════
-       UNIT 7
-  ═══════════════════════════════════ -->
-  <div class="unit-section">
-    <div class="unit-header">
-      <div class="unit-num">7</div>
-      <div>
-        <div class="unit-title">Mathematical Proofs</div>
-        <div class="unit-sub">Logic, proof techniques and mathematical reasoning</div>
-      </div>
-    </div>
-    <div class="lessons-list">
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">1</div>
-          <div>
-            <div class="lesson-title">Logic and Propositions</div>
-            <div class="lesson-desc">Statements, connectives and truth tables</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-      <div class="lesson-item locked">
-        <div class="lesson-left">
-          <div class="lesson-num">2</div>
-          <div>
-            <div class="lesson-title">Methods of Proof</div>
-            <div class="lesson-desc">Direct proof, contradiction, contrapositive and induction</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
+  <!-- Units are rendered dynamically from the `units` data array below -->
+  <div id="units-container"></div>
 
 </div><!-- end .wrap -->
 
 <script>
-  fetch('/api/auth/me', {credentials:'include'})
-    .then(r => r.json())
-    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
-    .catch(() => {});
+/* ============================================================
+   LESSON DATA
+   ------------------------------------------------------------
+   Single source of truth. Add a lesson in one place → it
+   appears everywhere. No more copy-paste / orphan </div> bugs.
+   ============================================================ */
+const units = [
+  {
+    num: 1,
+    title: "Sequences and Series",
+    sub: "Arithmetic, Geometric and Infinite Series",
+    lessons: [
+      { num: 1, title: "Introduction to Sequences",            desc: "Definition, notation, types and patterns of sequences", href: "lessons/unit1-lesson1.html", status: "available", quizzes: 5 },
+      { num: 2, title: "Arithmetic Sequences",                 desc: "Common difference, nth term formula and applications",  href: "lessons/unit1-lesson2.html", status: "available", quizzes: 5 },
+      { num: 3, title: "Geometric Sequences",                  desc: "Common ratio, nth term and geometric means",            href: "lessons/unit1-lesson3.html", status: "available", quizzes: 5 },
+      { num: 4, title: "Arithmetic Series",                    desc: "Sum of arithmetic sequences and applications",          href: "lessons/unit1-lesson4.html", status: "available", quizzes: 5 },
+      { num: 5, title: "Geometric Series and Infinite Series", desc: "Sum of geometric series, convergence and applications", href: "lessons/unit1-lesson5.html", status: "available", quizzes: 5 },
+    ],
+  },
+  {
+    num: 2,
+    title: "Introduction to Limits and Continuity",
+    sub: "Limits, Continuity and their applications",
+    lessons: [
+      { num: 1, title: "Concept of a Limit",      desc: "Intuitive approach, notation and existence of limits",              href: "lessons/unit2-lesson1.html", status: "available", quizzes: 5 },
+      { num: 2, title: "Limit Theorems",          desc: "Rules for computing limits algebraically",                          href: "lessons/unit2-lesson2.html", status: "available", quizzes: 5 },
+      { num: 3, title: "One-Sided Limits",        desc: "Left-hand and right-hand limits",                                   href: "lessons/unit2-lesson3.html", status: "available", quizzes: 5 },
+      { num: 4, title: "Continuity of Functions", desc: "Definition, types of discontinuity and Intermediate Value Theorem", href: null,                         status: "locked" },
+    ],
+  },
+  {
+    num: 3,
+    title: "Introduction to Differential Calculus",
+    sub: "Derivatives and their applications",
+    lessons: [
+      { num: 1, title: "The Derivative",              desc: "Definition using limits, slope of tangent line",        href: null, status: "locked" },
+      { num: 2, title: "Rules of Differentiation",    desc: "Power, product, quotient and chain rules",              href: null, status: "locked" },
+      { num: 3, title: "Higher Order Derivatives",    desc: "Second and higher derivatives and their meaning",       href: null, status: "locked" },
+      { num: 4, title: "Applications of Derivatives", desc: "Increasing/decreasing, extrema, optimization problems", href: null, status: "locked" },
+    ],
+  },
+  {
+    num: 4,
+    title: "Introduction to Integral Calculus",
+    sub: "Integration and applications",
+    lessons: [
+      { num: 1, title: "Antiderivatives and Indefinite Integrals", desc: "Basic integration rules and techniques", href: null, status: "locked" },
+      { num: 2, title: "Definite Integrals",                       desc: "Fundamental Theorem of Calculus",        href: null, status: "locked" },
+      { num: 3, title: "Applications of Integration",              desc: "Area under curves and between curves",   href: null, status: "locked" },
+    ],
+  },
+  {
+    num: 5,
+    title: "Statistics and Probability",
+    sub: "Data analysis, probability theory and distributions",
+    lessons: [
+      { num: 1, title: "Statistical Data Analysis",   desc: "Measures of central tendency and dispersion",    href: null, status: "locked" },
+      { num: 2, title: "Introduction to Probability", desc: "Sample space, events and probability rules",     href: null, status: "locked" },
+      { num: 3, title: "Probability Distributions",   desc: "Binomial, normal distribution and applications", href: null, status: "locked" },
+    ],
+  },
+  {
+    num: 6,
+    title: "Linear Programming",
+    sub: "Optimization of linear functions with constraints",
+    lessons: [
+      { num: 1, title: "Linear Inequalities in Two Variables", desc: "Graphing and feasible regions",                href: null, status: "locked" },
+      { num: 2, title: "Linear Programming Problems",          desc: "Formulation, graphical method and applications", href: null, status: "locked" },
+    ],
+  },
+  {
+    num: 7,
+    title: "Mathematical Proofs",
+    sub: "Logic, proof techniques and mathematical reasoning",
+    lessons: [
+      { num: 1, title: "Logic and Propositions", desc: "Statements, connectives and truth tables",                  href: null, status: "locked" },
+      { num: 2, title: "Methods of Proof",       desc: "Direct proof, contradiction, contrapositive and induction", href: null, status: "locked" },
+    ],
+  },
+];
+
+/* ============================================================
+   RENDER HELPERS
+   ============================================================ */
+function escapeHtml(str) {
+  return String(str)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function renderLesson(lesson) {
+  const isLocked = lesson.status === "locked";
+  const tag      = isLocked ? "div" : "a";
+  const attrs    = isLocked
+    ? `class="lesson-item locked" aria-disabled="true" tabindex="-1"`
+    : `href="${escapeHtml(lesson.href)}" class="lesson-item available" data-lesson-id="${escapeHtml(lesson.href)}"`;
+
+  // Available lessons start WITHOUT .done — the progress API adds it later
+  const numClass = "lesson-num";
+  const right    = isLocked
+    ? `<span class="lesson-badge badge-locked">🔒 Coming Soon</span>`
+    : `<span class="lesson-badge badge-available">✓ Available</span>
+       <span class="lesson-badge badge-quiz">${lesson.quizzes} Quizzes</span>`;
+
+  return `
+    <${tag} ${attrs}>
+      <div class="lesson-left">
+        <div class="${numClass}">${lesson.num}</div>
+        <div>
+          <div class="lesson-title">${escapeHtml(lesson.title)}</div>
+          <div class="lesson-desc">${escapeHtml(lesson.desc)}</div>
+        </div>
+      </div>
+      <div class="lesson-right">${right}</div>
+    </${tag}>
+  `;
+}
+
+function renderUnit(unit) {
+  const lessonsHtml = unit.lessons.map(renderLesson).join("");
+  return `
+    <div class="unit-section">
+      <div class="unit-header">
+        <div class="unit-num">${unit.num}</div>
+        <div>
+          <div class="unit-title">${escapeHtml(unit.title)}</div>
+          <div class="unit-sub">${escapeHtml(unit.sub)}</div>
+        </div>
+      </div>
+      <div class="lessons-list">
+        ${lessonsHtml}
+      </div>
+    </div>
+  `;
+}
+
+function renderAllUnits() {
+  const container = document.getElementById("units-container");
+  container.innerHTML = units.map(renderUnit).join("");
+}
+
+/* ============================================================
+   AUTH + PROGRESS
+   ============================================================ */
+async function init() {
+  renderAllUnits();
+
+  try {
+    const res  = await fetch("/api/auth/me", { credentials: "include" });
+    const data = await res.json();
+
+    if (!data.user) {
+      // Relative path — works under subpaths (e.g., /courses/...)
+      location.href = "../../../../login.html?reason=login_required";
+      return;
+    }
+
+    // Mark completed lessons as done
+    // Expecting: { progress: { "unit1-lesson1": true, ... } }
+    if (data.progress) {
+      for (const [lessonId, done] of Object.entries(data.progress)) {
+        if (!done) continue;
+        const numEl = document.querySelector(
+          `.lesson-item.available[data-lesson-id*="${lessonId}"] .lesson-num`
+        );
+        if (numEl) numEl.classList.add("done");
+      }
+    }
+
+    document.body.classList.add("authed");
+  } catch (err) {
+    console.error("Auth check failed:", err);
+    // Fail closed: send to login instead of showing partial content
+    location.href = "../../../../login.html?reason=server_error";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", init);
 </script>
 </body>
 </html>

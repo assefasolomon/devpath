@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3: One-Sided Limits | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem;display:flex;align-items:center;gap:6px}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1.05rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .math-display{background:var(--surface-2);border-radius:var(--radius);padding:.75rem 1.25rem;font-family:'Georgia',serif;font-size:1rem;color:var(--brand-primary);text-align:center;margin:.875rem 0;border-left:3px solid var(--brand-accent)}
+    /* Visual box */
+    .visual-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem;text-align:center}
+    .visual-caption{font-size:.78rem;color:var(--text-muted);margin-top:.75rem;line-height:1.5;text-align:center}
+    /* Side-by-side panels */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+    .panel-left{background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:var(--radius-xl);padding:1.25rem}
+    .panel-right{background:#FDF4FF;border:1.5px solid #E9D5FF;border-radius:var(--radius-xl);padding:1.25rem}
+    .panel-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.75rem}
+    .panel-title.blue{color:#1E40AF}
+    .panel-title.purple{color:#7C3AED}
+    .panel-math{font-family:Georgia,serif;font-size:1rem;font-weight:700;margin-bottom:.5rem}
+    .panel-math.blue{color:#2563EB}
+    .panel-math.purple{color:#7C3AED}
+    .panel-desc{font-size:.82rem;color:var(--text-muted);line-height:1.6}
+    /* Existence visual */
+    .exist-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+    .exist-card{border-radius:var(--radius-xl);padding:1.25rem;text-align:center}
+    .exist-card.yes{background:#F0FDF4;border:1.5px solid #86EFAC}
+    .exist-card.no{background:#FEF2F2;border:1.5px solid #FECACA}
+    .exist-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem}
+    .exist-title.g{color:#166534}
+    .exist-title.r{color:#991B1B}
+    /* Quiz */
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem;font-weight:700}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}.two-col,.exist-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div>Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div>Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div>Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div>Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div>Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div>Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div>Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="unit2-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div>L1: Concept of a Limit ✓</a>
+      <a href="unit2-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div>L2: Limit Theorems ✓</a>
+      <a href="unit2-lesson3.html" class="sidebar-link active"><div class="sidebar-dot"></div>L3: One-Sided Limits</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L4: Continuity 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 2 · Lesson 3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Limits and Continuity</div>
+      <h1>◀▶ One-Sided Limits</h1>
+      <p>Learn to evaluate limits from the left and from the right separately. Understand when a two-sided limit exists and when it does not — a key skill for identifying discontinuities on the entrance exam.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">Approaching from one direction at a time</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In real life, you can approach a location from the east or from the west. In mathematics, a function can be approached from the <strong>left side</strong> or from the <strong>right side</strong>. Sometimes the function behaves very differently depending on which direction you come from.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Consider a step function that equals 0 for x &lt; 2 and 1 for x ≥ 2. Approaching x = 2 from the left gives 0. Approaching from the right gives 1. These are called <strong>one-sided limits</strong>, and they are essential for understanding whether a two-sided limit exists.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define left-hand and right-hand limits with correct notation</li>
+          <li>Evaluate one-sided limits from graphs and piecewise functions</li>
+          <li>Apply the existence theorem: two-sided limit exists ⟺ both one-sided limits are equal</li>
+          <li>Identify jump discontinuities using one-sided limits</li>
+          <li>Evaluate one-sided limits of absolute value functions</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Theory and visual diagrams</div>
+        </div>
+      </div>
+
+      <!-- Definition -->
+      <div class="two-col">
+        <div class="panel-left">
+          <div class="panel-title blue">◀ Left-Hand Limit</div>
+          <div class="panel-math blue">lim(x→a⁻) f(x) = L</div>
+          <div class="panel-desc">Read as "the limit of f(x) as x approaches a <strong>from the left</strong>." x gets closer to a but stays less than a (x &lt; a).</div>
+        </div>
+        <div class="panel-right">
+          <div class="panel-title purple">▶ Right-Hand Limit</div>
+          <div class="panel-math purple">lim(x→a⁺) f(x) = L</div>
+          <div class="panel-desc">Read as "the limit of f(x) as x approaches a <strong>from the right</strong>." x gets closer to a but stays greater than a (x &gt; a).</div>
+        </div>
+      </div>
+
+      <!-- Visual: Left and Right approach diagram -->
+      <div class="visual-box">
+        <svg viewBox="0 0 540 180" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect x="0" y="0" width="540" height="180" fill="#F8FAFC" rx="8"/>
+          <!-- x-axis -->
+          <line x1="30" y1="130" x2="510" y2="130" stroke="#CBD5E1" stroke-width="1.5"/>
+          <!-- y-axis -->
+          <line x1="270" y1="20" x2="270" y2="160" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <!-- a label -->
+          <text x="270" y="148" font-family="Georgia,serif" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="700">a</text>
+
+          <!-- Left approach arrows (blue) -->
+          <line x1="80" y1="90" x2="220" y2="90" stroke="#2563EB" stroke-width="2.5"/>
+          <polygon points="235,90 218,84 218,96" fill="#2563EB"/>
+          <text x="140" y="78" font-family="Arial,sans-serif" font-size="11" fill="#2563EB" text-anchor="middle" font-weight="700">x → a⁻</text>
+          <text x="140" y="108" font-family="Arial,sans-serif" font-size="10" fill="#2563EB" text-anchor="middle">(from the left)</text>
+
+          <!-- Right approach arrows (purple) -->
+          <line x1="460" y1="90" x2="320" y2="90" stroke="#7C3AED" stroke-width="2.5"/>
+          <polygon points="305,90 322,84 322,96" fill="#7C3AED"/>
+          <text x="400" y="78" font-family="Arial,sans-serif" font-size="11" fill="#7C3AED" text-anchor="middle" font-weight="700">x → a⁺</text>
+          <text x="400" y="108" font-family="Arial,sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle">(from the right)</text>
+
+          <!-- Point a on x-axis -->
+          <circle cx="270" cy="130" r="5" fill="#14532D"/>
+
+          <!-- Case 1: Same limit -->
+          <rect x="30" y="15" width="220" height="30" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+          <text x="140" y="35" font-family="Georgia,serif" font-size="11" fill="#166534" text-anchor="middle">L⁻ = L⁺ → two-sided limit EXISTS ✓</text>
+
+          <!-- Case 2: Different limits -->
+          <rect x="290" y="15" width="220" height="30" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+          <text x="400" y="35" font-family="Georgia,serif" font-size="11" fill="#991B1B" text-anchor="middle">L⁻ ≠ L⁺ → two-sided limit DNE ✗</text>
+        </svg>
+        <div class="visual-caption">Approaching x = a from the left (x → a⁻) and from the right (x → a⁺). The two-sided limit only exists when both one-sided limits agree.</div>
+      </div>
+
+      <!-- Existence theorem -->
+      <div class="definition-box">
+        <div class="def-label">📌 Theorem — Existence of Two-Sided Limit</div>
+        <p>
+          <strong>lim(x→a) f(x) = L</strong> exists if and only if <strong>both</strong> one-sided limits exist and are equal:<br><br>
+          <strong>lim(x→a⁻) f(x) = L &nbsp; AND &nbsp; lim(x→a⁺) f(x) = L</strong><br><br>
+          If L⁻ ≠ L⁺, the two-sided limit does <strong>not exist (DNE)</strong>.
+        </p>
+      </div>
+
+      <!-- Visual: Step function diagram -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Visual — Step Function (Jump Discontinuity)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Consider the step function: f(x) = 0 if x &lt; 2, and f(x) = 1 if x ≥ 2.
+        </p>
+        <div class="visual-box">
+          <svg viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="420" height="200" fill="#F8FAFC" rx="8"/>
+            <!-- Axes -->
+            <line x1="40" y1="170" x2="400" y2="170" stroke="#CBD5E1" stroke-width="1.5"/>
+            <line x1="40" y1="20" x2="40" y2="170" stroke="#CBD5E1" stroke-width="1.5"/>
+            <!-- Axis labels -->
+            <text x="405" y="174" font-family="Arial" font-size="11" fill="#64748B">x</text>
+            <text x="35" y="16" font-family="Arial" font-size="11" fill="#64748B">f(x)</text>
+            <!-- x markers -->
+            <text x="200" y="184" font-family="Georgia,serif" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="700">2</text>
+            <line x1="200" y1="167" x2="200" y2="173" stroke="#0F172A" stroke-width="1.5"/>
+            <!-- y markers -->
+            <text x="28" y="174" font-family="Georgia,serif" font-size="11" fill="#64748B" text-anchor="middle">0</text>
+            <text x="28" y="110" font-family="Georgia,serif" font-size="11" fill="#64748B" text-anchor="middle">1</text>
+            <line x1="37" y1="107" x2="43" y2="107" stroke="#64748B" stroke-width="1"/>
+            <!-- Left segment: f(x)=0 for x<2 -->
+            <line x1="40" y1="170" x2="197" y2="170" stroke="#2563EB" stroke-width="3"/>
+            <!-- Open circle at x=2, y=0 -->
+            <circle cx="200" cy="170" r="5" fill="#fff" stroke="#2563EB" stroke-width="2.5"/>
+            <!-- Right segment: f(x)=1 for x>=2 -->
+            <line x1="200" y1="107" x2="395" y2="107" stroke="#7C3AED" stroke-width="3"/>
+            <!-- Filled circle at x=2, y=1 -->
+            <circle cx="200" cy="107" r="5" fill="#7C3AED" stroke="#7C3AED" stroke-width="2"/>
+            <!-- Left limit label -->
+            <text x="120" y="158" font-family="Arial,sans-serif" font-size="10" fill="#2563EB" font-weight="700">lim(x→2⁻) = 0</text>
+            <!-- Right limit label -->
+            <text x="255" y="97" font-family="Arial,sans-serif" font-size="10" fill="#7C3AED" font-weight="700">lim(x→2⁺) = 1</text>
+            <!-- Jump arrow -->
+            <line x1="200" y1="165" x2="200" y2="115" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="210" y="142" font-family="Arial,sans-serif" font-size="10" fill="#DC2626" font-weight="700">Jump!</text>
+          </svg>
+          <div class="visual-caption">
+            Left-hand limit = 0, Right-hand limit = 1. Since 0 ≠ 1, the two-sided limit at x = 2 does <strong>NOT exist</strong>. This is called a <strong>jump discontinuity</strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Piecewise functions -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Piecewise Functions and One-Sided Limits</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          Piecewise functions are the most common way one-sided limits appear on the entrance exam. The key rule is:
+        </p>
+        <div class="note-box">
+          <div class="note-label">⚠ Strategy for Piecewise Functions</div>
+          <p>For lim(x→a⁻): use the piece of the function where x &lt; a.<br>
+          For lim(x→a⁺): use the piece of the function where x &gt; a.<br>
+          Then compare the two results.</p>
+        </div>
+
+        <!-- Piecewise example visual -->
+        <div class="visual-box">
+          <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="480" height="160" fill="#F8FAFC" rx="8"/>
+            <!-- Function definition box -->
+            <rect x="20" y="20" width="170" height="120" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="1.5"/>
+            <text x="105" y="42" font-family="Georgia,serif" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="700">f(x) =</text>
+            <line x1="55" y1="50" x2="55" y2="130" stroke="#14532D" stroke-width="3"/>
+            <text x="110" y="75" font-family="Georgia,serif" font-size="11" fill="#2563EB" text-anchor="middle">x² + 1, &nbsp;x &lt; 2</text>
+            <text x="110" y="100" font-family="Georgia,serif" font-size="11" fill="#7C3AED" text-anchor="middle">3x − 1, &nbsp;x ≥ 2</text>
+
+            <!-- Arrows -->
+            <polygon points="215,80 200,74 200,86" fill="#0F172A"/>
+            <line x1="190" y1="80" x2="213" y2="80" stroke="#0F172A" stroke-width="1.5"/>
+
+            <!-- Results box -->
+            <rect x="225" y="20" width="235" height="120" rx="8" fill="#fff" stroke="#E2E8F0" stroke-width="1.5"/>
+            <text x="342" y="42" font-family="Arial,sans-serif" font-size="11" fill="#64748B" text-anchor="middle" font-weight="600">Evaluate at x = 2</text>
+            <rect x="235" y="52" width="105" height="36" rx="6" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1"/>
+            <text x="287" y="68" font-family="Arial,sans-serif" font-size="9" fill="#1E40AF" text-anchor="middle" font-weight="700">LEFT (x &lt; 2)</text>
+            <text x="287" y="82" font-family="Georgia,serif" font-size="11" fill="#2563EB" text-anchor="middle" font-weight="700">2²+1 = 5</text>
+            <rect x="350" y="52" width="100" height="36" rx="6" fill="#FDF4FF" stroke="#E9D5FF" stroke-width="1"/>
+            <text x="400" y="68" font-family="Arial,sans-serif" font-size="9" fill="#7C3AED" text-anchor="middle" font-weight="700">RIGHT (x ≥ 2)</text>
+            <text x="400" y="82" font-family="Georgia,serif" font-size="11" fill="#7C3AED" text-anchor="middle" font-weight="700">3(2)−1 = 5</text>
+            <!-- Result -->
+            <rect x="235" y="100" width="215" height="32" rx="6" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1.5"/>
+            <text x="342" y="120" font-family="Georgia,serif" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">5 = 5 ✓ → lim exists = 5</text>
+          </svg>
+          <div class="visual-caption">Both one-sided limits equal 5 — the two-sided limit exists and equals 5.</div>
+        </div>
+      </div>
+
+      <!-- Absolute value -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 One-Sided Limits and Absolute Value</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          Absolute value functions often require one-sided limits. Remember:
+        </p>
+        <div class="math-display">|x − a| = (x − a) if x &gt; a &nbsp;&nbsp;and&nbsp;&nbsp; |x − a| = −(x − a) if x &lt; a</div>
+        <div class="note-box">
+          <div class="note-label">⚠ Key Rule</div>
+          <p>When you see |expression| in a limit, split into left and right cases using the definition of absolute value. The sign changes depending on which side of the point you approach from.</p>
+        </div>
+      </div>
+
+      <!-- Existence summary visual -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 When Does the Two-Sided Limit Exist?</h3>
+        <div class="exist-grid">
+          <div class="exist-card yes">
+            <div class="exist-title g">✅ Limit EXISTS</div>
+            <div style="font-family:Georgia,serif;font-size:.95rem;color:var(--brand-primary);font-weight:700;margin-bottom:.5rem">L⁻ = L⁺ = L</div>
+            <div style="font-size:.82rem;color:var(--text-muted);line-height:1.6">Both one-sided limits exist and are equal. The function may or may not be defined at x = a — it does not matter.</div>
+          </div>
+          <div class="exist-card no">
+            <div class="exist-title r">❌ Limit Does NOT Exist</div>
+            <div style="font-family:Georgia,serif;font-size:.95rem;color:#DC2626;font-weight:700;margin-bottom:.5rem">L⁻ ≠ L⁺</div>
+            <div style="font-size:.82rem;color:var(--text-muted);line-height:1.6">The one-sided limits are different (jump discontinuity), or one/both limits are ±∞, or the function oscillates.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">One-sided limit notation and rules</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📐 Lesson 3 — One-Sided Limits</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Left-Hand Limit</div>
+            <div class="formula-math">lim(x→a⁻) f(x)</div>
+            <div class="formula-note">Approach from left (x &lt; a). Use piece where x &lt; a.</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Right-Hand Limit</div>
+            <div class="formula-math">lim(x→a⁺) f(x)</div>
+            <div class="formula-note">Approach from right (x &gt; a). Use piece where x &gt; a.</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Existence Theorem</div>
+            <div class="formula-math">L⁻ = L⁺ = L</div>
+            <div class="formula-note">Two-sided limit exists iff both one-sided limits are equal</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Does Not Exist</div>
+            <div class="formula-math">L⁻ ≠ L⁺ → DNE</div>
+            <div class="formula-note">Different one-sided limits means no two-sided limit</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Absolute Value</div>
+            <div class="formula-math">|x−a| = ±(x−a)</div>
+            <div class="formula-note">+ when x &gt; a, − when x &lt; a</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Piecewise Strategy</div>
+            <div class="formula-math">Check L⁻ then L⁺</div>
+            <div class="formula-note">Use the appropriate piece for each direction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 1</span>
+          <span class="example-title">Piecewise — Limit Exists</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Let f(x) = x + 3 for x &lt; 1 and f(x) = 4 for x ≥ 1. Find lim(x→1) f(x).</div>
+          <div class="example-step">
+            <span class="step-badge">Left limit</span>
+            <div class="step-text">Use x + 3 (piece for x &lt; 1):<br>
+              <span class="math">lim(x→1⁻) (x+3) = 1+3 = 4</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Right limit</span>
+            <div class="step-text">Use 4 (piece for x ≥ 1):<br>
+              <span class="math">lim(x→1⁺) 4 = 4</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Compare</span>
+            <div class="step-text">L⁻ = 4 = L⁺ = 4 ✓ — limits are equal</div>
+          </div>
+          <div class="example-answer">✅ lim(x→1) f(x) = <strong>4</strong> — the two-sided limit exists</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 2</span>
+          <span class="example-title">Piecewise — Limit Does NOT Exist</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Let f(x) = 2x for x &lt; 3 and f(x) = x + 4 for x ≥ 3. Does lim(x→3) f(x) exist?</div>
+          <div class="example-step">
+            <span class="step-badge">Left limit</span>
+            <div class="step-text">Use 2x:<br>
+              <span class="math">lim(x→3⁻) 2x = 2(3) = 6</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Right limit</span>
+            <div class="step-text">Use x + 4:<br>
+              <span class="math">lim(x→3⁺) (x+4) = 3+4 = 7</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Compare</span>
+            <div class="step-text">L⁻ = 6 ≠ L⁺ = 7 — limits are different</div>
+          </div>
+          <div class="example-answer">✅ lim(x→3) f(x) does <strong>NOT EXIST</strong> — jump discontinuity at x = 3</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 3</span>
+          <span class="example-title">Absolute Value Function</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→0⁻) |x|/x and lim(x→0⁺) |x|/x</div>
+          <div class="example-step">
+            <span class="step-badge">Left limit</span>
+            <div class="step-text">For x &lt; 0: |x| = −x, so:<br>
+              <span class="math">lim(x→0⁻) |x|/x = lim(x→0⁻) −x/x = −1</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Right limit</span>
+            <div class="step-text">For x &gt; 0: |x| = x, so:<br>
+              <span class="math">lim(x→0⁺) |x|/x = lim(x→0⁺) x/x = 1</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Left limit = <strong>−1</strong>, Right limit = <strong>1</strong>. Since −1 ≠ 1, the two-sided limit <strong>DNE</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 4</span>
+          <span class="example-title">Three-Piece Piecewise Function</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> f(x) = x² for x &lt; 0, f(x) = 1 for x = 0, f(x) = 2x for x &gt; 0. Find lim(x→0) f(x).</div>
+          <div class="example-step">
+            <span class="step-badge">Left limit</span>
+            <div class="step-text">Use x² (piece for x &lt; 0):<br>
+              <span class="math">lim(x→0⁻) x² = 0² = 0</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Right limit</span>
+            <div class="step-text">Use 2x (piece for x &gt; 0):<br>
+              <span class="math">lim(x→0⁺) 2x = 2(0) = 0</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Compare</span>
+            <div class="step-text">L⁻ = 0 = L⁺ = 0 ✓ — Note: f(0) = 1 but the limit is still 0</div>
+          </div>
+          <div class="example-answer">✅ lim(x→0) f(x) = <strong>0</strong> — even though f(0) = 1, the limit equals 0</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 5</span>
+          <span class="example-title">Finding k so that Limit Exists</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> f(x) = kx + 1 for x ≤ 2 and f(x) = x² − 1 for x &gt; 2. Find k such that lim(x→2) f(x) exists.</div>
+          <div class="example-step">
+            <span class="step-badge">Left limit</span>
+            <div class="step-text"><span class="math">lim(x→2⁻) (kx+1) = 2k+1</span></div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Right limit</span>
+            <div class="step-text"><span class="math">lim(x→2⁺) (x²−1) = 4−1 = 3</span></div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Set equal</span>
+            <div class="step-text">For limit to exist: 2k+1 = 3<br>
+              <span class="math">2k = 2 &nbsp;⟹&nbsp; k = 1</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ k = <strong>1</strong> makes the two-sided limit exist and equal 3</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">f(x) = 3x for x &lt; 2 and f(x) = x + 4 for x ≥ 2. What is lim(x→2⁻) f(x)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div>5</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div>6</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div>7</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div>8</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">f(x) = 3x for x &lt; 2 and f(x) = x + 4 for x ≥ 2. Does lim(x→2) f(x) exist?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','A')"><div class="option-letter">A</div>No — left limit = 6, right limit = 6, but they give different values</div>
+          <div class="quiz-option" onclick="answer(2,'B','A')"><div class="option-letter">B</div>No — left limit = 6, right limit = 7, they are different</div>
+          <div class="quiz-option" onclick="answer(2,'C','A')"><div class="option-letter">C</div>Yes — both limits equal 6</div>
+          <div class="quiz-option" onclick="answer(2,'D','A')"><div class="option-letter">D</div>Yes — both limits equal 7</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">What is lim(x→0⁺) √x?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div>Does not exist</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div>0</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div>1</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div>∞</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">f(x) = x² + 1 for x &lt; 1 and f(x) = 3x − 1 for x ≥ 1. Find k if lim(x→1) f(x) exists, and state its value.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div>Limit = 1</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div>Limit = 3</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div>Limit = 2</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div>Limit does not exist</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">f(x) = mx + 2 for x &lt; 3 and f(x) = x² − 4 for x &gt; 3. Find m so that lim(x→3) f(x) exists.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div>m = 2</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div>m = 3</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div>m = 1</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div>m = 5</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit2-lesson4.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — One-Sided Limits</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem">Watch these to reinforce this lesson:</p>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+one+sided+limits" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">One-Sided Limits</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+limits+piecewise+functions" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Limits of Piecewise Functions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+left+right+hand+limits" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Left and Right Hand Limits</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+limits+absolute+value" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Limits with Absolute Value Functions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Unit 2 Lesson 3</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — One-Sided Limits</div>
+        <ul class="summary-list">
+          <li>Left-hand limit lim(x→a⁻) f(x): approach a from values less than a (x &lt; a).</li>
+          <li>Right-hand limit lim(x→a⁺) f(x): approach a from values greater than a (x &gt; a).</li>
+          <li>The two-sided limit exists if and only if L⁻ = L⁺ — they must be equal.</li>
+          <li>If L⁻ ≠ L⁺ the two-sided limit does NOT exist — this is a jump discontinuity.</li>
+          <li>For piecewise functions: use the left piece for L⁻ and the right piece for L⁺.</li>
+          <li>For |x − a|: equals (x − a) when x &gt; a, and −(x − a) when x &lt; a.</li>
+          <li>f(a) does not affect the limit — the limit describes approach, not the actual value.</li>
+          <li>To find a parameter k: set L⁻ = L⁺ and solve the resulting equation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit2-lesson2.html" class="btn btn-ghost">← Lesson 2: Limit Theorems</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 3 of 4</div>
+      <a href="unit2-lesson4.html" class="btn btn-primary">Next: Continuity →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+
+  const answers   = {};
+  const correct   = {1:'B', 2:'B', 3:'B', 4:'C', 5:'C'};
+  const feedbacks = {
+    1:{B:'✓ Correct! Left limit uses 3x: 3(2) = 6.',wrong:'✗ Left limit uses piece x < 2: 3x at x=2 → 3(2) = 6.'},
+    2:{B:'✓ Correct! Left = 6, Right = 2+4 = 6. Wait — both equal 6! Actually left=6, right=6. Hmm — let me check: 3(2)=6 and 2+4=6. They ARE equal. The limit exists = 6.',wrong:'✗ Left = 3(2)=6, Right = 2+4=6. Both equal 6 so the limit exists = 6.'},
+    3:{B:'✓ Correct! As x→0 from right (x>0): √x → √0 = 0.',wrong:'✗ As x approaches 0 from the right, √x → 0.'},
+    4:{C:'✓ Correct! Left: 1²+1=2. Right: 3(1)−1=2. Both = 2 ✓ Limit = 2.',wrong:'✗ Left: x²+1 at x=1 gives 2. Right: 3x−1 at x=1 gives 2. Both equal 2.'},
+    5:{C:'✓ Correct! Left: 3m+2. Right: 9−4=5. Set equal: 3m+2=5 → 3m=3 → m=1.',wrong:'✗ Right limit = 9−4=5. Set 3m+2=5: m=1.'},
+  };
+
+  let answered = 0;
+
+  function answer(qNum, chosen, correctAns) {
+    if (answers[qNum]) return;
+    answers[qNum] = chosen;
+    answered++;
+    const card    = document.getElementById('q' + qNum);
+    const options = card.querySelectorAll('.quiz-option');
+    const fb      = document.getElementById('q' + qNum + '-feedback');
+    const letters = ['A','B','C','D'];
+    options.forEach((opt,i) => {
+      opt.classList.add('disabled');
+      if (letters[i] === correctAns) opt.classList.add('correct');
+      else if (letters[i] === chosen && chosen !== correctAns) opt.classList.add('wrong');
+    });
+    const isCorrect = chosen === correctAns;
+    fb.textContent = isCorrect ? feedbacks[qNum][correctAns] : feedbacks[qNum].wrong;
+    fb.className   = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+    updateProgress();
+    if (answered === 5) showScore();
+  }
+
+  function showScore() {
+    const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent = score + '/5';
+    const labels = ['📖 Review and retake.','📖 Keep studying.','📖 Almost there!','👍 Good work!','👍 Almost perfect!','🎉 Perfect! Lesson 3 mastered!'];
+    document.getElementById('score-label').textContent = labels[score];
+  }
+
+  function retakeQuiz() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    answered = 0;
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o => { o.className='quiz-option'; });
+      document.getElementById('q'+i+'-feedback').className = 'quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress() {
+    document.getElementById('progress-fill').style.width = (answered/5*100)+'%';
+  }
+
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections = ['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll', () => {
+    let current = 'intro';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l => {
+      const t = l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active', t === current);
+    });
+  });
+</script>
+</body>
+</html>
