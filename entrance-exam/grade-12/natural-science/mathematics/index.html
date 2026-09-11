@@ -13,26 +13,39 @@
     .course-hero-inner { max-width: 800px; margin: 0 auto; }
     .course-stream-tag {
       display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3);
-      color: #86EFAC; font-size: .75rem; font-weight: 600;
-      padding: 4px 12px; border-radius: 999px; margin-bottom: 1rem;
+      background: rgba(34,197,94,.15);
+      border: 1px solid rgba(34,197,94,.3);
+      color: #86EFAC;
+      font-size: .75rem; font-weight: 600;
+      padding: 4px 12px; border-radius: 999px;
+      margin-bottom: 1rem;
     }
-    .course-hero h1 { font-size: 2.25rem; font-weight: 900; color: #fff; margin-bottom: .5rem; }
-    .course-hero p  { color: rgba(255,255,255,.7); font-size: .95rem; line-height: 1.7; margin-bottom: 1.5rem; }
-    .course-stats {
-      display: flex; gap: 2rem; flex-wrap: wrap;
+    .course-hero h1 {
+      font-size: 2.25rem; font-weight: 900;
+      color: #fff; margin-bottom: .5rem;
     }
-    .course-stat-item { text-align: left; }
+    .course-hero p {
+      color: rgba(255,255,255,.7);
+      font-size: .95rem; line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .course-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
     .course-stat-num   { font-size: 1.5rem; font-weight: 800; color: #22C55E; }
     .course-stat-label { font-size: .72rem; color: rgba(255,255,255,.5); margin-top: 2px; }
+
     .wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+
     .breadcrumb {
       display: flex; align-items: center; gap: 6px;
-      font-size: .82rem; color: var(--text-muted); margin-bottom: 2rem;
+      font-size: .82rem; color: var(--text-muted);
+      margin-bottom: 2rem;
     }
     .breadcrumb a { color: var(--brand-primary); text-decoration: none; }
-    /* Unit sections */
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── Unit section ── */
     .unit-section { margin-bottom: 2.5rem; }
+
     .unit-header {
       display: flex; align-items: center; gap: 12px;
       padding: 1rem 1.25rem;
@@ -49,27 +62,47 @@
     }
     .unit-title { font-size: 1rem; font-weight: 700; }
     .unit-sub   { font-size: .78rem; color: rgba(255,255,255,.65); margin-top: 2px; }
-    .lessons-list { display: flex; flex-direction: column; gap: .625rem; }
+
+    /* ── Lessons list ── */
+    .lessons-list {
+      display: flex;
+      flex-direction: column;
+      gap: .625rem;
+    }
+
+    /* ── Lesson item — shared base ── */
     .lesson-item {
       background: #fff;
       border: 1.5px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 1rem 1.25rem;
-      text-decoration: none;
-      color: inherit;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      transition: all var(--transition);
       gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: all var(--transition);
+      cursor: pointer;
     }
+
+    /* Available lessons */
     .lesson-item.available:hover {
       border-color: var(--brand-accent);
       box-shadow: var(--shadow);
       transform: translateX(4px);
     }
-    .lesson-item.locked { opacity: .55; cursor: not-allowed; }
-    .lesson-left { display: flex; align-items: center; gap: .875rem; }
+
+    /* Locked lessons */
+    .lesson-item.locked {
+      opacity: .55;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .lesson-left  { display: flex; align-items: center; gap: .875rem; }
+    .lesson-right { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; }
+
     .lesson-num {
       width: 32px; height: 32px; border-radius: 50%;
       background: var(--brand-light);
@@ -77,13 +110,17 @@
       display: flex; align-items: center; justify-content: center;
       font-size: .78rem; font-weight: 800; flex-shrink: 0;
     }
-    .lesson-num.done { background: var(--brand-primary); color: #fff; }
+    .lesson-num.done {
+      background: var(--brand-primary);
+      color: #fff;
+    }
     .lesson-title { font-size: .9rem; font-weight: 700; color: var(--heading); }
     .lesson-desc  { font-size: .78rem; color: var(--text-muted); margin-top: 2px; }
-    .lesson-right { display: flex; align-items: center; gap: .5rem; flex-shrink: 0; }
+
     .lesson-badge {
-      font-size: .7rem; font-weight: 600; padding: 3px 10px;
-      border-radius: 999px;
+      font-size: .7rem; font-weight: 600;
+      padding: 3px 10px; border-radius: 999px;
+      white-space: nowrap;
     }
     .badge-available { background: #DCFCE7; color: #166534; }
     .badge-locked    { background: var(--surface-2); color: var(--text-muted); }
@@ -117,21 +154,21 @@
   <div class="course-hero-inner">
     <div class="course-stream-tag">🔬 Natural Science Stream · Grade 12</div>
     <h1>📐 Mathematics</h1>
-    <p>Complete Grade 12 Mathematics preparation for the Ethiopian University Entrance Examination. Covers all 7 units with detailed explanations, worked examples, formula cards, quizzes, and online resources.</p>
+    <p>Complete Grade 12 Mathematics preparation for the Ethiopian University Entrance Examination. All 7 units with detailed explanations, worked examples, formula cards, quizzes and online resources.</p>
     <div class="course-stats">
-      <div class="course-stat-item">
+      <div>
         <div class="course-stat-num">7</div>
         <div class="course-stat-label">Units</div>
       </div>
-      <div class="course-stat-item">
+      <div>
         <div class="course-stat-num">35+</div>
         <div class="course-stat-label">Lessons</div>
       </div>
-      <div class="course-stat-item">
+      <div>
         <div class="course-stat-num">175+</div>
         <div class="course-stat-label">Quiz Questions</div>
       </div>
-      <div class="course-stat-item">
+      <div>
         <div class="course-stat-num">4 yrs</div>
         <div class="course-stat-label">Past Exams</div>
       </div>
@@ -148,7 +185,9 @@
     <span>Mathematics</span>
   </div>
 
-  <!-- UNIT 1 -->
+  <!-- ═══════════════════════════════════
+       UNIT 1
+  ═══════════════════════════════════ -->
   <div class="unit-section">
     <div class="unit-header">
       <div class="unit-num">1</div>
@@ -158,6 +197,7 @@
       </div>
     </div>
     <div class="lessons-list">
+
       <a href="lessons/unit1-lesson1.html" class="lesson-item available">
         <div class="lesson-left">
           <div class="lesson-num done">1</div>
@@ -171,6 +211,7 @@
           <span class="lesson-badge badge-quiz">5 Quizzes</span>
         </div>
       </a>
+
       <a href="lessons/unit1-lesson2.html" class="lesson-item available">
         <div class="lesson-left">
           <div class="lesson-num done">2</div>
@@ -184,7 +225,8 @@
           <span class="lesson-badge badge-quiz">5 Quizzes</span>
         </div>
       </a>
-            <a href="lessons/unit1-lesson3.html" class="lesson-item available">
+
+      <a href="lessons/unit1-lesson3.html" class="lesson-item available">
         <div class="lesson-left">
           <div class="lesson-num done">3</div>
           <div>
@@ -197,14 +239,8 @@
           <span class="lesson-badge badge-quiz">5 Quizzes</span>
         </div>
       </a>
-            <div class="lesson-desc">Common ratio, nth term and geometric means</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
-            <a href="lessons/unit1-lesson4.html" class="lesson-item available">
+
+      <a href="lessons/unit1-lesson4.html" class="lesson-item available">
         <div class="lesson-left">
           <div class="lesson-num done">4</div>
           <div>
@@ -217,13 +253,7 @@
           <span class="lesson-badge badge-quiz">5 Quizzes</span>
         </div>
       </a>
-            <div class="lesson-desc">Sum of arithmetic sequences and applications</div>
-          </div>
-        </div>
-        <div class="lesson-right">
-          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
-        </div>
-      </div>
+
       <div class="lesson-item locked">
         <div class="lesson-left">
           <div class="lesson-num">5</div>
@@ -236,10 +266,13 @@
           <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
         </div>
       </div>
+
     </div>
   </div>
 
-  <!-- UNIT 2 -->
+  <!-- ═══════════════════════════════════
+       UNIT 2
+  ═══════════════════════════════════ -->
   <div class="unit-section">
     <div class="unit-header">
       <div class="unit-num">2</div>
@@ -249,26 +282,65 @@
       </div>
     </div>
     <div class="lessons-list">
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">1</div><div><div class="lesson-title">Concept of a Limit</div><div class="lesson-desc">Intuitive approach, notation and existence of limits</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">1</div>
+          <div>
+            <div class="lesson-title">Concept of a Limit</div>
+            <div class="lesson-desc">Intuitive approach, notation and existence of limits</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">2</div><div><div class="lesson-title">Limit Theorems</div><div class="lesson-desc">Rules for computing limits algebraically</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">2</div>
+          <div>
+            <div class="lesson-title">Limit Theorems</div>
+            <div class="lesson-desc">Rules for computing limits algebraically</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">3</div><div><div class="lesson-title">One-Sided Limits</div><div class="lesson-desc">Left-hand and right-hand limits</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">3</div>
+          <div>
+            <div class="lesson-title">One-Sided Limits</div>
+            <div class="lesson-desc">Left-hand and right-hand limits</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">4</div><div><div class="lesson-title">Continuity of Functions</div><div class="lesson-desc">Definition, types of discontinuity and the Intermediate Value Theorem</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">4</div>
+          <div>
+            <div class="lesson-title">Continuity of Functions</div>
+            <div class="lesson-desc">Definition, types of discontinuity and Intermediate Value Theorem</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
     </div>
   </div>
 
-  <!-- UNIT 3 -->
+  <!-- ═══════════════════════════════════
+       UNIT 3
+  ═══════════════════════════════════ -->
   <div class="unit-section">
     <div class="unit-header">
       <div class="unit-num">3</div>
@@ -278,26 +350,65 @@
       </div>
     </div>
     <div class="lessons-list">
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">1</div><div><div class="lesson-title">The Derivative</div><div class="lesson-desc">Definition using limits, slope of tangent line</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">1</div>
+          <div>
+            <div class="lesson-title">The Derivative</div>
+            <div class="lesson-desc">Definition using limits, slope of tangent line</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">2</div><div><div class="lesson-title">Rules of Differentiation</div><div class="lesson-desc">Power, product, quotient and chain rules</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">2</div>
+          <div>
+            <div class="lesson-title">Rules of Differentiation</div>
+            <div class="lesson-desc">Power, product, quotient and chain rules</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">3</div><div><div class="lesson-title">Higher Order Derivatives</div><div class="lesson-desc">Second and higher derivatives and their meaning</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">3</div>
+          <div>
+            <div class="lesson-title">Higher Order Derivatives</div>
+            <div class="lesson-desc">Second and higher derivatives and their meaning</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">4</div><div><div class="lesson-title">Applications of Derivatives</div><div class="lesson-desc">Increasing/decreasing, extrema, optimization problems</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">4</div>
+          <div>
+            <div class="lesson-title">Applications of Derivatives</div>
+            <div class="lesson-desc">Increasing/decreasing, extrema, optimization problems</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
     </div>
   </div>
 
-  <!-- UNIT 4 -->
+  <!-- ═══════════════════════════════════
+       UNIT 4
+  ═══════════════════════════════════ -->
   <div class="unit-section">
     <div class="unit-header">
       <div class="unit-num">4</div>
@@ -307,22 +418,52 @@
       </div>
     </div>
     <div class="lessons-list">
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">1</div><div><div class="lesson-title">Antiderivatives and Indefinite Integrals</div><div class="lesson-desc">Basic integration rules and techniques</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">1</div>
+          <div>
+            <div class="lesson-title">Antiderivatives and Indefinite Integrals</div>
+            <div class="lesson-desc">Basic integration rules and techniques</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">2</div><div><div class="lesson-title">Definite Integrals</div><div class="lesson-desc">Fundamental Theorem of Calculus</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">2</div>
+          <div>
+            <div class="lesson-title">Definite Integrals</div>
+            <div class="lesson-desc">Fundamental Theorem of Calculus</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">3</div><div><div class="lesson-title">Applications of Integration</div><div class="lesson-desc">Area under curves and between curves</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">3</div>
+          <div>
+            <div class="lesson-title">Applications of Integration</div>
+            <div class="lesson-desc">Area under curves and between curves</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
     </div>
   </div>
 
-  <!-- UNIT 5 -->
+  <!-- ═══════════════════════════════════
+       UNIT 5
+  ═══════════════════════════════════ -->
   <div class="unit-section">
     <div class="unit-header">
       <div class="unit-num">5</div>
@@ -332,22 +473,52 @@
       </div>
     </div>
     <div class="lessons-list">
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">1</div><div><div class="lesson-title">Statistical Data Analysis</div><div class="lesson-desc">Measures of central tendency and dispersion</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">1</div>
+          <div>
+            <div class="lesson-title">Statistical Data Analysis</div>
+            <div class="lesson-desc">Measures of central tendency and dispersion</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">2</div><div><div class="lesson-title">Introduction to Probability</div><div class="lesson-desc">Sample space, events and probability rules</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">2</div>
+          <div>
+            <div class="lesson-title">Introduction to Probability</div>
+            <div class="lesson-desc">Sample space, events and probability rules</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">3</div><div><div class="lesson-title">Probability Distributions</div><div class="lesson-desc">Binomial, normal distribution and applications</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">3</div>
+          <div>
+            <div class="lesson-title">Probability Distributions</div>
+            <div class="lesson-desc">Binomial, normal distribution and applications</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
     </div>
   </div>
 
-  <!-- UNIT 6 -->
+  <!-- ═══════════════════════════════════
+       UNIT 6
+  ═══════════════════════════════════ -->
   <div class="unit-section">
     <div class="unit-header">
       <div class="unit-num">6</div>
@@ -357,18 +528,39 @@
       </div>
     </div>
     <div class="lessons-list">
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">1</div><div><div class="lesson-title">Linear Inequalities in Two Variables</div><div class="lesson-desc">Graphing and feasible regions</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">1</div>
+          <div>
+            <div class="lesson-title">Linear Inequalities in Two Variables</div>
+            <div class="lesson-desc">Graphing and feasible regions</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">2</div><div><div class="lesson-title">Linear Programming Problems</div><div class="lesson-desc">Formulation, graphical method and applications</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">2</div>
+          <div>
+            <div class="lesson-title">Linear Programming Problems</div>
+            <div class="lesson-desc">Formulation, graphical method and applications</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
     </div>
   </div>
 
-  <!-- UNIT 7 -->
+  <!-- ═══════════════════════════════════
+       UNIT 7
+  ═══════════════════════════════════ -->
   <div class="unit-section">
     <div class="unit-header">
       <div class="unit-num">7</div>
@@ -378,18 +570,37 @@
       </div>
     </div>
     <div class="lessons-list">
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">1</div><div><div class="lesson-title">Logic and Propositions</div><div class="lesson-desc">Statements, connectives, truth tables</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">1</div>
+          <div>
+            <div class="lesson-title">Logic and Propositions</div>
+            <div class="lesson-desc">Statements, connectives and truth tables</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
       <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">2</div><div><div class="lesson-title">Methods of Proof</div><div class="lesson-desc">Direct proof, contradiction, contrapositive and induction</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
+        <div class="lesson-left">
+          <div class="lesson-num">2</div>
+          <div>
+            <div class="lesson-title">Methods of Proof</div>
+            <div class="lesson-desc">Direct proof, contradiction, contrapositive and induction</div>
+          </div>
+        </div>
+        <div class="lesson-right">
+          <span class="lesson-badge badge-locked">🔒 Coming Soon</span>
+        </div>
       </div>
+
     </div>
   </div>
 
-</div>
+</div><!-- end .wrap -->
 
 <script>
   fetch('/api/auth/me', {credentials:'include'})
