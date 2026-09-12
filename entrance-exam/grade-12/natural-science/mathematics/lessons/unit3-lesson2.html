@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2: Rules of Differentiation | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166634);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem;display:flex;align-items:center;gap:6px}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1.05rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .math-display{background:var(--surface-2);border-radius:var(--radius);padding:.75rem 1.25rem;font-family:'Georgia',serif;font-size:1rem;color:var(--brand-primary);text-align:center;margin:.875rem 0;border-left:3px solid var(--brand-accent)}
+    .visual-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem;text-align:center}
+    .visual-caption{font-size:.78rem;color:var(--text-muted);margin-top:.75rem;line-height:1.5;text-align:center}
+    /* Rule cards */
+    .rule-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1rem}
+    .rule-header{padding:.875rem 1.25rem;display:flex;align-items:center;gap:10px}
+    .rule-header.power{background:linear-gradient(90deg,#1E40AF,#2563EB)}
+    .rule-header.product{background:linear-gradient(90deg,#166534,#16A34A)}
+    .rule-header.quotient{background:linear-gradient(90deg,#7C2D12,#C2410C)}
+    .rule-header.chain{background:linear-gradient(90deg,#4C1D95,#7C3AED)}
+    .rule-header.trig{background:linear-gradient(90deg,#064E3B,#059669)}
+    .rule-tag{background:rgba(255,255,255,.2);color:#fff;font-size:.72rem;font-weight:800;padding:2px 10px;border-radius:999px}
+    .rule-name{font-size:.9rem;font-weight:700;color:#fff}
+    .rule-body{padding:1.25rem}
+    .rule-formula{font-family:Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--brand-primary);margin-bottom:.625rem;padding:.625rem 1rem;background:var(--surface-2);border-radius:var(--radius);border-left:3px solid var(--brand-accent)}
+    .rule-example{font-size:.82rem;color:var(--text-muted);line-height:1.7}
+    .rule-example span{color:var(--brand-secondary);font-weight:600;font-family:Georgia,serif}
+    /* Chain rule visual */
+    .chain-visual{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin:1rem 0}
+    .chain-block{padding:.75rem 1rem;text-align:center;min-width:90px}
+    .chain-outer{background:var(--brand-primary);color:#fff;border-radius:var(--radius) 0 0 var(--radius);font-family:Georgia,serif;font-size:.9rem;font-weight:700}
+    .chain-inner{background:#166534;color:#fff;font-family:Georgia,serif;font-size:.9rem;font-weight:700}
+    .chain-times{background:var(--brand-light);color:var(--brand-primary);font-size:1.1rem;font-weight:700;padding:.75rem .5rem}
+    .chain-result{background:var(--brand-accent);color:#fff;border-radius:0 var(--radius) var(--radius) 0;font-family:Georgia,serif;font-size:.9rem;font-weight:700}
+    .chain-label{font-size:.65rem;color:rgba(255,255,255,.7);margin-top:3px}
+    /* Trig table */
+    .trig-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:1rem 0}
+    .trig-table th{background:var(--brand-primary);color:#fff;padding:.625rem 1rem;text-align:left;font-weight:700}
+    .trig-table td{padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif}
+    .trig-table tr:nth-child(even){background:var(--surface-2)}
+    .trig-table .fn{color:var(--brand-primary);font-weight:700}
+    .trig-table .der{color:#166534;font-weight:700}
+    /* Quiz */
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem;font-weight:700}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div>Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div>Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div>Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div>Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div>Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div>Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div>Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="unit3-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div>L1: The Derivative ✓</a>
+      <a href="unit3-lesson2.html" class="sidebar-link active"><div class="sidebar-dot"></div>L2: Rules of Differentiation</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L3: Higher Order Derivatives 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L4: Applications 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 3 · Lesson 2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Differential Calculus</div>
+      <h1>⚡ Rules of Differentiation</h1>
+      <p>Master the five essential differentiation rules — Power, Product, Quotient, Chain and Trigonometric. These rules are the practical toolkit that lets you differentiate any function quickly without using first principles every time.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">Why rules matter</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In Lesson 1 you used the limit definition to find derivatives from first principles. That method always works, but it is slow and tedious for complex functions. Imagine finding the derivative of f(x) = (x³ + 2x)(sin x) from scratch using limits — it would take a page of working.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Mathematicians have proven shortcut rules that let you differentiate instantly. These <strong>differentiation rules</strong> are the most used tools in all of calculus. The Ethiopian entrance exam expects you to apply them quickly and correctly.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Apply the <strong>Constant Rule</strong>: d/dx[c] = 0</li>
+          <li>Apply the <strong>Power Rule</strong>: d/dx[xⁿ] = nxⁿ⁻¹</li>
+          <li>Apply the <strong>Sum/Difference Rule</strong>: (f ± g)' = f' ± g'</li>
+          <li>Apply the <strong>Product Rule</strong>: (fg)' = f'g + fg'</li>
+          <li>Apply the <strong>Quotient Rule</strong>: (f/g)' = (f'g − fg')/g²</li>
+          <li>Apply the <strong>Chain Rule</strong>: d/dx[f(g(x))] = f'(g(x))·g'(x)</li>
+          <li>Differentiate basic <strong>trigonometric functions</strong>: sin, cos, tan</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">All differentiation rules with visual examples</div>
+        </div>
+      </div>
+
+      <!-- Rules 1-3 -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:1rem">2.1 Basic Rules</h3>
+
+        <!-- Visual: basic rules pipeline -->
+        <div class="visual-box">
+          <svg viewBox="0 0 520 100" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="520" height="100" fill="#F8FAFC" rx="8"/>
+            <!-- Constant -->
+            <rect x="10" y="20" width="110" height="60" rx="8" fill="#14532D"/>
+            <text x="65" y="46" font-family="Georgia,serif" font-size="12" fill="#86EFAC" text-anchor="middle">d/dx[c]</text>
+            <text x="65" y="65" font-family="Georgia,serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">= 0</text>
+            <text x="65" y="90" font-family="Arial" font-size="9" fill="#64748B" text-anchor="middle">Constant Rule</text>
+            <!-- Arrow -->
+            <text x="135" y="55" font-family="Arial" font-size="18" fill="#CBD5E1">→</text>
+            <!-- Power -->
+            <rect x="155" y="20" width="110" height="60" rx="8" fill="#1E40AF"/>
+            <text x="210" y="46" font-family="Georgia,serif" font-size="12" fill="#BFDBFE" text-anchor="middle">d/dx[xⁿ]</text>
+            <text x="210" y="65" font-family="Georgia,serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">= nxⁿ⁻¹</text>
+            <text x="210" y="90" font-family="Arial" font-size="9" fill="#64748B" text-anchor="middle">Power Rule</text>
+            <!-- Arrow -->
+            <text x="280" y="55" font-family="Arial" font-size="18" fill="#CBD5E1">→</text>
+            <!-- Sum -->
+            <rect x="300" y="20" width="110" height="60" rx="8" fill="#166534"/>
+            <text x="355" y="46" font-family="Georgia,serif" font-size="12" fill="#86EFAC" text-anchor="middle">d/dx[f±g]</text>
+            <text x="355" y="65" font-family="Georgia,serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">= f'±g'</text>
+            <text x="355" y="90" font-family="Arial" font-size="9" fill="#64748B" text-anchor="middle">Sum/Diff Rule</text>
+            <!-- Arrow -->
+            <text x="425" y="55" font-family="Arial" font-size="18" fill="#CBD5E1">→</text>
+            <!-- Scalar -->
+            <rect x="445" y="20" width="65" height="60" rx="8" fill="#7C3AED"/>
+            <text x="478" y="46" font-family="Georgia,serif" font-size="12" fill="#DDD6FE" text-anchor="middle">[cf]'</text>
+            <text x="478" y="65" font-family="Georgia,serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">= cf'</text>
+            <text x="478" y="90" font-family="Arial" font-size="9" fill="#64748B" text-anchor="middle">Scalar</text>
+          </svg>
+          <div class="visual-caption">The four basic rules that handle most polynomial and simple function derivatives.</div>
+        </div>
+      </div>
+
+      <!-- Power Rule detail -->
+      <div class="rule-card">
+        <div class="rule-header power">
+          <span class="rule-tag">Rule 1</span>
+          <span class="rule-name">Power Rule — Most Used Rule on the Exam</span>
+        </div>
+        <div class="rule-body">
+          <div class="rule-formula">d/dx [xⁿ] = n · xⁿ⁻¹</div>
+          <div class="rule-example">
+            Bring the exponent down as a coefficient, then reduce the exponent by 1.<br><br>
+            <span>d/dx[x⁵] = 5x⁴</span><br>
+            <span>d/dx[x] = 1·x⁰ = 1</span><br>
+            <span>d/dx[x⁻²] = −2x⁻³ = −2/x³</span><br>
+            <span>d/dx[√x] = d/dx[x^(1/2)] = (1/2)x^(−1/2) = 1/(2√x)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Rule -->
+      <div class="rule-card">
+        <div class="rule-header product">
+          <span class="rule-tag">Rule 2</span>
+          <span class="rule-name">Product Rule</span>
+        </div>
+        <div class="rule-body">
+          <div class="rule-formula">(f · g)' = f'g + fg'</div>
+          <div class="rule-example">
+            "Derivative of first times second, plus first times derivative of second."<br><br>
+            Memory trick: <strong>"first · d(second) + second · d(first)"</strong><br><br>
+            Example: d/dx[(x²)(sin x)]<br>
+            <span>= 2x · sin x + x² · cos x</span>
+          </div>
+
+          <!-- Product rule visual -->
+          <div class="visual-box" style="margin-top:1rem">
+            <svg viewBox="0 0 480 90" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="480" height="90" fill="#F0FDF4" rx="8"/>
+              <text x="240" y="18" font-family="Arial" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">(f · g)' = f'g + fg'</text>
+              <!-- f' * g -->
+              <rect x="20" y="28" width="80" height="32" rx="6" fill="#14532D"/>
+              <text x="60" y="49" font-family="Georgia,serif" font-size="13" fill="#fff" text-anchor="middle" font-weight="700">f'</text>
+              <rect x="108" y="28" width="80" height="32" rx="6" fill="#166534"/>
+              <text x="148" y="49" font-family="Georgia,serif" font-size="13" fill="#fff" text-anchor="middle" font-weight="700">g</text>
+              <text x="100" y="49" font-family="Arial" font-size="14" fill="#14532D" text-anchor="middle" font-weight="700">·</text>
+              <!-- + -->
+              <text x="200" y="49" font-family="Arial" font-size="18" fill="#166534" text-anchor="middle" font-weight="700">+</text>
+              <!-- f * g' -->
+              <rect x="220" y="28" width="80" height="32" rx="6" fill="#166534"/>
+              <text x="260" y="49" font-family="Georgia,serif" font-size="13" fill="#fff" text-anchor="middle" font-weight="700">f</text>
+              <rect x="308" y="28" width="80" height="32" rx="6" fill="#14532D"/>
+              <text x="348" y="49" font-family="Georgia,serif" font-size="13" fill="#fff" text-anchor="middle" font-weight="700">g'</text>
+              <text x="300" y="49" font-family="Arial" font-size="14" fill="#14532D" text-anchor="middle" font-weight="700">·</text>
+              <!-- Labels -->
+              <text x="60" y="76" font-family="Arial" font-size="9" fill="#64748B" text-anchor="middle">deriv of first</text>
+              <text x="148" y="76" font-family="Arial" font-size="9" fill="#64748B" text-anchor="middle">× second</text>
+              <text x="260" y="76" font-family="Arial" font-size="9" fill="#64748B" text-anchor="middle">first ×</text>
+              <text x="348" y="76" font-family="Arial" font-size="9" fill="#64748B" text-anchor="middle">deriv of second</text>
+            </svg>
+            <div class="visual-caption">Product Rule memory: d(first)·second + first·d(second)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quotient Rule -->
+      <div class="rule-card">
+        <div class="rule-header quotient">
+          <span class="rule-tag">Rule 3</span>
+          <span class="rule-name">Quotient Rule</span>
+        </div>
+        <div class="rule-body">
+          <div class="rule-formula">(f/g)' = (f'g − fg') / g²</div>
+          <div class="rule-example">
+            Memory trick: <strong>"low d(high) minus high d(low), over low squared"</strong> (where high = numerator, low = denominator)<br><br>
+            Example: d/dx[(x²+1)/(x−3)]<br>
+            <span>= [(2x)(x−3) − (x²+1)(1)] / (x−3)²</span><br>
+            <span>= [2x²−6x − x²−1] / (x−3)²</span><br>
+            <span>= (x²−6x−1) / (x−3)²</span>
+          </div>
+          <div class="note-box" style="margin-top:1rem">
+            <div class="note-label">⚠ Sign Order Matters!</div>
+            <p>In the quotient rule the subtraction is f'g − fg', NOT fg' − f'g. Getting the sign wrong is the most common mistake. Always: numerator derivative first, then minus.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chain Rule -->
+      <div class="rule-card">
+        <div class="rule-header chain">
+          <span class="rule-tag">Rule 4</span>
+          <span class="rule-name">Chain Rule — Composite Functions</span>
+        </div>
+        <div class="rule-body">
+          <div class="rule-formula">d/dx[f(g(x))] = f'(g(x)) · g'(x)</div>
+          <div class="rule-example">
+            Used when a function is <strong>composed inside another function</strong>. Differentiate the outer function first (keeping inner unchanged), then multiply by the derivative of the inner function.
+          </div>
+
+          <!-- Chain rule visual -->
+          <div style="margin:1rem 0">
+            <div class="chain-visual">
+              <div class="chain-block chain-outer">
+                <div>d/dx [outer]</div>
+                <div class="chain-label">at inner function</div>
+              </div>
+              <div class="chain-times">×</div>
+              <div class="chain-block chain-inner">
+                <div>d/dx [inner]</div>
+                <div class="chain-label">derivative of inside</div>
+              </div>
+              <div class="chain-times">=</div>
+              <div class="chain-block chain-result">
+                <div>f'(g(x))·g'(x)</div>
+                <div class="chain-label">chain rule result</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rule-example">
+            Example 1: d/dx[(x²+3)⁵]<br>
+            Outer = uⁿ → 5u⁴. Inner = x²+3 → 2x<br>
+            <span>= 5(x²+3)⁴ · 2x = 10x(x²+3)⁴</span><br><br>
+            Example 2: d/dx[sin(3x²)]<br>
+            Outer = sin(u) → cos(u). Inner = 3x² → 6x<br>
+            <span>= cos(3x²) · 6x = 6x cos(3x²)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trig derivatives -->
+      <div class="rule-card">
+        <div class="rule-header trig">
+          <span class="rule-tag">Rule 5</span>
+          <span class="rule-name">Trigonometric Derivatives</span>
+        </div>
+        <div class="rule-body">
+          <table class="trig-table">
+            <thead>
+              <tr>
+                <th>Function f(x)</th>
+                <th>Derivative f'(x)</th>
+                <th>Memory Aid</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fn">sin(x)</td>
+                <td class="der">cos(x)</td>
+                <td style="font-size:.78rem;color:var(--text-muted)">sin → cos (positive)</td>
+              </tr>
+              <tr>
+                <td class="fn">cos(x)</td>
+                <td class="der">−sin(x)</td>
+                <td style="font-size:.78rem;color:var(--text-muted)">cos → −sin (negative)</td>
+              </tr>
+              <tr>
+                <td class="fn">tan(x)</td>
+                <td class="der">sec²(x)</td>
+                <td style="font-size:.78rem;color:var(--text-muted)">tan → sec squared</td>
+              </tr>
+              <tr>
+                <td class="fn">cot(x)</td>
+                <td class="der">−csc²(x)</td>
+                <td style="font-size:.78rem;color:var(--text-muted)">cot → −csc squared</td>
+              </tr>
+              <tr>
+                <td class="fn">sec(x)</td>
+                <td class="der">sec(x)·tan(x)</td>
+                <td style="font-size:.78rem;color:var(--text-muted)">sec → sec·tan</td>
+              </tr>
+              <tr>
+                <td class="fn">csc(x)</td>
+                <td class="der">−csc(x)·cot(x)</td>
+                <td style="font-size:.78rem;color:var(--text-muted)">csc → −csc·cot</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Exponential & Log -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Exponential and Logarithmic Derivatives</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.25rem">
+            <div style="font-size:.72rem;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:.75rem">Exponential</div>
+            <div style="font-family:Georgia,serif;font-size:.95rem;font-weight:700;color:var(--brand-primary);line-height:2">
+              d/dx[eˣ] = eˣ<br>
+              d/dx[aˣ] = aˣ ln(a)
+            </div>
+            <div style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">eˣ is the only function equal to its own derivative.</div>
+          </div>
+          <div style="background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:var(--radius-xl);padding:1.25rem">
+            <div style="font-size:.72rem;font-weight:700;color:#1E40AF;text-transform:uppercase;margin-bottom:.75rem">Logarithmic</div>
+            <div style="font-family:Georgia,serif;font-size:.95rem;font-weight:700;color:#2563EB;line-height:2">
+              d/dx[ln x] = 1/x<br>
+              d/dx[log_a x] = 1/(x ln a)
+            </div>
+            <div style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">Valid for x &gt; 0.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">All differentiation rules — memorize these</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📐 Lesson 2 — Differentiation Rules</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Constant Rule</div>
+            <div class="formula-math">d/dx[c] = 0</div>
+            <div class="formula-note">Derivative of any constant is zero</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Power Rule</div>
+            <div class="formula-math">d/dx[xⁿ] = nxⁿ⁻¹</div>
+            <div class="formula-note">Bring down exponent, reduce by 1</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Sum / Difference</div>
+            <div class="formula-math">(f±g)' = f' ± g'</div>
+            <div class="formula-note">Differentiate term by term</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Product Rule</div>
+            <div class="formula-math">(fg)' = f'g + fg'</div>
+            <div class="formula-note">d(first)·second + first·d(second)</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Quotient Rule</div>
+            <div class="formula-math">(f/g)' = (f'g−fg')/g²</div>
+            <div class="formula-note">low·d(high) − high·d(low), over low²</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Chain Rule</div>
+            <div class="formula-math">d/dx[f(g(x))] = f'(g)·g'</div>
+            <div class="formula-note">Outer derivative × inner derivative</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">sin and cos</div>
+            <div class="formula-math">(sin x)' = cos x</div>
+            <div class="formula-note">(cos x)' = −sin x</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">eˣ and ln x</div>
+            <div class="formula-math">(eˣ)' = eˣ</div>
+            <div class="formula-note">(ln x)' = 1/x</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems applying all rules</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 1</span>
+          <span class="example-title">Power Rule and Sum Rule</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = 4x⁵ − 3x³ + 7x − 2</div>
+          <div class="example-step">
+            <span class="step-badge">Apply</span>
+            <div class="step-text">Differentiate term by term using power rule:<br>
+              <span class="math">f'(x) = 4(5x⁴) − 3(3x²) + 7(1) − 0</span><br>
+              <span class="math">= 20x⁴ − 9x² + 7</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ f'(x) = <strong>20x⁴ − 9x² + 7</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 2</span>
+          <span class="example-title">Product Rule</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = (x² + 1)(3x − 2)</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">f = x²+1, g = 3x−2, f' = 2x, g' = 3</div></div>
+          <div class="example-step">
+            <span class="step-badge">Product Rule</span>
+            <div class="step-text">
+              <span class="math">= f'g + fg' = 2x(3x−2) + (x²+1)(3)</span><br>
+              <span class="math">= 6x²−4x + 3x²+3</span><br>
+              <span class="math">= 9x²−4x+3</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ f'(x) = <strong>9x² − 4x + 3</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 3</span>
+          <span class="example-title">Quotient Rule</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = (x² + 3) / (2x − 1)</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">f = x²+3, g = 2x−1, f' = 2x, g' = 2</div></div>
+          <div class="example-step">
+            <span class="step-badge">Quotient Rule</span>
+            <div class="step-text">
+              <span class="math">= (f'g − fg') / g²</span><br>
+              <span class="math">= [2x(2x−1) − (x²+3)(2)] / (2x−1)²</span><br>
+              <span class="math">= [4x²−2x − 2x²−6] / (2x−1)²</span><br>
+              <span class="math">= (2x²−2x−6) / (2x−1)²</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ f'(x) = <strong>(2x²−2x−6)/(2x−1)²</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 4</span>
+          <span class="example-title">Chain Rule</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = (3x² + 5)⁴</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">Outer: uⁿ where u = 3x²+5, n = 4. Inner: u = 3x²+5</div></div>
+          <div class="example-step">
+            <span class="step-badge">Chain Rule</span>
+            <div class="step-text">
+              <span class="math">= 4(3x²+5)³ · d/dx[3x²+5]</span><br>
+              <span class="math">= 4(3x²+5)³ · 6x</span><br>
+              <span class="math">= 24x(3x²+5)³</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ f'(x) = <strong>24x(3x²+5)³</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 5</span>
+          <span class="example-title">Chain Rule with Trigonometry</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = sin(x² + 1)</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">Outer: sin(u) → cos(u). Inner: u = x²+1 → 2x</div></div>
+          <div class="example-step">
+            <span class="step-badge">Chain Rule</span>
+            <div class="step-text">
+              <span class="math">f'(x) = cos(x²+1) · 2x = 2x cos(x²+1)</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ f'(x) = <strong>2x cos(x²+1)</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">What is d/dx[6x⁴ − 5x² + 3x − 7]?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div>24x³ − 10x + 3x</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div>24x³ − 10x + 3</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div>24x³ − 5x + 3</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div>6x³ − 10x + 3</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Find d/dx[(x³)(cos x)]</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div>3x² cos x</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div>−x³ sin x</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div>3x² cos x − x³ sin x</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div>3x² cos x + x³ sin x</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Differentiate f(x) = (2x + 1) / (x − 3)</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','D')"><div class="option-letter">A</div>(2x − 7) / (x−3)²</div>
+          <div class="quiz-option" onclick="answer(3,'B','D')"><div class="option-letter">B</div>2 / (x−3)</div>
+          <div class="quiz-option" onclick="answer(3,'C','D')"><div class="option-letter">C</div>(2x+1) / (x−3)²</div>
+          <div class="quiz-option" onclick="answer(3,'D','D')"><div class="option-letter">D</div>−7 / (x−3)²</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Find d/dx[(2x³ + 1)⁶]</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div>6(2x³+1)⁵</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div>12x²(2x³+1)⁵</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div>36x²(2x³+1)⁵</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div>6x²(2x³+1)⁶</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Find d/dx[eˣ · sin x]</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','D')"><div class="option-letter">A</div>eˣ cos x</div>
+          <div class="quiz-option" onclick="answer(5,'B','D')"><div class="option-letter">B</div>eˣ sin x + eˣ</div>
+          <div class="quiz-option" onclick="answer(5,'C','D')"><div class="option-letter">C</div>eˣ(sin x − cos x)</div>
+          <div class="quiz-option" onclick="answer(5,'D','D')"><div class="option-letter">D</div>eˣ(sin x + cos x)</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit3-lesson3.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Differentiation Rules</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem">Watch these to reinforce this lesson:</p>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+power+rule+derivatives" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Power Rule for Derivatives</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+product+quotient+rule" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Product Rule and Quotient Rule</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+chain+rule+derivatives" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Chain Rule — Complete Lesson</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+derivatives+trig+functions" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Derivatives of Trigonometric Functions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">All rules in one place</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Rules of Differentiation</div>
+        <ul class="summary-list">
+          <li><strong>Constant Rule:</strong> d/dx[c] = 0 — constants vanish when differentiated.</li>
+          <li><strong>Power Rule:</strong> d/dx[xⁿ] = nxⁿ⁻¹ — bring down the exponent, reduce by 1.</li>
+          <li><strong>Sum/Difference:</strong> differentiate each term separately.</li>
+          <li><strong>Product Rule:</strong> (fg)' = f'g + fg' — d(first)·second + first·d(second).</li>
+          <li><strong>Quotient Rule:</strong> (f/g)' = (f'g − fg')/g² — note the subtraction order.</li>
+          <li><strong>Chain Rule:</strong> d/dx[f(g(x))] = f'(g(x))·g'(x) — outer × inner derivative.</li>
+          <li><strong>Trig:</strong> (sin x)' = cos x, (cos x)' = −sin x, (tan x)' = sec²x.</li>
+          <li><strong>Exponential/Log:</strong> (eˣ)' = eˣ, (ln x)' = 1/x.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit3-lesson1.html" class="btn btn-ghost">← Lesson 1: The Derivative</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 2 of 4</div>
+      <a href="unit3-lesson3.html" class="btn btn-primary">Next: Higher Order Derivatives →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+
+  const answers   = {};
+  const correct   = {1:'B', 2:'C', 3:'D', 4:'C', 5:'D'};
+  const feedbacks = {
+    1:{B:'✓ Correct! Power rule each term: 6·4x³−5·2x+3·1−0 = 24x³−10x+3.',wrong:'✗ Apply power rule: 6·4x³−5·2x+3−0 = 24x³−10x+3.'},
+    2:{C:'✓ Correct! Product rule: f=x³,g=cosx,f\'=3x²,g\'=−sinx. f\'g+fg\' = 3x²cosx−x³sinx.',wrong:'✗ Product rule: (3x²)(cosx)+(x³)(−sinx) = 3x²cosx−x³sinx.'},
+    3:{D:'✓ Correct! f=2x+1,g=x−3,f\'=2,g\'=1. (f\'g−fg\')/g² = [2(x−3)−(2x+1)]/( x−3)² = (2x−6−2x−1)/(x−3)² = −7/(x−3)².',wrong:'✗ Quotient rule: [2(x−3)−(2x+1)(1)]/(x−3)² = (2x−6−2x−1)/(x−3)² = −7/(x−3)².'},
+    4:{C:'✓ Correct! Chain rule: 6(2x³+1)⁵·6x² = 36x²(2x³+1)⁵.',wrong:'✗ Chain rule: outer=6u⁵, inner=2x³+1→6x². Result: 6(2x³+1)⁵·6x² = 36x²(2x³+1)⁵.'},
+    5:{D:'✓ Correct! Product rule: f=eˣ,g=sinx,f\'=eˣ,g\'=cosx. eˣ·sinx+eˣ·cosx = eˣ(sinx+cosx).',wrong:'✗ Product rule: (eˣ)(sinx)+(eˣ)(cosx) = eˣ(sinx+cosx).'},
+  };
+
+  let answered = 0;
+
+  function answer(qNum, chosen, correctAns) {
+    if (answers[qNum]) return;
+    answers[qNum] = chosen;
+    answered++;
+    const card    = document.getElementById('q' + qNum);
+    const options = card.querySelectorAll('.quiz-option');
+    const fb      = document.getElementById('q' + qNum + '-feedback');
+    const letters = ['A','B','C','D'];
+    options.forEach((opt,i) => {
+      opt.classList.add('disabled');
+      if (letters[i] === correctAns) opt.classList.add('correct');
+      else if (letters[i] === chosen && chosen !== correctAns) opt.classList.add('wrong');
+    });
+    const isCorrect = chosen === correctAns;
+    fb.textContent = isCorrect ? feedbacks[qNum][correctAns] : feedbacks[qNum].wrong;
+    fb.className   = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+    updateProgress();
+    if (answered === 5) showScore();
+  }
+
+  function showScore() {
+    const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent = score + '/5';
+    const labels = ['📖 Review and retake.','📖 Keep studying.','📖 Almost there!','👍 Good work!','👍 Almost perfect!','🎉 Perfect! Lesson 2 mastered!'];
+    document.getElementById('score-label').textContent = labels[score];
+  }
+
+  function retakeQuiz() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    answered = 0;
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o => { o.className='quiz-option'; });
+      document.getElementById('q'+i+'-feedback').className = 'quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress() {
+    document.getElementById('progress-fill').style.width = (answered/5*100)+'%';
+  }
+
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections = ['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll', () => {
+    let current = 'intro';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l => {
+      const t = l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active', t === current);
+    });
+  });
+</script>
+</body>
+</html>
