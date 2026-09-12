@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4: Continuity of Functions | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem;display:flex;align-items:center;gap:6px}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1.05rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .math-display{background:var(--surface-2);border-radius:var(--radius);padding:.75rem 1.25rem;font-family:'Georgia',serif;font-size:1rem;color:var(--brand-primary);text-align:center;margin:.875rem 0;border-left:3px solid var(--brand-accent)}
+    .visual-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem;text-align:center}
+    .visual-caption{font-size:.78rem;color:var(--text-muted);margin-top:.75rem;line-height:1.5;text-align:center}
+    /* Three conditions visual */
+    .conditions-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1rem 0}
+    .cond-card{border-radius:var(--radius-xl);padding:1.125rem;text-align:center}
+    .cond-card.c1{background:#EFF6FF;border:1.5px solid #BFDBFE}
+    .cond-card.c2{background:#F0FDF4;border:1.5px solid #86EFAC}
+    .cond-card.c3{background:#FDF4FF;border:1.5px solid #E9D5FF}
+    .cond-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;margin:0 auto .625rem}
+    .cond-num.b{background:#2563EB;color:#fff}
+    .cond-num.g{background:#16A34A;color:#fff}
+    .cond-num.p{background:#7C3AED;color:#fff}
+    .cond-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .cond-title.b{color:#1E40AF}
+    .cond-title.g{color:#166534}
+    .cond-title.p{color:#7C3AED}
+    .cond-math{font-family:Georgia,serif;font-size:.9rem;font-weight:700;margin-bottom:.35rem}
+    .cond-desc{font-size:.75rem;color:var(--text-muted);line-height:1.5}
+    /* Discontinuity types */
+    .disc-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1rem 0}
+    .disc-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden}
+    .disc-header{padding:.75rem 1rem;text-align:center;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+    .disc-header.jump{background:#FEF2F2;color:#991B1B}
+    .disc-header.removable{background:#FFFBEB;color:#92400E}
+    .disc-header.infinite{background:#FDF4FF;color:#7C3AED}
+    .disc-body{padding:1rem;text-align:center}
+    .disc-desc{font-size:.78rem;color:var(--text-muted);line-height:1.5;margin-top:.5rem}
+    /* IVT visual */
+    .ivt-box{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem}
+    .ivt-title{font-size:.875rem;font-weight:700;color:var(--brand-primary);margin-bottom:.75rem}
+    /* Checklist */
+    .checklist{list-style:none}
+    .checklist li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;padding:.5rem 0;border-bottom:1px solid var(--border);line-height:1.6}
+    .checklist li:last-child{border-bottom:none}
+    .check-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;margin-top:1px}
+    .check-icon.pass{background:#DCFCE7;color:#166534}
+    .check-icon.fail{background:#FEE2E2;color:#991B1B}
+    /* Quiz */
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .unit-complete-banner{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem;text-align:center;margin-top:2rem;color:#fff}
+    .unit-complete-banner h3{font-size:1.25rem;font-weight:800;margin-bottom:.5rem}
+    .unit-complete-banner p{color:rgba(255,255,255,.75);font-size:.9rem;margin-bottom:1.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem;font-weight:700}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}.conditions-grid,.disc-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div>Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div>Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div>Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div>Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div>Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div>Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div>Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="unit2-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div>L1: Concept of a Limit ✓</a>
+      <a href="unit2-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div>L2: Limit Theorems ✓</a>
+      <a href="unit2-lesson3.html" class="sidebar-link"><div class="sidebar-dot"></div>L3: One-Sided Limits ✓</a>
+      <a href="unit2-lesson4.html" class="sidebar-link active"><div class="sidebar-dot"></div>L4: Continuity</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 2 · Lesson 4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Limits and Continuity — Final Lesson</div>
+      <h1>〰️ Continuity of Functions</h1>
+      <p>Understand what it means for a function to be continuous — no holes, no jumps, no breaks. Learn the three conditions for continuity, the three types of discontinuity with visual diagrams, and the powerful Intermediate Value Theorem.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What does continuity mean?</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Imagine drawing a curve on paper <strong>without lifting your pen</strong>. If you can do it, the function is continuous. If you have to lift your pen — because of a hole, a jump, or a vertical asymptote — the function is <strong>discontinuous</strong> at that point.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Continuity is one of the most important concepts in calculus. Without it, derivatives and integrals cannot be properly defined. The Ethiopian entrance exam tests continuity in several ways — checking the three conditions, identifying types of discontinuity, and applying the Intermediate Value Theorem.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>State the three conditions for continuity at a point</li>
+          <li>Test whether a function is continuous at a given point</li>
+          <li>Identify removable, jump, and infinite discontinuities</li>
+          <li>Determine intervals of continuity for common functions</li>
+          <li>Apply the Intermediate Value Theorem (IVT) to show existence of roots</li>
+          <li>Find values of constants that make a piecewise function continuous</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Theory with visual diagrams of all discontinuity types</div>
+        </div>
+      </div>
+
+      <!-- Three conditions -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:1rem">2.1 Three Conditions for Continuity at a Point</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          A function f is <strong>continuous at x = a</strong> if and only if all three conditions hold:
+        </p>
+        <div class="conditions-grid">
+          <div class="cond-card c1">
+            <div class="cond-num b">1</div>
+            <div class="cond-title b">Defined</div>
+            <div class="cond-math" style="color:#2563EB">f(a) exists</div>
+            <div class="cond-desc">The function must have a value at x = a. No division by zero, no undefined expressions.</div>
+          </div>
+          <div class="cond-card c2">
+            <div class="cond-num g">2</div>
+            <div class="cond-title g">Limit Exists</div>
+            <div class="cond-math" style="color:#16A34A">lim(x→a) f(x) exists</div>
+            <div class="cond-desc">The two-sided limit must exist at x = a. Left and right limits must be equal.</div>
+          </div>
+          <div class="cond-card c3">
+            <div class="cond-num p">3</div>
+            <div class="cond-title p">Equal</div>
+            <div class="cond-math" style="color:#7C3AED">lim(x→a)f(x) = f(a)</div>
+            <div class="cond-desc">The limit must equal the function value. The function must approach what it actually equals.</div>
+          </div>
+        </div>
+
+        <div class="definition-box" style="margin-top:1rem">
+          <div class="def-label">📌 Definition — Continuity at a Point</div>
+          <p>f is continuous at x = a if:<br><br>
+          <strong>(1) f(a) is defined &nbsp; (2) lim(x→a) f(x) exists &nbsp; (3) lim(x→a) f(x) = f(a)</strong><br><br>
+          If any one of these three conditions fails, f is <strong>discontinuous</strong> at x = a.</p>
+        </div>
+      </div>
+
+      <!-- Three types of discontinuity with SVG diagrams -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:1rem">2.2 Three Types of Discontinuity</h3>
+
+        <!-- Type 1: Removable -->
+        <div style="margin-bottom:1.5rem">
+          <div style="background:#FEF9C3;border:1px solid #FDE68A;border-radius:var(--radius-lg);padding:.625rem 1rem;margin-bottom:.875rem;display:inline-flex;align-items:center;gap:6px">
+            <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#92400E">Type 1 — Removable Discontinuity (Hole)</span>
+          </div>
+          <div class="visual-box">
+            <svg viewBox="0 0 380 180" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="380" height="180" fill="#FFFBEB" rx="8"/>
+              <line x1="30" y1="150" x2="360" y2="150" stroke="#CBD5E1" stroke-width="1.5"/>
+              <line x1="30" y1="20" x2="30" y2="160" stroke="#CBD5E1" stroke-width="1.5"/>
+              <!-- Smooth curve with hole -->
+              <path d="M30,130 Q100,60 185,80" stroke="#14532D" stroke-width="3" fill="none"/>
+              <path d="M215,80 Q280,100 360,40" stroke="#14532D" stroke-width="3" fill="none"/>
+              <!-- Open circle (hole) -->
+              <circle cx="200" cy="80" r="7" fill="#FFFBEB" stroke="#14532D" stroke-width="2.5"/>
+              <!-- Filled dot at different y -->
+              <circle cx="200" cy="120" r="5" fill="#DC2626"/>
+              <!-- Labels -->
+              <text x="200" y="170" font-family="Arial,sans-serif" font-size="11" fill="#92400E" text-anchor="middle" font-weight="700">a</text>
+              <text x="240" y="75" font-family="Arial,sans-serif" font-size="10" fill="#64748B">limit = L (hole)</text>
+              <text x="220" y="125" font-family="Arial,sans-serif" font-size="10" fill="#DC2626">f(a) ≠ L</text>
+            </svg>
+            <div class="visual-caption"><strong>Removable:</strong> The limit exists but f(a) either does not exist or ≠ limit. A "hole" in the graph. Can be "fixed" by redefining f(a) = L.</div>
+          </div>
+        </div>
+
+        <!-- Type 2: Jump -->
+        <div style="margin-bottom:1.5rem">
+          <div style="background:#FEE2E2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:.625rem 1rem;margin-bottom:.875rem;display:inline-flex;align-items:center;gap:6px">
+            <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#991B1B">Type 2 — Jump Discontinuity</span>
+          </div>
+          <div class="visual-box">
+            <svg viewBox="0 0 380 180" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="380" height="180" fill="#FEF2F2" rx="8"/>
+              <line x1="30" y1="150" x2="360" y2="150" stroke="#CBD5E1" stroke-width="1.5"/>
+              <line x1="30" y1="20" x2="30" y2="160" stroke="#CBD5E1" stroke-width="1.5"/>
+              <!-- Left segment -->
+              <line x1="30" y1="130" x2="192" y2="130" stroke="#2563EB" stroke-width="3"/>
+              <circle cx="195" cy="130" r="6" fill="#FEF2F2" stroke="#2563EB" stroke-width="2.5"/>
+              <!-- Right segment -->
+              <line x1="200" y1="70" x2="360" y2="70" stroke="#DC2626" stroke-width="3"/>
+              <circle cx="200" cy="70" r="5" fill="#DC2626"/>
+              <!-- Jump arrow -->
+              <line x1="200" y1="125" x2="200" y2="78" stroke="#0F172A" stroke-width="1.5" stroke-dasharray="4,2"/>
+              <!-- Labels -->
+              <text x="200" y="168" font-family="Arial,sans-serif" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="700">a</text>
+              <text x="100" y="120" font-family="Arial,sans-serif" font-size="10" fill="#2563EB">L⁻ (left limit)</text>
+              <text x="240" y="62" font-family="Arial,sans-serif" font-size="10" fill="#DC2626">L⁺ (right limit)</text>
+              <text x="215" y="102" font-family="Arial,sans-serif" font-size="10" fill="#0F172A" font-weight="700">JUMP</text>
+            </svg>
+            <div class="visual-caption"><strong>Jump:</strong> Left and right limits exist but are different (L⁻ ≠ L⁺). The function "jumps" from one value to another. Cannot be fixed by redefining one point.</div>
+          </div>
+        </div>
+
+        <!-- Type 3: Infinite -->
+        <div style="margin-bottom:.5rem">
+          <div style="background:#EDE9FE;border:1px solid #C4B5FD;border-radius:var(--radius-lg);padding:.625rem 1rem;margin-bottom:.875rem;display:inline-flex;align-items:center;gap:6px">
+            <span style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#5B21B6">Type 3 — Infinite Discontinuity (Vertical Asymptote)</span>
+          </div>
+          <div class="visual-box">
+            <svg viewBox="0 0 380 180" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0" y="0" width="380" height="180" fill="#F5F3FF" rx="8"/>
+              <line x1="30" y1="150" x2="360" y2="150" stroke="#CBD5E1" stroke-width="1.5"/>
+              <line x1="30" y1="20" x2="30" y2="160" stroke="#CBD5E1" stroke-width="1.5"/>
+              <!-- Vertical asymptote -->
+              <line x1="200" y1="15" x2="200" y2="155" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="5,3"/>
+              <!-- Left curve going to -∞ -->
+              <path d="M30,100 Q130,110 180,140 Q192,148 196,160" stroke="#14532D" stroke-width="3" fill="none"/>
+              <!-- Right curve coming from +∞ -->
+              <path d="M204,15 Q208,25 215,40 Q240,80 360,100" stroke="#14532D" stroke-width="3" fill="none"/>
+              <!-- Labels -->
+              <text x="200" y="170" font-family="Arial,sans-serif" font-size="11" fill="#5B21B6" text-anchor="middle" font-weight="700">a</text>
+              <text x="155" y="90" font-family="Arial,sans-serif" font-size="10" fill="#14532D">→ −∞</text>
+              <text x="225" y="32" font-family="Arial,sans-serif" font-size="10" fill="#14532D">→ +∞</text>
+              <text x="200" y="10" font-family="Arial,sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle" font-weight="700">vertical asymptote</text>
+            </svg>
+            <div class="visual-caption"><strong>Infinite:</strong> f(x) → ±∞ as x → a. Usually caused by division by zero. The function has a vertical asymptote at x = a.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continuity on intervals -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Continuity on an Interval</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          A function is <strong>continuous on an interval</strong> if it is continuous at every point in that interval.
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.72rem;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:.5rem">Always Continuous</div>
+            <ul style="font-size:.82rem;color:var(--text);padding-left:1rem;line-height:2">
+              <li>Polynomial functions — all x</li>
+              <li>Rational functions — where denominator ≠ 0</li>
+              <li>sin(x) and cos(x) — all x</li>
+              <li>√x — for x &gt; 0 (or x ≥ 0)</li>
+              <li>eˣ and ln(x) — their domains</li>
+            </ul>
+          </div>
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.72rem;font-weight:700;color:#991B1B;text-transform:uppercase;margin-bottom:.5rem">May be Discontinuous</div>
+            <ul style="font-size:.82rem;color:var(--text);padding-left:1rem;line-height:2">
+              <li>Rational functions — at zeros of denominator</li>
+              <li>tan(x) — at x = π/2 + nπ</li>
+              <li>Piecewise functions — at boundary points</li>
+              <li>√(expression) — where expression &lt; 0</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- IVT -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 The Intermediate Value Theorem (IVT)</h3>
+        <div class="ivt-box">
+          <div class="ivt-title">📌 Intermediate Value Theorem</div>
+          <p style="font-size:.875rem;line-height:1.75;color:var(--heading)">
+            If f is <strong>continuous on [a, b]</strong>, and N is any number between f(a) and f(b), then there exists at least one number c in (a, b) such that <strong>f(c) = N</strong>.
+          </p>
+        </div>
+
+        <!-- IVT visual -->
+        <div class="visual-box">
+          <svg viewBox="0 0 440 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="440" height="200" fill="#F0FDF4" rx="8"/>
+            <!-- Axes -->
+            <line x1="40" y1="170" x2="420" y2="170" stroke="#CBD5E1" stroke-width="1.5"/>
+            <line x1="40" y1="20" x2="40" y2="175" stroke="#CBD5E1" stroke-width="1.5"/>
+            <!-- Continuous curve from f(a) to f(b) -->
+            <path d="M80,150 Q160,140 220,100 Q280,60 380,40" stroke="#14532D" stroke-width="3" fill="none"/>
+            <!-- a and b on x-axis -->
+            <line x1="80" y1="167" x2="80" y2="173" stroke="#0F172A" stroke-width="1.5"/>
+            <line x1="380" y1="167" x2="380" y2="173" stroke="#0F172A" stroke-width="1.5"/>
+            <text x="80" y="185" font-family="Georgia,serif" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="700">a</text>
+            <text x="380" y="185" font-family="Georgia,serif" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="700">b</text>
+            <!-- f(a) and f(b) markers -->
+            <line x1="37" y1="150" x2="80" y2="150" stroke="#14532D" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="28" y="154" font-family="Georgia,serif" font-size="10" fill="#14532D" text-anchor="middle">f(a)</text>
+            <line x1="37" y1="40" x2="380" y2="40" stroke="#14532D" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="28" y="44" font-family="Georgia,serif" font-size="10" fill="#14532D" text-anchor="middle">f(b)</text>
+            <!-- N horizontal line -->
+            <line x1="40" y1="95" x2="420" y2="95" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="6,3"/>
+            <text x="425" y="99" font-family="Georgia,serif" font-size="11" fill="#DC2626" font-weight="700">N</text>
+            <!-- c point where curve meets N -->
+            <circle cx="222" cy="95" r="6" fill="#DC2626"/>
+            <line x1="222" y1="95" x2="222" y2="170" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="222" y="185" font-family="Georgia,serif" font-size="11" fill="#DC2626" text-anchor="middle" font-weight="700">c</text>
+            <text x="222" y="80" font-family="Arial,sans-serif" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="700">f(c) = N</text>
+          </svg>
+          <div class="visual-caption">For any value N between f(a) and f(b), the continuous curve must cross the horizontal line y = N at some point c between a and b.</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">⚠ IVT Exam Application</div>
+          <p>The IVT is often used to <strong>prove a root exists</strong>. If f is continuous on [a,b] and f(a) and f(b) have <strong>opposite signs</strong> (one positive, one negative), then f(c) = 0 for some c in (a,b). The function must cross zero somewhere.</p>
+        </div>
+      </div>
+
+      <!-- Checklist visual -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Continuity Checklist — How to Test at x = a</h3>
+        <ul class="checklist">
+          <li>
+            <div class="check-icon pass">1</div>
+            <div><strong>Check if f(a) is defined.</strong> Substitute x = a. If you get a real number → ✓. If you get 0/0 or undefined → ✗ (discontinuous).</div>
+          </li>
+          <li>
+            <div class="check-icon pass">2</div>
+            <div><strong>Check if lim(x→a) f(x) exists.</strong> Compute left and right limits. If L⁻ = L⁺ → ✓. If L⁻ ≠ L⁺ → ✗ (jump discontinuity).</div>
+          </li>
+          <li>
+            <div class="check-icon pass">3</div>
+            <div><strong>Check if limit = f(a).</strong> Compare your answers from steps 1 and 2. If they match → ✓ continuous. If not → ✗ (removable discontinuity).</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Continuity conditions and theorems</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📐 Lesson 4 — Continuity</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Condition 1</div>
+            <div class="formula-math">f(a) exists</div>
+            <div class="formula-note">Function must be defined at a</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Condition 2</div>
+            <div class="formula-math">lim(x→a) f(x) exists</div>
+            <div class="formula-note">Two-sided limit must exist at a</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Condition 3</div>
+            <div class="formula-math">lim f(x) = f(a)</div>
+            <div class="formula-note">Limit must equal the function value</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Removable Disc.</div>
+            <div class="formula-math">limit exists, f(a) ≠ L</div>
+            <div class="formula-note">Hole in graph — can be fixed</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Jump Disc.</div>
+            <div class="formula-math">L⁻ ≠ L⁺</div>
+            <div class="formula-note">Cannot be fixed at one point</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">IVT</div>
+            <div class="formula-math">f(a)&lt;0&lt;f(b) → root</div>
+            <div class="formula-note">Opposite signs guarantee a root</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 1</span>
+          <span class="example-title">Testing Continuity — Three Conditions</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Is f(x) = (x²−4)/(x−2) continuous at x = 2?</div>
+          <div class="example-step">
+            <span class="step-badge">Condition 1</span>
+            <div class="step-text">f(2) = (4−4)/(2−2) = 0/0 — <strong>undefined</strong> ✗<br>
+            Condition 1 fails immediately.</div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Classify</span>
+            <div class="step-text">Factor: (x−2)(x+2)/(x−2) → limit = x+2 = 4 as x→2<br>
+            Limit exists = 4, but f(2) is undefined → <strong>Removable discontinuity</strong></div>
+          </div>
+          <div class="example-answer">✅ f is <strong>NOT continuous</strong> at x = 2. Removable discontinuity (hole at (2, 4)).</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 2</span>
+          <span class="example-title">Piecewise — Testing All Three Conditions</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> f(x) = x² for x ≠ 3 and f(3) = 7. Is f continuous at x = 3?</div>
+          <div class="example-step"><span class="step-badge">Condition 1</span><div class="step-text">f(3) = 7 ✓ — defined</div></div>
+          <div class="example-step"><span class="step-badge">Condition 2</span><div class="step-text"><span class="math">lim(x→3) x² = 9 ✓</span> — limit exists</div></div>
+          <div class="example-step"><span class="step-badge">Condition 3</span><div class="step-text">lim = 9 ≠ f(3) = 7 ✗ — not equal</div></div>
+          <div class="example-answer">✅ f is <strong>NOT continuous</strong> at x = 3. Removable discontinuity — the point (3,7) is off the curve.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 3</span>
+          <span class="example-title">Finding k for Continuity</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> f(x) = kx + 2 for x ≤ 1 and f(x) = 3x² for x &gt; 1. Find k so f is continuous at x = 1.</div>
+          <div class="example-step"><span class="step-badge">Left limit</span><div class="step-text"><span class="math">lim(x→1⁻) (kx+2) = k+2</span></div></div>
+          <div class="example-step"><span class="step-badge">Right limit</span><div class="step-text"><span class="math">lim(x→1⁺) 3x² = 3</span></div></div>
+          <div class="example-step"><span class="step-badge">f(1)</span><div class="step-text"><span class="math">f(1) = k(1)+2 = k+2</span></div></div>
+          <div class="example-step">
+            <span class="step-badge">Set equal</span>
+            <div class="step-text">For continuity, all three must be equal:<br>
+              <span class="math">k+2 = 3 &nbsp;⟹&nbsp; k = 1</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ k = <strong>1</strong> makes f continuous at x = 1</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 4</span>
+          <span class="example-title">Identifying Type of Discontinuity</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify the discontinuity of f(x) = 1/(x−3) at x = 3.</div>
+          <div class="example-step"><span class="step-badge">Condition 1</span><div class="step-text">f(3) = 1/0 — <strong>undefined</strong> ✗</div></div>
+          <div class="example-step">
+            <span class="step-badge">Left limit</span>
+            <div class="step-text">As x→3⁻: (x−3) → 0⁻, so 1/(x−3) → <span class="math">−∞</span></div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Right limit</span>
+            <div class="step-text">As x→3⁺: (x−3) → 0⁺, so 1/(x−3) → <span class="math">+∞</span></div>
+          </div>
+          <div class="example-answer">✅ <strong>Infinite discontinuity</strong> (vertical asymptote) at x = 3. The function goes to ±∞ on each side.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 5</span>
+          <span class="example-title">Applying the IVT</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Show that f(x) = x³ − x − 1 has a root in the interval [1, 2].</div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">f is a polynomial → continuous everywhere ✓</div></div>
+          <div class="example-step">
+            <span class="step-badge">Step 2</span>
+            <div class="step-text">Evaluate at endpoints:<br>
+              <span class="math">f(1) = 1−1−1 = −1 &lt; 0</span><br>
+              <span class="math">f(2) = 8−2−1 = 5 &gt; 0</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Step 3</span>
+            <div class="step-text">f(1) &lt; 0 &lt; f(2) — opposite signs with 0 between them.</div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Apply IVT</span>
+            <div class="step-text">By IVT, since f is continuous on [1,2] and f(1) &lt; 0 &lt; f(2), there must exist c ∈ (1,2) such that f(c) = 0.</div>
+          </div>
+          <div class="example-answer">✅ By the IVT, f(x) = x³−x−1 has <strong>at least one root</strong> in (1, 2).</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which of the following is NOT a condition for f to be continuous at x = a?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','D')"><div class="option-letter">A</div>f(a) must be defined</div>
+          <div class="quiz-option" onclick="answer(1,'B','D')"><div class="option-letter">B</div>lim(x→a) f(x) must exist</div>
+          <div class="quiz-option" onclick="answer(1,'C','D')"><div class="option-letter">C</div>lim(x→a) f(x) must equal f(a)</div>
+          <div class="quiz-option" onclick="answer(1,'D','D')"><div class="option-letter">D</div>f must be differentiable at x = a</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">f(x) = (x²−9)/(x−3). What type of discontinuity does f have at x = 3?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','A')"><div class="option-letter">A</div>Removable discontinuity</div>
+          <div class="quiz-option" onclick="answer(2,'B','A')"><div class="option-letter">B</div>Jump discontinuity</div>
+          <div class="quiz-option" onclick="answer(2,'C','A')"><div class="option-letter">C</div>Infinite discontinuity</div>
+          <div class="quiz-option" onclick="answer(2,'D','A')"><div class="option-letter">D</div>No discontinuity</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">f(x) = 2x+1 for x &lt; 2 and f(x) = kx−1 for x ≥ 2. What value of k makes f continuous at x = 2?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div>k = 2</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div>k = 1</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div>k = 3</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div>k = 4</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">f(x) = x² + 2x − 3 on [0, 2]. By the IVT, which value of N is guaranteed to be achieved?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div>N = 8</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div>N = 2</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div>N = 10</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div>N = −5</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Which function is continuous for ALL real numbers?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div>f(x) = 1/x</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div>f(x) = √x</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div>f(x) = x³ − 5x + 2</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div>f(x) = tan(x)</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Course Index →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Continuity</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem">Watch these to reinforce this lesson:</p>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+continuity+of+functions" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Continuity of Functions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+types+of+discontinuity" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Types of Discontinuity</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+intermediate+value+theorem" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Intermediate Value Theorem</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+piecewise+function+continuity" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Continuity of Piecewise Functions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Unit 2 Lesson 4</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Continuity of Functions</div>
+        <ul class="summary-list">
+          <li>f is continuous at x = a if: (1) f(a) exists, (2) lim(x→a) f(x) exists, (3) they are equal.</li>
+          <li><strong>Removable discontinuity:</strong> limit exists but f(a) is undefined or ≠ limit. A hole in the graph.</li>
+          <li><strong>Jump discontinuity:</strong> left and right limits exist but are not equal. A jump in the graph.</li>
+          <li><strong>Infinite discontinuity:</strong> f(x) → ±∞ as x → a. A vertical asymptote.</li>
+          <li>Polynomials are continuous everywhere. Rational functions are continuous where denominator ≠ 0.</li>
+          <li>For piecewise functions: check that left limit = right limit = f(a) at every boundary point.</li>
+          <li>To find k for continuity: set left limit = right limit and solve — all three must be equal.</li>
+          <li><strong>IVT:</strong> if f is continuous on [a,b] and f(a), f(b) have opposite signs, f has a root in (a,b).</li>
+        </ul>
+      </div>
+
+      <div class="unit-complete-banner">
+        <h3>🎉 Unit 2 Complete — Limits and Continuity</h3>
+        <p>You have finished all 4 lessons of Unit 2. You now understand limits, limit theorems, one-sided limits, and continuity — the complete foundation of calculus needed for the entrance exam.</p>
+        <a href="../index.html" class="btn btn-accent btn-lg">View All Units →</a>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit2-lesson3.html" class="btn btn-ghost">← Lesson 3: One-Sided Limits</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 4 of 4 · Unit Complete ✅</div>
+      <a href="../index.html" class="btn btn-primary">Course Index →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+
+  const answers   = {};
+  const correct   = {1:'D', 2:'A', 3:'C', 4:'B', 5:'C'};
+  const feedbacks = {
+    1:{D:'✓ Correct! Differentiability is NOT required for continuity — it is a stronger condition. The 3 conditions are: defined, limit exists, limit = f(a).',wrong:'✗ The 3 conditions are: f(a) defined, limit exists, and limit = f(a). Differentiability is not one of them.'},
+    2:{A:'✓ Correct! (x²−9)/(x−3) = (x+3)(x−3)/(x−3) = x+3. Limit at x=3 is 6, but f(3) is undefined → removable discontinuity (hole).',wrong:'✗ Factor: (x−3)(x+3)/(x−3) = x+3. Limit = 6 exists, but f(3) undefined → removable (hole).'},
+    3:{C:'✓ Correct! Left: 2(2)+1=5. Right: 2k−1. Set equal: 2k−1=5 → 2k=6 → k=3.',wrong:'✗ Left limit: 2(2)+1=5. Right limit: 2k−1. Set equal: 2k−1=5 → k=3.'},
+    4:{B:'✓ Correct! f(0)=−3 and f(2)=4+4−3=5. IVT guarantees all values between −3 and 5, so N=2 is guaranteed.',wrong:'✗ f(0)=−3, f(2)=5. IVT guarantees values between −3 and 5. N=2 is in that range.'},
+    5:{C:'✓ Correct! Polynomials are continuous for all real x. f(x)=x³−5x+2 is a polynomial.',wrong:'✗ 1/x has a discontinuity at x=0. √x is only defined for x≥0. tan(x) has discontinuities. Only the polynomial x³−5x+2 is continuous everywhere.'},
+  };
+
+  let answered = 0;
+
+  function answer(qNum, chosen, correctAns) {
+    if (answers[qNum]) return;
+    answers[qNum] = chosen;
+    answered++;
+    const card    = document.getElementById('q' + qNum);
+    const options = card.querySelectorAll('.quiz-option');
+    const fb      = document.getElementById('q' + qNum + '-feedback');
+    const letters = ['A','B','C','D'];
+    options.forEach((opt,i) => {
+      opt.classList.add('disabled');
+      if (letters[i] === correctAns) opt.classList.add('correct');
+      else if (letters[i] === chosen && chosen !== correctAns) opt.classList.add('wrong');
+    });
+    const isCorrect = chosen === correctAns;
+    fb.textContent = isCorrect ? feedbacks[qNum][correctAns] : feedbacks[qNum].wrong;
+    fb.className   = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+    updateProgress();
+    if (answered === 5) showScore();
+  }
+
+  function showScore() {
+    const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent = score + '/5';
+    const labels = ['📖 Review and retake.','📖 Keep studying.','📖 Almost there!','👍 Good work!','👍 Almost perfect!','🎉 Perfect! Unit 2 complete!'];
+    document.getElementById('score-label').textContent = labels[score];
+  }
+
+  function retakeQuiz() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    answered = 0;
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o => { o.className='quiz-option'; });
+      document.getElementById('q'+i+'-feedback').className = 'quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress() {
+    document.getElementById('progress-fill').style.width = (answered/5*100)+'%';
+  }
+
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections = ['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll', () => {
+    let current = 'intro';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l => {
+      const t = l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active', t === current);
+    });
+  });
+</script>
+</body>
+</html>
