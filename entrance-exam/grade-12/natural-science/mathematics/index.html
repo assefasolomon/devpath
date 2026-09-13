@@ -246,7 +246,7 @@ const units = [
     title: "Introduction to Integral Calculus",
     sub: "Integration and applications",
     lessons: [
-      { num: 1, title: "Antiderivatives and Indefinite Integrals", desc: "Basic integration rules and techniques", href: null, status: "locked" },
+      { num: 1, title: "Antiderivatives and Indefinite Integrals", desc: "Basic integration rules and techniques", href: "lessons/unit4-lesson1.html", status: "available", quizzes: 5 },
       { num: 2, title: "Definite Integrals",                       desc: "Fundamental Theorem of Calculus",        href: null, status: "locked" },
       { num: 3, title: "Applications of Integration",              desc: "Area under curves and between curves",   href: null, status: "locked" },
     ],
@@ -303,7 +303,7 @@ function renderLesson(lesson) {
   // Available lessons start WITHOUT .done — the progress API adds it later
   const numClass = "lesson-num";
   const right    = isLocked
-    ? `<span class="lesson-badge badge-locked">🔒 Coming Soon</span>`
+    ? `<span class="lesson-badge badge-locked">🔒 Locked</span>`
     : `<span class="lesson-badge badge-available">✓ Available</span>
        <span class="lesson-badge badge-quiz">${lesson.quizzes} Quizzes</span>`;
 
