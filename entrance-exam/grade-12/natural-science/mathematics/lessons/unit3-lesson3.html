@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3: Higher Order Derivatives | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem;display:flex;align-items:center;gap:6px}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1.05rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .math-display{background:var(--surface-2);border-radius:var(--radius);padding:.75rem 1.25rem;font-family:'Georgia',serif;font-size:1rem;color:var(--brand-primary);text-align:center;margin:.875rem 0;border-left:3px solid var(--brand-accent)}
+    .visual-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem;text-align:center}
+    .visual-caption{font-size:.78rem;color:var(--text-muted);margin-top:.75rem;line-height:1.5;text-align:center}
+    /* Order chain */
+    .order-chain{display:flex;align-items:center;gap:0;flex-wrap:wrap;margin:1rem 0;overflow-x:auto}
+    .order-block{padding:.75rem 1rem;text-align:center;min-width:100px}
+    .order-block.f0{background:#14532D;color:#fff;border-radius:var(--radius) 0 0 var(--radius)}
+    .order-block.f1{background:#166534;color:#fff}
+    .order-block.f2{background:#16A34A;color:#fff}
+    .order-block.f3{background:#22C55E;color:#fff}
+    .order-block.fn{background:var(--brand-accent);color:#fff;border-radius:0 var(--radius) var(--radius) 0}
+    .order-arrow{background:var(--brand-light);color:var(--brand-primary);padding:.75rem .5rem;font-size:.875rem;font-weight:700}
+    .order-label{font-size:.65rem;color:rgba(255,255,255,.75);margin-top:3px}
+    .order-name{font-family:Georgia,serif;font-size:.9rem;font-weight:700}
+    /* Notation table */
+    .notation-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:1rem 0}
+    .notation-table th{background:var(--brand-primary);color:#fff;padding:.625rem 1rem;text-align:left;font-weight:700}
+    .notation-table td{padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif}
+    .notation-table tr:nth-child(even){background:var(--surface-2)}
+    .notation-table .order{color:var(--brand-primary);font-weight:700}
+    .notation-table .lagrange{color:#7C3AED;font-weight:700}
+    .notation-table .leibniz{color:#1E40AF;font-weight:700}
+    /* Concavity visual */
+    .concavity-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+    .conc-card{border-radius:var(--radius-xl);padding:1.25rem;text-align:center}
+    .conc-card.up{background:#F0FDF4;border:1.5px solid #86EFAC}
+    .conc-card.down{background:#FEF2F2;border:1.5px solid #FECACA}
+    .conc-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem}
+    .conc-title.g{color:#166534}
+    .conc-title.r{color:#991B1B}
+    /* Quiz */
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem;font-weight:700}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}.concavity-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div>Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div>Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div>Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div>Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div>Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div>Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div>Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="unit3-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div>L1: The Derivative ✓</a>
+      <a href="unit3-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div>L2: Rules of Differentiation ✓</a>
+      <a href="unit3-lesson3.html" class="sidebar-link active"><div class="sidebar-dot"></div>L3: Higher Order Derivatives</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L4: Applications 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 3 · Lesson 3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Differential Calculus</div>
+      <h1>f'' Higher Order Derivatives</h1>
+      <p>Learn to find the second, third and higher derivatives of a function. Understand their geometric meaning — concavity and inflection points — and their physical interpretation as acceleration. A key topic on the Ethiopian entrance exam.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What happens when you differentiate again?</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          You have learned that differentiating a function f gives the derivative f' — which tells you the <strong>rate of change</strong> of f. But what if you differentiate f' again? The result is the <strong>second derivative</strong> f'', which tells you the <strong>rate of change of the rate of change</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In physics, if f is position, then f' is velocity and f'' is <strong>acceleration</strong>. In geometry, f'' tells us whether a curve is bending upward (concave up) or downward (concave down). These are powerful ideas that appear frequently on the entrance exam.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Find the second derivative f''(x) by differentiating f'(x)</li>
+          <li>Find third and higher order derivatives</li>
+          <li>Use all standard notations: f'', d²y/dx², y''</li>
+          <li>Interpret f'' as acceleration in motion problems</li>
+          <li>Use f'' to determine concavity: concave up (f'' &gt; 0) or down (f'' &lt; 0)</li>
+          <li>Find inflection points where concavity changes</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Theory with visual diagrams</div>
+        </div>
+      </div>
+
+      <!-- Order chain visual -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 The Chain of Derivatives</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Each derivative is obtained by differentiating the previous one. You can keep going as long as the result is differentiable:
+        </p>
+        <div class="order-chain">
+          <div class="order-block f0">
+            <div class="order-name">f(x)</div>
+            <div class="order-label">function</div>
+          </div>
+          <div class="order-arrow">d/dx →</div>
+          <div class="order-block f1">
+            <div class="order-name">f'(x)</div>
+            <div class="order-label">1st derivative</div>
+          </div>
+          <div class="order-arrow">d/dx →</div>
+          <div class="order-block f2">
+            <div class="order-name">f''(x)</div>
+            <div class="order-label">2nd derivative</div>
+          </div>
+          <div class="order-arrow">d/dx →</div>
+          <div class="order-block f3">
+            <div class="order-name">f'''(x)</div>
+            <div class="order-label">3rd derivative</div>
+          </div>
+          <div class="order-arrow">d/dx →</div>
+          <div class="order-block fn">
+            <div class="order-name">f⁽ⁿ⁾(x)</div>
+            <div class="order-label">nth derivative</div>
+          </div>
+        </div>
+
+        <div class="definition-box" style="margin-top:1rem">
+          <div class="def-label">📌 Definition — Second Derivative</div>
+          <p>The <strong>second derivative</strong> of f is the derivative of the first derivative:<br><br>
+          <strong>f''(x) = d/dx[f'(x)]</strong><br><br>
+          It measures how fast the slope (first derivative) is changing.</p>
+        </div>
+      </div>
+
+      <!-- Notation table -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Notation for Higher Order Derivatives</h3>
+        <table class="notation-table">
+          <thead>
+            <tr>
+              <th>Order</th>
+              <th>Lagrange Notation</th>
+              <th>Leibniz Notation</th>
+              <th>Read as</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="order">1st</td>
+              <td class="lagrange">f'(x) or y'</td>
+              <td class="leibniz">dy/dx</td>
+              <td style="font-size:.82rem;color:var(--text-muted)">"f prime of x"</td>
+            </tr>
+            <tr>
+              <td class="order">2nd</td>
+              <td class="lagrange">f''(x) or y''</td>
+              <td class="leibniz">d²y/dx²</td>
+              <td style="font-size:.82rem;color:var(--text-muted)">"f double prime of x"</td>
+            </tr>
+            <tr>
+              <td class="order">3rd</td>
+              <td class="lagrange">f'''(x) or y'''</td>
+              <td class="leibniz">d³y/dx³</td>
+              <td style="font-size:.82rem;color:var(--text-muted)">"f triple prime of x"</td>
+            </tr>
+            <tr>
+              <td class="order">nth</td>
+              <td class="lagrange">f⁽ⁿ⁾(x) or y⁽ⁿ⁾</td>
+              <td class="leibniz">dⁿy/dxⁿ</td>
+              <td style="font-size:.82rem;color:var(--text-muted)">"f n-th derivative"</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note-box">
+          <div class="note-label">⚠ Exam Tip</div>
+          <p>The entrance exam uses both notations. When a question says "find y''", it means find d²y/dx² — the second derivative. When it says "find the second derivative of f", use f''(x). They mean the same thing.</p>
+        </div>
+      </div>
+
+      <!-- Concavity -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Second Derivative and Concavity</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The sign of f'' tells us about the <strong>shape (concavity)</strong> of the curve:
+        </p>
+        <div class="concavity-grid">
+          <div class="conc-card up">
+            <div class="conc-title g">f''(x) &gt; 0 → Concave Up ∪</div>
+            <div class="visual-box" style="background:transparent;border:none;padding:.5rem">
+              <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,85 Q80,10 150,85" stroke="#16A34A" stroke-width="3" fill="none"/>
+                <text x="80" y="55" font-family="Arial" font-size="22" fill="#16A34A" text-anchor="middle">∪</text>
+                <text x="80" y="95" font-family="Arial" font-size="10" fill="#166534" text-anchor="middle" font-weight="700">Smiling curve — holds water</text>
+              </svg>
+            </div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">The slope is <strong>increasing</strong>. The curve bends upward like a bowl. If f'(a)=0 and f''(a) &gt; 0 → local minimum.</div>
+          </div>
+          <div class="conc-card down">
+            <div class="conc-title r">f''(x) &lt; 0 → Concave Down ∩</div>
+            <div class="visual-box" style="background:transparent;border:none;padding:.5rem">
+              <svg viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10,15 Q80,90 150,15" stroke="#DC2626" stroke-width="3" fill="none"/>
+                <text x="80" y="45" font-family="Arial" font-size="22" fill="#DC2626" text-anchor="middle">∩</text>
+                <text x="80" y="95" font-family="Arial" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="700">Frowning curve — spills water</text>
+              </svg>
+            </div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">The slope is <strong>decreasing</strong>. The curve bends downward like a hill. If f'(a)=0 and f''(a) &lt; 0 → local maximum.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inflection points -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Inflection Points</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Definition — Inflection Point</div>
+          <p>An <strong>inflection point</strong> is a point where the concavity of the curve changes — from concave up to concave down, or vice versa.<br><br>
+          To find inflection points: solve <strong>f''(x) = 0</strong>, then verify the concavity actually changes on either side.</p>
+        </div>
+
+        <!-- Inflection visual -->
+        <div class="visual-box">
+          <svg viewBox="0 0 460 180" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="460" height="180" fill="#F8FAFC" rx="8"/>
+            <!-- Axes -->
+            <line x1="30" y1="160" x2="440" y2="160" stroke="#CBD5E1" stroke-width="1.5"/>
+            <line x1="30" y1="20" x2="30" y2="165" stroke="#CBD5E1" stroke-width="1.5"/>
+            <!-- S-curve with inflection point -->
+            <path d="M40,140 Q100,130 160,90 Q220,50 280,50 Q340,50 400,30" stroke="#14532D" stroke-width="3" fill="none"/>
+            <!-- Inflection point marker -->
+            <circle cx="200" cy="80" r="7" fill="#DC2626"/>
+            <line x1="200" y1="80" x2="200" y2="160" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="200" y="173" font-family="Arial" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="700">inflection point</text>
+            <!-- Concave up label -->
+            <rect x="35" y="25" width="120" height="28" rx="5" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+            <text x="95" y="43" font-family="Arial" font-size="10" fill="#166534" text-anchor="middle" font-weight="700">f'' &gt; 0 (concave up)</text>
+            <!-- Concave down label -->
+            <rect x="290" y="25" width="130" height="28" rx="5" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+            <text x="355" y="43" font-family="Arial" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="700">f'' &lt; 0 (concave down)</text>
+            <!-- Change arrow -->
+            <text x="200" y="68" font-family="Arial" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="700">f'' changes sign here</text>
+          </svg>
+          <div class="visual-caption">At the inflection point, f'' changes sign. The curve transitions from concave up to concave down (or vice versa).</div>
+        </div>
+      </div>
+
+      <!-- Physical interpretation -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Physical Interpretation — Motion</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+          <div style="background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:var(--radius-xl);padding:1.25rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#1E40AF;text-transform:uppercase;margin-bottom:.5rem">f(t)</div>
+            <div style="font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:#2563EB;margin-bottom:.35rem">Position</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Where the object is at time t</div>
+          </div>
+          <div style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.25rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:.5rem">f'(t)</div>
+            <div style="font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:var(--brand-primary);margin-bottom:.35rem">Velocity</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">How fast and in which direction</div>
+          </div>
+          <div style="background:#FDF4FF;border:1.5px solid #E9D5FF;border-radius:var(--radius-xl);padding:1.25rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#7C3AED;text-transform:uppercase;margin-bottom:.5rem">f''(t)</div>
+            <div style="font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:#7C3AED;margin-bottom:.35rem">Acceleration</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">How fast the velocity is changing</div>
+          </div>
+        </div>
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">⚠ Exam Application</div>
+          <p>When an object's position is s(t), its velocity is v(t) = s'(t) and its acceleration is a(t) = s''(t). The object is <strong>decelerating</strong> when velocity and acceleration have opposite signs.</p>
+        </div>
+      </div>
+
+      <!-- Second Derivative Test -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.6 Second Derivative Test for Extrema</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          If f'(a) = 0, you can use f''(a) to classify the critical point:
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-family:Georgia,serif;font-size:1rem;font-weight:700;color:var(--brand-primary);margin-bottom:.5rem">f''(a) &gt; 0</div>
+            <div style="font-size:.82rem;color:#166534;font-weight:700">Local MINIMUM</div>
+            <div style="font-size:.75rem;color:var(--text-muted);margin-top:.35rem">Curve concave up (∪) at a</div>
+          </div>
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-family:Georgia,serif;font-size:1rem;font-weight:700;color:#DC2626;margin-bottom:.5rem">f''(a) &lt; 0</div>
+            <div style="font-size:.82rem;color:#991B1B;font-weight:700">Local MAXIMUM</div>
+            <div style="font-size:.75rem;color:var(--text-muted);margin-top:.35rem">Curve concave down (∩) at a</div>
+          </div>
+          <div style="background:#FFFBEB;border:1px solid #FDE68A;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-family:Georgia,serif;font-size:1rem;font-weight:700;color:#D97706;margin-bottom:.5rem">f''(a) = 0</div>
+            <div style="font-size:.82rem;color:#92400E;font-weight:700">Test Inconclusive</div>
+            <div style="font-size:.75rem;color:var(--text-muted);margin-top:.35rem">Use first derivative test</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Higher order derivatives — key facts</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📐 Lesson 3 — Higher Order Derivatives</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Second Derivative</div>
+            <div class="formula-math">f''(x) = d/dx[f'(x)]</div>
+            <div class="formula-note">Differentiate f' once more</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Concave Up</div>
+            <div class="formula-math">f''(x) &gt; 0 → ∪</div>
+            <div class="formula-note">Slope is increasing at that point</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Concave Down</div>
+            <div class="formula-math">f''(x) &lt; 0 → ∩</div>
+            <div class="formula-note">Slope is decreasing at that point</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Inflection Point</div>
+            <div class="formula-math">f''(x) = 0 and sign changes</div>
+            <div class="formula-note">Concavity changes direction</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">2nd Deriv Test</div>
+            <div class="formula-math">f'(a)=0, f''(a)&gt;0 → min</div>
+            <div class="formula-note">f''(a)&lt;0 → max, f''(a)=0 → unclear</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Motion</div>
+            <div class="formula-math">a(t) = s''(t) = v'(t)</div>
+            <div class="formula-note">Acceleration = 2nd derivative of position</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 1</span>
+          <span class="example-title">Finding Second and Third Derivatives</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find f'(x), f''(x) and f'''(x) for f(x) = 2x⁴ − 5x³ + 3x − 7</div>
+          <div class="example-step">
+            <span class="step-badge">f'(x)</span>
+            <div class="step-text"><span class="math">= 8x³ − 15x² + 3</span></div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">f''(x)</span>
+            <div class="step-text">Differentiate f':<br><span class="math">= 24x² − 30x</span></div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">f'''(x)</span>
+            <div class="step-text">Differentiate f'':<br><span class="math">= 48x − 30</span></div>
+          </div>
+          <div class="example-answer">✅ f'= 8x³−15x²+3 &nbsp;|&nbsp; f''= 24x²−30x &nbsp;|&nbsp; f'''= 48x−30</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 2</span>
+          <span class="example-title">Concavity — Where is f Concave Up or Down?</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Determine concavity of f(x) = x⁴ − 4x³.</div>
+          <div class="example-step"><span class="step-badge">Find f''</span><div class="step-text"><span class="math">f'(x) = 4x³−12x² &nbsp;⟹&nbsp; f''(x) = 12x²−24x = 12x(x−2)</span></div></div>
+          <div class="example-step">
+            <span class="step-badge">Solve f''=0</span>
+            <div class="step-text"><span class="math">12x(x−2) = 0 &nbsp;⟹&nbsp; x = 0 or x = 2</span></div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Test intervals</span>
+            <div class="step-text">
+              x &lt; 0: f''(−1) = 12(−1)(−3) = 36 &gt; 0 → <strong>concave up</strong><br>
+              0 &lt; x &lt; 2: f''(1) = 12(1)(−1) = −12 &lt; 0 → <strong>concave down</strong><br>
+              x &gt; 2: f''(3) = 12(3)(1) = 36 &gt; 0 → <strong>concave up</strong>
+            </div>
+          </div>
+          <div class="example-answer">✅ Concave up on (−∞,0) and (2,∞). Concave down on (0,2). Inflection points at <strong>x = 0 and x = 2</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 3</span>
+          <span class="example-title">Second Derivative Test for Extrema</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find and classify the critical points of f(x) = x³ − 3x² + 1.</div>
+          <div class="example-step">
+            <span class="step-badge">Find f'</span>
+            <div class="step-text"><span class="math">f'(x) = 3x²−6x = 3x(x−2)</span><br>
+            Critical points: <span class="math">x = 0</span> and <span class="math">x = 2</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Find f''</span><div class="step-text"><span class="math">f''(x) = 6x−6</span></div></div>
+          <div class="example-step">
+            <span class="step-badge">Apply test</span>
+            <div class="step-text">
+              f''(0) = −6 &lt; 0 → <strong>Local maximum</strong> at x=0: f(0)=1<br>
+              f''(2) = 6 &gt; 0 → <strong>Local minimum</strong> at x=2: f(2)=−3
+            </div>
+          </div>
+          <div class="example-answer">✅ Local maximum at <strong>(0, 1)</strong>. Local minimum at <strong>(2, −3)</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 4</span>
+          <span class="example-title">Second Derivative of Trigonometric Function</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find f''(x) for f(x) = sin(x) + x cos(x).</div>
+          <div class="example-step">
+            <span class="step-badge">Find f'</span>
+            <div class="step-text">Use product rule on x cos(x):<br>
+              <span class="math">f'(x) = cos(x) + [cos(x) − x sin(x)]</span><br>
+              <span class="math">= 2cos(x) − x sin(x)</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Find f''</span>
+            <div class="step-text">Differentiate f' term by term:<br>
+              <span class="math">f''(x) = −2sin(x) − [sin(x) + x cos(x)]</span><br>
+              <span class="math">= −2sin(x) − sin(x) − x cos(x)</span><br>
+              <span class="math">= −3sin(x) − x cos(x)</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ f''(x) = <strong>−3sin(x) − x cos(x)</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header">
+          <span class="example-num">Example 5</span>
+          <span class="example-title">Motion — Position, Velocity, Acceleration</span>
+        </div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A particle moves along a line with position s(t) = t³ − 6t² + 9t + 2 (in metres, t in seconds). Find the velocity and acceleration at t = 3.</div>
+          <div class="example-step">
+            <span class="step-badge">Velocity</span>
+            <div class="step-text"><span class="math">v(t) = s'(t) = 3t²−12t+9</span><br>
+              <span class="math">v(3) = 3(9)−12(3)+9 = 27−36+9 = 0 m/s</span>
+            </div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Acceleration</span>
+            <div class="step-text"><span class="math">a(t) = s''(t) = 6t−12</span><br>
+              <span class="math">a(3) = 6(3)−12 = 18−12 = 6 m/s²</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ At t=3: velocity = <strong>0 m/s</strong> (momentarily at rest), acceleration = <strong>6 m/s²</strong> (speeding up)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Find f''(x) for f(x) = 3x⁴ − 8x³ + 2x.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div>12x³ − 24x²</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div>12x² − 24x + 2</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div>36x² − 48x</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div>36x² − 48x + 2</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">If f''(x) &gt; 0 on an interval, the graph of f is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div>Decreasing</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div>Concave up</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div>Concave down</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div>Has a maximum</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">f(x) = x³ − 6x. Using the second derivative test, classify the critical point at x = √2.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div>Local maximum</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div>Local minimum</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div>Inflection point</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div>Cannot determine</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">The position of a particle is s(t) = t³ − 3t. What is the acceleration at t = 2?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div>3 m/s²</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div>9 m/s²</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div>12 m/s²</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div>6 m/s²</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Find the inflection point of f(x) = x³ − 3x² + 2.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div>x = 0</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div>x = 1</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div>x = 2</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div>x = 3</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit3-lesson4.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Higher Order Derivatives</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem">Watch these to reinforce this lesson:</p>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+second+derivative" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Second Derivative — Finding and Interpreting</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+concavity+inflection+points" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Concavity and Inflection Points</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+second+derivative+test" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Second Derivative Test for Local Extrema</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+position+velocity+acceleration" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Position, Velocity and Acceleration</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Unit 3 Lesson 3</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Higher Order Derivatives</div>
+        <ul class="summary-list">
+          <li>The second derivative f''(x) = d/dx[f'(x)] — differentiate the first derivative once more.</li>
+          <li>Notation: f''(x), y'', d²y/dx² all mean the same thing — the second derivative.</li>
+          <li>f''(x) &gt; 0 on an interval → curve is <strong>concave up</strong> (∪) — slope is increasing.</li>
+          <li>f''(x) &lt; 0 on an interval → curve is <strong>concave down</strong> (∩) — slope is decreasing.</li>
+          <li>Inflection point: where f''(x) = 0 AND the sign of f'' changes on either side.</li>
+          <li>Second derivative test: if f'(a)=0 and f''(a)&gt;0 → local min; f''(a)&lt;0 → local max.</li>
+          <li>In motion: position s(t) → velocity v=s' → acceleration a=s''.</li>
+          <li>For polynomials: higher derivatives eventually become zero (after n derivatives of xⁿ).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit3-lesson2.html" class="btn btn-ghost">← Lesson 2: Rules of Differentiation</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 3 of 4</div>
+      <a href="unit3-lesson4.html" class="btn btn-primary">Next: Applications of Derivatives →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+
+  const answers   = {};
+  const correct   = {1:'C', 2:'B', 3:'B', 4:'C', 5:'B'};
+  const feedbacks = {
+    1:{C:'✓ Correct! f\'=12x³−24x²+2. f\'\'=36x²−48x.',wrong:'✗ f\'=12x³−24x²+2. Differentiate again: f\'\'=36x²−48x.'},
+    2:{B:'✓ Correct! f\'\'&gt;0 means the slope is increasing — the curve bends upward — concave up.',wrong:'✗ f\'\'&gt;0 means concave up (∪). The curve bends upward like a bowl.'},
+    3:{B:'✓ Correct! f\'=3x²−6. At x=√2: f\'\'=6x=6√2&gt;0 → local minimum.',wrong:'✗ f\'\'=6x. At x=√2: f\'\'=6√2&gt;0 → concave up → local minimum.'},
+    4:{C:'✓ Correct! a(t)=s\'\'(t)=6t. a(2)=6(2)=12 m/s².',wrong:'✗ s\'(t)=3t²−3. s\'\'(t)=6t. a(2)=6(2)=12 m/s².'},
+    5:{B:'✓ Correct! f\'\'=6x−6=0 → x=1. Check sign change: f\'\'(0)=−6&lt;0, f\'\'(2)=6&gt;0 → inflection at x=1.',wrong:'✗ f\'\'=6x−6=0 gives x=1. Sign changes at x=1 → inflection point.'},
+  };
+
+  let answered = 0;
+
+  function answer(qNum, chosen, correctAns) {
+    if (answers[qNum]) return;
+    answers[qNum] = chosen;
+    answered++;
+    const card    = document.getElementById('q' + qNum);
+    const options = card.querySelectorAll('.quiz-option');
+    const fb      = document.getElementById('q' + qNum + '-feedback');
+    const letters = ['A','B','C','D'];
+    options.forEach((opt,i) => {
+      opt.classList.add('disabled');
+      if (letters[i] === correctAns) opt.classList.add('correct');
+      else if (letters[i] === chosen && chosen !== correctAns) opt.classList.add('wrong');
+    });
+    const isCorrect = chosen === correctAns;
+    fb.textContent = isCorrect ? feedbacks[qNum][correctAns] : feedbacks[qNum].wrong;
+    fb.className   = 'quiz-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+    updateProgress();
+    if (answered === 5) showScore();
+  }
+
+  function showScore() {
+    const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent = score + '/5';
+    const labels = ['📖 Review and retake.','📖 Keep studying.','📖 Almost there!','👍 Good work!','👍 Almost perfect!','🎉 Perfect! Lesson 3 mastered!'];
+    document.getElementById('score-label').textContent = labels[score];
+  }
+
+  function retakeQuiz() {
+    Object.keys(answers).forEach(k => delete answers[k]);
+    answered = 0;
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o => { o.className='quiz-option'; });
+      document.getElementById('q'+i+'-feedback').className = 'quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress() {
+    document.getElementById('progress-fill').style.width = (answered/5*100)+'%';
+  }
+
+  function scrollTo(id) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections = ['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll', () => {
+    let current = 'intro';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 120) current = id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l => {
+      const t = l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active', t === current);
+    });
+  });
+</script>
+</body>
+</html>
