@@ -106,6 +106,30 @@
     .cat-name { font-size: .95rem; font-weight: 700; color: var(--heading); margin-bottom: .25rem; }
     .cat-count { font-size: .78rem; color: var(--text-muted); }
 
+    /* ── Featured category card (Entrance Exam) ── */
+    .cat-card.featured-cat {
+      border: 2px solid #22C55E;
+      background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+      position: relative;
+      animation: featuredGlow 2.4s ease-in-out infinite;
+    }
+    .cat-card.featured-cat:hover {
+      border-color: #16A34A;
+      box-shadow: 0 8px 24px rgba(34,197,94,.25);
+    }
+    .cat-card.featured-cat::after {
+      content: "NEW";
+      position: absolute;
+      top: 8px; right: 8px;
+      background: #22C55E;
+      color: #fff;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+
     /* ── Courses ── */
     .courses-grid {
       display: grid;
@@ -134,6 +158,7 @@
     .course-thumb.blue   { background: linear-gradient(135deg,#DBEAFE,#BFDBFE); }
     .course-thumb.purple { background: linear-gradient(135deg,#EDE9FE,#DDD6FE); }
     .course-thumb.orange { background: linear-gradient(135deg,#FEF3C7,#FDE68A); }
+    .course-thumb.teal   { background: linear-gradient(135deg,#CCFBF1,#99F6E4); }
     .course-body { padding: 1.25rem; }
     .course-tags { display: flex; gap: .5rem; margin-bottom: .75rem; flex-wrap: wrap; }
     .course-tag { background: var(--brand-light); color: var(--brand-primary); font-size: .7rem; font-weight: 600; padding: 2px 8px; border-radius: var(--radius-full); }
@@ -142,6 +167,59 @@
     .course-footer { display: flex; justify-content: space-between; align-items: center; }
     .course-lock { font-size: .78rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
     .course-lock svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ── Featured course card (Entrance Exam) ── */
+    .course-card.featured {
+      position: relative;
+      border: 2px solid #22C55E;
+      box-shadow: 0 0 0 0 rgba(34,197,94,.45);
+      animation: featuredGlow 2.4s ease-in-out infinite;
+    }
+    .course-card.featured::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(135deg, #22C55E, #86EFAC, #22C55E);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity: .6;
+      pointer-events: none;
+    }
+    @keyframes featuredGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,.45); }
+      50%      { box-shadow: 0 0 0 10px rgba(34,197,94,0); }
+    }
+
+    /* ── Entrance Exam badge ── */
+    .entrance-flag-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #DCFCE7;
+      color: #166534;
+      font-size: .68rem; font-weight: 700;
+      padding: 3px 9px; border-radius: 999px;
+      margin-bottom: .5rem;
+    }
+    .entrance-pulse {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #22C55E;
+      animation: entrancePulse 1.6s ease-in-out infinite;
+    }
+    @keyframes entrancePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .5; transform: scale(1.4); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .entrance-pulse { animation: none; }
+      .course-card.featured { animation: none; }
+      .course-card.featured::after { opacity: .35; }
+      .cat-card.featured-cat { animation: none; }
+    }
 
     /* ── Benefits ── */
     .benefits-grid {
@@ -286,7 +364,7 @@
       <a href="#courses" class="btn btn-lg" style="background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.2)">Browse Courses</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Learning Paths</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Learning Paths</div></div>
       <div class="hero-stat"><div class="hero-stat-num">200+</div><div class="hero-stat-label">Lessons</div></div>
       <div class="hero-stat"><div class="hero-stat-num">599 ETB</div><div class="hero-stat-label">Lifetime Access</div></div>
       <div class="hero-stat"><div class="hero-stat-num">1–2 hrs</div><div class="hero-stat-label">Verification Time</div></div>
@@ -325,6 +403,14 @@
       <p class="section-sub" style="margin:0 auto">Choose your path and start building skills that clients actually pay for.</p>
     </div>
     <div class="cat-grid">
+
+      <!-- ENTRANCE EXAM — FEATURED CATEGORY (first) -->
+      <a href="entrance-exam/index.html" class="cat-card featured-cat">
+        <div class="cat-icon">🎓</div>
+        <div class="cat-name">Entrance Exam Prep</div>
+        <div class="cat-count">Grades 9–12 · All subjects</div>
+      </a>
+
       <a href="register.html" class="cat-card">
         <div class="cat-icon">🌐</div>
         <div class="cat-name">Web Development</div>
@@ -336,7 +422,7 @@
         <div class="cat-count">1 path · 60+ lessons</div>
       </a>
       <a href="register.html" class="cat-card">
-        <div class="cat-icon">⚡</div>
+        <div class="cat-icon">⚡️</div>
         <div class="cat-name">JavaScript</div>
         <div class="cat-count">React, Node.js, APIs</div>
       </a>
@@ -363,6 +449,25 @@
       <p class="section-sub" style="margin:0 auto">All courses are included in your one-time payment. No extras.</p>
     </div>
     <div class="courses-grid">
+
+      <!-- 1. ENTRANCE EXAM — FEATURED (first position, animated, paid like others) -->
+      <a href="entrance-exam/index.html" class="course-card featured">
+        <div class="course-thumb teal">🎓</div>
+        <div class="course-body">
+          <div class="entrance-flag-badge">
+            <span class="entrance-pulse"></span> 🇪🇹 New
+          </div>
+          <div class="course-tags"><span class="course-tag">Grades 9–12</span><span class="course-tag">All Subjects</span></div>
+          <div class="course-title">Ethiopian University Entrance Exam Prep</div>
+          <div class="course-desc">Complete preparation for the EUEE. Natural &amp; Social Science streams — Mathematics, Physics, Chemistry, Biology, English and more.</div>
+          <div class="course-footer">
+            <div class="course-lock"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Included in plan</div>
+            <span class="badge badge-green">200+ lessons</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2. Python for AI -->
       <a href="register.html" class="course-card">
         <div class="course-thumb green">🐍</div>
         <div class="course-body">
@@ -375,8 +480,10 @@
           </div>
         </div>
       </a>
+
+      <!-- 3. Full Stack JavaScript -->
       <a href="register.html" class="course-card">
-        <div class="course-thumb blue">⚡</div>
+        <div class="course-thumb blue">⚡️</div>
         <div class="course-body">
           <div class="course-tags"><span class="course-tag">React</span><span class="course-tag">Node.js</span><span class="course-tag">PostgreSQL</span></div>
           <div class="course-title">Full Stack JavaScript</div>
@@ -387,6 +494,8 @@
           </div>
         </div>
       </a>
+
+      <!-- 4. Full Stack Ruby on Rails -->
       <a href="register.html" class="course-card">
         <div class="course-thumb purple">💎</div>
         <div class="course-body">
@@ -399,6 +508,8 @@
           </div>
         </div>
       </a>
+
+      <!-- 5. Web Development Foundations -->
       <a href="register.html" class="course-card">
         <div class="course-thumb orange">🧱</div>
         <div class="course-body">
@@ -411,10 +522,10 @@
           </div>
         </div>
       </a>
+
     </div>
   </div>
 </section>
-
 <!-- BENEFITS -->
 <section class="section" style="background:#fff">
   <div class="inner">
@@ -482,12 +593,13 @@
         <div class="price-badge">🔥 Best Value — Everything Included</div>
         <div class="price-icon">🚀</div>
         <div class="price-name">Freelance Skills Hub Full Access</div>
-        <div class="price-tagline">All 4 paths, 200+ lessons, future content — forever.</div>
+        <div class="price-tagline">All 5 paths, 200+ lessons, future content — forever.</div>
         <div class="price-amount">
           <div><span class="price-num">599</span><span class="price-cur">ETB</span></div>
           <div class="price-note">one-time payment · no monthly fees · no hidden costs</div>
         </div>
         <ul class="price-features">
+          <li><span class="ck">✓</span> Ethiopian University Entrance Exam Prep</li>
           <li><span class="ck">✓</span> Python for AI — NumPy, Pandas, Matplotlib</li>
           <li><span class="ck">✓</span> Full Stack JavaScript — React, Node.js</li>
           <li><span class="ck">✓</span> Full Stack Ruby on Rails</li>
@@ -549,7 +661,6 @@
     </div>
   </div>
 </section>
-
 <!-- FAQ -->
 <section class="section" id="faq" style="background:var(--surface-2)">
   <div class="inner">
@@ -620,6 +731,7 @@
       </div>
       <div class="fsh-footer-col">
         <h4>Courses</h4>
+        <a href="entrance-exam/index.html">Entrance Exam Prep</a>
         <a href="register.html">Foundations</a>
         <a href="register.html">Full Stack JS</a>
         <a href="register.html">Ruby on Rails</a>
