@@ -1,0 +1,226 @@
+/* ============================================================
+   Shared Responsive Stylesheet — Lesson Content Pages
+   Applies to: Mathematics, Physics, Chemistry, Biology,
+               Python, JS, Rails, Foundations lessons
+   ============================================================ */
+
+/* ── Global safety — nothing overflows horizontally ── */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+img, video, iframe, svg, canvas, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+pre, code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+table {
+  max-width: 100%;
+}
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  .lesson-container,
+  .lesson-content,
+  .content-wrap,
+  .wrap,
+  .container,
+  main,
+  article,
+  .lesson-main {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  h1 { font-size: clamp(1.5rem, 4vw, 2rem) !important; }
+  h2 { font-size: clamp(1.25rem, 3vw, 1.5rem) !important; }
+}
+
+/* ── Phone (≤ 640px) ── */
+@media (max-width: 640px) {
+
+  /* Containers */
+  .lesson-container,
+  .lesson-content,
+  .content-wrap,
+  .wrap,
+  .container,
+  main,
+  article,
+  .lesson-main,
+  .lesson-body {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100% !important;
+  }
+
+  /* Typography */
+  h1 { font-size: clamp(1.375rem, 7vw, 1.75rem) !important; line-height: 1.25 !important; }
+  h2 { font-size: 1.25rem !important; line-height: 1.3 !important; margin-top: 1.5rem !important; }
+  h3 { font-size: 1.05rem !important; line-height: 1.35 !important; }
+  h4 { font-size: .95rem !important; }
+  p, li {
+    font-size: .9rem !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Formula cards / example boxes / callouts */
+  .formula-card,
+  .formula,
+  .formula-box,
+  .example,
+  .example-box,
+  .callout,
+  .info-box,
+  .note,
+  .definition,
+  .theorem,
+  .card,
+  .box {
+    padding: .875rem 1rem !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: var(--radius-lg, 12px) !important;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  /* Math formulas */
+  .formula-content,
+  .math,
+  .equation,
+  mjx-container,
+  .katex,
+  .katex-display {
+    overflow-x: auto;
+    max-width: 100%;
+    padding: .25rem 0;
+  }
+
+  /* Tables — scroll horizontally */
+  .lesson-container table,
+  .lesson-content table,
+  article table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
+    font-size: .8rem;
+  }
+
+  /* Lists */
+  ul, ol {
+    padding-left: 1.25rem !important;
+    margin-left: 0 !important;
+  }
+
+  /* Quiz blocks */
+  .quiz,
+  .quiz-block,
+  .quiz-question,
+  .question,
+  .options,
+  .mcq {
+    padding: .875rem 1rem !important;
+  }
+  .quiz-options,
+  .options,
+  .option-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  .quiz-options li,
+  .options li,
+  .option-item,
+  .option {
+    padding: .625rem .875rem !important;
+    font-size: .85rem !important;
+  }
+
+  /* Prev / Next lesson navigation */
+  .lesson-nav,
+  .lesson-footer,
+  .nav-buttons,
+  .pagination {
+    flex-direction: column;
+    gap: .625rem;
+  }
+  .lesson-nav .btn,
+  .lesson-footer .btn,
+  .nav-buttons .btn,
+  .pagination .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumb {
+    flex-wrap: wrap;
+    row-gap: 4px;
+    font-size: .75rem !important;
+  }
+
+  /* Lesson header / hero */
+  .lesson-hero,
+  .lesson-header {
+    padding: 2rem 1rem !important;
+  }
+  .lesson-hero h1,
+  .lesson-header h1 {
+    font-size: 1.5rem !important;
+  }
+
+  /* Sidebars / TOC — stack below content */
+  .sidebar,
+  .toc,
+  .lesson-sidebar,
+  aside {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Buttons */
+  .btn { padding: .55rem 1rem !important; font-size: .8rem !important; }
+  .btn-lg { padding: .75rem 1.5rem !important; font-size: .9rem !important; }
+
+  /* Code blocks */
+  pre {
+    padding: .75rem !important;
+    font-size: .75rem !important;
+    border-radius: var(--radius, 8px) !important;
+  }
+  code { font-size: .8em !important; }
+}
+
+/* ── Small phone (≤ 380px) ── */
+@media (max-width: 380px) {
+  .lesson-container,
+  .lesson-content,
+  .content-wrap,
+  .wrap,
+  .container,
+  main,
+  article,
+  .lesson-main {
+    padding-left: .875rem !important;
+    padding-right: .875rem !important;
+  }
+  h1 { font-size: 1.25rem !important; }
+  h2 { font-size: 1.125rem !important; }
+  h3 { font-size: .975rem !important; }
+  p, li { font-size: .85rem !important; }
+  .formula-card,
+  .example,
+  .callout,
+  .card,
+  .box {
+    padding: .75rem .875rem !important;
+  }
+  pre { font-size: .7rem !important; }
+}
