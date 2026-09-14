@@ -181,6 +181,144 @@
     .progress-text h3 { font-size: 1rem; font-weight: 800; color: #166534; margin-bottom: .25rem; }
     .progress-text p  { font-size: .875rem; color: var(--brand-secondary); line-height: 1.6; }
     .progress-action { margin-left: auto; }
+        /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — Tablet (≤ 900px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero-exam { padding: 3rem 1.5rem; }
+      .wrap { padding: 2.5rem 1.5rem; }
+      .progress-banner { padding: 1.25rem 1.5rem; }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — Phone (≤ 640px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      /* ── Hero ── */
+      .hero-exam { padding: 2.5rem 1rem; }
+      .hero-exam h1 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+        line-height: 1.2;
+        letter-spacing: -.01em;
+      }
+      .hero-exam h1 br { display: none; }  /* collapse forced line break */
+      .hero-exam h1 em { display: block; } /* "Preparation Package" on its own line naturally */
+      .hero-exam p {
+        font-size: .9rem;
+        line-height: 1.6;
+        max-width: 100%;
+        margin-bottom: 1.25rem;
+      }
+      .hero-badge {
+        font-size: .72rem;
+        padding: 4px 12px;
+        margin-bottom: 1rem;
+      }
+
+      /* ── Container ── */
+      .wrap { padding: 2rem 1rem; }
+
+      /* ── Section headers ── */
+      .section-label { font-size: .68rem; }
+      .section-title { font-size: 1.25rem; }
+      .section-sub   { font-size: .825rem; margin-bottom: 1.5rem; }
+
+      /* ── Progress banner — stack vertically ── */
+      .progress-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem;
+        margin-bottom: 2rem;
+      }
+      .progress-icon { font-size: 2rem; }
+      .progress-icon h3 { font-size: .95rem; }
+      .progress-action {
+        margin-left: 0;
+        width: 100%;
+      }
+      .progress-action .btn { width: 100%; justify-content: center; }
+
+      /* ── Grades grid — single column, tighter cards ── */
+      .grades-grid { gap: 1rem; margin-bottom: 2.5rem; }
+      .grade-card { padding: 1.25rem 1.125rem; }
+      .grade-icon {
+        font-size: 2rem;
+        margin-bottom: .5rem;
+      }
+      .grade-name { font-size: 1.05rem; }
+      .grade-desc { font-size: .78rem; line-height: 1.5; }
+
+      /* Badges — smaller, sit inside the card better */
+      .active-badge, .lock-badge {
+        top: .75rem;
+        right: .75rem;
+        font-size: .65rem;
+        padding: 2px 8px;
+      }
+
+      /* Subject pills */
+      .grade-subjects { gap: .3rem; margin-bottom: .875rem; }
+      .subject-pill {
+        font-size: .62rem;
+        padding: 2px 7px;
+      }
+
+      .grade-status { font-size: .72rem; }
+
+      /* ── Past exams — single column ── */
+      .past-exams-grid { gap: .875rem; }
+      .exam-card { padding: 1.125rem 1rem; }
+      .exam-icon { font-size: 1.75rem; }
+      .exam-year { font-size: 1rem; }
+      .exam-sub  { font-size: .72rem; }
+      .exam-lock { font-size: .68rem; }
+
+      /* ── Footer ── */
+      .fsh-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 6px;
+      }
+      .fsh-footer-bottom p { font-size: .75rem; }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — Small phone (≤ 380px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 380px) {
+      .hero-exam { padding: 1.75rem .875rem; }
+      .hero-exam h1 { font-size: 1.375rem; }
+      .hero-exam p { font-size: .82rem; }
+      .hero-badge { font-size: .65rem; padding: 3px 10px; }
+
+      .wrap { padding: 1.5rem .875rem; }
+
+      .section-title { font-size: 1.125rem; }
+      .section-sub { font-size: .78rem; }
+
+      .progress-banner { padding: 1rem; }
+      .progress-icon h3 { font-size: .875rem; }
+
+      .grade-card { padding: 1rem .875rem; }
+      .grade-icon { font-size: 1.75rem; }
+      .grade-name { font-size: .95rem; }
+      .grade-desc { font-size: .72rem; }
+
+      .active-badge, .lock-badge {
+        top: .625rem;
+        right: .625rem;
+        font-size: .6rem;
+        padding: 2px 7px;
+      }
+
+      .subject-pill { font-size: .58rem; padding: 2px 6px; }
+
+      .exam-card { padding: 1rem .875rem; }
+      .exam-icon { font-size: 1.5rem; }
+      .exam-year { font-size: .9rem; }
+      .exam-sub  { font-size: .68rem; }
+    }
   </style>
 </head>
 <body>
