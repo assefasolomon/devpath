@@ -471,3 +471,124 @@ body {
   .fsh-footer-grid { grid-template-columns: 1fr; }
   .fsh-nav { padding: 0 1rem; }
 }
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE EXTENSIONS
+   Added to cover nav, buttons, forms, cards on all viewports.
+   Existing rules remain untouched — these only override at
+   smaller breakpoints.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
+  /* Nav */
+  .fsh-nav { padding: 0 1.25rem; }
+  .fsh-nav-links { gap: 1.25rem; }
+
+  /* Section titles */
+  .section-title { font-size: clamp(1.4rem, 3.5vw, 1.875rem); }
+  .section-sub   { font-size: .975rem; }
+
+  /* Footer */
+  .fsh-footer { padding: 3rem 1.5rem 1.75rem; }
+  .fsh-footer-grid { gap: 2rem; margin-bottom: 2rem; }
+
+  /* Auth */
+  .auth-right { padding: 2.5rem 2rem; }
+}
+
+/* ── Phone (≤ 640px) ── */
+@media (max-width: 640px) {
+  /* ── Nav ── */
+  .fsh-nav {
+    padding: 0 .875rem;
+    height: 56px;
+    gap: .5rem;
+  }
+  .fsh-logo-icon { width: 32px; height: 32px; border-radius: 7px; }
+  .fsh-logo-icon svg { width: 18px; height: 18px; }
+  .fsh-logo-name { font-size: .875rem; }
+  .fsh-logo-tag  { font-size: .6rem; }
+  .fsh-nav-actions { gap: .5rem; }
+
+  /* ── Buttons ── */
+  .btn { padding: .55rem 1rem; font-size: .825rem; }
+  .btn-lg { padding: .75rem 1.5rem; font-size: .9rem; }
+  .btn-sm { padding: .375rem .75rem; font-size: .72rem; }
+
+  /* ── Forms — keep font ≥ 16px to prevent iOS zoom ── */
+  .fsh-input,
+  .fsh-select,
+  .fsh-textarea {
+    font-size: 16px;
+    padding: .7rem .875rem;
+  }
+  .fsh-label { font-size: .78rem; }
+  .fsh-form-group { margin-bottom: 1rem; }
+
+  /* ── Alerts ── */
+  .alert { padding: .75rem .875rem; font-size: .825rem; }
+
+  /* ── Cards ── */
+  .fsh-card { border-radius: var(--radius-lg); }
+
+  /* ── Section titles ── */
+  .section-badge { font-size: .68rem; padding: 3px 12px; margin-bottom: .75rem; }
+  .section-title { font-size: clamp(1.25rem, 6vw, 1.625rem); line-height: 1.2; }
+  .section-sub   { font-size: .875rem; line-height: 1.6; }
+
+  /* ── Badges ── */
+  .badge { font-size: .68rem; padding: 2px 8px; }
+
+  /* ── Footer ── */
+  .fsh-footer { padding: 2.5rem 1rem 1.5rem; }
+  .fsh-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  .fsh-footer-brand p { max-width: 100%; font-size: .825rem; }
+  .fsh-footer-logo-icon { width: 30px; height: 30px; }
+  .fsh-footer-logo-icon svg { width: 18px; height: 18px; }
+  .fsh-footer-logo-name { font-size: .9rem; }
+  .fsh-footer-col h4 { font-size: .72rem; margin-bottom: .75rem; }
+  .fsh-footer-col a { font-size: .825rem; margin-bottom: .5rem; }
+  .fsh-footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: .5rem;
+    padding-top: 1.25rem;
+  }
+  .fsh-footer-bottom p { font-size: .72rem; }
+
+  /* ── Auth layout ── */
+  .auth-right { padding: 2rem 1.25rem; }
+  .auth-box { max-width: 100%; }
+}
+
+/* ── Small phone (≤ 380px) ── */
+@media (max-width: 380px) {
+  /* Nav */
+  .fsh-nav { padding: 0 .75rem; height: 52px; }
+  .fsh-logo-icon { width: 28px; height: 28px; }
+  .fsh-logo-icon svg { width: 16px; height: 16px; }
+  .fsh-logo-name { font-size: .8rem; }
+  .fsh-logo-tag  { font-size: .55rem; }
+  .fsh-nav-actions { gap: .375rem; }
+
+  /* Buttons */
+  .btn { padding: .5rem .875rem; font-size: .78rem; }
+  .btn-lg { padding: .7rem 1.25rem; font-size: .85rem; }
+  .btn-sm { padding: .35rem .625rem; font-size: .68rem; }
+
+  /* Section titles */
+  .section-title { font-size: 1.125rem; }
+  .section-sub   { font-size: .8rem; }
+
+  /* Footer */
+  .fsh-footer { padding: 2rem .875rem 1.25rem; }
+  .fsh-footer-logo-name { font-size: .825rem; }
+  .fsh-footer-col a { font-size: .78rem; }
+
+  /* Auth */
+  .auth-right { padding: 1.5rem 1rem; }
+}
