@@ -323,6 +323,207 @@
     .cta-banner-inner { position: relative; z-index: 1; }
     .cta-banner h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: #fff; margin-bottom: .75rem; }
     .cta-banner p { color: rgba(255,255,255,.7); font-size: 1.05rem; margin-bottom: 2rem; }
+        /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — Tablet (≤ 900px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero { padding: 4.5rem 1.5rem 4rem; }
+      .hero h1 { font-size: clamp(2rem, 5vw, 3rem); }
+      .hero p  { font-size: 1.05rem; }
+      .section { padding: 4rem 1.5rem; }
+      .section-center { margin-bottom: 2.75rem; }
+      .trust-bar { padding: 1rem 1.5rem; }
+      .trust-bar-inner { gap: 1.5rem; }
+      .cta-banner { padding: 3rem 2rem; }
+      .cta-banner h2 { font-size: clamp(1.375rem, 3.5vw, 1.875rem); }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — Phone (≤ 640px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      /* ── Hero ── */
+      .hero { padding: 3rem 1rem 2.5rem; }
+      .hero h1 {
+        font-size: clamp(1.75rem, 8vw, 2.25rem);
+        line-height: 1.2;
+        letter-spacing: -.02em;
+        margin-bottom: 1rem;
+      }
+      .hero h1 br { display: none; }
+      .hero h1 em { display: block; margin-top: .15em; }
+      .hero p {
+        font-size: .9rem;
+        line-height: 1.6;
+        margin-bottom: 1.75rem;
+        padding: 0 .25rem;
+      }
+      .hero-badge {
+        font-size: .7rem;
+        padding: 4px 12px;
+        margin-bottom: 1.25rem;
+      }
+      .hero-actions {
+        gap: .75rem;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+
+      /* Hero stats — compact 2x2 grid */
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem 1rem;
+        margin-top: 2rem;
+        padding-top: 2rem;
+        justify-items: center;
+      }
+      .hero-stat-num { font-size: 1.375rem; }
+      .hero-stat-label { font-size: .72rem; }
+
+      /* ── Trust bar ── */
+      .trust-bar { padding: .875rem 1rem; }
+      .trust-bar-inner {
+        gap: .75rem 1.25rem;
+        justify-content: flex-start;
+      }
+      .trust-item { font-size: .75rem; }
+      .trust-item svg { width: 14px; height: 14px; }
+
+      /* ── Sections ── */
+      .section { padding: 2.5rem 1rem; }
+      .section-center { margin-bottom: 2rem; }
+      .section-label { font-size: .68rem; }
+      .section-title { font-size: 1.25rem; }
+      .section-sub   { font-size: .825rem; }
+
+      /* ── Category cards ── */
+      .cat-grid { gap: .875rem; }
+      .cat-card { padding: 1.125rem .875rem; }
+      .cat-icon { font-size: 1.625rem; margin-bottom: .5rem; }
+      .cat-name { font-size: .875rem; }
+      .cat-count { font-size: .7rem; }
+      .cat-card.featured-cat::after {
+        top: 6px; right: 6px;
+        font-size: .55rem;
+        padding: 2px 6px;
+      }
+
+      /* ── Course cards ── */
+      .courses-grid { gap: 1rem; grid-template-columns: 1fr; }
+      .course-thumb { height: 110px; font-size: 2.75rem; }
+      .course-body { padding: 1rem; }
+      .course-tags { gap: .35rem; margin-bottom: .625rem; }
+      .course-tag { font-size: .65rem; padding: 2px 7px; }
+      .course-title { font-size: .95rem; }
+      .course-desc { font-size: .78rem; line-height: 1.5; margin-bottom: .75rem; }
+      .course-footer { flex-wrap: wrap; gap: 6px; }
+      .course-lock { font-size: .72rem; }
+      .entrance-flag-badge { font-size: .62rem; padding: 2px 8px; }
+
+      /* ── Benefits ── */
+      .benefits-grid { gap: 1.5rem; }
+      .benefit-item { gap: .875rem; }
+      .benefit-icon {
+        width: 40px; height: 40px;
+        font-size: 1.125rem;
+        border-radius: var(--radius-lg, 12px);
+      }
+      .benefit-title { font-size: .9rem; }
+      .benefit-desc { font-size: .8rem; line-height: 1.55; }
+
+      /* ── Pricing ── */
+      .pricing-wrap { max-width: 100%; }
+      .price-card { padding: 1.75rem 1.25rem; }
+      .price-badge {
+        font-size: .62rem;
+        padding: 3px 12px;
+        top: -12px;
+        max-width: calc(100% - 2rem);
+        white-space: normal;
+        text-align: center;
+        line-height: 1.2;
+      }
+      .price-icon { font-size: 2rem; }
+      .price-name { font-size: 1.15rem; }
+      .price-tagline { font-size: .8rem; margin-bottom: 1.25rem; }
+      .price-num { font-size: 2.75rem; }
+      .price-cur { font-size: .95rem; }
+      .price-note { font-size: .72rem; }
+      .price-features li {
+        font-size: .825rem;
+        padding: .4rem 0;
+        gap: 8px;
+      }
+      .price-features .ck { font-size: .9rem; }
+
+      /* ── Testimonials ── */
+      .testimonials-grid { gap: 1rem; }
+      .testimonial-card { padding: 1.25rem; }
+      .testimonial-text { font-size: .825rem; line-height: 1.6; margin-bottom: 1rem; }
+      .testimonial-avatar { width: 36px; height: 36px; font-size: 1rem; }
+      .testimonial-name { font-size: .8rem; }
+      .testimonial-role { font-size: .72rem; }
+
+      /* ── FAQ ── */
+      .faq-q {
+        font-size: .875rem;
+        padding: .875rem 0;
+        gap: .75rem;
+      }
+      .faq-icon { font-size: 1rem; }
+      .faq-a { font-size: .8rem; line-height: 1.65; }
+
+      /* ── CTA banner ── */
+      .cta-banner { padding: 2.5rem 1.25rem; border-radius: var(--radius-lg, 12px); }
+      .cta-banner h2 {
+        font-size: clamp(1.25rem, 5vw, 1.5rem);
+        line-height: 1.25;
+      }
+      .cta-banner p { font-size: .875rem; line-height: 1.55; margin-bottom: 1.5rem; }
+      .cta-banner .btn { width: 100%; justify-content: center; }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — Small phone (≤ 380px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 380px) {
+      .hero { padding: 2.25rem .875rem 2rem; }
+      .hero h1 { font-size: 1.5rem; }
+      .hero p { font-size: .825rem; }
+      .hero-badge { font-size: .62rem; padding: 3px 10px; }
+      .hero-stat-num { font-size: 1.2rem; }
+      .hero-stat-label { font-size: .66rem; }
+
+      .section { padding: 2rem .875rem; }
+      .section-title { font-size: 1.1rem; }
+      .section-sub { font-size: .78rem; }
+
+      .cat-icon { font-size: 1.5rem; }
+      .cat-name { font-size: .82rem; }
+      .cat-count { font-size: .66rem; }
+
+      .course-thumb { height: 95px; font-size: 2.25rem; }
+      .course-title { font-size: .875rem; }
+      .course-desc { font-size: .72rem; }
+
+      .price-card { padding: 1.5rem 1rem; }
+      .price-name { font-size: 1rem; }
+      .price-num { font-size: 2.25rem; }
+      .price-features li { font-size: .78rem; }
+
+      .benefit-icon { width: 36px; height: 36px; font-size: 1rem; }
+      .benefit-title { font-size: .85rem; }
+      .benefit-desc { font-size: .75rem; }
+
+      .testimonial-card { padding: 1rem; }
+      .testimonial-text { font-size: .78rem; }
+
+      .cta-banner { padding: 2rem 1rem; }
+      .cta-banner h2 { font-size: 1.125rem; }
+      .cta-banner p { font-size: .8rem; }
+    }
   </style>
 </head>
 <body>
