@@ -134,6 +134,114 @@
     .badge-available { background: #DCFCE7; color: #166534; }
     .badge-locked    { background: var(--surface-2, #f1f5f9); color: var(--text-muted, #64748b); }
     .badge-quiz      { background: #DBEAFE; color: #1E40AF; }
+        /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — Tablet (≤ 900px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .course-hero { padding: 2.5rem 1.5rem; }
+      .course-hero h1 { font-size: 1.875rem; }
+      .course-hero p { font-size: .9rem; }
+      .wrap { padding: 2.5rem 1.5rem; }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — Phone (≤ 640px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      /* Hero — reduce padding + fluid title */
+      .course-hero { padding: 2rem 1rem; }
+      .course-hero h1 {
+        font-size: clamp(1.5rem, 6vw, 1.875rem);
+        line-height: 1.2;
+      }
+      .course-hero p { font-size: .875rem; line-height: 1.6; }
+      .course-stream-tag { font-size: .68rem; padding: 3px 10px; }
+
+      /* Stats — tighter gap, smaller numbers */
+      .course-stats { gap: 1rem 1.5rem; }
+      .course-stat-num { font-size: 1.25rem; }
+      .course-stat-label { font-size: .68rem; }
+
+      /* Wrap container */
+      .wrap { padding: 2rem 1rem; }
+
+      /* Breadcrumb — allow wrapping */
+      .breadcrumb {
+        flex-wrap: wrap;
+        row-gap: 4px;
+        font-size: .75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Unit header — smaller text, tighter padding */
+      .unit-section { margin-bottom: 2rem; }
+      .unit-header {
+        padding: .875rem 1rem;
+        gap: 10px;
+      }
+      .unit-num { width: 28px; height: 28px; font-size: .75rem; }
+      .unit-title { font-size: .95rem; line-height: 1.3; }
+      .unit-sub { font-size: .72rem; }
+
+      /* Lesson items — STACK vertically so nothing overflows */
+      .lesson-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .75rem;
+        padding: .875rem 1rem;
+      }
+      .lesson-item.available:hover { transform: none; }
+
+      .lesson-left {
+        gap: .75rem;
+        align-items: flex-start;
+      }
+      .lesson-num {
+        width: 28px; height: 28px;
+        font-size: .72rem;
+        margin-top: 2px;
+      }
+      .lesson-title { font-size: .875rem; }
+      .lesson-desc  { font-size: .75rem; line-height: 1.5; }
+
+      /* Lesson badges — full row, wrapping */
+      .lesson-right {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding-left: 38px; /* aligns under the title, past the number circle */
+      }
+      .lesson-badge {
+        font-size: .68rem;
+        padding: 3px 9px;
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE — Small phone (≤ 380px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 380px) {
+      .course-hero { padding: 1.5rem .875rem; }
+      .course-hero h1 { font-size: 1.375rem; }
+      .course-hero p { font-size: .8rem; }
+      .course-stream-tag { font-size: .62rem; }
+
+      .course-stat-num { font-size: 1.1rem; }
+      .course-stat-label { font-size: .62rem; }
+
+      .wrap { padding: 1.5rem .875rem; }
+
+      .unit-header { padding: .75rem .875rem; }
+      .unit-title { font-size: .875rem; }
+      .unit-sub   { font-size: .68rem; }
+
+      .lesson-item { padding: .75rem .875rem; }
+      .lesson-title { font-size: .82rem; }
+      .lesson-desc  { font-size: .7rem; }
+      .lesson-right { padding-left: 34px; }
+
+      .lesson-badge { font-size: .62rem; padding: 2px 8px; }
+    }
   </style>
 </head>
 <body>
