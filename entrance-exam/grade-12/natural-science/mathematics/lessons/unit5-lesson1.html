@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: Statistical Data Analysis | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1.05rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.4}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .data-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0}
+    .data-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border)}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:.875rem 0}
+    .stat-card{background:var(--brand-light);border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem;text-align:center}
+    .stat-card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-secondary);margin-bottom:.35rem}
+    .stat-card-value{font-size:1.5rem;font-weight:900;color:var(--brand-primary);font-family:'Georgia',serif}
+    .stat-card-note{font-size:.72rem;color:var(--text-muted);margin-top:.25rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;color:#fff}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    /* bar chart visual */
+    .bar-chart{display:flex;align-items:flex-end;gap:8px;height:120px;padding:0 8px;margin:.875rem 0}
+    .bar{background:var(--brand-primary);border-radius:4px 4px 0 0;flex:1;position:relative;transition:opacity var(--transition)}
+    .bar:hover{opacity:.8}
+    .bar-label{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:.65rem;color:var(--text-muted);white-space:nowrap}
+    .bar-val{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:.68rem;font-weight:700;color:var(--brand-primary)}
+    .chart-wrap{overflow-x:auto;padding-bottom:24px}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 5 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="unit5-lesson1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Statistical Data Analysis</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L2: Introduction to Probability 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L3: Probability Distributions 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 5 · Lesson 1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Statistics and Probability</div>
+      <h1>📊 Statistical Data Analysis</h1>
+      <p>Master measures of central tendency and dispersion — the statistical tools most frequently tested on the Ethiopian entrance exam. Learn to compute mean, median, mode, variance and standard deviation from raw data and frequency tables.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Statistics is the science of collecting, organising, analysing and interpreting data. In everyday life — from government surveys to hospital records to sports scores — raw numbers need to be summarised before they can be understood. The tools you learn in this lesson do exactly that.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define and compute the <strong>mean</strong> (arithmetic average) from raw data and grouped data</li>
+          <li>Find the <strong>median</strong> (middle value) for both odd and even datasets</li>
+          <li>Identify the <strong>mode</strong> (most frequent value) including bimodal cases</li>
+          <li>Compute the <strong>range</strong> as a simple measure of spread</li>
+          <li>Calculate <strong>variance</strong> and <strong>standard deviation</strong> step by step</li>
+          <li>Interpret what a high or low standard deviation tells you about a dataset</li>
+          <li>Work with data presented in a <strong>frequency table</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with visual aids</div>
+        </div>
+      </div>
+
+      <!-- 2.1 Types of data -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Key Terms and Data Types</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1rem">
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Population</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">The complete set of all items being studied (e.g. all Grade 12 students in Ethiopia).</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Sample</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">A subset of the population selected for study (e.g. 200 students from one region).</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Variable</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">Any characteristic that can take different values — e.g. age, score, height.</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Frequency</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">How many times a value appears in the dataset.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 Measures of central tendency -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Measures of Central Tendency</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">These three measures each describe the "centre" of a dataset in a different way. The exam tests all three.</p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Mean (Arithmetic Average)</div>
+          <p>
+            The <strong>mean</strong> is the sum of all values divided by the number of values:<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">x̄ = (x₁ + x₂ + … + xₙ) / n = Σxᵢ / n</strong><br><br>
+            For a <strong>frequency table</strong>, use: <strong style="font-family:Georgia,serif">x̄ = Σ(fᵢ · xᵢ) / Σfᵢ</strong><br>
+            where fᵢ is the frequency of value xᵢ.
+          </p>
+        </div>
+
+        <div class="definition-box" style="margin-top:.75rem">
+          <div class="def-label">📌 Median</div>
+          <p>
+            The <strong>median</strong> is the middle value when data is arranged in order.<br><br>
+            • <strong>Odd n:</strong> Median = value at position (n+1)/2<br>
+            • <strong>Even n:</strong> Median = average of values at positions n/2 and n/2 + 1<br><br>
+            Always <strong>sort the data first</strong> before finding the median.
+          </p>
+        </div>
+
+        <div class="definition-box" style="margin-top:.75rem">
+          <div class="def-label">📌 Mode</div>
+          <p>
+            The <strong>mode</strong> is the value that appears <em>most frequently</em>.<br><br>
+            • A dataset can have <strong>one mode</strong> (unimodal), <strong>two modes</strong> (bimodal), or <strong>no mode</strong> if all values appear equally often.<br>
+            • The mode is the only measure that works for non-numeric (categorical) data.
+          </p>
+        </div>
+
+        <div class="note-box" style="margin-top:.75rem">
+          <div class="note-label">⚠ When to use which measure</div>
+          <p><strong>Mean</strong>: best for symmetric data with no extreme outliers. <strong>Median</strong>: best when data has outliers (e.g. income data). <strong>Mode</strong>: best for categorical data or finding the most common value. The entrance exam may ask you to choose the appropriate measure — remember this distinction.</p>
+        </div>
+      </div>
+
+      <!-- 2.3 Measures of dispersion -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Measures of Dispersion (Spread)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Central tendency alone does not tell the full story. Two datasets can have the same mean but very different spreads. Measures of dispersion quantify how spread out the data is.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Range</div>
+          <p><strong>Range = Maximum value − Minimum value</strong><br><br>Simple but affected by outliers. Only uses two data points.</p>
+        </div>
+
+        <div class="definition-box" style="margin-top:.75rem">
+          <div class="def-label">📌 Variance (σ²)</div>
+          <p>
+            Variance measures the average squared distance from the mean:<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">σ² = Σ(xᵢ − x̄)² / n</strong><br><br>
+            Steps: (1) Find the mean x̄. (2) Subtract x̄ from each value. (3) Square each difference. (4) Sum the squares. (5) Divide by n.
+          </p>
+        </div>
+
+        <div class="definition-box" style="margin-top:.75rem">
+          <div class="def-label">📌 Standard Deviation (σ)</div>
+          <p>
+            Standard deviation is the square root of the variance:<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">σ = √(Σ(xᵢ − x̄)² / n)</strong><br><br>
+            It is in the <strong>same units</strong> as the original data, making it easier to interpret than variance.
+            A <strong>small σ</strong> means data is clustered near the mean. A <strong>large σ</strong> means data is spread out.
+          </p>
+        </div>
+
+        <!-- Visual: spread comparison -->
+        <div style="background:var(--surface-2);border-radius:var(--radius-xl);padding:1.5rem;margin-top:1rem">
+          <div style="font-size:.875rem;font-weight:700;color:var(--heading);margin-bottom:1rem">Visualising Standard Deviation</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">
+            <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;text-align:center">
+              <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);margin-bottom:.75rem;text-transform:uppercase">Small σ (data clustered)</div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">
+                <span style="width:10px;height:10px;border-radius:50%;background:#14532D;opacity:.3;display:inline-block"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#14532D;opacity:.6;display:inline-block"></span>
+                <span style="width:12px;height:12px;border-radius:50%;background:#14532D;display:inline-block"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#14532D;opacity:.6;display:inline-block"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#14532D;opacity:.3;display:inline-block"></span>
+              </div>
+              <div style="font-size:.78rem;color:var(--text-muted);margin-top:.75rem">Values are close to the mean. Low variability.</div>
+            </div>
+            <div style="background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;text-align:center">
+              <div style="font-size:.78rem;font-weight:700;color:#DC2626;margin-bottom:.75rem;text-transform:uppercase">Large σ (data spread out)</div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap">
+                <span style="width:10px;height:10px;border-radius:50%;background:#DC2626;opacity:.5;display:inline-block"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#DC2626;opacity:.7;display:inline-block"></span>
+                <span style="width:12px;height:12px;border-radius:50%;background:#14532D;display:inline-block"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#DC2626;opacity:.7;display:inline-block"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#DC2626;opacity:.5;display:inline-block"></span>
+              </div>
+              <div style="font-size:.78rem;color:var(--text-muted);margin-top:.75rem">Values are far from the mean. High variability.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.4 Frequency tables -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Working with Frequency Tables</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Entrance exam questions often present data in a frequency table. Here is how to read one and compute all statistics from it:
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Value (x)</th><th>Frequency (f)</th><th>f · x</th><th>(x − x̄)</th><th>(x − x̄)²</th><th>f · (x − x̄)²</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2</td><td>3</td><td>6</td><td>−3</td><td>9</td><td>27</td></tr>
+            <tr><td>4</td><td>5</td><td>20</td><td>−1</td><td>1</td><td>5</td></tr>
+            <tr><td>6</td><td>4</td><td>24</td><td>1</td><td>1</td><td>4</td></tr>
+            <tr><td>8</td><td>2</td><td>16</td><td>3</td><td>9</td><td>18</td></tr>
+            <tr style="background:var(--brand-light);font-weight:700"><td>Total</td><td>14</td><td>66</td><td>—</td><td>—</td><td>54</td></tr>
+          </tbody>
+        </table>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-card-label">Mean x̄</div>
+            <div class="stat-card-value">66/14 ≈ 4.71</div>
+            <div class="stat-card-note">Σ(f·x) / Σf</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Variance σ²</div>
+            <div class="stat-card-value">54/14 ≈ 3.86</div>
+            <div class="stat-card-note">Σf(x−x̄)² / Σf</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Std Dev σ</div>
+            <div class="stat-card-value">≈ 1.96</div>
+            <div class="stat-card-note">√variance</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Key formulas — memorize these for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📊 Lesson 1 — Statistical Data Analysis</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Mean (raw data)</div>
+            <div class="formula-math">x̄ = Σxᵢ / n</div>
+            <div class="formula-note">Sum of all values ÷ number of values</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Mean (frequency table)</div>
+            <div class="formula-math">x̄ = Σ(fᵢxᵢ) / Σfᵢ</div>
+            <div class="formula-note">Weighted average using frequencies</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Median (odd n)</div>
+            <div class="formula-math">Position = (n+1)/2</div>
+            <div class="formula-note">Sort first, then find middle value</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Median (even n)</div>
+            <div class="formula-math">Average of n/2 and (n/2+1)</div>
+            <div class="formula-note">Average the two middle values</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Range</div>
+            <div class="formula-math">R = max − min</div>
+            <div class="formula-note">Simplest measure of spread</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Variance</div>
+            <div class="formula-math">σ² = Σ(xᵢ−x̄)² / n</div>
+            <div class="formula-note">Average squared deviation from mean</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Standard Deviation</div>
+            <div class="formula-math">σ = √(σ²)</div>
+            <div class="formula-note">Square root of variance; same units as data</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Variance (freq. table)</div>
+            <div class="formula-math">σ² = Σf(x−x̄)² / Σf</div>
+            <div class="formula-note">Weighted variance from frequency table</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Mean, Median and Mode from Raw Data</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the mean, median and mode of: 5, 3, 8, 3, 7, 9, 3, 6, 8, 4</div>
+          <div class="example-step"><span class="step-badge">Mean</span>
+            <div class="step-text">Sum = 5+3+8+3+7+9+3+6+8+4 = 56. n = 10.<br>
+              <span class="math">x̄ = 56/10 = 5.6</span>
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Median</span>
+            <div class="step-text">Sort: 3, 3, 3, 4, 5, 6, 7, 8, 8, 9. n = 10 (even).<br>
+              Middle positions: 5th = 5, 6th = 6.<br>
+              <span class="math">Median = (5+6)/2 = 5.5</span>
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Mode</span>
+            <div class="step-text">3 appears 3 times (most frequent).<br>
+              <span class="math">Mode = 3</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Mean = <strong>5.6</strong> &nbsp;|&nbsp; Median = <strong>5.5</strong> &nbsp;|&nbsp; Mode = <strong>3</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Range and Variance</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the range and variance of: 4, 8, 6, 5, 3, 2, 8, 9, 2, 3</div>
+          <div class="example-step"><span class="step-badge">Range</span>
+            <div class="step-text"><span class="math">Range = 9 − 2 = 7</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Mean</span>
+            <div class="step-text">Sum = 4+8+6+5+3+2+8+9+2+3 = 50. n = 10.<br>
+              <span class="math">x̄ = 50/10 = 5</span>
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Variance</span>
+            <div class="step-text">Deviations from mean (xᵢ − 5): −1, 3, 1, 0, −2, −3, 3, 4, −3, −2<br>
+              Squared deviations: 1, 9, 1, 0, 4, 9, 9, 16, 9, 4<br>
+              Sum of squares = 62<br>
+              <span class="math">σ² = 62/10 = 6.2</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Range = <strong>7</strong> &nbsp;|&nbsp; Variance = <strong>6.2</strong> &nbsp;|&nbsp; Std Dev = <strong>√6.2 ≈ 2.49</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Mean from a Frequency Table</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the mean from this frequency table:<br>
+            Score: 1, 2, 3, 4, 5 &nbsp;|&nbsp; Frequency: 2, 4, 6, 5, 3
+          </div>
+          <div class="example-step"><span class="step-badge">Step 1</span>
+            <div class="step-text">Compute f·x for each row:<br>
+              1×2=2, &nbsp; 2×4=8, &nbsp; 3×6=18, &nbsp; 4×5=20, &nbsp; 5×3=15
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Step 2</span>
+            <div class="step-text">Σ(f·x) = 2+8+18+20+15 = 63<br>
+              Σf = 2+4+6+5+3 = 20
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Step 3</span>
+            <div class="step-text"><span class="math">x̄ = 63/20 = 3.15</span></div>
+          </div>
+          <div class="example-answer">✅ Mean = <strong>3.15</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Standard Deviation Step by Step</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the standard deviation of: 2, 4, 4, 4, 5, 5, 7, 9</div>
+          <div class="example-step"><span class="step-badge">Step 1</span>
+            <div class="step-text">Mean: Sum = 40, n = 8. <span class="math">x̄ = 40/8 = 5</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Step 2</span>
+            <div class="step-text">Deviations (xᵢ − 5): −3, −1, −1, −1, 0, 0, 2, 4</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Step 3</span>
+            <div class="step-text">Squared deviations: 9, 1, 1, 1, 0, 0, 4, 16<br>
+              Sum = 32
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Step 4</span>
+            <div class="step-text"><span class="math">σ² = 32/8 = 4</span><br>
+              <span class="math">σ = √4 = 2</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Standard Deviation = <strong>2</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Choosing the Right Measure</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Monthly salaries (in ETB): 2000, 2200, 2100, 2300, 18000. Which measure of central tendency best represents this data?</div>
+          <div class="example-step"><span class="step-badge">Mean</span>
+            <div class="step-text">Sum = 26600, n = 5. <span class="math">x̄ = 26600/5 = 5320 ETB</span><br>
+              This is misleading — most workers earn around 2000–2300, not 5320.
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Median</span>
+            <div class="step-text">Sorted: 2000, 2100, 2200, 2300, 18000. Middle value = <span class="math">2200 ETB</span><br>
+              This represents the typical salary much better.
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Conclusion</span>
+            <div class="step-text">The <strong>18000</strong> outlier pulls the mean far above the typical value. The <strong>median</strong> is the better measure here.</div>
+          </div>
+          <div class="example-answer">✅ <strong>Median (2200 ETB)</strong> best represents this data. The mean is distorted by the outlier.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Find the mean of: 7, 3, 9, 5, 6, 8, 4, 10, 2, 6</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> 5.5</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> 5</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> 6</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> 6.5</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Find the median of: 11, 7, 3, 15, 9, 5, 13</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> 7</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> 9</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> 11</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> 8</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A dataset has values 4, 6, 6, 8, 10, 10, 10, 12. What is the mode?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> 6</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> 8</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> 10</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> 12</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">The data set {2, 5, 5, 6, 8} has mean 5.2. What is its variance?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> 2.96</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> 3.76</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> 4.20</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> 5.00</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A frequency table shows: value 3 appears 4 times, value 5 appears 6 times, value 7 appears 2 times. What is the mean?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','A')"><div class="option-letter">A</div> 4.83</div>
+          <div class="quiz-option" onclick="answer(5,'B','A')"><div class="option-letter">B</div> 5.00</div>
+          <div class="quiz-option" onclick="answer(5,'C','A')"><div class="option-letter">C</div> 4.50</div>
+          <div class="quiz-option" onclick="answer(5,'D','A')"><div class="option-letter">D</div> 5.17</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit5-lesson2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Statistics</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+mean+median+mode+statistics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Mean, Median and Mode — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+variance+standard+deviation" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Variance and Standard Deviation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+statistics+frequency+table" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Statistics from Frequency Tables</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+descriptive+statistics+practice+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Descriptive Statistics — Practice Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 1</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Statistical Data Analysis</div>
+        <ul class="summary-list">
+          <li>The <strong>mean</strong> (x̄ = Σx/n) is the arithmetic average. For a frequency table use x̄ = Σ(fx)/Σf.</li>
+          <li>The <strong>median</strong> is the middle value after sorting. For odd n it is position (n+1)/2; for even n it is the average of the two middle values.</li>
+          <li>The <strong>mode</strong> is the most frequently occurring value. A dataset can be unimodal, bimodal, or have no mode.</li>
+          <li>The <strong>range</strong> = max − min. It is quick but sensitive to outliers.</li>
+          <li>The <strong>variance</strong> σ² = Σ(xᵢ − x̄)²/n measures average squared spread from the mean.</li>
+          <li>The <strong>standard deviation</strong> σ = √σ² is in the same units as the data. Small σ = data clustered near mean; large σ = data spread out.</li>
+          <li>Use the <strong>median</strong> instead of the mean when outliers are present — the median is not pulled by extreme values.</li>
+          <li>For frequency tables, multiply each value by its frequency before summing, then divide by the total frequency.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="../index.html" class="btn btn-ghost">← Course Index</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 5 · Lesson 1 of 3</div>
+      <a href="unit5-lesson2.html" class="btn btn-primary">Next: Introduction to Probability →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'C',2:'B',3:'C',4:'B',5:'A'};
+  const feedbacks={
+    1:{C:'✓ Correct! Sum=60, n=10, mean=60/10=6.',wrong:'✗ Sum all values: 7+3+9+5+6+8+4+10+2+6=60. Mean=60/10=6.'},
+    2:{B:'✓ Correct! Sorted: 3,5,7,9,11,13,15. n=7 (odd). Middle position=(7+1)/2=4th value=9.',wrong:'✗ Sort first: 3,5,7,9,11,13,15. Middle (4th) value = 9.'},
+    3:{C:'✓ Correct! 10 appears 3 times, more than any other value.',wrong:'✗ Count occurrences: 4→1, 6→2, 8→1, 10→3, 12→1. Mode=10.'},
+    4:{B:'✓ Correct! Deviations: (2−5.2)²+(5−5.2)²+(5−5.2)²+(6−5.2)²+(8−5.2)² = 10.24+0.04+0.04+0.64+7.84=18.8. σ²=18.8/5=3.76.',wrong:'✗ σ²=Σ(xᵢ−5.2)²/5. Squares: 10.24+0.04+0.04+0.64+7.84=18.8. σ²=18.8/5=3.76.'},
+    5:{A:'✓ Correct! Σ(fx)=3×4+5×6+7×2=12+30+14=56. Σf=12. Mean=56/12≈4.83.',wrong:'✗ Σ(fx)=12+30+14=56, Σf=4+6+2=12. Mean=56/12≈4.83.'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review the lesson and try again.','📖 Review the lesson and try again.','📖 Review the lesson and try again.','👍 Good! Review your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
