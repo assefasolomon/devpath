@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2: Methods of Proof | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .proof-block{background:var(--surface-2);border-left:4px solid var(--brand-accent);border-radius:0 var(--radius) var(--radius) 0;padding:1rem 1.25rem;margin:.875rem 0;font-size:.875rem;line-height:1.8;color:var(--text)}
+    .proof-block .qed{float:right;font-size:1rem;color:var(--brand-primary);font-weight:900}
+    .method-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1rem}
+    .method-tag{display:inline-block;background:var(--brand-primary);color:#fff;font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.75rem;letter-spacing:.04em}
+    .method-title{font-size:1rem;font-weight:800;color:var(--heading);margin-bottom:.4rem}
+    .method-desc{font-size:.875rem;color:var(--text);line-height:1.7;margin-bottom:.875rem}
+    .method-steps{display:flex;flex-direction:column;gap:.5rem}
+    .method-step{display:flex;gap:.75rem;align-items:flex-start;font-size:.82rem;color:var(--text);line-height:1.6}
+    .method-step-num{width:22px;height:22px;border-radius:50%;background:var(--brand-light);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;flex-shrink:0;margin-top:1px}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .course-complete-banner{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:2.5rem;text-align:center;margin-top:2rem;color:#fff}
+    .course-complete-banner h2{font-size:1.75rem;font-weight:900;margin-bottom:.75rem}
+    .course-complete-banner p{color:rgba(255,255,255,.75);font-size:.95rem;line-height:1.7;margin-bottom:1.5rem;max-width:560px;margin-left:auto;margin-right:auto}
+    .complete-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:1rem;margin:1.5rem auto;max-width:500px}
+    .complete-stat{background:rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:1rem;text-align:center}
+    .complete-stat-num{font-size:1.75rem;font-weight:900;color:#22C55E}
+    .complete-stat-label{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:3px;text-transform:uppercase;letter-spacing:.05em}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 7 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 7 Lessons</div>
+      <a href="unit7-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Logic and Propositions ✓</a>
+      <a href="unit7-lesson2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Methods of Proof</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">🎉 Course Complete!</div>
+      <a href="../index.html" class="sidebar-link"><div class="sidebar-dot"></div> Back to Course Index</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 7 · Lesson 2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 7 · Mathematical Proofs · Final Lesson</div>
+      <h1>🔐 Methods of Proof</h1>
+      <p>Learn the four proof techniques that appear on the Ethiopian entrance exam: direct proof, proof by contrapositive, proof by contradiction, and mathematical induction. Each has a specific structure — master them all and you can prove any statement the exam throws at you.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          A <strong>proof</strong> is a logical argument that establishes the truth of a mathematical statement beyond all doubt. Unlike examples (which only show something works sometimes), a proof shows it works <em>always</em>. Every theorem in mathematics rests on a proof.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Explain what a <strong>mathematical proof</strong> is and why examples are not proofs</li>
+          <li>Write a <strong>direct proof</strong>: assume p, derive q step by step</li>
+          <li>Write a <strong>proof by contrapositive</strong>: prove ¬q → ¬p instead of p → q</li>
+          <li>Write a <strong>proof by contradiction</strong>: assume ¬p, derive a contradiction</li>
+          <li>Apply <strong>mathematical induction</strong>: base case + inductive step</li>
+          <li>Identify which proof method is most appropriate for a given problem</li>
+          <li>Recognise a <strong>counterexample</strong> as a disproof of a universal statement</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">All four proof methods with structure and examples</div>
+        </div>
+      </div>
+
+      <!-- Method 1: Direct proof -->
+      <div class="method-card">
+        <div class="method-tag">Method 1</div>
+        <div class="method-title">Direct Proof</div>
+        <div class="method-desc">
+          The most natural proof method. You start by <strong>assuming the hypothesis p is true</strong>, then use definitions, axioms and previously proved results to logically derive the conclusion q. It directly proves p → q.
+        </div>
+        <div class="method-steps">
+          <div class="method-step"><div class="method-step-num">1</div><div>Write "Assume p" — state the hypothesis as given.</div></div>
+          <div class="method-step"><div class="method-step-num">2</div><div>Use logical steps (algebra, definitions, theorems) to transform p toward q.</div></div>
+          <div class="method-step"><div class="method-step-num">3</div><div>Arrive at q and write "Therefore q" or "Hence proved." Mark with □ or QED.</div></div>
+        </div>
+        <div class="note-box" style="margin-top:1rem;margin-bottom:0">
+          <div class="note-label">📝 Best used when</div>
+          <p>The conclusion q follows naturally from p by straightforward algebra or definition-chasing. If you can see a clear path from p to q, use a direct proof.</p>
+        </div>
+      </div>
+
+      <!-- Method 2: Contrapositive -->
+      <div class="method-card">
+        <div class="method-tag">Method 2</div>
+        <div class="method-title">Proof by Contrapositive</div>
+        <div class="method-desc">
+          Since p → q is logically equivalent to ¬q → ¬p, proving the contrapositive proves the original statement. You <strong>assume ¬q is true</strong> and derive ¬p. No contradiction needed — it is still a direct proof, just of the contrapositive.
+        </div>
+        <div class="method-steps">
+          <div class="method-step"><div class="method-step-num">1</div><div>State you will prove the contrapositive: "We prove ¬q → ¬p."</div></div>
+          <div class="method-step"><div class="method-step-num">2</div><div>Assume ¬q (the negation of the conclusion).</div></div>
+          <div class="method-step"><div class="method-step-num">3</div><div>Derive ¬p (the negation of the hypothesis) through logical steps.</div></div>
+          <div class="method-step"><div class="method-step-num">4</div><div>Conclude: "Since ¬q → ¬p, by contrapositive p → q is proved." □</div></div>
+        </div>
+        <div class="note-box" style="margin-top:1rem;margin-bottom:0">
+          <div class="note-label">📝 Best used when</div>
+          <p>The hypothesis p is hard to work with directly, but the negation ¬q gives you something concrete to start from. Common in number theory proofs about even/odd integers.</p>
+        </div>
+      </div>
+
+      <!-- Method 3: Contradiction -->
+      <div class="method-card">
+        <div class="method-tag">Method 3</div>
+        <div class="method-title">Proof by Contradiction (Reductio ad Absurdum)</div>
+        <div class="method-desc">
+          You <strong>assume the opposite of what you want to prove</strong> (assume ¬p), then show this assumption leads to a logical impossibility — a statement that is always false. Since a false assumption produced a contradiction, the original assumption ¬p must be wrong, so p must be true.
+        </div>
+        <div class="method-steps">
+          <div class="method-step"><div class="method-step-num">1</div><div>Write "Assume for contradiction that ¬p" (the negation of what you want to prove).</div></div>
+          <div class="method-step"><div class="method-step-num">2</div><div>Use valid logical steps from ¬p until you reach a statement that contradicts a known fact, an axiom, or the assumption itself.</div></div>
+          <div class="method-step"><div class="method-step-num">3</div><div>Write "This is a contradiction. Therefore our assumption is false, and p must be true." □</div></div>
+        </div>
+        <div class="note-box" style="margin-top:1rem;margin-bottom:0">
+          <div class="note-label">📝 Best used when</div>
+          <p>Proving that something does NOT exist, or proving irrational/infinite statements. The classic example is proving √2 is irrational.</p>
+        </div>
+      </div>
+
+      <!-- Method 4: Induction -->
+      <div class="method-card">
+        <div class="method-tag">Method 4</div>
+        <div class="method-title">Mathematical Induction</div>
+        <div class="method-desc">
+          Used to prove statements of the form "P(n) is true for all positive integers n." It works like an infinite chain of dominoes: prove the first falls (base case), then prove each domino knocks over the next (inductive step).
+        </div>
+
+        <div class="definition-box" style="margin:.875rem 0">
+          <div class="def-label">📌 Structure of Mathematical Induction</div>
+          <p>
+            <strong>Step 1 — Base Case:</strong> Prove P(1) is true (or P(0), or whatever the starting value is).<br><br>
+            <strong>Step 2 — Inductive Hypothesis:</strong> Assume P(k) is true for some arbitrary positive integer k.<br><br>
+            <strong>Step 3 — Inductive Step:</strong> Using the assumption that P(k) is true, prove that P(k+1) is also true.<br><br>
+            <strong>Conclusion:</strong> Since P(1) is true and P(k) true implies P(k+1) true, by induction P(n) is true for all positive integers n. □
+          </p>
+        </div>
+
+        <div class="note-box" style="margin-bottom:0">
+          <div class="note-label">📝 Best used when</div>
+          <p>The statement involves a formula with n (like the sum of the first n integers), or any claim about all natural numbers. The key is finding how P(k+1) connects to P(k).</p>
+        </div>
+      </div>
+
+      <!-- Counterexample -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Disproving with a Counterexample</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Counterexample</div>
+          <p>To <strong>disprove</strong> a universal statement ("For all x, P(x) is true"), you only need to find <strong>one specific value</strong> of x for which P(x) is false. That one example is called a <strong>counterexample</strong>.<br><br>
+          Example: Disprove "All prime numbers are odd."<br>
+          Counterexample: 2 is prime and even. □</p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">⚠ Critical distinction</div>
+          <p>One example proves nothing universally (you cannot prove "all swans are white" by showing one white swan). But one counterexample disproves a universal claim instantly. On the exam, if asked to "disprove" — find a counterexample, not a proof.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Proof structures — know these cold for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🔐 Lesson 2 — Methods of Proof</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Direct Proof</div>
+            <div class="formula-math">Assume p → derive q</div>
+            <div class="formula-note">Proves p → q. Use when path from p to q is clear.</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Contrapositive</div>
+            <div class="formula-math">Assume ¬q → derive ¬p</div>
+            <div class="formula-note">Proves p → q. Equivalent to original — not contradiction.</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Contradiction</div>
+            <div class="formula-math">Assume ¬p → reach impossibility</div>
+            <div class="formula-note">¬p leads to false → p must be true.</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Induction — Base</div>
+            <div class="formula-math">Prove P(1) is true</div>
+            <div class="formula-note">First domino falls. Must be done first.</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Induction — Step</div>
+            <div class="formula-math">P(k) true → P(k+1) true</div>
+            <div class="formula-note">Assume P(k), derive P(k+1). Each domino knocks next.</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Counterexample</div>
+            <div class="formula-math">One case where P(x) fails</div>
+            <div class="formula-note">Disproves "for all x, P(x)" immediately.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style proofs solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Direct Proof — Sum of Two Even Numbers</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Prove:</strong> If m and n are even integers, then m + n is even.</div>
+          <div class="example-step"><span class="step-badge">Assume</span>
+            <div class="step-text">Let m and n be even integers. By definition of even, there exist integers a and b such that <span class="math">m = 2a</span> and <span class="math">n = 2b</span>.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Derive</span>
+            <div class="step-text">Then:<br>
+              <span class="math">m + n = 2a + 2b = 2(a + b)</span><br>
+              Since a and b are integers, a + b is an integer. Call it c = a + b.
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Conclude</span>
+            <div class="step-text">Then <span class="math">m + n = 2c</span>, which is even by definition.</div>
+          </div>
+          <div class="proof-block">
+            <strong>Proof.</strong> Let m = 2a and n = 2b for integers a, b. Then m + n = 2a + 2b = 2(a+b). Since a+b is an integer, m+n is even. <span class="qed">□</span>
+          </div>
+          <div class="example-answer">✅ Direct proof: the sum of two even integers is even.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Proof by Contrapositive — Odd Product</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Prove:</strong> If n² is even, then n is even. (Equivalently: if n is odd, then n² is odd.)</div>
+          <div class="example-step"><span class="step-badge">Strategy</span>
+            <div class="step-text">Proving directly is hard — we do not know what form n takes when n² is even. Use contrapositive: prove "if n is odd then n² is odd."</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Assume ¬q</span>
+            <div class="step-text">Assume n is odd. Then <span class="math">n = 2k + 1</span> for some integer k.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Derive ¬p</span>
+            <div class="step-text">
+              <span class="math">n² = (2k+1)² = 4k² + 4k + 1 = 2(2k²+2k) + 1</span><br>
+              Since 2k²+2k is an integer, n² = 2(integer) + 1, which is odd.
+            </div>
+          </div>
+          <div class="proof-block">
+            <strong>Proof (contrapositive).</strong> Assume n is odd; write n = 2k+1. Then n² = 4k²+4k+1 = 2(2k²+2k)+1, which is odd. Thus if n is odd, n² is odd — equivalently, if n² is even, n is even. <span class="qed">□</span>
+          </div>
+          <div class="example-answer">✅ Contrapositive proof: if n² is even then n is even.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Proof by Contradiction — √2 is Irrational</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Prove:</strong> √2 is irrational.</div>
+          <div class="example-step"><span class="step-badge">Assume ¬p</span>
+            <div class="step-text">Assume for contradiction that √2 is rational. Then <span class="math">√2 = a/b</span> where a, b are integers with no common factor (fraction in lowest terms) and b ≠ 0.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Derive</span>
+            <div class="step-text">Squaring both sides: <span class="math">2 = a²/b²</span>, so <span class="math">a² = 2b²</span>.<br>
+              This means a² is even, so a is even (by Example 2). Write <span class="math">a = 2k</span>.
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Contradiction</span>
+            <div class="step-text">Substitute: <span class="math">(2k)² = 2b²</span> → <span class="math">4k² = 2b²</span> → <span class="math">b² = 2k²</span>.<br>
+              So b² is even, meaning b is even.<br>
+              But now both a and b are even — they share factor 2. This contradicts our assumption that a/b was in lowest terms.
+            </div>
+          </div>
+          <div class="proof-block">
+            <strong>Proof.</strong> Assume √2 = a/b in lowest terms. Then a² = 2b², so a is even; write a = 2k. Then 4k² = 2b², giving b² = 2k², so b is even. Both a and b even contradicts lowest terms. ∴ √2 is irrational. <span class="qed">□</span>
+          </div>
+          <div class="example-answer">✅ Proof by contradiction: √2 is irrational.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Mathematical Induction — Sum of First n Integers</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Prove:</strong> For all positive integers n, 1 + 2 + 3 + … + n = n(n+1)/2.</div>
+          <div class="example-step"><span class="step-badge">Base case</span>
+            <div class="step-text">n = 1: Left side = 1. Right side = <span class="math">1(1+1)/2 = 1</span>. ✓ Base case holds.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Inductive hypothesis</span>
+            <div class="step-text">Assume the formula holds for n = k:<br>
+              <span class="math">1 + 2 + … + k = k(k+1)/2</span>
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Inductive step</span>
+            <div class="step-text">Show it holds for n = k+1, i.e. that <span class="math">1+2+…+k+(k+1) = (k+1)(k+2)/2</span>.<br><br>
+              Starting from the left side:<br>
+              <span class="math">1+2+…+k+(k+1) = k(k+1)/2 + (k+1)</span> &nbsp; (by inductive hypothesis)<br>
+              <span class="math">= (k+1)[k/2 + 1]</span><br>
+              <span class="math">= (k+1)(k+2)/2</span> ✓
+            </div>
+          </div>
+          <div class="proof-block">
+            <strong>Proof by induction.</strong> Base: n=1 gives 1=1(2)/2=1 ✓. Hypothesis: assume Σᵢ₌₁ᵏ i = k(k+1)/2. Step: Σᵢ₌₁ᵏ⁺¹ i = k(k+1)/2 + (k+1) = (k+1)(k+2)/2. By induction, the formula holds for all n ≥ 1. <span class="qed">□</span>
+          </div>
+          <div class="example-answer">✅ By induction: 1+2+…+n = n(n+1)/2 for all positive integers n.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Counterexample — Disproving a Statement</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Disprove:</strong> "For all integers n, n² + n + 41 is prime."</div>
+          <div class="example-step"><span class="step-badge">Strategy</span>
+            <div class="step-text">This formula gives primes for many values (n = 0 to 39). To disprove it, we need just one value of n where n² + n + 41 is NOT prime.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Try n = 40</span>
+            <div class="step-text">
+              <span class="math">40² + 40 + 41 = 1600 + 40 + 41 = 1681</span><br>
+              Is 1681 prime? <span class="math">1681 = 41 × 41 = 41²</span> — not prime.
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Conclusion</span>
+            <div class="step-text">Since n² + n + 41 = 1681 = 41² is composite when n = 40, the statement "n² + n + 41 is prime for all integers n" is <strong>false</strong>.</div>
+          </div>
+          <div class="proof-block">
+            <strong>Counterexample.</strong> Take n = 40: n²+n+41 = 1681 = 41², which is not prime. The statement is disproved. <span class="qed">□</span>
+          </div>
+          <div class="example-answer">✅ Counterexample: n = 40 gives 41², which is not prime. Statement disproved.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">In a proof by contradiction, you begin by assuming:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> The hypothesis p is true</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> The conclusion q is true</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> The negation of what you want to prove</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Both p and q are false</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Which proof method is used when you prove ¬q → ¬p to establish p → q?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Direct proof</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Mathematical induction</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Proof by contrapositive</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Proof by contradiction</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">In mathematical induction, what must be proved in the inductive step?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> That P(1) is true</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> That if P(k) is true then P(k+1) is true</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> That P(n) is true for n = 2</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> That P(k+1) is true without any assumption</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">To disprove the statement "All odd numbers are prime," which counterexample works?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> 7 (which is prime)</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> 4 (which is even)</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> 9 (which is odd but not prime: 9 = 3×3)</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> 2 (which is prime but even)</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Using induction, what is the base case for proving "2ⁿ > n for all n ≥ 1"?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','A')"><div class="option-letter">A</div> n=1: 2¹ = 2 > 1 ✓</div>
+          <div class="quiz-option" onclick="answer(5,'B','A')"><div class="option-letter">B</div> n=0: 2⁰ = 1 > 0 ✓</div>
+          <div class="quiz-option" onclick="answer(5,'C','A')"><div class="option-letter">C</div> Assume 2ᵏ > k for some k</div>
+          <div class="quiz-option" onclick="answer(5,'D','A')"><div class="option-letter">D</div> Show 2ᵏ⁺¹ > k+1</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Course Index →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Mathematical Proofs</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+direct+proof+mathematics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Direct Proof — Introduction and Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+proof+by+contradiction+contrapositive" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Proof by Contradiction and Contrapositive</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+mathematical+induction" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Mathematical Induction — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+mathematical+induction+practice+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Mathematical Induction — Practice Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 2</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Methods of Proof</div>
+        <ul class="summary-list">
+          <li>A <strong>proof</strong> is a logically valid argument establishing a mathematical truth. Examples are not proofs — they only confirm individual cases.</li>
+          <li><strong>Direct proof</strong>: assume p, apply definitions and algebra, derive q. Use when the path from p to q is straightforward.</li>
+          <li><strong>Proof by contrapositive</strong>: assume ¬q and derive ¬p. Valid because p→q and ¬q→¬p are logically equivalent. Not a contradiction — a direct proof of the contrapositive.</li>
+          <li><strong>Proof by contradiction</strong>: assume ¬p, derive a logical impossibility. Since ¬p leads to a contradiction, p must be true. Best for existence/non-existence and irrationality proofs.</li>
+          <li><strong>Mathematical induction</strong> has two steps: (1) Base case — prove P(1) is true. (2) Inductive step — assume P(k) true, prove P(k+1) true. Then P(n) is true for all n ≥ 1.</li>
+          <li>To <strong>disprove</strong> a universal statement, produce one <strong>counterexample</strong> — a single case where the statement fails.</li>
+          <li>Key definitions used in proofs: even integer = 2k; odd integer = 2k+1; rational number = a/b where a, b integers, b ≠ 0.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- COURSE COMPLETE BANNER -->
+    <div class="course-complete-banner">
+      <div style="font-size:3rem;margin-bottom:.875rem">🎓</div>
+      <h2>Grade 12 Mathematics — Complete!</h2>
+      <p>You have finished all 7 units of the Grade 12 Natural Science Mathematics course. You are now fully prepared for the Ethiopian University Entrance Examination mathematics section.</p>
+      <div class="complete-stats">
+        <div class="complete-stat">
+          <div class="complete-stat-num">7</div>
+          <div class="complete-stat-label">Units</div>
+        </div>
+        <div class="complete-stat">
+          <div class="complete-stat-num">23</div>
+          <div class="complete-stat-label">Lessons</div>
+        </div>
+        <div class="complete-stat">
+          <div class="complete-stat-num">115</div>
+          <div class="complete-stat-label">Quiz Questions</div>
+        </div>
+        <div class="complete-stat">
+          <div class="complete-stat-num">92</div>
+          <div class="complete-stat-label">Worked Examples</div>
+        </div>
+      </div>
+      <a href="../index.html" class="btn btn-accent btn-lg" style="margin-right:.75rem">Course Index →</a>
+      <a href="../../../../../dashboard.html" class="btn btn-ghost btn-lg">My Dashboard →</a>
+    </div>
+
+    <div class="lesson-nav" style="margin-top:2rem">
+      <a href="unit7-lesson1.html" class="btn btn-ghost">← Lesson 1: Logic and Propositions</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 7 · Lesson 2 of 2 · Final Lesson</div>
+      <a href="../index.html" class="btn btn-primary">Course Index →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'C',2:'C',3:'B',4:'C',5:'A'};
+  const feedbacks={
+    1:{C:'✓ Correct! In proof by contradiction you assume the NEGATION of what you want to prove, then derive a contradiction.',wrong:'✗ Proof by contradiction starts by assuming the opposite (negation) of the statement you want to prove.'},
+    2:{C:'✓ Correct! Proving ¬q→¬p is exactly the contrapositive method — logically equivalent to proving p→q.',wrong:'✗ Proving ¬q→¬p is the contrapositive method. Since p→q ≡ ¬q→¬p, this establishes the original.'},
+    3:{B:'✓ Correct! The inductive step proves: IF P(k) is true THEN P(k+1) is also true. The "if" part is the inductive hypothesis.',wrong:'✗ The inductive step must show that P(k) being true implies P(k+1) is true. You assume P(k) — that is the inductive hypothesis.'},
+    4:{C:'✓ Correct! 9 is odd but 9 = 3×3 is not prime. This single example disproves the universal claim.',wrong:'✗ A counterexample must be an ODD number that is NOT prime. 9 = 3×3 is odd and composite — it disproves the statement.'},
+    5:{A:'✓ Correct! The base case proves the statement for the starting value. For n≥1, start with n=1: 2¹=2>1 ✓.',wrong:'✗ The base case proves P at the first value in the range. Since the claim is for n≥1, the base case is n=1: 2¹=2>1 ✓.'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score! Course complete!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
