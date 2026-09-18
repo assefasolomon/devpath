@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: Logic and Propositions | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.4}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    /* truth table */
+    .truth-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0;font-family:'Georgia',serif}
+    .truth-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:700;font-family:var(--font-sans)}
+    .truth-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center}
+    .truth-table tr:nth-child(even) td{background:var(--surface-2)}
+    .truth-table .T{color:#16A34A;font-weight:700}
+    .truth-table .F{color:#DC2626;font-weight:700}
+    .truth-table .highlight td{background:#DCFCE7;font-weight:700}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .connective-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:.875rem 0}
+    .connective-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:1.1rem}
+    .connective-symbol{font-size:1.5rem;font-family:'Georgia',serif;color:var(--brand-primary);font-weight:700;margin-bottom:.35rem}
+    .connective-name{font-size:.82rem;font-weight:700;color:var(--heading);margin-bottom:.25rem}
+    .connective-read{font-size:.75rem;color:var(--text-muted);margin-bottom:.5rem}
+    .connective-rule{font-size:.78rem;color:var(--text);line-height:1.5;background:var(--surface-2);border-radius:var(--radius);padding:.4rem .6rem}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 7 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 7 Lessons</div>
+      <a href="unit7-lesson1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Logic and Propositions</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L2: Methods of Proof 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 7 · Lesson 1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 7 · Mathematical Proofs</div>
+      <h1>🧠 Logic and Propositions</h1>
+      <p>The language of mathematics is logic. Before you can write or understand a proof, you must master propositions, logical connectives, truth tables and the key logical equivalences that underpin all mathematical reasoning.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Every mathematical theorem, proof and argument is built from <strong>propositions</strong> — statements that are either true or false. Logic gives us the rules for combining propositions and reasoning correctly from one to another. Without logic, proofs collapse into opinions.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define a <strong>proposition</strong> and determine its truth value</li>
+          <li>Apply the five logical connectives: negation, conjunction, disjunction, implication, biconditional</li>
+          <li>Construct and complete <strong>truth tables</strong> for compound propositions</li>
+          <li>Identify <strong>tautologies</strong> (always true) and <strong>contradictions</strong> (always false)</li>
+          <li>State the <strong>converse, inverse and contrapositive</strong> of a conditional statement</li>
+          <li>Apply <strong>De Morgan's Laws</strong> to simplify negations</li>
+          <li>Recognise logically equivalent statements</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with visual aids</div>
+        </div>
+      </div>
+
+      <!-- 2.1 Propositions -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Propositions and Truth Values</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Proposition</div>
+          <p>A <strong>proposition</strong> (or statement) is a declarative sentence that is either <strong>True (T)</strong> or <strong>False (F)</strong> — never both and never neither.<br><br>
+          Propositions are usually labelled with letters: p, q, r, s.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.875rem">
+          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:.5rem">✓ ARE propositions</div>
+            <ul style="font-size:.82rem;color:var(--text);line-height:1.9;padding-left:1rem">
+              <li>"2 + 2 = 4" (True)</li>
+              <li>"Ethiopia is in Europe" (False)</li>
+              <li>"7 is a prime number" (True)</li>
+              <li>"All cats have wings" (False)</li>
+            </ul>
+          </div>
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:#991B1B;text-transform:uppercase;margin-bottom:.5rem">✗ NOT propositions</div>
+            <ul style="font-size:.82rem;color:var(--text);line-height:1.9;padding-left:1rem">
+              <li>"What time is it?" (question)</li>
+              <li>"Close the door." (command)</li>
+              <li>"x + 1 = 5" (open sentence — depends on x)</li>
+              <li>"This statement is false." (paradox)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 Logical connectives -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 The Five Logical Connectives</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">These connectives combine simple propositions into <strong>compound propositions</strong>:</p>
+
+        <div class="connective-grid">
+          <div class="connective-card">
+            <div class="connective-symbol">¬p</div>
+            <div class="connective-name">Negation</div>
+            <div class="connective-read">Read: "not p"</div>
+            <div class="connective-rule">True when p is False. False when p is True. Flips the truth value.</div>
+          </div>
+          <div class="connective-card">
+            <div class="connective-symbol">p ∧ q</div>
+            <div class="connective-name">Conjunction</div>
+            <div class="connective-read">Read: "p and q"</div>
+            <div class="connective-rule">True ONLY when BOTH p and q are True. False otherwise.</div>
+          </div>
+          <div class="connective-card">
+            <div class="connective-symbol">p ∨ q</div>
+            <div class="connective-name">Disjunction</div>
+            <div class="connective-read">Read: "p or q"</div>
+            <div class="connective-rule">False ONLY when BOTH p and q are False. True otherwise (inclusive or).</div>
+          </div>
+          <div class="connective-card">
+            <div class="connective-symbol">p → q</div>
+            <div class="connective-name">Implication</div>
+            <div class="connective-read">Read: "if p then q"</div>
+            <div class="connective-rule">False ONLY when p is True and q is False. True in all other cases.</div>
+          </div>
+          <div class="connective-card">
+            <div class="connective-symbol">p ↔ q</div>
+            <div class="connective-name">Biconditional</div>
+            <div class="connective-read">Read: "p if and only if q"</div>
+            <div class="connective-rule">True when p and q have the SAME truth value. False when they differ.</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">⚠ The tricky one — Implication (p → q)</div>
+          <p>The implication p → q is <strong>only false when the hypothesis (p) is true but the conclusion (q) is false</strong>. When p is false, the implication is automatically true — called "vacuously true." Example: "If it rains, the ground is wet." If it does NOT rain, the statement cannot be falsified regardless of the ground.</p>
+        </div>
+      </div>
+
+      <!-- 2.3 Truth tables -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Truth Tables</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A truth table lists every possible combination of truth values for the component propositions and the resulting truth value of the compound proposition. For n propositions there are 2ⁿ rows.
+        </p>
+
+        <p style="font-size:.875rem;font-weight:700;color:var(--heading);margin-bottom:.5rem">All five connectives — summary table:</p>
+        <table class="truth-table">
+          <thead><tr><th>p</th><th>q</th><th>¬p</th><th>p ∧ q</th><th>p ∨ q</th><th>p → q</th><th>p ↔ q</th></tr></thead>
+          <tbody>
+            <tr><td class="T">T</td><td class="T">T</td><td class="F">F</td><td class="T">T</td><td class="T">T</td><td class="T">T</td><td class="T">T</td></tr>
+            <tr><td class="T">T</td><td class="F">F</td><td class="F">F</td><td class="F">F</td><td class="T">T</td><td class="F">F</td><td class="F">F</td></tr>
+            <tr><td class="F">F</td><td class="T">T</td><td class="T">T</td><td class="F">F</td><td class="T">T</td><td class="T">T</td><td class="F">F</td></tr>
+            <tr><td class="F">F</td><td class="F">F</td><td class="T">T</td><td class="F">F</td><td class="F">F</td><td class="T">T</td><td class="T">T</td></tr>
+          </tbody>
+        </table>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+          <div class="definition-box" style="margin-bottom:0">
+            <div class="def-label">📌 Tautology</div>
+            <p>A compound proposition that is <strong>always True</strong> regardless of the truth values of its components.<br>Example: p ∨ ¬p is always True ("the law of excluded middle").</p>
+          </div>
+          <div class="definition-box" style="margin-bottom:0">
+            <div class="def-label">📌 Contradiction</div>
+            <p>A compound proposition that is <strong>always False</strong> regardless of the truth values of its components.<br>Example: p ∧ ¬p is always False.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.4 Conditional and related -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Conditional Statement and Its Relatives</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Given the conditional <strong>p → q</strong> ("if p then q"), three related statements can be formed:
+        </p>
+
+        <table style="width:100%;border-collapse:collapse;font-size:.875rem">
+          <thead>
+            <tr style="background:var(--brand-primary);color:#fff">
+              <th style="padding:.6rem .875rem;text-align:left">Statement</th>
+              <th style="padding:.6rem .875rem;text-align:left">Form</th>
+              <th style="padding:.6rem .875rem;text-align:left">Logically equivalent to</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="background:var(--brand-light)">
+              <td style="padding:.6rem .875rem;border-bottom:1px solid var(--border);font-weight:700">Conditional (original)</td>
+              <td style="padding:.6rem .875rem;border-bottom:1px solid var(--border);font-family:Georgia,serif">p → q</td>
+              <td style="padding:.6rem .875rem;border-bottom:1px solid var(--border)">Contrapositive</td>
+            </tr>
+            <tr>
+              <td style="padding:.6rem .875rem;border-bottom:1px solid var(--border);font-weight:700">Converse</td>
+              <td style="padding:.6rem .875rem;border-bottom:1px solid var(--border);font-family:Georgia,serif">q → p</td>
+              <td style="padding:.6rem .875rem;border-bottom:1px solid var(--border)">Inverse</td>
+            </tr>
+            <tr style="background:var(--surface-2)">
+              <td style="padding:.6rem .875rem;border-bottom:1px solid var(--border);font-weight:700">Inverse</td>
+              <td style="padding:.6rem .875rem;border-bottom:1px solid var(--border);font-family:Georgia,serif">¬p → ¬q</td>
+              <td style="padding:.6rem .875rem;border-bottom:1px solid var(--border)">Converse</td>
+            </tr>
+            <tr>
+              <td style="padding:.6rem .875rem;font-weight:700">Contrapositive</td>
+              <td style="padding:.6rem .875rem;font-family:Georgia,serif">¬q → ¬p</td>
+              <td style="padding:.6rem .875rem">Conditional (original)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">📝 Key fact for proofs</div>
+          <p>The <strong>conditional and its contrapositive are logically equivalent</strong> — they always have the same truth value. This is why proving the contrapositive (¬q → ¬p) is a valid way to prove the original statement (p → q). The converse and inverse are equivalent to each other but NOT to the original.</p>
+        </div>
+      </div>
+
+      <!-- 2.5 De Morgan's Laws -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 De Morgan's Laws</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          De Morgan's Laws describe how negation distributes over conjunction and disjunction. They are essential for simplifying logical expressions and writing proof by contradiction.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 De Morgan's Laws</div>
+          <p>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">¬(p ∧ q) ≡ ¬p ∨ ¬q</strong><br>
+            "Not (p and q)" is the same as "not p or not q"<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">¬(p ∨ q) ≡ ¬p ∧ ¬q</strong><br>
+            "Not (p or q)" is the same as "not p and not q"<br><br>
+            <strong>Memory trick:</strong> When negation enters a bracket, the connective flips (∧ ↔ ∨) and both propositions are negated.
+          </p>
+        </div>
+
+        <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1.25rem;margin-top:.875rem">
+          <div style="font-size:.875rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Real-world example of De Morgan's Law</div>
+          <div style="font-size:.875rem;color:var(--text);line-height:1.8">
+            <strong>Statement:</strong> "It is NOT the case that (it is raining AND it is cold)"<br>
+            <strong>By De Morgan:</strong> "It is NOT raining OR it is NOT cold"<br><br>
+            These two phrasings say exactly the same thing — they are logically equivalent.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Key rules — memorize these for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🧠 Lesson 1 — Logic and Propositions</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Negation</div>
+            <div class="formula-math">¬p: flips T↔F</div>
+            <div class="formula-note">True when p is False; False when p is True</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Conjunction</div>
+            <div class="formula-math">p ∧ q: T only if both T</div>
+            <div class="formula-note">False if either p or q is False</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Disjunction</div>
+            <div class="formula-math">p ∨ q: F only if both F</div>
+            <div class="formula-note">True if at least one of p, q is True</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Implication</div>
+            <div class="formula-math">p → q: F only if p=T, q=F</div>
+            <div class="formula-note">True when p is False (vacuously true)</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Biconditional</div>
+            <div class="formula-math">p ↔ q: T when p=q</div>
+            <div class="formula-note">True iff both same truth value</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Contrapositive</div>
+            <div class="formula-math">p→q ≡ ¬q→¬p</div>
+            <div class="formula-note">Always logically equivalent to original</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">De Morgan 1</div>
+            <div class="formula-math">¬(p∧q) ≡ ¬p∨¬q</div>
+            <div class="formula-note">Negate a conjunction → disjunction of negations</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">De Morgan 2</div>
+            <div class="formula-math">¬(p∨q) ≡ ¬p∧¬q</div>
+            <div class="formula-note">Negate a disjunction → conjunction of negations</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identifying Propositions and Truth Values</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify each as a proposition or not, and if so give its truth value.<br>
+            (a) "5 is an even number" &nbsp; (b) "Is 7 prime?" &nbsp; (c) "x > 3" &nbsp; (d) "The sum of angles in a triangle is 180°"</div>
+          <div class="example-step"><span class="step-badge">(a)</span>
+            <div class="step-text"><strong>Proposition.</strong> It is a declarative sentence. Truth value: <span class="math">False</span> (5 is odd).</div>
+          </div>
+          <div class="example-step"><span class="step-badge">(b)</span>
+            <div class="step-text"><strong>Not a proposition.</strong> It is a question — cannot be True or False.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">(c)</span>
+            <div class="step-text"><strong>Not a proposition</strong> (as written). It is an open sentence — its truth value depends on x. It becomes a proposition only when x is assigned a value.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">(d)</span>
+            <div class="step-text"><strong>Proposition.</strong> Truth value: <span class="math">True</span>.</div>
+          </div>
+          <div class="example-answer">✅ (a) Proposition — False &nbsp;|&nbsp; (b) Not a proposition &nbsp;|&nbsp; (c) Not a proposition &nbsp;|&nbsp; (d) Proposition — True</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Constructing a Truth Table</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Construct the truth table for (p ∧ q) → ¬p.</div>
+          <div class="example-step"><span class="step-badge">Setup</span>
+            <div class="step-text">Two propositions → 4 rows. Columns needed: p, q, p∧q, ¬p, then (p∧q)→¬p.</div>
+          </div>
+          <table class="truth-table">
+            <thead><tr><th>p</th><th>q</th><th>p ∧ q</th><th>¬p</th><th>(p ∧ q) → ¬p</th></tr></thead>
+            <tbody>
+              <tr><td class="T">T</td><td class="T">T</td><td class="T">T</td><td class="F">F</td><td class="F">F</td></tr>
+              <tr><td class="T">T</td><td class="F">F</td><td class="F">F</td><td class="F">F</td><td class="T">T</td></tr>
+              <tr><td class="F">F</td><td class="T">T</td><td class="F">F</td><td class="T">T</td><td class="T">T</td></tr>
+              <tr><td class="F">F</td><td class="F">F</td><td class="F">F</td><td class="T">T</td><td class="T">T</td></tr>
+            </tbody>
+          </table>
+          <div class="example-step"><span class="step-badge">Row 1</span>
+            <div class="step-text">p=T, q=T → p∧q=T, ¬p=F → T→F = <span class="math">F</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Rows 2–4</span>
+            <div class="step-text">p∧q=F in all → F→anything = <span class="math">T</span></div>
+          </div>
+          <div class="example-answer">✅ The compound proposition is False only when p=T and q=T.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Converse, Inverse and Contrapositive</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Given "If a number is divisible by 4, then it is divisible by 2" (p → q), write the converse, inverse and contrapositive.</div>
+          <div class="example-step"><span class="step-badge">Identify</span>
+            <div class="step-text">p: "a number is divisible by 4"<br>q: "a number is divisible by 2"</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Converse</span>
+            <div class="step-text">q → p: <span class="math">"If a number is divisible by 2, then it is divisible by 4."</span><br>Truth value: <strong>False</strong> (e.g., 6 is divisible by 2 but not 4).</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Inverse</span>
+            <div class="step-text">¬p → ¬q: <span class="math">"If a number is NOT divisible by 4, then it is NOT divisible by 2."</span><br>Truth value: <strong>False</strong> (same as converse — they are equivalent).</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Contrapositive</span>
+            <div class="step-text">¬q → ¬p: <span class="math">"If a number is NOT divisible by 2, then it is NOT divisible by 4."</span><br>Truth value: <strong>True</strong> (same as original — they are equivalent).</div>
+          </div>
+          <div class="example-answer">✅ Contrapositive is always equivalent to the original. Converse and inverse are equivalent to each other.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Applying De Morgan's Laws</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Write the negation of each statement using De Morgan's Laws.<br>
+            (a) "It is raining and the road is slippery."<br>
+            (b) "The number is positive or it is even."</div>
+          <div class="example-step"><span class="step-badge">(a)</span>
+            <div class="step-text">Let p = "it is raining", q = "road is slippery". Statement: p ∧ q.<br>
+              Negation: ¬(p ∧ q) ≡ ¬p ∨ ¬q<br>
+              <span class="math">"It is NOT raining OR the road is NOT slippery."</span>
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">(b)</span>
+            <div class="step-text">Let p = "number is positive", q = "number is even". Statement: p ∨ q.<br>
+              Negation: ¬(p ∨ q) ≡ ¬p ∧ ¬q<br>
+              <span class="math">"The number is NOT positive AND it is NOT even."</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ (a) "Not raining OR road not slippery" &nbsp;|&nbsp; (b) "Not positive AND not even"</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Identifying a Tautology</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Show that p → (p ∨ q) is a tautology.</div>
+          <div class="example-step"><span class="step-badge">Truth table</span>
+            <div class="step-text">Build the table:</div>
+          </div>
+          <table class="truth-table">
+            <thead><tr><th>p</th><th>q</th><th>p ∨ q</th><th>p → (p ∨ q)</th></tr></thead>
+            <tbody>
+              <tr class="highlight"><td class="T">T</td><td class="T">T</td><td class="T">T</td><td class="T">T</td></tr>
+              <tr class="highlight"><td class="T">T</td><td class="F">F</td><td class="T">T</td><td class="T">T</td></tr>
+              <tr class="highlight"><td class="F">F</td><td class="T">T</td><td class="T">T</td><td class="T">T</td></tr>
+              <tr class="highlight"><td class="F">F</td><td class="F">F</td><td class="F">F</td><td class="T">T</td></tr>
+            </tbody>
+          </table>
+          <div class="example-step"><span class="step-badge">Conclusion</span>
+            <div class="step-text">The final column is True in all four rows — the statement is a <strong>tautology</strong>. This makes logical sense: if p is true, then surely "p or q" is also true.</div>
+          </div>
+          <div class="example-answer">✅ p → (p ∨ q) is a <strong>tautology</strong> — True in all cases.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which of the following is a proposition?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','D')"><div class="option-letter">A</div> "What is the value of π?"</div>
+          <div class="quiz-option" onclick="answer(1,'B','D')"><div class="option-letter">B</div> "Solve for x: 2x = 6"</div>
+          <div class="quiz-option" onclick="answer(1,'C','D')"><div class="option-letter">C</div> "x + y is greater than 5"</div>
+          <div class="quiz-option" onclick="answer(1,'D','D')"><div class="option-letter">D</div> "The square root of 9 is 3"</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">If p is True and q is False, what is the truth value of p → q?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> True</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> False</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> True and False</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> Cannot be determined</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">The contrapositive of "If it is sunny, then I go outside" is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> If I go outside, then it is sunny</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> If it is not sunny, then I do not go outside</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> If I do not go outside, then it is not sunny</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> If it is sunny, then I do not go outside</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Using De Morgan's Law, ¬(p ∨ q) is equivalent to:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> ¬p ∨ ¬q</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> ¬p ∧ ¬q</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> p ∧ q</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> p ∨ q</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A compound proposition that is True for every possible truth value combination of its components is called a:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Contradiction</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Contingency</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Tautology</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Converse</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit7-lesson2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Logic</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+propositions+logic+truth+values" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Propositions and Truth Values — Introduction to Logic</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+truth+tables+logic+connectives" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Truth Tables — All Logical Connectives</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+conditional+contrapositive+converse+inverse" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Conditional, Converse, Inverse and Contrapositive</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+de+morgan+laws+logic" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">De Morgan's Laws — Explained with Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 1</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Logic and Propositions</div>
+        <ul class="summary-list">
+          <li>A <strong>proposition</strong> is a declarative sentence that is either True or False — questions, commands and open sentences are not propositions.</li>
+          <li><strong>Negation</strong> (¬p) flips the truth value. <strong>Conjunction</strong> (p∧q) is true only when both are true. <strong>Disjunction</strong> (p∨q) is false only when both are false.</li>
+          <li><strong>Implication</strong> (p→q) is false ONLY when p is True and q is False. All other cases are True, including when p is False (vacuously true).</li>
+          <li><strong>Biconditional</strong> (p↔q) is true when p and q have the same truth value; false when they differ.</li>
+          <li>A <strong>tautology</strong> is always True; a <strong>contradiction</strong> is always False. Verify using a truth table.</li>
+          <li>The <strong>contrapositive</strong> (¬q→¬p) is logically equivalent to the original conditional (p→q). The converse (q→p) and inverse (¬p→¬q) are equivalent to each other but not to the original.</li>
+          <li><strong>De Morgan's Laws</strong>: ¬(p∧q) ≡ ¬p∨¬q &nbsp; and &nbsp; ¬(p∨q) ≡ ¬p∧¬q. When negating a bracket, flip the connective and negate each part.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="../index.html" class="btn btn-ghost">← Course Index</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 7 · Lesson 1 of 2</div>
+      <a href="unit7-lesson2.html" class="btn btn-primary">Next: Methods of Proof →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'D',2:'B',3:'C',4:'B',5:'C'};
+  const feedbacks={
+    1:{D:'✓ Correct! "The square root of 9 is 3" is a declarative sentence with a clear truth value (True).',wrong:'✗ Only a declarative sentence with a definite True or False truth value is a proposition. "√9 = 3" is True — it is a proposition.'},
+    2:{B:'✓ Correct! p→q is False ONLY when p is True and q is False. Here p=T and q=F, so p→q = False.',wrong:'✗ The implication p→q is False only when the hypothesis (p) is True and the conclusion (q) is False. Since p=T and q=F, the result is False.'},
+    3:{C:'✓ Correct! Contrapositive of p→q is ¬q→¬p: "If I do NOT go outside, then it is NOT sunny."',wrong:'✗ The contrapositive of "If p then q" is "If not q then not p". So: "If I do not go outside, then it is not sunny."'},
+    4:{B:'✓ Correct! De Morgan\'s second law: ¬(p∨q) ≡ ¬p ∧ ¬q.',wrong:'✗ De Morgan\'s Law: ¬(p∨q) ≡ ¬p ∧ ¬q. When negating a disjunction, the connective flips to conjunction.'},
+    5:{C:'✓ Correct! A tautology is a compound proposition that is True for all possible truth value combinations.',wrong:'✗ A proposition that is always True regardless of component truth values is called a tautology. A contradiction is always False.'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
