@@ -22,10 +22,12 @@ table { max-width: 100%; }
 
 /* ============================================================
    FONT FIX — Unicode-capable fonts for math symbols
-   Fixes □ boxes caused by missing subscript glyphs in Georgia
+   Fixes □ tofu boxes for: ₙ ₁ ₂ ₃ ₐ ᵦ ᵢ ᵏ ⁿ ⁻ ⁺ ₋ ∈ ∀ ∃ → ⇒ ≤ ≥ ± ∫ Σ √ π θ α β
    ============================================================ */
 .formula-math,
 .formula-math *,
+.formula,
+.formula *,
 .math,
 .math *,
 .math-display,
@@ -35,12 +37,49 @@ table { max-width: 100%; }
 .seq-last,
 .formula-item,
 .formula-item *,
+.step-text .math,
+.step-text .math *,
+.proof-block,
+.proof-block *,
+table,
 table th,
 table td,
-kbd, samp, var {
-  font-family: 'Segoe UI', 'Roboto', 'Noto Sans',
-               'Arial Unicode MS', 'DejaVu Sans',
-               system-ui, -apple-system, sans-serif !important;
+kbd, samp, var, code,
+.octant-table,
+.octant-table th,
+.octant-table td,
+.truth-table,
+.truth-table th,
+.truth-table td {
+  font-family:
+    'Noto Sans Math',
+    'Noto Sans Symbols 2',
+    'Noto Sans',
+    'Roboto',
+    'Segoe UI Symbol',
+    'Segoe UI',
+    'DejaVu Sans',
+    'Arial Unicode MS',
+    'Apple Symbols',
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-variant-numeric: normal;
+  font-feature-settings: "subs" 1, "sups" 1;
+}
+
+/* Extra safety: real <sub>/<sup> tags always use the safe stack */
+sub, sup, [data-math] {
+  font-family:
+    'Noto Sans Math',
+    'Noto Sans Symbols 2',
+    'Noto Sans',
+    'Roboto',
+    'Segoe UI Symbol',
+    'DejaVu Sans',
+    'Arial Unicode MS',
+    system-ui,
+    sans-serif !important;
 }
 
 /* ============================================================
