@@ -205,7 +205,7 @@
           <li>Build and verify a <strong>probability distribution table</strong></li>
           <li>Compute the <strong>expected value</strong> (mean) of a random variable: E(X) = Σ x·P(x)</li>
           <li>State the conditions for a <strong>binomial experiment</strong> (FIST)</li>
-          <li>Apply the <strong>binomial probability formula</strong>: P(X=k) = C(n,k) pᵏ (1−p)<sup>n-</sup>ᵏ</li>
+          <li>Apply the <strong>binomial probability formula</strong>: P(X=k) = C(n,k) pᵏ (1−p)ⁿ⁻ᵏ</li>
           <li>Find the mean and variance of a binomial distribution</li>
           <li>Describe the key properties of the <strong>normal distribution</strong> and the 68-95-99.7 rule</li>
         </ul>
@@ -324,9 +324,9 @@
         <div class="definition-box">
           <div class="def-label">📌 Binomial Probability Formula</div>
           <p>If X ~ B(n, p), then the probability of exactly k successes in n trials is:<br><br>
-          <strong style="font-family:Georgia,serif;font-size:1.1rem">P(X = k) = C(n,k) · pᵏ · (1−p)<sup>n-</sup>ᵏ</strong><br><br>
+          <strong style="font-family:Georgia,serif;font-size:1.1rem">P(X = k) = C(n,k) · pᵏ · (1−p)ⁿ⁻ᵏ</strong><br><br>
           where <strong>C(n,k) = n! / (k!(n−k)!)</strong> is the number of ways to choose k successes from n trials.<br><br>
-          <strong>Mean:</strong> μ = np &nbsp;&nbsp; <strong>Variance:</strong> σ<sup>2</sup> = np(1−p) &nbsp;&nbsp; <strong>Std Dev:</strong> σ = √(np(1−p))</p>
+          <strong>Mean:</strong> μ = np &nbsp;&nbsp; <strong>Variance:</strong> σ² = np(1−p) &nbsp;&nbsp; <strong>Std Dev:</strong> σ = √(np(1−p))</p>
         </div>
 
         <!-- Binomial bar chart: B(5, 0.5) -->
@@ -360,7 +360,7 @@
           • Mean = Median = Mode (all equal, at the centre)<br>
           • Described by two parameters: mean <strong>μ</strong> (location) and standard deviation <strong>σ</strong> (spread)<br>
           • Total area under the curve = 1<br>
-          • Notation: X ~ N(μ, σ<sup>2</sup>)
+          • Notation: X ~ N(μ, σ²)
           </p>
         </div>
 
@@ -401,7 +401,7 @@
         <div class="definition-box">
           <div class="def-label">📌 The Empirical Rule (68–95–99.7 Rule)</div>
           <p>
-          For any normal distribution X ~ N(μ, σ<sup>2</sup>):<br><br>
+          For any normal distribution X ~ N(μ, σ²):<br><br>
           • <strong>68%</strong> of data falls within <strong>1 standard deviation</strong> of the mean: (μ − σ, μ + σ)<br>
           • <strong>95%</strong> of data falls within <strong>2 standard deviations</strong>: (μ − 2σ, μ + 2σ)<br>
           • <strong>99.7%</strong> of data falls within <strong>3 standard deviations</strong>: (μ − 3σ, μ + 3σ)
@@ -450,7 +450,7 @@
           </div>
           <div class="formula-item">
             <div class="formula-name">Binomial Formula</div>
-            <div class="formula-math">P(X=k) = C(n,k) pᵏ(1−p)<sup>n-</sup>ᵏ</div>
+            <div class="formula-math">P(X=k) = C(n,k) pᵏ(1−p)ⁿ⁻ᵏ</div>
             <div class="formula-note">Exactly k successes in n trials</div>
           </div>
           <div class="formula-item">
@@ -465,7 +465,7 @@
           </div>
           <div class="formula-item">
             <div class="formula-name">Binomial Variance</div>
-            <div class="formula-math">σ<sup>2</sup> = np(1−p)</div>
+            <div class="formula-math">σ² = np(1−p)</div>
             <div class="formula-note">Also written npq where q = 1−p</div>
           </div>
           <div class="formula-item">
@@ -524,7 +524,7 @@
             <div class="step-text"><span class="math">C(4,3) = 4!/(3!·1!) = 4</span></div>
           </div>
           <div class="example-step"><span class="step-badge">Formula</span>
-            <div class="step-text"><span class="math">P(X=3) = 4 × (0.5)<sup>3</sup> × (0.5)<sup>1</sup> = 4 × 0.125 × 0.5 = 0.25</span></div>
+            <div class="step-text"><span class="math">P(X=3) = 4 × (0.5)³ × (0.5)¹ = 4 × 0.125 × 0.5 = 0.25</span></div>
           </div>
           <div class="example-answer">✅ P(X = 3) = <strong>0.25</strong> (or 1/4)</div>
         </div>
@@ -541,7 +541,7 @@
             <div class="step-text"><span class="math">μ = np = 20 × 0.25 = 5</span></div>
           </div>
           <div class="example-step"><span class="step-badge">Variance</span>
-            <div class="step-text"><span class="math">σ<sup>2</sup> = np(1−p) = 20 × 0.25 × 0.75 = 3.75</span></div>
+            <div class="step-text"><span class="math">σ² = np(1−p) = 20 × 0.25 × 0.75 = 3.75</span></div>
           </div>
           <div class="example-step"><span class="step-badge">Std Dev</span>
             <div class="step-text"><span class="math">σ = √3.75 ≈ 1.94</span></div>
@@ -712,7 +712,7 @@
           <li>A valid probability distribution requires: 0 ≤ P(x) ≤ 1 for all x, and Σ P(x) = 1.</li>
           <li>Expected value E(X) = Σ x·P(x) — the long-run average outcome of the random variable.</li>
           <li>A <strong>binomial experiment</strong> needs FIST: Fixed n, Independent trials, only two outcomes (S/F), same probability p each trial.</li>
-          <li>Binomial formula: P(X=k) = C(n,k) · pᵏ · (1−p)<sup>n-</sup>ᵏ. Mean = np. Variance = np(1−p).</li>
+          <li>Binomial formula: P(X=k) = C(n,k) · pᵏ · (1−p)ⁿ⁻ᵏ. Mean = np. Variance = np(1−p).</li>
           <li>C(n,k) = n! / (k!(n−k)!) counts the number of ways to arrange k successes in n trials.</li>
           <li>The <strong>normal distribution</strong> is symmetric and bell-shaped. Mean = Median = Mode.</li>
           <li>Empirical Rule: 68% within 1σ, 95% within 2σ, 99.7% within 3σ of the mean.</li>

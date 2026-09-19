@@ -211,7 +211,7 @@
       </div>
       <div class="content-box">
         <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
-          In Lesson 1 you used the limit definition to find derivatives from first principles. That method always works, but it is slow and tedious for complex functions. Imagine finding the derivative of f(x) = (x<sup>3</sup> + 2x)(sin x) from scratch using limits — it would take a page of working.
+          In Lesson 1 you used the limit definition to find derivatives from first principles. That method always works, but it is slow and tedious for complex functions. Imagine finding the derivative of f(x) = (x³ + 2x)(sin x) from scratch using limits — it would take a page of working.
         </p>
         <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
           Mathematicians have proven shortcut rules that let you differentiate instantly. These <strong>differentiation rules</strong> are the most used tools in all of calculus. The Ethiopian entrance exam expects you to apply them quickly and correctly.
@@ -219,10 +219,10 @@
         <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
         <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
           <li>Apply the <strong>Constant Rule</strong>: d/dx[c] = 0</li>
-          <li>Apply the <strong>Power Rule</strong>: d/dx[x<sup>n</sup>] = nx<sup>n-1</sup></li>
+          <li>Apply the <strong>Power Rule</strong>: d/dx[xⁿ] = nxⁿ⁻¹</li>
           <li>Apply the <strong>Sum/Difference Rule</strong>: (f ± g)' = f' ± g'</li>
           <li>Apply the <strong>Product Rule</strong>: (fg)' = f'g + fg'</li>
-          <li>Apply the <strong>Quotient Rule</strong>: (f/g)' = (f'g − fg')/g<sup>2</sup></li>
+          <li>Apply the <strong>Quotient Rule</strong>: (f/g)' = (f'g − fg')/g²</li>
           <li>Apply the <strong>Chain Rule</strong>: d/dx[f(g(x))] = f'(g(x))·g'(x)</li>
           <li>Differentiate basic <strong>trigonometric functions</strong>: sin, cos, tan</li>
         </ul>
@@ -256,8 +256,8 @@
             <text x="135" y="55" font-family="Arial" font-size="18" fill="#CBD5E1">→</text>
             <!-- Power -->
             <rect x="155" y="20" width="110" height="60" rx="8" fill="#1E40AF"/>
-            <text x="210" y="46" font-family="Georgia,serif" font-size="12" fill="#BFDBFE" text-anchor="middle">d/dx[x<sup>n</sup>]</text>
-            <text x="210" y="65" font-family="Georgia,serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">= nx<sup>n-1</sup></text>
+            <text x="210" y="46" font-family="Georgia,serif" font-size="12" fill="#BFDBFE" text-anchor="middle">d/dx[xⁿ]</text>
+            <text x="210" y="65" font-family="Georgia,serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">= nxⁿ⁻¹</text>
             <text x="210" y="90" font-family="Arial" font-size="9" fill="#64748B" text-anchor="middle">Power Rule</text>
             <!-- Arrow -->
             <text x="280" y="55" font-family="Arial" font-size="18" fill="#CBD5E1">→</text>
@@ -285,12 +285,12 @@
           <span class="rule-name">Power Rule — Most Used Rule on the Exam</span>
         </div>
         <div class="rule-body">
-          <div class="rule-formula">d/dx [x<sup>n</sup>] = n · x<sup>n-1</sup></div>
+          <div class="rule-formula">d/dx [xⁿ] = n · xⁿ⁻¹</div>
           <div class="rule-example">
             Bring the exponent down as a coefficient, then reduce the exponent by 1.<br><br>
-            <span>d/dx[x<sup>5</sup>] = 5x<sup>4</sup></span><br>
-            <span>d/dx[x] = 1·x<sup>0</sup> = 1</span><br>
-            <span>d/dx[x<sup>-2</sup>] = −2x<sup>-3</sup> = −2/x<sup>3</sup></span><br>
+            <span>d/dx[x⁵] = 5x⁴</span><br>
+            <span>d/dx[x] = 1·x⁰ = 1</span><br>
+            <span>d/dx[x⁻²] = −2x⁻³ = −2/x³</span><br>
             <span>d/dx[√x] = d/dx[x^(1/2)] = (1/2)x^(−1/2) = 1/(2√x)</span>
           </div>
         </div>
@@ -307,8 +307,8 @@
           <div class="rule-example">
             "Derivative of first times second, plus first times derivative of second."<br><br>
             Memory trick: <strong>"first · d(second) + second · d(first)"</strong><br><br>
-            Example: d/dx[(x<sup>2</sup>)(sin x)]<br>
-            <span>= 2x · sin x + x<sup>2</sup> · cos x</span>
+            Example: d/dx[(x²)(sin x)]<br>
+            <span>= 2x · sin x + x² · cos x</span>
           </div>
 
           <!-- Product rule visual -->
@@ -348,13 +348,13 @@
           <span class="rule-name">Quotient Rule</span>
         </div>
         <div class="rule-body">
-          <div class="rule-formula">(f/g)' = (f'g − fg') / g<sup>2</sup></div>
+          <div class="rule-formula">(f/g)' = (f'g − fg') / g²</div>
           <div class="rule-example">
             Memory trick: <strong>"low d(high) minus high d(low), over low squared"</strong> (where high = numerator, low = denominator)<br><br>
-            Example: d/dx[(x<sup>2</sup>+1)/(x−3)]<br>
-            <span>= [(2x)(x−3) − (x<sup>2</sup>+1)(1)] / (x−3)<sup>2</sup></span><br>
-            <span>= [2x<sup>2</sup>−6x − x<sup>2</sup>−1] / (x−3)<sup>2</sup></span><br>
-            <span>= (x<sup>2</sup>−6x−1) / (x−3)<sup>2</sup></span>
+            Example: d/dx[(x²+1)/(x−3)]<br>
+            <span>= [(2x)(x−3) − (x²+1)(1)] / (x−3)²</span><br>
+            <span>= [2x²−6x − x²−1] / (x−3)²</span><br>
+            <span>= (x²−6x−1) / (x−3)²</span>
           </div>
           <div class="note-box" style="margin-top:1rem">
             <div class="note-label">⚠ Sign Order Matters!</div>
@@ -396,12 +396,12 @@
           </div>
 
           <div class="rule-example">
-            Example 1: d/dx[(x<sup>2</sup>+3)<sup>5</sup>]<br>
-            Outer = u<sup>n</sup> → 5u<sup>4</sup>. Inner = x<sup>2</sup>+3 → 2x<br>
-            <span>= 5(x<sup>2</sup>+3)<sup>4</sup> · 2x = 10x(x<sup>2</sup>+3)<sup>4</sup></span><br><br>
-            Example 2: d/dx[sin(3x<sup>2</sup>)]<br>
-            Outer = sin(u) → cos(u). Inner = 3x<sup>2</sup> → 6x<br>
-            <span>= cos(3x<sup>2</sup>) · 6x = 6x cos(3x<sup>2</sup>)</span>
+            Example 1: d/dx[(x²+3)⁵]<br>
+            Outer = uⁿ → 5u⁴. Inner = x²+3 → 2x<br>
+            <span>= 5(x²+3)⁴ · 2x = 10x(x²+3)⁴</span><br><br>
+            Example 2: d/dx[sin(3x²)]<br>
+            Outer = sin(u) → cos(u). Inner = 3x² → 6x<br>
+            <span>= cos(3x²) · 6x = 6x cos(3x²)</span>
           </div>
         </div>
       </div>
@@ -434,12 +434,12 @@
               </tr>
               <tr>
                 <td class="fn">tan(x)</td>
-                <td class="der">sec<sup>2</sup>(x)</td>
+                <td class="der">sec²(x)</td>
                 <td style="font-size:.78rem;color:var(--text-muted)">tan → sec squared</td>
               </tr>
               <tr>
                 <td class="fn">cot(x)</td>
-                <td class="der">−csc<sup>2</sup>(x)</td>
+                <td class="der">−csc²(x)</td>
                 <td style="font-size:.78rem;color:var(--text-muted)">cot → −csc squared</td>
               </tr>
               <tr>
@@ -500,7 +500,7 @@
           </div>
           <div class="formula-item">
             <div class="formula-name">Power Rule</div>
-            <div class="formula-math">d/dx[x<sup>n</sup>] = nx<sup>n-1</sup></div>
+            <div class="formula-math">d/dx[xⁿ] = nxⁿ⁻¹</div>
             <div class="formula-note">Bring down exponent, reduce by 1</div>
           </div>
           <div class="formula-item">
@@ -515,8 +515,8 @@
           </div>
           <div class="formula-item">
             <div class="formula-name">Quotient Rule</div>
-            <div class="formula-math">(f/g)' = (f'g−fg')/g<sup>2</sup></div>
-            <div class="formula-note">low·d(high) − high·d(low), over low<sup>2</sup></div>
+            <div class="formula-math">(f/g)' = (f'g−fg')/g²</div>
+            <div class="formula-note">low·d(high) − high·d(low), over low²</div>
           </div>
           <div class="formula-item">
             <div class="formula-name">Chain Rule</div>
@@ -553,15 +553,15 @@
           <span class="example-title">Power Rule and Sum Rule</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = 4x<sup>5</sup> − 3x<sup>3</sup> + 7x − 2</div>
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = 4x⁵ − 3x³ + 7x − 2</div>
           <div class="example-step">
             <span class="step-badge">Apply</span>
             <div class="step-text">Differentiate term by term using power rule:<br>
-              <span class="math">f'(x) = 4(5x<sup>4</sup>) − 3(3x<sup>2</sup>) + 7(1) − 0</span><br>
-              <span class="math">= 20x<sup>4</sup> − 9x<sup>2</sup> + 7</span>
+              <span class="math">f'(x) = 4(5x⁴) − 3(3x²) + 7(1) − 0</span><br>
+              <span class="math">= 20x⁴ − 9x² + 7</span>
             </div>
           </div>
-          <div class="example-answer">✅ f'(x) = <strong>20x<sup>4</sup> − 9x<sup>2</sup> + 7</strong></div>
+          <div class="example-answer">✅ f'(x) = <strong>20x⁴ − 9x² + 7</strong></div>
         </div>
       </div>
 
@@ -571,17 +571,17 @@
           <span class="example-title">Product Rule</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = (x<sup>2</sup> + 1)(3x − 2)</div>
-          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">f = x<sup>2</sup>+1, g = 3x−2, f' = 2x, g' = 3</div></div>
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = (x² + 1)(3x − 2)</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">f = x²+1, g = 3x−2, f' = 2x, g' = 3</div></div>
           <div class="example-step">
             <span class="step-badge">Product Rule</span>
             <div class="step-text">
-              <span class="math">= f'g + fg' = 2x(3x−2) + (x<sup>2</sup>+1)(3)</span><br>
-              <span class="math">= 6x<sup>2</sup>−4x + 3x<sup>2</sup>+3</span><br>
-              <span class="math">= 9x<sup>2</sup>−4x+3</span>
+              <span class="math">= f'g + fg' = 2x(3x−2) + (x²+1)(3)</span><br>
+              <span class="math">= 6x²−4x + 3x²+3</span><br>
+              <span class="math">= 9x²−4x+3</span>
             </div>
           </div>
-          <div class="example-answer">✅ f'(x) = <strong>9x<sup>2</sup> − 4x + 3</strong></div>
+          <div class="example-answer">✅ f'(x) = <strong>9x² − 4x + 3</strong></div>
         </div>
       </div>
 
@@ -591,18 +591,18 @@
           <span class="example-title">Quotient Rule</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = (x<sup>2</sup> + 3) / (2x − 1)</div>
-          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">f = x<sup>2</sup>+3, g = 2x−1, f' = 2x, g' = 2</div></div>
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = (x² + 3) / (2x − 1)</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">f = x²+3, g = 2x−1, f' = 2x, g' = 2</div></div>
           <div class="example-step">
             <span class="step-badge">Quotient Rule</span>
             <div class="step-text">
-              <span class="math">= (f'g − fg') / g<sup>2</sup></span><br>
-              <span class="math">= [2x(2x−1) − (x<sup>2</sup>+3)(2)] / (2x−1)<sup>2</sup></span><br>
-              <span class="math">= [4x<sup>2</sup>−2x − 2x<sup>2</sup>−6] / (2x−1)<sup>2</sup></span><br>
-              <span class="math">= (2x<sup>2</sup>−2x−6) / (2x−1)<sup>2</sup></span>
+              <span class="math">= (f'g − fg') / g²</span><br>
+              <span class="math">= [2x(2x−1) − (x²+3)(2)] / (2x−1)²</span><br>
+              <span class="math">= [4x²−2x − 2x²−6] / (2x−1)²</span><br>
+              <span class="math">= (2x²−2x−6) / (2x−1)²</span>
             </div>
           </div>
-          <div class="example-answer">✅ f'(x) = <strong>(2x<sup>2</sup>−2x−6)/(2x−1)<sup>2</sup></strong></div>
+          <div class="example-answer">✅ f'(x) = <strong>(2x²−2x−6)/(2x−1)²</strong></div>
         </div>
       </div>
 
@@ -612,17 +612,17 @@
           <span class="example-title">Chain Rule</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = (3x<sup>2</sup> + 5)<sup>4</sup></div>
-          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">Outer: u<sup>n</sup> where u = 3x<sup>2</sup>+5, n = 4. Inner: u = 3x<sup>2</sup>+5</div></div>
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = (3x² + 5)⁴</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">Outer: uⁿ where u = 3x²+5, n = 4. Inner: u = 3x²+5</div></div>
           <div class="example-step">
             <span class="step-badge">Chain Rule</span>
             <div class="step-text">
-              <span class="math">= 4(3x<sup>2</sup>+5)<sup>3</sup> · d/dx[3x<sup>2</sup>+5]</span><br>
-              <span class="math">= 4(3x<sup>2</sup>+5)<sup>3</sup> · 6x</span><br>
-              <span class="math">= 24x(3x<sup>2</sup>+5)<sup>3</sup></span>
+              <span class="math">= 4(3x²+5)³ · d/dx[3x²+5]</span><br>
+              <span class="math">= 4(3x²+5)³ · 6x</span><br>
+              <span class="math">= 24x(3x²+5)³</span>
             </div>
           </div>
-          <div class="example-answer">✅ f'(x) = <strong>24x(3x<sup>2</sup>+5)<sup>3</sup></strong></div>
+          <div class="example-answer">✅ f'(x) = <strong>24x(3x²+5)³</strong></div>
         </div>
       </div>
 
@@ -632,15 +632,15 @@
           <span class="example-title">Chain Rule with Trigonometry</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = sin(x<sup>2</sup> + 1)</div>
-          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">Outer: sin(u) → cos(u). Inner: u = x<sup>2</sup>+1 → 2x</div></div>
+          <div class="example-problem"><strong>Problem:</strong> Differentiate f(x) = sin(x² + 1)</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">Outer: sin(u) → cos(u). Inner: u = x²+1 → 2x</div></div>
           <div class="example-step">
             <span class="step-badge">Chain Rule</span>
             <div class="step-text">
-              <span class="math">f'(x) = cos(x<sup>2</sup>+1) · 2x = 2x cos(x<sup>2</sup>+1)</span>
+              <span class="math">f'(x) = cos(x²+1) · 2x = 2x cos(x²+1)</span>
             </div>
           </div>
-          <div class="example-answer">✅ f'(x) = <strong>2x cos(x<sup>2</sup>+1)</strong></div>
+          <div class="example-answer">✅ f'(x) = <strong>2x cos(x²+1)</strong></div>
         </div>
       </div>
     </div>
@@ -657,24 +657,24 @@
 
       <div class="quiz-card" id="q1">
         <div class="quiz-num">Question 1 of 5</div>
-        <div class="quiz-question">What is d/dx[6x<sup>4</sup> − 5x<sup>2</sup> + 3x − 7]?</div>
+        <div class="quiz-question">What is d/dx[6x⁴ − 5x² + 3x − 7]?</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div>24x<sup>3</sup> − 10x + 3x</div>
-          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div>24x<sup>3</sup> − 10x + 3</div>
-          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div>24x<sup>3</sup> − 5x + 3</div>
-          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div>6x<sup>3</sup> − 10x + 3</div>
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div>24x³ − 10x + 3x</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div>24x³ − 10x + 3</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div>24x³ − 5x + 3</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div>6x³ − 10x + 3</div>
         </div>
         <div class="quiz-feedback" id="q1-feedback"></div>
       </div>
 
       <div class="quiz-card" id="q2">
         <div class="quiz-num">Question 2 of 5</div>
-        <div class="quiz-question">Find d/dx[(x<sup>3</sup>)(cos x)]</div>
+        <div class="quiz-question">Find d/dx[(x³)(cos x)]</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div>3x<sup>2</sup> cos x</div>
-          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div>−x<sup>3</sup> sin x</div>
-          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div>3x<sup>2</sup> cos x − x<sup>3</sup> sin x</div>
-          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div>3x<sup>2</sup> cos x + x<sup>3</sup> sin x</div>
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div>3x² cos x</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div>−x³ sin x</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div>3x² cos x − x³ sin x</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div>3x² cos x + x³ sin x</div>
         </div>
         <div class="quiz-feedback" id="q2-feedback"></div>
       </div>
@@ -683,22 +683,22 @@
         <div class="quiz-num">Question 3 of 5</div>
         <div class="quiz-question">Differentiate f(x) = (2x + 1) / (x − 3)</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(3,'A','D')"><div class="option-letter">A</div>(2x − 7) / (x−3)<sup>2</sup></div>
+          <div class="quiz-option" onclick="answer(3,'A','D')"><div class="option-letter">A</div>(2x − 7) / (x−3)²</div>
           <div class="quiz-option" onclick="answer(3,'B','D')"><div class="option-letter">B</div>2 / (x−3)</div>
-          <div class="quiz-option" onclick="answer(3,'C','D')"><div class="option-letter">C</div>(2x+1) / (x−3)<sup>2</sup></div>
-          <div class="quiz-option" onclick="answer(3,'D','D')"><div class="option-letter">D</div>−7 / (x−3)<sup>2</sup></div>
+          <div class="quiz-option" onclick="answer(3,'C','D')"><div class="option-letter">C</div>(2x+1) / (x−3)²</div>
+          <div class="quiz-option" onclick="answer(3,'D','D')"><div class="option-letter">D</div>−7 / (x−3)²</div>
         </div>
         <div class="quiz-feedback" id="q3-feedback"></div>
       </div>
 
       <div class="quiz-card" id="q4">
         <div class="quiz-num">Question 4 of 5</div>
-        <div class="quiz-question">Find d/dx[(2x<sup>3</sup> + 1)<sup>6</sup>]</div>
+        <div class="quiz-question">Find d/dx[(2x³ + 1)⁶]</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div>6(2x<sup>3</sup>+1)<sup>5</sup></div>
-          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div>12x<sup>2</sup>(2x<sup>3</sup>+1)<sup>5</sup></div>
-          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div>36x<sup>2</sup>(2x<sup>3</sup>+1)<sup>5</sup></div>
-          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div>6x<sup>2</sup>(2x<sup>3</sup>+1)<sup>6</sup></div>
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div>6(2x³+1)⁵</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div>12x²(2x³+1)⁵</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div>36x²(2x³+1)⁵</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div>6x²(2x³+1)⁶</div>
         </div>
         <div class="quiz-feedback" id="q4-feedback"></div>
       </div>
@@ -772,12 +772,12 @@
         <div class="summary-title">✅ Key Points — Rules of Differentiation</div>
         <ul class="summary-list">
           <li><strong>Constant Rule:</strong> d/dx[c] = 0 — constants vanish when differentiated.</li>
-          <li><strong>Power Rule:</strong> d/dx[x<sup>n</sup>] = nx<sup>n-1</sup> — bring down the exponent, reduce by 1.</li>
+          <li><strong>Power Rule:</strong> d/dx[xⁿ] = nxⁿ⁻¹ — bring down the exponent, reduce by 1.</li>
           <li><strong>Sum/Difference:</strong> differentiate each term separately.</li>
           <li><strong>Product Rule:</strong> (fg)' = f'g + fg' — d(first)·second + first·d(second).</li>
-          <li><strong>Quotient Rule:</strong> (f/g)' = (f'g − fg')/g<sup>2</sup> — note the subtraction order.</li>
+          <li><strong>Quotient Rule:</strong> (f/g)' = (f'g − fg')/g² — note the subtraction order.</li>
           <li><strong>Chain Rule:</strong> d/dx[f(g(x))] = f'(g(x))·g'(x) — outer × inner derivative.</li>
-          <li><strong>Trig:</strong> (sin x)' = cos x, (cos x)' = −sin x, (tan x)' = sec<sup>2</sup>x.</li>
+          <li><strong>Trig:</strong> (sin x)' = cos x, (cos x)' = −sin x, (tan x)' = sec²x.</li>
           <li><strong>Exponential/Log:</strong> (eˣ)' = eˣ, (ln x)' = 1/x.</li>
         </ul>
       </div>

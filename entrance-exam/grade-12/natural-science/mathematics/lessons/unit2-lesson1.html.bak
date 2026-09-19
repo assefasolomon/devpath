@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson 4: Arithmetic Series | Grade 12 Math</title>
+  <title>Lesson 1: Concept of a Limit | Grade 12 Math</title>
   <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
@@ -59,16 +59,12 @@
     .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
     .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
     .math-display{background:var(--surface-2);border-radius:var(--radius);padding:.75rem 1.25rem;font-family:'Georgia',serif;font-size:1rem;color:var(--brand-primary);text-align:center;margin:.875rem 0;border-left:3px solid var(--brand-accent)}
-    .sum-visual{display:flex;flex-wrap:wrap;gap:.35rem;margin:1rem 0;align-items:center}
-    .sum-term{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;border-radius:var(--radius);font-size:.875rem;font-weight:700;font-family:'Georgia',serif}
-    .sum-plus{color:var(--brand-primary);font-size:1.1rem;font-weight:700}
-    .sum-equals{color:var(--heading);font-size:1.1rem;font-weight:700;margin:0 .25rem}
-    .sum-result{background:var(--brand-accent);color:#fff;padding:.5rem 1rem;border-radius:var(--radius);font-size:.95rem;font-weight:800;font-family:'Georgia',serif}
-    .gauss-box{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #BFDBFE;border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem}
-    .gauss-title{font-size:.875rem;font-weight:700;color:#1E40AF;margin-bottom:.875rem;display:flex;align-items:center;gap:6px}
-    .gauss-row{display:flex;justify-content:space-between;margin-bottom:.5rem;font-family:'Georgia',serif;font-size:.9rem}
-    .gauss-row span{color:var(--brand-primary);font-weight:700}
-    .gauss-row .pair{color:#1E40AF;font-weight:700}
+    .limit-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:1rem 0}
+    .limit-table th{background:var(--brand-primary);color:#fff;padding:.625rem 1rem;text-align:center;font-weight:700}
+    .limit-table td{padding:.625rem 1rem;text-align:center;border-bottom:1px solid var(--border)}
+    .limit-table tr:nth-child(even){background:var(--surface-2)}
+    .limit-table .approaching{color:var(--brand-primary);font-weight:700;font-family:Georgia,serif}
+    .limit-table .result{color:#166534;font-weight:700;font-family:Georgia,serif}
     .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
     .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
     .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
@@ -134,7 +130,7 @@
 <div class="lesson-layout">
 
   <aside class="sidebar">
-    <div class="sidebar-title">Unit 1 · Lesson 4</div>
+    <div class="sidebar-title">Unit 2 · Lesson 1</div>
     <div class="progress-tracker">
       <div class="progress-label">Lesson Progress</div>
       <div class="progress-bar-track">
@@ -152,12 +148,15 @@
       <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div>Summary</button>
     </div>
     <div class="sidebar-section">
-      <div class="sidebar-section-title">Unit 1 Lessons</div>
-      <a href="unit1-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div>L1: Intro to Sequences ✓</a>
-      <a href="unit1-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div>L2: Arithmetic Sequences ✓</a>
-      <a href="unit1-lesson3.html" class="sidebar-link"><div class="sidebar-dot"></div>L3: Geometric Sequences ✓</a>
-      <a href="unit1-lesson4.html" class="sidebar-link active"><div class="sidebar-dot"></div>L4: Arithmetic Series</a>
-      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L5: Geometric Series 🔒</div>
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="unit2-lesson1.html" class="sidebar-link active"><div class="sidebar-dot"></div>L1: Concept of a Limit</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L2: Limit Theorems 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L3: One-Sided Limits 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div>L4: Continuity 🔒</div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 ✅ Complete</div>
+      <a href="unit1-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div>Sequences & Series →</a>
     </div>
   </aside>
 
@@ -167,13 +166,13 @@
       <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
       <a href="../../index.html">Grade 12</a> ›
       <a href="../index.html">Mathematics</a> ›
-      Unit 1 · Lesson 4
+      Unit 2 · Lesson 1
     </div>
 
     <div class="lesson-header">
-      <div class="lesson-unit-tag">Unit 1 · Sequences and Series</div>
-      <h1>∑ Arithmetic Series</h1>
-      <p>Learn to find the sum of arithmetic sequences. The sum formula is one of the most tested topics on the Ethiopian entrance exam — master it here with clear derivations, worked examples, and exam-style practice.</p>
+      <div class="lesson-unit-tag">Unit 2 · Limits and Continuity</div>
+      <h1>→ Concept of a Limit</h1>
+      <p>Understand one of the most fundamental ideas in calculus — the limit. Learn what it means for a function to approach a value, how to read limit notation, and how to evaluate simple limits intuitively and numerically.</p>
       <div class="lesson-meta">
         <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
         <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
@@ -188,24 +187,24 @@
         <div class="section-icon">🎯</div>
         <div>
           <div class="section-title-text">Introduction</div>
-          <div class="section-subtitle">From sequences to sums</div>
+          <div class="section-subtitle">What is a limit and why does it matter?</div>
         </div>
       </div>
       <div class="content-box">
         <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
-          In the previous lessons you learned how to find individual terms of a sequence. Now we go further — what if you need to find the <strong>sum of all terms</strong>? For example, a company pays its workers increasing daily wages: 100 ETB on day 1, 110 ETB on day 2, 120 ETB on day 3, and so on. What is the total pay after 30 days?
+          Imagine you are driving toward a city. As you get closer and closer, you approach the city — but you may never actually enter it. In mathematics, a <strong>limit</strong> describes exactly this idea: what value does a function <strong>approach</strong> as the input gets closer and closer to some number?
         </p>
         <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
-          Adding all terms one by one would take a long time. Fortunately, there is a beautiful formula — discovered by the mathematician Gauss as a child — that lets you find the sum instantly.
+          The concept of a limit is the <strong>foundation of all calculus</strong>. Without limits, we cannot define derivatives, integrals, or continuity. The Ethiopian Grade 12 entrance exam tests limits in several ways — direct substitution, factoring, and rationalization.
         </p>
         <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
         <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
-          <li>Define an arithmetic series and use sigma notation</li>
-          <li>Derive and use the sum formula: <strong>S<sub>n</sub> = n/2 · (a<sub>1</sub> + a<sub>n</sub>)</strong></li>
-          <li>Use the alternative form: <strong>S<sub>n</sub> = n/2 · (2a<sub>1</sub> + (n−1)d)</strong></li>
-          <li>Find the number of terms, first term, or common difference from a given sum</li>
-          <li>Solve real-world problems involving the sum of arithmetic sequences</li>
-          <li>Apply sigma notation to express series compactly</li>
+          <li>Explain the concept of a limit in plain language</li>
+          <li>Read and write limit notation correctly: <strong>lim(x→a) f(x) = L</strong></li>
+          <li>Evaluate limits numerically using tables of values</li>
+          <li>Evaluate limits by direct substitution when possible</li>
+          <li>Recognise when a limit does not exist</li>
+          <li>Distinguish between the limit of f at a and the value f(a)</li>
         </ul>
       </div>
     </div>
@@ -221,113 +220,124 @@
       </div>
 
       <div class="definition-box">
-        <div class="def-label">📌 Definition — Arithmetic Series</div>
-        <p>An <strong>arithmetic series</strong> is the sum of the terms of an arithmetic sequence. If the sequence is a<sub>1</sub>, a<sub>2</sub>, a<sub>3</sub>, ..., a<sub>n</sub> then the series is:<br><br>
-        <strong>S<sub>n</sub> = a<sub>1</sub> + a<sub>2</sub> + a<sub>3</sub> + ... + a<sub>n</sub></strong><br><br>
-        S<sub>n</sub> denotes the sum of the first n terms.</p>
+        <div class="def-label">📌 Definition — The Limit</div>
+        <p>We say the <strong>limit of f(x) as x approaches a is L</strong>, written:<br><br>
+        <strong>lim(x→a) f(x) = L</strong><br><br>
+        if f(x) gets closer and closer to L as x gets closer and closer to a (from either side), without x ever equaling a.</p>
       </div>
 
       <div class="content-box">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 The Story of Gauss — Deriving the Formula</h3>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Understanding Limits Numerically</h3>
         <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
-          At age 10, Carl Friedrich Gauss was asked by his teacher to add the numbers 1 to 100. While classmates added one by one, Gauss finished in seconds by noticing a pattern:
+          Consider f(x) = (x² − 1)/(x − 1). What happens as x → 1?<br>
+          Note: f(1) is undefined (division by zero). But we can approach from both sides:
         </p>
-
-        <div class="gauss-box">
-          <div class="gauss-title">💡 Gauss's Pairing Trick</div>
-          <div class="gauss-row">
-            <span>Forward:&nbsp;&nbsp;</span>
-            <span>1 + 2 + 3 + ... + 98 + 99 + 100</span>
-          </div>
-          <div class="gauss-row">
-            <span>Backward:</span>
-            <span>100 + 99 + 98 + ... + 3 + 2 + 1</span>
-          </div>
-          <div style="border-top:1.5px solid #BFDBFE;margin:.75rem 0;padding-top:.75rem">
-            <div style="font-size:.875rem;color:#1E40AF;font-weight:600">Each pair sums to 101: (1+100), (2+99), (3+98), ...</div>
-            <div style="font-size:.875rem;color:#1E40AF;margin-top:.35rem">There are 100 pairs, so 2·S = 100 × 101 = 10,100</div>
-            <div style="font-size:.875rem;color:#1E40AF;font-weight:700;margin-top:.35rem">Therefore S = 10,100 / 2 = 5,050</div>
-          </div>
-        </div>
-
-        <p style="font-size:.875rem;line-height:1.75;color:var(--text)">
-          This same idea gives us the general formula for any arithmetic series.
-        </p>
-      </div>
-
-      <div class="content-box">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Deriving the Sum Formula</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">Write the series forwards and backwards then add:</p>
-
-        <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem 1.25rem;font-family:'Georgia',serif;font-size:.875rem;margin-bottom:1rem">
-          <div style="margin-bottom:.35rem">S<sub>n</sub> = a<sub>1</sub> &nbsp;+&nbsp; (a<sub>1</sub>+d) &nbsp;+&nbsp; (a<sub>1</sub>+2d) &nbsp;+&nbsp; ... &nbsp;+&nbsp; a<sub>n</sub></div>
-          <div style="margin-bottom:.35rem">S<sub>n</sub> = a<sub>n</sub> &nbsp;+&nbsp; (a<sub>n</sub>−d) &nbsp;+&nbsp; (a<sub>n</sub>−2d) &nbsp;+&nbsp; ... &nbsp;+&nbsp; a<sub>1</sub></div>
-          <div style="border-top:1.5px solid var(--border);padding-top:.5rem;color:var(--brand-primary);font-weight:700">2S<sub>n</sub> = n(a<sub>1</sub> + a<sub>n</sub>) &nbsp;&nbsp;⟹&nbsp;&nbsp; S<sub>n</sub> = n/2 · (a<sub>1</sub> + a<sub>n</sub>)</div>
-        </div>
-
-        <p style="font-size:.875rem;color:var(--text-muted)">Since a<sub>n</sub> = a<sub>1</sub> + (n−1)d, substituting gives the second form:</p>
-        <div class="math-display" style="font-size:1.15rem;font-weight:700">S<sub>n</sub> = n/2 · [2a<sub>1</sub> + (n−1)d]</div>
-      </div>
-
-      <div class="content-box">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Two Forms of the Sum Formula</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
-          <div style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.25rem;text-align:center">
-            <div style="font-size:.72rem;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.625rem">Form 1 — Use when a<sub>n</sub> is known</div>
-            <div style="font-family:Georgia,serif;font-size:1.3rem;font-weight:700;color:var(--brand-primary)">S<sub>n</sub> = n/2 · (a<sub>1</sub> + a<sub>n</sub>)</div>
-            <div style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">n = number of terms<br>a<sub>1</sub> = first term, a<sub>n</sub> = last term</div>
-          </div>
-          <div style="background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:var(--radius-xl);padding:1.25rem;text-align:center">
-            <div style="font-size:.72rem;font-weight:700;color:#1E40AF;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.625rem">Form 2 — Use when d is known</div>
-            <div style="font-family:Georgia,serif;font-size:1.1rem;font-weight:700;color:#2563EB">S<sub>n</sub> = n/2 · [2a<sub>1</sub> + (n−1)d]</div>
-            <div style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">n = terms, a<sub>1</sub> = first, d = difference</div>
-          </div>
-        </div>
-        <div class="note-box" style="margin-top:1rem">
-          <div class="note-label">⚠ Which Form to Use?</div>
-          <p>If the problem gives you the last term (a<sub>n</sub>) use Form 1. If the problem gives you the common difference (d) but not the last term, use Form 2. Both give the same answer when used correctly.</p>
-        </div>
-      </div>
-
-      <div class="content-box">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Sigma Notation</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
-          Sigma notation (∑) is a compact way to write a series. The Greek letter Σ means "sum of":
-        </p>
-        <div class="math-display">∑(k=1 to n) a<sub>k</sub> = a<sub>1</sub> + a<sub>2</sub> + a<sub>3</sub> + ... + a<sub>n</sub></div>
+        <table class="limit-table">
+          <thead>
+            <tr>
+              <th>x approaches 1 from left</th>
+              <th>f(x)</th>
+              <th>x approaches 1 from right</th>
+              <th>f(x)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="approaching">0.9</td>
+              <td class="result">1.9</td>
+              <td class="approaching">1.1</td>
+              <td class="result">2.1</td>
+            </tr>
+            <tr>
+              <td class="approaching">0.99</td>
+              <td class="result">1.99</td>
+              <td class="approaching">1.01</td>
+              <td class="result">2.01</td>
+            </tr>
+            <tr>
+              <td class="approaching">0.999</td>
+              <td class="result">1.999</td>
+              <td class="approaching">1.001</td>
+              <td class="result">2.001</td>
+            </tr>
+            <tr>
+              <td class="approaching">0.9999</td>
+              <td class="result">1.9999</td>
+              <td class="approaching">1.0001</td>
+              <td class="result">2.0001</td>
+            </tr>
+          </tbody>
+        </table>
         <p style="font-size:.875rem;color:var(--text-muted)">
-          Example: ∑(k=1 to 5) (2k+1) = 3 + 5 + 7 + 9 + 11 = 35<br>
-          The variable k starts at 1, goes up to 5, and we substitute each value into 2k+1.
+          From both sides, f(x) → 2. Therefore <strong>lim(x→1) (x²−1)/(x−1) = 2</strong>, even though f(1) is undefined.
         </p>
+        <div class="note-box">
+          <div class="note-label">⚠ Key Insight</div>
+          <p>The limit describes what f(x) <em>approaches</em>, NOT what f(x) <em>equals</em> at that point. The function does not need to be defined at x = a for the limit to exist.</p>
+        </div>
       </div>
 
       <div class="content-box">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Working Backwards — Finding Unknown Values</h3>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Direct Substitution</h3>
         <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
-          Sometimes the exam gives you the sum and asks you to find n, a<sub>1</sub>, or d. Use algebra:
+          For most polynomial and rational functions where f(a) is defined, you can evaluate the limit by simply substituting x = a:
+        </p>
+        <div class="math-display">If f is continuous at a, then lim(x→a) f(x) = f(a)</div>
+        <p style="font-size:.875rem;color:var(--text-muted)">
+          Example: lim(x→3) (x² + 2x − 1) = 3² + 2(3) − 1 = 9 + 6 − 1 = <strong>14</strong>
+        </p>
+        <div class="note-box">
+          <div class="note-label">⚠ When Direct Substitution Fails</div>
+          <p>If substituting x = a gives 0/0 (called an indeterminate form), you cannot use direct substitution. Instead, try factoring, rationalizing, or simplifying the expression first.</p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Factoring to Resolve Indeterminate Forms</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          When direct substitution gives 0/0, factor the numerator or denominator, cancel common factors, then substitute:
+        </p>
+        <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem 1.25rem;font-family:'Georgia',serif;font-size:.9rem;line-height:1.9;margin-bottom:.75rem">
+          lim(x→1) (x²−1)/(x−1)<br>
+          = lim(x→1) (x+1)(x−1)/(x−1) &nbsp;&nbsp; ← factor numerator<br>
+          = lim(x→1) (x+1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← cancel (x−1), x≠1<br>
+          = 1 + 1 = <strong style="color:var(--brand-primary)">2</strong>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 When Does a Limit NOT Exist?</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">A limit does not exist (DNE) in three main situations:</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem">
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#991B1B;text-transform:uppercase;margin-bottom:.5rem">Left ≠ Right</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">Left-hand limit ≠ right-hand limit</div>
+          </div>
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#991B1B;text-transform:uppercase;margin-bottom:.5rem">Unbounded</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">f(x) → ∞ or −∞ (vertical asymptote)</div>
+          </div>
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.72rem;font-weight:700;color:#991B1B;text-transform:uppercase;margin-bottom:.5rem">Oscillation</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">f(x) oscillates and never settles</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Limits at Infinity</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          We can also ask: what does f(x) approach as x → ∞ or x → −∞?
         </p>
         <div class="definition-box">
-          <div class="def-label">Strategy — Finding n when S<sub>n</sub> is given</div>
+          <div class="def-label">Key Rules for Limits at Infinity</div>
           <p>
-            Substitute the known values into S<sub>n</sub> = n/2 · [2a<sub>1</sub> + (n−1)d] and solve the resulting quadratic equation in n.<br><br>
-            Example: If S<sub>10</sub> = 145 and a<sub>1</sub> = 5, find d.<br>
-            145 = 10/2 · [2(5) + (10−1)d]<br>
-            145 = 5 · [10 + 9d]<br>
-            29 = 10 + 9d &nbsp;⟹&nbsp; 9d = 19 &nbsp;⟹&nbsp; d = 19/9
+            • lim(x→∞) 1/xⁿ = 0 for any n &gt; 0<br>
+            • lim(x→∞) c = c (constant stays constant)<br>
+            • For rational functions: divide numerator and denominator by highest power of x in denominator<br><br>
+            Example: lim(x→∞) (3x²+2)/(x²−1) = lim (3+2/x²)/(1−1/x²) = 3/1 = <strong>3</strong>
           </p>
         </div>
-      </div>
-
-      <div class="content-box">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.6 Sum of the First n Natural Numbers</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
-          A special and frequently tested case: the sum of 1 + 2 + 3 + ... + n:
-        </p>
-        <div class="math-display" style="font-size:1.2rem;font-weight:700">1 + 2 + 3 + ... + n = n(n+1)/2</div>
-        <p style="font-size:.875rem;color:var(--text-muted)">
-          This follows directly from the sum formula with a<sub>1</sub> = 1, d = 1:<br>
-          S<sub>n</sub> = n/2 · (2·1 + (n−1)·1) = n/2 · (n+1) = n(n+1)/2
-        </p>
       </div>
     </div>
 
@@ -337,41 +347,41 @@
         <div class="section-icon">📋</div>
         <div>
           <div class="section-title-text">Formula Reference Card</div>
-          <div class="section-subtitle">All arithmetic series formulas — memorize these</div>
+          <div class="section-subtitle">Key limit concepts — memorize these</div>
         </div>
       </div>
       <div class="formula-card">
-        <div class="formula-card-title">📐 Lesson 4 — Arithmetic Series Formulas</div>
+        <div class="formula-card-title">📐 Unit 2 Lesson 1 — Limit Concepts</div>
         <div class="formula-grid">
           <div class="formula-item">
-            <div class="formula-name">Sum Formula — Form 1</div>
-            <div class="formula-math">S<sub>n</sub> = n/2 · (a<sub>1</sub> + a<sub>n</sub>)</div>
-            <div class="formula-note">Use when first and last term are known</div>
+            <div class="formula-name">Limit Notation</div>
+            <div class="formula-math">lim(x→a) f(x) = L</div>
+            <div class="formula-note">f(x) approaches L as x approaches a</div>
           </div>
           <div class="formula-item">
-            <div class="formula-name">Sum Formula — Form 2</div>
-            <div class="formula-math">S<sub>n</sub> = n/2 · [2a<sub>1</sub> + (n−1)d]</div>
-            <div class="formula-note">Use when d is known but last term is not</div>
+            <div class="formula-name">Direct Substitution</div>
+            <div class="formula-math">lim(x→a) f(x) = f(a)</div>
+            <div class="formula-note">Only when f is defined and continuous at a</div>
           </div>
           <div class="formula-item">
-            <div class="formula-name">Natural Numbers Sum</div>
-            <div class="formula-math">1+2+...+n = n(n+1)/2</div>
-            <div class="formula-note">Special case with a<sub>1</sub>=1 and d=1</div>
+            <div class="formula-name">Indeterminate Form</div>
+            <div class="formula-math">0/0 → factor first</div>
+            <div class="formula-note">Factor, cancel, then substitute</div>
           </div>
           <div class="formula-item">
-            <div class="formula-name">nth Term (review)</div>
-            <div class="formula-math">a<sub>n</sub> = a<sub>1</sub> + (n−1)d</div>
-            <div class="formula-note">Needed to find a<sub>n</sub> before using Form 1</div>
+            <div class="formula-name">Limit at Infinity</div>
+            <div class="formula-math">lim(x→∞) 1/xⁿ = 0</div>
+            <div class="formula-note">Divide by highest power of x</div>
           </div>
           <div class="formula-item">
-            <div class="formula-name">Sigma Notation</div>
-            <div class="formula-math">∑(k=1 to n) a<sub>k</sub> = S<sub>n</sub></div>
-            <div class="formula-note">Compact way to write a series</div>
+            <div class="formula-name">Limit DNE</div>
+            <div class="formula-math">L⁻ ≠ L⁺ → no limit</div>
+            <div class="formula-note">Left and right limits must be equal</div>
           </div>
           <div class="formula-item">
-            <div class="formula-name">Average of AP Terms</div>
-            <div class="formula-math">S<sub>n</sub>/n = (a<sub>1</sub> + a<sub>n</sub>)/2</div>
-            <div class="formula-note">Sum ÷ n = average of first and last term</div>
+            <div class="formula-name">Important Limit</div>
+            <div class="formula-math">lim(x→0) sinx/x = 1</div>
+            <div class="formula-note">Fundamental trigonometric limit</div>
           </div>
         </div>
       </div>
@@ -390,108 +400,114 @@
       <div class="example-card">
         <div class="example-header">
           <span class="example-num">Example 1</span>
-          <span class="example-title">Basic Sum Using Form 1</span>
+          <span class="example-title">Direct Substitution</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Find the sum of the arithmetic series: 3 + 7 + 11 + 15 + ... + 47</div>
-          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">Identify: <span class="math">a<sub>1</sub> = 3, d = 4, a<sub>n</sub> = 47</span></div></div>
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→2) (3x² − 4x + 1)</div>
+          <div class="example-step"><span class="step-badge">Check</span><div class="step-text">f(x) = 3x²−4x+1 is a polynomial — defined everywhere. Use direct substitution.</div></div>
           <div class="example-step">
-            <span class="step-badge">Step 2</span>
-            <div class="step-text">Find n using a<sub>n</sub> = a<sub>1</sub> + (n−1)d:<br>
-              <span class="math">47 = 3 + (n−1)(4) &nbsp;⟹&nbsp; 44 = 4(n−1) &nbsp;⟹&nbsp; n−1 = 11 &nbsp;⟹&nbsp; n = 12</span>
+            <span class="step-badge">Substitute</span>
+            <div class="step-text">
+              <span class="math">lim(x→2) (3x²−4x+1) = 3(2)²−4(2)+1 = 12−8+1 = 5</span>
             </div>
           </div>
-          <div class="example-step">
-            <span class="step-badge">Step 3</span>
-            <div class="step-text">Apply Form 1:<br>
-              <span class="math">S<sub>12</sub> = 12/2 · (3 + 47) = 6 · 50 = 300</span>
-            </div>
-          </div>
-          <div class="example-answer">✅ The sum is <strong>300</strong></div>
+          <div class="example-answer">✅ lim(x→2) (3x²−4x+1) = <strong>5</strong></div>
         </div>
       </div>
 
       <div class="example-card">
         <div class="example-header">
           <span class="example-num">Example 2</span>
-          <span class="example-title">Sum Using Form 2</span>
+          <span class="example-title">Factoring — 0/0 Form</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Find the sum of the first 20 terms of the arithmetic sequence with a<sub>1</sub> = 5 and d = 3.</div>
-          <div class="example-step"><span class="step-badge">Given</span><div class="step-text"><span class="math">a<sub>1</sub> = 5, d = 3, n = 20</span></div></div>
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→3) (x²−9)/(x−3)</div>
+          <div class="example-step"><span class="step-badge">Check</span><div class="step-text">Substituting x=3: (9−9)/(3−3) = 0/0 — indeterminate. Must factor.</div></div>
           <div class="example-step">
-            <span class="step-badge">Apply</span>
-            <div class="step-text">Use Form 2 since d is given and last term is not:<br>
-              <span class="math">S<sub>20</sub> = 20/2 · [2(5) + (20−1)(3)]</span><br>
-              <span class="math">= 10 · [10 + 57]</span><br>
-              <span class="math">= 10 · 67 = 670</span>
+            <span class="step-badge">Factor</span>
+            <div class="step-text">
+              <span class="math">= lim(x→3) (x+3)(x−3)/(x−3)</span>
             </div>
           </div>
-          <div class="example-answer">✅ S<sub>20</sub> = <strong>670</strong></div>
+          <div class="example-step">
+            <span class="step-badge">Cancel</span>
+            <div class="step-text">
+              <span class="math">= lim(x→3) (x+3) = 3+3 = 6</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ lim(x→3) (x²−9)/(x−3) = <strong>6</strong></div>
         </div>
       </div>
 
       <div class="example-card">
         <div class="example-header">
           <span class="example-num">Example 3</span>
-          <span class="example-title">Finding d from the Sum</span>
+          <span class="example-title">Factoring Cubic Expression</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> The sum of the first 10 terms of an arithmetic sequence is 200, and the first term is 5. Find the common difference.</div>
-          <div class="example-step"><span class="step-badge">Given</span><div class="step-text"><span class="math">S<sub>10</sub> = 200, a<sub>1</sub> = 5, n = 10</span></div></div>
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→2) (x³−8)/(x−2)</div>
+          <div class="example-step"><span class="step-badge">Check</span><div class="step-text">x=2 gives 0/0. Factor using difference of cubes: a³−b³ = (a−b)(a²+ab+b²)</div></div>
           <div class="example-step">
-            <span class="step-badge">Substitute</span>
-            <div class="step-text">Use Form 2:<br>
-              <span class="math">200 = 10/2 · [2(5) + (10−1)d]</span><br>
-              <span class="math">200 = 5 · [10 + 9d]</span><br>
-              <span class="math">40 = 10 + 9d &nbsp;⟹&nbsp; 9d = 30 &nbsp;⟹&nbsp; d = 10/3</span>
+            <span class="step-badge">Factor</span>
+            <div class="step-text">
+              <span class="math">x³−8 = (x−2)(x²+2x+4)</span><br>
+              <span class="math">= lim(x→2) (x−2)(x²+2x+4)/(x−2)</span>
             </div>
           </div>
-          <div class="example-answer">✅ The common difference is <strong>d = 10/3</strong></div>
+          <div class="example-step">
+            <span class="step-badge">Cancel</span>
+            <div class="step-text">
+              <span class="math">= lim(x→2) (x²+2x+4) = 4+4+4 = 12</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ lim(x→2) (x³−8)/(x−2) = <strong>12</strong></div>
         </div>
       </div>
 
       <div class="example-card">
         <div class="example-header">
           <span class="example-num">Example 4</span>
-          <span class="example-title">Sigma Notation</span>
+          <span class="example-title">Limit at Infinity</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Evaluate ∑(k=1 to 8) (3k + 1)</div>
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→∞) (5x² + 3x)/(2x² − 7)</div>
+          <div class="example-step"><span class="step-badge">Strategy</span><div class="step-text">Divide every term by x² (highest power in denominator)</div></div>
           <div class="example-step">
-            <span class="step-badge">Step 1</span>
-            <div class="step-text">Write out first and last terms:<br>
-              <span class="math">k=1: 3(1)+1 = 4 &nbsp;&nbsp; k=8: 3(8)+1 = 25</span><br>
-              So a<sub>1</sub> = 4, a<sub>8</sub> = 25, n = 8
+            <span class="step-badge">Divide</span>
+            <div class="step-text">
+              <span class="math">= lim(x→∞) (5 + 3/x)/(2 − 7/x²)</span>
             </div>
           </div>
           <div class="example-step">
-            <span class="step-badge">Step 2</span>
-            <div class="step-text">Apply Form 1:<br>
-              <span class="math">S<sub>8</sub> = 8/2 · (4 + 25) = 4 · 29 = 116</span>
+            <span class="step-badge">Apply</span>
+            <div class="step-text">As x→∞: 3/x → 0 and 7/x² → 0<br>
+              <span class="math">= (5 + 0)/(2 − 0) = 5/2</span>
             </div>
           </div>
-          <div class="example-answer">✅ ∑(k=1 to 8) (3k+1) = <strong>116</strong></div>
+          <div class="example-answer">✅ lim(x→∞) (5x²+3x)/(2x²−7) = <strong>5/2</strong></div>
         </div>
       </div>
 
       <div class="example-card">
         <div class="example-header">
           <span class="example-num">Example 5</span>
-          <span class="example-title">Real-World Word Problem</span>
+          <span class="example-title">Limit That Does Not Exist</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> A worker earns 1,200 ETB in the first month and receives a 100 ETB raise each month. What are the total earnings over 12 months?</div>
-          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a<sub>1</sub> = 1,200, d = 100, n = 12</span></div></div>
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→0) |x|/x</div>
           <div class="example-step">
-            <span class="step-badge">Apply</span>
-            <div class="step-text">
-              <span class="math">S<sub>12</sub> = 12/2 · [2(1,200) + (12−1)(100)]</span><br>
-              <span class="math">= 6 · [2,400 + 1,100]</span><br>
-              <span class="math">= 6 · 3,500 = 21,000 ETB</span>
-            </div>
+            <span class="step-badge">Left side</span>
+            <div class="step-text">As x→0⁻ (x is negative): |x| = −x, so |x|/x = −x/x = <span class="math">−1</span></div>
           </div>
-          <div class="example-answer">✅ Total earnings over 12 months = <strong>21,000 ETB</strong></div>
+          <div class="example-step">
+            <span class="step-badge">Right side</span>
+            <div class="step-text">As x→0⁺ (x is positive): |x| = x, so |x|/x = x/x = <span class="math">+1</span></div>
+          </div>
+          <div class="example-step">
+            <span class="step-badge">Compare</span>
+            <div class="step-text">Left limit = −1 ≠ Right limit = +1</div>
+          </div>
+          <div class="example-answer">✅ lim(x→0) |x|/x does <strong>NOT EXIST</strong> — left and right limits are different</div>
         </div>
       </div>
 
@@ -509,60 +525,60 @@
 
       <div class="quiz-card" id="q1">
         <div class="quiz-num">Question 1 of 5</div>
-        <div class="quiz-question">What is the sum of the first 10 terms of the arithmetic series with a<sub>1</sub> = 2 and d = 3?</div>
+        <div class="quiz-question">Evaluate lim(x→4) (x² − 2x + 3)</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div>125</div>
-          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div>145</div>
-          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div>155</div>
-          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div>165</div>
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div>9</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div>10</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div>11</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div>13</div>
         </div>
         <div class="quiz-feedback" id="q1-feedback"></div>
       </div>
 
       <div class="quiz-card" id="q2">
         <div class="quiz-num">Question 2 of 5</div>
-        <div class="quiz-question">Find the sum: 5 + 10 + 15 + 20 + ... + 100</div>
+        <div class="quiz-question">Evaluate lim(x→5) (x²−25)/(x−5)</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div>500</div>
-          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div>1,050</div>
-          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div>1,025</div>
-          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div>950</div>
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div>5</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div>0</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div>10</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div>25</div>
         </div>
         <div class="quiz-feedback" id="q2-feedback"></div>
       </div>
 
       <div class="quiz-card" id="q3">
         <div class="quiz-num">Question 3 of 5</div>
-        <div class="quiz-question">The sum of the first n terms of an AP is 153. If a<sub>1</sub> = 3 and d = 2, what is n?</div>
+        <div class="quiz-question">What is lim(x→∞) (2x³ + 5)/(4x³ − 1)?</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div>7</div>
-          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div>8</div>
-          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div>9</div>
-          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div>11</div>
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div>0</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div>1/2</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div>2</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div>∞</div>
         </div>
         <div class="quiz-feedback" id="q3-feedback"></div>
       </div>
 
       <div class="quiz-card" id="q4">
         <div class="quiz-num">Question 4 of 5</div>
-        <div class="quiz-question">Evaluate ∑(k=1 to 6) (2k − 1)</div>
+        <div class="quiz-question">Evaluate lim(x→−2) (x²+5x+6)/(x+2)</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(4,'A','D')"><div class="option-letter">A</div>25</div>
-          <div class="quiz-option" onclick="answer(4,'B','D')"><div class="option-letter">B</div>30</div>
-          <div class="quiz-option" onclick="answer(4,'C','D')"><div class="option-letter">C</div>33</div>
-          <div class="quiz-option" onclick="answer(4,'D','D')"><div class="option-letter">D</div>36</div>
+          <div class="quiz-option" onclick="answer(4,'A','A')"><div class="option-letter">A</div>1</div>
+          <div class="quiz-option" onclick="answer(4,'B','A')"><div class="option-letter">B</div>−1</div>
+          <div class="quiz-option" onclick="answer(4,'C','A')"><div class="option-letter">C</div>0</div>
+          <div class="quiz-option" onclick="answer(4,'D','A')"><div class="option-letter">D</div>Does not exist</div>
         </div>
         <div class="quiz-feedback" id="q4-feedback"></div>
       </div>
 
       <div class="quiz-card" id="q5">
         <div class="quiz-num">Question 5 of 5</div>
-        <div class="quiz-question">A student saves 50 ETB in week 1 and increases savings by 10 ETB each week. How much total savings after 8 weeks?</div>
+        <div class="quiz-question">Which of the following statements about limits is TRUE?</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div>640 ETB</div>
-          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div>680 ETB</div>
-          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div>720 ETB</div>
-          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div>760 ETB</div>
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div>The limit always equals the function value at that point</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div>A limit can only exist if the function is defined at that point</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div>The limit exists when left-hand and right-hand limits are equal</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div>lim(x→a) f(x) = 0 means f(a) = 0</div>
         </div>
         <div class="quiz-feedback" id="q5-feedback"></div>
       </div>
@@ -572,7 +588,7 @@
         <div class="score-label" id="score-label"></div>
         <div style="margin-top:1rem">
           <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
-          <a href="unit1-lesson5.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Course Index →</a>
         </div>
       </div>
     </div>
@@ -583,29 +599,29 @@
         <div class="section-icon">🎥</div>
         <div>
           <div class="section-title-text">Online Resources</div>
-          <div class="section-subtitle">The Organic Chemistry Tutor — Arithmetic Series</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Limits</div>
         </div>
       </div>
       <div class="content-box">
         <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem">Watch these to reinforce this lesson:</p>
-        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+arithmetic+series+sum" target="_blank" class="resource-card">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+introduction+to+limits" target="_blank" class="resource-card">
           <div class="resource-yt-icon">▶</div>
-          <div><div class="resource-title">Arithmetic Series — Sum Formula</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div><div class="resource-title">Introduction to Limits</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
           <div class="resource-arrow">→</div>
         </a>
-        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+arithmetic+series+word+problems" target="_blank" class="resource-card">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+evaluating+limits+by+factoring" target="_blank" class="resource-card">
           <div class="resource-yt-icon">▶</div>
-          <div><div class="resource-title">Arithmetic Series Word Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div><div class="resource-title">Evaluating Limits by Factoring</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
           <div class="resource-arrow">→</div>
         </a>
-        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+sigma+notation+series" target="_blank" class="resource-card">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+limits+at+infinity" target="_blank" class="resource-card">
           <div class="resource-yt-icon">▶</div>
-          <div><div class="resource-title">Sigma Notation and Series</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div><div class="resource-title">Limits at Infinity</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
           <div class="resource-arrow">→</div>
         </a>
-        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+sum+of+natural+numbers" target="_blank" class="resource-card">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+limits+that+do+not+exist" target="_blank" class="resource-card">
           <div class="resource-yt-icon">▶</div>
-          <div><div class="resource-title">Sum of Natural Numbers Formula</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div><div class="resource-title">When Limits Do Not Exist</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
           <div class="resource-arrow">→</div>
         </a>
       </div>
@@ -617,28 +633,28 @@
         <div class="section-icon">📝</div>
         <div>
           <div class="section-title-text">Lesson Summary</div>
-          <div class="section-subtitle">Everything you learned in Lesson 4</div>
+          <div class="section-subtitle">Everything you learned in Unit 2 Lesson 1</div>
         </div>
       </div>
       <div class="summary-card">
-        <div class="summary-title">✅ Key Points — Arithmetic Series</div>
+        <div class="summary-title">✅ Key Points — Concept of a Limit</div>
         <ul class="summary-list">
-          <li>An arithmetic series is the sum of terms of an arithmetic sequence: S<sub>n</sub> = a<sub>1</sub> + a<sub>2</sub> + ... + a<sub>n</sub></li>
-          <li>Form 1: <strong>S<sub>n</sub> = n/2 · (a<sub>1</sub> + a<sub>n</sub>)</strong> — use when both first and last terms are known.</li>
-          <li>Form 2: <strong>S<sub>n</sub> = n/2 · [2a<sub>1</sub> + (n−1)d]</strong> — use when d is known but last term is not.</li>
-          <li>The sum of natural numbers 1 to n is <strong>n(n+1)/2</strong> — memorize this formula.</li>
-          <li>Sigma notation ∑ means "sum of" — substitute each value of k into the formula.</li>
-          <li>To find n from S<sub>n</sub>: substitute known values and solve the resulting quadratic in n.</li>
-          <li>The average of an AP = S<sub>n</sub>/n = (a<sub>1</sub> + a<sub>n</sub>)/2 = middle term.</li>
-          <li>For real-world problems: identify a<sub>1</sub> (starting value), d (fixed increase), and n (number of periods).</li>
+          <li>A limit describes what f(x) approaches as x gets closer to a — not necessarily the value at x = a.</li>
+          <li>Notation: <strong>lim(x→a) f(x) = L</strong> means f(x) → L as x → a from both sides.</li>
+          <li>The function does NOT need to be defined at x = a for the limit to exist there.</li>
+          <li>Direct substitution works when f is a polynomial or when f(a) is defined and continuous.</li>
+          <li>If substitution gives 0/0, factor and cancel the common factor, then substitute.</li>
+          <li>A limit does NOT exist when left and right limits differ, or when f(x) → ±∞.</li>
+          <li>For limits at infinity: divide numerator and denominator by highest power of x.</li>
+          <li>Important: lim(x→0) sin(x)/x = 1 — memorise this fundamental limit.</li>
         </ul>
       </div>
     </div>
 
     <div class="lesson-nav">
-      <a href="unit1-lesson3.html" class="btn btn-ghost">← Lesson 3: Geometric Sequences</a>
-      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 4 of 5</div>
-      <a href="unit1-lesson5.html" class="btn btn-primary">Next: Geometric Series →</a>
+      <a href="../index.html" class="btn btn-ghost">← Course Index</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 1 of 4</div>
+      <a href="unit2-lesson2.html" class="btn btn-primary">Next: Limit Theorems →</a>
     </div>
 
   </main>
@@ -651,13 +667,13 @@
     .catch(() => {});
 
   const answers   = {};
-  const correct   = {1:'C', 2:'B', 3:'C', 4:'D', 5:'B'};
+  const correct   = {1:'C', 2:'C', 3:'B', 4:'A', 5:'C'};
   const feedbacks = {
-    1:{C:'✓ Correct! S₁₀ = 10/2·[2(2)+(10−1)(3)] = 5·[4+27] = 5·31 = 155.',wrong:'✗ S₁₀ = 10/2·[2(2)+(9)(3)] = 5·[4+27] = 5·31 = 155.'},
-    2:{B:'✓ Correct! n=20 (100/5=20 terms). S₂₀ = 20/2·(5+100) = 10·105 = 1,050.',wrong:'✗ n=20 terms. S = 20/2·(5+100) = 10·105 = 1,050.'},
-    3:{C:'✓ Correct! 153 = n/2·[6+(n−1)2] = n/2·[2n+4] = n(n+2). n²+2n−153=0. (n+17)(n−9)=0. n=9.',wrong:'✗ 153 = n/2·[2(3)+(n−1)(2)] = n(n+2). Solve n²+2n−153=0 to get n=9.'},
-    4:{D:'✓ Correct! k=1: 1, k=6: 11. S₆ = 6/2·(1+11) = 3·12 = 36.',wrong:'✗ a₁=2(1)−1=1, a₆=2(6)−1=11. S₆ = 6/2·(1+11) = 3·12 = 36.'},
-    5:{B:'✓ Correct! S₈ = 8/2·[2(50)+(8−1)(10)] = 4·[100+70] = 4·170 = 680 ETB.',wrong:'✗ S₈ = 8/2·[2(50)+(7)(10)] = 4·[100+70] = 4·170 = 680 ETB.'},
+    1:{C:'✓ Correct! Direct substitution: 4²−2(4)+3 = 16−8+3 = 11.',wrong:'✗ Direct substitution: 4²−2(4)+3 = 16−8+3 = 11.'},
+    2:{C:'✓ Correct! Factor: (x−5)(x+5)/(x−5) = x+5. At x=5: 5+5 = 10.',wrong:'✗ Factor x²−25 = (x−5)(x+5), cancel (x−5), get x+5 = 10.'},
+    3:{B:'✓ Correct! Divide by x³: (2+5/x³)/(4−1/x³) → 2/4 = 1/2 as x→∞.',wrong:'✗ Divide by x³ (highest power): limit = 2/4 = 1/2.'},
+    4:{A:'✓ Correct! x²+5x+6 = (x+2)(x+3). Cancel (x+2): lim = x+3 = −2+3 = 1.',wrong:'✗ Factor: (x+2)(x+3)/(x+2) = x+3. At x=−2: −2+3 = 1.'},
+    5:{C:'✓ Correct! A limit exists when and only when left and right limits are both equal to the same value.',wrong:'✗ The correct statement: a limit exists when left-hand and right-hand limits are equal. The function need not be defined at that point.'},
   };
 
   let answered = 0;
@@ -686,7 +702,7 @@
     const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
     document.getElementById('score-bar').classList.add('show');
     document.getElementById('score-num').textContent = score + '/5';
-    const labels = ['📖 Review and retake.','📖 Keep studying.','📖 Almost there!','👍 Good work!','👍 Almost perfect!','🎉 Perfect! Lesson 4 mastered!'];
+    const labels = ['📖 Review and retake.','📖 Keep studying.','📖 Almost there!','👍 Good work!','👍 Almost perfect!','🎉 Perfect! Lesson 1 of Unit 2 mastered!'];
     document.getElementById('score-label').textContent = labels[score];
   }
 

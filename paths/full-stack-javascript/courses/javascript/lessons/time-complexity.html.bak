@@ -52,7 +52,7 @@
 <a href="knights-travails.html" class="sidebar-link is-project">Project: Knights Travails</a>
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Time complexity describes how an algorithm's runtime grows as the input size grows. Understanding Big O notation helps you write code that scales — and recognise when it will not.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand Big O notation.</li><li>Identify the time complexity of common patterns.</li><li>Compare O(1), O(log n), O(n), O(n log n), O(n<sup>2</sup>), and O(2<sup>n</sup>).</li><li>Analyse the complexity of your own code.</li></ul></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand Big O notation.</li><li>Identify the time complexity of common patterns.</li><li>Compare O(1), O(log n), O(n), O(n log n), O(n²), and O(2ⁿ).</li><li>Analyse the complexity of your own code.</li></ul></div>
 
 <h2 class="lesson-section-title" id="big-o">Big O Notation</h2>
 <p>Big O describes the <em>worst-case</em> growth rate of an algorithm's runtime as the input size <em>n</em> approaches infinity. Constant factors are dropped — we care about the shape of growth, not the exact numbers.</p>
@@ -89,7 +89,7 @@ function findMax(arr) {
 // O(n log n) — Linearithmic: efficient sorting algorithms
 // Array.sort() in most engines, merge sort, quicksort
 
-// O(n<sup>2</sup>) — Quadratic: nested loops over the input
+// O(n²) — Quadratic: nested loops over the input
 function hasDuplicate(arr) {
   for (let i = 0; i &lt; arr.length; i++) {
     for (let j = i + 1; j &lt; arr.length; j++) {
@@ -100,18 +100,18 @@ function hasDuplicate(arr) {
 }
 // Can be O(n) by using a Set instead
 
-// O(2<sup>n</sup>) — Exponential: doubles with each addition to input
+// O(2ⁿ) — Exponential: doubles with each addition to input
 // Naive recursive Fibonacci
 </code></pre></div>
 <h2 class="lesson-section-title" id="rules">Rules for Analysis</h2>
 <ul>
   <li>Drop constants: O(3n) → O(n)</li>
-  <li>Drop lower-order terms: O(n<sup>2</sup> + n) → O(n<sup>2</sup>)</li>
+  <li>Drop lower-order terms: O(n² + n) → O(n²)</li>
   <li>Different inputs are different variables: O(n + m) not O(2n)</li>
-  <li>Nested loops over the same input: multiply — O(n × n) = O(n<sup>2</sup>)</li>
+  <li>Nested loops over the same input: multiply — O(n × n) = O(n²)</li>
   <li>Sequential operations: add — O(n + m)</li>
 </ul>
-<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#big-o" data-target="big-o">What does Big O notation measure?</a></li><li><a href="#complexity-classes" data-target="complexity-classes">What is the time complexity of accessing an array by index?</a></li><li><a href="#complexity-classes" data-target="complexity-classes">Why is O(n<sup>2</sup>) often a red flag?</a></li></ol></div>
+<div class="block-kc"><div class="block-kc-label">Knowledge Check</div><p class="kc-note">Click any question to jump to the section that answers it.</p><ol><li><a href="#big-o" data-target="big-o">What does Big O notation measure?</a></li><li><a href="#complexity-classes" data-target="complexity-classes">What is the time complexity of accessing an array by index?</a></li><li><a href="#complexity-classes" data-target="complexity-classes">Why is O(n²) often a red flag?</a></li></ol></div>
 <div class="block-assignments"><div class="block-assignments-label">Assignments</div><ol><li>Analyse the time complexity of every function in your Calculator and Library projects.</li><li>Rewrite the hasDuplicate() example to be O(n) using a Set.</li></ol></div>
 <div class="block-resources"><div class="block-resources-label">Additional Resources</div><ul><li><a href="https://www.bigocheatsheet.com/" target="_blank" rel="noopener">Big O Cheat Sheet</a></li><li><a href="https://javascript.info/task/array-unique" target="_blank" rel="noopener">javascript.info — Time Complexity</a></li><li><a href="https://www.youtube.com/watch?v=g2o22C3CRfU" target="_blank" rel="noopener">YouTube — Big O Notation (Fireship)</a></li></ul></div>
 </div><div class="lesson-pagination"><a href="project-fibonacci.html" class="pagination-link prev"><span class="pagination-label">&#8592; Previous</span><span class="pagination-title">Project: Fibonacci</span></a><a href="space-complexity.html" class="pagination-link next"><span class="pagination-label">Next &#8594;</span><span class="pagination-title">Space Complexity</span></a></div></main></div>

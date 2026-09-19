@@ -52,7 +52,7 @@
 <a href="knights-travails.html" class="sidebar-link is-project">Project: Knights Travails</a>
 </div></aside><main><div class="lesson-body">
 <div class="block-intro"><p>Time complexity measures how long an algorithm takes. Space complexity measures how much memory it uses. Both matter, and sometimes you trade one for the other.</p></div>
-<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand what space complexity measures.</li><li>Identify O(1), O(n), and O(n<sup>2</sup>) space usage.</li><li>Understand the space/time trade-off.</li><li>Analyse the space usage of recursive functions.</li></ul></div>
+<div class="block-overview"><div class="block-overview-label">Lesson Overview</div><ul><li>Understand what space complexity measures.</li><li>Identify O(1), O(n), and O(n²) space usage.</li><li>Understand the space/time trade-off.</li><li>Analyse the space usage of recursive functions.</li></ul></div>
 
 <h2 class="lesson-section-title" id="what-is-space">What Space Complexity Measures</h2>
 <p>Space complexity counts the <em>additional</em> memory an algorithm allocates — not the input itself (that is called <em>auxiliary space</em>). We are interested in how memory usage grows with input size.</p>
@@ -80,14 +80,14 @@ function factorial(n) {
   // n calls deep → O(n) space
 }
 
-// O(n<sup>2</sup>) — Quadratic space
+// O(n²) — Quadratic space
 function buildMatrix(n) {
   return Array.from({ length: n }, () =&gt; new Array(n).fill(0));
-  // n × n matrix → O(n<sup>2</sup>) space
+  // n × n matrix → O(n²) space
 }
 </code></pre></div>
 <h2 class="lesson-section-title" id="tradeoff">The Space/Time Trade-Off</h2>
-<p>Memoization is the classic example: trading space for time. By storing results (O(n) space), we avoid recomputing them (reducing time from O(2<sup>n</sup>) to O(n)).</p>
+<p>Memoization is the classic example: trading space for time. By storing results (O(n) space), we avoid recomputing them (reducing time from O(2ⁿ) to O(n)).</p>
 <div class="code-block"><pre><code>// Time O(n), Space O(1) — iterative
 function fibFast(n) {
   let a = 0, b = 1;

@@ -204,9 +204,9 @@
         </p>
         <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
         <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
-          <li>Find the sum of a finite geometric series using <strong>S<sub>n</sub> = a<sub>1</sub>(1 − r<sup>n</sup>)/(1 − r)</strong></li>
+          <li>Find the sum of a finite geometric series using <strong>Sₙ = a₁(1 − rⁿ)/(1 − r)</strong></li>
           <li>Determine whether an infinite geometric series converges or diverges</li>
-          <li>Find the sum of a convergent infinite series: <strong>S∞ = a<sub>1</sub>/(1 − r)</strong> when |r| &lt; 1</li>
+          <li>Find the sum of a convergent infinite series: <strong>S∞ = a₁/(1 − r)</strong> when |r| &lt; 1</li>
           <li>Convert repeating decimals to fractions using infinite series</li>
           <li>Solve real-world problems involving geometric series</li>
         </ul>
@@ -225,63 +225,63 @@
 
       <div class="definition-box">
         <div class="def-label">📌 Definition — Geometric Series</div>
-        <p>A <strong>geometric series</strong> is the sum of the terms of a geometric sequence. If the sequence is a<sub>1</sub>, a<sub>1</sub>r, a<sub>1</sub>r<sup>2</sup>, ..., a<sub>1</sub>r<sup>n-1</sup> then the series is:<br><br>
-        <strong>S<sub>n</sub> = a<sub>1</sub> + a<sub>1</sub>r + a<sub>1</sub>r<sup>2</sup> + a<sub>1</sub>r<sup>3</sup> + ... + a<sub>1</sub>r<sup>n-1</sup></strong></p>
+        <p>A <strong>geometric series</strong> is the sum of the terms of a geometric sequence. If the sequence is a₁, a₁r, a₁r², ..., a₁rⁿ⁻¹ then the series is:<br><br>
+        <strong>Sₙ = a₁ + a₁r + a₁r² + a₁r³ + ... + a₁rⁿ⁻¹</strong></p>
       </div>
 
       <div class="content-box">
         <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Deriving the Finite Sum Formula</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">Write S<sub>n</sub>, then multiply both sides by r, then subtract:</p>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">Write Sₙ, then multiply both sides by r, then subtract:</p>
         <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem 1.25rem;font-family:'Georgia',serif;font-size:.875rem;margin-bottom:1rem;line-height:1.9">
-          <div>S<sub>n</sub> &nbsp;= a<sub>1</sub> + a<sub>1</sub>r + a<sub>1</sub>r<sup>2</sup> + ... + a<sub>1</sub>r<sup>n-1</sup></div>
-          <div>rS<sub>n</sub> = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a<sub>1</sub>r + a<sub>1</sub>r<sup>2</sup> + ... + a<sub>1</sub>r<sup>n-1</sup> + a<sub>1</sub>r<sup>n</sup></div>
+          <div>Sₙ &nbsp;= a₁ + a₁r + a₁r² + ... + a₁rⁿ⁻¹</div>
+          <div>rSₙ = &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a₁r + a₁r² + ... + a₁rⁿ⁻¹ + a₁rⁿ</div>
           <div style="border-top:1.5px solid var(--border);padding-top:.5rem;margin-top:.5rem;color:var(--brand-primary);font-weight:700">
-            S<sub>n</sub> − rS<sub>n</sub> = a<sub>1</sub> − a<sub>1</sub>r<sup>n</sup><br>
-            S<sub>n</sub>(1 − r) = a<sub>1</sub>(1 − r<sup>n</sup>)<br>
-            S<sub>n</sub> = a<sub>1</sub>(1 − r<sup>n</sup>) / (1 − r), &nbsp; r ≠ 1
+            Sₙ − rSₙ = a₁ − a₁rⁿ<br>
+            Sₙ(1 − r) = a₁(1 − rⁿ)<br>
+            Sₙ = a₁(1 − rⁿ) / (1 − r), &nbsp; r ≠ 1
           </div>
         </div>
         <div class="math-display" style="font-size:1.15rem;font-weight:700">
-          S<sub>n</sub> = a<sub>1</sub>(1 − r<sup>n</sup>) / (1 − r) &nbsp;&nbsp; (r ≠ 1)
+          Sₙ = a₁(1 − rⁿ) / (1 − r) &nbsp;&nbsp; (r ≠ 1)
         </div>
         <div class="note-box">
           <div class="note-label">⚠ Alternative Form</div>
-          <p>When r > 1, it is more convenient to write: <strong>S<sub>n</sub> = a<sub>1</sub>(r<sup>n</sup> − 1) / (r − 1)</strong>. Both forms give the same answer — use whichever avoids negative denominators.</p>
+          <p>When r > 1, it is more convenient to write: <strong>Sₙ = a₁(rⁿ − 1) / (r − 1)</strong>. Both forms give the same answer — use whichever avoids negative denominators.</p>
         </div>
       </div>
 
       <div class="content-box">
         <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Special Case: r = 1</h3>
         <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
-          When r = 1, all terms are equal to a<sub>1</sub>. The formula above does not apply (division by zero). Instead:
+          When r = 1, all terms are equal to a₁. The formula above does not apply (division by zero). Instead:
         </p>
-        <div class="math-display">S<sub>n</sub> = n · a<sub>1</sub> &nbsp;&nbsp; (when r = 1)</div>
+        <div class="math-display">Sₙ = n · a₁ &nbsp;&nbsp; (when r = 1)</div>
       </div>
 
       <div class="content-box">
         <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Infinite Geometric Series — Convergence</h3>
         <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
-          What happens when n → ∞? The key is the behavior of r<sup>n</sup>:
+          What happens when n → ∞? The key is the behavior of rⁿ:
         </p>
         <div class="convergence-visual">
           <div class="conv-card converges">
             <div class="conv-title g">Converges (|r| &lt; 1)</div>
             <div class="conv-seq g">1/2 + 1/4 + 1/8 + ...</div>
-            <div class="conv-note">r = 1/2. As n→∞, r<sup>n</sup>→0.<br>Sum approaches a finite value.</div>
+            <div class="conv-note">r = 1/2. As n→∞, rⁿ→0.<br>Sum approaches a finite value.</div>
             <div style="font-family:Georgia,serif;font-size:1rem;font-weight:700;color:#166534;margin-top:.5rem">S∞ = 1</div>
           </div>
           <div class="conv-card diverges">
             <div class="conv-title r">Diverges (|r| ≥ 1)</div>
             <div class="conv-seq r">2 + 4 + 8 + 16 + ...</div>
-            <div class="conv-note">r = 2. As n→∞, r<sup>n</sup>→∞.<br>Sum grows without bound.</div>
+            <div class="conv-note">r = 2. As n→∞, rⁿ→∞.<br>Sum grows without bound.</div>
             <div style="font-family:Georgia,serif;font-size:1rem;font-weight:700;color:#991B1B;margin-top:.5rem">S∞ = ∞ (no sum)</div>
           </div>
         </div>
         <div class="definition-box" style="margin-top:1rem">
           <div class="def-label">📌 Convergence Rule</div>
           <p>An infinite geometric series <strong>converges</strong> (has a finite sum) if and only if <strong>|r| &lt; 1</strong>.<br>
-          When |r| &lt; 1, as n→∞, r<sup>n</sup>→0, so:<br><br>
-          <strong>S∞ = a<sub>1</sub> / (1 − r)</strong> &nbsp;&nbsp; (only valid when |r| &lt; 1)</p>
+          When |r| &lt; 1, as n→∞, rⁿ→0, so:<br><br>
+          <strong>S∞ = a₁ / (1 − r)</strong> &nbsp;&nbsp; (only valid when |r| &lt; 1)</p>
         </div>
       </div>
 
@@ -294,14 +294,14 @@
           <div class="def-label">Example — Convert 0.333... to a fraction</div>
           <p>
             0.333... = 0.3 + 0.03 + 0.003 + ...<br>
-            This is a geometric series with a<sub>1</sub> = 0.3 and r = 0.1<br>
+            This is a geometric series with a₁ = 0.3 and r = 0.1<br>
             Since |r| = 0.1 &lt; 1, it converges:<br>
             S∞ = 0.3 / (1 − 0.1) = 0.3 / 0.9 = <strong>1/3</strong> ✓
           </p>
         </div>
         <div class="note-box">
           <div class="note-label">⚠ Exam Tip</div>
-          <p>Converting repeating decimals to fractions using infinite geometric series appears frequently on the Ethiopian entrance exam. Always check |r| &lt; 1 before applying S∞ = a<sub>1</sub>/(1−r).</p>
+          <p>Converting repeating decimals to fractions using infinite geometric series appears frequently on the Ethiopian entrance exam. Always check |r| &lt; 1 before applying S∞ = a₁/(1−r).</p>
         </div>
       </div>
 
@@ -318,22 +318,22 @@
           <tbody>
             <tr style="background:var(--surface-2)">
               <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-weight:600">Arithmetic</td>
-              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">S<sub>n</sub> = n/2·(a<sub>1</sub>+a<sub>n</sub>)</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">Sₙ = n/2·(a₁+aₙ)</td>
               <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">First and last term known</td>
             </tr>
             <tr>
               <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-weight:600">Arithmetic</td>
-              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">S<sub>n</sub> = n/2·[2a<sub>1</sub>+(n−1)d]</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">Sₙ = n/2·[2a₁+(n−1)d]</td>
               <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">d known, last term not</td>
             </tr>
             <tr style="background:var(--surface-2)">
               <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-weight:600">Geometric (finite)</td>
-              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">S<sub>n</sub> = a<sub>1</sub>(1−r<sup>n</sup>)/(1−r)</td>
+              <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border);font-family:Georgia,serif;color:var(--brand-primary)">Sₙ = a₁(1−rⁿ)/(1−r)</td>
               <td style="padding:.625rem 1rem;border-bottom:1px solid var(--border)">Any r ≠ 1, finite n</td>
             </tr>
             <tr>
               <td style="padding:.625rem 1rem;font-weight:600">Geometric (infinite)</td>
-              <td style="padding:.625rem 1rem;font-family:Georgia,serif;color:var(--brand-primary)">S∞ = a<sub>1</sub>/(1−r)</td>
+              <td style="padding:.625rem 1rem;font-family:Georgia,serif;color:var(--brand-primary)">S∞ = a₁/(1−r)</td>
               <td style="padding:.625rem 1rem">Only when |r| &lt; 1</td>
             </tr>
           </tbody>
@@ -355,22 +355,22 @@
         <div class="formula-grid">
           <div class="formula-item">
             <div class="formula-name">Finite Sum (r &lt; 1)</div>
-            <div class="formula-math">S<sub>n</sub> = a<sub>1</sub>(1−r<sup>n</sup>)/(1−r)</div>
+            <div class="formula-math">Sₙ = a₁(1−rⁿ)/(1−r)</div>
             <div class="formula-note">Use when r is a fraction less than 1</div>
           </div>
           <div class="formula-item">
             <div class="formula-name">Finite Sum (r &gt; 1)</div>
-            <div class="formula-math">S<sub>n</sub> = a<sub>1</sub>(r<sup>n</sup>−1)/(r−1)</div>
+            <div class="formula-math">Sₙ = a₁(rⁿ−1)/(r−1)</div>
             <div class="formula-note">Use when r is greater than 1</div>
           </div>
           <div class="formula-item">
             <div class="formula-name">Special Case r = 1</div>
-            <div class="formula-math">S<sub>n</sub> = n · a<sub>1</sub></div>
-            <div class="formula-note">All terms are equal to a<sub>1</sub></div>
+            <div class="formula-math">Sₙ = n · a₁</div>
+            <div class="formula-note">All terms are equal to a₁</div>
           </div>
           <div class="formula-item">
             <div class="formula-name">Infinite Sum</div>
-            <div class="formula-math">S∞ = a<sub>1</sub>/(1−r)</div>
+            <div class="formula-math">S∞ = a₁/(1−r)</div>
             <div class="formula-note">Only valid when |r| &lt; 1</div>
           </div>
           <div class="formula-item">
@@ -381,7 +381,7 @@
           <div class="formula-item">
             <div class="formula-name">Repeating Decimal</div>
             <div class="formula-math">0.ddd... = d/9</div>
-            <div class="formula-note">Use S∞ with a<sub>1</sub>=0.d, r=0.1</div>
+            <div class="formula-note">Use S∞ with a₁=0.d, r=0.1</div>
           </div>
         </div>
       </div>
@@ -404,14 +404,14 @@
         </div>
         <div class="example-body">
           <div class="example-problem"><strong>Problem:</strong> Find the sum of the first 6 terms of the geometric series 2 + 6 + 18 + 54 + ...</div>
-          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a<sub>1</sub> = 2, &nbsp; r = 3, &nbsp; n = 6</span></div></div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a₁ = 2, &nbsp; r = 3, &nbsp; n = 6</span></div></div>
           <div class="example-step">
             <span class="step-badge">Apply</span>
-            <div class="step-text">Since r = 3 &gt; 1, use S<sub>n</sub> = a<sub>1</sub>(r<sup>n</sup>−1)/(r−1):<br>
-              <span class="math">S<sub>6</sub> = 2(3<sup>6</sup> − 1)/(3 − 1) = 2(729 − 1)/2 = 728</span>
+            <div class="step-text">Since r = 3 &gt; 1, use Sₙ = a₁(rⁿ−1)/(r−1):<br>
+              <span class="math">S₆ = 2(3⁶ − 1)/(3 − 1) = 2(729 − 1)/2 = 728</span>
             </div>
           </div>
-          <div class="example-answer">✅ S<sub>6</sub> = <strong>728</strong></div>
+          <div class="example-answer">✅ S₆ = <strong>728</strong></div>
         </div>
       </div>
 
@@ -422,16 +422,16 @@
         </div>
         <div class="example-body">
           <div class="example-problem"><strong>Problem:</strong> Find the sum of the first 5 terms of 16 + 8 + 4 + 2 + ...</div>
-          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a<sub>1</sub> = 16, &nbsp; r = 1/2, &nbsp; n = 5</span></div></div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a₁ = 16, &nbsp; r = 1/2, &nbsp; n = 5</span></div></div>
           <div class="example-step">
             <span class="step-badge">Apply</span>
-            <div class="step-text">Since r = 1/2 &lt; 1, use S<sub>n</sub> = a<sub>1</sub>(1−r<sup>n</sup>)/(1−r):<br>
-              <span class="math">S<sub>5</sub> = 16(1 − (1/2)<sup>5</sup>)/(1 − 1/2)</span><br>
+            <div class="step-text">Since r = 1/2 &lt; 1, use Sₙ = a₁(1−rⁿ)/(1−r):<br>
+              <span class="math">S₅ = 16(1 − (1/2)⁵)/(1 − 1/2)</span><br>
               <span class="math">= 16(1 − 1/32)/(1/2)</span><br>
               <span class="math">= 16 · (31/32) · 2 = 16 · 31/16 = 31</span>
             </div>
           </div>
-          <div class="example-answer">✅ S<sub>5</sub> = <strong>31</strong> — Verify: 16+8+4+2+1 = 31 ✓</div>
+          <div class="example-answer">✅ S₅ = <strong>31</strong> — Verify: 16+8+4+2+1 = 31 ✓</div>
         </div>
       </div>
 
@@ -442,12 +442,12 @@
         </div>
         <div class="example-body">
           <div class="example-problem"><strong>Problem:</strong> Find the sum of the infinite series: 12 + 4 + 4/3 + 4/9 + ...</div>
-          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a<sub>1</sub> = 12, &nbsp; r = 4/12 = 1/3</span></div></div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text"><span class="math">a₁ = 12, &nbsp; r = 4/12 = 1/3</span></div></div>
           <div class="example-step"><span class="step-badge">Check</span><div class="step-text">|r| = 1/3 &lt; 1 ✓ — series converges</div></div>
           <div class="example-step">
             <span class="step-badge">Apply</span>
             <div class="step-text">
-              <span class="math">S∞ = a<sub>1</sub>/(1−r) = 12/(1 − 1/3) = 12/(2/3) = 12 × 3/2 = 18</span>
+              <span class="math">S∞ = a₁/(1−r) = 12/(1 − 1/3) = 12/(2/3) = 12 × 3/2 = 18</span>
             </div>
           </div>
           <div class="example-answer">✅ S∞ = <strong>18</strong></div>
@@ -469,7 +469,7 @@
           </div>
           <div class="example-step">
             <span class="step-badge">Step 2</span>
-            <div class="step-text">Identify: <span class="math">a<sub>1</sub> = 0.27, &nbsp; r = 0.01</span><br>
+            <div class="step-text">Identify: <span class="math">a₁ = 0.27, &nbsp; r = 0.01</span><br>
               |r| = 0.01 &lt; 1 ✓ — converges
             </div>
           </div>
@@ -494,7 +494,7 @@
             <span class="step-badge">Step 1</span>
             <div class="step-text">The ball falls 10m, then bounces up and down repeatedly.<br>
               Total distance = 10 (first fall) + 2 × (sum of all bounce heights)<br>
-              Each bounce: heights are 6, 3.6, 2.16, ... (geometric with a<sub>1</sub>=6, r=3/5)
+              Each bounce: heights are 6, 3.6, 2.16, ... (geometric with a₁=6, r=3/5)
             </div>
           </div>
           <div class="example-step">
@@ -642,13 +642,13 @@
       <div class="summary-card">
         <div class="summary-title">✅ Key Points — Geometric Series</div>
         <ul class="summary-list">
-          <li>A geometric series is the sum of a geometric sequence: S<sub>n</sub> = a<sub>1</sub> + a<sub>1</sub>r + a<sub>1</sub>r<sup>2</sup> + ... + a<sub>1</sub>r<sup>n-1</sup></li>
-          <li>Finite sum formula: <strong>S<sub>n</sub> = a<sub>1</sub>(1−r<sup>n</sup>)/(1−r)</strong> for r ≠ 1, or a<sub>1</sub>(r<sup>n</sup>−1)/(r−1) when r &gt; 1.</li>
-          <li>When r = 1, all terms are equal: S<sub>n</sub> = n·a<sub>1</sub>.</li>
+          <li>A geometric series is the sum of a geometric sequence: Sₙ = a₁ + a₁r + a₁r² + ... + a₁rⁿ⁻¹</li>
+          <li>Finite sum formula: <strong>Sₙ = a₁(1−rⁿ)/(1−r)</strong> for r ≠ 1, or a₁(rⁿ−1)/(r−1) when r &gt; 1.</li>
+          <li>When r = 1, all terms are equal: Sₙ = n·a₁.</li>
           <li>An infinite geometric series converges only when <strong>|r| &lt; 1</strong>.</li>
-          <li>Infinite sum formula: <strong>S∞ = a<sub>1</sub>/(1−r)</strong> — only apply when |r| &lt; 1.</li>
+          <li>Infinite sum formula: <strong>S∞ = a₁/(1−r)</strong> — only apply when |r| &lt; 1.</li>
           <li>Every repeating decimal is an infinite geometric series and can be converted to a fraction.</li>
-          <li>For repeating decimals: use a<sub>1</sub> = first repeating block as decimal, r = 10<sup>-</sup>ᵏ where k = length of block.</li>
+          <li>For repeating decimals: use a₁ = first repeating block as decimal, r = 10⁻ᵏ where k = length of block.</li>
           <li>Always check convergence before applying S∞. If |r| ≥ 1 the series has no finite sum.</li>
         </ul>
       </div>

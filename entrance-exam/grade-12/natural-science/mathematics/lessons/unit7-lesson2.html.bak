@@ -398,23 +398,23 @@
       <div class="example-card">
         <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Proof by Contrapositive — Odd Product</span></div>
         <div class="example-body">
-          <div class="example-problem"><strong>Prove:</strong> If n<sup>2</sup> is even, then n is even. (Equivalently: if n is odd, then n<sup>2</sup> is odd.)</div>
+          <div class="example-problem"><strong>Prove:</strong> If n² is even, then n is even. (Equivalently: if n is odd, then n² is odd.)</div>
           <div class="example-step"><span class="step-badge">Strategy</span>
-            <div class="step-text">Proving directly is hard — we do not know what form n takes when n<sup>2</sup> is even. Use contrapositive: prove "if n is odd then n<sup>2</sup> is odd."</div>
+            <div class="step-text">Proving directly is hard — we do not know what form n takes when n² is even. Use contrapositive: prove "if n is odd then n² is odd."</div>
           </div>
           <div class="example-step"><span class="step-badge">Assume ¬q</span>
             <div class="step-text">Assume n is odd. Then <span class="math">n = 2k + 1</span> for some integer k.</div>
           </div>
           <div class="example-step"><span class="step-badge">Derive ¬p</span>
             <div class="step-text">
-              <span class="math">n<sup>2</sup> = (2k+1)<sup>2</sup> = 4k<sup>2</sup> + 4k + 1 = 2(2k<sup>2</sup>+2k) + 1</span><br>
-              Since 2k<sup>2</sup>+2k is an integer, n<sup>2</sup> = 2(integer) + 1, which is odd.
+              <span class="math">n² = (2k+1)² = 4k² + 4k + 1 = 2(2k²+2k) + 1</span><br>
+              Since 2k²+2k is an integer, n² = 2(integer) + 1, which is odd.
             </div>
           </div>
           <div class="proof-block">
-            <strong>Proof (contrapositive).</strong> Assume n is odd; write n = 2k+1. Then n<sup>2</sup> = 4k<sup>2</sup>+4k+1 = 2(2k<sup>2</sup>+2k)+1, which is odd. Thus if n is odd, n<sup>2</sup> is odd — equivalently, if n<sup>2</sup> is even, n is even. <span class="qed">□</span>
+            <strong>Proof (contrapositive).</strong> Assume n is odd; write n = 2k+1. Then n² = 4k²+4k+1 = 2(2k²+2k)+1, which is odd. Thus if n is odd, n² is odd — equivalently, if n² is even, n is even. <span class="qed">□</span>
           </div>
-          <div class="example-answer">✅ Contrapositive proof: if n<sup>2</sup> is even then n is even.</div>
+          <div class="example-answer">✅ Contrapositive proof: if n² is even then n is even.</div>
         </div>
       </div>
 
@@ -426,18 +426,18 @@
             <div class="step-text">Assume for contradiction that √2 is rational. Then <span class="math">√2 = a/b</span> where a, b are integers with no common factor (fraction in lowest terms) and b ≠ 0.</div>
           </div>
           <div class="example-step"><span class="step-badge">Derive</span>
-            <div class="step-text">Squaring both sides: <span class="math">2 = a<sup>2</sup>/b<sup>2</sup></span>, so <span class="math">a<sup>2</sup> = 2b<sup>2</sup></span>.<br>
-              This means a<sup>2</sup> is even, so a is even (by Example 2). Write <span class="math">a = 2k</span>.
+            <div class="step-text">Squaring both sides: <span class="math">2 = a²/b²</span>, so <span class="math">a² = 2b²</span>.<br>
+              This means a² is even, so a is even (by Example 2). Write <span class="math">a = 2k</span>.
             </div>
           </div>
           <div class="example-step"><span class="step-badge">Contradiction</span>
-            <div class="step-text">Substitute: <span class="math">(2k)<sup>2</sup> = 2b<sup>2</sup></span> → <span class="math">4k<sup>2</sup> = 2b<sup>2</sup></span> → <span class="math">b<sup>2</sup> = 2k<sup>2</sup></span>.<br>
-              So b<sup>2</sup> is even, meaning b is even.<br>
+            <div class="step-text">Substitute: <span class="math">(2k)² = 2b²</span> → <span class="math">4k² = 2b²</span> → <span class="math">b² = 2k²</span>.<br>
+              So b² is even, meaning b is even.<br>
               But now both a and b are even — they share factor 2. This contradicts our assumption that a/b was in lowest terms.
             </div>
           </div>
           <div class="proof-block">
-            <strong>Proof.</strong> Assume √2 = a/b in lowest terms. Then a<sup>2</sup> = 2b<sup>2</sup>, so a is even; write a = 2k. Then 4k<sup>2</sup> = 2b<sup>2</sup>, giving b<sup>2</sup> = 2k<sup>2</sup>, so b is even. Both a and b even contradicts lowest terms. ∴ √2 is irrational. <span class="qed">□</span>
+            <strong>Proof.</strong> Assume √2 = a/b in lowest terms. Then a² = 2b², so a is even; write a = 2k. Then 4k² = 2b², giving b² = 2k², so b is even. Both a and b even contradicts lowest terms. ∴ √2 is irrational. <span class="qed">□</span>
           </div>
           <div class="example-answer">✅ Proof by contradiction: √2 is irrational.</div>
         </div>
@@ -464,7 +464,7 @@
             </div>
           </div>
           <div class="proof-block">
-            <strong>Proof by induction.</strong> Base: n=1 gives 1=1(2)/2=1 ✓. Hypothesis: assume Σ<sub>i=1</sub>ᵏ i = k(k+1)/2. Step: Σ<sub>i=1</sub>ᵏ<sup>+1</sup> i = k(k+1)/2 + (k+1) = (k+1)(k+2)/2. By induction, the formula holds for all n ≥ 1. <span class="qed">□</span>
+            <strong>Proof by induction.</strong> Base: n=1 gives 1=1(2)/2=1 ✓. Hypothesis: assume Σᵢ₌₁ᵏ i = k(k+1)/2. Step: Σᵢ₌₁ᵏ⁺¹ i = k(k+1)/2 + (k+1) = (k+1)(k+2)/2. By induction, the formula holds for all n ≥ 1. <span class="qed">□</span>
           </div>
           <div class="example-answer">✅ By induction: 1+2+…+n = n(n+1)/2 for all positive integers n.</div>
         </div>
@@ -473,23 +473,23 @@
       <div class="example-card">
         <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Counterexample — Disproving a Statement</span></div>
         <div class="example-body">
-          <div class="example-problem"><strong>Disprove:</strong> "For all integers n, n<sup>2</sup> + n + 41 is prime."</div>
+          <div class="example-problem"><strong>Disprove:</strong> "For all integers n, n² + n + 41 is prime."</div>
           <div class="example-step"><span class="step-badge">Strategy</span>
-            <div class="step-text">This formula gives primes for many values (n = 0 to 39). To disprove it, we need just one value of n where n<sup>2</sup> + n + 41 is NOT prime.</div>
+            <div class="step-text">This formula gives primes for many values (n = 0 to 39). To disprove it, we need just one value of n where n² + n + 41 is NOT prime.</div>
           </div>
           <div class="example-step"><span class="step-badge">Try n = 40</span>
             <div class="step-text">
-              <span class="math">40<sup>2</sup> + 40 + 41 = 1600 + 40 + 41 = 1681</span><br>
-              Is 1681 prime? <span class="math">1681 = 41 × 41 = 41<sup>2</sup></span> — not prime.
+              <span class="math">40² + 40 + 41 = 1600 + 40 + 41 = 1681</span><br>
+              Is 1681 prime? <span class="math">1681 = 41 × 41 = 41²</span> — not prime.
             </div>
           </div>
           <div class="example-step"><span class="step-badge">Conclusion</span>
-            <div class="step-text">Since n<sup>2</sup> + n + 41 = 1681 = 41<sup>2</sup> is composite when n = 40, the statement "n<sup>2</sup> + n + 41 is prime for all integers n" is <strong>false</strong>.</div>
+            <div class="step-text">Since n² + n + 41 = 1681 = 41² is composite when n = 40, the statement "n² + n + 41 is prime for all integers n" is <strong>false</strong>.</div>
           </div>
           <div class="proof-block">
-            <strong>Counterexample.</strong> Take n = 40: n<sup>2</sup>+n+41 = 1681 = 41<sup>2</sup>, which is not prime. The statement is disproved. <span class="qed">□</span>
+            <strong>Counterexample.</strong> Take n = 40: n²+n+41 = 1681 = 41², which is not prime. The statement is disproved. <span class="qed">□</span>
           </div>
-          <div class="example-answer">✅ Counterexample: n = 40 gives 41<sup>2</sup>, which is not prime. Statement disproved.</div>
+          <div class="example-answer">✅ Counterexample: n = 40 gives 41², which is not prime. Statement disproved.</div>
         </div>
       </div>
 
@@ -555,12 +555,12 @@
 
       <div class="quiz-card" id="q5">
         <div class="quiz-num">Question 5 of 5</div>
-        <div class="quiz-question">Using induction, what is the base case for proving "2<sup>n</sup> > n for all n ≥ 1"?</div>
+        <div class="quiz-question">Using induction, what is the base case for proving "2ⁿ > n for all n ≥ 1"?</div>
         <div class="quiz-options">
-          <div class="quiz-option" onclick="answer(5,'A','A')"><div class="option-letter">A</div> n=1: 2<sup>1</sup> = 2 > 1 ✓</div>
-          <div class="quiz-option" onclick="answer(5,'B','A')"><div class="option-letter">B</div> n=0: 2<sup>0</sup> = 1 > 0 ✓</div>
+          <div class="quiz-option" onclick="answer(5,'A','A')"><div class="option-letter">A</div> n=1: 2¹ = 2 > 1 ✓</div>
+          <div class="quiz-option" onclick="answer(5,'B','A')"><div class="option-letter">B</div> n=0: 2⁰ = 1 > 0 ✓</div>
           <div class="quiz-option" onclick="answer(5,'C','A')"><div class="option-letter">C</div> Assume 2ᵏ > k for some k</div>
-          <div class="quiz-option" onclick="answer(5,'D','A')"><div class="option-letter">D</div> Show 2ᵏ<sup>+1</sup> > k+1</div>
+          <div class="quiz-option" onclick="answer(5,'D','A')"><div class="option-letter">D</div> Show 2ᵏ⁺¹ > k+1</div>
         </div>
         <div class="quiz-feedback" id="q5-feedback"></div>
       </div>

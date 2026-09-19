@@ -229,7 +229,7 @@
       <div class="content-box">
         <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Understanding Limits Numerically</h3>
         <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
-          Consider f(x) = (x² − 1)/(x − 1). What happens as x → 1?<br>
+          Consider f(x) = (x<sup>2</sup> − 1)/(x − 1). What happens as x → 1?<br>
           Note: f(1) is undefined (division by zero). But we can approach from both sides:
         </p>
         <table class="limit-table">
@@ -269,7 +269,7 @@
           </tbody>
         </table>
         <p style="font-size:.875rem;color:var(--text-muted)">
-          From both sides, f(x) → 2. Therefore <strong>lim(x→1) (x²−1)/(x−1) = 2</strong>, even though f(1) is undefined.
+          From both sides, f(x) → 2. Therefore <strong>lim(x→1) (x<sup>2</sup>−1)/(x−1) = 2</strong>, even though f(1) is undefined.
         </p>
         <div class="note-box">
           <div class="note-label">⚠ Key Insight</div>
@@ -284,7 +284,7 @@
         </p>
         <div class="math-display">If f is continuous at a, then lim(x→a) f(x) = f(a)</div>
         <p style="font-size:.875rem;color:var(--text-muted)">
-          Example: lim(x→3) (x² + 2x − 1) = 3² + 2(3) − 1 = 9 + 6 − 1 = <strong>14</strong>
+          Example: lim(x→3) (x<sup>2</sup> + 2x − 1) = 3<sup>2</sup> + 2(3) − 1 = 9 + 6 − 1 = <strong>14</strong>
         </p>
         <div class="note-box">
           <div class="note-label">⚠ When Direct Substitution Fails</div>
@@ -298,7 +298,7 @@
           When direct substitution gives 0/0, factor the numerator or denominator, cancel common factors, then substitute:
         </p>
         <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem 1.25rem;font-family:'Georgia',serif;font-size:.9rem;line-height:1.9;margin-bottom:.75rem">
-          lim(x→1) (x²−1)/(x−1)<br>
+          lim(x→1) (x<sup>2</sup>−1)/(x−1)<br>
           = lim(x→1) (x+1)(x−1)/(x−1) &nbsp;&nbsp; ← factor numerator<br>
           = lim(x→1) (x+1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;← cancel (x−1), x≠1<br>
           = 1 + 1 = <strong style="color:var(--brand-primary)">2</strong>
@@ -332,10 +332,10 @@
         <div class="definition-box">
           <div class="def-label">Key Rules for Limits at Infinity</div>
           <p>
-            • lim(x→∞) 1/xⁿ = 0 for any n &gt; 0<br>
+            • lim(x→∞) 1/x<sup>n</sup> = 0 for any n &gt; 0<br>
             • lim(x→∞) c = c (constant stays constant)<br>
             • For rational functions: divide numerator and denominator by highest power of x in denominator<br><br>
-            Example: lim(x→∞) (3x²+2)/(x²−1) = lim (3+2/x²)/(1−1/x²) = 3/1 = <strong>3</strong>
+            Example: lim(x→∞) (3x<sup>2</sup>+2)/(x<sup>2</sup>−1) = lim (3+2/x<sup>2</sup>)/(1−1/x<sup>2</sup>) = 3/1 = <strong>3</strong>
           </p>
         </div>
       </div>
@@ -370,12 +370,12 @@
           </div>
           <div class="formula-item">
             <div class="formula-name">Limit at Infinity</div>
-            <div class="formula-math">lim(x→∞) 1/xⁿ = 0</div>
+            <div class="formula-math">lim(x→∞) 1/x<sup>n</sup> = 0</div>
             <div class="formula-note">Divide by highest power of x</div>
           </div>
           <div class="formula-item">
             <div class="formula-name">Limit DNE</div>
-            <div class="formula-math">L⁻ ≠ L⁺ → no limit</div>
+            <div class="formula-math">L<sup>-</sup> ≠ L<sup>+</sup> → no limit</div>
             <div class="formula-note">Left and right limits must be equal</div>
           </div>
           <div class="formula-item">
@@ -403,15 +403,15 @@
           <span class="example-title">Direct Substitution</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→2) (3x² − 4x + 1)</div>
-          <div class="example-step"><span class="step-badge">Check</span><div class="step-text">f(x) = 3x²−4x+1 is a polynomial — defined everywhere. Use direct substitution.</div></div>
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→2) (3x<sup>2</sup> − 4x + 1)</div>
+          <div class="example-step"><span class="step-badge">Check</span><div class="step-text">f(x) = 3x<sup>2</sup>−4x+1 is a polynomial — defined everywhere. Use direct substitution.</div></div>
           <div class="example-step">
             <span class="step-badge">Substitute</span>
             <div class="step-text">
-              <span class="math">lim(x→2) (3x²−4x+1) = 3(2)²−4(2)+1 = 12−8+1 = 5</span>
+              <span class="math">lim(x→2) (3x<sup>2</sup>−4x+1) = 3(2)<sup>2</sup>−4(2)+1 = 12−8+1 = 5</span>
             </div>
           </div>
-          <div class="example-answer">✅ lim(x→2) (3x²−4x+1) = <strong>5</strong></div>
+          <div class="example-answer">✅ lim(x→2) (3x<sup>2</sup>−4x+1) = <strong>5</strong></div>
         </div>
       </div>
 
@@ -421,7 +421,7 @@
           <span class="example-title">Factoring — 0/0 Form</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→3) (x²−9)/(x−3)</div>
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→3) (x<sup>2</sup>−9)/(x−3)</div>
           <div class="example-step"><span class="step-badge">Check</span><div class="step-text">Substituting x=3: (9−9)/(3−3) = 0/0 — indeterminate. Must factor.</div></div>
           <div class="example-step">
             <span class="step-badge">Factor</span>
@@ -435,7 +435,7 @@
               <span class="math">= lim(x→3) (x+3) = 3+3 = 6</span>
             </div>
           </div>
-          <div class="example-answer">✅ lim(x→3) (x²−9)/(x−3) = <strong>6</strong></div>
+          <div class="example-answer">✅ lim(x→3) (x<sup>2</sup>−9)/(x−3) = <strong>6</strong></div>
         </div>
       </div>
 
@@ -445,22 +445,22 @@
           <span class="example-title">Factoring Cubic Expression</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→2) (x³−8)/(x−2)</div>
-          <div class="example-step"><span class="step-badge">Check</span><div class="step-text">x=2 gives 0/0. Factor using difference of cubes: a³−b³ = (a−b)(a²+ab+b²)</div></div>
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→2) (x<sup>3</sup>−8)/(x−2)</div>
+          <div class="example-step"><span class="step-badge">Check</span><div class="step-text">x=2 gives 0/0. Factor using difference of cubes: a<sup>3</sup>−b<sup>3</sup> = (a−b)(a<sup>2</sup>+ab+b<sup>2</sup>)</div></div>
           <div class="example-step">
             <span class="step-badge">Factor</span>
             <div class="step-text">
-              <span class="math">x³−8 = (x−2)(x²+2x+4)</span><br>
-              <span class="math">= lim(x→2) (x−2)(x²+2x+4)/(x−2)</span>
+              <span class="math">x<sup>3</sup>−8 = (x−2)(x<sup>2</sup>+2x+4)</span><br>
+              <span class="math">= lim(x→2) (x−2)(x<sup>2</sup>+2x+4)/(x−2)</span>
             </div>
           </div>
           <div class="example-step">
             <span class="step-badge">Cancel</span>
             <div class="step-text">
-              <span class="math">= lim(x→2) (x²+2x+4) = 4+4+4 = 12</span>
+              <span class="math">= lim(x→2) (x<sup>2</sup>+2x+4) = 4+4+4 = 12</span>
             </div>
           </div>
-          <div class="example-answer">✅ lim(x→2) (x³−8)/(x−2) = <strong>12</strong></div>
+          <div class="example-answer">✅ lim(x→2) (x<sup>3</sup>−8)/(x−2) = <strong>12</strong></div>
         </div>
       </div>
 
@@ -470,21 +470,21 @@
           <span class="example-title">Limit at Infinity</span>
         </div>
         <div class="example-body">
-          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→∞) (5x² + 3x)/(2x² − 7)</div>
-          <div class="example-step"><span class="step-badge">Strategy</span><div class="step-text">Divide every term by x² (highest power in denominator)</div></div>
+          <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→∞) (5x<sup>2</sup> + 3x)/(2x<sup>2</sup> − 7)</div>
+          <div class="example-step"><span class="step-badge">Strategy</span><div class="step-text">Divide every term by x<sup>2</sup> (highest power in denominator)</div></div>
           <div class="example-step">
             <span class="step-badge">Divide</span>
             <div class="step-text">
-              <span class="math">= lim(x→∞) (5 + 3/x)/(2 − 7/x²)</span>
+              <span class="math">= lim(x→∞) (5 + 3/x)/(2 − 7/x<sup>2</sup>)</span>
             </div>
           </div>
           <div class="example-step">
             <span class="step-badge">Apply</span>
-            <div class="step-text">As x→∞: 3/x → 0 and 7/x² → 0<br>
+            <div class="step-text">As x→∞: 3/x → 0 and 7/x<sup>2</sup> → 0<br>
               <span class="math">= (5 + 0)/(2 − 0) = 5/2</span>
             </div>
           </div>
-          <div class="example-answer">✅ lim(x→∞) (5x²+3x)/(2x²−7) = <strong>5/2</strong></div>
+          <div class="example-answer">✅ lim(x→∞) (5x<sup>2</sup>+3x)/(2x<sup>2</sup>−7) = <strong>5/2</strong></div>
         </div>
       </div>
 
@@ -497,11 +497,11 @@
           <div class="example-problem"><strong>Problem:</strong> Evaluate lim(x→0) |x|/x</div>
           <div class="example-step">
             <span class="step-badge">Left side</span>
-            <div class="step-text">As x→0⁻ (x is negative): |x| = −x, so |x|/x = −x/x = <span class="math">−1</span></div>
+            <div class="step-text">As x→0<sup>-</sup> (x is negative): |x| = −x, so |x|/x = −x/x = <span class="math">−1</span></div>
           </div>
           <div class="example-step">
             <span class="step-badge">Right side</span>
-            <div class="step-text">As x→0⁺ (x is positive): |x| = x, so |x|/x = x/x = <span class="math">+1</span></div>
+            <div class="step-text">As x→0<sup>+</sup> (x is positive): |x| = x, so |x|/x = x/x = <span class="math">+1</span></div>
           </div>
           <div class="example-step">
             <span class="step-badge">Compare</span>
@@ -525,7 +525,7 @@
 
       <div class="quiz-card" id="q1">
         <div class="quiz-num">Question 1 of 5</div>
-        <div class="quiz-question">Evaluate lim(x→4) (x² − 2x + 3)</div>
+        <div class="quiz-question">Evaluate lim(x→4) (x<sup>2</sup> − 2x + 3)</div>
         <div class="quiz-options">
           <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div>9</div>
           <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div>10</div>
@@ -537,7 +537,7 @@
 
       <div class="quiz-card" id="q2">
         <div class="quiz-num">Question 2 of 5</div>
-        <div class="quiz-question">Evaluate lim(x→5) (x²−25)/(x−5)</div>
+        <div class="quiz-question">Evaluate lim(x→5) (x<sup>2</sup>−25)/(x−5)</div>
         <div class="quiz-options">
           <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div>5</div>
           <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div>0</div>
@@ -549,7 +549,7 @@
 
       <div class="quiz-card" id="q3">
         <div class="quiz-num">Question 3 of 5</div>
-        <div class="quiz-question">What is lim(x→∞) (2x³ + 5)/(4x³ − 1)?</div>
+        <div class="quiz-question">What is lim(x→∞) (2x<sup>3</sup> + 5)/(4x<sup>3</sup> − 1)?</div>
         <div class="quiz-options">
           <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div>0</div>
           <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div>1/2</div>
@@ -561,7 +561,7 @@
 
       <div class="quiz-card" id="q4">
         <div class="quiz-num">Question 4 of 5</div>
-        <div class="quiz-question">Evaluate lim(x→−2) (x²+5x+6)/(x+2)</div>
+        <div class="quiz-question">Evaluate lim(x→−2) (x<sup>2</sup>+5x+6)/(x+2)</div>
         <div class="quiz-options">
           <div class="quiz-option" onclick="answer(4,'A','A')"><div class="option-letter">A</div>1</div>
           <div class="quiz-option" onclick="answer(4,'B','A')"><div class="option-letter">B</div>−1</div>
