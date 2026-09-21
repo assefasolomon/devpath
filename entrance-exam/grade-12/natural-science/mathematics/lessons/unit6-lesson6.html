@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 6: Vectors in Space | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .unit-complete-banner{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem;text-align:center;margin-top:2rem;color:#fff}
+    .unit-complete-banner h3{font-size:1.4rem;font-weight:900;margin-bottom:.5rem}
+    .unit-complete-banner p{color:rgba(255,255,255,.75);font-size:.9rem;margin-bottom:1.25rem}
+    .diagram-wrap{text-align:center;margin:.875rem 0}
+    .diagram-wrap svg{max-width:100%;height:auto}
+    .ops-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:.875rem 0}
+    .op-card{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.1rem}
+    .op-name{font-size:.82rem;font-weight:700;color:var(--brand-primary);margin-bottom:.35rem}
+    .op-formula{font-family:Georgia,serif;font-size:.95rem;color:var(--heading);font-weight:600;margin-bottom:.35rem}
+    .op-note{font-size:.75rem;color:var(--text-muted);line-height:1.5}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 6 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 6 Lessons</div>
+      <a href="unit6-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Coordinate Axes and Planes ✓</a>
+      <a href="unit6-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Coordinates of a Point ✓</a>
+      <a href="unit6-lesson3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Distance in Space ✓</a>
+      <a href="unit6-lesson4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Midpoint in Space ✓</a>
+      <a href="unit6-lesson5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Equation of a Sphere ✓</a>
+      <a href="unit6-lesson6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Vectors in Space</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 6 Complete!</div>
+      <a href="../index.html" class="sidebar-link"><div class="sidebar-dot"></div> Back to Course Index</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 6 · Lesson 6
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 6 · Three Dimensional Geometry and Vectors in Space · Final Lesson</div>
+      <h1>➡️ Vectors in Space</h1>
+      <p>Extend vectors from the plane into three dimensions. Define 3D vectors using ordered triples, perform vector addition, scalar multiplication and compute magnitude. Master the dot product to find angles between vectors — a key entrance exam topic.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          A vector has both <strong>magnitude</strong> (size) and <strong>direction</strong>. In 2D, a vector is an ordered pair (a, b). In 3D, it becomes an ordered triple <strong>(a, b, c)</strong> — three components, one for each axis. The same operations (addition, scalar multiplication, dot product) extend naturally from 2D to 3D.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Represent a 3D vector as an ordered triple <strong>v = (a, b, c)</strong> or as <strong>aî + bĵ + ck̂</strong></li>
+          <li>Find the vector from point P₁ to point P₂: <strong>P₁P₂ = (x₂−x₁, y₂−y₁, z₂−z₁)</strong></li>
+          <li>Perform <strong>vector addition</strong>, <strong>subtraction</strong> and <strong>scalar multiplication</strong></li>
+          <li>Compute the <strong>magnitude</strong> (length): |v| = √(a²+b²+c²)</li>
+          <li>Find a <strong>unit vector</strong> in the direction of v</li>
+          <li>Compute the <strong>dot product</strong> and use it to find the angle between two vectors</li>
+          <li>Determine whether two vectors are <strong>perpendicular</strong> (dot product = 0) or <strong>parallel</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with visual aids</div>
+        </div>
+      </div>
+
+      <!-- 2.1 Vector representation -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Representing a Vector in Space</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 3D Vector</div>
+          <p>
+            A <strong>vector in space</strong> is an ordered triple of real numbers:<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">v = (a, b, c) = aî + bĵ + ck̂</strong><br><br>
+            where <strong>î = (1,0,0)</strong>, <strong>ĵ = (0,1,0)</strong> and <strong>k̂ = (0,0,1)</strong> are the standard unit vectors along the x, y and z axes respectively. The numbers a, b, c are called the <strong>components</strong> of v.
+          </p>
+        </div>
+
+        <!-- Vector diagram -->
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="max-width:400px">
+            <defs>
+              <marker id="vx" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#14532D"/></marker>
+              <marker id="vy" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#2563EB"/></marker>
+              <marker id="vz" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#DC2626"/></marker>
+              <marker id="vv" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#14532D"/></marker>
+            </defs>
+            <!-- axes -->
+            <line x1="80" y1="220" x2="300" y2="220" stroke="#14532D" stroke-width="1.5" marker-end="url(#vx)"/>
+            <line x1="80" y1="220" x2="30"  y2="268" stroke="#2563EB" stroke-width="1.5" marker-end="url(#vy)"/>
+            <line x1="80" y1="220" x2="80"  y2="50"  stroke="#DC2626" stroke-width="1.5" marker-end="url(#vz)"/>
+            <text x="308" y="224" font-size="12" fill="#14532D" font-family="sans-serif">x</text>
+            <text x="22"  y="275" font-size="12" fill="#2563EB" font-family="sans-serif">y</text>
+            <text x="85"  y="42"  font-size="12" fill="#DC2626" font-family="sans-serif">z</text>
+            <!-- vector v from origin -->
+            <line x1="80" y1="220" x2="290" y2="90" stroke="#14532D" stroke-width="3" marker-end="url(#vv)"/>
+            <!-- component dashes -->
+            <line x1="80"  y1="220" x2="240" y2="220" stroke="#14532D" stroke-width="1" stroke-dasharray="5,3"/>
+            <line x1="240" y1="220" x2="200" y2="248" stroke="#2563EB" stroke-width="1" stroke-dasharray="5,3"/>
+            <line x1="200" y1="248" x2="200" y2="90"  stroke="#DC2626" stroke-width="1" stroke-dasharray="5,3"/>
+            <line x1="200" y1="90"  x2="290" y2="90"  stroke="#14532D" stroke-width="1" stroke-dasharray="5,3" opacity=".4"/>
+            <!-- labels -->
+            <text x="155" y="215" font-size="10" fill="#14532D" font-family="sans-serif">a (x-comp)</text>
+            <text x="205" y="255" font-size="10" fill="#2563EB" font-family="sans-serif">b</text>
+            <text x="205" y="170" font-size="10" fill="#DC2626" font-family="sans-serif">c (z-comp)</text>
+            <text x="292" y="88" font-size="12" fill="#14532D" font-weight="700" font-family="sans-serif">v</text>
+            <circle cx="80" cy="220" r="3" fill="#0F172A"/>
+            <text x="60" y="236" font-size="11" fill="#64748B" font-family="sans-serif">O</text>
+          </svg>
+          <p style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">Vector v = (a, b, c) from the origin, with components along each axis.</p>
+        </div>
+
+        <div class="definition-box" style="margin-top:.875rem">
+          <div class="def-label">📌 Vector from P₁ to P₂</div>
+          <p>
+            Given two points P₁(x₁, y₁, z₁) and P₂(x₂, y₂, z₂), the vector from P₁ to P₂ is:<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">P₁P₂ = (x₂−x₁, y₂−y₁, z₂−z₁)</strong><br><br>
+            The magnitude of this vector equals the distance between P₁ and P₂.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.2 Operations -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Vector Operations</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Let <strong>u = (u₁, u₂, u₃)</strong> and <strong>v = (v₁, v₂, v₃)</strong> and let k be a scalar:
+        </p>
+
+        <div class="ops-grid">
+          <div class="op-card">
+            <div class="op-name">Addition</div>
+            <div class="op-formula">u + v = (u₁+v₁, u₂+v₂, u₃+v₃)</div>
+            <div class="op-note">Add corresponding components</div>
+          </div>
+          <div class="op-card">
+            <div class="op-name">Subtraction</div>
+            <div class="op-formula">u − v = (u₁−v₁, u₂−v₂, u₃−v₃)</div>
+            <div class="op-note">Subtract corresponding components</div>
+          </div>
+          <div class="op-card">
+            <div class="op-name">Scalar Multiplication</div>
+            <div class="op-formula">k·v = (kv₁, kv₂, kv₃)</div>
+            <div class="op-note">Multiply every component by k</div>
+          </div>
+          <div class="op-card">
+            <div class="op-name">Zero Vector</div>
+            <div class="op-formula">0 = (0, 0, 0)</div>
+            <div class="op-note">v + 0 = v for any vector v</div>
+          </div>
+          <div class="op-card">
+            <div class="op-name">Negative Vector</div>
+            <div class="op-formula">−v = (−v₁, −v₂, −v₃)</div>
+            <div class="op-note">v + (−v) = 0</div>
+          </div>
+          <div class="op-card">
+            <div class="op-name">Equality</div>
+            <div class="op-formula">u = v iff u₁=v₁, u₂=v₂, u₃=v₃</div>
+            <div class="op-note">All three components must match</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.3 Magnitude and unit vector -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Magnitude and Unit Vector</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Magnitude (Length) of a Vector</div>
+          <p>
+            The <strong>magnitude</strong> of v = (a, b, c) is:<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.1rem">|v| = √(a² + b² + c²)</strong><br><br>
+            This is identical to the distance from the origin to the point (a, b, c).
+          </p>
+        </div>
+
+        <div class="definition-box" style="margin-top:.875rem">
+          <div class="def-label">📌 Unit Vector</div>
+          <p>
+            A <strong>unit vector</strong> has magnitude 1. The unit vector in the direction of v is:<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.1rem">û = v / |v| = (a/|v|, b/|v|, c/|v|)</strong><br><br>
+            Divide every component by the magnitude. A unit vector preserves direction but has length 1.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Standard unit vectors</div>
+          <p>î = (1,0,0), ĵ = (0,1,0), k̂ = (0,0,1) are the three standard unit vectors. Every vector v = (a,b,c) can be written as v = aî + bĵ + ck̂. Each has magnitude 1 and they are mutually perpendicular.</p>
+        </div>
+      </div>
+
+      <!-- 2.4 Dot product -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 The Dot Product</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The <strong>dot product</strong> (scalar product) of two vectors gives a <em>number</em>, not a vector. It connects the algebraic components to the geometric angle between the vectors.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Dot Product — Algebraic Definition</div>
+          <p>
+            For u = (u₁, u₂, u₃) and v = (v₁, v₂, v₃):<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.1rem">u · v = u₁v₁ + u₂v₂ + u₃v₃</strong><br><br>
+            Multiply corresponding components and add. The result is a scalar (number).
+          </p>
+        </div>
+
+        <div class="definition-box" style="margin-top:.875rem">
+          <div class="def-label">📌 Dot Product — Geometric Definition (Angle Formula)</div>
+          <p>
+            If θ is the angle between u and v (0° ≤ θ ≤ 180°):<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.1rem">u · v = |u| |v| cos θ</strong><br><br>
+            Rearranging to find the angle:<br><br>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">cos θ = (u · v) / (|u| |v|)</strong><br><br>
+            Then θ = cos⁻¹((u · v) / (|u| |v|))
+          </p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.875rem">
+          <div style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.4rem">Perpendicular Vectors</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;color:var(--brand-primary);font-weight:700;margin-bottom:.35rem">u · v = 0</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">cos 90° = 0. If dot product is zero, vectors are perpendicular.</div>
+          </div>
+          <div style="background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.78rem;font-weight:700;color:#1E40AF;text-transform:uppercase;margin-bottom:.4rem">Parallel Vectors</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;color:#1E40AF;font-weight:700;margin-bottom:.35rem">u = k·v for some scalar k</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Or |u·v| = |u||v| (cos θ = ±1, θ = 0° or 180°).</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">📝 Properties of the dot product</div>
+          <p>
+            u·v = v·u (commutative) &nbsp;|&nbsp;
+            u·(v+w) = u·v + u·w (distributive) &nbsp;|&nbsp;
+            k(u·v) = (ku)·v &nbsp;|&nbsp;
+            v·v = |v|² &nbsp;|&nbsp;
+            î·î = ĵ·ĵ = k̂·k̂ = 1 &nbsp;|&nbsp;
+            î·ĵ = î·k̂ = ĵ·k̂ = 0
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Key formulas — memorize these for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">➡️ Lesson 6 — Vectors in Space</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Vector Notation</div>
+            <div class="formula-math">v = (a, b, c) = aî+bĵ+ck̂</div>
+            <div class="formula-note">Three components, one per axis</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Vector P₁→P₂</div>
+            <div class="formula-math">(x₂−x₁, y₂−y₁, z₂−z₁)</div>
+            <div class="formula-note">Subtract initial point from terminal point</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Addition</div>
+            <div class="formula-math">u+v = (u₁+v₁, u₂+v₂, u₃+v₃)</div>
+            <div class="formula-note">Component-wise addition</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Scalar Multiplication</div>
+            <div class="formula-math">k·v = (kv₁, kv₂, kv₃)</div>
+            <div class="formula-note">Scales magnitude; k&lt;0 reverses direction</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Magnitude</div>
+            <div class="formula-math">|v| = √(a²+b²+c²)</div>
+            <div class="formula-note">Length of vector; always ≥ 0</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Unit Vector</div>
+            <div class="formula-math">û = v / |v|</div>
+            <div class="formula-note">Same direction as v, length = 1</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Dot Product</div>
+            <div class="formula-math">u·v = u₁v₁+u₂v₂+u₃v₃</div>
+            <div class="formula-note">Result is a scalar</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Angle Between Vectors</div>
+            <div class="formula-math">cos θ = (u·v)/(|u||v|)</div>
+            <div class="formula-note">Perpendicular: u·v=0. Parallel: u=kv.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Vector Operations — Addition and Scalar Multiplication</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Let u = (2, −1, 3) and v = (1, 4, −2). Find: (a) u+v &nbsp; (b) u−v &nbsp; (c) 3u − 2v</div>
+          <div class="example-step"><span class="step-badge">(a)</span>
+            <div class="step-text"><span class="math">u+v = (2+1, −1+4, 3+(−2)) = (3, 3, 1)</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">(b)</span>
+            <div class="step-text"><span class="math">u−v = (2−1, −1−4, 3−(−2)) = (1, −5, 5)</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">(c)</span>
+            <div class="step-text">3u = (6, −3, 9) &nbsp; 2v = (2, 8, −4)<br>
+              <span class="math">3u−2v = (6−2, −3−8, 9−(−4)) = (4, −11, 13)</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ (a) (3,3,1) &nbsp;|&nbsp; (b) (1,−5,5) &nbsp;|&nbsp; (c) (4,−11,13)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Magnitude and Unit Vector</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the magnitude and unit vector of v = (2, −2, 1).</div>
+          <div class="example-step"><span class="step-badge">Magnitude</span>
+            <div class="step-text"><span class="math">|v| = √(4+4+1) = √9 = 3</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Unit vector</span>
+            <div class="step-text"><span class="math">û = v/|v| = (2/3, −2/3, 1/3)</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Verify</span>
+            <div class="step-text"><span class="math">|û| = √(4/9+4/9+1/9) = √(9/9) = 1 ✓</span></div>
+          </div>
+          <div class="example-answer">✅ |v| = <strong>3</strong> &nbsp; û = <strong>(2/3, −2/3, 1/3)</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Dot Product Calculation</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find u·v for u = (3, 1, −2) and v = (−1, 4, 2).</div>
+          <div class="example-step"><span class="step-badge">Formula</span>
+            <div class="step-text"><span class="math">u·v = (3)(−1) + (1)(4) + (−2)(2)</span><br>
+              <span class="math">= −3 + 4 − 4 = −3</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ u · v = <strong>−3</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Angle Between Two Vectors</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the angle between u = (1, 2, 2) and v = (2, 1, −2).</div>
+          <div class="example-step"><span class="step-badge">Dot product</span>
+            <div class="step-text"><span class="math">u·v = (1)(2)+(2)(1)+(2)(−2) = 2+2−4 = 0</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Conclusion</span>
+            <div class="step-text">Since u·v = 0, cos θ = 0, so <span class="math">θ = 90°</span>.<br>
+              The vectors are <strong>perpendicular</strong>.
+            </div>
+          </div>
+          <div class="example-answer">✅ θ = <strong>90°</strong> — the vectors are perpendicular.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Finding the Angle — Full Calculation</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the angle between a = (1, 0, 1) and b = (1, 1, 0).</div>
+          <div class="example-step"><span class="step-badge">Dot product</span>
+            <div class="step-text"><span class="math">a·b = (1)(1)+(0)(1)+(1)(0) = 1</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Magnitudes</span>
+            <div class="step-text"><span class="math">|a| = √(1+0+1) = √2</span><br>
+              <span class="math">|b| = √(1+1+0) = √2</span>
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">cos θ</span>
+            <div class="step-text"><span class="math">cos θ = 1/(√2 · √2) = 1/2</span><br>
+              <span class="math">θ = cos⁻¹(1/2) = 60°</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ θ = <strong>60°</strong></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">If u = (1, 2, 3) and v = (4, 5, 6), what is u + v?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div> (3, 3, 3)</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div> (5, 7, 9)</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div> (4, 10, 18)</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div> (5, 7, 8)</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Find the magnitude of v = (3, 4, 0).</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> 7</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> √7</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> 5</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> 25</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">What is u·v for u = (2, 3, 1) and v = (1, −1, 4)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> 9</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> −1</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> 3</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> 6</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which pair of vectors is perpendicular?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> u=(1,1,1) and v=(2,2,2)</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> u=(1,2,3) and v=(1,2,3)</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> u=(1,2,−1) and v=(2,−1,0)</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> u=(3,0,0) and v=(3,1,0)</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The unit vector in the direction of v = (0, 3, 4) is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> (0, 3, 4)</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> (0, 3/5, 4/5)</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> (0, 1/3, 1/4)</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> (0, 9, 16)</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Course Index →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Vectors in Space</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+vectors+in+3D+space+introduction" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Introduction to Vectors in 3D Space</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+vector+addition+scalar+multiplication+3D" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Vector Addition and Scalar Multiplication in 3D</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+dot+product+vectors+angle" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">The Dot Product — Finding the Angle Between Vectors</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+unit+vector+3D+magnitude" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Magnitude and Unit Vectors in 3D Space</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 6</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Vectors in Space</div>
+        <ul class="summary-list">
+          <li>A <strong>3D vector</strong> v = (a, b, c) = aî + bĵ + ck̂ has three components along the x, y and z axes.</li>
+          <li>The vector from P₁(x₁,y₁,z₁) to P₂(x₂,y₂,z₂) is <strong>P₁P₂ = (x₂−x₁, y₂−y₁, z₂−z₁)</strong>.</li>
+          <li><strong>Addition</strong>: add corresponding components. <strong>Scalar multiplication</strong>: multiply every component by the scalar.</li>
+          <li><strong>Magnitude</strong>: |v| = √(a²+b²+c²). This equals the distance from the origin to (a,b,c).</li>
+          <li><strong>Unit vector</strong>: û = v/|v|. Same direction as v, length 1. Divide every component by |v|.</li>
+          <li><strong>Dot product</strong>: u·v = u₁v₁+u₂v₂+u₃v₃. The result is a scalar.</li>
+          <li><strong>Angle formula</strong>: cos θ = (u·v)/(|u||v|). If u·v = 0 the vectors are perpendicular (θ = 90°).</li>
+          <li>Vectors are <strong>parallel</strong> if one is a scalar multiple of the other: u = kv for some k ≠ 0.</li>
+          <li>Standard unit vectors: î=(1,0,0), ĵ=(0,1,0), k̂=(0,0,1). They are mutually perpendicular with magnitude 1.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="unit-complete-banner">
+      <div style="font-size:2.5rem;margin-bottom:.75rem">🎉</div>
+      <h3>Unit 6 Complete!</h3>
+      <p>You have finished all 6 lessons of Unit 6: Three Dimensional Geometry and Vectors in Space. You are now ready for Unit 7: Mathematical Proofs.</p>
+      <a href="../index.html" class="btn btn-accent btn-lg">Back to Course Index →</a>
+    </div>
+
+    <div class="lesson-nav" style="margin-top:2rem">
+      <a href="unit6-lesson5.html" class="btn btn-ghost">← Lesson 5: Equation of a Sphere</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 6 · Lesson 6 of 6 · Unit Complete</div>
+      <a href="../index.html" class="btn btn-primary">Course Index →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'B',2:'C',3:'C',4:'C',5:'B'};
+  const feedbacks={
+    1:{B:'✓ Correct! (1+4, 2+5, 3+6)=(5,7,9).',wrong:'✗ Add corresponding components: (1+4, 2+5, 3+6)=(5,7,9).'},
+    2:{C:'✓ Correct! |v|=√(9+16+0)=√25=5.',wrong:'✗ |v|=√(3²+4²+0²)=√(9+16)=√25=5.'},
+    3:{C:'✓ Correct! u·v=2(1)+3(−1)+1(4)=2−3+4=3.',wrong:'✗ u·v=(2)(1)+(3)(−1)+(1)(4)=2−3+4=3.'},
+    4:{C:'✓ Correct! u·v=(1)(2)+(2)(−1)+(−1)(0)=2−2+0=0. Dot product is zero → perpendicular.',wrong:'✗ Check each: for (1,2,−1)·(2,−1,0)=2−2+0=0. Zero dot product means perpendicular.'},
+    5:{B:'✓ Correct! |v|=√(0+9+16)=√25=5. û=(0/5,3/5,4/5)=(0,3/5,4/5).',wrong:'✗ |v|=√(0+9+16)=5. Divide each component by 5: û=(0,3/5,4/5).'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score! Unit 6 mastered!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
