@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2: Coordinates of a Point in Space | Grade 12 Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.4}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .diagram-wrap{text-align:center;margin:.875rem 0}
+    .diagram-wrap svg{max-width:100%;height:auto}
+    .coord-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:.875rem 0}
+    .coord-step{background:var(--brand-light);border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem;text-align:center}
+    .coord-step-num{font-size:1.25rem;font-weight:900;color:var(--brand-primary);margin-bottom:.35rem}
+    .coord-step-text{font-size:.82rem;color:var(--text);line-height:1.55}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 6 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 6 Lessons</div>
+      <a href="unit6-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Coordinate Axes and Planes ✓</a>
+      <a href="unit6-lesson2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Coordinates of a Point</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L3: Distance in Space 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L4: Midpoint in Space 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L5: Equation of a Sphere 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L6: Vectors in Space 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics</a> ›
+      Unit 6 · Lesson 2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 6 · Three Dimensional Geometry and Vectors in Space</div>
+      <h1>📍 Coordinates of a Point in Space</h1>
+      <p>Learn how to precisely locate any point in three-dimensional space using an ordered triple (x, y, z), how to read and plot 3D coordinates, and how to determine a point's coordinates by reading its perpendicular distances from each coordinate plane.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In Lesson 1 you set up the 3D framework — the three axes and three planes. Now you will use that framework to <strong>locate specific points</strong>. Every point in space has exactly one address: an ordered triple (x, y, z). Reading and writing these coordinates precisely is a skill tested directly on the entrance exam.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Read the coordinates (x, y, z) of a point plotted in 3D space</li>
+          <li>Understand that each coordinate is the <strong>perpendicular distance</strong> from the opposite coordinate plane</li>
+          <li>Plot a point in 3D space given its ordered triple</li>
+          <li>Find the coordinates of a point given its distances from the coordinate planes</li>
+          <li>Determine coordinates of projections of a point onto each axis and plane</li>
+          <li>Recognise how changing one coordinate moves a point along a specific direction</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with visual aids</div>
+        </div>
+      </div>
+
+      <!-- 2.1 The ordered triple -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 The Ordered Triple (x, y, z)</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Coordinates of a Point in Space</div>
+          <p>
+            Every point P in three-dimensional space is uniquely identified by an <strong>ordered triple (x, y, z)</strong> where:<br><br>
+            • <strong>x</strong> = the signed distance from the <strong>yz-plane</strong> (positive if in front, negative if behind)<br>
+            • <strong>y</strong> = the signed distance from the <strong>xz-plane</strong> (positive if to the right, negative if to the left)<br>
+            • <strong>z</strong> = the signed distance from the <strong>xy-plane</strong> (positive if above, negative if below)<br><br>
+            We write <strong>P = (x, y, z)</strong> or <strong>P(x, y, z)</strong>.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Each coordinate = distance from the opposite plane</div>
+          <p>This is the key insight: <strong>x measures how far from the yz-plane</strong>, not from the x-axis. Similarly y measures how far from the xz-plane, and z measures how far from the xy-plane. The sign tells you which side of the plane you are on.</p>
+        </div>
+      </div>
+
+      <!-- 2.2 How to read coordinates -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 How to Read Coordinates from a Diagram</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Given a point marked in a 3D diagram, find its coordinates using these steps:
+        </p>
+
+        <div class="coord-steps">
+          <div class="coord-step">
+            <div class="coord-step-num">x</div>
+            <div class="coord-step-text">Read how far the point is from the yz-plane, moving parallel to the x-axis.</div>
+          </div>
+          <div class="coord-step">
+            <div class="coord-step-num">y</div>
+            <div class="coord-step-text">Read how far the point is from the xz-plane, moving parallel to the y-axis.</div>
+          </div>
+          <div class="coord-step">
+            <div class="coord-step-num">z</div>
+            <div class="coord-step-text">Read how far the point is from the xy-plane, moving parallel to the z-axis.</div>
+          </div>
+        </div>
+
+        <!-- Diagram: reading a point -->
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" style="max-width:460px">
+            <defs>
+              <marker id="ax" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#14532D"/></marker>
+              <marker id="ay" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#2563EB"/></marker>
+              <marker id="az" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#DC2626"/></marker>
+            </defs>
+            <!-- axes -->
+            <line x1="180" y1="250" x2="420" y2="250" stroke="#14532D" stroke-width="2" marker-end="url(#ax)"/>
+            <line x1="180" y1="250" x2="60" y2="340" stroke="#2563EB" stroke-width="2" marker-end="url(#ay)"/>
+            <line x1="180" y1="250" x2="180" y2="40"  stroke="#DC2626" stroke-width="2" marker-end="url(#az)"/>
+            <!-- axis labels -->
+            <text x="428" y="254" font-size="13" fill="#14532D" font-weight="700" font-family="sans-serif">x</text>
+            <text x="48"  y="346" font-size="13" fill="#2563EB" font-weight="700" font-family="sans-serif">y</text>
+            <text x="185" y="32"  font-size="13" fill="#DC2626" font-weight="700" font-family="sans-serif">z</text>
+            <text x="185" y="264" font-size="11" fill="#64748B" font-family="sans-serif">O</text>
+            <!-- point P = (3, 2, 3) -->
+            <!-- scale: 1 unit = 60px along x, 1 unit = 45px diagonal for y, 1 unit = 60px up for z -->
+            <!-- x=3 → move 180px right along x from origin: (180+180, 250) = (360, 250) -->
+            <!-- y=2 → move 2 units along y from (360,250): each y unit = (−30, +27) → (300, 304) -->
+            <!-- z=3 → move 180px up from (300,304): (300, 304-180) = (300, 124) -->
+            <!-- dashed construction lines -->
+            <line x1="180" y1="250" x2="360" y2="250" stroke="#14532D" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="360" y1="250" x2="300" y2="304" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="300" y1="304" x2="300" y2="124" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <!-- parallel dashed lines to show the box -->
+            <line x1="180" y1="250" x2="120" y2="304" stroke="#2563EB" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+            <line x1="120" y1="304" x2="300" y2="304" stroke="#14532D" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+            <line x1="120" y1="304" x2="120" y2="124" stroke="#DC2626" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+            <line x1="120" y1="124" x2="300" y2="124" stroke="#14532D" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+            <line x1="360" y1="250" x2="360" y2="70"  stroke="#DC2626" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+            <line x1="360" y1="70"  x2="300" y2="124" stroke="#2563EB" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+            <line x1="360" y1="70"  x2="120" y2="124" stroke="#14532D" stroke-width="1" stroke-dasharray="3,3" opacity=".5"/>
+            <!-- point P -->
+            <circle cx="300" cy="124" r="6" fill="#14532D"/>
+            <text x="310" y="118" font-size="12" fill="#14532D" font-weight="700" font-family="sans-serif">P(3, 2, 3)</text>
+            <!-- coordinate labels on dashes -->
+            <text x="265" y="244" font-size="11" fill="#14532D" font-family="sans-serif">x = 3</text>
+            <text x="328" y="290" font-size="11" fill="#2563EB" font-family="sans-serif">y = 2</text>
+            <text x="305" y="218" font-size="11" fill="#DC2626" font-family="sans-serif">z = 3</text>
+          </svg>
+          <p style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">Point P(3, 2, 3): move 3 units along x (green), 2 units along y (blue), 3 units up along z (red).</p>
+        </div>
+      </div>
+
+      <!-- 2.3 How to plot a point -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 How to Plot a Point P(x, y, z)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">Follow these four steps to plot any point in 3D space on a diagram:</p>
+
+        <div style="display:flex;flex-direction:column;gap:.75rem">
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0">1</div>
+            <div style="font-size:.875rem;color:var(--text);line-height:1.7;padding-top:3px"><strong>Start at the origin O.</strong></div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0">2</div>
+            <div style="font-size:.875rem;color:var(--text);line-height:1.7;padding-top:3px"><strong>Move |x| units along the x-axis</strong> (right if x &gt; 0, left if x &lt; 0).</div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0">3</div>
+            <div style="font-size:.875rem;color:var(--text);line-height:1.7;padding-top:3px"><strong>From that point, move |y| units parallel to the y-axis</strong> (forward if y &gt; 0, back if y &lt; 0).</div>
+          </div>
+          <div style="display:flex;gap:1rem;align-items:flex-start">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--brand-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0">4</div>
+            <div style="font-size:.875rem;color:var(--text);line-height:1.7;padding-top:3px"><strong>From that point, move |z| units parallel to the z-axis</strong> (up if z &gt; 0, down if z &lt; 0). Mark the point.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.4 Projections -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Projections of a Point onto Axes and Planes</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The <strong>projection</strong> of point P(x, y, z) is found by dropping a perpendicular from P onto an axis or plane. The foot of that perpendicular is the projection.
+        </p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem">
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.5rem">Projection onto xy-plane</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;color:var(--brand-primary);font-weight:700;margin-bottom:.35rem">(x, y, 0)</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Drop perpendicular to the xy-plane — z becomes 0</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.5rem">Projection onto yz-plane</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;color:var(--brand-primary);font-weight:700;margin-bottom:.35rem">(0, y, z)</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Drop perpendicular to the yz-plane — x becomes 0</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.5rem">Projection onto xz-plane</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;color:var(--brand-primary);font-weight:700;margin-bottom:.35rem">(x, 0, z)</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Drop perpendicular to the xz-plane — y becomes 0</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.5rem">Projection onto x-axis</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;color:var(--brand-primary);font-weight:700;margin-bottom:.35rem">(x, 0, 0)</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Only the x-coordinate survives</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.5rem">Projection onto y-axis</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;color:var(--brand-primary);font-weight:700;margin-bottom:.35rem">(0, y, 0)</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Only the y-coordinate survives</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.5rem">Projection onto z-axis</div>
+            <div style="font-family:Georgia,serif;font-size:1rem;color:var(--brand-primary);font-weight:700;margin-bottom:.35rem">(0, 0, z)</div>
+            <div style="font-size:.78rem;color:var(--text-muted)">Only the z-coordinate survives</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">📝 Rule for projections</div>
+          <p>To project onto a plane: set the coordinate <em>perpendicular to that plane</em> to zero. To project onto an axis: set the two coordinates <em>not on that axis</em> to zero.</p>
+        </div>
+      </div>
+
+      <!-- 2.5 Relationship between 2D and 3D -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 The 2D System as a Special Case of 3D</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The familiar 2D coordinate system is simply the xy-plane (z = 0) inside the 3D system. Every 2D point (x, y) corresponds to the 3D point (x, y, 0). This means everything you know about 2D coordinates still works in 3D — you just add a third component.
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.78rem;font-weight:700;color:#1E40AF;text-transform:uppercase;margin-bottom:.5rem">2D Point</div>
+            <div style="font-family:Georgia,serif;font-size:1.2rem;color:#1D4ED8;font-weight:700">(x, y)</div>
+            <div style="font-size:.78rem;color:var(--text-muted);margin-top:.35rem">On the flat xy-plane</div>
+          </div>
+          <div style="background:var(--brand-light);border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem;text-align:center">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.5rem">3D Equivalent</div>
+            <div style="font-family:Georgia,serif;font-size:1.2rem;color:var(--brand-primary);font-weight:700">(x, y, 0)</div>
+            <div style="font-size:.78rem;color:var(--text-muted);margin-top:.35rem">Same point — z = 0 means on the xy-plane</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Key rules — memorize these for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📍 Lesson 2 — Coordinates of a Point in Space</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Point in Space</div>
+            <div class="formula-math">P = (x, y, z)</div>
+            <div class="formula-note">x = dist from yz-plane, y from xz-plane, z from xy-plane</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Projection on xy-plane</div>
+            <div class="formula-math">(x, y, 0)</div>
+            <div class="formula-note">Set z = 0</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Projection on yz-plane</div>
+            <div class="formula-math">(0, y, z)</div>
+            <div class="formula-note">Set x = 0</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Projection on xz-plane</div>
+            <div class="formula-math">(x, 0, z)</div>
+            <div class="formula-note">Set y = 0</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Projection on x-axis</div>
+            <div class="formula-math">(x, 0, 0)</div>
+            <div class="formula-note">Set y = 0 and z = 0</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Projection on y-axis</div>
+            <div class="formula-math">(0, y, 0)</div>
+            <div class="formula-note">Set x = 0 and z = 0</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Projection on z-axis</div>
+            <div class="formula-math">(0, 0, z)</div>
+            <div class="formula-note">Set x = 0 and y = 0</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">2D in 3D</div>
+            <div class="formula-math">(x, y) → (x, y, 0)</div>
+            <div class="formula-note">The xy-plane is z = 0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Reading Coordinates from a Description</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Point P is 4 units from the yz-plane, 2 units from the xz-plane and 5 units from the xy-plane, all in the positive direction. What are its coordinates?</div>
+          <div class="example-step"><span class="step-badge">x</span>
+            <div class="step-text">Distance from yz-plane = 4 (positive) → <span class="math">x = 4</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">y</span>
+            <div class="step-text">Distance from xz-plane = 2 (positive) → <span class="math">y = 2</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">z</span>
+            <div class="step-text">Distance from xy-plane = 5 (positive) → <span class="math">z = 5</span></div>
+          </div>
+          <div class="example-answer">✅ P = <strong>(4, 2, 5)</strong> — in the first octant.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Finding Projections of a Point</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the projections of P(3, −1, 4) onto: (a) the xy-plane, (b) the yz-plane, (c) the x-axis, (d) the z-axis.</div>
+          <div class="example-step"><span class="step-badge">(a)</span>
+            <div class="step-text">Projection onto xy-plane: set z = 0 → <span class="math">(3, −1, 0)</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">(b)</span>
+            <div class="step-text">Projection onto yz-plane: set x = 0 → <span class="math">(0, −1, 4)</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">(c)</span>
+            <div class="step-text">Projection onto x-axis: set y = 0 and z = 0 → <span class="math">(3, 0, 0)</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">(d)</span>
+            <div class="step-text">Projection onto z-axis: set x = 0 and y = 0 → <span class="math">(0, 0, 4)</span></div>
+          </div>
+          <div class="example-answer">✅ (a) (3,−1,0) &nbsp;|&nbsp; (b) (0,−1,4) &nbsp;|&nbsp; (c) (3,0,0) &nbsp;|&nbsp; (d) (0,0,4)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Coordinates from Distances (Mixed Signs)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A point Q is 6 units from the yz-plane (in the negative x-direction), 3 units from the xz-plane (positive y-direction) and 2 units from the xy-plane (negative z-direction). Write the coordinates of Q.</div>
+          <div class="example-step"><span class="step-badge">x</span>
+            <div class="step-text">6 units in the negative x-direction from the yz-plane → <span class="math">x = −6</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">y</span>
+            <div class="step-text">3 units in the positive y-direction from the xz-plane → <span class="math">y = 3</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">z</span>
+            <div class="step-text">2 units in the negative z-direction from the xy-plane → <span class="math">z = −2</span></div>
+          </div>
+          <div class="example-answer">✅ Q = <strong>(−6, 3, −2)</strong> — in the sixth octant (−, +, −).</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Identifying Distances from Coordinate Planes</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> For P = (−2, 5, −3), find: (a) its distance from the yz-plane, (b) its distance from the xz-plane, (c) its distance from the xy-plane.</div>
+          <div class="example-step"><span class="step-badge">(a)</span>
+            <div class="step-text">Distance from yz-plane = |x| = <span class="math">|−2| = 2</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">(b)</span>
+            <div class="step-text">Distance from xz-plane = |y| = <span class="math">|5| = 5</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">(c)</span>
+            <div class="step-text">Distance from xy-plane = |z| = <span class="math">|−3| = 3</span></div>
+          </div>
+          <div class="example-answer">✅ (a) 2 units &nbsp;|&nbsp; (b) 5 units &nbsp;|&nbsp; (c) 3 units</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Effect of Changing One Coordinate</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Start at P = (2, 3, 4). Describe where each new point is relative to P: (a) Q = (5, 3, 4) &nbsp; (b) R = (2, 3, −1) &nbsp; (c) S = (2, 0, 4)</div>
+          <div class="example-step"><span class="step-badge">(a)</span>
+            <div class="step-text">Q = (5, 3, 4): only x changed from 2 to 5 (increased by 3). Q is <span class="math">3 units to the right of P</span> along the x-direction. y and z are the same.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">(b)</span>
+            <div class="step-text">R = (2, 3, −1): only z changed from 4 to −1 (decreased by 5). R is <span class="math">5 units below P</span> along the z-direction.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">(c)</span>
+            <div class="step-text">S = (2, 0, 4): y changed from 3 to 0. S is the <strong>projection of P onto the xz-plane</strong>, located <span class="math">3 units from P</span> in the negative y-direction.</div>
+          </div>
+          <div class="example-answer">✅ (a) 3 units right along x &nbsp;|&nbsp; (b) 5 units down along z &nbsp;|&nbsp; (c) Projection of P onto xz-plane</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The x-coordinate of a point P is the signed distance of P from which plane?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> The xy-plane</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> The xz-plane</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> The yz-plane</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> The x-axis</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">What are the coordinates of the projection of P(4, −3, 7) onto the xz-plane?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> (0, −3, 7)</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> (4, 0, 7)</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> (4, −3, 0)</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> (4, 0, 0)</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A point Q is 5 units from the yz-plane (negative direction), 0 units from the xz-plane, and 3 units from the xy-plane (positive direction). What is Q?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','D')"><div class="option-letter">A</div> (5, 0, 3)</div>
+          <div class="quiz-option" onclick="answer(3,'B','D')"><div class="option-letter">B</div> (−5, 3, 0)</div>
+          <div class="quiz-option" onclick="answer(3,'C','D')"><div class="option-letter">C</div> (0, −5, 3)</div>
+          <div class="quiz-option" onclick="answer(3,'D','D')"><div class="option-letter">D</div> (−5, 0, 3)</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">For P = (−3, 4, −6), what is its distance from the xy-plane?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> 3</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> 4</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> 6</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> −6</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The projection of P(2, 5, 8) onto the y-axis is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> (2, 5, 0)</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> (0, 5, 0)</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> (0, 0, 8)</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> (0, 5, 8)</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit6-lesson3.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — 3D Coordinates</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+plotting+points+3D+coordinate+system" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Plotting Points in 3D Space — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+coordinates+three+dimensional+space" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Coordinates of a Point in Three Dimensional Space</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+projection+point+coordinate+planes" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Projection of a Point onto Coordinate Planes and Axes</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+3D+geometry+practice+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">3D Geometry Practice Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 2</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Coordinates of a Point in Space</div>
+        <ul class="summary-list">
+          <li>Every point in 3D space has a unique <strong>ordered triple (x, y, z)</strong> as its address.</li>
+          <li>The <strong>x-coordinate</strong> is the signed distance from the yz-plane; <strong>y</strong> from the xz-plane; <strong>z</strong> from the xy-plane.</li>
+          <li>To <strong>plot P(x, y, z)</strong>: start at O, move x units along x-axis, then y units parallel to y-axis, then z units parallel to z-axis.</li>
+          <li>Distance from any coordinate plane equals the <strong>absolute value</strong> of the corresponding coordinate.</li>
+          <li><strong>Projection onto a plane</strong>: set the coordinate perpendicular to that plane to zero. (xy-plane → z=0; yz-plane → x=0; xz-plane → y=0)</li>
+          <li><strong>Projection onto an axis</strong>: set the two other coordinates to zero. (x-axis → y=z=0; y-axis → x=z=0; z-axis → x=y=0)</li>
+          <li>Changing only the x-coordinate moves a point <strong>parallel to the x-axis</strong>. Same rule applies for y and z.</li>
+          <li>A 2D point (x, y) is the 3D point (x, y, 0) — it lies on the xy-plane where z = 0.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit6-lesson1.html" class="btn btn-ghost">← Lesson 1: Coordinate Axes and Planes</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 6 · Lesson 2 of 6</div>
+      <a href="unit6-lesson3.html" class="btn btn-primary">Next: Distance Between Two Points →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'C',2:'B',3:'D',4:'C',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! The x-coordinate measures the signed distance from the yz-plane.',wrong:'✗ The x-coordinate = signed distance from the yz-plane (not the xz-plane or xy-plane).'},
+    2:{B:'✓ Correct! Projection onto xz-plane: set y=0 → (4, 0, 7).',wrong:'✗ The xz-plane has equation y=0. Projection sets y=0: (4, 0, 7).'},
+    3:{D:'✓ Correct! x=−5 (5 units negative), y=0 (0 units from xz-plane), z=3 (3 units positive). Q=(−5,0,3).',wrong:'✗ x=−5 (negative direction from yz-plane), y=0, z=3 (positive). Q=(−5,0,3).'},
+    4:{C:'✓ Correct! Distance from xy-plane = |z| = |−6| = 6.',wrong:'✗ Distance from the xy-plane = |z| = |−6| = 6. Distance is always positive.'},
+    5:{B:'✓ Correct! Projection onto y-axis: set x=0 and z=0 → (0,5,0).',wrong:'✗ Projection onto y-axis: set x=0 and z=0. Result: (0, 5, 0).'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
