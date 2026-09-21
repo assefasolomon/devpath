@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3: Construction of Graphs | Grade 12 Social Science Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.4}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .data-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0}
+    .data-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:600}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .data-table td:first-child{text-align:left}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    /* Graph visuals */
+    .graph-demo{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.25rem;margin:1rem 0}
+    .histo-bars{display:flex;align-items:flex-end;gap:2px;height:120px;padding:0 4px}
+    .histo-bar{background:var(--brand-primary);flex:1;position:relative;border-top:2px solid var(--brand-primary)}
+    .histo-bar-lbl{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:.62rem;color:var(--text-muted);white-space:nowrap}
+    .histo-wrap{padding-bottom:22px;overflow-x:auto}
+    .poly-line{display:block;width:100%;height:auto}
+    .ogive-vis{background:#fff;border-radius:var(--radius-lg);padding:1rem;margin:.875rem 0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Social Science Math</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 8 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 8 Lessons</div>
+      <a href="unit8-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Sampling Techniques ✓</a>
+      <a href="unit8-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Representation of Data ✓</a>
+      <a href="unit8-lesson3.html" class="sidebar-link active"><div class="sidebar-dot"></div> L3: Construction of Graphs</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L4: Measures of Central Tendency 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L5: Frequency Distributions 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L6: Cumulative Frequency Curves 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics (Social Science)</a> ›
+      Unit 8 · Lesson 3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 8 · Further on Statistics · Social Science</div>
+      <h1>📈 Construction of Graphs</h1>
+      <p>Turn frequency tables into visual stories. Learn to construct histograms, frequency polygons, bar charts and ogives (cumulative frequency curves), and understand what each graph reveals about the shape of a distribution.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          A frequency table tells you the numbers, but a graph shows you the <strong>shape</strong>. Is the data symmetric? Skewed left or right? Are there outliers? Where is the bulk of the values? Graphs answer these questions instantly. In this lesson you will learn the four main graph types for grouped data and when to use each.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Construct a <strong>histogram</strong> from a grouped frequency table</li>
+          <li>Construct a <strong>frequency polygon</strong> and understand how it relates to a histogram</li>
+          <li>Draw and interpret a <strong>bar chart</strong> for categorical data</li>
+          <li>Construct an <strong>ogive</strong> (cumulative frequency curve)</li>
+          <li>Read key information from each graph type (median, quartiles, mode class)</li>
+          <li>Choose the most appropriate graph for a given dataset</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">The four main types of statistical graphs</div>
+        </div>
+      </div>
+
+      <!-- 2.1 Histogram -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Histogram</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A <strong>histogram</strong> is a bar chart for <strong>continuous</strong> data where the bars touch each other. The x-axis shows class boundaries, the y-axis shows frequency. Unlike a bar chart, there are no gaps — because continuous data has no gaps.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key features of a histogram</div>
+          <p>
+            • Bars are drawn <strong>touching</strong> — using <strong>class boundaries</strong> (not class limits)<br>
+            • Bar width = class width (all equal in a simple histogram)<br>
+            • Bar height = frequency of that class<br>
+            • The shape of the histogram reveals the distribution shape: symmetric, skewed, or bimodal
+          </p>
+        </div>
+
+        <div class="graph-demo">
+          <div style="font-size:.82rem;font-weight:700;color:var(--heading);margin-bottom:.5rem">Histogram Example — 30 exam scores</div>
+          <div class="histo-wrap">
+            <div class="histo-bars">
+              <div class="histo-bar" style="height:30%"><span class="histo-bar-lbl">50–59</span></div>
+              <div class="histo-bar" style="height:70%"><span class="histo-bar-lbl">60–69</span></div>
+              <div class="histo-bar" style="height:100%"><span class="histo-bar-lbl">70–79</span></div>
+              <div class="histo-bar" style="height:70%"><span class="histo-bar-lbl">80–89</span></div>
+              <div class="histo-bar" style="height:30%"><span class="histo-bar-lbl">90–99</span></div>
+            </div>
+          </div>
+          <div style="font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:.5rem">
+            Bars touch — the distribution is symmetric (a bell shape)
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 Frequency polygon -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Frequency Polygon</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A <strong>frequency polygon</strong> is a line graph connecting the <strong>class midpoints</strong> at heights equal to their frequencies. It's often overlaid on a histogram by joining the top-midpoints of each bar.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 How to construct a frequency polygon</div>
+          <p>
+            1. Compute the <strong>midpoint</strong> of each class.<br>
+            2. Plot a point at (midpoint, frequency) for each class.<br>
+            3. Join consecutive points with straight lines.<br>
+            4. To close the polygon, add one extra point at the midpoint before the first class (frequency 0) and one after the last class (frequency 0).
+          </p>
+        </div>
+
+        <div class="graph-demo">
+          <div style="font-size:.82rem;font-weight:700;color:var(--heading);margin-bottom:.5rem">Frequency Polygon — Same data as the histogram above</div>
+          <svg viewBox="0 0 500 160" style="width:100%;height:auto">
+            <!-- axes -->
+            <line x1="40" y1="140" x2="470" y2="140" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="40" y1="20" x2="40" y2="140" stroke="#CBD5E1" stroke-width="1"/>
+            <!-- gridlines -->
+            <line x1="40" y1="110" x2="470" y2="110" stroke="#F1F5F9" stroke-width="1"/>
+            <line x1="40" y1="80" x2="470" y2="80" stroke="#F1F5F9" stroke-width="1"/>
+            <line x1="40" y1="50" x2="470" y2="50" stroke="#F1F5F9" stroke-width="1"/>
+            <!-- polygon: midpoints at 44.5, 54.5, 64.5, 74.5, 84.5, 94.5, 104.5 with freq 0,3,7,10,7,3,0 -->
+            <!-- scale: x = 40 + (mid - 34.5) * 7;  y = 140 - freq * 11 -->
+            <!-- mid 34.5 → x=40; 44.5 → x=110; 54.5 → x=180; 64.5 → x=250; 74.5 → x=320; 84.5 → x=390; 94.5 → x=460 -->
+            <polyline
+              points="40,140 110,107 180,63 250,30 320,63 390,107 460,140"
+              fill="none" stroke="#14532D" stroke-width="2.5"/>
+            <!-- points -->
+            <circle cx="40" cy="140" r="3.5" fill="#22C55E"/>
+            <circle cx="110" cy="107" r="3.5" fill="#22C55E"/>
+            <circle cx="180" cy="63" r="3.5" fill="#22C55E"/>
+            <circle cx="250" cy="30" r="3.5" fill="#22C55E"/>
+            <circle cx="320" cy="63" r="3.5" fill="#22C55E"/>
+            <circle cx="390" cy="107" r="3.5" fill="#22C55E"/>
+            <circle cx="460" cy="140" r="3.5" fill="#22C55E"/>
+            <!-- labels -->
+            <text x="106" y="155" font-size="10" fill="#64748B" text-anchor="middle">44.5</text>
+            <text x="176" y="155" font-size="10" fill="#64748B" text-anchor="middle">54.5</text>
+            <text x="246" y="155" font-size="10" fill="#64748B" text-anchor="middle">64.5</text>
+            <text x="316" y="155" font-size="10" fill="#64748B" text-anchor="middle">74.5</text>
+            <text x="386" y="155" font-size="10" fill="#64748B" text-anchor="middle">84.5</text>
+            <text x="460" y="155" font-size="10" fill="#64748B" text-anchor="middle">94.5</text>
+            <!-- y labels -->
+            <text x="32" y="145" font-size="10" fill="#64748B" text-anchor="end">0</text>
+            <text x="32" y="85" font-size="10" fill="#64748B" text-anchor="end">5</text>
+            <text x="32" y="33" font-size="10" fill="#64748B" text-anchor="end">10</text>
+          </svg>
+          <div style="font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:.5rem">
+            Points plotted at (class midpoint, frequency) — connects smoothly and shows shape
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.3 Bar chart -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Bar Chart</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A <strong>bar chart</strong> displays <strong>categorical</strong> data — distinct categories on the x-axis (e.g. blood type, favourite subject, product type). Bars are separated by gaps because the categories are not continuous.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Histogram vs Bar Chart — Don't confuse them</div>
+          <p>
+            <strong>Histogram:</strong> continuous data, bars touch, x-axis is numerical (class boundaries)<br>
+            <strong>Bar chart:</strong> categorical data, gaps between bars, x-axis is labels
+          </p>
+        </div>
+
+        <div class="graph-demo">
+          <div style="font-size:.82rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Bar Chart — Students' Favourite Subjects</div>
+          <svg viewBox="0 0 500 160" style="width:100%;height:auto">
+            <line x1="40" y1="140" x2="470" y2="140" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="40" y1="20" x2="40" y2="140" stroke="#CBD5E1" stroke-width="1"/>
+            <!-- bars: Math 8, Physics 5, Chem 6, Bio 4, Eng 7 -->
+            <rect x="70" y="60" width="55" height="80" fill="#14532D"/>
+            <rect x="155" y="90" width="55" height="50" fill="#166534"/>
+            <rect x="240" y="80" width="55" height="60" fill="#22C55E"/>
+            <rect x="325" y="100" width="55" height="40" fill="#16A34A"/>
+            <rect x="410" y="70" width="55" height="70" fill="#86EFAC"/>
+            <!-- value labels -->
+            <text x="97" y="55" font-size="11" fill="#14532D" text-anchor="middle" font-weight="700">8</text>
+            <text x="182" y="85" font-size="11" fill="#14532D" text-anchor="middle" font-weight="700">5</text>
+            <text x="267" y="75" font-size="11" fill="#14532D" text-anchor="middle" font-weight="700">6</text>
+            <text x="352" y="95" font-size="11" fill="#14532D" text-anchor="middle" font-weight="700">4</text>
+            <text x="437" y="65" font-size="11" fill="#14532D" text-anchor="middle" font-weight="700">7</text>
+            <!-- x labels -->
+            <text x="97" y="155" font-size="10" fill="#64748B" text-anchor="middle">Math</text>
+            <text x="182" y="155" font-size="10" fill="#64748B" text-anchor="middle">Physics</text>
+            <text x="267" y="155" font-size="10" fill="#64748B" text-anchor="middle">Chem</text>
+            <text x="352" y="155" font-size="10" fill="#64748B" text-anchor="middle">Bio</text>
+            <text x="437" y="155" font-size="10" fill="#64748B" text-anchor="middle">Eng</text>
+          </svg>
+          <div style="font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:.5rem">
+            Bars have gaps — each bar is one category
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.4 Ogive -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Ogive (Cumulative Frequency Curve)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          An <strong>ogive</strong> is a line graph of <strong>cumulative frequency</strong> against the <strong>upper class boundaries</strong>. It always rises from left to right (or stays flat) and ends at n (total frequency). It's the most useful graph for finding the <strong>median</strong> and <strong>quartiles</strong>.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 How to construct an ogive</div>
+          <p>
+            1. Add a <strong>cumulative frequency (CF)</strong> column to your frequency table.<br>
+            2. Compute the <strong>upper class boundary</strong> for each class.<br>
+            3. Plot points at (upper boundary, cumulative frequency).<br>
+            4. Join points with a smooth or straight line.<br>
+            5. To find the <strong>median</strong>: draw a horizontal line at y = n/2 to the curve, then a vertical line down to the x-axis.
+          </p>
+        </div>
+
+        <div class="graph-demo">
+          <div style="font-size:.82rem;font-weight:700;color:var(--heading);margin-bottom:.5rem">Ogive — Cumulative Frequency of Exam Scores</div>
+          <svg viewBox="0 0 500 180" style="width:100%;height:auto">
+            <!-- axes -->
+            <line x1="40" y1="150" x2="470" y2="150" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="40" y1="20" x2="40" y2="150" stroke="#CBD5E1" stroke-width="1"/>
+            <!-- gridlines -->
+            <line x1="40" y1="110" x2="470" y2="110" stroke="#F1F5F9" stroke-width="1"/>
+            <line x1="40" y1="70" x2="470" y2="70" stroke="#F1F5F9" stroke-width="1"/>
+            <line x1="40" y1="30" x2="470" y2="30" stroke="#F1F5F9" stroke-width="1"/>
+            <!-- ogive points at upper boundaries: 59.5→3, 69.5→10, 79.5→20, 89.5→27, 99.5→30 -->
+            <!-- x scale: 59.5→x=130, 69.5→x=210, 79.5→x=290, 89.5→x=370, 99.5→x=450 -->
+            <!-- y scale: 0→y=150, 5→y=130, 10→y=110, 15→y=90, 20→y=70, 25→y=50, 30→y=30 -->
+            <polyline
+              points="40,150 130,126 210,110 290,70 370,42 450,30"
+              fill="none" stroke="#14532D" stroke-width="2.5"/>
+            <!-- points -->
+            <circle cx="130" cy="126" r="4" fill="#22C55E"/>
+            <circle cx="210" cy="110" r="4" fill="#22C55E"/>
+            <circle cx="290" cy="70" r="4" fill="#22C55E"/>
+            <circle cx="370" cy="42" r="4" fill="#22C55E"/>
+            <circle cx="450" cy="30" r="4" fill="#22C55E"/>
+            <!-- median line at n/2 = 15 → y=90 -->
+            <line x1="40" y1="90" x2="250" y2="90" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="250" y1="90" x2="250" y2="150" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <text x="255" y="102" font-size="10" fill="#DC2626">n/2 = 15</text>
+            <text x="250" y="163" font-size="10" fill="#DC2626" text-anchor="middle">Median ≈ 74</text>
+            <!-- axis labels -->
+            <text x="130" y="163" font-size="10" fill="#64748B" text-anchor="middle">59.5</text>
+            <text x="210" y="163" font-size="10" fill="#64748B" text-anchor="middle">69.5</text>
+            <text x="290" y="163" font-size="10" fill="#64748B" text-anchor="middle">79.5</text>
+            <text x="370" y="163" font-size="10" fill="#64748B" text-anchor="middle">89.5</text>
+            <text x="450" y="163" font-size="10" fill="#64748B" text-anchor="middle">99.5</text>
+            <text x="32" y="35" font-size="10" fill="#64748B" text-anchor="end">30</text>
+            <text x="32" y="75" font-size="10" fill="#64748B" text-anchor="end">20</text>
+            <text x="32" y="115" font-size="10" fill="#64748B" text-anchor="end">10</text>
+          </svg>
+          <div style="font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:.5rem">
+            Reading the median: go up to n/2 = 15, across to the curve, then down to read x
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Using the ogive to find quartiles</div>
+          <p>
+            • <strong>Q1 (first quartile):</strong> read across at n/4<br>
+            • <strong>Q2 (median):</strong> read across at n/2<br>
+            • <strong>Q3 (third quartile):</strong> read across at 3n/4<br>
+            • <strong>Interquartile range (IQR):</strong> Q3 − Q1
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.5 Choosing a graph -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Choosing the Right Graph</h3>
+        <table class="data-table">
+          <thead><tr><th>Graph Type</th><th>Data Type</th><th>Best Used For</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Bar chart</strong></td><td>Categorical</td><td>Comparing distinct groups</td></tr>
+            <tr><td><strong>Histogram</strong></td><td>Continuous (grouped)</td><td>Showing distribution shape</td></tr>
+            <tr><td><strong>Frequency polygon</strong></td><td>Continuous (grouped)</td><td>Comparing two or more distributions on the same axes</td></tr>
+            <tr><td><strong>Ogive</strong></td><td>Continuous (grouped)</td><td>Finding median, quartiles and percentiles</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Key rules — memorize these for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📈 Lesson 3 — Construction of Graphs</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Histogram bar width</div>
+            <div class="formula-math">Class boundary span</div>
+            <div class="formula-note">Bars touch — no gaps</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Histogram bar height</div>
+            <div class="formula-math">Frequency f</div>
+            <div class="formula-note">Directly proportional to frequency</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Frequency polygon x</div>
+            <div class="formula-math">Class midpoint</div>
+            <div class="formula-note">Point at (midpoint, frequency)</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Bar chart spacing</div>
+            <div class="formula-math">Gaps between bars</div>
+            <div class="formula-note">Categorical data — bars don't touch</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Ogive x-axis</div>
+            <div class="formula-math">Upper class boundaries</div>
+            <div class="formula-note">Not midpoints — upper boundaries</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Ogive y-axis</div>
+            <div class="formula-math">Cumulative frequency</div>
+            <div class="formula-note">Always increasing, ends at n</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Median from ogive</div>
+            <div class="formula-math">Read at CF = n/2</div>
+            <div class="formula-note">Horizontal to curve, then down to x-axis</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Quartiles from ogive</div>
+            <div class="formula-math">Q1 at n/4 · Q3 at 3n/4</div>
+            <div class="formula-note">IQR = Q3 − Q1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identify the Graph Type</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A researcher wants to display the distribution of heights (in cm) of 200 students, grouped into class intervals. Which graph is most appropriate?</div>
+          <div class="example-step"><span class="step-badge">Reasoning</span>
+            <div class="step-text">Heights are <strong>continuous</strong> numerical data grouped into classes. We want to see the shape of the distribution.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Rule</span>
+            <div class="step-text">For continuous data in class intervals, use a <strong>histogram</strong> (or frequency polygon).</div>
+          </div>
+          <div class="example-answer">✅ Use a <strong>histogram</strong> — appropriate for continuous grouped data.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Histogram vs Bar Chart</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why does a histogram have bars that touch, but a bar chart has gaps between bars?</div>
+          <div class="example-step"><span class="step-badge">Histogram</span>
+            <div class="step-text">Data is <strong>continuous</strong> — there are no gaps between values. Moving from 50 to 51 to 52 is one smooth progression. So bars touch.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Bar chart</span>
+            <div class="step-text">Data is <strong>categorical</strong> — Math, Physics, Chemistry are distinct labels with no natural order or continuity. So bars are separated by gaps.</div>
+          </div>
+          <div class="example-answer">✅ Histogram = continuous (touch). Bar chart = categorical (gaps).</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Finding the Median from an Ogive</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> An ogive for 60 data values shows the curve passing through CF = 30 at the x-value 72. What is the median?</div>
+          <div class="example-step"><span class="step-badge">Rule</span>
+            <div class="step-text">Median is read from the ogive at cumulative frequency = <span class="math">n/2 = 60/2 = 30</span>.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Read</span>
+            <div class="step-text">At CF = 30, the x-value is 72.</div>
+          </div>
+          <div class="example-answer">✅ Median = <strong>72</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Points for a Frequency Polygon</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> For a frequency table with classes 10–19 (f=4), 20–29 (f=8), 30–39 (f=10), 40–49 (f=6), 50–59 (f=2), list the coordinates of the points that make up the frequency polygon.</div>
+          <div class="example-step"><span class="step-badge">Midpoints</span>
+            <div class="step-text">
+              10–19: midpoint = 14.5<br>
+              20–29: midpoint = 24.5<br>
+              30–39: midpoint = 34.5<br>
+              40–49: midpoint = 44.5<br>
+              50–59: midpoint = 54.5
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Points</span>
+            <div class="step-text">Plot (midpoint, frequency):<br>
+              <span class="math">(14.5, 4), (24.5, 8), (34.5, 10), (44.5, 6), (54.5, 2)</span><br>
+              To close the polygon, add (4.5, 0) and (64.5, 0).
+            </div>
+          </div>
+          <div class="example-answer">✅ Points: (14.5,4), (24.5,8), (34.5,10), (44.5,6), (54.5,2), plus endpoints (4.5,0) and (64.5,0).</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Reading Quartiles from an Ogive</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> An ogive for 80 students passes through Q1 = 62, Q2 = 70, Q3 = 78. Find the interquartile range.</div>
+          <div class="example-step"><span class="step-badge">Rule</span>
+            <div class="step-text"><span class="math">IQR = Q3 − Q1</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Substitute</span>
+            <div class="step-text"><span class="math">IQR = 78 − 62 = 16</span></div>
+          </div>
+          <div class="example-answer">✅ IQR = <strong>16</strong> — the middle 50% of students span 16 units of score.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which graph is most appropriate for showing the distribution of a continuous variable grouped into classes?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div> Bar chart</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div> Histogram</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div> Pie chart</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div> Stem-and-leaf plot</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">In a histogram, what does the height of each bar represent?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> The class width</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> The frequency of that class</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> The midpoint of the class</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> The cumulative frequency</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">What is plotted on the horizontal axis of an ogive?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','D')"><div class="option-letter">A</div> Frequencies</div>
+          <div class="quiz-option" onclick="answer(3,'B','D')"><div class="option-letter">B</div> Class midpoints</div>
+          <div class="quiz-option" onclick="answer(3,'C','D')"><div class="option-letter">C</div> Class limits</div>
+          <div class="quiz-option" onclick="answer(3,'D','D')"><div class="option-letter">D</div> Upper class boundaries</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">In a histogram, the bars are drawn using:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> Class limits with gaps</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> Class boundaries with no gaps</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> Class midpoints</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> Any values you choose</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">An ogive for a dataset with n=100 passes through Q1 = 45, Q3 = 75. What is the interquartile range?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> 25</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> 30</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> 30</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> 120</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit8-lesson4.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Statistical Graphs</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+histogram+frequency+polygon" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Histograms and Frequency Polygons</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+ogive+cumulative+frequency+curve" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Ogive (Cumulative Frequency Curve) — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+bar+chart+vs+histogram" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Bar Charts vs Histograms — What's the Difference?</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+median+quartiles+ogive" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Finding Median and Quartiles from an Ogive</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 3</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Construction of Graphs</div>
+        <ul class="summary-list">
+          <li><strong>Histogram:</strong> for continuous grouped data; bars touch; x-axis = class boundaries; y-axis = frequency.</li>
+          <li><strong>Frequency polygon:</strong> line graph connecting points at (class midpoint, frequency). Used to compare distributions.</li>
+          <li><strong>Bar chart:</strong> for categorical data; bars have gaps; x-axis = category labels.</li>
+          <li><strong>Ogive:</strong> line graph of cumulative frequency vs upper class boundaries. Always increasing, ends at n.</li>
+          <li><strong>Median from ogive:</strong> read at CF = n/2.</li>
+          <li><strong>Quartiles from ogive:</strong> Q1 at n/4, Q2 at n/2, Q3 at 3n/4.</li>
+          <li><strong>IQR = Q3 − Q1</strong> — measures spread of the middle 50%.</li>
+          <li>Histograms show shape (symmetric, skewed). Bar charts compare categories. Ogives reveal quartiles and percentiles.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit8-lesson2.html" class="btn btn-ghost">← Lesson 2: Representation of Data</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 8 · Lesson 3 of 6</div>
+      <a href="unit8-lesson4.html" class="btn btn-primary">Next: Measures of Central Tendency →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'B',2:'B',3:'D',4:'B',5:'C'};
+  const feedbacks={
+    1:{B:'✓ Correct! Histograms are used for continuous grouped data.',wrong:'✗ For continuous grouped data, use a histogram. Bar charts are for categorical data.'},
+    2:{B:'✓ Correct! Bar height = frequency of that class.',wrong:'✗ In a histogram, each bar\'s height represents the frequency of the class.'},
+    3:{D:'✓ Correct! Ogives plot cumulative frequency against upper class boundaries.',wrong:'✗ The ogive uses upper class boundaries on the x-axis, not midpoints or limits.'},
+    4:{B:'✓ Correct! Histogram bars use class boundaries, so they touch.',wrong:'✗ Histogram bars are drawn on class boundaries (not limits), so adjacent bars touch.'},
+    5:{C:'✓ Correct! IQR = Q3 − Q1 = 75 − 45 = 30.',wrong:'✗ IQR = Q3 − Q1 = 75 − 45 = 30.'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
