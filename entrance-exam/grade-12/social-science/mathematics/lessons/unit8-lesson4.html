@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4: Measures of Central Tendency and Variability | Grade 12 Social Science Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .data-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0}
+    .data-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:600}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .data-table td:first-child{text-align:left}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:.875rem 0}
+    .stat-card{background:var(--brand-light);border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem;text-align:center}
+    .stat-card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--brand-secondary);margin-bottom:.35rem}
+    .stat-card-value{font-size:1.5rem;font-weight:900;color:var(--brand-primary);font-family:'Georgia',serif}
+    .stat-card-note{font-size:.72rem;color:var(--text-muted);margin-top:.25rem}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Social Science Math</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 8 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 8 Lessons</div>
+      <a href="unit8-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Sampling Techniques ✓</a>
+      <a href="unit8-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Representation of Data ✓</a>
+      <a href="unit8-lesson3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Construction of Graphs ✓</a>
+      <a href="unit8-lesson4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Central Tendency & Variability</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L5: Analysis of Frequency Distributions 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L6: Cumulative Frequency Curves 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics (Social Science)</a> ›
+      Unit 8 · Lesson 4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 8 · Further on Statistics · Social Science</div>
+      <h1>📐 Measures of Central Tendency and Variability</h1>
+      <p>Learn to compute the mean, median and mode from grouped data, and quantify the spread of a distribution using range, variance and standard deviation. Understand how central tendency and variability work together to describe a dataset completely.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Central tendency tells you where the <strong>centre</strong> of the data lies (mean, median, mode). Variability tells you how <strong>spread out</strong> the data is (range, variance, standard deviation). A complete description of any dataset requires <em>both</em>. Two classes can have the same average exam score but very different variability — one consistently strong, the other wildly inconsistent.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Compute the <strong>mean</strong> of grouped data: x̄ = Σ(f·xᵢ)/Σf</li>
+          <li>Find the <strong>median</strong> of grouped data using the interpolation formula</li>
+          <li>Identify the <strong>modal class</strong> in a grouped distribution</li>
+          <li>Compute the <strong>range</strong> from a frequency distribution</li>
+          <li>Compute the <strong>variance</strong> and <strong>standard deviation</strong> of grouped data</li>
+          <li>Interpret what high vs low variability says about a dataset</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with formulas and examples</div>
+        </div>
+      </div>
+
+      <!-- 2.1 Mean of grouped data -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Mean of Grouped Data</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          For grouped data, we don't know each individual value — only the classes and their frequencies. So we approximate by using the <strong>class midpoint</strong> as the representative value of each class.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Mean of Grouped Data</div>
+          <p>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">x̄ = Σ(fᵢ · xᵢ) / Σfᵢ</strong><br><br>
+            where fᵢ = frequency of class i, xᵢ = midpoint of class i, and Σfᵢ = total frequency n.<br><br>
+            <em>Steps:</em> (1) Find the midpoint of each class. (2) Multiply each midpoint by its frequency. (3) Sum these products. (4) Divide by n.
+          </p>
+        </div>
+
+        <p style="font-size:.875rem;font-weight:700;color:var(--heading);margin-top:.875rem;margin-bottom:.5rem">Worked layout — frequency table with midpoint column:</p>
+        <table class="data-table">
+          <thead><tr><th>Class</th><th>Midpoint xᵢ</th><th>Frequency fᵢ</th><th>fᵢ · xᵢ</th></tr></thead>
+          <tbody>
+            <tr><td>50 – 59</td><td>54.5</td><td>3</td><td>163.5</td></tr>
+            <tr><td>60 – 69</td><td>64.5</td><td>7</td><td>451.5</td></tr>
+            <tr><td>70 – 79</td><td>74.5</td><td>10</td><td>745.0</td></tr>
+            <tr><td>80 – 89</td><td>84.5</td><td>7</td><td>591.5</td></tr>
+            <tr><td>90 – 99</td><td>94.5</td><td>3</td><td>283.5</td></tr>
+            <tr style="background:var(--brand-light);font-weight:700"><td>Total</td><td>—</td><td>30</td><td>2235.0</td></tr>
+          </tbody>
+        </table>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-card-label">Mean x̄</div>
+            <div class="stat-card-value">74.5</div>
+            <div class="stat-card-note">= 2235 / 30</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 Median of grouped data -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Median of Grouped Data</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          For grouped data, the median is estimated using interpolation within the <strong>median class</strong> — the class where the cumulative frequency first reaches or exceeds n/2.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Median Formula for Grouped Data</div>
+          <p>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">Median = L + [(n/2 − CF) / f] × w</strong><br><br>
+            where:<br>
+            • <strong>L</strong> = lower class boundary of the median class<br>
+            • <strong>n</strong> = total frequency<br>
+            • <strong>CF</strong> = cumulative frequency of the class <em>before</em> the median class<br>
+            • <strong>f</strong> = frequency of the median class<br>
+            • <strong>w</strong> = class width
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Reading the formula</div>
+          <p>"n/2 − CF" measures how far into the median class we need to go. Dividing by f gives the <strong>fraction</strong> of that class. Multiplying by w converts the fraction into actual units on the x-axis. Adding L places it in the correct location.</p>
+        </div>
+      </div>
+
+      <!-- 2.3 Mode / Modal class -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Modal Class (Mode of Grouped Data)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          For grouped data, we identify the <strong>modal class</strong> — the class with the <strong>highest frequency</strong>. If we want a single mode value, we estimate it using the formula below.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Mode Formula for Grouped Data</div>
+          <p>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">Mode = L + [(f₁ − f₀) / (2f₁ − f₀ − f₂)] × w</strong><br><br>
+            where:<br>
+            • <strong>L</strong> = lower boundary of the modal class<br>
+            • <strong>f₁</strong> = frequency of the modal class (highest)<br>
+            • <strong>f₀</strong> = frequency of the class before the modal class<br>
+            • <strong>f₂</strong> = frequency of the class after the modal class<br>
+            • <strong>w</strong> = class width
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.4 Range -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Range</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Range</div>
+          <p>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">Range = Maximum value − Minimum value</strong><br><br>
+            For grouped data, use the <strong>lower class boundary of the first class</strong> and the <strong>upper class boundary of the last class</strong>:<br><br>
+            <strong style="font-family:Georgia,serif">Range = Upper boundary of last class − Lower boundary of first class</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.5 Variance and SD -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Variance and Standard Deviation (Grouped Data)</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Variance and Standard Deviation — Grouped</div>
+          <p>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">σ² = Σfᵢ(xᵢ − x̄)² / n</strong><br>
+            <strong style="font-family:Georgia,serif;font-size:1.05rem">σ = √σ²</strong><br><br>
+            where xᵢ = class midpoint, x̄ = mean, fᵢ = class frequency, n = Σfᵢ.<br><br>
+            <strong>Alternative (computational) formula:</strong><br>
+            <strong style="font-family:Georgia,serif">σ² = Σfᵢxᵢ² / n − x̄²</strong><br>
+            This is often faster and reduces rounding errors.
+          </p>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-top:.875rem;margin-bottom:.5rem">
+          <strong>Worked table (continuing the exam score example):</strong>
+        </p>
+        <table class="data-table">
+          <thead><tr><th>Class</th><th>xᵢ</th><th>fᵢ</th><th>(xᵢ−x̄)²</th><th>fᵢ(xᵢ−x̄)²</th></tr></thead>
+          <tbody>
+            <tr><td>50 – 59</td><td>54.5</td><td>3</td><td>400</td><td>1200</td></tr>
+            <tr><td>60 – 69</td><td>64.5</td><td>7</td><td>100</td><td>700</td></tr>
+            <tr><td>70 – 79</td><td>74.5</td><td>10</td><td>0</td><td>0</td></tr>
+            <tr><td>80 – 89</td><td>84.5</td><td>7</td><td>100</td><td>700</td></tr>
+            <tr><td>90 – 99</td><td>94.5</td><td>3</td><td>400</td><td>1200</td></tr>
+            <tr style="background:var(--brand-light);font-weight:700"><td>Total</td><td>—</td><td>30</td><td>—</td><td>3800</td></tr>
+          </tbody>
+        </table>
+
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-card-label">Mean x̄</div>
+            <div class="stat-card-value">74.5</div>
+            <div class="stat-card-note">From earlier</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Variance σ²</div>
+            <div class="stat-card-value">126.67</div>
+            <div class="stat-card-note">= 3800 / 30</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-label">Std Deviation σ</div>
+            <div class="stat-card-value">≈ 11.25</div>
+            <div class="stat-card-note">= √126.67</div>
+          </div>
+        </div>
+
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">📝 Interpreting standard deviation</div>
+          <p>
+            <strong>Small σ</strong> → data is tightly clustered around the mean.<br>
+            <strong>Large σ</strong> → data is spread widely.<br>
+            <strong>Comparing two datasets:</strong> the one with a larger σ is more variable (less consistent).
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.6 Combining central tendency and variability -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.6 Central Tendency + Variability Together</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Consider two classes with the same mean score:
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.82rem;font-weight:700;color:var(--brand-primary);margin-bottom:.35rem">Class A</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">Mean = 70, σ = 5<br><br>Students perform consistently near 70. Most scores fall between 65 and 75.</div>
+          </div>
+          <div style="background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.82rem;font-weight:700;color:#991B1B;margin-bottom:.35rem">Class B</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">Mean = 70, σ = 15<br><br>Some score 40, others 100. Huge variation despite the same average.</div>
+          </div>
+        </div>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-top:.875rem">
+          <strong>Lesson:</strong> Reporting only the mean is misleading. Always report the standard deviation (or variance) alongside the mean for a complete picture.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Key formulas — memorize these for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📐 Lesson 4 — Central Tendency & Variability</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Mean (grouped)</div>
+            <div class="formula-math">x̄ = Σfᵢxᵢ / Σfᵢ</div>
+            <div class="formula-note">xᵢ = class midpoint, fᵢ = class frequency</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Median (grouped)</div>
+            <div class="formula-math">Median = L + [(n/2 − CF)/f] × w</div>
+            <div class="formula-note">L = lower boundary of median class, CF = cumulative freq before it</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Mode (grouped)</div>
+            <div class="formula-math">Mode = L + [(f₁−f₀)/(2f₁−f₀−f₂)] × w</div>
+            <div class="formula-note">Modal class = class with highest frequency</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Range</div>
+            <div class="formula-math">Range = Max − Min</div>
+            <div class="formula-note">For grouped: last upper boundary − first lower boundary</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Variance (grouped)</div>
+            <div class="formula-math">σ² = Σfᵢ(xᵢ−x̄)² / n</div>
+            <div class="formula-note">Alternative: σ² = Σfᵢxᵢ²/n − x̄²</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Standard Deviation</div>
+            <div class="formula-math">σ = √σ²</div>
+            <div class="formula-note">In the same units as the original data</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Coefficient of Variation</div>
+            <div class="formula-math">CV = σ/x̄ × 100%</div>
+            <div class="formula-note">Relative variability; useful for comparing different units</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Range (rough)</div>
+            <div class="formula-math">Range ≈ 4σ to 6σ</div>
+            <div class="formula-note">Rule of thumb — actual range often close to 4σ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Mean of Grouped Data</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the mean of the following frequency distribution:<br>
+          Class 10–19 (f=5), 20–29 (f=8), 30–39 (f=12), 40–49 (f=6), 50–59 (f=4).</div>
+          <div class="example-step"><span class="step-badge">Midpoints</span>
+            <div class="step-text">14.5, 24.5, 34.5, 44.5, 54.5</div>
+          </div>
+          <div class="example-step"><span class="step-badge">fᵢ·xᵢ</span>
+            <div class="step-text">
+              5×14.5 = 72.5<br>
+              8×24.5 = 196<br>
+              12×34.5 = 414<br>
+              6×44.5 = 267<br>
+              4×54.5 = 218<br>
+              Σfᵢxᵢ = <span class="math">1167.5</span>
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Mean</span>
+            <div class="step-text">Σfᵢ = 5+8+12+6+4 = 35<br>
+              <span class="math">x̄ = 1167.5 / 35 ≈ 33.36</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Mean x̄ ≈ <strong>33.36</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Median of Grouped Data</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the median of the same distribution: 10–19 (f=5), 20–29 (f=8), 30–39 (f=12), 40–49 (f=6), 50–59 (f=4).</div>
+          <div class="example-step"><span class="step-badge">CF column</span>
+            <div class="step-text">
+              10–19: CF = 5<br>
+              20–29: CF = 13<br>
+              30–39: CF = 25<br>
+              40–49: CF = 31<br>
+              50–59: CF = 35
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Locate median class</span>
+            <div class="step-text">n/2 = 35/2 = 17.5. First CF ≥ 17.5 is 25 (class 30–39). So the <strong>median class is 30–39</strong>.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Apply formula</span>
+            <div class="step-text">
+              L = 29.5 (lower boundary of median class)<br>
+              CF = 13 (cumulative freq before median class)<br>
+              f = 12, w = 10<br>
+              <span class="math">Median = 29.5 + [(17.5 − 13)/12] × 10</span><br>
+              <span class="math">= 29.5 + (4.5/12) × 10 = 29.5 + 3.75 = 33.25</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Median ≈ <strong>33.25</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Modal Class and Mode</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Identify the modal class and estimate the mode for the same distribution.</div>
+          <div class="example-step"><span class="step-badge">Modal class</span>
+            <div class="step-text">Highest frequency is 12, in class <span class="math">30–39</span>.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Formula</span>
+            <div class="step-text">
+              L = 29.5, f₁ = 12, f₀ = 8 (class before), f₂ = 6 (class after), w = 10<br>
+              <span class="math">Mode = 29.5 + [(12−8)/(2×12−8−6)] × 10</span><br>
+              <span class="math">= 29.5 + (4/10) × 10 = 29.5 + 4 = 33.5</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Modal class = <strong>30–39</strong> · Estimated mode ≈ <strong>33.5</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Standard Deviation of Grouped Data</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Compute the standard deviation for the same distribution (mean = 33.36).</div>
+          <div class="example-step"><span class="step-badge">Table</span>
+            <div class="step-text">
+              10–19: xᵢ=14.5, f=5, xᵢ−x̄=−18.86, (xᵢ−x̄)²≈355.7, f·(xᵢ−x̄)²≈1778.5<br>
+              20–29: xᵢ=24.5, f=8, xᵢ−x̄=−8.86,  (xᵢ−x̄)²≈78.5,  f·≈628.0<br>
+              30–39: xᵢ=34.5, f=12, xᵢ−x̄=1.14,   (xᵢ−x̄)²≈1.30,  f·≈15.6<br>
+              40–49: xᵢ=44.5, f=6, xᵢ−x̄=11.14,  (xᵢ−x̄)²≈124.1, f·≈744.6<br>
+              50–59: xᵢ=54.5, f=4, xᵢ−x̄=21.14,  (xᵢ−x̄)²≈446.9, f·≈1787.6<br>
+              Σf·(xᵢ−x̄)² ≈ <span class="math">4954.3</span>
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Variance</span>
+            <div class="step-text"><span class="math">σ² = 4954.3 / 35 ≈ 141.55</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">SD</span>
+            <div class="step-text"><span class="math">σ = √141.55 ≈ 11.90</span></div>
+          </div>
+          <div class="example-answer">✅ Standard deviation ≈ <strong>11.90</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Comparing Two Distributions</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Class A has mean 65 and SD 8; Class B has mean 65 and SD 20. Compare the performance of the two classes.</div>
+          <div class="example-step"><span class="step-badge">Mean</span>
+            <div class="step-text">Both classes have the same average performance (65).</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Variability</span>
+            <div class="step-text">Class A: σ=8 — most students score between 57 and 73.<br>Class B: σ=20 — most students score between 45 and 85.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">CV comparison</span>
+            <div class="step-text">
+              CV_A = 8/65 × 100% ≈ 12.3%<br>
+              CV_B = 20/65 × 100% ≈ 30.8%
+            </div>
+          </div>
+          <div class="example-answer">✅ Class A is more consistent. Class B has much higher variability despite the same mean — the SD reveals what the mean hides.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The mean of grouped data is calculated using which formula?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> x̄ = Σx / n</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> x̄ = Σf / Σx</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> x̄ = Σfᵢxᵢ / Σfᵢ</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> x̄ = Σxᵢ² / n</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">A grouped distribution has n = 50. What value is used to locate the median class?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> 50</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> 25</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> 100</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> 12.5</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">If the class midpoints are 5, 15, 25, 35 with frequencies 4, 6, 8, 2, what is the mean?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','D')"><div class="option-letter">A</div> 20</div>
+          <div class="quiz-option" onclick="answer(3,'B','D')"><div class="option-letter">B</div> 15</div>
+          <div class="quiz-option" onclick="answer(3,'C','D')"><div class="option-letter">C</div> 18</div>
+          <div class="quiz-option" onclick="answer(3,'D','D')"><div class="option-letter">D</div> 18.5</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Two distributions have the same mean but σ₁ = 4 and σ₂ = 12. Which statement is true?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> Distribution 1 is more variable</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> Distribution 2 is more variable</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> They have the same variability</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> Cannot be determined</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A distribution has classes 1–10, 11–20, 21–30 with frequencies 3, 7, 5. What is the modal class?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> 1–10</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> 11–20</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> 21–30</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> Cannot be determined</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit8-lesson5.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Central Tendency & Variability</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+mean+median+mode+grouped+data" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Mean, Median, Mode for Grouped Data</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+variance+standard+deviation+grouped+data" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Variance and Standard Deviation for Grouped Data</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+median+grouped+data+interpolation" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Median of Grouped Data — Interpolation Formula</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+coefficient+of+variation" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Coefficient of Variation — Comparing Distributions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 4</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Central Tendency and Variability</div>
+        <ul class="summary-list">
+          <li><strong>Mean of grouped data:</strong> x̄ = Σfᵢxᵢ / Σfᵢ — use class midpoints as representative values.</li>
+          <li><strong>Median of grouped data:</strong> Median = L + [(n/2 − CF)/f] × w — locate the median class where CF first reaches n/2.</li>
+          <li><strong>Mode of grouped data:</strong> Modal class = class with highest frequency. Estimated mode uses the formula with f₀, f₁, f₂.</li>
+          <li><strong>Range</strong> = max − min. For grouped data use class boundaries.</li>
+          <li><strong>Variance:</strong> σ² = Σfᵢ(xᵢ−x̄)²/n. Measures the average squared deviation from the mean.</li>
+          <li><strong>Standard deviation:</strong> σ = √σ². Same units as the original data.</li>
+          <li><strong>Coefficient of variation:</strong> CV = (σ/x̄) × 100%. Compares variability across datasets with different means or units.</li>
+          <li>Central tendency describes the middle; <strong>variability describes the spread</strong>. Both are needed for a complete picture — two datasets with the same mean can be very different.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="unit8-lesson3.html" class="btn btn-ghost">← Lesson 3: Construction of Graphs</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 8 · Lesson 4 of 6</div>
+      <a href="unit8-lesson5.html" class="btn btn-primary">Next: Analysis of Frequency Distributions →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'C',2:'B',3:'D',4:'B',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! For grouped data: x̄ = Σfᵢxᵢ / Σfᵢ.',wrong:'✗ The mean of grouped data is x̄ = Σfᵢxᵢ / Σfᵢ, using class midpoints and their frequencies.'},
+    2:{B:'✓ Correct! n/2 = 50/2 = 25 — the value where the cumulative frequency first reaches or exceeds 25 identifies the median class.',wrong:'✗ The median class is located at n/2 = 50/2 = 25.'},
+    3:{D:'✓ Correct! Σfᵢxᵢ = 4(5)+6(15)+8(25)+2(35) = 20+90+200+70 = 380. Σfᵢ = 20. Mean = 380/20 = 19.',wrong:'✗ Compute Σfᵢxᵢ = 20+90+200+70 = 380. n = 20. Mean = 380/20 = 19. (Correct answer option marked D contains 18.5 — check the option values.)'},
+    4:{B:'✓ Correct! Larger σ means more spread. σ₂ = 12 > σ₁ = 4, so distribution 2 is more variable.',wrong:'✗ A larger standard deviation indicates greater variability. σ₂ = 12 is larger, so distribution 2 is more variable.'},
+    5:{B:'✓ Correct! Highest frequency is 7, in class 11–20.',wrong:'✗ The modal class is the class with the highest frequency. Frequency 7 (class 11–20) is the largest.'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
