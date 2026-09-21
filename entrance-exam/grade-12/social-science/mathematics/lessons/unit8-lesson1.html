@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1: Sampling Techniques | Grade 12 Social Science Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:1rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.4}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .method-row{display:grid;grid-template-columns:160px 1fr;gap:1rem;background:var(--surface-2);border-radius:var(--radius-lg);padding:1.1rem;margin-bottom:.75rem;align-items:start}
+    .method-name{font-size:.82rem;font-weight:700;color:var(--brand-primary)}
+    .method-desc{font-size:.82rem;color:var(--text);line-height:1.6}
+    .pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.875rem}
+    .pros{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:var(--radius-lg);padding:1rem}
+    .cons{background:#FEF2F2;border:1px solid #FECACA;border-radius:var(--radius-lg);padding:1rem}
+    .pros-label{font-size:.72rem;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:.5rem}
+    .cons-label{font-size:.72rem;font-weight:700;color:#991B1B;text-transform:uppercase;margin-bottom:.5rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .data-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0}
+    .data-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border)}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Social Science Math</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 8 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 8 Lessons</div>
+      <a href="unit8-lesson1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Sampling Techniques</a>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L2: Representation of Data 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L3: Construction of Graphs 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L4: Measures of Central Tendency 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L5: Frequency Distributions 🔒</div>
+      <div class="sidebar-link" style="opacity:.4;cursor:not-allowed"><div class="sidebar-dot"></div> L6: Cumulative Frequency Curves 🔒</div>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics (Social Science)</a> ›
+      Unit 8 · Lesson 1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 8 · Further on Statistics · Social Science</div>
+      <h1>🎯 Sampling Techniques</h1>
+      <p>Before any statistical analysis can begin, data must be collected correctly. Learn the four major sampling methods, understand when each is appropriate, calculate sample sizes for stratified and systematic samples, and recognise sampling bias — all topics tested directly on the Ethiopian entrance exam.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          A survey of every person in a population — called a <strong>census</strong> — is ideal but often impossible. Ethiopia has over 120 million people; interviewing every one for a health study would take years and cost billions. Instead, we select a <strong>sample</strong> — a smaller, carefully chosen group that represents the whole. The method of selecting that group is critical: a bad sampling method produces misleading results no matter how sophisticated the analysis.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Distinguish between a <strong>population</strong>, a <strong>sample</strong> and a <strong>census</strong></li>
+          <li>Explain the four main sampling techniques: <strong>simple random</strong>, <strong>systematic</strong>, <strong>stratified</strong> and <strong>cluster</strong></li>
+          <li>Calculate the sampling interval for <strong>systematic sampling</strong>: k = N/n</li>
+          <li>Calculate stratum sample sizes for <strong>stratified sampling</strong>: nᵢ = (Nᵢ/N) × n</li>
+          <li>Identify <strong>sampling bias</strong> and explain why it makes results unrepresentative</li>
+          <li>Choose the most appropriate method for a given real-world context</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with examples</div>
+        </div>
+      </div>
+
+      <!-- 2.1 Key terms -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Key Terms</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem">
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Population (N)</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">The <em>entire</em> group being studied. Example: all secondary school students in Ethiopia.</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Sample (n)</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">A selected subset of the population used to represent the whole. Should be large enough and unbiased.</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Census</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">Data collected from every member of the population. Accurate but expensive and time-consuming.</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Sampling Frame</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">The complete list of all members of the population from which the sample is drawn.</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Sampling Bias</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">A systematic error where the sample does not fairly represent the population, leading to misleading conclusions.</div>
+          </div>
+          <div style="background:var(--surface-2);border-radius:var(--radius-lg);padding:1rem">
+            <div style="font-size:.78rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;margin-bottom:.35rem">Representative Sample</div>
+            <div style="font-size:.82rem;color:var(--text);line-height:1.6">A sample whose characteristics closely match those of the population it is drawn from.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 Four sampling methods -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 The Four Main Sampling Techniques</h3>
+
+        <!-- Simple random -->
+        <div class="definition-box">
+          <div class="def-label">📌 1. Simple Random Sampling</div>
+          <p>Every member of the population has an <strong>equal probability</strong> of being selected. Members are chosen using a random number table, a lottery, or a random number generator.<br><br>
+          <strong>How:</strong> Number all N members. Use random numbers to select n members.<br>
+          <strong>Best for:</strong> Small, homogeneous populations with a complete sampling frame available.</p>
+        </div>
+        <div class="pros-cons">
+          <div class="pros"><div class="pros-label">✓ Advantages</div><ul style="font-size:.78rem;color:var(--text);line-height:1.8;padding-left:1rem"><li>Unbiased — every member has equal chance</li><li>Simple to understand</li><li>Results are statistically valid</li></ul></div>
+          <div class="cons"><div class="cons-label">✗ Disadvantages</div><ul style="font-size:.78rem;color:var(--text);line-height:1.8;padding-left:1rem"><li>Requires a complete list of the population</li><li>Can miss subgroups if sample is small</li><li>Impractical for large, geographically spread populations</li></ul></div>
+        </div>
+
+        <!-- Systematic -->
+        <div class="definition-box" style="margin-top:1.25rem">
+          <div class="def-label">📌 2. Systematic Sampling</div>
+          <p>Select every <strong>kth member</strong> from a list after a random starting point.<br><br>
+          <strong>Sampling interval:</strong> k = N ÷ n (round to nearest whole number)<br>
+          <strong>How:</strong> Choose a random start between 1 and k, then select every kth member.<br>
+          <strong>Best for:</strong> Large populations with a complete ordered list.</p>
+        </div>
+        <div class="pros-cons">
+          <div class="pros"><div class="pros-label">✓ Advantages</div><ul style="font-size:.78rem;color:var(--text);line-height:1.8;padding-left:1rem"><li>Easy to carry out once the list exists</li><li>Spread evenly across the list</li><li>Quick to implement</li></ul></div>
+          <div class="cons"><div class="cons-label">✗ Disadvantages</div><ul style="font-size:.78rem;color:var(--text);line-height:1.8;padding-left:1rem"><li>Can introduce bias if the list has a hidden pattern at interval k</li><li>Still requires a complete ordered list</li></ul></div>
+        </div>
+
+        <!-- Stratified -->
+        <div class="definition-box" style="margin-top:1.25rem">
+          <div class="def-label">📌 3. Stratified Sampling</div>
+          <p>Divide the population into non-overlapping subgroups called <strong>strata</strong> (e.g. by gender, age group, region), then randomly sample from each stratum <em>in proportion to its size</em>.<br><br>
+          <strong>Stratum sample size:</strong> nᵢ = (Nᵢ / N) × n<br>
+          where Nᵢ = stratum size, N = population size, n = total sample size.<br><br>
+          <strong>Best for:</strong> Heterogeneous populations where subgroups must all be represented.</p>
+        </div>
+        <div class="pros-cons">
+          <div class="pros"><div class="pros-label">✓ Advantages</div><ul style="font-size:.78rem;color:var(--text);line-height:1.8;padding-left:1rem"><li>Ensures all subgroups are represented</li><li>More precise than simple random for heterogeneous populations</li></ul></div>
+          <div class="cons"><div class="cons-label">✗ Disadvantages</div><ul style="font-size:.78rem;color:var(--text);line-height:1.8;padding-left:1rem"><li>Requires knowledge of population subgroup sizes</li><li>More complex to organise</li></ul></div>
+        </div>
+
+        <!-- Cluster -->
+        <div class="definition-box" style="margin-top:1.25rem">
+          <div class="def-label">📌 4. Cluster Sampling</div>
+          <p>Divide the population into <strong>clusters</strong> (groups — e.g. schools, villages, districts), randomly select a number of clusters, then survey <em>every member</em> in the selected clusters.<br><br>
+          <strong>Best for:</strong> Populations spread over a large geographic area where visiting every location is impractical.</p>
+        </div>
+        <div class="pros-cons">
+          <div class="pros"><div class="pros-label">✓ Advantages</div><ul style="font-size:.78rem;color:var(--text);line-height:1.8;padding-left:1rem"><li>Very practical for geographically dispersed populations</li><li>Reduces travel/data-collection costs</li></ul></div>
+          <div class="cons"><div class="cons-label">✗ Disadvantages</div><ul style="font-size:.78rem;color:var(--text);line-height:1.8;padding-left:1rem"><li>Less precise — members within a cluster may be similar</li><li>Results depend on which clusters were selected</li></ul></div>
+        </div>
+      </div>
+
+      <!-- 2.3 Comparison table -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Comparison Summary</h3>
+        <table class="data-table">
+          <thead><tr><th>Method</th><th>Unit of Selection</th><th>Key Formula</th><th>Best Context</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Simple Random</strong></td><td>Individuals</td><td>All equal probability</td><td>Small, homogeneous populations</td></tr>
+            <tr><td><strong>Systematic</strong></td><td>Every kth individual</td><td>k = N/n</td><td>Large ordered lists</td></tr>
+            <tr><td><strong>Stratified</strong></td><td>Individuals within strata</td><td>nᵢ = (Nᵢ/N)×n</td><td>Heterogeneous populations with known subgroups</td></tr>
+            <tr><td><strong>Cluster</strong></td><td>Entire clusters</td><td>Select clusters randomly</td><td>Geographically dispersed populations</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2.4 Sampling bias -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Sampling Bias</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Sampling Bias</div>
+          <p><strong>Sampling bias</strong> occurs when the sampling method systematically favours some members of the population over others, making the sample unrepresentative.<br><br>
+          Common sources of bias:<br>
+          • <strong>Convenience sampling:</strong> selecting whoever is easiest to reach (e.g. only interviewing friends)<br>
+          • <strong>Voluntary response bias:</strong> people who feel strongly are more likely to respond<br>
+          • <strong>Undercoverage:</strong> some groups have little or no chance of being selected</p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">⚠ Exam tip</div>
+          <p>The entrance exam often presents a scenario and asks you to identify the sampling method used OR to identify whether bias is present. Always ask: "Does every member of the population have a fair chance of being selected?" If not, bias exists.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Key formulas — memorize these for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🎯 Lesson 1 — Sampling Techniques</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Systematic Interval</div>
+            <div class="formula-math">k = N ÷ n</div>
+            <div class="formula-note">N = population size, n = sample size. Select every kth member.</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Stratified Stratum Size</div>
+            <div class="formula-math">nᵢ = (Nᵢ / N) × n</div>
+            <div class="formula-note">Nᵢ = stratum population, n = total sample size</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Total Sample Check</div>
+            <div class="formula-math">Σ nᵢ = n</div>
+            <div class="formula-note">All stratum samples must add up to the total sample size</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Sampling Fraction</div>
+            <div class="formula-math">f = n / N</div>
+            <div class="formula-note">Proportion of population included in the sample</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identifying the Sampling Method</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A researcher wants to study the reading habits of 1,000 university students. She numbers all students 1–1000 and uses a random number generator to select 50 of them. What sampling method is this?</div>
+          <div class="example-step"><span class="step-badge">Analysis</span>
+            <div class="step-text">Every student has been numbered (sampling frame exists). Students are selected using a random process. Every student has an <strong>equal chance</strong> of being selected.</div>
+          </div>
+          <div class="example-answer">✅ This is <strong>Simple Random Sampling</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Systematic Sampling — Finding the Interval and Selecting the Sample</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A factory has 480 workers on a payroll list. The quality control team wants a sample of 60. Describe how to use systematic sampling. If the random start is worker number 5, list the first four workers selected.</div>
+          <div class="example-step"><span class="step-badge">Interval</span>
+            <div class="step-text"><span class="math">k = N/n = 480/60 = 8</span>. Select every 8th worker.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">First four</span>
+            <div class="step-text">Start at 5, add 8 each time: workers <span class="math">5, 13, 21, 29, ...</span></div>
+          </div>
+          <div class="example-answer">✅ k = 8. First four selected: workers <strong>5, 13, 21, 29</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Stratified Sampling — Calculating Stratum Sizes</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A school has 600 students: 240 Grade 10, 200 Grade 11 and 160 Grade 12. A stratified sample of 60 students is required. How many should be selected from each grade?</div>
+          <div class="example-step"><span class="step-badge">Grade 10</span>
+            <div class="step-text"><span class="math">n₁₀ = (240/600) × 60 = 0.4 × 60 = 24</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Grade 11</span>
+            <div class="step-text"><span class="math">n₁₁ = (200/600) × 60 = 0.333 × 60 = 20</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Grade 12</span>
+            <div class="step-text"><span class="math">n₁₂ = (160/600) × 60 = 0.267 × 60 = 16</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Check</span>
+            <div class="step-text"><span class="math">24 + 20 + 16 = 60 ✓</span></div>
+          </div>
+          <div class="example-answer">✅ Grade 10: <strong>24</strong> · Grade 11: <strong>20</strong> · Grade 12: <strong>16</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Cluster Sampling Scenario</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A health researcher wants to study living conditions across 200 villages in a rural region. Visiting all 200 is too costly. She randomly selects 20 villages and surveys every household in those 20 villages. What method is this and why is it appropriate?</div>
+          <div class="example-step"><span class="step-badge">Method</span>
+            <div class="step-text">The villages are <strong>clusters</strong>. She selected a random sample of clusters (20 villages) and surveyed all members within them.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Why appropriate</span>
+            <div class="step-text">The population is <strong>geographically dispersed</strong> across 200 villages. Cluster sampling drastically reduces travel cost and time while still allowing a random element (random cluster selection).</div>
+          </div>
+          <div class="example-answer">✅ <strong>Cluster Sampling</strong> — appropriate because the population is geographically spread and visiting all villages is impractical.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Identifying Sampling Bias</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> To find the average monthly income of residents in a city, a researcher surveys 200 people at a luxury shopping mall on a weekday afternoon. Identify the type of bias and explain its effect.</div>
+          <div class="example-step"><span class="step-badge">Bias type</span>
+            <div class="step-text"><strong>Convenience sampling bias</strong> — the researcher selected whoever was easiest to reach (people at a mall on a weekday afternoon).</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Who is excluded</span>
+            <div class="step-text">People who work during the day, low-income residents (unlikely to shop at a luxury mall), elderly or disabled residents who cannot visit a mall, and rural residents.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Effect</span>
+            <div class="step-text">The sample overrepresents higher-income, urban, working-age mall shoppers. The estimated average income will be <strong>significantly higher</strong> than the true city average.</div>
+          </div>
+          <div class="example-answer">✅ <strong>Convenience/undercoverage bias</strong> — the sample overrepresents higher-income groups, making the income estimate unrepresentatively high.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">A researcher numbers 500 employees 1–500 and selects every 25th employee starting from employee number 12. What sampling method is this?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div> Simple random sampling</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div> Systematic sampling</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div> Stratified sampling</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div> Cluster sampling</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">A company has 400 male and 600 female employees. A stratified sample of 100 is required. How many females should be in the sample?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> 40</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> 50</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> 60</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> 70</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A population of 900 is to be sampled systematically with a sample of 45. What is the sampling interval?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> 45</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> 20</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> 9</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> 900</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">A researcher surveys all households in 5 randomly selected villages out of 50. Which method is this?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','D')"><div class="option-letter">A</div> Simple random sampling</div>
+          <div class="quiz-option" onclick="answer(4,'B','D')"><div class="option-letter">B</div> Stratified sampling</div>
+          <div class="quiz-option" onclick="answer(4,'C','D')"><div class="option-letter">C</div> Systematic sampling</div>
+          <div class="quiz-option" onclick="answer(4,'D','D')"><div class="option-letter">D</div> Cluster sampling</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A poll asks only people who visit a specific website to vote on a national issue. This is an example of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Stratified sampling</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Systematic sampling with bias</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Voluntary response bias</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Cluster sampling</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="unit8-lesson2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Sampling Techniques</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+sampling+methods+statistics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Sampling Methods — Random, Systematic, Stratified, Cluster</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+stratified+sampling+calculations" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Stratified Sampling — Calculations and Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+systematic+sampling+interval" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Systematic Sampling — Interval and Procedure</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+sampling+bias+statistics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Sampling Bias — Types and Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 1</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Sampling Techniques</div>
+        <ul class="summary-list">
+          <li>A <strong>population</strong> is the complete group; a <strong>sample</strong> is a selected subset. A <strong>census</strong> surveys the entire population.</li>
+          <li><strong>Simple random sampling</strong>: every member has an equal chance of selection. Most unbiased but requires a complete list.</li>
+          <li><strong>Systematic sampling</strong>: select every kth member. Interval k = N ÷ n. Choose a random start between 1 and k.</li>
+          <li><strong>Stratified sampling</strong>: divide into strata and sample each proportionally. Stratum size nᵢ = (Nᵢ/N) × n. All strata are represented.</li>
+          <li><strong>Cluster sampling</strong>: randomly select whole clusters (villages, schools) and survey everyone within them. Best for geographically spread populations.</li>
+          <li><strong>Sampling bias</strong> occurs when the method systematically favours some members, making the sample unrepresentative.</li>
+          <li>Common bias sources: convenience sampling, voluntary response, undercoverage of certain groups.</li>
+          <li>To check if a method is biased: ask whether every member of the population has a fair chance of being selected.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="../index.html" class="btn btn-ghost">← Course Index</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 8 · Lesson 1 of 6</div>
+      <a href="unit8-lesson2.html" class="btn btn-primary">Next: Representation of Data →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'B',2:'C',3:'B',4:'D',5:'C'};
+  const feedbacks={
+    1:{B:'✓ Correct! Selecting every 25th member from an ordered list is systematic sampling.',wrong:'✗ Selecting every kth member from an ordered list is systematic sampling. The interval here is k=500/20=25.'},
+    2:{C:'✓ Correct! nF=(600/1000)×100=0.6×100=60.',wrong:'✗ Stratified: nF=(NF/N)×n=(600/1000)×100=60 females.'},
+    3:{B:'✓ Correct! k=N/n=900/45=20.',wrong:'✗ Systematic interval k=N÷n=900÷45=20.'},
+    4:{D:'✓ Correct! Randomly selecting whole villages (clusters) and surveying all members within them is cluster sampling.',wrong:'✗ When whole groups (villages) are randomly selected and all members within them are surveyed, this is cluster sampling.'},
+    5:{C:'✓ Correct! Only people who choose to visit and respond to the website poll participate — this is voluntary response bias.',wrong:'✗ When only people who self-select to participate respond, this creates voluntary response bias — those with strong opinions are overrepresented.'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
