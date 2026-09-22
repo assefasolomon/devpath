@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.2: Physics and Chemistry | Grade 12 Physics</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .data-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0}
+    .data-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:600}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .data-table td:first-child{text-align:left}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:.875rem 0}
+    .concept-card{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.25rem;text-align:center}
+    .concept-icon{font-size:1.75rem;margin-bottom:.5rem}
+    .concept-title{font-size:.875rem;font-weight:700;color:var(--brand-primary);margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text-muted);line-height:1.55}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Physics</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Key Concepts</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Physics and Other Sciences ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Physics and Chemistry</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Physics and Biology 🔒</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Physics and Astronomy 🔒</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Physics and Geology 🔒</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Physics and Engineering 🔒</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Medical Physics 🔒</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Defense Technology 🔒</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Communication 🔒</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Application of Physics · Natural Science</div>
+      <h1>⚗️ Physics and Chemistry</h1>
+      <p>Chemistry is often called <em>"applied molecular physics"</em> — and for good reason. In this lesson you'll see how atomic and subatomic physics explains bonding, reactions, and the periodic table. You'll also learn how thermodynamics and spectroscopy are shared tools of both sciences.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Where does chemistry end and physics begin? The truth is: <strong>they overlap</strong>. Both study matter and its interaction with energy. When we zoom in to the level of atoms, electrons, and nuclei, we cross from chemistry into <strong>atomic and molecular physics</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Explain the <strong>overlap</strong> between physics and chemistry</li>
+          <li>Describe how <strong>atomic physics explains bonding</strong></li>
+          <li>Explain how <strong>thermodynamics</strong> tells us if reactions are possible</li>
+          <li>Understand the role of <strong>spectroscopy</strong> in identifying molecules</li>
+          <li>Recognize shared tools and concepts between both sciences</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory from the textbook</div>
+        </div>
+      </div>
+
+      <!-- 2.1 Overlap -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Where Physics and Chemistry Overlap</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Physics and chemistry <strong>overlap</strong> when the system under study involves matter composed of <strong>electrons and nuclei</strong>. The fundamental laws that govern the behavior of matter apply equally to both.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key Overlap Areas</div>
+          <p>
+            • Both study <strong>matter and its interaction with energy</strong><br>
+            • Both use <strong>similar methods</strong> to study large numbers of interacting particles<br>
+            • Chemistry's rules about atoms are <strong>ultimately explained</strong> by atomic and subatomic physics<br>
+            • <strong>Shared tools</strong>: spectroscopy, thermodynamics, electromagnetism
+          </p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">⚛️</div>
+            <div class="concept-title">Atomic Physics</div>
+            <div class="concept-desc">Explains how electrons form bonds</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🔥</div>
+            <div class="concept-title">Thermodynamics</div>
+            <div class="concept-desc">Determines if reactions are possible</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🌈</div>
+            <div class="concept-title">Spectroscopy</div>
+            <div class="concept-desc">Reveals atomic & molecular structure</div>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">⚡</div>
+            <div class="concept-title">Electromagnetism</div>
+            <div class="concept-desc">Explains X-ray diffraction, radioactivity</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.2 Atomic physics and bonding -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Atomic Physics Explains Bonding</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Why do atoms bond? Why do some bonds release energy while others absorb it? The answers come from the <strong>physics of atoms and subatomic particles</strong>.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Physics Behind Chemical Bonds</div>
+          <p>
+            • <strong>Covalent bonds</strong> — electrons shared between atoms; the physics of electron orbitals explains which bonds form<br>
+            • <strong>Ionic bonds</strong> — electrons transferred; electrical attraction holds ions together<br>
+            • <strong>Energy magnitudes</strong> — physics gives exact quantitative values for bond energies<br>
+            • <strong>Molecular stability</strong> — physics tells us which molecules are energetically favorable
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.3 Thermodynamics -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Thermodynamics and Chemical Reactions</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Not every reaction a chemist imagines can actually happen. Physics — specifically <strong>thermodynamics</strong> — tells us which reactions are <strong>energetically possible</strong>.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 What Thermodynamics Tells Chemists</div>
+          <p>
+            • Whether a reaction is <strong>energetically possible</strong> in the given direction<br>
+            • The <strong>composition at equilibrium</strong> — how much product vs reactant<br>
+            • <strong>Heat energy exchanges</strong> during reaction (exothermic / endothermic)<br>
+            • Links <strong>macroscopic</strong> properties (temperature, pressure) to <strong>microscopic</strong> behavior (molecular motion)
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Bridging macro and micro</div>
+          <p>
+            The physics of heat energy provides a <strong>bridge</strong> between the macroscopic properties of a substance (what we measure in a lab) and the microscopic properties of its constituent molecules and atoms (what we can't see directly).
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.4 Spectroscopy -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Spectroscopy — The Shared Tool</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          <strong>Spectroscopy</strong> is the study of the interaction between matter and electromagnetic radiation as a function of wavelength or frequency. It's one of the most powerful tools in both physics and chemistry.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 What Spectroscopy Reveals</div>
+          <p>
+            • <strong>Atomic structure</strong> — how electrons are arranged in atoms<br>
+            • <strong>Molecular structure</strong> — how atoms are bonded together<br>
+            • <strong>Composition</strong> — what elements are present<br>
+            • <strong>Temperature</strong> — how hot an object is (via emitted light)
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Historical note</div>
+          <p>
+            Most of what we know about the structure of <strong>atoms and molecules</strong> comes from spectroscopic study. Spectroscopic techniques were developed by <strong>collaborative work</strong> of physicists and chemists — a perfect example of interdisciplinary science.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.5 Concepts explained by physics -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Chemistry Concepts Rooted in Physics</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Many fundamental chemistry concepts are explained by physics:
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Chemistry Concept</th>
+              <th>Physics Explanation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Atomic structure</td><td>Atomic physics — Bohr model, quantum mechanics</td></tr>
+            <tr><td>Molecular structure</td><td>Molecular physics — electron orbitals, bonding theory</td></tr>
+            <tr><td>X-ray diffraction</td><td>Electromagnetic wave interference</td></tr>
+            <tr><td>Radioactivity</td><td>Nuclear physics — decay of unstable nuclei</td></tr>
+            <tr><td>Periodic properties</td><td>Electron configuration — quantum energy levels</td></tr>
+            <tr><td>Valency</td><td>Valence electron behavior — quantum states</td></tr>
+            <tr><td>Chemical bonds</td><td>Electromagnetic forces between charged particles</td></tr>
+            <tr><td>Crystal structure</td><td>Solid-state physics — lattice arrangements</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Big idea</div>
+          <p>
+            <strong>Chemistry is rooted in atomic and molecular physics.</strong> Every chemical rule has a physical foundation.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- KEY CONCEPTS -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Key Concepts Reference</div>
+          <div class="section-subtitle">Quick reference — memorize for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">⚗️ Lesson 1.2 — Physics and Chemistry</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Shared subject</div>
+            <div class="formula-math">Matter + Energy</div>
+            <div class="formula-note">Both sciences study this</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Covalent bond</div>
+            <div class="formula-math">Electrons shared</div>
+            <div class="formula-note">Explained by atomic physics</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Ionic bond</div>
+            <div class="formula-math">Electrons transferred</div>
+            <div class="formula-note">Electrical attraction holds ions</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Spectroscopy</div>
+            <div class="formula-math">Light ↔ Matter interaction</div>
+            <div class="formula-note">Reveals atomic/molecular structure</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Thermodynamics</div>
+            <div class="formula-math">ΔG, ΔH, ΔS</div>
+            <div class="formula-note">Predicts reaction feasibility</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Radioactivity</div>
+            <div class="formula-math">Nuclear decay</div>
+            <div class="formula-note">Nuclear physics explains it</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Periodic trends</div>
+            <div class="formula-math">Electron shells</div>
+            <div class="formula-note">Quantum energy levels</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Crystal structure</div>
+            <div class="formula-math">Lattice arrangement</div>
+            <div class="formula-note">Solid-state physics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identifying the Physics Behind a Bond</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Two hydrogen atoms combine to form H₂. What physics principle explains why this bond forms?</div>
+          <div class="example-step"><span class="step-badge">Identify</span>
+            <div class="step-text">Two hydrogen atoms each have one electron. They share electrons in a <span class="math">covalent bond</span>.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Physics</span>
+            <div class="step-text">The <span class="math">electromagnetic force</span> between electrons and nuclei, combined with <span class="math">quantum mechanics</span> (electron orbitals), determines the bond.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Energy</span>
+            <div class="step-text">The H₂ molecule is <span class="math">lower in energy</span> than two separate H atoms — that's why the bond forms.</div>
+          </div>
+          <div class="example-answer">✅ <strong>Electromagnetism + quantum mechanics</strong> explains H₂ formation — a chemistry fact rooted in physics.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Can This Reaction Happen?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A chemist wants to know if a certain reaction will proceed spontaneously at room temperature. Which physics branch answers this?</div>
+          <div class="example-step"><span class="step-badge">Identify</span>
+            <div class="step-text">The question is about <span class="math">spontaneity</span> and energy.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Physics branch</span>
+            <div class="step-text"><span class="math">Thermodynamics</span> — using Gibbs free energy ΔG = ΔH − TΔS.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Rule</span>
+            <div class="step-text">If <span class="math">ΔG &lt; 0</span>, the reaction is spontaneous. If ΔG &gt; 0, it won't happen spontaneously.</div>
+          </div>
+          <div class="example-answer">✅ Use <strong>thermodynamics</strong> — if ΔG &lt; 0, the reaction proceeds spontaneously.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Atomic Structure from Spectroscopy</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A hydrogen lamp emits light at specific wavelengths (e.g., 656 nm, 486 nm, 434 nm). What does this tell us about the atom?</div>
+          <div class="example-step"><span class="step-badge">Observation</span>
+            <div class="step-text">Only certain wavelengths are emitted — not a continuous spectrum.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Physics</span>
+            <div class="step-text">Electrons can only occupy <span class="math">discrete energy levels</span> (quantum mechanics). When an electron drops from higher to lower level, a photon is emitted with energy <span class="math">E = hf = hc/λ</span>.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Conclusion</span>
+            <div class="step-text">The distinct wavelengths reveal the atom's <span class="math">quantized energy structure</span>.</div>
+          </div>
+          <div class="example-answer">✅ The spectrum proves that electron energy levels in atoms are <strong>quantized</strong> — a fundamental physics fact.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Radioactivity — Physics or Chemistry?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A chemist studies a radioactive isotope of carbon (C-14). Is this more physics or chemistry?</div>
+          <div class="example-step"><span class="step-badge">Analyze</span>
+            <div class="step-text">Radioactivity involves the <span class="math">nucleus</span> — protons and neutrons.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Physics side</span>
+            <div class="step-text">Nuclear physics explains decay, half-life, and emitted radiation.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Chemistry side</span>
+            <div class="step-text">Chemistry uses C-14 for <span class="math">radiometric dating</span> and studies its chemical behavior.</div>
+          </div>
+          <div class="example-answer">✅ Both — the <strong>physics</strong> explains the decay mechanism; the <strong>chemistry</strong> uses it as a tool. This is a perfect example of overlap.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">X-ray Diffraction and Crystal Structure</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> How can we determine the arrangement of atoms in a crystal without seeing them directly?</div>
+          <div class="example-step"><span class="step-badge">Technique</span>
+            <div class="step-text">Use <span class="math">X-ray diffraction</span> — X-rays have wavelengths comparable to atomic spacing.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Physics</span>
+            <div class="step-text">X-rays scattered by atoms interfere — constructive/destructive <span class="math">interference pattern</span> emerges.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Result</span>
+            <div class="step-text">The diffraction pattern reveals the <span class="math">crystal lattice</span> structure with atomic precision.</div>
+          </div>
+          <div class="example-answer">✅ <strong>X-ray diffraction</strong> uses electromagnetic wave interference — a physics technique applied to chemistry.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Physics and chemistry overlap most when studying:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div> Macroscopic objects only</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div> Matter composed of electrons and nuclei</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div> Living organisms</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div> Geological formations</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Which physics concept explains why covalent bonds form?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Nuclear forces</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Gravitational attraction</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Electromagnetic forces and electron orbitals</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Sound waves</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Which physics branch predicts whether a chemical reaction is energetically possible?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> Optics</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> Thermodynamics</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> Quantum mechanics</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> Acoustics</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Spectroscopy is the study of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Sound waves in solids</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Magnetic fields</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Interaction between matter and electromagnetic radiation</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Radioactive decay</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Which of these chemistry concepts is ultimately explained by physics?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','D')"><div class="option-letter">A</div> Atomic structure</div>
+          <div class="quiz-option" onclick="answer(5,'B','D')"><div class="option-letter">B</div> Chemical bonding</div>
+          <div class="quiz-option" onclick="answer(5,'C','D')"><div class="option-letter">C</div> Crystal structure</div>
+          <div class="quiz-option" onclick="answer(5,'D','D')"><div class="option-letter">D</div> All of the above</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-3.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Physics & Chemistry</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+chemistry+physics+relationship" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Relationship Between Physics and Chemistry</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+atomic+structure+covalent+bonding" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Atomic Structure and Covalent Bonding Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+thermochemistry+gibbs+free+energy" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Thermochemistry and Gibbs Free Energy</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+spectroscopy+IR+NMR+overview" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Spectroscopy — IR, NMR and Mass Spectrometry Overview</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 1.2</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Physics and Chemistry</div>
+        <ul class="summary-list">
+          <li>Physics and chemistry <strong>overlap</strong> when studying matter composed of electrons and nuclei.</li>
+          <li>Both sciences study <strong>matter and its interaction with energy</strong>.</li>
+          <li><strong>Atomic and subatomic physics</strong> explains why atoms bond, why reactions happen, and which molecules are stable.</li>
+          <li><strong>Thermodynamics</strong> tells chemists whether a reaction is energetically possible and what composition it will reach at equilibrium.</li>
+          <li><strong>Spectroscopy</strong> — the study of light-matter interaction — reveals the structure of atoms and molecules.</li>
+          <li>Chemistry concepts like <strong>atomic structure, molecular structure, valency, radioactivity, and crystal structure</strong> are all rooted in physics.</li>
+          <li>Chemistry is essentially <strong>applied molecular physics</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-1.html" class="btn btn-ghost">← Lesson 1: Physics and Other Sciences</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 2 of 9</div>
+      <a href="lesson-1-3.html" class="btn btn-primary">Next: Physics and Biology →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'B',2:'C',3:'B',4:'C',5:'D'};
+  const feedbacks={
+    1:{B:'✓ Correct! The overlap happens at the atomic and subatomic level — electrons and nuclei.',wrong:'✗ Physics and chemistry overlap most when studying matter composed of electrons and nuclei.'},
+    2:{C:'✓ Correct! Electromagnetic forces between charged particles (electrons and nuclei) plus quantum mechanics explain covalent bonding.',wrong:'✗ Covalent bonds are explained by electromagnetic forces acting between electrons and nuclei, with quantum mechanics describing electron orbitals.'},
+    3:{B:'✓ Correct! Thermodynamics (using ΔG = ΔH − TΔS) determines whether a reaction is energetically possible.',wrong:'✗ Thermodynamics tells chemists if a reaction is energetically possible in the direction written.'},
+    4:{C:'✓ Correct! Spectroscopy is the study of interaction between matter and electromagnetic radiation.',wrong:'✗ Spectroscopy studies how matter interacts with electromagnetic radiation as a function of wavelength or frequency.'},
+    5:{D:'✓ Correct! Atomic structure, chemical bonding, and crystal structure are all ultimately explained by physics.',wrong:'✗ All three — atomic structure, chemical bonding, and crystal structure — are rooted in physics.'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
