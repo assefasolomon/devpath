@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2014 E.C. Mathematics EUEE | Past Entrance Exam</title>
+  <link rel="stylesheet" href="../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body { background: #F8FAFC; }
+    .exam-hero { background: linear-gradient(135deg, #0F172A 0%, #14532D 100%); padding: 3rem 2rem; color: #fff; }
+    .exam-hero-inner { max-width: 900px; margin: 0 auto; }
+    .exam-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3); color: #86EFAC; font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 1rem; }
+    .exam-hero h1 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: .35rem; }
+    .exam-hero .sub { font-size: .85rem; color: rgba(255,255,255,.55); margin-bottom: .75rem; font-weight: 500; }
+    .exam-hero p { color: rgba(255,255,255,.72); font-size: .95rem; line-height: 1.7; max-width: 620px; }
+    .exam-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.12); }
+    .exam-meta-item { font-size: .78rem; color: rgba(255,255,255,.65); }
+    .exam-meta-item strong { color: #fff; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+    .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: .82rem; color: var(--text-muted, #64748b); margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--brand-primary, #22C55E); text-decoration: none; }
+    .info-banner { background: linear-gradient(135deg, #EFF6FF, #DBEAFE); border: 1.5px solid #BFDBFE; border-radius: var(--radius-xl, 16px); padding: 1.25rem 1.5rem; margin-bottom: 2rem; font-size: .875rem; line-height: 1.65; color: #1E40AF; display: flex; gap: 1rem; }
+    .info-banner-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; }
+    .question-card { background: #fff; border: 1.5px solid var(--border, #e2e8f0); border-radius: var(--radius-xl, 16px); padding: 1.5rem 1.75rem; margin-bottom: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
+    .question-num { display: inline-block; background: var(--brand-primary, #22C55E); color: #fff; font-size: .72rem; font-weight: 800; padding: 3px 12px; border-radius: 999px; margin-bottom: .875rem; letter-spacing: .04em; }
+    .question-text { font-size: .95rem; color: var(--heading, #0f172a); line-height: 1.7; margin-bottom: 1rem; }
+    .options { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .5rem; }
+    .option { display: flex; align-items: center; gap: .75rem; padding: .625rem .875rem; border: 1.5px solid var(--border, #e2e8f0); border-radius: var(--radius-lg, 12px); font-size: .875rem; color: var(--text, #334155); background: #fff; }
+    .option.correct { border-color: #16A34A; background: #F0FDF4; color: #166534; font-weight: 700; }
+    .option-letter { width: 26px; height: 26px; border-radius: 50%; background: var(--surface-2, #f1f5f9); color: var(--text-muted, #64748b); display: flex; align-items: center; justify-content: center; font-size: .72rem; font-weight: 700; flex-shrink: 0; }
+    .option.correct .option-letter { background: #16A34A; color: #fff; }
+    .solution-toggle { background: transparent; border: 1.5px solid var(--brand-primary, #22C55E); color: var(--brand-primary, #22C55E); font-size: .78rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; margin-top: 1rem; font-family: inherit; transition: all .2s ease; }
+    .solution-toggle:hover { background: var(--brand-primary, #22C55E); color: #fff; }
+    .solution { display: none; margin-top: 1rem; padding: 1rem 1.25rem; background: var(--surface-2, #f1f5f9); border-left: 4px solid var(--brand-accent, #22C55E); border-radius: 0 var(--radius-lg, 12px) var(--radius-lg, 12px) 0; font-size: .875rem; color: var(--text, #334155); line-height: 1.75; }
+    .solution.show { display: block; }
+    .solution strong { color: var(--heading, #0f172a); }
+    @media (max-width: 640px) {
+      .exam-hero { padding: 2.25rem 1rem; }
+      .exam-hero h1 { font-size: 1.5rem; }
+      .exam-hero p { font-size: .85rem; }
+      .exam-meta { gap: 1rem; }
+      .wrap { padding: 2rem 1rem; }
+      .question-card { padding: 1.25rem 1rem; }
+      .question-text { font-size: .875rem; }
+      .option { font-size: .82rem; padding: .5rem .75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">2014 E.C. Mathematics EUEE</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="index.html" class="btn btn-ghost btn-sm">← 2014 E.C. Papers</a>
+    <a href="../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="exam-hero">
+  <div class="exam-hero-inner">
+    <div class="exam-tag">📘 Sample Questions with Solutions</div>
+    <h1>2014 E.C. Mathematics EUEE</h1>
+    <div class="sub">(2022 Gregorian)</div>
+    <p>Sample questions from the 2014 E.C. Ethiopian University Entrance Examination mathematics paper. Each question includes options and a step-by-step solution.</p>
+    <div class="exam-meta">
+      <div class="exam-meta-item">📝 <strong>Sample:</strong> 5 questions</div>
+      <div class="exam-meta-item">⏱️ <strong>Time:</strong> ~8 min</div>
+      <div class="exam-meta-item">💡 <strong>Solutions:</strong> Included</div>
+      <div class="exam-meta-item">🎯 <strong>Level:</strong> Grade 12</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="breadcrumb">
+    <a href="../../../index.html">Home</a> ›
+    <a href="../../index.html">Entrance Exam</a> ›
+    <a href="../index.html">Past Exams</a> ›
+    <a href="index.html">2014 E.C.</a> ›
+    <span>Mathematics</span>
+  </div>
+
+  <div class="info-banner">
+    <div class="info-banner-icon">📝</div>
+    <div>
+      <strong>How to use these papers:</strong> Attempt each question first without looking at the solution. Then click <em>Show Solution</em> to check your work. Time yourself: about 1.5 minutes per question is the exam pace.
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-num">Question 1</div>
+    <div class="question-text">
+      The 5th term of an arithmetic sequence is 17 and the 9th term is 33. What is the common difference?
+    </div>
+    <ul class="options">
+      <li class="option"><span class="option-letter">A</span> 3</li>
+      <li class="option correct"><span class="option-letter">B</span> 4</li>
+      <li class="option"><span class="option-letter">C</span> 5</li>
+      <li class="option"><span class="option-letter">D</span> 8</li>
+    </ul>
+    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+    <div class="solution">
+      <strong>Answer: B</strong><br><br>
+      Using the arithmetic sequence formula: aₙ = a₁ + (n−1)d<br>
+      a₅ = a₁ + 4d = 17<br>
+      a₉ = a₁ + 8d = 33<br><br>
+      Subtract: (a₁ + 8d) − (a₁ + 4d) = 33 − 17<br>
+      4d = 16<br>
+      <strong>d = 4</strong>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-num">Question 2</div>
+    <div class="question-text">
+      Evaluate: lim(x→2) (x² − 4) / (x − 2)
+    </div>
+    <ul class="options">
+      <li class="option"><span class="option-letter">A</span> 0</li>
+      <li class="option"><span class="option-letter">B</span> 2</li>
+      <li class="option correct"><span class="option-letter">C</span> 4</li>
+      <li class="option"><span class="option-letter">D</span> Does not exist</li>
+    </ul>
+    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+    <div class="solution">
+      <strong>Answer: C</strong><br><br>
+      Direct substitution gives 0/0 (indeterminate).<br><br>
+      Factor the numerator: x² − 4 = (x − 2)(x + 2)<br>
+      Cancel: (x − 2)(x + 2) / (x − 2) = x + 2<br>
+      Substitute x = 2: 2 + 2 = <strong>4</strong>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-num">Question 3</div>
+    <div class="question-text">
+      Find the derivative of f(x) = 3x⁴ − 2x² + 5x − 7.
+    </div>
+    <ul class="options">
+      <li class="option"><span class="option-letter">A</span> 12x³ − 2x + 5</li>
+      <li class="option correct"><span class="option-letter">B</span> 12x³ − 4x + 5</li>
+      <li class="option"><span class="option-letter">C</span> 12x³ − 4x</li>
+      <li class="option"><span class="option-letter">D</span> 3x³ − 4x + 5</li>
+    </ul>
+    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+    <div class="solution">
+      <strong>Answer: B</strong><br><br>
+      Apply the power rule to each term:<br>
+      d/dx(3x⁴) = 12x³<br>
+      d/dx(−2x²) = −4x<br>
+      d/dx(5x) = 5<br>
+      d/dx(−7) = 0<br><br>
+      Combine: f'(x) = <strong>12x³ − 4x + 5</strong>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-num">Question 4</div>
+    <div class="question-text">
+      Evaluate: ∫₁³ (2x + 1) dx
+    </div>
+    <ul class="options">
+      <li class="option"><span class="option-letter">A</span> 8</li>
+      <li class="option"><span class="option-letter">B</span> 9</li>
+      <li class="option correct"><span class="option-letter">C</span> 10</li>
+      <li class="option"><span class="option-letter">D</span> 12</li>
+    </ul>
+    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+    <div class="solution">
+      <strong>Answer: C</strong><br><br>
+      Find the antiderivative: F(x) = x² + x<br>
+      Evaluate at upper limit: F(3) = 9 + 3 = 12<br>
+      Evaluate at lower limit: F(1) = 1 + 1 = 2<br>
+      Subtract: 12 − 2 = <strong>10</strong>
+    </div>
+  </div>
+
+  <div class="question-card">
+    <div class="question-num">Question 5</div>
+    <div class="question-text">
+      A fair die is rolled once. What is the probability of getting a number greater than 4?
+    </div>
+    <ul class="options">
+      <li class="option"><span class="option-letter">A</span> 1/6</li>
+      <li class="option correct"><span class="option-letter">B</span> 1/3</li>
+      <li class="option"><span class="option-letter">C</span> 1/2</li>
+      <li class="option"><span class="option-letter">D</span> 2/3</li>
+    </ul>
+    <button class="solution-toggle" onclick="toggleSolution(this)">Show Solution</button>
+    <div class="solution">
+      <strong>Answer: B</strong><br><br>
+      Sample space: S = {1, 2, 3, 4, 5, 6}, n(S) = 6<br>
+      Event: numbers greater than 4 = {5, 6}, n(A) = 2<br><br>
+      P(A) = n(A) / n(S) = 2/6 = <strong>1/3</strong>
+    </div>
+  </div>
+
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · 2014 E.C. Mathematics EUEE</p>
+      <p>Sample questions with complete solutions</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+
+  function toggleSolution(btn) {
+    const solution = btn.nextElementSibling;
+    const open = solution.classList.contains('show');
+    if (open) {
+      solution.classList.remove('show');
+      btn.textContent = 'Show Solution';
+    } else {
+      solution.classList.add('show');
+      btn.textContent = 'Hide Solution';
+    }
+  }
+</script>
+</body>
+</html>
