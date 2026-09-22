@@ -3,115 +3,528 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wave Properties and Types | Physics Grade 12</title>
+  <title>Lesson 2.1: Projectile Motion | Grade 12 Physics</title>
   <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
-    body { background: #F8FAFC; }
-    .lesson-hero { background: linear-gradient(135deg, #0F172A 0%, #14532D 100%); padding: 3rem 2rem; color: #fff; }
-    .lesson-hero-inner { max-width: 900px; margin: 0 auto; }
-    .lesson-tag { display: inline-flex; gap: 6px; background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3); color: #86EFAC; font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 1rem; }
-    .lesson-hero h1 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: .5rem; }
-    .lesson-hero p { color: rgba(255,255,255,.72); font-size: .95rem; line-height: 1.7; max-width: 640px; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-    .breadcrumb { display: flex; gap: 6px; font-size: .82rem; color: #64748b; margin-bottom: 2rem; flex-wrap: wrap; }
-    .breadcrumb a { color: #22C55E; text-decoration: none; }
-    .content-card { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
-    .content-card h2 { font-size: 1.35rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; }
-    .content-card p { font-size: .95rem; color: #334155; line-height: 1.75; margin-bottom: 1rem; }
-    .placeholder { background: #F0FDF4; border: 1.5px dashed #86EFAC; padding: 1.5rem; border-radius: 12px; color: #166534; font-size: .875rem; line-height: 1.7; }
-    .lesson-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .lesson-nav a { padding: .625rem 1.25rem; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: .82rem; }
-    .lesson-nav .prev { background: #fff; border: 1.5px solid #e2e8f0; color: #334155; }
-    .lesson-nav .next { background: #22C55E; color: #fff; }
-    @media (max-width: 640px) {
-      .lesson-hero { padding: 2.25rem 1rem; }
-      .lesson-hero h1 { font-size: 1.5rem; }
-      .wrap { padding: 2rem 1rem; }
-      .content-card { padding: 1.25rem; }
-    }
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
-  <a href="../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon">
-      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
-      </svg>
-    </div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Physics Grade 12</span>
-    </div>
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
   <div class="fsh-nav-actions">
-    <a href="index.html" class="btn btn-ghost btn-sm">← Unit 2</a>
-    <a href="../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
   </div>
 </nav>
 
-<div class="lesson-hero">
-  <div class="lesson-hero-inner">
-    <div class="lesson-tag">⚛️ Unit 2 · Lesson 2.1</div>
-    <h1>Wave Properties and Types</h1>
-    <p>Duration: 25 min · Part of <strong>Waves and Sound</strong></p>
-  </div>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Projectile Motion</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Rotational Motion</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Rotational Dynamics</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Planetary Motion & Kepler's Laws</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Universal Gravitation</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Two Dimensional Motion · Natural Science</div>
+      <h1>🎯 Projectile Motion</h1>
+      <p>When you throw a ball, kick a football, or fire a bullet, the object follows a curved path called a trajectory. Learn how to analyze this motion by separating it into independent horizontal and vertical components.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          A <strong>projectile</strong> is any object in flight after being thrown or projected. Examples: a football kicked in a game, a cannonball fired from a cannon, a bullet fired from a gun, the flight of a golf ball, water from a hose. The curved path is called the <strong>trajectory</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Analyze <strong>horizontal projection</strong> problems</li>
+          <li>Analyze <strong>inclined projection</strong> problems</li>
+          <li>Derive and use <strong>trajectory equations</strong></li>
+          <li>Calculate <strong>range, maximum height, and time of flight</strong></li>
+          <li>Apply the concept of <strong>independence of x and y motion</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.1 Assumptions and Key Idea</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Projectile motion is simple to analyze if we make two assumptions:
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 The Two Assumptions</div>
+          <p>
+            1. <strong>Free-fall acceleration is constant</strong> — directed downward with magnitude g (≈9.8 or 10 m/s²)<br>
+            2. <strong>Air resistance is negligible</strong>
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 The Key Idea</div>
+          <p>
+            The <strong>horizontal and vertical components</strong> of projectile motion are <strong>completely independent</strong> of each other. They can be handled separately, with <strong>time t</strong> as the common variable for both.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.2 Horizontal Projection</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The projectile is projected <strong>horizontally</strong> from a certain height. Initial vertical velocity is <strong>zero</strong> — only horizontal velocity at the start.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Horizontal Projection — Equations</div>
+          <p>
+            <strong>Horizontal (constant velocity):</strong><br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">v_x = v_0x</span> (unchanged)<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">Δx = v_0x · t</span><br><br>
+            <strong>Vertical (constant acceleration g):</strong><br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">v_y = g·t</span> (starts from 0)<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">Δy = ½ g t²</span><br><br>
+            <strong>Time of flight:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">t = √(2Δy/g)</span><br>
+            <strong>Range:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">R = v_0x · √(2Δy/g)</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.3 Inclined Projectile Motion</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          An object is projected with initial velocity v₀ at an <strong>angle θ</strong> with the horizontal. The velocity has two components:
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Initial Velocity Components</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">v_0x = v_0 cos θ</span> (constant throughout flight)<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">v_0y = v_0 sin θ</span> (changes with time)
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Displacements at any time t</div>
+          <p>
+            <strong>Horizontal:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">Δx = v_0 cos θ · t</span><br>
+            <strong>Vertical:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">Δy = v_0 sin θ · t + ½ g t²</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.4 Range and Maximum Height</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          For a projectile launched and landing at the <strong>same height</strong>:
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key Formulas</div>
+          <p>
+            <strong>Time to max height:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">t = v_0 sin θ / g</span><br><br>
+            <strong>Total time of flight:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">t_total = 2 v_0 sin θ / g</span><br><br>
+            <strong>Maximum height:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">H = v_0² sin²θ / (2g)</span><br><br>
+            <strong>Range:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">R = v_0² sin(2θ) / g</span><br><br>
+            <strong>Range–height relation:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">H = R tan θ / 4</span>
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Optimal angle</div>
+          <p>
+            The range is <strong>maximum at θ = 45°</strong> (when air resistance is neglected). Two angles that sum to 90° give the same range — the lower angle reaches a lower apex, the higher angle reaches a higher apex, but both travel the same horizontal distance.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Memorize these for the exam</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🎯 Lesson 2.1 — Projectile Motion</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Initial components</div><div class="formula-math">v_0x = v_0 cos θ, v_0y = v_0 sin θ</div><div class="formula-note">Split velocity</div></div>
+          <div class="formula-item"><div class="formula-name">Horizontal velocity</div><div class="formula-math">v_x = v_0x (constant)</div><div class="formula-note">No horizontal acceleration</div></div>
+          <div class="formula-item"><div class="formula-name">Vertical velocity</div><div class="formula-math">v_y = v_0 sin θ + g·t</div><div class="formula-note">g ≈ −9.8 m/s²</div></div>
+          <div class="formula-item"><div class="formula-name">Horizontal displacement</div><div class="formula-math">Δx = v_0 cos θ · t</div><div class="formula-note">Range formula basis</div></div>
+          <div class="formula-item"><div class="formula-name">Vertical displacement</div><div class="formula-math">Δy = v_0 sin θ · t + ½ g t²</div><div class="formula-note">Height at any time</div></div>
+          <div class="formula-item"><div class="formula-name">Time of flight</div><div class="formula-math">t = 2 v_0 sin θ / g</div><div class="formula-note">Same-height launch</div></div>
+          <div class="formula-item"><div class="formula-name">Maximum height</div><div class="formula-math">H = v_0² sin²θ / (2g)</div><div class="formula-note">Peak of trajectory</div></div>
+          <div class="formula-item"><div class="formula-name">Range</div><div class="formula-math">R = v_0² sin 2θ / g</div><div class="formula-note">Max at θ = 45°</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Bullet Fired Horizontally (from textbook)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A rifle is aimed horizontally at a target 30 m away. The bullet hits the target 2 cm below the aiming point. (a) What is the bullet's time of flight? (b) What is the initial velocity of the bullet?</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">Δx = 30 m, Δy = 2 cm = 0.02 m (downward)</div></div>
+          <div class="example-step"><span class="step-badge">Part a</span><div class="step-text"><span class="math">Δy = ½ g t²</span><br>0.02 = ½ (10) t² → t² = 0.004 → <span class="math">t = 0.06 s</span></div></div>
+          <div class="example-step"><span class="step-badge">Part b</span><div class="step-text"><span class="math">v_0x = Δx / t = 30 / 0.06 = 500 m/s</span></div></div>
+          <div class="example-answer">✅ (a) t = <strong>0.06 s</strong> &nbsp; (b) v₀ = <strong>500 m/s</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Rescue Airplane Drop</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A rescue airplane travelling at 360 km/h (100 m/s) horizontally drops a food package from a height of 300 m. (a) How long will the package take to reach the ground? (b) How far from the car driver should it be dropped?</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">v₀ = 100 m/s (horizontal), Δy = 300 m</div></div>
+          <div class="example-step"><span class="step-badge">Part a</span><div class="step-text"><span class="math">Δy = ½ g t²</span><br>300 = ½ (10) t² → t² = 60 → <span class="math">t ≈ 7.74 s</span></div></div>
+          <div class="example-step"><span class="step-badge">Part b</span><div class="step-text"><span class="math">Δx = v_0x · t = 100 × 7.74 = 774 m</span></div></div>
+          <div class="example-answer">✅ (a) t = <strong>7.74 s</strong> &nbsp; (b) drop <strong>774 m</strong> before the driver</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Football Kick — Range and Max Height</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A football is kicked at 37° with the horizontal. Initial velocity = 40 m/s. Find (a) maximum height and (b) horizontal range.</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">v₀ = 40 m/s, θ = 37°, g = 10 m/s², sin 37° = 0.6, cos 37° = 0.8</div></div>
+          <div class="example-step"><span class="step-badge">Max height</span><div class="step-text"><span class="math">H = v_0² sin²θ / (2g) = (40² × 0.6²) / (2 × 10) = (1600 × 0.36) / 20 = 28.8 m</span></div></div>
+          <div class="example-step"><span class="step-badge">Range</span><div class="step-text"><span class="math">R = v_0² sin 2θ / g = (40² × sin 74°) / 10 = (1600 × 0.96) / 10 = 153.6 m</span></div></div>
+          <div class="example-answer">✅ (a) H = <strong>28.8 m</strong> &nbsp; (b) R ≈ <strong>154 m</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Ball Thrown at a Wall</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> You throw a ball with a speed of 25 m/s at an angle of 53° above the horizontal directly toward a wall 24 m away. (a) How long does the ball take to reach the wall? (b) How far above the release point does it hit the wall?</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">Δx = 24 m, θ = 53°, v₀ = 25 m/s, cos 53° = 0.6, sin 53° = 0.8</div></div>
+          <div class="example-step"><span class="step-badge">Part a</span><div class="step-text"><span class="math">Δx = v_0 cos θ · t</span><br>24 = 25 × 0.6 × t → <span class="math">t = 1.6 s</span></div></div>
+          <div class="example-step"><span class="step-badge">Part b</span><div class="step-text"><span class="math">Δy = v_0 sin θ · t + ½ g t²</span><br>Δy = 25 × 0.8 × 1.6 + ½ (−10)(1.6)²<br>Δy = 32 − 12.8 = <span class="math">19.2 m</span></div></div>
+          <div class="example-answer">✅ (a) t = <strong>1.6 s</strong> &nbsp; (b) hits the wall <strong>19.2 m</strong> above release point</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Range Equals 3× Maximum Height</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A projectile is fired so that its horizontal range equals 3× its maximum height. What is the angle of projection?</div>
+          <div class="example-step"><span class="step-badge">Relation</span><div class="step-text"><span class="math">H = R tan θ / 4</span> → R = 4H / tan θ</div></div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">R = 3H → <span class="math">3H = 4H / tan θ</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">tan θ = 4/3 → θ = 53°</span></div></div>
+          <div class="example-answer">✅ Angle of projection = <strong>53°</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">At the highest point of a projectile's path, which statement is true?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Velocity and acceleration are both zero</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Velocity is not zero, acceleration is zero</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Velocity is perpendicular to acceleration</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Acceleration depends on launch angle</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Two bullets — one fired horizontally, one dropped from the same height at the same instant. Which hits the ground first?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> The fired one</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> The dropped one</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Both hit at the same time</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Depends on the speed</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">At what angle of projection is the horizontal range maximum (no air resistance)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> 30°</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> 37°</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> 45°</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> 60°</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">A projectile launched at 30° and another at 60° — same speed. Which is true?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> The 30° one has greater range</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> The 60° one has greater range</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Both have the same range</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Cannot be compared</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A rock is projected horizontally at 20 m/s from a 45 m cliff. How long until it hits the ground?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> 2.0 s</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> 2.5 s</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> 3.0 s</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> 4.5 s</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-2-2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+projectile+motion+physics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Projectile Motion — Full Physics Tutorial</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+horizontal+projectile+motion" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Horizontal Projectile Motion Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+projectile+range+maximum+height" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Projectile Range and Maximum Height</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+projectile+at+angle+worked+examples" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Projectiles at an Angle — Worked Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.1</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Projectile Motion</div>
+        <ul class="summary-list">
+          <li>A <strong>projectile</strong> is an object in flight after being thrown or projected; its path is a <strong>parabola</strong>.</li>
+          <li>Two key assumptions: <strong>constant downward acceleration g</strong> and <strong>negligible air resistance</strong>.</li>
+          <li><strong>Horizontal and vertical motions are independent</strong> — analyze them separately with time t as the common variable.</li>
+          <li>Horizontal velocity <strong>v_x = v_0 cos θ is constant</strong> throughout the flight.</li>
+          <li>Vertical velocity changes due to gravity: <strong>v_y = v_0 sin θ + g t</strong>.</li>
+          <li><strong>Maximum height</strong>: H = v_0² sin²θ / (2g).</li>
+          <li><strong>Range</strong>: R = v_0² sin(2θ) / g — maximum at <strong>θ = 45°</strong>.</li>
+          <li>Angles summing to 90° give the <strong>same range</strong>.</li>
+          <li>For horizontal projection: <strong>t = √(2Δy/g)</strong> and <strong>R = v_0x · t</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="../unit-1/lesson-1-9.html" class="btn btn-ghost">← Unit 1 · Lesson 9</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 1 of 5</div>
+      <a href="lesson-2-2.html" class="btn btn-primary">Next: Rotational Motion →</a>
+    </div>
+  </main>
 </div>
 
-<div class="wrap">
-  <div class="breadcrumb">
-    <a href="../../../../index.html">Home</a> ›
-    <a href="../../../index.html">Entrance Exam</a> ›
-    <a href="../../index.html">Grade 12</a> ›
-    <a href="../index.html">Natural Science</a> ›
-    <a href="index.html">Physics</a> ›
-    <a href="unit-2/index.html">Unit 2</a> ›
-    <span>Wave Properties and Types</span>
-  </div>
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
 
-  <div class="content-card">
-    <h2>📖 Lesson Overview</h2>
-    <p>This lesson covers <strong>Wave Properties and Types</strong> from Unit 2: Waves and Sound.</p>
-
-    <div class="placeholder">
-      <strong>🚧 Content coming soon.</strong><br>
-      Full lesson text, worked examples, and practice problems will be added here.
-      This placeholder confirms the page structure is ready.
-    </div>
-  </div>
-
-  <div class="content-card">
-    <h2>🎯 Learning Objectives</h2>
-    <p>By the end of this lesson you will be able to:</p>
-    <ul style="margin-left:1.25rem; color:#334155; line-height:1.9; font-size:.95rem;">
-      <li>Understand the core concepts of wave properties and types</li>
-      <li>Apply the key formulas and equations</li>
-      <li>Solve EUEE-style practice problems</li>
-      <li>Identify common exam traps and how to avoid them</li>
-    </ul>
-  </div>
-
-  <div class="content-card">
-    <h2>📝 Practice</h2>
-    <p>Practice questions with step-by-step solutions will appear here.</p>
-  </div>
-
-  <div class="lesson-nav">
-    <a href="index.html" class="prev">← Back to Unit 2</a>
-    <a href="index.html" class="next">Unit Overview →</a>
-  </div>
-</div>
-
-<footer class="fsh-footer">
-  <div class="fsh-footer-inner">
-    <div class="fsh-footer-bottom">
-      <p>© 2025 Freelance Skills Hub · Physics Grade 12</p>
-      <p>Wave Properties and Types</p>
-    </div>
-  </div>
-</footer>
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! At the top, vertical velocity is zero but horizontal velocity remains — so velocity is horizontal and acceleration (g) is downward: they are perpendicular.',wrong:'✗ At the peak, velocity is horizontal and acceleration is downward — they\'re perpendicular.'},
+    2:{C:'✓ Correct! Both fall at the same rate — horizontal motion doesn\'t affect vertical fall.',wrong:'✗ Vertical motion is independent of horizontal motion; both hit simultaneously.'},
+    3:{C:'✓ Correct! Maximum range occurs at θ = 45° when air resistance is neglected.',wrong:'✗ The maximum range angle is 45°.'},
+    4:{C:'✓ Correct! 30° + 60° = 90° — complementary angles give equal ranges.',wrong:'✗ Angles summing to 90° give the same range.'},
+    5:{C:'✓ Correct! t = √(2Δy/g) = √(2×45/10) = √9 = 3.0 s.',wrong:'✗ t = √(2×45/10) = 3.0 s.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
 </body>
 </html>
