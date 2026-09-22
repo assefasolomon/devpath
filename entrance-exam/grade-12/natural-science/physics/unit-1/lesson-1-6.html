@@ -10,60 +10,525 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .data-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0}
+    .data-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:600}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .data-table td:first-child{text-align:left}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 1 · Lesson 1.6</div>
-    <a href="lesson-1-1.html" class="sidebar-link">L1: Physics and Other Sciences</a>
-    <a href="lesson-1-2.html" class="sidebar-link">L2: Physics and Chemistry</a>
-    <a href="lesson-1-3.html" class="sidebar-link">L3: Physics and Biology</a>
-    <a href="lesson-1-4.html" class="sidebar-link">L4: Physics and Astronomy</a>
-    <a href="lesson-1-5.html" class="sidebar-link">L5: Physics and Geology</a>
-    <a href="lesson-1-6.html" class="sidebar-link">L6: Physics and Engineering</a>
-    <a href="lesson-1-7.html" class="sidebar-link">L7: Medical Physics</a>
-    <a href="lesson-1-8.html" class="sidebar-link">L8: Defense Technology</a>
-    <a href="lesson-1-9.html" class="sidebar-link">L9: Communication</a>
+    <div class="sidebar-title">Unit 1 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Key Concepts</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Physics and Other Sciences ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Physics and Chemistry ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Physics and Biology ✓</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Physics and Astronomy ✓</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Physics and Geology ✓</a>
+      <a href="lesson-1-6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Physics and Engineering</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Medical Physics</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Defense Technology</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Communication</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 1 · Application of Physics</div>
-      <h1>📘 Lesson 1.6: Physics and Engineering</h1>
-      <p>Content coming soon. This lesson is part of Unit 1: Application of Physics in Other Fields.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.6
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Application of Physics · Natural Science</div>
+      <h1>🏗️ Physics and Engineering</h1>
+      <p>Every bridge, engine, circuit, and chemical plant is designed using physics. This lesson explores how the four major branches of engineering apply physics principles — and how technology, in turn, drives new physics discoveries.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          <strong>Engineering</strong> is the practical application of physics. It's what turns equations into bridges, engines, circuits, and products. Without physics, no engineering is possible. Without engineering, physics stays on paper.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Relate <strong>Newtonian mechanics</strong> to civil engineering</li>
+          <li>Identify <strong>physics concepts</strong> used in mechanical engineering</li>
+          <li>Explain how <strong>electromagnetism</strong> underpins electrical engineering</li>
+          <li>Describe the role of <strong>molecular physics and thermodynamics</strong> in chemical engineering</li>
+          <li>Explain how <strong>technology generates new physics</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.1 Civil Engineering</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Civil engineering concerns the design and construction of <strong>skyscrapers, roads, bridges, dams, and railways</strong>. It uses physics knowledge of forces, fluid pressure, gravity, and elasticity.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Physics in Civil Engineering</div>
+          <p>
+            • <strong>Forces, tension, compression</strong> — for structural design<br>
+            • <strong>Harmonic vibrations and oscillations</strong> — for earthquake resistance<br>
+            • <strong>Tensile strength, elasticity</strong> — for material selection<br>
+            • <strong>Fluid pressure</strong> — for dams and pipelines
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Ethiopian engineering heritage</div>
+          <p>
+            Ancient Ethiopians built remarkable structures using practical physics: the <strong>Axumite obelisks</strong>, the <strong>rock-hewn churches of Lalibela</strong>, and the <strong>Harar Jugol walls</strong>. Modern Ethiopia continues this tradition with projects like the <strong>Hedase Bridge</strong>, <strong>Africa Union HQ</strong>, and the <strong>Gotera Interchange</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.2 Mechanical Engineering</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Mechanical engineering uses physics to create <strong>engines, manufacturing equipment, and vehicles</strong>.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Physics in Mechanical Engineering</div>
+          <p>
+            • <strong>Mechanics</strong> — motion of parts<br>
+            • <strong>Dynamics</strong> — forces during operation<br>
+            • <strong>Thermodynamics</strong> — heat engines, refrigeration<br>
+            • <strong>Stresses and strain</strong> — materials under load<br>
+            • <strong>Aerodynamics</strong> — aircraft, cars, turbines<br><br>
+            Applications: aircraft, watercraft, engines, robotics, weapons, cars, hydraulics, pneumatics.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.3 Electrical and Electronic Engineering</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Electrical engineering designs <strong>circuits, motors, appliances, fiber networks, computers, and communication systems</strong>.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Physics in Electrical Engineering</div>
+          <p>
+            • <strong>Electromagnetism</strong> — motors, generators, transformers<br>
+            • <strong>Mechanics</strong> — moving parts in devices<br>
+            • <strong>Thermodynamics</strong> — heat management in power systems<br>
+            • <strong>Semiconductors</strong> — transistors, diodes, ICs<br>
+            • <strong>Circuit theory</strong> — designing electronics
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.4 Chemical Engineering</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Chemical engineering produces materials through chemical processes — designing equipment, systems, and processes for refining and mixing chemicals.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Physics in Chemical Engineering</div>
+          <p>
+            • <strong>Physical properties of molecules</strong><br>
+            • <strong>Chemical bonds between atoms</strong> — from molecular physics<br>
+            • <strong>Molecular dynamics</strong> — how molecules move<br>
+            • <strong>Energy changes from thermodynamics</strong><br><br>
+            Products: plastics, petroleum products, detergents, paints.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.5 Technology Generating New Physics</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Physics and technology are <strong>deeply interwoven</strong>. Physics leads to technology; technology enables new physics.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Technology → New Physics</div>
+          <p>
+            • <strong>Rocket technology</strong> → space measurements<br>
+            • <strong>X-ray technology</strong> → study of atomic structure<br>
+            • <strong>Lasers</strong> → spectroscopy, quantum optics<br>
+            • <strong>Particle accelerators</strong> → particle physics discoveries<br><br>
+            The cycle: <strong>Physics → Engineering → Technology → New Physics</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Key Concepts Reference</div><div class="section-subtitle">Memorize these</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🏗️ Lesson 1.6 — Physics and Engineering</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Civil</div><div class="formula-math">F = ma, σ = F/A</div><div class="formula-note">Forces, stress, strain</div></div>
+          <div class="formula-item"><div class="formula-name">Mechanical</div><div class="formula-math">W = Fd, η = W_out/W_in</div><div class="formula-note">Work, efficiency</div></div>
+          <div class="formula-item"><div class="formula-name">Electrical</div><div class="formula-math">V = IR, P = VI</div><div class="formula-note">Ohm's law, power</div></div>
+          <div class="formula-item"><div class="formula-name">Chemical</div><div class="formula-math">ΔG = ΔH − TΔS</div><div class="formula-note">Reaction thermodynamics</div></div>
+          <div class="formula-item"><div class="formula-name">Fluid pressure</div><div class="formula-math">P = ρgh</div><div class="formula-note">Dams, pipelines</div></div>
+          <div class="formula-item"><div class="formula-name">Cycle</div><div class="formula-math">Physics → Eng → Tech → Physics</div><div class="formula-note">Self-reinforcing loop</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Bridge Beam Stress</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A bridge beam of cross-section 0.02 m² supports a 60,000 N load. Calculate the stress.</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">σ = F / A</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">σ = 60,000 / 0.02 = 3 × 10⁶ Pa = 3 MPa</span></div></div>
+          <div class="example-answer">✅ Stress = <strong>3 MPa</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Dam Fluid Pressure</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A dam holds back water 30 m deep. What is the gauge pressure at the bottom? (ρ = 1000 kg/m³, g = 9.8 m/s²)</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">P = ρgh</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">P = 1000 × 9.8 × 30 = 2.94 × 10⁵ Pa = 294 kPa</span></div></div>
+          <div class="example-answer">✅ Gauge pressure = <strong>294 kPa</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Engine Efficiency</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A car engine takes in 200 kJ of chemical energy and does 60 kJ of useful work. Find its efficiency.</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">η = W_out / Q_in</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">η = 60 / 200 = 0.30 = 30%</span></div></div>
+          <div class="example-answer">✅ Efficiency = <strong>30%</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Power Transmission</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A transmission line carries 5 A at 240 V. How much power is transmitted?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">P = VI</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">P = 240 × 5 = 1200 W = 1.2 kW</span></div></div>
+          <div class="example-answer">✅ Power = <strong>1.2 kW</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Technology Driving Physics</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain how the invention of the X-ray tube advanced physics research.</div>
+          <div class="example-step"><span class="step-badge">Direct use</span><div class="step-text">X-rays used in medicine for imaging.</div></div>
+          <div class="example-step"><span class="step-badge">Indirect use</span><div class="step-text">X-ray diffraction reveals <span class="math">atomic structure</span> of crystals.</div></div>
+          <div class="example-step"><span class="step-badge">Further</span><div class="step-text">X-ray spectroscopy helped develop <span class="math">quantum mechanics</span> (Moseley's law, Bohr model verification).</div></div>
+          <div class="example-answer">✅ Technology (X-ray tubes) → new physics (quantum theory, atomic structure)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which physics concept is most important for designing earthquake-resistant buildings?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Optics</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Nuclear physics</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Vibrations and oscillations</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Quantum mechanics</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Which branch of engineering most relies on electromagnetism?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Civil</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Mechanical</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Electrical</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Chemical</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Which physics branch is most important in chemical engineering?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> Optics</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> Thermodynamics</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> Acoustics</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> Astronomy</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which of these shows technology driving new physics?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Newton's law leading to bridge design</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Ohm's law leading to circuits</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Rocket technology enabling space measurements</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Thermodynamics leading to engines</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Which ancient Ethiopian structures show practical engineering applications of physics?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','D')"><div class="option-letter">A</div> Axumite obelisks</div>
+          <div class="quiz-option" onclick="answer(5,'B','D')"><div class="option-letter">B</div> Lalibela rock-hewn churches</div>
+          <div class="quiz-option" onclick="answer(5,'C','D')"><div class="option-letter">C</div> Harar Jugol walls</div>
+          <div class="quiz-option" onclick="answer(5,'D','D')"><div class="option-letter">D</div> All of the above</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-7.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+stress+strain+youngs+modulus+materials" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Stress, Strain, and Young's Modulus in Engineering</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+thermodynamics+heat+engines+efficiency" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Thermodynamics and Heat Engine Efficiency</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+ohm+law+electrical+circuits+power" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Ohm's Law, Electrical Circuits, and Power</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+fluid+pressure+depth+hydrostatics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Fluid Pressure and Hydrostatics in Engineering</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.6</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Physics and Engineering</div>
+        <ul class="summary-list">
+          <li><strong>Civil engineering</strong> uses forces, fluid pressure, gravity, and elasticity.</li>
+          <li><strong>Mechanical engineering</strong> uses mechanics, thermodynamics, and aerodynamics.</li>
+          <li><strong>Electrical engineering</strong> uses electromagnetism, mechanics, and thermodynamics.</li>
+          <li><strong>Chemical engineering</strong> uses molecular physics and thermodynamics.</li>
+          <li>Ancient Ethiopia (Axum obelisks, Lalibela churches) applied physics practically.</li>
+          <li><strong>Technology generates new physics</strong>: rocket tech → space measurements; X-ray tech → atomic structure studies.</li>
+          <li>The cycle <strong>Physics → Engineering → Technology → New Physics</strong> is self-reinforcing.</li>
+          <li>Every modern structure, vehicle, and device is built on <strong>fundamental physics principles</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-5.html" class="btn btn-ghost">← Lesson 5: Physics with Geology</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 6 of 9</div>
+      <a href="lesson-1-7.html" class="btn btn-primary">Next: Medical Physics →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'B',4:'C',5:'D'};
+  const feedbacks={
+    1:{C:'✓ Correct! Vibrations and oscillations — building resonance can amplify earthquake damage.',wrong:'✗ Earthquake-resistant design uses knowledge of vibrations and harmonic oscillations.'},
+    2:{C:'✓ Correct! Electrical engineering is fundamentally about electromagnetism.',wrong:'✗ Electrical engineering relies on electromagnetism for motors, generators, and circuits.'},
+    3:{B:'✓ Correct! Thermodynamics governs energy changes in chemical processes.',wrong:'✗ Thermodynamics is essential for predicting whether chemical reactions are feasible.'},
+    4:{C:'✓ Correct! Rocket technology enabled new space-based physics experiments.',wrong:'✗ Rockets enabled us to do physics experiments in space — technology driving new physics.'},
+    5:{D:'✓ Correct! All three ancient Ethiopian structures show practical engineering with physics.',wrong:'✗ Axum obelisks, Lalibela churches, and Harar walls all used practical physics knowledge.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>
