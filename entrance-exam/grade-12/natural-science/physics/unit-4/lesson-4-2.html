@@ -10,58 +10,528 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .field-pattern{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.25rem;text-align:center;margin:1rem 0}
+    .field-pattern-title{font-size:.8rem;font-weight:700;color:var(--brand-primary);margin-bottom:.75rem}
+    .field-pattern svg{width:100%;max-width:280px;height:auto}
+    .field-pattern-desc{font-size:.75rem;color:var(--text-muted);margin-top:.5rem;line-height:1.5}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 4 · Lesson 4.2</div>
-    <a href="lesson-4-1.html" class="sidebar-link">L1: Magnets and Magnetic Field</a>
-    <a href="lesson-4-2.html" class="sidebar-link">L2: Magnetic Field Lines</a>
-    <a href="lesson-4-3.html" class="sidebar-link">L3: Current and Magnetism</a>
-    <a href="lesson-4-4.html" class="sidebar-link">L4: Electromagnetic Induction</a>
-    <a href="lesson-4-5.html" class="sidebar-link">L5: Faraday's Law</a>
-    <a href="lesson-4-6.html" class="sidebar-link">L6: Transformers</a>
-    <a href="lesson-4-7.html" class="sidebar-link">L7: Application and Safety</a>
+    <div class="sidebar-title">Unit 4 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Key Concepts</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Magnets and Magnetic Field ✓</a>
+      <a href="lesson-4-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Magnetic Field Lines</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Current and Magnetism</a>
+      <a href="lesson-4-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Electromagnetic Induction</a>
+      <a href="lesson-4-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Faraday's Law</a>
+      <a href="lesson-4-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Transformers</a>
+      <a href="lesson-4-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Application and Safety</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 4 · Electromagnetism</div>
-      <h1>📘 Lesson 4.2: Magnetic Field Lines</h1>
-      <p>Content coming soon. This lesson is part of Unit 4: Electromagnetism.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 4</a> ›
+      Lesson 4.2
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Electromagnetism · Natural Science</div>
+      <h1>🧭 Magnetic Field Lines</h1>
+      <p>Field lines are an elegant visual tool that lets us "see" invisible magnetic fields. Learn how to draw them, interpret them, and use them to predict how magnets and currents behave.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Magnetic fields are invisible, but they can be mapped with <strong>field lines</strong>. Just like iron filings scattered around a magnet reveal the field, field lines help us visualize its strength and direction.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe the <strong>properties of magnetic field lines</strong></li>
+          <li>Draw field patterns for <strong>bar magnets and like/opposite poles</strong></li>
+          <li>Compare <strong>magnetic and electric field lines</strong></li>
+          <li>Explain why magnetic field lines are <strong>closed curves</strong></li>
+          <li>Interpret <strong>field line density</strong> as field strength</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 What Are Magnetic Field Lines?</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Magnetic Field Lines</div>
+          <p>
+            <strong>Imaginary lines</strong> used to represent magnetic fields. They show:<br>
+            • <strong>Direction</strong> — where a compass would point<br>
+            • <strong>Strength</strong> — indicated by the density of lines<br><br>
+            When iron filings are sprinkled around a magnet, they orient along these field lines — making them visible.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Properties of Magnetic Field Lines</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Six Key Properties</div>
+          <p>
+            1. Field lines have both <strong>direction</strong> and <strong>magnitude</strong> at every point<br>
+            2. The direction of B is <strong>tangent</strong> to the field line<br>
+            3. Field strength is proportional to the <strong>closeness of lines</strong> (denser = stronger)<br>
+            4. Field lines <strong>never cross</strong> — the field is unique at each point<br>
+            5. Field lines are <strong>continuous closed loops</strong> — they have no beginning or end<br>
+            6. Outside the magnet, lines go <strong>N → S</strong>; inside, <strong>S → N</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Field Patterns — Common Configurations</h3>
+
+        <div class="field-pattern">
+          <div class="field-pattern-title">Single Bar Magnet</div>
+          <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="110" y="60" width="60" height="40" fill="#DC2626" stroke="#991B1B" stroke-width="1.5"/>
+            <text x="130" y="85" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">N</text>
+            <text x="155" y="85" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">S</text>
+            <path d="M170,80 Q200,40 140,20 Q80,40 110,80" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <path d="M170,80 Q220,90 140,140 Q60,90 110,80" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <path d="M170,80 Q240,80 140,110 Q40,80 110,80" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <polygon points="200,55 195,48 205,48" fill="#0F172A"/>
+          </svg>
+          <div class="field-pattern-desc">Lines emerge from N pole and enter S pole. Inside the magnet, they travel from S to N — forming closed loops.</div>
+        </div>
+
+        <div class="field-pattern">
+          <div class="field-pattern-title">Opposite Poles (N–S Attract)</div>
+          <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="60" y="60" width="50" height="40" fill="#DC2626" stroke="#991B1B" stroke-width="1.5"/>
+            <text x="85" y="85" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">N</text>
+            <rect x="170" y="60" width="50" height="40" fill="#2563EB" stroke="#1E40AF" stroke-width="1.5"/>
+            <text x="195" y="85" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">S</text>
+            <path d="M110,80 Q140,50 170,80" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <path d="M110,80 Q140,110 170,80" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <path d="M110,70 Q140,30 170,70" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <path d="M110,90 Q140,130 170,90" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <polygon points="140,60 135,52 145,52" fill="#0F172A"/>
+          </svg>
+          <div class="field-pattern-desc">Field lines connect the two poles directly — from N to S. Opposite poles strongly attract.</div>
+        </div>
+
+        <div class="field-pattern">
+          <div class="field-pattern-title">Like Poles (N–N Repel)</div>
+          <svg viewBox="0 0 280 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="60" y="60" width="50" height="40" fill="#DC2626" stroke="#991B1B" stroke-width="1.5"/>
+            <text x="85" y="85" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">N</text>
+            <rect x="170" y="60" width="50" height="40" fill="#DC2626" stroke="#991B1B" stroke-width="1.5"/>
+            <text x="195" y="85" font-size="11" fill="#fff" text-anchor="middle" font-weight="bold">N</text>
+            <path d="M110,80 Q140,20 140,50" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <path d="M170,80 Q140,20 140,50" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <path d="M110,80 Q140,140 140,110" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <path d="M170,80 Q140,140 140,110" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+            <path d="M110,60 Q100,20 140,20 Q180,20 170,60" fill="none" stroke="#0F172A" stroke-width="1.2"/>
+          </svg>
+          <div class="field-pattern-desc">Field lines curve away from each other — they do NOT connect. Like poles strongly repel.</div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Comparison — Magnetic vs Electric Field Lines</h3>
+        <table class="data-table" style="width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0">
+          <thead>
+            <tr>
+              <th style="background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:left">Feature</th>
+              <th style="background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:left">Electric Field Lines</th>
+              <th style="background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:left">Magnetic Field Lines</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:.5rem .875rem;border-bottom:1px solid var(--border)">Start / End</td><td style="padding:.5rem .875rem;border-bottom:1px solid var(--border)">Start on + charge, end on − charge</td><td style="padding:.5rem .875rem;border-bottom:1px solid var(--border)">No start or end</td></tr>
+            <tr><td style="padding:.5rem .875rem;border-bottom:1px solid var(--border)">Closed loops?</td><td style="padding:.5rem .875rem;border-bottom:1px solid var(--border)">No</td><td style="padding:.5rem .875rem;border-bottom:1px solid var(--border)">Yes</td></tr>
+            <tr><td style="padding:.5rem .875rem;border-bottom:1px solid var(--border)">Isolated pole?</td><td style="padding:.5rem .875rem;border-bottom:1px solid var(--border)">Yes</td><td style="padding:.5rem .875rem;border-bottom:1px solid var(--border)">No — always in pairs</td></tr>
+            <tr><td style="padding:.5rem .875rem">Density meaning</td><td style="padding:.5rem .875rem">Stronger field</td><td style="padding:.5rem .875rem">Stronger field</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Key Concepts Reference</div><div class="section-subtitle">Quick reference</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🧭 Lesson 4.2 — Magnetic Field Lines</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Direction outside</div><div class="formula-math">N → S</div><div class="formula-note">Outside the magnet</div></div>
+          <div class="formula-item"><div class="formula-name">Direction inside</div><div class="formula-math">S → N</div><div class="formula-note">Inside the magnet</div></div>
+          <div class="formula-item"><div class="formula-name">Shape</div><div class="formula-math">Closed loops</div><div class="formula-note">Never start or end</div></div>
+          <div class="formula-item"><div class="formula-name">Crossing</div><div class="formula-math">Never cross</div><div class="formula-note">Field unique at each point</div></div>
+          <div class="formula-item"><div class="formula-name">Density meaning</div><div class="formula-math">Denser = stronger field</div><div class="formula-note">Visualizing strength</div></div>
+          <div class="formula-item"><div class="formula-name">Tangent</div><div class="formula-math">B is tangent to line</div><div class="formula-note">Compass points along line</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Predicting Force Direction</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Two bar magnets are placed with their N poles facing each other. What happens?</div>
+          <div class="example-step"><span class="step-badge">Analyze</span><div class="step-text">Like poles (N–N) — the field lines <span class="math">curve away from each other</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">The magnets experience a <span class="math">repulsive force</span> — they push apart.</div></div>
+          <div class="example-answer">✅ The two magnets <strong>repel each other</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Reading Field Strength</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> In a magnetic field diagram, one region has very dense field lines; another has sparse lines. Which region has a stronger field?</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">Field strength is proportional to the <span class="math">density of field lines</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Conclusion</span><div class="step-text">Dense region = <span class="math">stronger field</span>. Sparse region = weaker field.</div></div>
+          <div class="example-answer">✅ The region with <strong>denser lines has the stronger field</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Why Lines Never Cross</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why two magnetic field lines can never cross each other.</div>
+          <div class="example-step"><span class="step-badge">Reason</span><div class="step-text">If they crossed, the field would have <span class="math">two directions at the same point</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Contradiction</span><div class="step-text">The magnetic field direction is <span class="math">unique at each point</span> — so crossing is impossible.</div></div>
+          <div class="example-answer">✅ Field lines never cross because the field has <strong>only one direction at any point</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Compass Direction</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A compass needle is placed near a bar magnet. Which way does the N pole of the needle point?</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">The compass needle aligns with the <span class="math">local magnetic field</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Direction</span><div class="step-text">The N pole of the needle points in the <span class="math">direction of the field line</span> at that point.</div></div>
+          <div class="example-answer">✅ The N pole points <strong>along the field line</strong> at the compass location.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Field Inside a Magnet</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What is the direction of the magnetic field inside a bar magnet?</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">Outside the magnet: <span class="math">N → S</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Inside</span><div class="step-text">Inside the magnet: <span class="math">S → N</span> — completing the closed loop.</div></div>
+          <div class="example-answer">✅ Inside a bar magnet, field lines go from <strong>S pole to N pole</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Magnetic field lines never cross because:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> They are too short</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> They are colored</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> The field has only one direction at any point</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> They start on charges</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Denser magnetic field lines indicate:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> A weaker field</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> A neutral region</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> A stronger field</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> The same strength everywhere</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Outside a magnet, magnetic field lines point:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> From S to N</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> From N to S</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Randomly</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Toward the equator</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which of these is a key difference between magnetic and electric field lines?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Magnetic lines have arrows; electric lines don't</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Electric lines can cross; magnetic lines can't</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Magnetic lines form closed loops; electric lines start and end on charges</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Both are identical</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Inside a bar magnet, field lines point:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> N to S</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> S to N</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> Both directions</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> Random</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-4-3.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+magnetic+field+lines+properties" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Magnetic Field Lines — Properties and Patterns</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+bar+magnet+field+patterns" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Drawing Magnetic Field Patterns for Bar Magnets</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+magnetic+vs+electric+field+lines" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Magnetic vs Electric Field Lines — Differences</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+magnetic+field+at+point+compass" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Magnetic Field Direction — Using Compass</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 4.2</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Magnetic Field Lines</div>
+        <ul class="summary-list">
+          <li>Magnetic field lines are <strong>imaginary lines</strong> representing magnetic fields.</li>
+          <li>Field lines have both <strong>direction and magnitude</strong> at each point.</li>
+          <li>The direction of B is <strong>tangent</strong> to the field line — a compass points along it.</li>
+          <li>Field strength is proportional to the <strong>density</strong> of field lines.</li>
+          <li>Field lines <strong>never cross</strong> — the field is unique at each point.</li>
+          <li>They form <strong>closed loops</strong> — no beginning or end (unlike electric field lines).</li>
+          <li>Outside the magnet: <strong>N → S</strong>; inside: <strong>S → N</strong>.</li>
+          <li>Unlike poles attract: field lines connect N and S.</li>
+          <li>Like poles repel: field lines curve away from each other.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-4-1.html" class="btn btn-ghost">← Lesson 4.1: Magnets and Magnetic Field</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 4 · Lesson 2 of 7</div>
+      <a href="lesson-4-3.html" class="btn btn-primary">Next: Current and Magnetism →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'B',4:'C',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! Field lines never cross because the field has only one direction at each point.',wrong:'✗ If they crossed, the field would have two directions at one point — impossible.'},
+    2:{C:'✓ Correct! Denser lines = stronger field.',wrong:'✗ Density of field lines indicates field strength.'},
+    3:{B:'✓ Correct! Outside a magnet, field lines go from N to S.',wrong:'✗ Outside the magnet: N → S.'},
+    4:{C:'✓ Correct! Magnetic lines form closed loops; electric lines start/end on charges.',wrong:'✗ The key difference: magnetic lines form closed loops.'},
+    5:{B:'✓ Correct! Inside a magnet, field lines go from S to N.',wrong:'✗ Inside a bar magnet, field lines go S → N.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>
