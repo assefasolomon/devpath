@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
     body{background:#F8FAFC}
-    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
-    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
     .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
     .sidebar-section{margin-bottom:1.25rem}
     .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
@@ -17,7 +17,7 @@
     .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
     .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
     .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
-    .lesson-main{padding:2.5rem 3rem}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
     .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
     .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
