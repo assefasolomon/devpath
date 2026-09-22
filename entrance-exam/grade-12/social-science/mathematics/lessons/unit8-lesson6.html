@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 6: Use of Cumulative Frequency Curves | Grade 12 Social Science Math</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .data-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0}
+    .data-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:600}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .data-table td:first-child{text-align:left}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .unit-complete-banner{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem;text-align:center;margin-top:2rem;color:#fff}
+    .unit-complete-banner h3{font-size:1.4rem;font-weight:900;margin-bottom:.5rem}
+    .unit-complete-banner p{color:rgba(255,255,255,.75);font-size:.9rem;margin-bottom:1.25rem}
+    .percentile-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .percentile-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:600}
+    .percentile-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center}
+    .percentile-table tr:nth-child(even) td{background:var(--surface-2)}
+    /* Box plot */
+    .boxplot-wrap{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem 1rem;margin:.875rem 0;text-align:center}
+    .boxplot-wrap svg{max-width:100%;height:auto}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Grade 12 Social Science Math</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Course Index</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 8 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 8 Lessons</div>
+      <a href="unit8-lesson1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Sampling Techniques ✓</a>
+      <a href="unit8-lesson2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Representation of Data ✓</a>
+      <a href="unit8-lesson3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Construction of Graphs ✓</a>
+      <a href="unit8-lesson4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Central Tendency & Variability ✓</a>
+      <a href="unit8-lesson5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Analysis of Frequency Distributions ✓</a>
+      <a href="unit8-lesson6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Cumulative Frequency Curves</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 8 Complete!</div>
+      <a href="../index.html" class="sidebar-link"><div class="sidebar-dot"></div> Back to Course Index</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Mathematics (Social Science)</a> ›
+      Unit 8 · Lesson 6
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 8 · Further on Statistics · Final Lesson</div>
+      <h1>📈 Use of Cumulative Frequency Curves</h1>
+      <p>Master the ogive and box plot — the two most powerful visual tools for finding quartiles, percentiles and outliers. Learn to read any value from a cumulative frequency curve and construct a box plot from scratch.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div class="section-block" id="intro">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Introduction</div>
+          <div class="section-subtitle">What you will learn in this lesson</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          A cumulative frequency curve (ogive) is a graph that shows the running total of frequencies. It reveals not just where data is, but how it accumulates — allowing you to find the <strong>median</strong>, <strong>quartiles</strong>, <strong>percentiles</strong> and <strong>outliers</strong> by simply reading from the graph. The <strong>box plot</strong> then condenses the same information into a compact five-number summary.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Build and interpret a <strong>cumulative frequency table</strong></li>
+          <li>Construct an <strong>ogive</strong> from grouped data</li>
+          <li>Find <strong>median, quartiles and percentiles</strong> from an ogive</li>
+          <li>Compute the <strong>interquartile range (IQR)</strong> and identify outliers</li>
+          <li>Construct a <strong>box plot</strong> (box-and-whisker plot) from the five-number summary</li>
+          <li>Interpret box plots — compare distributions at a glance</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EXPLANATION -->
+    <div class="section-block" id="explanation">
+      <div class="section-header">
+        <div class="section-icon">📖</div>
+        <div>
+          <div class="section-title-text">Explanation</div>
+          <div class="section-subtitle">Complete theory with visual aids</div>
+        </div>
+      </div>
+
+      <!-- 2.1 Cumulative frequency table -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Cumulative Frequency Table</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          To construct a cumulative frequency (CF) table, add each class's frequency to the sum of all previous frequencies. The last CF always equals <strong>n</strong> — the total number of data points.
+        </p>
+
+        <table class="data-table">
+          <thead><tr><th>Class</th><th>Frequency f</th><th>Cumulative Freq (CF)</th><th>Upper Boundary</th></tr></thead>
+          <tbody>
+            <tr><td>50 – 59</td><td>3</td><td>3</td><td>59.5</td></tr>
+            <tr><td>60 – 69</td><td>7</td><td>10</td><td>69.5</td></tr>
+            <tr><td>70 – 79</td><td>10</td><td>20</td><td>79.5</td></tr>
+            <tr><td>80 – 89</td><td>7</td><td>27</td><td>89.5</td></tr>
+            <tr><td>90 – 99</td><td>3</td><td>30</td><td>99.5</td></tr>
+            <tr style="background:var(--brand-light);font-weight:700"><td>Total</td><td>30</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why "upper boundary" and not "upper limit"?</div>
+          <p>Upper class boundaries (e.g. 59.5 instead of 59) remove the gap between consecutive classes. The ogive is plotted against boundaries so the curve is continuous.</p>
+        </div>
+      </div>
+
+      <!-- 2.2 Ogive -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 The Ogive (Cumulative Frequency Curve)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The <strong>ogive</strong> is a line graph with:
+        </p>
+        <ul style="font-size:.875rem;line-height:1.8;color:var(--text);padding-left:1.25rem;margin-bottom:.875rem">
+          <li>X-axis: <strong>upper class boundaries</strong></li>
+          <li>Y-axis: <strong>cumulative frequency</strong></li>
+        </ul>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          It always rises from left to right (since CF only increases) and ends at (upper boundary of last class, n).
+        </p>
+
+        <div class="boxplot-wrap">
+          <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- axes -->
+            <line x1="40" y1="170" x2="470" y2="170" stroke="#CBD5E1" stroke-width="1.5"/>
+            <line x1="40" y1="20" x2="40" y2="170" stroke="#CBD5E1" stroke-width="1.5"/>
+            <!-- gridlines -->
+            <line x1="40" y1="130" x2="470" y2="130" stroke="#F1F5F9" stroke-width="1"/>
+            <line x1="40" y1="90" x2="470" y2="90" stroke="#F1F5F9" stroke-width="1"/>
+            <line x1="40" y1="50" x2="470" y2="50" stroke="#F1F5F9" stroke-width="1"/>
+            <!-- ogive curve: x = 40 + (boundary - 49.5) * 7.85; y = 170 - CF * 5 -->
+            <polyline points="118,155 197,140 275,90 354,60 433,20"
+              fill="none" stroke="#14532D" stroke-width="2.5" stroke-linejoin="round"/>
+            <polyline points="40,170 118,155" fill="none" stroke="#14532D" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="4,3"/>
+            <!-- points -->
+            <circle cx="118" cy="155" r="4" fill="#22C55E"/>
+            <circle cx="197" cy="140" r="4" fill="#22C55E"/>
+            <circle cx="275" cy="90" r="4" fill="#22C55E"/>
+            <circle cx="354" cy="60" r="4" fill="#22C55E"/>
+            <circle cx="433" cy="20" r="4" fill="#22C55E"/>
+            <!-- median at n/2=15 → y=95 -->
+            <line x1="40" y1="95" x2="270" y2="95" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="270" y1="95" x2="270" y2="170" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <text x="275" y="108" font-size="10" fill="#DC2626" font-weight="700">n/2 = 15</text>
+            <text x="270" y="185" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="700">Median ≈ 73</text>
+            <!-- axis labels -->
+            <text x="118" y="185" font-size="10" fill="#64748B" text-anchor="middle">59.5</text>
+            <text x="197" y="185" font-size="10" fill="#64748B" text-anchor="middle">69.5</text>
+            <text x="275" y="185" font-size="10" fill="#64748B" text-anchor="middle">79.5</text>
+            <text x="354" y="185" font-size="10" fill="#64748B" text-anchor="middle">89.5</text>
+            <text x="433" y="185" font-size="10" fill="#64748B" text-anchor="middle">99.5</text>
+            <text x="32" y="25" font-size="10" fill="#64748B" text-anchor="end">30</text>
+            <text x="32" y="65" font-size="10" fill="#64748B" text-anchor="end">20</text>
+            <text x="32" y="135" font-size="10" fill="#64748B" text-anchor="end">10</text>
+          </svg>
+          <p style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">Reading the median from an ogive — go up to CF = n/2, across to the curve, then down to the x-axis.</p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Reading values from an ogive</div>
+          <p>
+            <strong>Median:</strong> go to CF = n/2 on the y-axis → horizontally to the curve → vertically down to the x-axis.<br><br>
+            <strong>Q1 (first quartile):</strong> same process at CF = n/4.<br>
+            <strong>Q3 (third quartile):</strong> same process at CF = 3n/4.<br><br>
+            <strong>Percentile Pk:</strong> read at CF = (k/100) × n.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.3 Five-number summary -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 The Five-Number Summary</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The five-number summary is the minimum set of values that describe a distribution — everything a box plot needs.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Five-Number Summary</div>
+          <p>
+            <strong>1. Minimum value</strong> — the smallest data point<br>
+            <strong>2. Q1</strong> — first quartile (25th percentile)<br>
+            <strong>3. Q2</strong> — median (50th percentile)<br>
+            <strong>4. Q3</strong> — third quartile (75th percentile)<br>
+            <strong>5. Maximum value</strong> — the largest data point<br><br>
+            From these five numbers you can also compute:<br>
+            <strong>IQR = Q3 − Q1</strong><br>
+            <strong>Range = Max − Min</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.4 Box plot -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Box Plot (Box-and-Whisker Plot)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A <strong>box plot</strong> is a compact visual representation of the five-number summary:
+        </p>
+        <ul style="font-size:.875rem;line-height:1.8;color:var(--text);padding-left:1.25rem;margin-bottom:.875rem">
+          <li><strong>Box:</strong> spans from Q1 to Q3 (the middle 50% of data)</li>
+          <li><strong>Median line:</strong> drawn inside the box at Q2</li>
+          <li><strong>Whiskers:</strong> extend from Q1 down to Min and from Q3 up to Max</li>
+          <li><strong>Outliers:</strong> drawn as individual dots beyond the whiskers (if using 1.5×IQR rule)</li>
+        </ul>
+
+        <div class="boxplot-wrap">
+          <svg viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg">
+            <!-- axis -->
+            <line x1="40" y1="60" x2="470" y2="60" stroke="#CBD5E1" stroke-width="1.5"/>
+            <!-- whisker to min -->
+            <line x1="80" y1="60" x2="150" y2="60" stroke="#14532D" stroke-width="2"/>
+            <line x1="80" y1="40" x2="80" y2="80" stroke="#14532D" stroke-width="2"/>
+            <!-- box from Q1 to Q3 -->
+            <rect x="150" y="30" width="220" height="60" fill="rgba(34,197,94,.15)" stroke="#14532D" stroke-width="2"/>
+            <!-- median line at Q2 -->
+            <line x1="270" y1="30" x2="270" y2="90" stroke="#DC2626" stroke-width="2.5"/>
+            <!-- whisker to max -->
+            <line x1="370" y1="60" x2="440" y2="60" stroke="#14532D" stroke-width="2"/>
+            <line x1="440" y1="40" x2="440" y2="80" stroke="#14532D" stroke-width="2"/>
+            <!-- labels -->
+            <text x="80" y="100" font-size="10" fill="#14532D" text-anchor="middle">Min</text>
+            <text x="150" y="105" font-size="10" fill="#14532D" text-anchor="middle">Q1</text>
+            <text x="270" y="105" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="700">Median</text>
+            <text x="370" y="105" font-size="10" fill="#14532D" text-anchor="middle">Q3</text>
+            <text x="440" y="100" font-size="10" fill="#14532D" text-anchor="middle">Max</text>
+            <!-- bracket labels -->
+            <text x="260" y="20" font-size="10" fill="#64748B" text-anchor="middle">IQR (middle 50%)</text>
+          </svg>
+          <p style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem">Box plot — box shows IQR, line inside is median, whiskers extend to min and max.</p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Comparing distributions with box plots</div>
+          <p>
+            Box plots let you compare multiple distributions side by side:<br>
+            • Higher <strong>median line</strong> → higher central value<br>
+            • Wider <strong>box</strong> → higher IQR (more spread in the middle 50%)<br>
+            • Longer <strong>whiskers</strong> → larger overall range<br>
+            • Box shifted left/right → skewness direction
+          </p>
+        </div>
+      </div>
+
+      <!-- 2.5 Percentiles -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.5 Percentiles and Their Uses</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A <strong>percentile</strong> divides data into 100 equal parts. The kth percentile (Pk) is the value below which k% of the data lies.
+        </p>
+
+        <table class="percentile-table">
+          <thead><tr><th>Percentile</th><th>Read ogive at CF =</th><th>Interpretation</th></tr></thead>
+          <tbody>
+            <tr><td>P10</td><td>0.10n</td><td>10% of data lies below this value</td></tr>
+            <tr><td>P25 (= Q1)</td><td>0.25n</td><td>First quartile</td></tr>
+            <tr><td>P50 (= Q2 = Median)</td><td>0.50n</td><td>Middle of data</td></tr>
+            <tr><td>P75 (= Q3)</td><td>0.75n</td><td>Third quartile</td></tr>
+            <tr><td>P90</td><td>0.90n</td><td>90% of data lies below this value</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Exam tip</div>
+          <p>Entrance exam questions often ask: "What is the 60th percentile?" — just compute 0.60 × n, find that CF on the ogive, and read the x-value.</p>
+        </div>
+      </div>
+
+      <!-- 2.6 Outliers from box plot -->
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.6 Identifying Outliers from an Ogive or Box Plot</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The 1.5×IQR Rule (Recap)</div>
+          <p>
+            <strong>IQR = Q3 − Q1</strong><br>
+            <strong>Lower fence = Q1 − 1.5 × IQR</strong><br>
+            <strong>Upper fence = Q3 + 1.5 × IQR</strong><br><br>
+            Any data value below the lower fence or above the upper fence is an <strong>outlier</strong>. On a box plot, outliers appear as dots beyond the whiskers.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULA REFERENCE -->
+    <div class="section-block" id="formula">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <div>
+          <div class="section-title-text">Formula Reference Card</div>
+          <div class="section-subtitle">Key formulas — memorize these for the exam</div>
+        </div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📈 Lesson 6 — Cumulative Frequency Curves</div>
+        <div class="formula-grid">
+          <div class="formula-item">
+            <div class="formula-name">Cumulative Frequency</div>
+            <div class="formula-math">CF = Σf (up to that class)</div>
+            <div class="formula-note">Running total; last CF = n</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Ogive x-axis</div>
+            <div class="formula-math">Upper class boundaries</div>
+            <div class="formula-note">Removes gaps between classes</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Median from ogive</div>
+            <div class="formula-math">Read at CF = n/2</div>
+            <div class="formula-note">Horizontal across → vertical down</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Q1 from ogive</div>
+            <div class="formula-math">Read at CF = n/4</div>
+            <div class="formula-note">First quartile</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Q3 from ogive</div>
+            <div class="formula-math">Read at CF = 3n/4</div>
+            <div class="formula-note">Third quartile</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Percentile Pk</div>
+            <div class="formula-math">Read at CF = (k/100)n</div>
+            <div class="formula-note">k = 1 to 99</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">IQR</div>
+            <div class="formula-math">IQR = Q3 − Q1</div>
+            <div class="formula-note">Middle 50% spread</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Outlier fences</div>
+            <div class="formula-math">Q1 − 1.5×IQR, Q3 + 1.5×IQR</div>
+            <div class="formula-note">Values outside these are outliers</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Five-number summary</div>
+            <div class="formula-math">Min, Q1, Q2, Q3, Max</div>
+            <div class="formula-note">All values needed for a box plot</div>
+          </div>
+          <div class="formula-item">
+            <div class="formula-name">Box plot</div>
+            <div class="formula-math">Box = Q1 to Q3, line = median</div>
+            <div class="formula-note">Whiskers extend to Min and Max</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLES -->
+    <div class="section-block" id="examples">
+      <div class="section-header">
+        <div class="section-icon">✏️</div>
+        <div>
+          <div class="section-title-text">Worked Examples</div>
+          <div class="section-subtitle">5 exam-style problems solved step by step</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Building a Cumulative Frequency Table</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Construct a CF table for: 1–10 (f=4), 11–20 (f=7), 21–30 (f=9), 31–40 (f=5), 41–50 (f=2). Also list the upper class boundaries.</div>
+          <div class="example-step"><span class="step-badge">Step 1</span>
+            <div class="step-text">Find n: 4 + 7 + 9 + 5 + 2 = <span class="math">27</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Step 2</span>
+            <div class="step-text">Compute CF by adding cumulatively:
+              <br>1–10 → CF = 4
+              <br>11–20 → CF = 4+7 = 11
+              <br>21–30 → CF = 11+9 = 20
+              <br>31–40 → CF = 20+5 = 25
+              <br>41–50 → CF = 25+2 = 27 ✓
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Step 3</span>
+            <div class="step-text">Upper class boundaries: 10.5, 20.5, 30.5, 40.5, 50.5</div>
+          </div>
+          <div class="example-answer">✅ n = 27. CF column: 4, 11, 20, 25, 27. Boundaries: 10.5, 20.5, 30.5, 40.5, 50.5.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Finding the Median from an Ogive</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> For the same distribution (n=27), the ogive passes through (25, 20) and (35, 27). Estimate the median.</div>
+          <div class="example-step"><span class="step-badge">Step 1</span>
+            <div class="step-text">Locate CF = n/2 = 27/2 = <span class="math">13.5</span> on the y-axis.</div>
+          </div>
+          <div class="example-step"><span class="step-badge">Step 2</span>
+            <div class="step-text">CF = 13.5 falls between CF = 11 (x=20.5) and CF = 20 (x=30.5). Interpolate:<br>
+              <span class="math">Median = 20.5 + [(13.5 − 11)/(20 − 11)] × (30.5 − 20.5)</span><br>
+              <span class="math">= 20.5 + (2.5/9) × 10 = 20.5 + 2.78 = 23.28</span>
+            </div>
+          </div>
+          <div class="example-answer">✅ Median ≈ <strong>23.3</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Finding Quartiles and IQR</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> For n=27, Q1 is at CF = 6.75, Q3 is at CF = 20.25. The ogive gives Q1 = 17, Q3 = 30.5. Find the IQR.</div>
+          <div class="example-step"><span class="step-badge">Formula</span>
+            <div class="step-text"><span class="math">IQR = Q3 − Q1</span></div>
+          </div>
+          <div class="example-step"><span class="step-badge">Substitute</span>
+            <div class="step-text"><span class="math">IQR = 30.5 − 17 = 13.5</span></div>
+          </div>
+          <div class="example-answer">✅ IQR = <strong>13.5</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Identifying Outliers with the 1.5×IQR Rule</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Using Q1 = 17, Q3 = 30.5, and IQR = 13.5, find the fence values. Is a data value of 55 an outlier?</div>
+          <div class="example-step"><span class="step-badge">Fences</span>
+            <div class="step-text">
+              Lower = Q1 − 1.5×IQR = 17 − 1.5(13.5) = 17 − 20.25 = <span class="math">−3.25</span><br>
+              Upper = Q3 + 1.5×IQR = 30.5 + 1.5(13.5) = 30.5 + 20.25 = <span class="math">50.75</span>
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Compare</span>
+            <div class="step-text">Value 55 &gt; 50.75 (upper fence). So 55 is an <span class="math">outlier</span>.</div>
+          </div>
+          <div class="example-answer">✅ Lower fence = −3.25 · Upper fence = 50.75 · 55 <strong>is an outlier</strong> (above upper fence).</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Constructing a Box Plot</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Given the five-number summary — Min = 12, Q1 = 18, Median = 24, Q3 = 34, Max = 48 — construct a box plot and describe the distribution shape.</div>
+          <div class="example-step"><span class="step-badge">Draw</span>
+            <div class="step-text">
+              1. Draw a horizontal axis from 10 to 50.<br>
+              2. Draw a rectangle (box) from Q1=18 to Q3=34.<br>
+              3. Draw a line inside the box at Median=24.<br>
+              4. Draw whiskers from Q1 down to Min=12 and from Q3 up to Max=48.
+            </div>
+          </div>
+          <div class="example-step"><span class="step-badge">Analyze</span>
+            <div class="step-text">
+              Left half: Q1 to median = 24 − 18 = <span class="math">6</span><br>
+              Right half: median to Q3 = 34 − 24 = <span class="math">10</span><br>
+              Since the right half is longer, the distribution is <span class="math">right-skewed</span>.
+            </div>
+          </div>
+          <div class="example-answer">✅ Box plot complete. Distribution is <strong>right-skewed</strong> (longer right half of the box).</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUIZ -->
+    <div class="section-block" id="quiz">
+      <div class="section-header">
+        <div class="section-icon">🎯</div>
+        <div>
+          <div class="section-title-text">Quiz</div>
+          <div class="section-subtitle">5 entrance-exam style questions</div>
+        </div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">What is plotted on the vertical axis of an ogive?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Class frequencies</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Class midpoints</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Cumulative frequency</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Class boundaries</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">For n = 80, at which cumulative frequency is the third quartile (Q3) located?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> 20</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> 40</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> 60</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> 80</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A dataset has Q1 = 25, Q3 = 55. What is the IQR?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> 25</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> 30</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> 80</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> 15</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Using the 1.5×IQR rule with Q1 = 25, Q3 = 55, what is the upper fence for outlier detection?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','D')"><div class="option-letter">A</div> 55</div>
+          <div class="quiz-option" onclick="answer(4,'B','D')"><div class="option-letter">B</div> 70</div>
+          <div class="quiz-option" onclick="answer(4,'C','D')"><div class="option-letter">C</div> 80</div>
+          <div class="quiz-option" onclick="answer(4,'D','D')"><div class="option-letter">D</div> 100</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">In a box plot, the box itself represents:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> The entire range of the data</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> The middle 50% of the data (Q1 to Q3)</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> The mean ± 1 SD</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> The outliers</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Course Index →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div class="section-block" id="resources">
+      <div class="section-header">
+        <div class="section-icon">🎥</div>
+        <div>
+          <div class="section-title-text">Online Resources</div>
+          <div class="section-subtitle">The Organic Chemistry Tutor — Cumulative Frequency & Box Plots</div>
+        </div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+ogive+cumulative+frequency+curve" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Ogive — Cumulative Frequency Curve Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+median+quartiles+percentiles+ogive" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Finding Median, Quartiles and Percentiles from Ogives</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+box+and+whisker+plot" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Box-and-Whisker Plots — Construction and Interpretation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+five+number+summary+outliers" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Five-Number Summary and Outlier Detection</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="section-block" id="summary">
+      <div class="section-header">
+        <div class="section-icon">📝</div>
+        <div>
+          <div class="section-title-text">Lesson Summary</div>
+          <div class="section-subtitle">Everything you learned in Lesson 6</div>
+        </div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Cumulative Frequency Curves</div>
+        <ul class="summary-list">
+          <li>A <strong>cumulative frequency (CF)</strong> is a running total of frequencies. The last CF = n.</li>
+          <li>The <strong>ogive</strong> plots CF against upper class boundaries. Always rises from left to right.</li>
+          <li><strong>Reading the ogive:</strong> Median at CF = n/2, Q1 at CF = n/4, Q3 at CF = 3n/4, Pk at CF = (k/100)n.</li>
+          <li>The <strong>IQR = Q3 − Q1</strong> measures spread of the middle 50% of data.</li>
+          <li><strong>Outlier rule:</strong> any value below Q1 − 1.5×IQR or above Q3 + 1.5×IQR is an outlier.</li>
+          <li>The <strong>five-number summary</strong> (Min, Q1, Q2, Q3, Max) captures the entire distribution for a box plot.</li>
+          <li>The <strong>box plot</strong>: box spans Q1 to Q3, median line inside, whiskers extend to Min and Max. Outliers shown as dots.</li>
+          <li>Box plots allow quick comparison of multiple distributions — position, spread and skewness all visible at a glance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- UNIT COMPLETE BANNER -->
+    <div class="unit-complete-banner">
+      <div style="font-size:2.5rem;margin-bottom:.75rem">🎉</div>
+      <h3>Unit 8 Complete!</h3>
+      <p>You have finished all 6 lessons of Unit 8: Further on Statistics. You are now fully prepared for Unit 9: Mathematical Applications for Business and Consumers.</p>
+      <a href="../index.html" class="btn btn-accent btn-lg">Back to Course Index →</a>
+    </div>
+
+    <div class="lesson-nav" style="margin-top:2rem">
+      <a href="unit8-lesson5.html" class="btn btn-ghost">← Lesson 5: Analysis of Frequency Distributions</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 8 · Lesson 6 of 6 · Unit Complete</div>
+      <a href="../index.html" class="btn btn-primary">Course Index →</a>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+
+  const answers={};
+  const correct={1:'C',2:'C',3:'B',4:'D',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! Ogives plot cumulative frequency on the y-axis.',wrong:'✗ The y-axis of an ogive shows cumulative frequency, not individual class frequencies.'},
+    2:{C:'✓ Correct! Q3 = 3n/4 = 3(80)/4 = 60.',wrong:'✗ Q3 is located at CF = 3n/4 = 3(80)/4 = 60.'},
+    3:{B:'✓ Correct! IQR = Q3 − Q1 = 55 − 25 = 30.',wrong:'✗ IQR = Q3 − Q1 = 55 − 25 = 30.'},
+    4:{D:'✓ Correct! IQR = 30. Upper fence = Q3 + 1.5×IQR = 55 + 45 = 100.',wrong:'✗ IQR = 55 − 25 = 30. Upper fence = 55 + 1.5(30) = 55 + 45 = 100.'},
+    5:{B:'✓ Correct! The box spans from Q1 to Q3, showing the middle 50% of the data.',wrong:'✗ In a box plot, the box represents the interquartile range (Q1 to Q3) — the middle 50% of the data.'},
+  };
+  let answered=0;
+
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;
+    answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i]===correctAns)o.classList.add('correct');
+      else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');
+    });
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();
+    if(answered===5)showScore();
+  }
+
+  function showScore(){
+    const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score! Unit 8 mastered!'];
+    document.getElementById('score-label').textContent=labels[score];
+  }
+
+  function retakeQuiz(){
+    Object.keys(answers).forEach(k=>delete answers[k]);
+    answered=0;
+    for(let i=1;i<=5;i++){
+      document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';
+    }
+    document.getElementById('score-bar').classList.remove('show');
+    updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  function updateProgress(){
+    document.getElementById('progress-fill').style.width=(answered/5*100)+'%';
+  }
+
+  function scrollTo(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    event.currentTarget.classList.add('active');
+  }
+
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{
+    let current='intro';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el&&window.scrollY>=el.offsetTop-120)current=id;
+    });
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{
+      const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      l.classList.toggle('active',t===current);
+    });
+  });
+</script>
+</body>
+</html>
