@@ -3,115 +3,520 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Electric Charges and Fields | Physics Grade 12</title>
+  <title>Lesson 3.1: Fluid Statics | Grade 12 Physics</title>
   <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
-    body { background: #F8FAFC; }
-    .lesson-hero { background: linear-gradient(135deg, #0F172A 0%, #14532D 100%); padding: 3rem 2rem; color: #fff; }
-    .lesson-hero-inner { max-width: 900px; margin: 0 auto; }
-    .lesson-tag { display: inline-flex; gap: 6px; background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3); color: #86EFAC; font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 1rem; }
-    .lesson-hero h1 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: .5rem; }
-    .lesson-hero p { color: rgba(255,255,255,.72); font-size: .95rem; line-height: 1.7; max-width: 640px; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-    .breadcrumb { display: flex; gap: 6px; font-size: .82rem; color: #64748b; margin-bottom: 2rem; flex-wrap: wrap; }
-    .breadcrumb a { color: #22C55E; text-decoration: none; }
-    .content-card { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
-    .content-card h2 { font-size: 1.35rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; }
-    .content-card p { font-size: .95rem; color: #334155; line-height: 1.75; margin-bottom: 1rem; }
-    .placeholder { background: #F0FDF4; border: 1.5px dashed #86EFAC; padding: 1.5rem; border-radius: 12px; color: #166534; font-size: .875rem; line-height: 1.7; }
-    .lesson-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .lesson-nav a { padding: .625rem 1.25rem; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: .82rem; }
-    .lesson-nav .prev { background: #fff; border: 1.5px solid #e2e8f0; color: #334155; }
-    .lesson-nav .next { background: #22C55E; color: #fff; }
-    @media (max-width: 640px) {
-      .lesson-hero { padding: 2.25rem 1rem; }
-      .lesson-hero h1 { font-size: 1.5rem; }
-      .wrap { padding: 2rem 1rem; }
-      .content-card { padding: 1.25rem; }
-    }
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .data-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0}
+    .data-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:600}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .data-table td:first-child{text-align:left}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
-  <a href="../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon">
-      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
-      </svg>
-    </div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Physics Grade 12</span>
-    </div>
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
   <div class="fsh-nav-actions">
-    <a href="index.html" class="btn btn-ghost btn-sm">← Unit 3</a>
-    <a href="../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
   </div>
 </nav>
 
-<div class="lesson-hero">
-  <div class="lesson-hero-inner">
-    <div class="lesson-tag">⚛️ Unit 3 · Lesson 3.1</div>
-    <h1>Electric Charges and Fields</h1>
-    <p>Duration: 28 min · Part of <strong>Electricity and Magnetism</strong></p>
-  </div>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Fluid Statics</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Properties of Pressure</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Archimedes' Principle</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Fluid Flow</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Safety and High Pressure</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 3</a> ›
+      Lesson 3.1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Fluid Mechanics · Natural Science</div>
+      <h1>💧 Fluid Statics</h1>
+      <p>Fluids are everywhere — water in a glass, air in a room, blood in your veins. This lesson introduces the physics of fluids at rest: pressure, density, and why some objects float while others sink.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Matter exists as solids, liquids, or gases. <strong>Liquids and gases are both fluids</strong> — they lack the ability to resist deformation and flow under force. <strong>Fluid mechanics</strong> studies fluids at rest and in motion.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Compare the properties of <strong>solids, liquids, and gases</strong></li>
+          <li>Define <strong>pressure</strong> and its various units</li>
+          <li>Distinguish between <strong>absolute, atmospheric, and gauge</strong> pressure</li>
+          <li>Calculate <strong>density and specific gravity</strong></li>
+          <li>Solve problems involving pressure and density</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.1 Solids, Liquids, and Gases</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Molecular Structure</div>
+          <p>
+            <strong>Solids:</strong> Atoms in close contact, arranged in a repeating pattern. Forces between them are like springs — allow vibration but not free movement. Solids resist all types of stress.<br><br>
+            <strong>Liquids:</strong> Molecules close together but free to slide and rotate. Intermolecular forces weaker than solids but still strong compared to gases. Liquids flow but maintain volume.<br><br>
+            <strong>Gases:</strong> Atoms separated by large distances. Forces between them very weak except when they collide. Gases flow, are compressible, and expand to fill their container.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.2 Pressure</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          <strong>Pressure</strong> is defined as the normal force exerted per unit area.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Pressure</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.15rem">P = F / A</span><br><br>
+            <strong>Unit:</strong> pascal (Pa) = N/m²<br>
+            <strong>Other units:</strong><br>
+            • 1 atm = 760 mmHg = 760 torr = 101.3 kPa = 14.7 psi
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Why nails penetrate easily</div>
+          <p>
+            A nail tip has a very small area. Even a modest force produces huge pressure (P = F/A). That's why a hammer can drive a nail into wood.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.3 Absolute, Gauge, and Vacuum Pressure</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Three Types of Pressure</div>
+          <p>
+            • <strong>Absolute pressure</strong> — measured relative to absolute vacuum (zero)<br>
+            • <strong>Gauge pressure</strong> — measured relative to atmospheric pressure (can be + or −)<br>
+            • <strong>Vacuum pressure</strong> — when gauge pressure is negative<br><br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">P_gauge = P_abs − P_atm</span><br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">P_vac = P_atm − P_abs</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.4 Density and Specific Gravity</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Density (ρ)</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.15rem">ρ = m / V</span><br><br>
+            <strong>Unit:</strong> kg/m³<br><br>
+            Density measures the mass of one cubic meter of a substance.
+          </p>
+        </div>
+        <div class="definition-box">
+          <div class="def-label">📌 Specific Gravity (SG)</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.15rem">SG = ρ_substance / ρ_water</span><br><br>
+            <strong>Reference:</strong> water at 4°C, ρ = 1000 kg/m³<br>
+            Specific gravity is <strong>dimensionless</strong> — just a number.
+          </p>
+        </div>
+
+        <h4 style="font-size:.9rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .5rem">Densities of common substances</h4>
+        <table class="data-table">
+          <thead>
+            <tr><th>Substance</th><th>ρ (kg/m³)</th><th>Substance</th><th>ρ (kg/m³)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Air</td><td>1.29</td><td>Iron</td><td>7,860</td></tr>
+            <tr><td>Aluminium</td><td>2,700</td><td>Lead</td><td>11,300</td></tr>
+            <tr><td>Fresh water</td><td>1,000</td><td>Mercury</td><td>13,600</td></tr>
+            <tr><td>Sea water</td><td>1,030</td><td>Gold</td><td>19,300</td></tr>
+            <tr><td>Ice</td><td>917</td><td>Silver</td><td>10,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Memorize these for the exam</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">💧 Lesson 3.1 — Fluid Statics</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Pressure</div><div class="formula-math">P = F / A</div><div class="formula-note">In Pa (N/m²)</div></div>
+          <div class="formula-item"><div class="formula-name">Density</div><div class="formula-math">ρ = m / V</div><div class="formula-note">In kg/m³</div></div>
+          <div class="formula-item"><div class="formula-name">Specific gravity</div><div class="formula-math">SG = ρ / ρ_water</div><div class="formula-note">Dimensionless</div></div>
+          <div class="formula-item"><div class="formula-name">Gauge pressure</div><div class="formula-math">P_g = P_abs − P_atm</div><div class="formula-note">Can be negative</div></div>
+          <div class="formula-item"><div class="formula-name">Vacuum pressure</div><div class="formula-math">P_vac = P_atm − P_abs</div><div class="formula-note">When P_abs < P_atm</div></div>
+          <div class="formula-item"><div class="formula-name">Unit conversion</div><div class="formula-math">1 atm = 101.3 kPa</div><div class="formula-note">= 760 mmHg = 14.7 psi</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Pressure from a Woman's Shoe</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A 55 kg woman stands on one shoe of area 30 cm × 10 cm. Find the pressure. Express in kPa.</div>
+          <div class="example-step"><span class="step-badge">Area</span><div class="step-text">A = 0.30 × 0.10 = 0.03 m²</div></div>
+          <div class="example-step"><span class="step-badge">Force</span><div class="step-text">F = mg = 55 × 9.8 = 539 N</div></div>
+          <div class="example-step"><span class="step-badge">Pressure</span><div class="step-text"><span class="math">P = 539 / 0.03 = 17,967 Pa ≈ 18 kPa</span></div></div>
+          <div class="example-answer">✅ Pressure ≈ <strong>18 kPa</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Nail Tip Pressure</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What force on a nail with circular tip of 1 mm diameter creates a pressure of 3 × 10⁹ N/m²?</div>
+          <div class="example-step"><span class="step-badge">Area</span><div class="step-text">d = 1 mm = 1 × 10⁻³ m<br>A = π(d/2)² = π(5×10⁻⁴)² ≈ 7.85 × 10⁻⁷ m²</div></div>
+          <div class="example-step"><span class="step-badge">Force</span><div class="step-text"><span class="math">F = PA = 3×10⁹ × 7.85×10⁻⁷ ≈ 2.36 × 10³ N</span></div></div>
+          <div class="example-answer">✅ Force ≈ <strong>2,360 N</strong> — shows why tiny areas create huge pressures</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Person's Density</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A person of 80 kg has dimensions 1.8 m tall × 0.3 m wide × 0.1 m thick. Estimate their density.</div>
+          <div class="example-step"><span class="step-badge">Volume</span><div class="step-text">V = 1.8 × 0.3 × 0.1 = 0.054 m³</div></div>
+          <div class="example-step"><span class="step-badge">Density</span><div class="step-text"><span class="math">ρ = 80 / 0.054 ≈ 1,481 kg/m³</span></div></div>
+          <div class="example-answer">✅ Density ≈ <strong>1,500 kg/m³</strong> (about 1.5× water density)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Absolute Pressure from Vacuum</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A vacuum gauge reads 5.8 psi where P_atm = 14.5 psi. Find absolute pressure.</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">P_abs = P_atm − P_vac</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">P_abs = 14.5 − 5.8 = 8.7 psi</span></div></div>
+          <div class="example-answer">✅ Absolute pressure = <strong>8.7 psi</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Converting Pressure Units</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Convert 25 kPa to atm.</div>
+          <div class="example-step"><span class="step-badge">Relation</span><div class="step-text">1 atm = 101.3 kPa</div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">P_atm = 25 / 101.3 = 0.247 atm</span></div></div>
+          <div class="example-answer">✅ 25 kPa = <strong>0.247 atm</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which of the following is a fluid?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Only liquids</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Only gases</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Both liquids and gases</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> None of the above</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Pressure is defined as:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Force × area</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Force / distance</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Force / area</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Mass × volume</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">The SI unit of pressure is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Newton</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Joule</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Pascal</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Watt</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">A block of mass 2 kg occupies 0.001 m³. What is its density?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> 500 kg/m³</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> 2,000 kg/m³</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> 20 kg/m³</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> 200 kg/m³</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">If a liquid's density is 800 kg/m³, what is its specific gravity?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> 800</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> 0.8</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> 1.25</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> 8</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-3-2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+fluid+statics+pressure" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Fluid Statics — Pressure and Density</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+pressure+definition+physics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Pressure — Definition and Applications</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+density+specific+gravity" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Density and Specific Gravity</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+gauge+absolute+pressure" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Gauge Pressure vs Absolute Pressure</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 3.1</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Fluid Statics</div>
+        <ul class="summary-list">
+          <li><strong>Fluids</strong> = liquids + gases; they flow under force.</li>
+          <li>Solids resist all types of stress; liquids and gases don't.</li>
+          <li><strong>Pressure</strong> = F/A, measured in pascals (Pa = N/m²).</li>
+          <li><strong>1 atm = 101.3 kPa = 760 mmHg = 14.7 psi</strong>.</li>
+          <li><strong>Absolute pressure</strong> is measured from vacuum; <strong>gauge pressure</strong> from atmospheric.</li>
+          <li><strong>Density</strong> ρ = m/V, in kg/m³.</li>
+          <li><strong>Specific gravity</strong> = ρ/ρ_water — dimensionless.</li>
+          <li>Water density at 4°C = 1000 kg/m³ (reference).</li>
+          <li>Substances with SG &lt; 1 float on water; SG &gt; 1 sink.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="../unit-2/lesson-2-5.html" class="btn btn-ghost">← Unit 2 · Lesson 5</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 1 of 5</div>
+      <a href="lesson-3-2.html" class="btn btn-primary">Next: Properties of Pressure →</a>
+    </div>
+  </main>
 </div>
 
-<div class="wrap">
-  <div class="breadcrumb">
-    <a href="../../../../index.html">Home</a> ›
-    <a href="../../../index.html">Entrance Exam</a> ›
-    <a href="../../index.html">Grade 12</a> ›
-    <a href="../index.html">Natural Science</a> ›
-    <a href="index.html">Physics</a> ›
-    <a href="unit-3/index.html">Unit 3</a> ›
-    <span>Electric Charges and Fields</span>
-  </div>
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
 
-  <div class="content-card">
-    <h2>📖 Lesson Overview</h2>
-    <p>This lesson covers <strong>Electric Charges and Fields</strong> from Unit 3: Electricity and Magnetism.</p>
-
-    <div class="placeholder">
-      <strong>🚧 Content coming soon.</strong><br>
-      Full lesson text, worked examples, and practice problems will be added here.
-      This placeholder confirms the page structure is ready.
-    </div>
-  </div>
-
-  <div class="content-card">
-    <h2>🎯 Learning Objectives</h2>
-    <p>By the end of this lesson you will be able to:</p>
-    <ul style="margin-left:1.25rem; color:#334155; line-height:1.9; font-size:.95rem;">
-      <li>Understand the core concepts of electric charges and fields</li>
-      <li>Apply the key formulas and equations</li>
-      <li>Solve EUEE-style practice problems</li>
-      <li>Identify common exam traps and how to avoid them</li>
-    </ul>
-  </div>
-
-  <div class="content-card">
-    <h2>📝 Practice</h2>
-    <p>Practice questions with step-by-step solutions will appear here.</p>
-  </div>
-
-  <div class="lesson-nav">
-    <a href="index.html" class="prev">← Back to Unit 3</a>
-    <a href="index.html" class="next">Unit Overview →</a>
-  </div>
-</div>
-
-<footer class="fsh-footer">
-  <div class="fsh-footer-inner">
-    <div class="fsh-footer-bottom">
-      <p>© 2025 Freelance Skills Hub · Physics Grade 12</p>
-      <p>Electric Charges and Fields</p>
-    </div>
-  </div>
-</footer>
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'B',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! Both liquids and gases are fluids.',wrong:'✗ Any material that flows is a fluid — both liquids and gases.'},
+    2:{C:'✓ Correct! Pressure = force per unit area.',wrong:'✗ Pressure = F/A.'},
+    3:{C:'✓ Correct! The SI unit of pressure is the pascal (Pa).',wrong:'✗ Pressure is measured in pascals (Pa = N/m²).'},
+    4:{B:'✓ Correct! ρ = m/V = 2 / 0.001 = 2,000 kg/m³.',wrong:'✗ ρ = 2 / 0.001 = 2,000 kg/m³.'},
+    5:{B:'✓ Correct! SG = 800/1000 = 0.8.',wrong:'✗ SG = ρ_substance / ρ_water = 800/1000 = 0.8.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
 </body>
 </html>
