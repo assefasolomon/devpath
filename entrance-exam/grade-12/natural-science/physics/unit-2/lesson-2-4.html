@@ -10,56 +10,487 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 2 · Lesson 2.4</div>
-    <a href="lesson-2-1.html" class="sidebar-link">L1: Projectile Motion</a>
-    <a href="lesson-2-2.html" class="sidebar-link">L2: Rotational Motion</a>
-    <a href="lesson-2-3.html" class="sidebar-link">L3: Rotational Dynamics</a>
-    <a href="lesson-2-4.html" class="sidebar-link">L4: Planetary Motion and Kepler's Laws</a>
-    <a href="lesson-2-5.html" class="sidebar-link">L5: Newton's Law of Universal Gravitation</a>
+    <div class="sidebar-title">Unit 2 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Projectile Motion ✓</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Rotational Motion ✓</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Rotational Dynamics ✓</a>
+      <a href="lesson-2-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Kepler's Laws</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Universal Gravitation</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 2 · Two Dimensional Motion</div>
-      <h1>📘 Lesson 2.4: Planetary Motion and Kepler's Laws</h1>
-      <p>Content coming soon. This lesson is part of Unit 2: Two Dimensional Motion.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.4
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Two Dimensional Motion · Natural Science</div>
+      <h1>🪐 Planetary Motion and Kepler's Laws</h1>
+      <p>How do planets move? Learn how Kepler's three laws describe the motion of planets around the Sun — and how Newton later explained them with gravity.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Planets orbit the Sun in predictable patterns. For centuries, humans thought Earth was the centre of the universe (<strong>geocentric model</strong>). In 1543, <strong>Copernicus</strong> proposed the Sun-centred (<strong>heliocentric</strong>) model. Then <strong>Kepler</strong>, using <strong>Tycho Brahe's</strong> data, discovered three laws that describe planetary motion.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>State and apply <strong>Kepler's three laws</strong></li>
+          <li>Explain the concepts of <strong>perihelion and aphelion</strong></li>
+          <li>Use <strong>T² ∝ R³</strong> to find orbital periods</li>
+          <li>Compare <strong>ellipses vs circles</strong> in orbits</li>
+          <li>Describe the historical development of planetary models</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.1 Historical Background</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Timeline of Discovery</div>
+          <p>
+            • <strong>Ptolemy</strong> (c. 100–170 AD) — elaborated geocentric model<br>
+            • <strong>Copernicus</strong> (1473–1543) — proposed heliocentric model<br>
+            • <strong>Tycho Brahe</strong> (1546–1601) — precise astronomical observations<br>
+            • <strong>Kepler</strong> (1571–1630) — analyzed Brahe's data, discovered three laws<br>
+            • <strong>Newton</strong> (1642–1727) — explained WHY Kepler's laws work (using gravity)
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.2 Kepler's First Law — Law of Ellipses</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Kepler's First Law</div>
+          <p>
+            <strong>All planets move in elliptical orbits, with the Sun at one focus.</strong><br><br>
+            An ellipse is a closed curve where the sum of the distances from any point on the curve to the two foci (f₁ and f₂) is constant. This means the planet–Sun distance is <strong>constantly changing</strong> as the planet orbits.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.3 Kepler's Second Law — Law of Equal Areas</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Kepler's Second Law</div>
+          <p>
+            <strong>An imaginary line drawn from the Sun to a planet sweeps out equal areas in equal time intervals.</strong><br><br>
+            This means planets do <strong>not move at constant speed</strong>. They speed up when closer to the Sun and slow down when farther away.<br><br>
+            • <strong>Perihelion</strong> — point of nearest approach (fastest)<br>
+            • <strong>Aphelion</strong> — point of greatest separation (slowest)
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.4 Kepler's Third Law — Law of Harmonics</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Kepler's Third Law</div>
+          <p>
+            <strong>The square of the orbital period (T) is proportional to the cube of the average orbital radius (R):</strong><br><br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.15rem">T² / R³ = K</span><br><br>
+            The constant K is <strong>nearly the same for all planets</strong>. This equation works for both circular and elliptical orbits.
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Sample comparison</div>
+          <p>
+            Earth: T = 3.156 × 10⁷ s, R = 1.4957 × 10¹¹ m → T²/R³ ≈ 2.977 × 10⁻¹⁹<br>
+            Mars: T = 5.93 × 10⁷ s, R = 2.278 × 10¹¹ m → T²/R³ ≈ 2.975 × 10⁻¹⁹<br><br>
+            The ratios match! The same holds for all planets.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Memorize these for the exam</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🪐 Lesson 2.4 — Kepler's Laws</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">1st Law</div><div class="formula-math">Elliptical orbits</div><div class="formula-note">Sun at one focus</div></div>
+          <div class="formula-item"><div class="formula-name">2nd Law</div><div class="formula-math">Equal areas in equal times</div><div class="formula-note">Speed varies</div></div>
+          <div class="formula-item"><div class="formula-name">3rd Law</div><div class="formula-math">T² ∝ R³</div><div class="formula-note">Same K for all planets</div></div>
+          <div class="formula-item"><div class="formula-name">Ratio form</div><div class="formula-math">(T₁/T₂)² = (R₁/R₂)³</div><div class="formula-note">Compare two planets</div></div>
+          <div class="formula-item"><div class="formula-name">Perihelion</div><div class="formula-math">Closest point</div><div class="formula-note">Fastest speed</div></div>
+          <div class="formula-item"><div class="formula-name">Aphelion</div><div class="formula-math">Farthest point</div><div class="formula-note">Slowest speed</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Pluto's Orbital Period</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Earth's orbital period = 365 days, mean distance = 1.495 × 10⁸ km. Pluto's mean distance = 5.896 × 10⁹ km. Find Pluto's orbital period.</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">(T_E)² / (R_E)³ = (T_P)² / (R_P)³</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">(365)² / (1.495×10⁸)³ = (T_P)² / (5.896×10⁹)³</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">T_P ≈ 9.0 × 10⁴ days</span> (about 248 Earth years)</div></div>
+          <div class="example-answer">✅ Pluto's period ≈ <strong>9.0 × 10⁴ days</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Saturn's Year</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Saturn is on average 9 times farther from the Sun than Earth. How long is its year in Earth years?</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">R_S = 9 R_E, T_E = 1 year</div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">(T_E)² / (R_E)³ = (T_S)² / (R_S)³</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">1 / (R_E)³ = (T_S)² / (9 R_E)³ = (T_S)² / 729 (R_E)³</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">(T_S)² = 729 → T_S = 27 years</span></div></div>
+          <div class="example-answer">✅ Saturn's year = <strong>27 Earth years</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">True or False — Speed Variation</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> According to Kepler's laws, a satellite increases its speed as it approaches the Sun and decreases as it moves away. True or false?</div>
+          <div class="example-step"><span class="step-badge">Reason</span><div class="step-text">Kepler's <span class="math">second law</span> — equal areas in equal times.</div></div>
+          <div class="example-step"><span class="step-badge">Explain</span><div class="step-text">Closer to Sun → smaller radius → must move faster to sweep the same area in the same time.</div></div>
+          <div class="example-answer">✅ <strong>True</strong> — speed increases closer to the Sun (perihelion) and decreases further away (aphelion).</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Doubling the Orbit Radius</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> If the radius of a circular orbit is doubled, how does the period change?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">T² ∝ R³</span></div></div>
+          <div class="example-step"><span class="step-badge">Ratio</span><div class="step-text"><span class="math">(T_new / T_old)² = (R_new / R_old)³ = (2)³ = 8</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">T_new / T_old = √8 = 2√2 ≈ 2.83</span></div></div>
+          <div class="example-answer">✅ The period increases by a factor of <strong>2√2</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Ellipse vs Circle</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain the difference between a circle and an ellipse in terms of foci.</div>
+          <div class="example-step"><span class="step-badge">Circle</span><div class="step-text">Both foci coincide at the centre. Every point is equidistant from the centre.</div></div>
+          <div class="example-step"><span class="step-badge">Ellipse</span><div class="step-text">Two distinct foci. The sum of distances from the two foci to any point on the ellipse is constant.</div></div>
+          <div class="example-step"><span class="step-badge">Orbit</span><div class="step-text">A circle is a special ellipse where the two foci merge.</div></div>
+          <div class="example-answer">✅ <strong>Circle</strong>: one focus. <strong>Ellipse</strong>: two foci, constant sum of distances.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">According to Kepler's first law, planets orbit the Sun in:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Perfect circles</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Straight lines</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Ellipses with the Sun at one focus</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Parabolas</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">A planet moves fastest when it is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> Farthest from the Sun (aphelion)</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> Closest to the Sun (perihelion)</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> At the same speed always</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> Depends on the planet</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Kepler's third law states that:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> T ∝ R</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> T² ∝ R²</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> T² ∝ R³</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> T³ ∝ R²</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Mercury takes 88 days to orbit the Sun. Earth takes 365 days. Which planet is closer to the Sun?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','A')"><div class="option-letter">A</div> Mercury</div>
+          <div class="quiz-option" onclick="answer(4,'B','A')"><div class="option-letter">B</div> Earth</div>
+          <div class="quiz-option" onclick="answer(4,'C','A')"><div class="option-letter">C</div> Both the same</div>
+          <div class="quiz-option" onclick="answer(4,'D','A')"><div class="option-letter">D</div> Cannot be determined</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The constant K in Kepler's third law (T²/R³ = K) is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> Different for each planet</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> The same for all planets orbiting the Sun</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> Always equal to 1</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> Zero</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-2-5.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+keplers+laws+planetary+motion" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Kepler's Laws of Planetary Motion Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+keplers+third+law+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Kepler's Third Law — Problems and Solutions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+ellipse+orbit+astronomy" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Elliptical Orbits — Ellipses in Astronomy</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+orbital+period+radius+relationship" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Orbital Period and Radius Relationship</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.4</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Kepler's Laws</div>
+        <ul class="summary-list">
+          <li>Historical shift from <strong>geocentric</strong> to <strong>heliocentric</strong> model of the solar system.</li>
+          <li><strong>Kepler's 1st Law</strong> — planets orbit the Sun in ellipses with the Sun at one focus.</li>
+          <li><strong>Kepler's 2nd Law</strong> — a line from Sun to planet sweeps equal areas in equal times; planets move faster at perihelion, slower at aphelion.</li>
+          <li><strong>Kepler's 3rd Law</strong> — T² ∝ R³ for all planets orbiting the same central body.</li>
+          <li>The constant K = 4π²/(GM_s) is <strong>the same for all planets in the solar system</strong>.</li>
+          <li><strong>Perihelion</strong> = closest point (fastest speed); <strong>aphelion</strong> = farthest point (slowest speed).</li>
+          <li>Kepler's laws apply to <strong>any</strong> orbiting system — planets around the Sun, moons around planets, satellites around Earth.</li>
+          <li>Newton later explained <strong>why</strong> Kepler's laws hold — using gravity.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-3.html" class="btn btn-ghost">← Lesson 2.3: Rotational Dynamics</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 4 of 5</div>
+      <a href="lesson-2-5.html" class="btn btn-primary">Next: Universal Gravitation →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'C',4:'A',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! Kepler\'s 1st law — elliptical orbits with the Sun at one focus.',wrong:'✗ Kepler\'s 1st law: orbits are ellipses with the Sun at one focus.'},
+    2:{B:'✓ Correct! A planet moves fastest at perihelion (closest to the Sun).',wrong:'✗ Kepler\'s 2nd law: faster when closer — perihelion.'},
+    3:{C:'✓ Correct! T² ∝ R³ for all planets orbiting the same body.',wrong:'✗ Kepler\'s 3rd law: T² ∝ R³.'},
+    4:{A:'✓ Correct! Mercury has a shorter period, so it must be closer (T² ∝ R³).',wrong:'✗ Shorter period → smaller radius → Mercury is closer.'},
+    5:{B:'✓ Correct! The constant K is the same for all planets orbiting the Sun.',wrong:'✗ K is the same for all planets orbiting the same central body.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>

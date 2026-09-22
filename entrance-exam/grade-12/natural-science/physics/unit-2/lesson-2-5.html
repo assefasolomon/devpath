@@ -10,56 +10,489 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 2 · Lesson 2.5</div>
-    <a href="lesson-2-1.html" class="sidebar-link">L1: Projectile Motion</a>
-    <a href="lesson-2-2.html" class="sidebar-link">L2: Rotational Motion</a>
-    <a href="lesson-2-3.html" class="sidebar-link">L3: Rotational Dynamics</a>
-    <a href="lesson-2-4.html" class="sidebar-link">L4: Planetary Motion and Kepler's Laws</a>
-    <a href="lesson-2-5.html" class="sidebar-link">L5: Newton's Law of Universal Gravitation</a>
+    <div class="sidebar-title">Unit 2 · Lesson 5</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Projectile Motion ✓</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Rotational Motion ✓</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Rotational Dynamics ✓</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Kepler's Laws ✓</a>
+      <a href="lesson-2-5.html" class="sidebar-link active"><div class="sidebar-dot"></div> L5: Universal Gravitation</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 2 · Two Dimensional Motion</div>
-      <h1>📘 Lesson 2.5: Newton's Law of Universal Gravitation</h1>
-      <p>Content coming soon. This lesson is part of Unit 2: Two Dimensional Motion.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.5
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Two Dimensional Motion · Natural Science</div>
+      <h1>🌍 Newton's Law of Universal Gravitation</h1>
+      <p>Every object in the universe attracts every other object. Learn how Newton's law of gravitation explains falling apples, orbiting moons, planetary motion — and why Kepler's laws work.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In 1666, <strong>Sir Isaac Newton</strong> realized that the force making an apple fall is the <strong>same force</strong> that keeps the Moon in orbit. This universal force acts between every pair of masses in the universe — that's why it's called <strong>universal gravitation</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>State and apply <strong>Newton's law of universal gravitation</strong></li>
+          <li>Use the <strong>gravitational constant G</strong></li>
+          <li>Calculate the <strong>force between two masses</strong></li>
+          <li>Derive <strong>g</strong> from gravitation</li>
+          <li>Understand <strong>centripetal force</strong> and orbital velocity</li>
+          <li>Derive <strong>Kepler's third law</strong> from Newton's laws</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">5.1 The Universal Law of Gravitation</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Newton defined this attraction mathematically: the force of attraction between two masses is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centres.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Newton's Law of Universal Gravitation</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.15rem">F_g = G m₁ m₂ / r²</span><br><br>
+            • <strong>G</strong> = universal gravitational constant = <strong>6.67 × 10⁻¹¹ N·m²/kg²</strong><br>
+            • <strong>m₁, m₂</strong> = two masses<br>
+            • <strong>r</strong> = distance between their centres<br><br>
+            The force is <strong>attractive</strong>, along the line joining the two masses. F₁₂ = −F₂₁ (Newton's third law).
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">5.2 Gravitational Acceleration (g)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Using F = mg and F_g = GMm/r², we can derive the value of g at the surface of any planet:
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Derivation of g</div>
+          <p>
+            mg = G M m / r²<br>
+            Cancel m:<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.15rem">g = G M / r²</span><br><br>
+            For Earth (M = 5.97 × 10²⁴ kg, r = 6.38 × 10⁶ m):<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">g ≈ 9.8 m/s²</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">5.3 Centripetal Force and Orbital Motion</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Gravity provides the <strong>centripetal force</strong> that keeps planets, moons, and satellites in orbit. Without it, they'd travel in straight lines.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Centripetal Force & Orbital Velocity</div>
+          <p>
+            <strong>Centripetal force:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">F_c = m v² / r</span><br><br>
+            Setting F_c = F_g and solving for v:<br>
+            m v² / r = G M_s m / r²<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.1rem">v = √(G M_s / r)</span><br><br>
+            And since v = 2πr / T, we get:<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.1rem">T² / r³ = 4π² / (G M_s)</span><br><br>
+            This is <strong>Kepler's third law</strong> — derived from Newton's law of gravitation!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Memorize these for the exam</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🌍 Lesson 2.5 — Universal Gravitation</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Gravitation</div><div class="formula-math">F = G m₁ m₂ / r²</div><div class="formula-note">Attractive force</div></div>
+          <div class="formula-item"><div class="formula-name">G constant</div><div class="formula-math">6.67 × 10⁻¹¹ N·m²/kg²</div><div class="formula-note">Universal constant</div></div>
+          <div class="formula-item"><div class="formula-name">g at surface</div><div class="formula-math">g = G M / r²</div><div class="formula-note">≈ 9.8 m/s² on Earth</div></div>
+          <div class="formula-item"><div class="formula-name">Weight</div><div class="formula-math">W = mg</div><div class="formula-note">Force on mass</div></div>
+          <div class="formula-item"><div class="formula-name">Centripetal force</div><div class="formula-math">F_c = m v² / r</div><div class="formula-note">Keeps orbit</div></div>
+          <div class="formula-item"><div class="formula-name">Orbital velocity</div><div class="formula-math">v = √(G M / r)</div><div class="formula-note">Circular orbit</div></div>
+          <div class="formula-item"><div class="formula-name">Kepler's 3rd (derived)</div><div class="formula-math">T² / r³ = 4π² / (GM)</div><div class="formula-note">From gravitation</div></div>
+          <div class="formula-item"><div class="formula-name">Mass of Sun</div><div class="formula-math">M_s ≈ 1.989 × 10³⁰ kg</div><div class="formula-note">For solar orbits</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Force Between Two Masses</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A 10 kg mass and a 100 kg mass are 1 meter apart. What is the force of attraction between them?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">F = G m₁ m₂ / r²</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">F = (6.67 × 10⁻¹¹ × 10 × 100) / 1²</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">F = 6.67 × 10⁻⁸ N</span></div></div>
+          <div class="example-answer">✅ Force = <strong>6.67 × 10⁻⁸ N</strong> (tiny, but real)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Weight on Earth</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A person has mass 60 kg. What is the gravitational force on them at Earth's surface? (M_E = 5.97 × 10²⁴ kg, r_E = 6.38 × 10⁶ m)</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">F = G M_E m / r_E²</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">F = (6.67×10⁻¹¹ × 5.97×10²⁴ × 60) / (6.38×10⁶)²</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">F ≈ 584 N</span></div></div>
+          <div class="example-step"><span class="step-badge">Check</span><div class="step-text">Using W = mg: 60 × 9.8 = <span class="math">588 N</span> ✓ (small diff due to rounding)</div></div>
+          <div class="example-answer">✅ Weight ≈ <strong>588 N</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Mass of the Sun</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Calculate the mass of the Sun. Earth's orbit: T = 3.156 × 10⁷ s, r = 1.496 × 10¹¹ m.</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">T² / r³ = 4π² / (G M_s)</span></div></div>
+          <div class="example-step"><span class="step-badge">Rearrange</span><div class="step-text"><span class="math">M_s = 4π² r³ / (G T²)</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">M_s = 4π² (1.496×10¹¹)³ / (6.67×10⁻¹¹ × (3.156×10⁷)²)</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">M_s ≈ 1.99 × 10³⁰ kg</span></div></div>
+          <div class="example-answer">✅ Mass of Sun ≈ <strong>1.99 × 10³⁰ kg</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Weight Change with Altitude</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> If Earth had the same mass but 8 times its present volume, by what factor would a person's weight at the surface change?</div>
+          <div class="example-step"><span class="step-badge">Volume</span><div class="step-text">V = (4/3)πr³. If V increases 8×, then r³ increases 8× → <span class="math">r increases 2×</span></div></div>
+          <div class="example-step"><span class="step-badge">Gravity</span><div class="step-text"><span class="math">g = GM / r²</span>. If r doubles, g decreases by factor 4 (2²).</div></div>
+          <div class="example-step"><span class="step-badge">Weight</span><div class="step-text">W = mg. So weight would be <span class="math">1/4 of current</span>.</div></div>
+          <div class="example-answer">✅ Weight would drop to <strong>1/4 of its current value</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Orbital Velocity</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the orbital velocity of a satellite in low Earth orbit (r ≈ 6.6 × 10⁶ m). (M_E = 5.97 × 10²⁴ kg)</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">v = √(G M / r)</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">v = √((6.67×10⁻¹¹ × 5.97×10²⁴) / 6.6×10⁶)</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">v = √(6.03 × 10⁷) ≈ 7,770 m/s</span></div></div>
+          <div class="example-answer">✅ Orbital velocity ≈ <strong>7.8 km/s</strong> (about 28,000 km/h!)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">If the distance between two masses is doubled, the gravitational force becomes:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Twice as much</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Half as much</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> One quarter as much</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Four times as much</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">What is the value of G (universal gravitational constant)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> 9.8 m/s²</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> 3 × 10⁸ m/s</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> 6.67 × 10⁻¹¹ N·m²/kg²</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> 6.02 × 10²³</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">What force keeps the Moon in orbit around Earth?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Magnetic force</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Electric force</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Gravitational force</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Nuclear force</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">The acceleration due to gravity g at the surface of a planet depends on:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Only the planet's mass</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Only the planet's radius</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Both the planet's mass and radius (g = GM/r²)</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> The object's mass</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The gravitational force between two masses is 100 N. If one mass is doubled, the new force is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> 50 N</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> 200 N</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> 100 N</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> 400 N</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Back to Physics Hub →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+universal+gravitation+physics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Newton's Law of Universal Gravitation — Full Tutorial</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+gravitational+force+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Gravitational Force Problems — Worked Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+orbital+velocity+satellite" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Orbital Velocity and Satellite Motion</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+centripetal+force+gravity" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Centripetal Force and Gravity in Orbits</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.5</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Universal Gravitation</div>
+        <ul class="summary-list">
+          <li><strong>Newton's law of universal gravitation</strong>: F = G m₁m₂ / r²</li>
+          <li><strong>G = 6.67 × 10⁻¹¹ N·m²/kg²</strong> — universal constant, same everywhere.</li>
+          <li>The force is <strong>always attractive</strong>, along the line joining the two masses.</li>
+          <li>From F = mg and gravitation: <strong>g = GM/r²</strong>.</li>
+          <li>On Earth's surface: <strong>g ≈ 9.8 m/s²</strong>.</li>
+          <li>Gravity provides the <strong>centripetal force</strong> for planets and satellites.</li>
+          <li><strong>Orbital velocity</strong>: v = √(G M / r).</li>
+          <li><strong>Kepler's third law</strong> derived from gravitation: T² / r³ = 4π² / (GM).</li>
+          <li>Newton's insight: <strong>the same force</strong> makes apples fall and keeps the Moon in orbit.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-4.html" class="btn btn-ghost">← Lesson 2.4: Kepler's Laws</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 5 of 5 · 🎉 Unit Complete!</div>
+      <a href="../index.html" class="btn btn-primary">Back to Physics Hub →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'C',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! F ∝ 1/r². Doubling r → force becomes 1/4.',wrong:'✗ Gravitational force is inversely proportional to r². Double r → 1/4 the force.'},
+    2:{C:'✓ Correct! G = 6.67 × 10⁻¹¹ N·m²/kg².',wrong:'✗ G = 6.67 × 10⁻¹¹ N·m²/kg².'},
+    3:{C:'✓ Correct! Gravity is the force that keeps the Moon in orbit around Earth.',wrong:'✗ Gravitational attraction is the force that keeps the Moon in orbit.'},
+    4:{C:'✓ Correct! g = GM/r² depends on both mass and radius of the planet.',wrong:'✗ g depends on both the planet\'s mass and its radius: g = GM/r².'},
+    5:{B:'✓ Correct! F ∝ m₁m₂. Doubling one mass doubles the force: 100 → 200 N.',wrong:'✗ Force is proportional to each mass. Doubling one → force doubles.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>
+
