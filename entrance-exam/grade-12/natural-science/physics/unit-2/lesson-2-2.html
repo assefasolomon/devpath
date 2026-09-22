@@ -10,56 +10,518 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .data-table{width:100%;border-collapse:collapse;font-size:.875rem;margin:.875rem 0}
+    .data-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:600}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .data-table td:first-child{text-align:left}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 2 · Lesson 2.2</div>
-    <a href="lesson-2-1.html" class="sidebar-link">L1: Projectile Motion</a>
-    <a href="lesson-2-2.html" class="sidebar-link">L2: Rotational Motion</a>
-    <a href="lesson-2-3.html" class="sidebar-link">L3: Rotational Dynamics</a>
-    <a href="lesson-2-4.html" class="sidebar-link">L4: Planetary Motion and Kepler's Laws</a>
-    <a href="lesson-2-5.html" class="sidebar-link">L5: Newton's Law of Universal Gravitation</a>
+    <div class="sidebar-title">Unit 2 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Projectile Motion ✓</a>
+      <a href="lesson-2-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Rotational Motion</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Rotational Dynamics</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Planetary Motion & Kepler's Laws</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Universal Gravitation</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 2 · Two Dimensional Motion</div>
-      <h1>📘 Lesson 2.2: Rotational Motion</h1>
-      <p>Content coming soon. This lesson is part of Unit 2: Two Dimensional Motion.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.2
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Two Dimensional Motion · Natural Science</div>
+      <h1>🔄 Rotational Motion</h1>
+      <p>When a body rotates about a fixed axis, every point moves in a circle. Learn how to describe rotation with angular quantities — displacement, velocity, and acceleration — and how they relate to linear motion.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          <strong>Rotational motion</strong> is the motion of a body in which all its particles move in a circle about a common axis with the same angular velocity. Examples: Earth's rotation, a spinning fan, wheels of a car, a rotating disc.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>angular displacement, velocity, and acceleration</strong></li>
+          <li>Apply the <strong>right-hand rule</strong> for angular vectors</li>
+          <li>Use the <strong>equations of rotational motion</strong> with constant α</li>
+          <li>Relate <strong>angular and translational quantities</strong> (v = ωr, a = αr)</li>
+          <li>Solve rotational kinematics problems</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.1 Rigid Body and Angular Displacement</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A <strong>rigid body</strong> is a body with a perfectly defined, unchanging shape — the distance between any two particles within the body is constant.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Angular Displacement (Δθ)</div>
+          <p>
+            For a particle at distance r moving through an arc length s:<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.05rem">s = r θ</span><br><br>
+            <strong>Angular displacement:</strong> <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">Δθ = θ_f − θ_0</span><br><br>
+            Units: <strong>radians</strong> (rad) or degrees<br>
+            <strong>1 revolution = 2π rad = 360°</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.2 Angular Velocity and Angular Acceleration</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Angular Velocity (ω)</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.05rem">ω_av = Δθ / Δt</span><br><br>
+            Units: <strong>rad/s</strong>
+          </p>
+        </div>
+        <div class="definition-box">
+          <div class="def-label">📌 Angular Acceleration (α)</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.05rem">α_av = Δω / Δt</span><br><br>
+            Units: <strong>rad/s²</strong>
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Right-Hand Rule</div>
+          <p>
+            Wrap your right hand's fingers in the direction of rotation. Your <strong>thumb points in the direction of ω</strong> (along the axis). The direction of α follows from α = Δω/Δt.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.3 Equations of Rotational Motion</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          For rotation with <strong>constant angular acceleration</strong>, we have kinematic equations analogous to linear motion:
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Linear (constant a)</th>
+              <th>Angular (constant α)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>v = v₀ + a·t</td><td>ω = ω₀ + α·t</td></tr>
+            <tr><td>Δs = ½(v₀ + v)t</td><td>Δθ = ½(ω₀ + ω)t</td></tr>
+            <tr><td>Δs = v₀t + ½at²</td><td>Δθ = ω₀t + ½αt²</td></tr>
+            <tr><td>v² = v₀² + 2aΔs</td><td>ω² = ω₀² + 2αΔθ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">2.4 Relationship Between Angular and Translational Quantities</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Key Relations</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.05rem">v = ω r</span> &nbsp;&nbsp; (tangential speed)<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.05rem">a = α r</span> &nbsp;&nbsp; (tangential acceleration)<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.05rem">Δs = r Δθ</span>
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Important insight</div>
+          <p>
+            Every point on a rigid body has the <strong>same ω and α</strong>, but <strong>different v and a</strong> because r differs. Points farther from the axis move faster tangentially.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Memorize these for the exam</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🔄 Lesson 2.2 — Rotational Motion</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Angular displacement</div><div class="formula-math">Δθ = θ_f − θ_0</div><div class="formula-note">In radians</div></div>
+          <div class="formula-item"><div class="formula-name">Arc length</div><div class="formula-math">s = r θ</div><div class="formula-note">Connects linear & angular</div></div>
+          <div class="formula-item"><div class="formula-name">Angular velocity</div><div class="formula-math">ω = Δθ / Δt</div><div class="formula-note">rad/s</div></div>
+          <div class="formula-item"><div class="formula-name">Angular acceleration</div><div class="formula-math">α = Δω / Δt</div><div class="formula-note">rad/s²</div></div>
+          <div class="formula-item"><div class="formula-name">ω equation</div><div class="formula-math">ω = ω₀ + α t</div><div class="formula-note">Analog to v = v₀ + at</div></div>
+          <div class="formula-item"><div class="formula-name">θ equation</div><div class="formula-math">Δθ = ω₀ t + ½ α t²</div><div class="formula-note">Analog to Δs = v₀t + ½at²</div></div>
+          <div class="formula-item"><div class="formula-name">ω² equation</div><div class="formula-math">ω² = ω₀² + 2α Δθ</div><div class="formula-note">When time is unknown</div></div>
+          <div class="formula-item"><div class="formula-name">Tangential speed</div><div class="formula-math">v = ω r</div><div class="formula-note">Point speed from rotation</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Average Angular Velocity</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A rotating wheel's angular speed changes from 30 rad/s to 50 rad/s in 2 seconds. What is the average angular velocity?</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">ω₀ = 30 rad/s, ω_f = 50 rad/s, t = 2 s</div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">ω_av = (ω₀ + ω_f) / 2</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">ω_av = (30 + 50) / 2 = 40 rad/s</span></div></div>
+          <div class="example-answer">✅ Average angular velocity = <strong>40 rad/s</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Revolutions and Final Speed</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A rotating wheel has initial angular velocity 10 rad/s and accelerates at 2.5 rad/s². (a) How many revolutions in 30 s? (b) What is its speed at t = 20 s?</div>
+          <div class="example-step"><span class="step-badge">Part a</span><div class="step-text"><span class="math">Δθ = ω₀t + ½αt² = 10×30 + ½×2.5×900 = 300 + 1125 = 1425 rad</span></div></div>
+          <div class="example-step"><span class="step-badge">Convert</span><div class="step-text"><span class="math">Δθ = 1425 / (2π) ≈ 226.9 rev</span></div></div>
+          <div class="example-step"><span class="step-badge">Part b</span><div class="step-text"><span class="math">ω = ω₀ + αt = 10 + 2.5×20 = 60 rad/s</span></div></div>
+          <div class="example-answer">✅ (a) Δθ = <strong>~226.9 revolutions</strong> &nbsp; (b) ω = <strong>60 rad/s</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Linear Speed from Rotation</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A bicycle wheel has angular velocity 18 rad/s and radius 40 cm. What is the bicycle's speed?</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">ω = 18 rad/s, r = 0.4 m</div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">v = ω r</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">v = 18 × 0.4 = 7.2 m/s</span></div></div>
+          <div class="example-answer">✅ Bicycle speed = <strong>7.2 m/s</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Pulley Wrapping a Rope</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A rope is wrapped around a pulley of radius 50 cm. How many revolutions are needed to raise a bucket 20 m?</div>
+          <div class="example-step"><span class="step-badge">Arc length</span><div class="step-text">Δs = 20 m, r = 0.5 m</div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">Δθ = Δs / r = 20 / 0.5 = 40 rad</span></div></div>
+          <div class="example-step"><span class="step-badge">Convert</span><div class="step-text"><span class="math">Δθ = 40 / (2π) ≈ 6.34 revolutions</span></div></div>
+          <div class="example-answer">✅ About <strong>6.34 revolutions</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Tangential Acceleration from Car</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A car accelerates from 20 m/s to 24 m/s in 5 s. Radius of wheels = 40 cm. Find angular acceleration.</div>
+          <div class="example-step"><span class="step-badge">Tangential a</span><div class="step-text"><span class="math">a_t = Δv / Δt = (24 − 20) / 5 = 0.8 m/s²</span></div></div>
+          <div class="example-step"><span class="step-badge">Angular α</span><div class="step-text"><span class="math">α = a_t / r = 0.8 / 0.4 = 2 rad/s²</span></div></div>
+          <div class="example-answer">✅ Angular acceleration = <strong>2 rad/s²</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">1 revolution equals how many radians?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> π</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> 2π rad</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> 2π</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> 4π</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The SI unit of angular velocity is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> m/s</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> rad/s</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> rad</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> Hz</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Two points on a rotating disc at different radii. Which has the greater angular velocity?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> The inner point</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> The outer point</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Both have the same ω</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Depends on the speed</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">A wheel accelerates from rest to 20 rad/s in 4 s. Find its angular acceleration.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> 4 rad/s²</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> 5 rad/s²</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> 20 rad/s²</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> 80 rad/s²</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A particle moves in a circle of radius 2 m with angular velocity 3 rad/s. Find its linear speed.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> 1.5 m/s</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> 6 m/s</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> 0.67 m/s</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> 12 m/s</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-2-3.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+rotational+kinematics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Rotational Kinematics — Full Tutorial</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+angular+velocity+acceleration" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Angular Velocity and Angular Acceleration</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+linear+and+angular+speed+relationship" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Linear and Angular Speed Relationship</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+rotational+motion+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Rotational Motion Problems — Worked Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.2</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Rotational Motion</div>
+        <ul class="summary-list">
+          <li>A <strong>rigid body</strong> has fixed shape; all its points share the same ω and α.</li>
+          <li><strong>Angular displacement</strong>: Δθ = θ_f − θ₀. Units: radians.</li>
+          <li><strong>1 revolution = 2π rad = 360°</strong>.</li>
+          <li><strong>Angular velocity</strong>: ω = Δθ/Δt (rad/s).</li>
+          <li><strong>Angular acceleration</strong>: α = Δω/Δt (rad/s²).</li>
+          <li>Equations of rotational motion mirror linear motion:<br>
+            ω = ω₀ + αt, Δθ = ω₀t + ½αt², ω² = ω₀² + 2αΔθ.</li>
+          <li><strong>Right-hand rule</strong> gives the direction of ω.</li>
+          <li>Relations to linear motion: <strong>v = ωr</strong>, <strong>a = αr</strong>, <strong>Δs = rΔθ</strong>.</li>
+          <li>Points farther from the axis move <strong>faster tangentially</strong> — same ω, larger v.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-1.html" class="btn btn-ghost">← Lesson 2.1: Projectile Motion</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 2 of 5</div>
+      <a href="lesson-2-3.html" class="btn btn-primary">Next: Rotational Dynamics →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'C',4:'B',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! One full revolution is 2π radians.',wrong:'✗ 1 revolution = 2π rad ≈ 6.28 rad.'},
+    2:{B:'✓ Correct! Angular velocity is measured in rad/s.',wrong:'✗ Angular velocity unit is rad/s.'},
+    3:{C:'✓ Correct! All points on a rigid rotating body have the same angular velocity.',wrong:'✗ Same ω for all points — only linear speed differs.'},
+    4:{B:'✓ Correct! α = Δω/Δt = (20 − 0)/4 = 5 rad/s².',wrong:'✗ α = Δω/Δt = 20/4 = 5 rad/s².'},
+    5:{B:'✓ Correct! v = ωr = 3 × 2 = 6 m/s.',wrong:'✗ v = ωr = 3 × 2 = 6 m/s.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>
