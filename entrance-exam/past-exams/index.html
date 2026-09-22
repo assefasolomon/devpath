@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past Entrance Exams | Grade 12 EUEE Archive</title>
+  <link rel="stylesheet" href="../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body { background: #F8FAFC; }
+    .archive-hero { background: linear-gradient(135deg, #0F172A 0%, #14532D 100%); padding: 3.5rem 2rem; color: #fff; }
+    .archive-hero-inner { max-width: 900px; margin: 0 auto; }
+    .archive-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3); color: #86EFAC; font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 1rem; }
+    .archive-hero h1 { font-size: 2.25rem; font-weight: 900; color: #fff; margin-bottom: .5rem; line-height: 1.15; }
+    .archive-hero p { color: rgba(255,255,255,.72); font-size: .95rem; line-height: 1.7; max-width: 640px; }
+    .archive-stats { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,.12); }
+    .archive-stat-num { font-size: 1.5rem; font-weight: 800; color: #22C55E; }
+    .archive-stat-label { font-size: .72rem; color: rgba(255,255,255,.5); margin-top: 2px; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
+    .breadcrumb { display: flex; align-items: center; gap: 6px; font-size: .82rem; color: var(--text-muted, #64748b); margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { color: var(--brand-primary, #22C55E); text-decoration: none; }
+    .info-banner { background: linear-gradient(135deg, #F0FDF4, #DCFCE7); border: 1.5px solid #86EFAC; border-radius: var(--radius-xl, 16px); padding: 1.25rem 1.5rem; margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 1rem; font-size: .875rem; line-height: 1.65; color: #166534; }
+    .info-banner-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; }
+    .year-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 3rem; }
+    .year-card { background: #fff; border: 1.5px solid var(--border, #e2e8f0); border-radius: var(--radius-xl, 16px); padding: 1.75rem; text-decoration: none; color: inherit; transition: all .2s ease; display: block; position: relative; overflow: hidden; }
+    .year-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #22C55E, #16A34A); }
+    .year-card.available:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(34,197,94,.15); border-color: #22C55E; }
+    .year-card.locked { opacity: .55; cursor: not-allowed; pointer-events: none; }
+    .year-card.locked::before { background: linear-gradient(90deg, #94a3b8, #64748b); }
+    .year-badge { position: absolute; top: 1rem; right: 1rem; font-size: .68rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+    .year-badge.available { background: #DCFCE7; color: #166534; }
+    .year-badge.locked { background: var(--surface-2, #f1f5f9); color: #64748b; }
+    .year-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .year-title { font-size: 1.15rem; font-weight: 800; color: var(--heading, #0f172a); margin-bottom: .2rem; }
+    .year-sub { font-size: .72rem; color: var(--brand-primary, #22C55E); font-weight: 600; margin-bottom: .5rem; letter-spacing: .02em; }
+    .year-desc { font-size: .82rem; color: var(--text-muted, #64748b); line-height: 1.55; margin-bottom: 1rem; }
+    .year-meta { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .year-pill { font-size: .7rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; background: var(--surface-2, #f1f5f9); color: var(--text-muted, #64748b); }
+    .year-pill.green { background: #DCFCE7; color: #166534; }
+    .section-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--brand-primary, #22C55E); margin-bottom: .75rem; }
+    .section-title { font-size: 1.35rem; font-weight: 800; color: var(--heading, #0f172a); margin-bottom: .4rem; }
+    .section-sub { font-size: .875rem; color: var(--text-muted, #64748b); margin-bottom: 1.5rem; }
+    @media (max-width: 640px) {
+      .archive-hero { padding: 2.25rem 1rem; }
+      .archive-hero h1 { font-size: 1.5rem; }
+      .archive-hero p { font-size: .85rem; }
+      .archive-stats { gap: 1.25rem; }
+      .archive-stat-num { font-size: 1.25rem; }
+      .wrap { padding: 2rem 1rem; }
+      .year-grid { gap: 1rem; }
+      .year-card { padding: 1.25rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon">
+      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
+      </svg>
+    </div>
+    <div class="fsh-logo-text">
+      <span class="fsh-logo-name">Freelance Skills Hub</span>
+      <span class="fsh-logo-tag">Past Entrance Exams</span>
+    </div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Exam Hub</a>
+    <a href="../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="archive-hero">
+  <div class="archive-hero-inner">
+    <div class="archive-tag">📄 Ethiopian University Entrance Examination · የመግቢያ ፈተና</div>
+    <h1>Past Entrance Exam Papers</h1>
+    <p>Complete archive of previous EUEE exam papers with detailed solutions. Practice with real exam questions, timed under exam conditions, and master the pattern of the entrance exam.</p>
+    <div class="archive-stats">
+      <div><div class="archive-stat-num">4</div><div class="archive-stat-label">Years</div></div>
+      <div><div class="archive-stat-num">8+</div><div class="archive-stat-label">Subjects</div></div>
+      <div><div class="archive-stat-num">500+</div><div class="archive-stat-label">Questions</div></div>
+      <div><div class="archive-stat-num">100%</div><div class="archive-stat-label">With Solutions</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="breadcrumb">
+    <a href="../../index.html">Home</a> ›
+    <a href="../index.html">Entrance Exam</a> ›
+    <span>Past Exams</span>
+  </div>
+
+  <div class="info-banner">
+    <div class="info-banner-icon">📌</div>
+    <div>
+      <strong>New exams added regularly.</strong> The 2015 E.C. paper is available now with complete solutions. Papers for 2012–2014 E.C. are being prepared. Each paper includes the full question set, answer key, and step-by-step explanations.
+    </div>
+  </div>
+
+  <div class="section-label">Select Exam Year</div>
+  <div class="section-title">Available Papers</div>
+  <div class="section-sub">Click on a year to see all subjects and download the papers.</div>
+
+  <div class="year-grid">
+
+    <a href="2015/index.html" class="year-card available">
+      <div class="year-badge available">🔓 Available</div>
+      <div class="year-icon">📘</div>
+      <div class="year-title">2015 E.C.</div>
+      <div class="year-sub">(2023 Gregorian)</div>
+      <div class="year-desc">The most recent exam paper. Covers all Natural Science and Social Science subjects with full solutions.</div>
+      <div class="year-meta">
+        <span class="year-pill green">Latest</span>
+        <span class="year-pill">All Subjects</span>
+        <span class="year-pill">With Solutions</span>
+      </div>
+    </a>
+
+    <div class="year-card locked">
+      <div class="year-badge locked">🔒 Coming Soon</div>
+      <div class="year-icon">📗</div>
+      <div class="year-title">2014 E.C.</div>
+      <div class="year-sub">(2022 Gregorian)</div>
+      <div class="year-desc">The 2014 E.C. exam paper is currently being prepared with detailed solutions.</div>
+      <div class="year-meta">
+        <span class="year-pill">All Subjects</span>
+        <span class="year-pill">With Solutions</span>
+      </div>
+    </div>
+
+    <div class="year-card locked">
+      <div class="year-badge locked">🔒 Coming Soon</div>
+      <div class="year-icon">📙</div>
+      <div class="year-title">2013 E.C.</div>
+      <div class="year-sub">(2021 Gregorian)</div>
+      <div class="year-desc">The 2013 E.C. exam paper is currently being prepared with detailed solutions.</div>
+      <div class="year-meta">
+        <span class="year-pill">All Subjects</span>
+        <span class="year-pill">With Solutions</span>
+      </div>
+    </div>
+
+    <div class="year-card locked">
+      <div class="year-badge locked">🔒 Coming Soon</div>
+      <div class="year-icon">📕</div>
+      <div class="year-title">2012 E.C.</div>
+      <div class="year-sub">(2020 Gregorian)</div>
+      <div class="year-desc">The 2012 E.C. exam paper is currently being prepared with detailed solutions.</div>
+      <div class="year-meta">
+        <span class="year-pill">All Subjects</span>
+        <span class="year-pill">With Solutions</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Past Entrance Exams</p>
+      <p>Complete solutions · Updated regularly</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me', {credentials:'include'})
+    .then(r => r.json())
+    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
+    .catch(() => {});
+</script>
+</body>
+</html>
