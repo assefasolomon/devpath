@@ -3,115 +3,545 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semiconductors and Doping | Physics Grade 12</title>
+  <title>Lesson 4.1: Magnets and Magnetic Field | Grade 12 Physics</title>
   <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
-    body { background: #F8FAFC; }
-    .lesson-hero { background: linear-gradient(135deg, #0F172A 0%, #14532D 100%); padding: 3rem 2rem; color: #fff; }
-    .lesson-hero-inner { max-width: 900px; margin: 0 auto; }
-    .lesson-tag { display: inline-flex; gap: 6px; background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3); color: #86EFAC; font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 1rem; }
-    .lesson-hero h1 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: .5rem; }
-    .lesson-hero p { color: rgba(255,255,255,.72); font-size: .95rem; line-height: 1.7; max-width: 640px; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-    .breadcrumb { display: flex; gap: 6px; font-size: .82rem; color: #64748b; margin-bottom: 2rem; flex-wrap: wrap; }
-    .breadcrumb a { color: #22C55E; text-decoration: none; }
-    .content-card { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
-    .content-card h2 { font-size: 1.35rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; }
-    .content-card p { font-size: .95rem; color: #334155; line-height: 1.75; margin-bottom: 1rem; }
-    .placeholder { background: #F0FDF4; border: 1.5px dashed #86EFAC; padding: 1.5rem; border-radius: 12px; color: #166534; font-size: .875rem; line-height: 1.7; }
-    .lesson-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .lesson-nav a { padding: .625rem 1.25rem; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: .82rem; }
-    .lesson-nav .prev { background: #fff; border: 1.5px solid #e2e8f0; color: #334155; }
-    .lesson-nav .next { background: #22C55E; color: #fff; }
-    @media (max-width: 640px) {
-      .lesson-hero { padding: 2.25rem 1rem; }
-      .lesson-hero h1 { font-size: 1.5rem; }
-      .wrap { padding: 2rem 1rem; }
-      .content-card { padding: 1.25rem; }
-    }
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .compare-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .compare-table th{background:var(--brand-primary);color:#fff;padding:.6rem .875rem;text-align:left;font-weight:600}
+    .compare-table td{padding:.6rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .compare-table tr:nth-child(even) td{background:var(--surface-2)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
-  <a href="../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon">
-      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
-      </svg>
-    </div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Physics Grade 12</span>
-    </div>
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
   <div class="fsh-nav-actions">
-    <a href="index.html" class="btn btn-ghost btn-sm">← Unit 4</a>
-    <a href="../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
   </div>
 </nav>
 
-<div class="lesson-hero">
-  <div class="lesson-hero-inner">
-    <div class="lesson-tag">⚛️ Unit 4 · Lesson 4.1</div>
-    <h1>Semiconductors and Doping</h1>
-    <p>Duration: 25 min · Part of <strong>Electronics</strong></p>
-  </div>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 4 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Key Concepts</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Magnets and Magnetic Field</a>
+      <a href="lesson-4-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Magnetic Field Lines</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Current and Magnetism</a>
+      <a href="lesson-4-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Electromagnetic Induction</a>
+      <a href="lesson-4-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Faraday's Law</a>
+      <a href="lesson-4-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Transformers</a>
+      <a href="lesson-4-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Application and Safety</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 4</a> ›
+      Lesson 4.1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Electromagnetism · Natural Science</div>
+      <h1>🧲 Magnets and Magnetic Field</h1>
+      <p>Magnets have been known for thousands of years — but their deep connection to electricity was only discovered in 1819. This lesson introduces magnets, magnetic poles, permanent magnets vs electromagnets, and the Earth's magnetic field.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          <strong>Electromagnetism</strong> is a fundamental force combining electricity and magnetism. It was discovered accidentally in 1819 by <strong>Hans Christian Oersted</strong>, who found that an electric current deflected a nearby compass needle. This discovery changed the world — without it, we'd have no radios, TVs, computers, or electric motors.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>magnets and magnetic poles</strong></li>
+          <li>Explain the <strong>two types of magnets</strong></li>
+          <li>Describe the <strong>Earth's magnetic field</strong></li>
+          <li>Compare <strong>electric and magnetic fields</strong></li>
+          <li>Understand <strong>magnetic field intensity</strong> (Tesla unit)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.1 What is a Magnet?</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A <strong>magnet</strong> generates a magnetic field — the region around it where magnetic force acts. Every magnet has two poles.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Magnetic Poles</div>
+          <p>
+            • <strong>North pole (N)</strong> and <strong>South pole (S)</strong><br>
+            • <strong>Like poles repel</strong> (N–N or S–S)<br>
+            • <strong>Opposite poles attract</strong> (N–S)<br><br>
+            <strong>Key fact:</strong> Magnetic poles are ALWAYS found in pairs. No matter how many times you cut a magnet, each piece will have both a north and a south pole. There is no such thing as an isolated magnetic pole (monopole).
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.2 Permanent Magnets vs Electromagnets</h3>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Permanent Magnet</th>
+              <th>Electromagnet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Magnetic field from internal structure of the material itself</td>
+              <td>Magnetic field created by electric current through a coil</td>
+            </tr>
+            <tr>
+              <td>Retains magnetism for a long time</td>
+              <td>Loses magnetism when current is off</td>
+            </tr>
+            <tr>
+              <td>Examples: bar magnets, fridge magnets</td>
+              <td>Examples: doorbells, cranes, motors, MRI</td>
+            </tr>
+            <tr>
+              <td>Cannot be turned off</td>
+              <td>Can be turned on/off and adjusted</td>
+            </tr>
+            <tr>
+              <td>Made of materials like iron, nickel, cobalt alloys</td>
+              <td>Usually a coil of wire wound around an iron core</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="note-box">
+          <div class="note-label">📝 Iron core</div>
+          <p>
+            An electromagnet's iron core <strong>increases the strength</strong> of the magnetic field created by the coil.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.3 Earth's Magnetic Field</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 The Earth as a Giant Magnet</div>
+          <p>
+            The Earth behaves like a giant bar magnet inside it:<br>
+            • The <strong>magnetic north pole</strong> corresponds to the <strong>South geographic pole</strong><br>
+            • The <strong>magnetic south pole</strong> corresponds to the <strong>North geographic pole</strong><br><br>
+            A compass needle aligns itself in a north–south direction because it lines up with Earth's magnetic field.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.4 Differences Between Electric and Magnetic Fields</h3>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Electric Field</th>
+              <th>Magnetic Field</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>SI unit</td><td>N/C (Newton per Coulomb)</td><td>Tesla (T)</td></tr>
+            <tr><td>Source</td><td>Electric charge</td><td>Magnetic dipole (N-S pole)</td></tr>
+            <tr><td>Field lines start/end</td><td>Start on + charge, end on − charge</td><td>No start or end — form closed loops</td></tr>
+            <tr><td>Isolated pole?</td><td>Yes — single charges exist</td><td>No — poles always in pairs</td></tr>
+            <tr><td>Field loops?</td><td>Do not form loops</td><td>Form closed loops</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1.5 Magnetic Field Intensity (B)</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Magnetic Field B</div>
+          <p>
+            The magnetic field is a <strong>vector</strong> — it has both magnitude and direction.<br><br>
+            <strong>SI unit:</strong> Tesla (T) — 1 T = 1 N/(A·m)<br>
+            <strong>Older unit:</strong> Gauss (G) — 1 T = 10⁴ G<br><br>
+            <strong>Reference values:</strong><br>
+            • Earth's surface field: ~0.5 × 10⁻⁴ T (0.5 G)<br>
+            • Bar magnet surface: ~10⁻² T<br>
+            • Medical MRI: ~1.5 T<br>
+            • Strong superconducting lab magnet: ~30 T
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Key Concepts Reference</div><div class="section-subtitle">Quick reference</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🧲 Lesson 4.1 — Magnets and Magnetic Field</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Magnetic poles</div><div class="formula-math">N and S — always in pairs</div><div class="formula-note">No monopoles exist</div></div>
+          <div class="formula-item"><div class="formula-name">Force rule</div><div class="formula-math">Like repel, opposite attract</div><div class="formula-note">Same as electric charges</div></div>
+          <div class="formula-item"><div class="formula-name">SI unit (B)</div><div class="formula-math">Tesla (T)</div><div class="formula-note">= N/(A·m)</div></div>
+          <div class="formula-item"><div class="formula-name">Unit conversion</div><div class="formula-math">1 T = 10⁴ G</div><div class="formula-note">Gauss is older unit</div></div>
+          <div class="formula-item"><div class="formula-name">Earth's field</div><div class="formula-math">~0.5 × 10⁻⁴ T</div><div class="formula-note">At the surface</div></div>
+          <div class="formula-item"><div class="formula-name">MRI field</div><div class="formula-math">~1.5 T</div><div class="formula-note">Medical imaging</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identifying Magnetic Poles</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A bar magnet is cut into three pieces. How many poles does each piece have?</div>
+          <div class="example-step"><span class="step-badge">Physics</span><div class="step-text">Magnetic poles always come in pairs — there is no isolated magnetic pole.</div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">Each of the three pieces becomes a <span class="math">complete small magnet</span> with its own N and S pole.</div></div>
+          <div class="example-answer">✅ Each piece has <strong>2 poles (N and S)</strong> — 6 poles in total.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Compass Direction</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why does a compass needle point north?</div>
+          <div class="example-step"><span class="step-badge">Earth's field</span><div class="step-text">The Earth has a <span class="math">magnetic field</span> similar to a giant bar magnet.</div></div>
+          <div class="example-step"><span class="step-badge">Alignment</span><div class="step-text">The compass needle is a small magnet — it <span class="math">aligns with Earth's field</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Direction</span><div class="step-text">The N pole of the needle is attracted to Earth's <span class="math">magnetic south pole</span>, which is near the geographic North pole.</div></div>
+          <div class="example-answer">✅ Compasses point north because of the <strong>Earth's magnetic field</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Permanent vs Electromagnet</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A scrapyard crane needs to pick up and release metal objects. Should it use a permanent magnet or an electromagnet?</div>
+          <div class="example-step"><span class="step-badge">Permanent</span><div class="step-text">Cannot be turned off — would not release objects.</div></div>
+          <div class="example-step"><span class="step-badge">Electromagnet</span><div class="step-text">Can be <span class="math">turned on/off</span> by controlling current — perfect for picking and releasing.</div></div>
+          <div class="example-answer">✅ Use an <strong>electromagnet</strong> — it can be switched on and off.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Field Direction from Unit</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Convert 5000 gauss to tesla.</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">1 T = 10⁴ G</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">5000 G = 5000 / 10⁴ = 0.5 T</span></div></div>
+          <div class="example-answer">✅ 5000 gauss = <strong>0.5 T</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Electromagnet Design</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why an electromagnet has an iron core inside its coil.</div>
+          <div class="example-step"><span class="step-badge">Function</span><div class="step-text">The iron core <span class="math">concentrates and amplifies</span> the magnetic field.</div></div>
+          <div class="example-step"><span class="step-badge">Physics</span><div class="step-text">Iron is a ferromagnetic material — its atoms align with the coil's field, adding to it.</div></div>
+          <div class="example-answer">✅ The <strong>iron core multiplies the field strength</strong>, making the electromagnet much stronger.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">When you cut a bar magnet in half, each half:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Has only a north pole</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Has only a south pole</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Has both north and south poles</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Loses all magnetism</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The SI unit of magnetic field is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Newton</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Coulomb</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Tesla</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Volt</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Which type of magnet can be turned on and off?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> Permanent magnet</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> Electromagnet</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> Both</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> Neither</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Unlike electric field lines, magnetic field lines:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Start on positive charges</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> End on negative charges</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Form closed loops</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Never cross</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Why is the Earth's magnetic north pole near the geographic North pole?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> It isn't — they're far apart</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> The geographic pole is where the Sun rises</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> It's actually a magnetic south pole that attracts compass north poles</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> It's randomly located</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-4-2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+magnets+magnetic+fields" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Magnets and Magnetic Fields — Full Introduction</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+permanent+magnet+vs+electromagnet" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Permanent Magnets vs Electromagnets</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+earth+magnetic+field+compass" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Earth's Magnetic Field and the Compass</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+electric+vs+magnetic+field+differences" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Electric vs Magnetic Fields — Key Differences</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 4.1</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Magnets and Magnetic Field</div>
+        <ul class="summary-list">
+          <li><strong>Electromagnetism</strong> = unified force of electricity + magnetism.</li>
+          <li>Every magnet has two poles: <strong>N and S</strong> — like poles repel, opposite poles attract.</li>
+          <li>Magnetic poles are <strong>always found in pairs</strong> — cutting a magnet creates two smaller magnets.</li>
+          <li><strong>Permanent magnets</strong>: retain magnetism; <strong>electromagnets</strong>: use electric current, can be turned off.</li>
+          <li>Electromagnets use an <strong>iron core</strong> to boost field strength.</li>
+          <li>Earth behaves like a giant bar magnet — <strong>magnetic poles are opposite to geographic poles</strong>.</li>
+          <li>SI unit of magnetic field: <strong>Tesla (T)</strong>; 1 T = 10⁴ G.</li>
+          <li>Unlike electric field lines, magnetic field lines <strong>form closed loops</strong>.</li>
+          <li>Field strengths: Earth ~0.5 × 10⁻⁴ T, MRI ~1.5 T, superconducting lab magnet ~30 T.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="../unit-3/lesson-3-5.html" class="btn btn-ghost">← Unit 3 · Lesson 5</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 4 · Lesson 1 of 7</div>
+      <a href="lesson-4-2.html" class="btn btn-primary">Next: Magnetic Field Lines →</a>
+    </div>
+  </main>
 </div>
 
-<div class="wrap">
-  <div class="breadcrumb">
-    <a href="../../../../index.html">Home</a> ›
-    <a href="../../../index.html">Entrance Exam</a> ›
-    <a href="../../index.html">Grade 12</a> ›
-    <a href="../index.html">Natural Science</a> ›
-    <a href="index.html">Physics</a> ›
-    <a href="unit-4/index.html">Unit 4</a> ›
-    <span>Semiconductors and Doping</span>
-  </div>
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
 
-  <div class="content-card">
-    <h2>📖 Lesson Overview</h2>
-    <p>This lesson covers <strong>Semiconductors and Doping</strong> from Unit 4: Electronics.</p>
-
-    <div class="placeholder">
-      <strong>🚧 Content coming soon.</strong><br>
-      Full lesson text, worked examples, and practice problems will be added here.
-      This placeholder confirms the page structure is ready.
-    </div>
-  </div>
-
-  <div class="content-card">
-    <h2>🎯 Learning Objectives</h2>
-    <p>By the end of this lesson you will be able to:</p>
-    <ul style="margin-left:1.25rem; color:#334155; line-height:1.9; font-size:.95rem;">
-      <li>Understand the core concepts of semiconductors and doping</li>
-      <li>Apply the key formulas and equations</li>
-      <li>Solve EUEE-style practice problems</li>
-      <li>Identify common exam traps and how to avoid them</li>
-    </ul>
-  </div>
-
-  <div class="content-card">
-    <h2>📝 Practice</h2>
-    <p>Practice questions with step-by-step solutions will appear here.</p>
-  </div>
-
-  <div class="lesson-nav">
-    <a href="index.html" class="prev">← Back to Unit 4</a>
-    <a href="index.html" class="next">Unit Overview →</a>
-  </div>
-</div>
-
-<footer class="fsh-footer">
-  <div class="fsh-footer-inner">
-    <div class="fsh-footer-bottom">
-      <p>© 2025 Freelance Skills Hub · Physics Grade 12</p>
-      <p>Semiconductors and Doping</p>
-    </div>
-  </div>
-</footer>
+  const answers={};const correct={1:'C',2:'C',3:'B',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! Each half becomes a complete magnet with N and S poles.',wrong:'✗ Cutting a magnet creates smaller magnets — each with both poles.'},
+    2:{C:'✓ Correct! The SI unit of magnetic field is the Tesla.',wrong:'✗ Magnetic field is measured in Tesla (T).'},
+    3:{B:'✓ Correct! Electromagnets can be turned on and off by controlling current.',wrong:'✗ Electromagnets can be switched on/off, unlike permanent magnets.'},
+    4:{C:'✓ Correct! Magnetic field lines form closed loops.',wrong:'✗ Unlike electric field lines, magnetic field lines form closed loops.'},
+    5:{C:'✓ Correct! The magnetic pole near geographic North is actually a magnetic south pole.',wrong:'✗ It\'s called "magnetic north" but is physically a south pole that attracts compass N poles.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
 </body>
 </html>
