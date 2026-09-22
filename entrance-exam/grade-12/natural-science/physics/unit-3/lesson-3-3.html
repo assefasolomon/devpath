@@ -10,56 +10,487 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 3 · Lesson 3.3</div>
-    <a href="lesson-3-1.html" class="sidebar-link">L1: Fluid Statics</a>
-    <a href="lesson-3-2.html" class="sidebar-link">L2: Properties of Pressure</a>
-    <a href="lesson-3-3.html" class="sidebar-link">L3: Archimedes' Principle</a>
-    <a href="lesson-3-4.html" class="sidebar-link">L4: Fluid Flow</a>
-    <a href="lesson-3-5.html" class="sidebar-link">L5: Safety and High Pressure</a>
+    <div class="sidebar-title">Unit 3 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Fluid Statics ✓</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Properties of Pressure ✓</a>
+      <a href="lesson-3-3.html" class="sidebar-link active"><div class="sidebar-dot"></div> L3: Archimedes' Principle</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Fluid Flow</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Safety and High Pressure</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 3 · Fluid Mechanics</div>
-      <h1>📘 Lesson 3.3: Archimedes' Principle</h1>
-      <p>Content coming soon. This lesson is part of Unit 3: Fluid Mechanics.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 3</a> ›
+      Lesson 3.3
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Fluid Mechanics · Natural Science</div>
+      <h1>🚢 Archimedes' Principle</h1>
+      <p>Why do ships float? Why does an iceberg hide 89% of its mass underwater? The answer lies in Archimedes' Principle — the buoyant force that lifts objects in fluids.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          It's hard to push a beach ball underwater because water pushes back. This upward force — the <strong>buoyant force</strong> — comes from the fact that pressure increases with depth. The bottom of a submerged object experiences more force than the top.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>State <strong>Archimedes' Principle</strong></li>
+          <li>Calculate <strong>buoyant force</strong> from fluid displacement</li>
+          <li>Determine whether an object <strong>floats, sinks, or suspends</strong></li>
+          <li>Find the <strong>fraction submerged</strong> of a floating object</li>
+          <li>Solve problems on density from apparent mass</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">3.1 Archimedes' Principle</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Discovered by the Greek mathematician <strong>Archimedes</strong> (287–212 BC), this principle is one of the oldest known laws of physics.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Archimedes' Principle</div>
+          <p>
+            <strong>The buoyant force on an object equals the weight of the fluid it displaces.</strong><br><br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.1rem">F_B = W_fluid = ρ_fluid · g · V_displaced</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">3.2 Origin of Buoyant Force</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Why Does Buoyancy Exist?</div>
+          <p>
+            Pressure increases with depth. So the pressure on the <strong>bottom</strong> of an immersed object is greater than the pressure on the <strong>top</strong>.<br><br>
+            Net upward force: <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">F_B = P₂A − P₁A = ρ_fluid · g · h · A = ρ_fluid · g · V</span><br><br>
+            where V = Ah is the displaced volume.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">3.3 Floating, Sinking, and Suspending</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Three Cases</div>
+          <p>
+            • <strong>ρ_object &lt; ρ_fluid</strong> → object floats (buoyant force > weight)<br>
+            • <strong>ρ_object = ρ_fluid</strong> → object suspends (buoyant force = weight)<br>
+            • <strong>ρ_object &gt; ρ_fluid</strong> → object sinks (buoyant force < weight)
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">3.4 Fraction Submerged</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Floating Objects</div>
+          <p>
+            For a floating object, weight = buoyant force:<br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700">ρ_object · V_object = ρ_fluid · V_displaced</span><br><br>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.1rem">V_displaced / V_object = ρ_object / ρ_fluid</span><br><br>
+            The <strong>fraction submerged</strong> equals the ratio of densities.
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Icebergs</div>
+          <p>
+            Ice has ρ ≈ 917 kg/m³; seawater ≈ 1030 kg/m³.<br>
+            Fraction submerged = 917/1030 ≈ 0.89 = <strong>89% hidden below water</strong>. Only 11% is visible!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Memorize these for the exam</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🚢 Lesson 3.3 — Archimedes' Principle</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Buoyant force</div><div class="formula-math">F_B = ρ_fluid g V_displaced</div><div class="formula-note">Archimedes' principle</div></div>
+          <div class="formula-item"><div class="formula-name">Floating condition</div><div class="formula-math">F_B = W_object</div><div class="formula-note">Equilibrium</div></div>
+          <div class="formula-item"><div class="formula-name">Fraction submerged</div><div class="formula-math">V_sub / V_obj = ρ_obj / ρ_fluid</div><div class="formula-note">For floating objects</div></div>
+          <div class="formula-item"><div class="formula-name">Sinking</div><div class="formula-math">ρ_obj > ρ_fluid</div><div class="formula-note">Density determines fate</div></div>
+          <div class="formula-item"><div class="formula-name">Apparent mass</div><div class="formula-math">m_app = m − ρ_fluid V</div><div class="formula-note">Weighing in fluid</div></div>
+          <div class="formula-item"><div class="formula-name">Density from apparent mass</div><div class="formula-math">ρ_obj = m / (m − m_app) × ρ_fluid</div><div class="formula-note">Common exam method</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Iceberg Floating</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> An iceberg floats in seawater. ρ_ice = 917 kg/m³, ρ_sea water = 1030 kg/m³. What fraction of the iceberg is below water?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">V_sub / V_ice = ρ_ice / ρ_seawater</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">V_sub / V_ice = 917 / 1030 ≈ 0.89</span></div></div>
+          <div class="example-answer">✅ <strong>89% is submerged</strong> — only 11% visible above water!</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Buoyant Force on Submerged Steel</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> 10,000 metric tons of steel (1.00 × 10⁷ kg) submerged in water. Find the buoyant force. (ρ_steel = 7,800 kg/m³)</div>
+          <div class="example-step"><span class="step-badge">Volume</span><div class="step-text"><span class="math">V = m / ρ = 10⁷ / 7,800 ≈ 1.28 × 10³ m³</span></div></div>
+          <div class="example-step"><span class="step-badge">Buoyant force</span><div class="step-text"><span class="math">F_B = ρ_w g V = 1000 × 9.8 × 1.28×10³ ≈ 1.26 × 10⁷ N</span></div></div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text">Weight = 10⁷ × 9.8 = 9.8 × 10⁷ N → <span class="math">weight ≫ buoyant force → sinks</span></div></div>
+          <div class="example-answer">✅ Buoyant force ≈ <strong>1.26 × 10⁷ N</strong> — much less than weight.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Maximum Load of a Steel Boat</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Same steel shaped into a boat displacing 1.00 × 10⁵ m³ of water. What is the maximum buoyant force?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">F_B = ρ_w g V_displaced</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">F_B = 1000 × 9.8 × 1.00 × 10⁵ = 9.8 × 10⁸ N</span></div></div>
+          <div class="example-step"><span class="step-badge">Interpret</span><div class="step-text">This is 10× the weight of the steel → boat can carry a load of <span class="math">9× its own weight</span> without sinking.</div></div>
+          <div class="example-answer">✅ Max buoyant force ≈ <strong>9.8 × 10⁸ N</strong> — enough to float the ship plus cargo.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Density of an Ancient Coin</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A coin's mass in air is 8.630 g; when submerged in water its apparent mass is 7.800 g. Find the density.</div>
+          <div class="example-step"><span class="step-badge">Displaced water</span><div class="step-text"><span class="math">m_w = 8.630 − 7.800 = 0.830 g</span></div></div>
+          <div class="example-step"><span class="step-badge">Volume</span><div class="step-text"><span class="math">V_w = m_w / ρ_w = 0.830 / 1.000 = 0.830 cm³</span></div></div>
+          <div class="example-step"><span class="step-badge">Density of coin</span><div class="step-text"><span class="math">ρ_coin = 8.630 / 0.830 ≈ 10.4 g/cm³</span></div></div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">Density ~10.4 g/cm³ matches <span class="math">silver</span> (10.5 g/cm³).</div></div>
+          <div class="example-answer">✅ Density ≈ <strong>10.4 g/cm³</strong> — the coin is silver.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Wooden Block Floating</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A wooden block floats with 75% of its volume submerged in water. Find its density.</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">V_sub / V = ρ_wood / ρ_water</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">0.75 = ρ_wood / 1000 → ρ_wood = 750 kg/m³</span></div></div>
+          <div class="example-answer">✅ Density of the wood = <strong>750 kg/m³</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Archimedes' principle states that the buoyant force equals:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> The weight of the object</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> The mass of the object</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> The weight of the displaced fluid</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> The volume of the object</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">An object will float if its density is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','A')"><div class="option-letter">A</div> Less than the fluid</div>
+          <div class="quiz-option" onclick="answer(2,'B','A')"><div class="option-letter">B</div> Greater than the fluid</div>
+          <div class="quiz-option" onclick="answer(2,'C','A')"><div class="option-letter">C</div> Equal to the fluid</div>
+          <div class="quiz-option" onclick="answer(2,'D','A')"><div class="option-letter">D</div> Zero</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A block floats with 40% of its volume submerged in water. Its density is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> 250 kg/m³</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> 400 kg/m³</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> 1000 kg/m³</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> 1600 kg/m³</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">An iceberg appears small above water because:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> Ice is denser than water</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> Most of it is submerged (about 89%)</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> The ice shrinks in seawater</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> Ice reflects light</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">An object weighs 50 N in air and 30 N when submerged in water. What is the buoyant force?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> 80 N</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> 20 N</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> 30 N</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> 50 N</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-3-4.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+archimedes+principle+buoyancy" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Archimedes' Principle and Buoyancy Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+buoyant+force+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Buoyant Force — Problems and Solutions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+floating+sinking+density" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Floating and Sinking — Density and Buoyancy</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+density+apparent+mass+displaced+fluid" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Density from Apparent Mass — Displacement Method</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 3.3</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Archimedes' Principle</div>
+        <ul class="summary-list">
+          <li><strong>Archimedes' Principle</strong>: buoyant force equals the weight of the fluid displaced.</li>
+          <li><strong>F_B = ρ_fluid g V_displaced</strong></li>
+          <li>Buoyancy arises from the difference in pressure at the bottom vs top of an object.</li>
+          <li><strong>ρ_object &lt; ρ_fluid</strong> → floats; <strong>=</strong> → suspends; <strong>&gt;</strong> → sinks.</li>
+          <li>Fraction submerged = <strong>ρ_object / ρ_fluid</strong> for floating objects.</li>
+          <li><strong>Icebergs</strong>: ~89% submerged because ρ_ice &lt; ρ_seawater.</li>
+          <li>Apparent mass method: <strong>ρ_object = m / (m − m_app) × ρ_fluid</strong>.</li>
+          <li>Steel ships float because their <strong>shape</strong> displaces more water than solid steel would.</li>
+          <li>Buoyant force exists whether the object floats, sinks, or suspends.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-2.html" class="btn btn-ghost">← Lesson 3.2: Properties of Pressure</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 3 of 5</div>
+      <a href="lesson-3-4.html" class="btn btn-primary">Next: Fluid Flow →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'A',3:'B',4:'B',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! Buoyant force = weight of the fluid displaced.',wrong:'✗ Archimedes: F_B = weight of displaced fluid.'},
+    2:{A:'✓ Correct! Objects less dense than the fluid float.',wrong:'✗ Floating requires ρ_object < ρ_fluid.'},
+    3:{B:'✓ Correct! ρ_object = 0.40 × 1000 = 400 kg/m³.',wrong:'✗ Fraction submerged = ρ_object/ρ_fluid → ρ_object = 0.40 × 1000 = 400 kg/m³.'},
+    4:{B:'✓ Correct! ~89% of an iceberg is submerged because ice is slightly less dense than seawater.',wrong:'✗ Icebergs are ~89% submerged due to the density ratio.'},
+    5:{B:'✓ Correct! F_B = W_air − W_water = 50 − 30 = 20 N.',wrong:'✗ F_B = apparent weight loss = 50 − 30 = 20 N.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>
