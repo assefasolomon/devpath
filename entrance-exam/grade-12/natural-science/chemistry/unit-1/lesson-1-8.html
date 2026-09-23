@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.8: Acid-Base Indicators | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 8</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('howwork')"><div class="sidebar-dot"></div> How Indicators Work</button>
+      <button class="sidebar-link" onclick="scrollTo('common')"><div class="sidebar-dot"></div> Common Indicators</button>
+      <button class="sidebar-link" onclick="scrollTo('choosing')"><div class="sidebar-dot"></div> Choosing an Indicator</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Acid-Base Concepts ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Strengths ✓</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Ka and Kb ✓</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Common Ion Effect ✓</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Buffers ✓</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis ✓</a>
+      <a href="lesson-1-8.html" class="sidebar-link active"><div class="sidebar-dot"></div> L8: Indicators</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Equivalents</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Titrations</a>
+      <a href="lesson-1-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Titration Curves</a>
+      <a href="lesson-1-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.8
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>🎨 Acid-Base Indicators</h1>
+      <p>Indicators are chemical spies — they change color to reveal the pH of a solution. From litmus paper to phenolphthalein, these weak acids and bases are essential tools in every chemistry lab.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          How do you know if a solution is acidic or basic without a pH meter? Use an <strong>indicator</strong> — a compound that changes color depending on the pH of the solution. In this lesson, we'll see how they work, examine the common ones, and learn how to choose the right one for a titration.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define what an <strong>acid-base indicator</strong> is</li>
+          <li>Explain how indicators work as <strong>weak acids or bases</strong></li>
+          <li>Know the <strong>color ranges</strong> of common indicators</li>
+          <li><strong>Choose the right indicator</strong> for a titration</li>
+          <li>Interpret <strong>indicator color changes</strong> in terms of equilibrium</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="howwork">
+      <div class="section-header"><div class="section-icon">⚙️</div>
+        <div><div class="section-title-text">8.1 How Indicators Work</div><div class="section-subtitle">Weak acids that change color</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition</div>
+          <p>
+            An <strong>acid-base indicator</strong> is a weak organic acid (HIn) or weak organic base (In⁻) that changes color depending on the pH of the solution. The color of the indicator depends on whether it is in its <strong>ionized</strong> or <strong>non-ionized</strong> form.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">The Equilibrium Behind Indicator Color</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Indicator Equilibrium</div>
+          <p style="font-size:1.1rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin:0">
+            HIn + H₂O ⇌ H₃O⁺ + In⁻
+          </p>
+          <p style="font-size:.85rem;color:#334155;margin-top:.75rem">
+            <span style="color:#991B1B;font-weight:700">Acid color</span> &nbsp;&nbsp; ⇌ &nbsp;&nbsp; <span style="color:#1E40AF;font-weight:700">Base color</span>
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Le Chatelier Applied to Indicators</div>
+          <p>
+            • In <strong>acidic solution</strong> ([H₃O⁺] high) → equilibrium shifts <strong>left</strong> → more HIn → <strong>acid color dominates</strong><br><br>
+            • In <strong>basic solution</strong> ([H₃O⁺] low) → equilibrium shifts <strong>right</strong> → more In⁻ → <strong>base color dominates</strong>
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Acid-Base Indicator — Visual Diagram</div>
+          <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="25" font-size="13" fill="#991B1B" text-anchor="middle" font-weight="bold">Indicator (HIn) Equilibrium</text>
+
+            <!-- Left side acid form -->
+            <rect x="40" y="50" width="140" height="60" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="6"/>
+            <text x="110" y="75" font-size="16" fill="#991B1B" text-anchor="middle" font-weight="bold">HIn</text>
+            <text x="110" y="95" font-size="10" fill="#991B1B" text-anchor="middle">(Acid color)</text>
+
+            <!-- Middle equilibrium -->
+            <text x="260" y="85" font-size="20" fill="#0F172A" text-anchor="middle">⇌</text>
+
+            <!-- Right side base form -->
+            <rect x="340" y="50" width="140" height="60" fill="#EFF6FF" stroke="#1E40AF" stroke-width="2" rx="6"/>
+            <text x="410" y="75" font-size="16" fill="#1E40AF" text-anchor="middle" font-weight="bold">In⁻</text>
+            <text x="410" y="95" font-size="10" fill="#1E40AF" text-anchor="middle">(Base color)</text>
+
+            <!-- Arrows showing direction -->
+            <text x="110" y="135" font-size="10" fill="#64748b" text-anchor="middle">High [H₃O⁺] ← shift left</text>
+            <text x="410" y="135" font-size="10" fill="#64748b" text-anchor="middle">Low [H₃O⁺] → shift right</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Two-color system</div>
+          <p>
+            Most indicators have <strong>two distinct colors</strong> — one for the acid form (HIn) and one for the base form (In⁻). The <strong>transition range</strong> is the narrow pH interval where the color is changing from one to the other.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="common">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">8.2 Common Acid-Base Indicators</div><div class="section-subtitle">Colors, pH ranges, and uses</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr><th>Indicator</th><th>Acid Color</th><th>Base Color</th><th>pH Range</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Methyl violet</td><td>Yellow</td><td>Violet</td><td>0.0 – 1.6</td></tr>
+            <tr><td>Methyl orange</td><td>Red</td><td>Yellow</td><td>3.2 – 4.4</td></tr>
+            <tr><td>Bromcresol green</td><td>Yellow</td><td>Blue</td><td>3.8 – 5.4</td></tr>
+            <tr><td>Methyl red</td><td>Red</td><td>Yellow</td><td>4.8 – 6.0</td></tr>
+            <tr><td>Litmus</td><td>Red</td><td>Blue</td><td>5.0 – 8.0</td></tr>
+            <tr><td>Bromothymol blue</td><td>Yellow</td><td>Blue</td><td>6.0 – 7.6</td></tr>
+            <tr><td>Phenolphthalein</td><td>Colorless</td><td>Pink</td><td>8.2 – 10.0</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The pH Color Spectrum</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Color Ranges on the pH Scale</div>
+          <svg viewBox="0 0 540 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- pH scale background -->
+            <text x="270" y="20" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="bold">pH Scale</text>
+
+            <!-- pH numbers 0-14 -->
+            <g font-size="10" fill="#64748b" text-anchor="middle">
+              <text x="30" y="45">0</text>
+              <text x="66" y="45">1</text>
+              <text x="102" y="45">2</text>
+              <text x="138" y="45">3</text>
+              <text x="174" y="45">4</text>
+              <text x="210" y="45">5</text>
+              <text x="246" y="45">6</text>
+              <text x="282" y="45">7</text>
+              <text x="318" y="45">8</text>
+              <text x="354" y="45">9</text>
+              <text x="390" y="45">10</text>
+              <text x="426" y="45">11</text>
+              <text x="462" y="45">12</text>
+              <text x="498" y="45">13</text>
+              <text x="534" y="45">14</text>
+            </g>
+
+            <!-- Methyl orange bar -->
+            <text x="10" y="75" font-size="10" fill="#991B1B" font-weight="bold">Methyl orange</text>
+            <rect x="30" y="65" width="130" height="14" fill="#DC2626"/>
+            <rect x="140" y="65" width="30" height="14" fill="#F59E0B"/>
+            <rect x="160" y="65" width="380" height="14" fill="#FCD34D"/>
+
+            <!-- Methyl red bar -->
+            <text x="10" y="110" font-size="10" fill="#991B1B" font-weight="bold">Methyl red</text>
+            <rect x="30" y="100" width="180" height="14" fill="#DC2626"/>
+            <rect x="190" y="100" width="30" height="14" fill="#F59E0B"/>
+            <rect x="210" y="100" width="330" height="14" fill="#FCD34D"/>
+
+            <!-- Bromothymol blue bar -->
+            <text x="10" y="145" font-size="10" fill="#991B1B" font-weight="bold">Bromothymol blue</text>
+            <rect x="30" y="135" width="210" height="14" fill="#FCD34D"/>
+            <rect x="220" y="135" width="40" height="14" fill="#7DD3FC"/>
+            <rect x="240" y="135" width="300" height="14" fill="#2563EB"/>
+
+            <!-- Phenolphthalein bar -->
+            <text x="10" y="180" font-size="10" fill="#991B1B" font-weight="bold">Phenolphthalein</text>
+            <rect x="30" y="170" width="330" height="14" fill="#F1F5F9"/>
+            <rect x="340" y="170" width="40" height="14" fill="#FBCFE8"/>
+            <rect x="360" y="170" width="180" height="14" fill="#DB2777"/>
+
+            <!-- Legend -->
+            <text x="270" y="210" font-size="10" fill="#64748b" text-anchor="middle">Color transitions roughly marked by opacity shifts</text>
+          </svg>
+          <div class="visual-box-caption">
+            Each indicator has a unique pH range where its color changes. Choose the one whose range matches the pH of your titration's equivalence point.
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Indicator Types</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 pH Test Paper</div>
+          <p>
+            A porous paper is impregnated with an indicator solution and dried. When moistened with the solution being tested, the paper acquires a color determined by the pH.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Universal Indicator</div>
+          <p>
+            A <strong>mixture of several indicators</strong> that gives a continuous range of colors across the pH scale. Colors range from red (acidic) to violet (basic), passing through orange, yellow, green, blue.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why indicators are added in small amounts</div>
+          <p>
+            Only a few drops of indicator solution are added to the solution being titrated. Since indicators are weak acids or bases themselves, adding too much could alter the pH of the solution. Small amounts don't measurably affect the equilibrium.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="choosing">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">8.3 Choosing the Right Indicator</div><div class="section-subtitle">Matching indicator to titration</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          During a titration, the <strong>equivalence point</strong> is the moment when the acid and base have completely neutralized each other. The <strong>end point</strong> is when the indicator actually changes color. For accurate results, we need the indicator's <strong>color change range</strong> to overlap with the equivalence-point pH.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The Rule</div>
+          <p>
+            Choose an indicator whose <strong>pH range</strong> is centered near the <strong>pH of the equivalence point</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Recommended Indicators for Different Titrations</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Titration Type</th><th>Equivalence pH</th><th>Best Indicator</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Strong acid + Strong base</td><td>~7</td><td>Bromothymol blue (or universal)</td></tr>
+            <tr><td>Weak acid + Strong base</td><td>&gt; 7 (basic)</td><td>Phenolphthalein</td></tr>
+            <tr><td>Strong acid + Weak base</td><td>&lt; 7 (acidic)</td><td>Methyl orange or methyl red</td></tr>
+            <tr><td>Weak acid + Weak base</td><td>Near 7 (varies)</td><td>Difficult — often no good indicator</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Practical tip</div>
+          <p>
+            For weak acid–weak base titrations, the pH change around the equivalence point is <strong>too gradual</strong> for any indicator to give a sharp color change. Chemists use a <strong>pH meter</strong> instead.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Worked Decision — Example</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Titrating CH₃COOH with NaOH</div>
+          <p style="font-size:.9rem;color:#334155;margin:.5rem 0">
+            Equivalence point pH ≈ 8.7 (basic)<br>
+            Phenolphthalein range: 8.2 – 10.0<br>
+            <strong>Phenolphthalein is the best choice</strong> ✓
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Everything you need for indicators</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🎨 Lesson 1.8 — Acid-Base Indicators</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Indicator equilibrium</div><div class="formula-math">HIn ⇌ H⁺ + In⁻</div><div class="formula-note">Weak acid indicator</div></div>
+          <div class="formula-item"><div class="formula-name">Acidic solution</div><div class="formula-math">Equilibrium shifts left</div><div class="formula-note">Acid color dominates</div></div>
+          <div class="formula-item"><div class="formula-name">Basic solution</div><div class="formula-math">Equilibrium shifts right</div><div class="formula-note">Base color dominates</div></div>
+          <div class="formula-item"><div class="formula-name">Methyl orange</div><div class="formula-math">Red → Yellow</div><div class="formula-note">pH 3.2 – 4.4</div></div>
+          <div class="formula-item"><div class="formula-name">Methyl red</div><div class="formula-math">Red → Yellow</div><div class="formula-note">pH 4.8 – 6.0</div></div>
+          <div class="formula-item"><div class="formula-name">Bromothymol blue</div><div class="formula-math">Yellow → Blue</div><div class="formula-note">pH 6.0 – 7.6</div></div>
+          <div class="formula-item"><div class="formula-name">Phenolphthalein</div><div class="formula-math">Colorless → Pink</div><div class="formula-note">pH 8.2 – 10.0</div></div>
+          <div class="formula-item"><div class="formula-name">Universal indicator</div><div class="formula-math">Red → Orange → Green → Blue → Violet</div><div class="formula-note">Full pH range</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Predict Indicator Color</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A solution of pH = 3.0 has methyl orange added. What color will it turn?</div>
+          <div class="example-step"><span class="step-badge">Range</span><div class="step-text">Methyl orange changes color between pH 3.2 – 4.4</div></div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text">pH 3.0 is <span class="math">below</span> the range (more acidic)</div></div>
+          <div class="example-step"><span class="step-badge">Apply</span><div class="step-text">Below the range → indicator is in its <span class="math">acid form</span> (red)</div></div>
+          <div class="example-answer">✅ Methyl orange will be <strong>red</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Phenolphthalein Color Prediction</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A solution of pH = 9.5 has phenolphthalein added. What color will it turn?</div>
+          <div class="example-step"><span class="step-badge">Range</span><div class="step-text">Phenolphthalein changes from pH 8.2 – 10.0 (colorless → pink)</div></div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text">pH 9.5 is <span class="math">within</span> the range</div></div>
+          <div class="example-step"><span class="step-badge">Apply</span><div class="step-text">At pH 9.5, phenolphthalein is predominantly in its <span class="math">base form</span> (pink)</div></div>
+          <div class="example-answer">✅ Phenolphthalein will be <span style="color:#DB2777">pink</span></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Best Indicator for NaOH/HCl Titration</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Which indicator best fits a strong acid–strong base titration? (Methyl orange, bromothymol blue, phenolphthalein.)</div>
+          <div class="example-step"><span class="step-badge">Equivalence pH</span><div class="step-text">For strong acid + strong base, equivalence pH ≈ 7</div></div>
+          <div class="example-step"><span class="step-badge">Check options</span><div class="step-text">
+            • Methyl orange: 3.2 – 4.4 → too acidic<br>
+            • Bromothymol blue: 6.0 – 7.6 → <span class="math">matches pH 7</span><br>
+            • Phenolphthalein: 8.2 – 10.0 → too basic
+          </div></div>
+          <div class="example-answer">✅ Best choice: <strong>bromothymol blue</strong> (or universal indicator)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Titrating Acetic Acid with NaOH</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> During titration of 0.10 M CH₃COOH with 0.10 M NaOH, the equivalence point pH is ~8.7. Which indicator is best?</div>
+          <div class="example-step"><span class="step-badge">Equivalence pH</span><div class="step-text">pH ≈ 8.7 (basic, due to acetate hydrolysis)</div></div>
+          <div class="example-step"><span class="step-badge">Match</span><div class="step-text">
+            Look for an indicator whose range covers 8.7<br>
+            • Phenolphthalein: 8.2 – 10.0 → <span class="math">perfect match</span>
+          </div></div>
+          <div class="example-answer">✅ Use <strong>phenolphthalein</strong> — it changes just above pH 8</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Explain Indicator Color Change</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Using Le Chatelier's principle, explain why phenolphthalein is colorless in acid and pink in base.</div>
+          <div class="example-step"><span class="step-badge">Equilibrium</span><div class="step-text">HIn ⇌ H⁺ + In⁻ (HIn is colorless; In⁻ is pink)</div></div>
+          <div class="example-step"><span class="step-badge">In acid</span><div class="step-text">High [H⁺] → equilibrium shifts <span class="math">left</span> → mostly HIn → <span class="math">colorless</span></div></div>
+          <div class="example-step"><span class="step-badge">In base</span><div class="step-text">OH⁻ consumes H⁺ → equilibrium shifts <span class="math">right</span> → more In⁻ → <span class="math">pink</span></div></div>
+          <div class="example-answer">✅ Le Chatelier's principle explains the color change: HIn is colorless, In⁻ is pink</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">An acid-base indicator is typically a:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Strong acid</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Strong base</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Weak acid or weak base</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Neutral salt</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Phenolphthalein is colorless in acidic solutions and pink in basic solutions because:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> It is a strong acid</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Its acid form is colorless, base form is pink</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Its two forms have different colors</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> It reacts with water</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Which indicator would you choose for a strong acid + weak base titration (equivalence pH ≈ 5)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> Phenolphthalein</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> Methyl red</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> Bromothymol blue</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> Methyl violet</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Methyl orange is red below pH 3.2 and yellow above pH 4.4. At pH = 5.0, methyl orange is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> Red</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> Yellow</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> Orange</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> Colorless</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">For a weak acid + weak base titration, choosing an indicator is difficult because:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> There are no indicators</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> The equivalence point pH is always exactly 7</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> The pH change near the equivalence point is gradual</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Indicators are not used in titrations</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-9.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+acid+base+indicators" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Acid-Base Indicators — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+choosing+indicator+titration" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Choosing the Right Indicator for a Titration</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+phenolphthalein+methyl+orange+color+change" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Phenolphthalein and Methyl Orange — Color Changes</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+universal+indicator+ph+paper" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Universal Indicator and pH Paper — How They Work</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.8</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Acid-Base Indicators</div>
+        <ul class="summary-list">
+          <li><strong>Acid-base indicators</strong> are weak organic acids or bases that change color with pH</li>
+          <li>Indicator equilibrium: <strong>HIn ⇌ H⁺ + In⁻</strong></li>
+          <li>In acidic solution → equilibrium shifts left → <strong>acid color</strong></li>
+          <li>In basic solution → equilibrium shifts right → <strong>base color</strong></li>
+          <li>Each indicator has a specific <strong>pH range</strong> for color change</li>
+          <li><strong>Methyl orange</strong>: red → yellow, pH 3.2–4.4</li>
+          <li><strong>Methyl red</strong>: red → yellow, pH 4.8–6.0</li>
+          <li><strong>Bromothymol blue</strong>: yellow → blue, pH 6.0–7.6</li>
+          <li><strong>Phenolphthalein</strong>: colorless → pink, pH 8.2–10.0</li>
+          <li><strong>Universal indicator</strong>: continuous color range across full pH scale</li>
+          <li>Choose indicator whose range includes the <strong>equivalence point pH</strong></li>
+          <li>Strong–strong → bromothymol blue | Weak acid–strong base → phenolphthalein | Strong acid–weak base → methyl orange</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-7.html" class="btn btn-ghost">← Lesson 1.7: Hydrolysis</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 8 of 12</div>
+      <a href="lesson-1-9.html" class="btn btn-primary">Next: Equivalents →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'B',4:'B',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! Indicators are weak acids or weak bases that change color with pH.',wrong:'✗ Indicators are weak organic acids or bases — not strong ones.'},
+    2:{B:'✓ Correct! Phenolphthalein\'s HIn form is colorless; the In⁻ form is pink.',wrong:'✗ The two forms have different colors: HIn is colorless, In⁻ is pink.'},
+    3:{B:'✓ Correct! Methyl red (pH 4.8–6.0) matches the equivalence pH of ~5.',wrong:'✗ For an equivalence point at pH ~5, choose methyl red (range 4.8–6.0).'},
+    4:{B:'✓ Correct! pH 5.0 is above methyl orange\'s range (>4.4), so it\'s in the base (yellow) form.',wrong:'✗ Above the range, methyl orange is yellow.'},
+    5:{C:'✓ Correct! The pH change near the equivalence point is gradual for weak acid + weak base titrations.',wrong:'✗ For weak–weak titrations, the pH jump near equivalence is small — indicators can\'t give a sharp end point.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','howwork','common','choosing','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
