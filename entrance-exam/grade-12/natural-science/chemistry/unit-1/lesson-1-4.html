@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.4: Dissociation Constants (Ka and Kb) | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('ka')"><div class="sidebar-dot"></div> Ka — Acid Constant</button>
+      <button class="sidebar-link" onclick="scrollTo('kb')"><div class="sidebar-dot"></div> Kb — Base Constant</button>
+      <button class="sidebar-link" onclick="scrollTo('relation')"><div class="sidebar-dot"></div> Ka × Kb = Kw</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Acid-Base Concepts ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Strengths ✓</a>
+      <a href="lesson-1-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Ka and Kb</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Common Ion Effect</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Buffers</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Indicators</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Equivalents</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Titrations</a>
+      <a href="lesson-1-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Titration Curves</a>
+      <a href="lesson-1-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>📈 Dissociation Constants (Ka and Kb)</h1>
+      <p>The dissociation constant is a quantitative fingerprint of an acid or base. Learn how Ka and Kb reveal strength at a glance — and how they relate through Kw to give you power over any pH calculation.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Numbers beat adjectives. Saying an acid is "weak" doesn't tell us much. Saying it has <strong>Ka = 1.8 × 10⁻⁵</strong> tells us everything — we can calculate pH, percent ionization, and predict reaction directions. That's the power of <strong>dissociation constants</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Write the <strong>Ka expression</strong> for any weak acid</li>
+          <li>Write the <strong>Kb expression</strong> for any weak base</li>
+          <li>Use <strong>Ka or Kb</strong> to determine acid/base strength</li>
+          <li>Calculate <strong>pH or [H₃O⁺]</strong> from Ka and initial concentration</li>
+          <li>Use the relationship <strong>Ka × Kb = Kw</strong></li>
+          <li>Calculate <strong>Ka from pH</strong> or <strong>pH from Ka</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="ka">
+      <div class="section-header"><div class="section-icon">🔢</div>
+        <div><div class="section-title-text">4.1 The Acid Dissociation Constant Ka</div><div class="section-subtitle">Quantifying weak acid strength</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Consider a weak monoprotic acid HA ionizing in water:
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Weak Acid Ionization</div>
+          <p style="font-size:1.1rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin:0">
+            HA(aq) + H₂O(l) ⇌ H₃O⁺(aq) + A⁻(aq)
+          </p>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The equilibrium constant for this reaction is:
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Ka Expression</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            Kc = [H₃O⁺][A⁻] / ([HA][H₂O])
+          </p>
+          <p>
+            Since [H₂O] is essentially constant (≈ 55.5 M), we multiply both sides by [H₂O]:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.15rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            Ka = [H₃O⁺][A⁻] / [HA]
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Reading Ka</div>
+          <p>
+            • <strong>Higher Ka → stronger acid</strong><br>
+            • Ka = 10⁰ to 10⁻² → moderately strong<br>
+            • Ka = 10⁻³ to 10⁻⁷ → moderately weak<br>
+            • Ka &lt; 10⁻⁸ → extremely weak
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">Common Weak Acids and their Ka Values</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Acid</th><th>Formula</th><th>Ka (25°C)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Formic acid</td><td>HCOOH</td><td>1.7 × 10⁻⁴</td></tr>
+            <tr><td>Nitrous acid</td><td>HNO₂</td><td>4.5 × 10⁻⁴</td></tr>
+            <tr><td>Hydrofluoric acid</td><td>HF</td><td>6.8 × 10⁻⁴</td></tr>
+            <tr><td>Acetic acid</td><td>CH₃COOH</td><td>1.8 × 10⁻⁵</td></tr>
+            <tr><td>Ascorbic acid</td><td>C₆H₈O₆</td><td>8.0 × 10⁻⁵</td></tr>
+            <tr><td>Benzoic acid</td><td>C₆H₅COOH</td><td>6.5 × 10⁻⁵</td></tr>
+            <tr><td>Hypochlorous acid</td><td>HOCl</td><td>3.0 × 10⁻⁸</td></tr>
+            <tr><td>Hypobromous acid</td><td>HOBr</td><td>2.5 × 10⁻⁹</td></tr>
+            <tr><td>Hydrocyanic acid</td><td>HCN</td><td>4.9 × 10⁻¹⁰</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="kb">
+      <div class="section-header"><div class="section-icon">🔢</div>
+        <div><div class="section-title-text">4.2 The Base Dissociation Constant Kb</div><div class="section-subtitle">Quantifying weak base strength</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Weak bases also ionize partially in water. For a general weak base B:
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Weak Base Ionization</div>
+          <p style="font-size:1.1rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin:0">
+            B(aq) + H₂O(l) ⇌ HB⁺(aq) + OH⁻(aq)
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Kb Expression</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.15rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            Kb = [HB⁺][OH⁻] / [B]
+          </p>
+          <p>
+            For ammonia specifically:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            NH₃ + H₂O ⇌ NH₄⁺ + OH⁻
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            Kb = [NH₄⁺][OH⁻] / [NH₃]
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Reading Kb</div>
+          <p>
+            • <strong>Higher Kb → stronger base</strong><br>
+            • Values are typically very small (10⁻⁴ to 10⁻¹⁰)<br>
+            • Strong bases (Group IA hydroxides) don't have Kb values — they ionize 100%
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">Common Weak Bases and their Kb Values</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Base</th><th>Formula</th><th>Kb (25°C)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ethylamine</td><td>C₂H₅NH₂</td><td>4.7 × 10⁻⁴</td></tr>
+            <tr><td>Methylamine</td><td>CH₃NH₂</td><td>4.4 × 10⁻⁴</td></tr>
+            <tr><td>Ammonia</td><td>NH₃</td><td>1.8 × 10⁻⁵</td></tr>
+            <tr><td>Hydrazine</td><td>N₂H₄</td><td>1.7 × 10⁻⁶</td></tr>
+            <tr><td>Hydroxylamine</td><td>NH₂OH</td><td>1.1 × 10⁻⁶</td></tr>
+            <tr><td>Pyridine</td><td>C₅H₅N</td><td>1.7 × 10⁻⁹</td></tr>
+            <tr><td>Aniline</td><td>C₆H₅NH₂</td><td>4.0 × 10⁻¹⁰</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="relation">
+      <div class="section-header"><div class="section-icon">🔗</div>
+        <div><div class="section-title-text">4.3 The Ka × Kb = Kw Relationship</div><div class="section-subtitle">Connecting conjugate pairs</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          For a conjugate acid-base pair (like NH₄⁺ and NH₃, or CH₃COOH and CH₃COO⁻), the Ka of the acid and Kb of its conjugate base are related:
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key Relationship</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.25rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            Ka × Kb = Kw = 1.0 × 10⁻¹⁴
+          </p>
+          <p>
+            At 25°C. This works for <strong>any</strong> conjugate acid-base pair.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 What it tells us</div>
+          <p>
+            If you know Ka of an acid, you can find Kb of its conjugate base:<br>
+            <strong>Kb = Kw / Ka</strong><br><br>
+            And if you know Kb of a base, you can find Ka of its conjugate acid:<br>
+            <strong>Ka = Kw / Kb</strong>
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Example — NH₄⁺ / NH₃ Conjugate Pair</div>
+          <p style="font-size:.9rem;color:#334155;margin:.5rem 0">
+            Kb(NH₃) = 1.8 × 10⁻⁵<br>
+            Ka(NH₄⁺) = Kw / Kb = 1.0×10⁻¹⁴ / 1.8×10⁻⁵ = <strong>5.6 × 10⁻¹⁰</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">The 5-Step Method for Weak Acid pH Problems</h3>
+        <ol style="font-size:.875rem;line-height:2;color:var(--text);padding-left:1.25rem">
+          <li>Write the balanced ionization equation</li>
+          <li>Set up an <strong>ICE table</strong> (Initial, Change, Equilibrium)</li>
+          <li>Write the <strong>Ka expression</strong> and substitute equilibrium values</li>
+          <li><strong>Approximate</strong> C − x ≈ C (if % ionization ≤ 5%)</li>
+          <li>Solve for x, then calculate <strong>[H₃O⁺], pH, or % ionization</strong></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Everything you need for Ka/Kb problems</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📈 Lesson 1.4 — Dissociation Constants</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Ka (acid)</div><div class="formula-math">Ka = [H₃O⁺][A⁻] / [HA]</div><div class="formula-note">Weak acid HA</div></div>
+          <div class="formula-item"><div class="formula-name">Kb (base)</div><div class="formula-math">Kb = [HB⁺][OH⁻] / [B]</div><div class="formula-note">Weak base B</div></div>
+          <div class="formula-item"><div class="formula-name">Conjugate relation</div><div class="formula-math">Ka × Kb = Kw</div><div class="formula-note">= 1.0 × 10⁻¹⁴ at 25°C</div></div>
+          <div class="formula-item"><div class="formula-name">Find Kb</div><div class="formula-math">Kb = Kw / Ka</div><div class="formula-note">From conjugate acid's Ka</div></div>
+          <div class="formula-item"><div class="formula-name">Find Ka</div><div class="formula-math">Ka = Kw / Kb</div><div class="formula-note">From conjugate base's Kb</div></div>
+          <div class="formula-item"><div class="formula-name">Approximation</div><div class="formula-math">Ka ≈ x² / C</div><div class="formula-note">Valid if % ion ≤ 5%</div></div>
+          <div class="formula-item"><div class="formula-name">Find x</div><div class="formula-math">x = √(Ka × C)</div><div class="formula-note">x = [H₃O⁺]</div></div>
+          <div class="formula-item"><div class="formula-name">Stronger acid</div><div class="formula-math">Larger Ka</div><div class="formula-note">More ionization</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Find Ka from pH — Butyric Acid</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A 0.250 M aqueous solution of butyric acid (CH₃(CH₂)₂COOH) is found to have pH = 2.72. Determine Ka for butyric acid.</div>
+          <div class="example-step"><span class="step-badge">Write equation</span><div class="step-text">CH₃(CH₂)₂COOH + H₂O ⇌ H₃O⁺ + CH₃(CH₂)₂COO⁻</div></div>
+          <div class="example-step"><span class="step-badge">Find x</span><div class="step-text"><span class="math">[H₃O⁺] = 10⁻²·⁷² = 1.9 × 10⁻³ M</span> = x</div></div>
+          <div class="example-step"><span class="step-badge">ICE table</span><div class="step-text">Initial: 0.250 M acid; Change: −x; Equilibrium: (0.250 − x) M</div></div>
+          <div class="example-step"><span class="step-badge">Ka expression</span><div class="step-text"><span class="math">Ka = x² / (0.250 − x)</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">Ka = (1.9×10⁻³)² / (0.250 − 1.9×10⁻³) = 1.5 × 10⁻⁵</span></div></div>
+          <div class="example-answer">✅ Ka = <strong>1.5 × 10⁻⁵</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Find pH from Ka — HF</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Calculate the pH of a 0.50 M HF solution at 25°C. Ka(HF) = 6.8 × 10⁻⁴.</div>
+          <div class="example-step"><span class="step-badge">Equation</span><div class="step-text">HF + H₂O ⇌ H₃O⁺ + F⁻</div></div>
+          <div class="example-step"><span class="step-badge">ICE table</span><div class="step-text">
+            Initial: [HF] = 0.50<br>
+            Change: −x, +x, +x<br>
+            Equilibrium: 0.50 − x, x, x
+          </div></div>
+          <div class="example-step"><span class="step-badge">Ka expression</span><div class="step-text"><span class="math">Ka = x² / (0.50 − x) = 6.8 × 10⁻⁴</span></div></div>
+          <div class="example-step"><span class="step-badge">Approximate</span><div class="step-text">Assume x ≪ 0.50: <span class="math">x² = (0.50)(6.8×10⁻⁴) = 3.4 × 10⁻⁴</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">x = 1.8 × 10⁻² M = [H₃O⁺]</span></div></div>
+          <div class="example-step"><span class="step-badge">Check 5% rule</span><div class="step-text"><span class="math">(0.018 / 0.50) × 100% = 3.6% ≤ 5%</span> ✓ valid</div></div>
+          <div class="example-step"><span class="step-badge">pH</span><div class="step-text"><span class="math">pH = −log(0.018) = 1.74</span></div></div>
+          <div class="example-answer">✅ pH = <strong>1.74</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Find [OH⁻] from Kb — Ammonia</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the [OH⁻] of a 0.20 M aqueous solution of ammonia. Kb(NH₃) = 1.8 × 10⁻⁵.</div>
+          <div class="example-step"><span class="step-badge">Equation</span><div class="step-text">NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</div></div>
+          <div class="example-step"><span class="step-badge">ICE table</span><div class="step-text">
+            Initial: [NH₃] = 0.20<br>
+            Change: −x, +x, +x<br>
+            Equilibrium: 0.20 − x, x, x
+          </div></div>
+          <div class="example-step"><span class="step-badge">Kb expression</span><div class="step-text"><span class="math">Kb = x² / (0.20 − x) = 1.8 × 10⁻⁵</span></div></div>
+          <div class="example-step"><span class="step-badge">Approximate</span><div class="step-text"><span class="math">x² = (0.20)(1.8×10⁻⁵) = 3.6 × 10⁻⁶</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">x = √(3.6×10⁻⁶) = 1.9 × 10⁻³ M = [OH⁻]</span></div></div>
+          <div class="example-answer">✅ [OH⁻] = <strong>1.9 × 10⁻³ M</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Find Kb from Ka of Conjugate Acid</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> The Ka of the ammonium ion (NH₄⁺) is 5.6 × 10⁻¹⁰. Find Kb for ammonia (NH₃).</div>
+          <div class="example-step"><span class="step-badge">Relation</span><div class="step-text"><span class="math">Ka × Kb = Kw = 1.0 × 10⁻¹⁴</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">Kb = Kw / Ka = 1.0×10⁻¹⁴ / 5.6×10⁻¹⁰</span></div></div>
+          <div class="example-step"><span class="step-badge">Compute</span><div class="step-text"><span class="math">Kb = 1.8 × 10⁻⁵</span></div></div>
+          <div class="example-answer">✅ Kb(NH₃) = <strong>1.8 × 10⁻⁵</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Percent Ionization from Ka — Acetic Acid</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Calculate the percent ionization of a 0.100 M solution of acetic acid. Ka = 1.8 × 10⁻⁵.</div>
+          <div class="example-step"><span class="step-badge">Equation</span><div class="step-text">CH₃COOH ⇌ H₃O⁺ + CH₃COO⁻</div></div>
+          <div class="example-step"><span class="step-badge">ICE table</span><div class="step-text">Initial 0.100; change −x, +x, +x; equilibrium 0.100 − x, x, x</div></div>
+          <div class="example-step"><span class="step-badge">Ka expression</span><div class="step-text"><span class="math">1.8×10⁻⁵ = x² / (0.100 − x)</span></div></div>
+          <div class="example-step"><span class="step-badge">Approximate</span><div class="step-text"><span class="math">x² = (1.8×10⁻⁵)(0.100) = 1.8×10⁻⁶</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">x = 1.342 × 10⁻³ M</span></div></div>
+          <div class="example-step"><span class="step-badge">% ionization</span><div class="step-text"><span class="math">% = (1.342×10⁻³ / 0.100) × 100% = 1.34%</span></div></div>
+          <div class="example-answer">✅ Percent ionization = <strong>1.34%</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which acid is strongest based on Ka values?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> CH₃COOH (Ka = 1.8 × 10⁻⁵)</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> HCN (Ka = 4.9 × 10⁻¹⁰)</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> HF (Ka = 6.8 × 10⁻⁴)</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> HOCl (Ka = 3.0 × 10⁻⁸)</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Ka × Kb for a conjugate acid-base pair always equals:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> 1</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> 10</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Kw = 1.0 × 10⁻¹⁴</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Zero</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A 0.10 M solution of weak acid HA has pH = 3.00. What is Ka?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> 1.0 × 10⁻⁶</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> 1.0 × 10⁻⁵</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> 1.0 × 10⁻⁶</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> 1.0 × 10⁻⁴</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">If Ka of an acid is 1.0 × 10⁻⁵, what is Kb of its conjugate base?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> 1.0 × 10⁻⁵</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> 1.0 × 10⁻⁹</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> 1.0 × 10⁻¹⁴</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> 1.0 × 10⁻¹⁹</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The 5% rule in weak-acid problems is used to:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> Find the answer directly</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> Approximate C − x ≈ C to simplify</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> Skip the ICE table</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> Calculate pH only</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-5.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+ka+kb+acid+base+dissociation" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Ka and Kb — Acid and Base Dissociation Constants</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+ka+kb+kw+relationship" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Ka × Kb = Kw — Conjugate Acid-Base Relationship</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+weak+acid+ph+ka+calculations" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Weak Acid pH Calculations from Ka — Full Tutorial</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+ice+table+weak+acid+base" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">ICE Tables for Weak Acid and Base Equilibria</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.4</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Dissociation Constants (Ka and Kb)</div>
+        <ul class="summary-list">
+          <li><strong>Ka</strong> = [H₃O⁺][A⁻] / [HA] — the acid dissociation constant</li>
+          <li><strong>Kb</strong> = [HB⁺][OH⁻] / [B] — the base dissociation constant</li>
+          <li><strong>Larger Ka → stronger acid</strong>; <strong>larger Kb → stronger base</strong></li>
+          <li><strong>Ka × Kb = Kw = 1.0 × 10⁻¹⁴</strong> at 25°C for any conjugate pair</li>
+          <li>Use ICE tables to organize equilibrium values</li>
+          <li><strong>5% rule</strong>: approximate C − x ≈ C if % ionization ≤ 5%</li>
+          <li><strong>x = √(Ka × C)</strong> gives [H₃O⁺] for weak acids</li>
+          <li><strong>Percent ionization = (x / C) × 100%</strong></li>
+          <li>Common Ka: HF 6.8×10⁻⁴, CH₃COOH 1.8×10⁻⁵, HCN 4.9×10⁻¹⁰</li>
+          <li>Common Kb: CH₃NH₂ 4.4×10⁻⁴, NH₃ 1.8×10⁻⁵, C₅H₅N 1.7×10⁻⁹</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-3.html" class="btn btn-ghost">← Lesson 1.3: Strengths</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 4 of 12</div>
+      <a href="lesson-1-5.html" class="btn btn-primary">Next: Common Ion Effect →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'B',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! HF has the largest Ka (6.8 × 10⁻⁴), so it is the strongest acid.',wrong:'✗ The larger the Ka, the stronger the acid. HF (6.8×10⁻⁴) is the largest here.'},
+    2:{C:'✓ Correct! Ka × Kb = Kw = 1.0 × 10⁻¹⁴ at 25°C for any conjugate pair.',wrong:'✗ For any conjugate acid-base pair, Ka × Kb = Kw = 1.0 × 10⁻¹⁴.'},
+    3:{C:'✓ Correct! [H₃O⁺] = 10⁻³ = 1.0×10⁻³ M, so Ka = (1.0×10⁻³)² / 0.10 = 1.0 × 10⁻⁵.',wrong:'✗ [H₃O⁺] = 10⁻³ M. Ka ≈ (1.0×10⁻³)² / 0.10 = 1.0 × 10⁻⁵.'},
+    4:{B:'✓ Correct! Kb = Kw / Ka = 1.0×10⁻¹⁴ / 1.0×10⁻⁵ = 1.0 × 10⁻⁹.',wrong:'✗ Kb = Kw / Ka = 1.0×10⁻¹⁴ / 1.0×10⁻⁵ = 1.0 × 10⁻⁹.'},
+    5:{B:'✓ Correct! The 5% rule lets us approximate C − x ≈ C to avoid the quadratic formula.',wrong:'✗ When % ionization ≤ 5%, we can approximate C − x ≈ C.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','ka','kb','relation','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
