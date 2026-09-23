@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.5: The Common Ion Effect | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 5</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('definition')"><div class="sidebar-dot"></div> The Common Ion Effect</button>
+      <button class="sidebar-link" onclick="scrollTo('mechanism')"><div class="sidebar-dot"></div> Mechanism & Le Chatelier</button>
+      <button class="sidebar-link" onclick="scrollTo('calculations')"><div class="sidebar-dot"></div> pH Calculations</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Acid-Base Concepts ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Strengths ✓</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Ka and Kb ✓</a>
+      <a href="lesson-1-5.html" class="sidebar-link active"><div class="sidebar-dot"></div> L5: Common Ion Effect</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Buffers</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Indicators</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Equivalents</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Titrations</a>
+      <a href="lesson-1-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Titration Curves</a>
+      <a href="lesson-1-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.5
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>↔️ The Common Ion Effect</h1>
+      <p>Adding a salt that shares an ion with a weak acid or base suppresses the acid's ionization. This is Le Chatelier's principle in action — and it's the secret behind buffer solutions.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          What happens if you add sodium acetate (CH₃COONa) to a solution of acetic acid? The solution contains two sources of the acetate ion. By Le Chatelier's principle, the equilibrium shifts to reduce the disturbance. This is the <strong>common ion effect</strong> — and it's the foundation of buffers.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define the <strong>common ion effect</strong></li>
+          <li>Explain it in terms of <strong>Le Chatelier's principle</strong></li>
+          <li>Predict how adding a common ion <strong>shifts equilibrium</strong></li>
+          <li>Calculate <strong>pH of a weak acid + its salt</strong></li>
+          <li>Calculate <strong>pH of a weak base + its salt</strong></li>
+          <li>Explain <strong>solubility effects</strong> from common ions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">5.1 What is the Common Ion Effect?</div><div class="section-subtitle">Definition and examples</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The Common Ion Effect</div>
+          <p>
+            The <strong>shift in an ionic equilibrium caused by the addition of a solute that provides an ion that takes part in the equilibrium</strong>.<br><br>
+            When a given ion is added to an equilibrium mixture that already contains that ion, the equilibrium shifts to reduce the added ion's concentration.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">Example — Acetic Acid + HCl</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Consider a solution of acetic acid:
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Acetic Acid Ionization Equilibrium</div>
+          <p style="font-size:1.05rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin:0">
+            CH₃COOH(aq) + H₂O(l) ⇌ CH₃COO⁻(aq) + H₃O⁺(aq)
+          </p>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0">
+          Now add HCl, a strong acid that completely ionizes:
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">HCl Ionization</div>
+          <p style="font-size:1.05rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin:0">
+            HCl(aq) → H₃O⁺(aq) + Cl⁻(aq)
+          </p>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0">
+          The H₃O⁺ from HCl is a <strong>common ion</strong> with the H₃O⁺ from acetic acid. By Le Chatelier's principle, the acetic acid equilibrium <strong>shifts left</strong>, reducing its ionization.
+        </p>
+
+        <div class="note-box">
+          <div class="note-label">📝 Result</div>
+          <p>
+            The <strong>degree of ionization of acetic acid is decreased</strong> by the addition of the strong acid HCl. This is the common ion effect in action.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="mechanism">
+      <div class="section-header"><div class="section-icon">⚙️</div>
+        <div><div class="section-title-text">5.2 Mechanism — Le Chatelier's Principle</div><div class="section-subtitle">Why the equilibrium shifts</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Another common case: adding sodium acetate to acetic acid. Sodium acetate is a strong electrolyte that dissociates completely:
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Sodium Acetate Dissociation</div>
+          <p style="font-size:1.05rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin:0">
+            CH₃COONa(s) → CH₃COO⁻(aq) + Na⁺(aq)
+          </p>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0">
+          Now the solution has two sources of CH₃COO⁻:
+        </p>
+        <ul style="font-size:.875rem;line-height:1.9;color:var(--text);padding-left:1.5rem;margin-bottom:.875rem">
+          <li>From the weak acid CH₃COOH (partial ionization)</li>
+          <li>From the salt CH₃COONa (complete dissociation)</li>
+        </ul>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0">
+          The large concentration of CH₃COO⁻ drives the acetic acid equilibrium <strong>to the left</strong>:
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Equilibrium Shift</div>
+          <svg viewBox="0 0 520 100" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="40" font-size="15" fill="#0F172A" text-anchor="middle" font-family="Georgia,serif" font-weight="bold">
+              CH₃COOH + H₂O ⇌ H₃O⁺ + CH₃COO⁻
+            </text>
+            <text x="260" y="70" font-size="12" fill="#991B1B" text-anchor="middle" font-weight="bold">
+              ← Equilibrium shifts to form more CH₃COOH
+            </text>
+            <path d="M 220, 80 L 150, 80" stroke="#DC2626" stroke-width="2" fill="none"/>
+            <polygon points="150,80 158,74 158,86" fill="#DC2626"/>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Consequence for pH</div>
+          <p>
+            Adding CH₃COO⁻ (from a salt) to a solution of CH₃COOH makes the solution <strong>less acidic</strong> — the pH <strong>increases</strong> because [H₃O⁺] decreases.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">Common Ion Effects Beyond Acids and Bases</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The same principle applies to <strong>solubility equilibria</strong>. Adding a common ion to a saturated solution of a sparingly soluble salt reduces its solubility:
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Common Ion Effect on Solubility</div>
+          <p style="font-size:.9rem;color:#334155;margin:.5rem 0">
+            NaCl(s) ⇌ Na⁺(aq) + Cl⁻(aq)<br>
+            Adding more Cl⁻ (from HCl or KCl) shifts equilibrium left → <strong>less NaCl dissolves</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="calculations">
+      <div class="section-header"><div class="section-icon">🔢</div>
+        <div><div class="section-title-text">5.3 pH Calculations with Common Ions</div><div class="section-subtitle">The simplified method</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          When a weak acid HA and its salt (containing the common ion A⁻) are both present, the calculation simplifies enormously because:
+        </p>
+        <ul style="font-size:.875rem;line-height:1.9;color:var(--text);padding-left:1.5rem;margin-bottom:.875rem">
+          <li>[HA] at equilibrium ≈ [HA] initial (from the acid)</li>
+          <li>[A⁻] at equilibrium ≈ [A⁻] initial (from the salt)</li>
+          <li>Ionization of HA is suppressed — we can ignore x</li>
+        </ul>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Simplified Ka Equation</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            Ka = [H₃O⁺] × [salt] / [acid]
+          </p>
+          <p>
+            So:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.1rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            [H₃O⁺] = Ka × [acid] / [salt]
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Simplified Kb Equation (for weak base + salt)</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            [OH⁻] = Kb × [base] / [salt]
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Compare with pure acid</div>
+          <p>
+            For the <strong>same concentration</strong> of a weak acid:<br>
+            • Pure weak acid solution: [H₃O⁺] = √(Ka × C)<br>
+            • With common ion (from salt): [H₃O⁺] = Ka × C<sub>acid</sub> / C<sub>salt</sub><br><br>
+            The common ion case typically produces much lower [H₃O⁺] — the ionization is suppressed.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Everything you need for this lesson</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">↔️ Lesson 1.5 — Common Ion Effect</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Common ion effect</div><div class="formula-math">Equilibrium shifts left</div><div class="formula-note">When common ion added</div></div>
+          <div class="formula-item"><div class="formula-name">Salt dissociation</div><div class="formula-math">NaA → Na⁺ + A⁻</div><div class="formula-note">100% — strong electrolyte</div></div>
+          <div class="formula-item"><div class="formula-name">[H₃O⁺] with salt</div><div class="formula-math">[H₃O⁺] = Ka × [acid]/[salt]</div><div class="formula-note">Approximation valid</div></div>
+          <div class="formula-item"><div class="formula-name">[OH⁻] with salt</div><div class="formula-math">[OH⁻] = Kb × [base]/[salt]</div><div class="formula-note">Approximation valid</div></div>
+          <div class="formula-item"><div class="formula-name">Solubility</div><div class="formula-math">Common ion ↓ solubility</div><div class="formula-note">Sparingly soluble salts</div></div>
+          <div class="formula-item"><div class="formula-name">Direction</div><div class="formula-math">Away from added ion</div><div class="formula-note">Le Chatelier</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Acetic Acid + HCl</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Determine [H₃O⁺] and [CH₃COO⁻] in a solution that is 0.10 M in both CH₃COOH and HCl. Ka(CH₃COOH) = 1.8 × 10⁻⁵.</div>
+          <div class="example-step"><span class="step-badge">Note</span><div class="step-text">HCl is a strong acid — 0.10 M HCl gives <span class="math">[H₃O⁺] = 0.10 M</span> and 0.10 M Cl⁻ (a spectator).</div></div>
+          <div class="example-step"><span class="step-badge">Equilibrium</span><div class="step-text">
+            CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺<br>
+            Initial: 0.10 M CH₃COOH, 0.10 M H₃O⁺<br>
+            Change: −x, +x, +x<br>
+            Equilibrium: 0.10−x, x, 0.10+x
+          </div></div>
+          <div class="example-step"><span class="step-badge">Approximate</span><div class="step-text">Since x is very small, <span class="math">(0.10−x) ≈ 0.10</span> and <span class="math">(0.10+x) ≈ 0.10</span></div></div>
+          <div class="example-step"><span class="step-badge">Ka</span><div class="step-text"><span class="math">1.8×10⁻⁵ = (x)(0.10) / 0.10 = x</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">x = [CH₃COO⁻] = 1.8 × 10⁻⁵ M</span></div></div>
+          <div class="example-step"><span class="step-badge">Final</span><div class="step-text"><span class="math">[H₃O⁺] = 0.10 + 1.8×10⁻⁵ ≈ 0.10 M</span></div></div>
+          <div class="example-answer">✅ [H₃O⁺] ≈ <strong>0.10 M</strong> &nbsp; [CH₃COO⁻] = <strong>1.8 × 10⁻⁵ M</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Acetic Acid + Sodium Acetate — pH</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Find the pH of a solution containing 0.20 M CH₃COOH and 0.30 M CH₃COONa. Ka(CH₃COOH) = 1.8 × 10⁻⁵.</div>
+          <div class="example-step"><span class="step-badge">Salt</span><div class="step-text">CH₃COONa fully dissociates → [CH₃COO⁻] from salt = 0.30 M</div></div>
+          <div class="example-step"><span class="step-badge">Approximate</span><div class="step-text">
+            [CH₃COOH] ≈ 0.20 M (from acid)<br>
+            [CH₃COO⁻] ≈ 0.30 M (from salt)
+          </div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">[H₃O⁺] = Ka × [acid] / [salt]</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">[H₃O⁺] = (1.8×10⁻⁵)(0.20)/(0.30) = 1.2 × 10⁻⁵ M</span></div></div>
+          <div class="example-step"><span class="step-badge">pH</span><div class="step-text"><span class="math">pH = −log(1.2×10⁻⁵) = 4.92</span></div></div>
+          <div class="example-answer">✅ pH = <strong>4.92</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Compare pH With and Without Salt</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What would the pH of a 0.20 M CH₃COOH solution be if no salt were present?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">[H₃O⁺] = √(Ka × C)</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">[H₃O⁺] = √(1.8×10⁻⁵ × 0.20) = √(3.6×10⁻⁶) = 1.9 × 10⁻³ M</span></div></div>
+          <div class="example-step"><span class="step-badge">pH</span><div class="step-text"><span class="math">pH = −log(1.9×10⁻³) = 2.72</span></div></div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text">
+            Without salt: pH = 2.72<br>
+            With salt (Ex 2): pH = 4.92<br>
+            The salt <span class="math">raised the pH</span> by ~2.2 units
+          </div></div>
+          <div class="example-answer">✅ Without salt, pH = <strong>2.72</strong> — the common ion dramatically reduced the acidity</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Ammonia + Ammonium Chloride — pH</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A buffer is made by mixing 0.060 M NH₃ with 0.040 M NH₄Cl. Find the pH. Kb(NH₃) = 1.8 × 10⁻⁵.</div>
+          <div class="example-step"><span class="step-badge">Equation</span><div class="step-text">NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</div></div>
+          <div class="example-step"><span class="step-badge">Approximate</span><div class="step-text">
+            [NH₃] ≈ 0.060 M (from base)<br>
+            [NH₄⁺] ≈ 0.040 M (from salt)
+          </div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">[OH⁻] = Kb × [base] / [salt]</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">[OH⁻] = (1.8×10⁻⁵)(0.060)/(0.040) = 2.7 × 10⁻⁵ M</span></div></div>
+          <div class="example-step"><span class="step-badge">pOH and pH</span><div class="step-text">
+            <span class="math">pOH = −log(2.7×10⁻⁵) = 4.57</span><br>
+            <span class="math">pH = 14 − 4.57 = 9.43</span>
+          </div></div>
+          <div class="example-answer">✅ pH = <strong>9.43</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Common Ion on Solubility</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Predict what happens to the solubility of AgCl when NaCl is added to a saturated AgCl solution.</div>
+          <div class="example-step"><span class="step-badge">Equilibrium</span><div class="step-text">AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq)</div></div>
+          <div class="example-step"><span class="step-badge">Common ion</span><div class="step-text">NaCl adds Cl⁻ to the solution. Cl⁻ is the common ion.</div></div>
+          <div class="example-step"><span class="step-badge">Le Chatelier</span><div class="step-text">Higher [Cl⁻] shifts equilibrium <span class="math">to the left</span> — precipitating more AgCl.</div></div>
+          <div class="example-answer">✅ The solubility of AgCl <strong>decreases</strong> — adding a common ion reduces solubility</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The common ion effect causes a weak acid's ionization to:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Increase</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Stay the same</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Decrease</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Become 100%</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">When sodium acetate is added to acetic acid, the pH:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> Decreases</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> Increases</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> Stays the same</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> Becomes 7</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A solution contains 0.10 M CH₃COOH and 0.10 M CH₃COONa. Ka = 1.8 × 10⁻⁵. What is [H₃O⁺]?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','A')"><div class="option-letter">A</div> 1.8 × 10⁻⁵ M</div>
+          <div class="quiz-option" onclick="answer(3,'B','A')"><div class="option-letter">B</div> 1.3 × 10⁻³ M</div>
+          <div class="quiz-option" onclick="answer(3,'C','A')"><div class="option-letter">C</div> 1.0 × 10⁻⁷ M</div>
+          <div class="quiz-option" onclick="answer(3,'D','A')"><div class="option-letter">D</div> 0.10 M</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Adding NaCl to a saturated solution of AgCl will:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> Increase AgCl solubility</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> Decrease AgCl solubility</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> Have no effect</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> Increase the Ksp</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The common ion effect is a direct consequence of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','D')"><div class="option-letter">A</div> Hess's law</div>
+          <div class="quiz-option" onclick="answer(5,'B','D')"><div class="option-letter">B</div> Faraday's law</div>
+          <div class="quiz-option" onclick="answer(5,'C','D')"><div class="option-letter">C</div> The law of conservation of energy</div>
+          <div class="quiz-option" onclick="answer(5,'D','D')"><div class="option-letter">D</div> Le Chatelier's principle</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-6.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+common+ion+effect" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">The Common Ion Effect — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+common+ion+effect+ph+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Common Ion Effect pH Calculations — Worked Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+le+chatelier+acid+base+equilibrium" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Le Chatelier's Principle in Acid-Base Equilibria</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+common+ion+effect+solubility" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Common Ion Effect on Solubility — Ksp Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.5</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — The Common Ion Effect</div>
+        <ul class="summary-list">
+          <li>The <strong>common ion effect</strong> is the shift in an ionic equilibrium when a solute shares an ion with the equilibrium species</li>
+          <li>Direct consequence of <strong>Le Chatelier's principle</strong></li>
+          <li>Adding HCl to CH₃COOH suppresses acetic acid ionization</li>
+          <li>Adding CH₃COONa to CH₃COOH raises the pH (less acidic)</li>
+          <li><strong>[H₃O⁺] = Ka × [acid] / [salt]</strong> — simplified equation</li>
+          <li><strong>[OH⁻] = Kb × [base] / [salt]</strong> — for weak bases</li>
+          <li>Salts are strong electrolytes — they dissociate 100%</li>
+          <li>Common ion effects also <strong>reduce solubility</strong> of sparingly soluble salts</li>
+          <li>Adding NaCl to AgCl solution precipitates more AgCl → solubility decreases</li>
+          <li>Sets up the theory for <strong>buffer solutions</strong> (next lesson!)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-4.html" class="btn btn-ghost">← Lesson 1.4: Ka and Kb</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 5 of 12</div>
+      <a href="lesson-1-6.html" class="btn btn-primary">Next: Buffers →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'A',4:'B',5:'D'};
+  const feedbacks={
+    1:{C:'✓ Correct! The common ion effect suppresses ionization — it decreases.',wrong:'✗ Adding a common ion shifts equilibrium left, suppressing ionization.'},
+    2:{B:'✓ Correct! Adding CH₃COO⁻ shifts equilibrium left, so [H₃O⁺] decreases and pH increases.',wrong:'✗ The salt suppresses H₃O⁺ formation, so pH goes up (less acidic).'},
+    3:{A:'✓ Correct! [H₃O⁺] = Ka × [acid]/[salt] = 1.8×10⁻⁵ × 0.10/0.10 = 1.8×10⁻⁵ M.',wrong:'✗ When [acid] = [salt], [H₃O⁺] = Ka = 1.8 × 10⁻⁵ M.'},
+    4:{B:'✓ Correct! Adding Cl⁻ (common ion) shifts AgCl equilibrium left, decreasing solubility.',wrong:'✗ Common ion effect on solubility: adding Cl⁻ precipitates more AgCl → solubility decreases.'},
+    5:{D:'✓ Correct! The common ion effect follows directly from Le Chatelier\'s principle.',wrong:'✗ The common ion effect is a consequence of Le Chatelier\'s principle.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','definition','mechanism','calculations','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
