@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.6: Buffer Solutions | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('definition')"><div class="sidebar-dot"></div> What is a Buffer?</button>
+      <button class="sidebar-link" onclick="scrollTo('action')"><div class="sidebar-dot"></div> Buffer Action</button>
+      <button class="sidebar-link" onclick="scrollTo('hhe')"><div class="sidebar-dot"></div> Henderson-Hasselbalch</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Acid-Base Concepts ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Strengths ✓</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Ka and Kb ✓</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Common Ion Effect ✓</a>
+      <a href="lesson-1-6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Buffers</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Indicators</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Equivalents</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Titrations</a>
+      <a href="lesson-1-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Titration Curves</a>
+      <a href="lesson-1-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.6
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>🛡️ Buffer Solutions</h1>
+      <p>Add a drop of strong acid to pure water — pH plunges. Add it to a buffer — pH barely moves. Buffers are pH guardians that keep biological systems alive and chemical reactions under control.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Your blood stays at pH 7.4 even when you eat acidic or basic foods. Your stomach stays at pH 1.5 while digesting. How? <strong>Buffers</strong>. A buffer is a solution that resists pH changes when a small amount of acid or base is added.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define a <strong>buffer</strong> and identify its components</li>
+          <li>Explain how buffers <strong>neutralize added acid or base</strong></li>
+          <li>Apply the <strong>Henderson-Hasselbalch</strong> equation</li>
+          <li>Calculate the <strong>pH of a buffer</strong></li>
+          <li>Understand <strong>buffer capacity</strong> and its limits</li>
+          <li>Recognize <strong>biological buffers</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">6.1 What is a Buffer?</div><div class="section-subtitle">Definition and composition</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Buffer Definition</div>
+          <p>
+            A <strong>buffer</strong> is a solution that <strong>resists changes in pH when a small amount of acid or base is added</strong>, or when the solution is diluted with pure solvent.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Buffer Composition</div>
+          <p>
+            A buffer is made from an <strong>acid-base conjugate pair</strong>:<br><br>
+            • A <strong>weak acid</strong> + its <strong>conjugate base</strong> (salt) — e.g., CH₃COOH + CH₃COONa<br>
+            OR<br>
+            • A <strong>weak base</strong> + its <strong>conjugate acid</strong> (salt) — e.g., NH₃ + NH₄Cl
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why conjugate pairs?</div>
+          <p>
+            A buffer must have: (1) a large concentration of acid to react with added base, and (2) a large concentration of base to react with added acid. These requirements are perfectly satisfied by a conjugate acid-base pair.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Example Buffer — Acetic Acid + Sodium Acetate</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          When CH₃COOH and CH₃COONa are dissolved together in water:
+        </p>
+        <ul style="font-size:.875rem;line-height:1.9;color:var(--text);padding-left:1.5rem;margin-bottom:.875rem">
+          <li><strong>CH₃COONa</strong> is a strong electrolyte → dissociates 100% into CH₃COO⁻ and Na⁺</li>
+          <li><strong>CH₃COOH</strong> is a weak acid → partially ionizes</li>
+          <li>The CH₃COO⁻ from the salt <strong>suppresses</strong> the ionization of CH₃COOH (common ion effect)</li>
+        </ul>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0">
+          The result: significant concentrations of <strong>both</strong> CH₃COOH and CH₃COO⁻ in the same solution.
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block" id="action">
+      <div class="section-header"><div class="section-icon">⚙️</div>
+        <div><div class="section-title-text">6.2 How Buffers Resist pH Changes</div><div class="section-subtitle">Buffer action</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The acetic acid/acetate buffer system (CH₃COOH/CH₃COO⁻) works by <strong>consuming</strong> added H⁺ or OH⁻ ions:
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">When H⁺ is Added</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Added acid reacts with conjugate base</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            CH₃COO⁻(aq) + H⁺(aq) → CH₃COOH(aq)
+          </p>
+          <p>
+            The acetate ion (conjugate base) <strong>neutralizes</strong> the added H⁺, forming more acetic acid. pH stays roughly constant.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">When OH⁻ is Added</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Added base reacts with weak acid</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            CH₃COOH(aq) + OH⁻(aq) → CH₃COO⁻(aq) + H₂O(l)
+          </p>
+          <p>
+            The acetic acid <strong>neutralizes</strong> the added OH⁻, forming more acetate. pH stays roughly constant.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Buffer Action — Both Directions</div>
+          <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="25" font-size="13" fill="#991B1B" text-anchor="middle" font-weight="bold">Acetic Acid/Acetate Buffer</text>
+
+            <!-- Center buffer -->
+            <rect x="200" y="60" width="120" height="60" fill="#FEE2E2" stroke="#DC2626" stroke-width="2" rx="8"/>
+            <text x="260" y="85" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="bold">CH₃COOH</text>
+            <text x="260" y="105" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="bold">+ CH₃COO⁻</text>
+
+            <!-- Left: H+ added -->
+            <text x="80" y="60" font-size="14" fill="#DC2626" text-anchor="middle" font-weight="bold">H⁺ added</text>
+            <path d="M 90, 90 L 195, 90" stroke="#DC2626" stroke-width="2" fill="none"/>
+            <polygon points="195,90 187,84 187,96" fill="#DC2626"/>
+            <text x="80" y="115" font-size="10" fill="#334155" text-anchor="middle">→ more CH₃COOH</text>
+            <text x="80" y="130" font-size="10" fill="#64748b" text-anchor="middle">pH barely moves</text>
+
+            <!-- Right: OH- added -->
+            <text x="440" y="60" font-size="14" fill="#DC2626" text-anchor="middle" font-weight="bold">OH⁻ added</text>
+            <path d="M 435, 90 L 325, 90" stroke="#DC2626" stroke-width="2" fill="none"/>
+            <polygon points="325,90 333,84 333,96" fill="#DC2626"/>
+            <text x="440" y="115" font-size="10" fill="#334155" text-anchor="middle">→ more CH₃COO⁻</text>
+            <text x="440" y="130" font-size="10" fill="#64748b" text-anchor="middle">pH barely moves</text>
+          </svg>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Comparing Buffered vs Unbuffered</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Solution</th><th>Initial pH</th><th>After 0.010 mol NaOH</th><th>After 0.010 mol HCl</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Unbuffered (dilute HCl)</td><td>4.8</td><td>12.0</td><td>2.0</td></tr>
+            <tr><td>Buffered (CH₃COOH/CH₃COONa)</td><td>4.8</td><td>4.8</td><td>4.7</td></tr>
+          </tbody>
+        </table>
+        <div class="note-box">
+          <div class="note-label">📝 Conclusion</div>
+          <p>
+            The buffered solution's pH barely changes (<strong>±0.1 unit</strong>), while the unbuffered solution's pH shifts by 7+ units!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="hhe">
+      <div class="section-header"><div class="section-icon">🔢</div>
+        <div><div class="section-title-text">6.3 The Henderson-Hasselbalch Equation</div><div class="section-subtitle">The key formula for buffer pH</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The Henderson-Hasselbalch equation lets us calculate the pH of a buffer directly from the concentrations of the acid and conjugate base:
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Henderson-Hasselbalch Equation (acidic buffer)</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.2rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            pH = pKa + log([conjugate base] / [weak acid])
+          </p>
+          <p>
+            Where pKa = −log(Ka).
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 For a Basic Buffer (weak base + conjugate acid)</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.2rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            pOH = pKb + log([conjugate acid] / [weak base])
+          </p>
+          <p>
+            Then pH = 14 − pOH.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Two useful shortcuts</div>
+          <p>
+            • When <strong>[acid] = [conjugate base]</strong>, then pH = pKa<br>
+            • When <strong>[base] = [conjugate acid]</strong>, then pOH = pKb<br><br>
+            A buffer has its <strong>maximum capacity</strong> when the acid and base concentrations are equal — because it can resist both added acid AND added base equally well.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Buffer Capacity and pH Range</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Buffer Capacity</div>
+          <p>
+            The <strong>amount of acid or base</strong> a buffer can neutralize before the pH begins to change appreciably. A buffer has maximum capacity when:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            pH = pKa (i.e., [A⁻] = [HA])
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Effective pH range</div>
+          <p>
+            A buffer is effective in the range <strong>pKa ± 1</strong>. Outside this range, one component dominates and buffering action is poor.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Important Biological Buffers</h3>
+        <table class="data-table">
+          <thead><tr><th>System</th><th>Buffer Pair</th><th>pH</th></tr></thead>
+          <tbody>
+            <tr><td>Human blood</td><td>H₂CO₃ / HCO₃⁻</td><td>7.4</td></tr>
+            <tr><td>Cells (cytoplasm)</td><td>H₂PO₄⁻ / HPO₄²⁻</td><td>~7.2</td></tr>
+            <tr><td>Stomach</td><td>Not buffered (HCl)</td><td>1.5</td></tr>
+            <tr><td>Intestines</td><td>HCO₃⁻ / CO₃²⁻</td><td>~8</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Everything you need for buffers</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🛡️ Lesson 1.6 — Buffer Solutions</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Henderson-Hasselbalch (acid)</div><div class="formula-math">pH = pKa + log([A⁻]/[HA])</div><div class="formula-note">Conjugate base / weak acid</div></div>
+          <div class="formula-item"><div class="formula-name">Henderson-Hasselbalch (base)</div><div class="formula-math">pOH = pKb + log([HB⁺]/[B])</div><div class="formula-note">Conjugate acid / weak base</div></div>
+          <div class="formula-item"><div class="formula-name">pKa</div><div class="formula-math">pKa = −log(Ka)</div><div class="formula-note">Also pKb = −log(Kb)</div></div>
+          <div class="formula-item"><div class="formula-name">Buffer + acid</div><div class="formula-math">A⁻ + H⁺ → HA</div><div class="formula-note">Conjugate base consumes H⁺</div></div>
+          <div class="formula-item"><div class="formula-name">Buffer + base</div><div class="formula-math">HA + OH⁻ → A⁻ + H₂O</div><div class="formula-note">Weak acid consumes OH⁻</div></div>
+          <div class="formula-item"><div class="formula-name">Max buffer capacity</div><div class="formula-math">pH = pKa</div><div class="formula-note">[A⁻] = [HA]</div></div>
+          <div class="formula-item"><div class="formula-name">Effective pH range</div><div class="formula-math">pKa ± 1</div><div class="formula-note">Beyond this, poor buffering</div></div>
+          <div class="formula-item"><div class="formula-name">Blood buffer</div><div class="formula-math">H₂CO₃/HCO₃⁻</div><div class="formula-note">pH = 7.4</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">pH of an Ammonia/Ammonium Buffer</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What is the pH of a buffer solution consisting of 0.035 M NH₃ and 0.050 M NH₄⁺? Ka(NH₄⁺) = 5.6 × 10⁻¹⁰.</div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">NH₄⁺ is the weak acid, NH₃ is the conjugate base. Use Henderson-Hasselbalch for acids.</div></div>
+          <div class="example-step"><span class="step-badge">pKa</span><div class="step-text"><span class="math">pKa = −log(5.6×10⁻¹⁰) = 9.25</span></div></div>
+          <div class="example-step"><span class="step-badge">HHE</span><div class="step-text"><span class="math">pH = pKa + log([NH₃]/[NH₄⁺])</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">pH = 9.25 + log(0.035/0.050) = 9.25 + log(0.7)</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">pH = 9.25 + (−0.155) = 9.10</span></div></div>
+          <div class="example-answer">✅ pH = <strong>9.10</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Buffer from NH₃ and NH₄Cl</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A buffer is made by mixing 0.060 M NH₃ with 0.040 M NH₄Cl. What is the pH? Kb(NH₃) = 1.8 × 10⁻⁵.</div>
+          <div class="example-step"><span class="step-badge">Approach</span><div class="step-text">Use HHE for bases. NH₄⁺ is the conjugate acid (from NH₄Cl).</div></div>
+          <div class="example-step"><span class="step-badge">pKb</span><div class="step-text"><span class="math">pKb = −log(1.8×10⁻⁵) = 4.74</span></div></div>
+          <div class="example-step"><span class="step-badge">pOH HHE</span><div class="step-text"><span class="math">pOH = pKb + log([NH₄⁺]/[NH₃])</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">pOH = 4.74 + log(0.040/0.060) = 4.74 + (−0.176)</span></div></div>
+          <div class="example-step"><span class="step-badge">pOH and pH</span><div class="step-text">
+            <span class="math">pOH = 4.56</span><br>
+            <span class="math">pH = 14 − 4.56 = 9.44</span>
+          </div></div>
+          <div class="example-answer">✅ pH = <strong>9.44</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Acetic Acid/Acetate Buffer pH</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Calculate the pH of a buffer containing 0.40 M CH₃COOH and 0.20 M CH₃COO⁻. Ka(CH₃COOH) = 1.8 × 10⁻⁵.</div>
+          <div class="example-step"><span class="step-badge">pKa</span><div class="step-text"><span class="math">pKa = −log(1.8×10⁻⁵) = 4.74</span></div></div>
+          <div class="example-step"><span class="step-badge">HHE</span><div class="step-text"><span class="math">pH = pKa + log([CH₃COO⁻]/[CH₃COOH])</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">pH = 4.74 + log(0.20/0.40) = 4.74 + log(0.50)</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">pH = 4.74 + (−0.30) = 4.44</span></div></div>
+          <div class="example-answer">✅ pH = <strong>4.44</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Which Buffer is Best?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> You need a buffer at pH 5.0. Which acid would you choose? (a) HF (Ka = 6.8×10⁻⁴), (b) CH₃COOH (Ka = 1.8×10⁻⁵), (c) HCN (Ka = 4.9×10⁻¹⁰).</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">Choose the acid whose pKa is closest to the target pH. The buffer's effective range is <span class="math">pKa ± 1</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Compare pKa</span><div class="step-text">
+            (a) HF: pKa = 3.17<br>
+            (b) CH₃COOH: pKa = 4.74<br>
+            (c) HCN: pKa = 9.31
+          </div></div>
+          <div class="example-step"><span class="step-badge">Match</span><div class="step-text">CH₃COOH (pKa = 4.74) is closest to pH 5.0</div></div>
+          <div class="example-answer">✅ Use <strong>acetic acid / sodium acetate</strong> (CH₃COOH/CH₃COONa)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Buffer pH After Adding Acid</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A buffer contains 0.10 M CH₃COOH and 0.10 M CH₃COONa (pH = 4.74). What is the pH after adding 0.010 mol HCl to 1.0 L of this buffer? (Assume volume doesn't change significantly.)</div>
+          <div class="example-step"><span class="step-badge">Reaction</span><div class="step-text">The added H⁺ reacts with the conjugate base:<br>CH₃COO⁻ + H⁺ → CH₃COOH</div></div>
+          <div class="example-step"><span class="step-badge">New concentrations</span><div class="step-text">
+            [CH₃COO⁻] = 0.10 − 0.010 = <span class="math">0.090 M</span><br>
+            [CH₃COOH] = 0.10 + 0.010 = <span class="math">0.110 M</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">HHE</span><div class="step-text"><span class="math">pH = 4.74 + log(0.090/0.110)</span></div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">pH = 4.74 + log(0.818) = 4.74 + (−0.087) = 4.65</span></div></div>
+          <div class="example-answer">✅ pH changed from 4.74 to <strong>4.65</strong> — only 0.09 units! (Unbuffered would change by 7 units.)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which pair would make a good buffer?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> HCl and NaCl</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> NaOH and NaCl</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> CH₃COOH and CH₃COONa</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> HNO₃ and NaNO₃</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The Henderson-Hasselbalch equation for an acidic buffer is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> pH = pKa − log([A⁻]/[HA])</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> pH = pKb + log([HA]/[A⁻])</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> pH = pKa + log([A⁻]/[HA])</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> pH = 14 − pKa</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A buffer has maximum capacity when:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> [HA] &gt;&gt; [A⁻]</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> [HA] = [A⁻]</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> [HA] = 0</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> pH = 7</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">When a strong acid is added to a CH₃COOH/CH₃COONa buffer, it reacts with:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> CH₃COOH</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> CH₃COO⁻</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> Na⁺</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> H₂O</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The principal buffer system in human blood is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> CH₃COOH/CH₃COO⁻</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> NH₃/NH₄⁺</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> H₂CO₃/HCO₃⁻</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> H₂PO₄⁻/HPO₄²⁻</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-7.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+buffer+solutions+explained" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Buffer Solutions — Full Introduction</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+henderson+hasselbalch+equation" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Henderson-Hasselbalch Equation — Derivation and Use</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+buffer+ph+calculations" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Buffer pH Calculations — Worked Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+buffer+capacity+ph+range" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Buffer Capacity and Effective pH Range</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.6</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Buffer Solutions</div>
+        <ul class="summary-list">
+          <li>A <strong>buffer</strong> resists pH changes when small amounts of acid or base are added</li>
+          <li>Buffer = <strong>weak acid + its conjugate base</strong> OR <strong>weak base + its conjugate acid</strong></li>
+          <li>Added acid is neutralized by the conjugate base: <strong>A⁻ + H⁺ → HA</strong></li>
+          <li>Added base is neutralized by the weak acid: <strong>HA + OH⁻ → A⁻ + H₂O</strong></li>
+          <li><strong>Henderson-Hasselbalch</strong>: pH = pKa + log([A⁻]/[HA]) for acidic buffers</li>
+          <li>For basic buffers: pOH = pKb + log([HB⁺]/[B])</li>
+          <li><strong>Maximum buffer capacity</strong> when pH = pKa ([acid] = [base])</li>
+          <li><strong>Effective pH range</strong>: pKa ± 1</li>
+          <li><strong>Blood buffer</strong>: H₂CO₃/HCO₃⁻ maintains pH 7.4</li>
+          <li>Buffers are essential in biology, medicine, and industrial chemistry</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-5.html" class="btn btn-ghost">← Lesson 1.5: Common Ion Effect</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 6 of 12</div>
+      <a href="lesson-1-7.html" class="btn btn-primary">Next: Hydrolysis of Salts →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'B',4:'B',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! CH₃COOH is a weak acid and CH₃COONa provides its conjugate base.',wrong:'✗ A buffer needs a weak acid + its conjugate base (or weak base + conjugate acid).'},
+    2:{C:'✓ Correct! pH = pKa + log([A⁻]/[HA]).',wrong:'✗ The HHE for acidic buffers is pH = pKa + log([A⁻]/[HA]).'},
+    3:{B:'✓ Correct! Buffer capacity is maximum when [HA] = [A⁻], so pH = pKa.',wrong:'✗ Maximum buffer capacity when the acid and conjugate base concentrations are equal.'},
+    4:{B:'✓ Correct! Added H⁺ reacts with the conjugate base CH₃COO⁻ to form CH₃COOH.',wrong:'✗ Added acid is neutralized by the conjugate base (CH₃COO⁻).'},
+    5:{C:'✓ Correct! The carbonic acid/bicarbonate (H₂CO₃/HCO₃⁻) system is the principal blood buffer.',wrong:'✗ The primary blood buffer is H₂CO₃/HCO₃⁻, maintaining pH 7.4.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','definition','action','hhe','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
