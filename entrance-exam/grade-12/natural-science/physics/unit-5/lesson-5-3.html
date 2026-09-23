@@ -3,115 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atomic Models and Spectra | Physics Grade 12</title>
+  <title>Lesson 5.3: Rectification | Grade 12 Physics</title>
   <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
-    body { background: #F8FAFC; }
-    .lesson-hero { background: linear-gradient(135deg, #0F172A 0%, #14532D 100%); padding: 3rem 2rem; color: #fff; }
-    .lesson-hero-inner { max-width: 900px; margin: 0 auto; }
-    .lesson-tag { display: inline-flex; gap: 6px; background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3); color: #86EFAC; font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 1rem; }
-    .lesson-hero h1 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: .5rem; }
-    .lesson-hero p { color: rgba(255,255,255,.72); font-size: .95rem; line-height: 1.7; max-width: 640px; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-    .breadcrumb { display: flex; gap: 6px; font-size: .82rem; color: #64748b; margin-bottom: 2rem; flex-wrap: wrap; }
-    .breadcrumb a { color: #22C55E; text-decoration: none; }
-    .content-card { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 2rem; margin-bottom: 1.5rem; }
-    .content-card h2 { font-size: 1.35rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem; }
-    .content-card p { font-size: .95rem; color: #334155; line-height: 1.75; margin-bottom: 1rem; }
-    .placeholder { background: #F0FDF4; border: 1.5px dashed #86EFAC; padding: 1.5rem; border-radius: 12px; color: #166534; font-size: .875rem; line-height: 1.7; }
-    .lesson-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; }
-    .lesson-nav a { padding: .625rem 1.25rem; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: .82rem; }
-    .lesson-nav .prev { background: #fff; border: 1.5px solid #e2e8f0; color: #334155; }
-    .lesson-nav .next { background: #22C55E; color: #fff; }
-    @media (max-width: 640px) {
-      .lesson-hero { padding: 2.25rem 1rem; }
-      .lesson-hero h1 { font-size: 1.5rem; }
-      .wrap { padding: 2rem 1rem; }
-      .content-card { padding: 1.25rem; }
-    }
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
 <nav class="fsh-nav">
-  <a href="../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon">
-      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
-      </svg>
-    </div>
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
     <div class="fsh-logo-text">
       <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Physics Grade 12</span>
+      <span class="fsh-logo-tag">Grade 12 Physics</span>
     </div>
   </a>
-  <div class="fsh-nav-actions">
-    <a href="index.html" class="btn btn-ghost btn-sm">← Unit 5</a>
-    <a href="../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
-  </div>
 </nav>
 
-<div class="lesson-hero">
-  <div class="lesson-hero-inner">
-    <div class="lesson-tag">⚛️ Unit 5 · Lesson 5.3</div>
-    <h1>Atomic Models and Spectra</h1>
-    <p>Duration: 28 min · Part of <strong>Modern Physics</strong></p>
-  </div>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 5 · Lesson 5.3</div>
+    <a href="lesson-5-1.html" class="sidebar-link">L1: Semiconductors</a>
+    <a href="lesson-5-2.html" class="sidebar-link">L2: Diodes</a>
+    <a href="lesson-5-3.html" class="sidebar-link">L3: Rectification</a>
+    <a href="lesson-5-4.html" class="sidebar-link">L4: Transistors</a>
+    <a href="lesson-5-5.html" class="sidebar-link">L5: Integrated Circuits</a>
+    <a href="lesson-5-6.html" class="sidebar-link">L6: Logic Gates</a>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="lesson-header">
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 5 · Basics of Electronics</div>
+      <h1>📘 Lesson 5.3: Rectification</h1>
+      <p>Content coming soon. This lesson is part of Unit 5: Basics of Electronics.</p>
+    </div>
+
+    <div class="content-box">
+      <div class="placeholder-note">
+        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+      </div>
+    </div>
+  </main>
 </div>
 
-<div class="wrap">
-  <div class="breadcrumb">
-    <a href="../../../../index.html">Home</a> ›
-    <a href="../../../index.html">Entrance Exam</a> ›
-    <a href="../../index.html">Grade 12</a> ›
-    <a href="../index.html">Natural Science</a> ›
-    <a href="index.html">Physics</a> ›
-    <a href="unit-5/index.html">Unit 5</a> ›
-    <span>Atomic Models and Spectra</span>
-  </div>
-
-  <div class="content-card">
-    <h2>📖 Lesson Overview</h2>
-    <p>This lesson covers <strong>Atomic Models and Spectra</strong> from Unit 5: Modern Physics.</p>
-
-    <div class="placeholder">
-      <strong>🚧 Content coming soon.</strong><br>
-      Full lesson text, worked examples, and practice problems will be added here.
-      This placeholder confirms the page structure is ready.
-    </div>
-  </div>
-
-  <div class="content-card">
-    <h2>🎯 Learning Objectives</h2>
-    <p>By the end of this lesson you will be able to:</p>
-    <ul style="margin-left:1.25rem; color:#334155; line-height:1.9; font-size:.95rem;">
-      <li>Understand the core concepts of atomic models and spectra</li>
-      <li>Apply the key formulas and equations</li>
-      <li>Solve EUEE-style practice problems</li>
-      <li>Identify common exam traps and how to avoid them</li>
-    </ul>
-  </div>
-
-  <div class="content-card">
-    <h2>📝 Practice</h2>
-    <p>Practice questions with step-by-step solutions will appear here.</p>
-  </div>
-
-  <div class="lesson-nav">
-    <a href="index.html" class="prev">← Back to Unit 5</a>
-    <a href="index.html" class="next">Unit Overview →</a>
-  </div>
-</div>
-
-<footer class="fsh-footer">
-  <div class="fsh-footer-inner">
-    <div class="fsh-footer-bottom">
-      <p>© 2025 Freelance Skills Hub · Physics Grade 12</p>
-      <p>Atomic Models and Spectra</p>
-    </div>
-  </div>
-</footer>
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json())
+    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
+    .catch(()=>{});
+</script>
 </body>
 </html>
