@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.1: Acid-Base Concepts | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:480px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.arr{background:#FEF2F2;border-color:#FECACA}
+    .compare-card.bl{background:#EFF6FF;border-color:#BFDBFE}
+    .compare-card.lewis{background:#F0FDF4;border-color:#BBF7D0}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.arr .compare-card-title{color:#991B1B}
+    .compare-card.bl .compare-card-title{color:#1E40AF}
+    .compare-card.lewis .compare-card-title{color:#166534}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.65;margin:0}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('arrhenius')"><div class="sidebar-dot"></div> Arrhenius Concept</button>
+      <button class="sidebar-link" onclick="scrollTo('bronsted')"><div class="sidebar-dot"></div> Brønsted-Lowry</button>
+      <button class="sidebar-link" onclick="scrollTo('lewis')"><div class="sidebar-dot"></div> Lewis Concept</button>
+      <button class="sidebar-link" onclick="scrollTo('amphiprotic')"><div class="sidebar-dot"></div> Amphiprotic Species</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Acid-Base Concepts</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Strengths</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Ka and Kb</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Common Ion Effect</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Buffers</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Indicators</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Equivalents</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Titrations</a>
+      <a href="lesson-1-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Titration Curves</a>
+      <a href="lesson-1-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>⚗️ Acid-Base Concepts</h1>
+      <p>Chemistry has three major ways of defining acids and bases — Arrhenius, Brønsted-Lowry, and Lewis. Each one extends the last, covering more reactions. Master all three and you'll understand acids and bases from any angle.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Acids and bases are among the most familiar chemistry concepts — from vinegar (acetic acid) to drain cleaner (sodium hydroxide) and ammonia glass cleaner. But defining what makes something an acid has taken chemists over a century, with three successful theories built on top of each other.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe the <strong>Arrhenius</strong> definition and its limitations</li>
+          <li>State the <strong>Brønsted-Lowry</strong> definition with conjugate acid-base pairs</li>
+          <li>State the <strong>Lewis</strong> definition with electron-pair donors and acceptors</li>
+          <li>Identify <strong>conjugate pairs</strong> in acid-base reactions</li>
+          <li>Explain <strong>amphiprotic species</strong> and autoionization</li>
+          <li>Rank the relative strengths of conjugate pairs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="arrhenius">
+      <div class="section-header"><div class="section-icon">🧪</div>
+        <div><div class="section-title-text">1.1 Arrhenius Concept</div><div class="section-subtitle">The first successful theory (1884)</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The Swedish chemist <strong>Svante Arrhenius</strong> framed the first successful concept of acids and bases. He defined them in terms of their effect on water:
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Arrhenius Definition</div>
+          <p>
+            • <strong>Arrhenius acid</strong> — a substance that increases the concentration of <strong>H⁺</strong> (proton) in aqueous solution<br>
+            • <strong>Arrhenius base</strong> — a substance that increases the concentration of <strong>OH⁻</strong> (hydroxide ion) in aqueous solution
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">Examples</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Arrhenius Acid — Perchloric Acid</div>
+          <p style="font-size:.85rem;font-family:'Georgia',serif;color:#991B1B;margin:0">
+            HClO₄(aq) + H₂O(l) → H₃O⁺(aq) + ClO₄⁻(aq)
+          </p>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0">
+          <strong>Strong acids</strong> (completely ionize in water): HClO₄, H₂SO₄, HI, HBr, HCl, HNO₃
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Arrhenius Base — Sodium Hydroxide</div>
+          <p style="font-size:.85rem;font-family:'Georgia',serif;color:#991B1B;margin:0">
+            NaOH(s) —(H₂O)→ Na⁺(aq) + OH⁻(aq)
+          </p>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0">
+          <strong>Strong bases</strong>: hydroxides of Group IA (Li, Na, K, Rb, Cs) and Group IIA (except Be)
+        </p>
+
+        <div class="note-box">
+          <div class="note-label">📝 Limitations of Arrhenius Theory</div>
+          <p>
+            ✗ Limited to <strong>aqueous solutions</strong> only<br>
+            ✗ Requires the base to contain <strong>OH⁻</strong> — can't explain why NH₃ is a base<br>
+            ✗ Doesn't explain reactions in <strong>non-aqueous</strong> solvents
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="bronsted">
+      <div class="section-header"><div class="section-icon">⚛️</div>
+        <div><div class="section-title-text">1.2 Brønsted-Lowry Concept</div><div class="section-subtitle">Proton transfer (1923)</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          In 1923, <strong>J. N. Brønsted</strong> (Denmark) and <strong>T. M. Lowry</strong> (Great Britain) independently proposed a broader theory. They described acid-base reactions as <strong>proton-transfer</strong> reactions.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Brønsted-Lowry Definition</div>
+          <p>
+            • <strong>Acid</strong> — a proton (H⁺) <strong>donor</strong><br>
+            • <strong>Base</strong> — a proton (H⁺) <strong>acceptor</strong>
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Ionization of Ammonia in Water</div>
+          <p style="font-size:.9rem;font-family:'Georgia',serif;color:#991B1B;margin:0">
+            NH₃(aq) + H₂O(l) ⇌ NH₄⁺(aq) + OH⁻(aq)
+          </p>
+          <p style="font-size:.78rem;color:#64748b;margin-top:.75rem">
+            Water <strong>donates</strong> a proton (acts as acid) to ammonia, which <strong>accepts</strong> it (acts as base).
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Advantage over Arrhenius</div>
+          <p>
+            ✓ Works in <strong>any solvent</strong>, not just water<br>
+            ✓ Bases do <strong>not</strong> need to contain OH⁻<br>
+            ✓ Explains NH₃'s basic behavior
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Conjugate Acid-Base Pairs</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          When a Brønsted-Lowry acid donates a proton, it becomes a <strong>conjugate base</strong>. When a base accepts a proton, it becomes a <strong>conjugate acid</strong>. Together they form a <strong>conjugate acid-base pair</strong>.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Conjugate Pair Rules</div>
+          <p>
+            • The <strong>conjugate base</strong> has one fewer H and one more negative charge than the acid<br>
+            • The <strong>conjugate acid</strong> has one more H and one fewer negative charge than the base
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Conjugate Pairs — Acetic Acid</div>
+          <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg">
+            <text x="260" y="20" font-size="12" fill="#991B1B" text-anchor="middle" font-weight="bold">Conjugate acid-base pair</text>
+            <!-- first pair -->
+            <text x="40" y="80" font-size="15" fill="#0F172A" font-weight="bold">CH₃COOH</text>
+            <text x="40" y="98" font-size="10" fill="#991B1B" font-style="italic">Acid</text>
+            <text x="150" y="80" font-size="15" fill="#0F172A">+</text>
+            <text x="180" y="80" font-size="15" fill="#0F172A" font-weight="bold">H₂O</text>
+            <text x="183" y="98" font-size="10" fill="#1E40AF" font-style="italic">Base</text>
+            <text x="255" y="80" font-size="15" fill="#0F172A">⇌</text>
+            <text x="295" y="80" font-size="15" fill="#0F172A" font-weight="bold">CH₃COO⁻</text>
+            <text x="300" y="98" font-size="10" fill="#1E40AF" font-style="italic">Base</text>
+            <text x="420" y="80" font-size="15" fill="#0F172A">+</text>
+            <text x="445" y="80" font-size="15" fill="#0F172A" font-weight="bold">H₃O⁺</text>
+            <text x="450" y="98" font-size="10" fill="#991B1B" font-style="italic">Acid</text>
+            <!-- bracket lines -->
+            <line x1="40" y1="30" x2="240" y2="30" stroke="#991B1B" stroke-width="1"/>
+            <line x1="40" y1="30" x2="40" y2="40" stroke="#991B1B" stroke-width="1"/>
+            <line x1="240" y1="30" x2="240" y2="40" stroke="#991B1B" stroke-width="1"/>
+            <line x1="280" y1="30" x2="490" y2="30" stroke="#1E40AF" stroke-width="1"/>
+            <line x1="280" y1="30" x2="280" y2="40" stroke="#1E40AF" stroke-width="1"/>
+            <line x1="490" y1="30" x2="490" y2="40" stroke="#1E40AF" stroke-width="1"/>
+            <!-- bottom bracket -->
+            <line x1="40" y1="118" x2="360" y2="118" stroke="#991B1B" stroke-width="1"/>
+            <line x1="40" y1="108" x2="40" y2="118" stroke="#991B1B" stroke-width="1"/>
+            <line x1="360" y1="108" x2="360" y2="118" stroke="#991B1B" stroke-width="1"/>
+            <text x="200" y="135" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">Conjugate pair</text>
+          </svg>
+          <div class="visual-box-caption">
+            <strong>CH₃COOH</strong> donates H⁺ → becomes <strong>CH₃COO⁻</strong><br>
+            <strong>H₂O</strong> accepts H⁺ → becomes <strong>H₃O⁺</strong>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Common Conjugate Pairs — Table 1.1</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Acid</th><th>Base</th><th>Conjugate Base</th><th>Conjugate Acid</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>HF</td><td>H₂O</td><td>F⁻</td><td>H₃O⁺</td></tr>
+            <tr><td>HCOOH</td><td>CN⁻</td><td>HCOO⁻</td><td>HCN</td></tr>
+            <tr><td>NH₄⁺</td><td>CO₃²⁻</td><td>NH₃</td><td>HCO₃⁻</td></tr>
+            <tr><td>H₂PO₄⁻</td><td>OH⁻</td><td>HPO₄²⁻</td><td>H₂O</td></tr>
+            <tr><td>H₂SO₄</td><td>N₂H₅⁺</td><td>HSO₄⁻</td><td>N₂H₆²⁺</td></tr>
+            <tr><td>HPO₄²⁻</td><td>SO₃²⁻</td><td>PO₄³⁻</td><td>HSO₃⁻</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Strengths of Conjugate Pairs</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 The Inverse Rule</div>
+          <p>
+            • The <strong>stronger the acid</strong>, the <strong>weaker its conjugate base</strong><br>
+            • The <strong>stronger the base</strong>, the <strong>weaker its conjugate acid</strong><br><br>
+            A reaction proceeds in the direction that forms the <strong>weaker acid and weaker base</strong>.
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Example</div>
+          <p>
+            HCl is a strong acid → Cl⁻ is a very weak base.<br>
+            CH₃COOH is a weak acid → CH₃COO⁻ is a moderately strong base.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Autoionization of Water</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Self-Ionization</div>
+          <p>
+            Water can act as both an acid and a base — it autoionizes:
+          </p>
+          <p style="font-size:1.05rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;text-align:center;margin:.875rem 0">
+            2 H₂O(l) ⇌ H₃O⁺(aq) + OH⁻(aq)
+          </p>
+          <p>
+            This is the equilibrium reaction that gives water its very small electrical conductivity and its ion-product constant <strong>Kw = 1.0 × 10⁻¹⁴</strong> at 25°C.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="lewis">
+      <div class="section-header"><div class="section-icon">⚡</div>
+        <div><div class="section-title-text">1.3 Lewis Concept</div><div class="section-subtitle">Electron-pair theory (1923)</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          <strong>G. N. Lewis</strong> proposed the most general definition — one based on <strong>electron-pair transfer</strong>, not just protons.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Lewis Definition</div>
+          <p>
+            • <strong>Lewis base</strong> — any species that <strong>donates</strong> an electron pair to form a covalent bond<br>
+            • <strong>Lewis acid</strong> — any species that <strong>accepts</strong> an electron pair to form a covalent bond
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">BF₃ + NH₃ → Lewis Acid-Base Reaction</div>
+          <svg viewBox="0 0 480 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left: BF3 -->
+            <text x="60" y="30" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">Lewis Acid</text>
+            <text x="60" y="95" font-size="16" fill="#0F172A" text-anchor="middle" font-weight="bold">BF₃</text>
+            <text x="60" y="120" font-size="10" fill="#64748b" text-anchor="middle">Empty orbital on B</text>
+
+            <!-- Plus -->
+            <text x="180" y="95" font-size="20" fill="#0F172A" text-anchor="middle">+</text>
+
+            <!-- Middle: NH3 -->
+            <text x="300" y="30" font-size="11" fill="#1E40AF" text-anchor="middle" font-weight="bold">Lewis Base</text>
+            <text x="300" y="95" font-size="16" fill="#0F172A" text-anchor="middle" font-weight="bold">NH₃</text>
+            <text x="300" y="120" font-size="10" fill="#64748b" text-anchor="middle">Lone pair on N</text>
+
+            <!-- Arrow -->
+            <text x="395" y="95" font-size="20" fill="#0F172A" text-anchor="middle">→</text>
+
+            <!-- Right: Product -->
+            <text x="460" y="30" font-size="11" fill="#166534" text-anchor="middle" font-weight="bold">Adduct</text>
+            <text x="460" y="95" font-size="14" fill="#0F172A" text-anchor="middle" font-weight="bold">F₃B:NH₃</text>
+
+            <!-- Curved arrow showing electron transfer -->
+            <path d="M 90, 65 Q 200, 25 295, 55" fill="none" stroke="#DC2626" stroke-width="1.5"/>
+            <polygon points="295,55 288,48 293,58" fill="#DC2626"/>
+          </svg>
+          <div class="visual-box-caption">
+            BF₃ accepts a lone electron pair from NH₃ — forming a coordinate covalent bond.
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Note</div>
+          <p>
+            Any molecule or negative ion with an <strong>excess of electrons</strong> (lone pairs) is a Lewis base. Any electron-deficient molecule or positive ion is a Lewis acid.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Comparing the Three Definitions</h3>
+
+        <div class="compare-grid">
+          <div class="compare-card arr">
+            <div class="compare-card-title">🔴 Arrhenius</div>
+            <p>Acid → H⁺ in water<br>Base → OH⁻ in water<br><em>Limited to aqueous solutions</em></p>
+          </div>
+          <div class="compare-card bl">
+            <div class="compare-card-title">🔵 Brønsted-Lowry</div>
+            <p>Acid → proton donor<br>Base → proton acceptor<br><em>Any solvent</em></p>
+          </div>
+          <div class="compare-card lewis">
+            <div class="compare-card-title">🟢 Lewis</div>
+            <p>Acid → electron-pair acceptor<br>Base → electron-pair donor<br><em>Most general</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="amphiprotic">
+      <div class="section-header"><div class="section-icon">🔄</div>
+        <div><div class="section-title-text">1.4 Amphiprotic Species</div><div class="section-subtitle">Molecules that can act as both acids and bases</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Amphiprotic Species</div>
+          <p>
+            Molecules or ions that can either <strong>donate</strong> or <strong>accept</strong> a proton, depending on the other reactant, are called <strong>amphiprotic species</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">The Most Important Amphiprotic Species — Water</h3>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          Water acts as a <strong>base</strong> with strong acids:
+        </p>
+        <p style="font-size:.9rem;font-family:'Georgia',serif;color:#991B1B;text-align:center;margin:.5rem 0">
+          HCl + H₂O → Cl⁻ + H₃O⁺
+        </p>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0 .75rem">
+          Water acts as an <strong>acid</strong> with strong bases:
+        </p>
+        <p style="font-size:.9rem;font-family:'Georgia',serif;color:#991B1B;text-align:center;margin:.5rem 0">
+          NH₃ + H₂O ⇌ NH₄⁺ + OH⁻
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Other Amphiprotic Species</h3>
+        <table class="data-table">
+          <thead><tr><th>Species</th><th>As Acid (donates H⁺)</th><th>As Base (accepts H⁺)</th></tr></thead>
+          <tbody>
+            <tr><td>HCO₃⁻</td><td>HCO₃⁻ → CO₃²⁻ + H⁺</td><td>HCO₃⁻ + H⁺ → H₂CO₃</td></tr>
+            <tr><td>H₂PO₄⁻</td><td>H₂PO₄⁻ → HPO₄²⁻ + H⁺</td><td>H₂PO₄⁻ + H⁺ → H₃PO₄</td></tr>
+            <tr><td>HSO₄⁻</td><td>HSO₄⁻ → SO₄²⁻ + H⁺</td><td>HSO₄⁻ + H⁺ → H₂SO₄</td></tr>
+            <tr><td>H₂O</td><td>H₂O → OH⁻ + H⁺</td><td>H₂O + H⁺ → H₃O⁺</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Key Concepts Reference</div><div class="section-subtitle">Quick reference</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">⚗️ Lesson 1.1 — Acid-Base Concepts</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Arrhenius Acid</div><div class="formula-math">→ H⁺ in water</div><div class="formula-note">Aqueous only</div></div>
+          <div class="formula-item"><div class="formula-name">Arrhenius Base</div><div class="formula-math">→ OH⁻ in water</div><div class="formula-note">Must contain OH</div></div>
+          <div class="formula-item"><div class="formula-name">B-L Acid</div><div class="formula-math">Proton donor</div><div class="formula-note">Any solvent</div></div>
+          <div class="formula-item"><div class="formula-name">B-L Base</div><div class="formula-math">Proton acceptor</div><div class="formula-note">Any solvent</div></div>
+          <div class="formula-item"><div class="formula-name">Lewis Acid</div><div class="formula-math">e⁻-pair acceptor</div><div class="formula-note">Most general</div></div>
+          <div class="formula-item"><div class="formula-name">Lewis Base</div><div class="formula-math">e⁻-pair donor</div><div class="formula-note">Most general</div></div>
+          <div class="formula-item"><div class="formula-name">Conjugate base</div><div class="formula-math">Acid − H⁺</div><div class="formula-note">One fewer H, +1 charge</div></div>
+          <div class="formula-item"><div class="formula-name">Autoionization</div><div class="formula-math">2H₂O ⇌ H₃O⁺ + OH⁻</div><div class="formula-note">Kw = 1.0 × 10⁻¹⁴</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identify Brønsted-Lowry Acid and Base</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Identify the Brønsted-Lowry acids, bases, and their conjugates in:<br>NH₃ + H₂PO₄⁻ ⇌ NH₄⁺ + HPO₄²⁻</div>
+          <div class="example-step"><span class="step-badge">Find donors/acceptors</span><div class="step-text">Look for who gains/loses a proton (H⁺).</div></div>
+          <div class="example-step"><span class="step-badge">Analyze</span><div class="step-text"><span class="math">H₂PO₄⁻</span> loses H⁺ → <span class="math">HPO₄²⁻</span> (H₂PO₄⁻ is the acid, HPO₄²⁻ is its conjugate base)</div></div>
+          <div class="example-step"><span class="step-badge">Analyze</span><div class="step-text"><span class="math">NH₃</span> gains H⁺ → <span class="math">NH₄⁺</span> (NH₃ is the base, NH₄⁺ is its conjugate acid)</div></div>
+          <div class="example-answer">✅ Acid: H₂PO₄⁻ | Base: NH₃ | Conjugate base: HPO₄²⁻ | Conjugate acid: NH₄⁺</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Same Species, Both Roles</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> In the reaction HCl + H₂PO₄⁻ ⇌ Cl⁻ + H₃PO₄, what role does H₂PO₄⁻ play?</div>
+          <div class="example-step"><span class="step-badge">Analyze</span><div class="step-text">HCl loses H⁺ → Cl⁻ (HCl is the acid).</div></div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text"><span class="math">H₂PO₄⁻</span> gains H⁺ → H₃PO₄. It's the <span class="math">base</span> here.</div></div>
+          <div class="example-step"><span class="step-badge">Compare to Example 1</span><div class="step-text">In the previous problem, H₂PO₄⁻ acted as an <span class="math">acid</span>. So H₂PO₄⁻ is amphiprotic!</div></div>
+          <div class="example-answer">✅ H₂PO₄⁻ acts as a <strong>base</strong> in this reaction (but it can act as an acid elsewhere)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Identify Lewis Acid and Base</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Identify the Lewis acid and base in: BH₃ + (CH₃)₂S → H₃BS(CH₃)₂</div>
+          <div class="example-step"><span class="step-badge">Find electron-deficient</span><div class="step-text">B in BH₃ has only 6 valence electrons → can <span class="math">accept</span> an electron pair.</div></div>
+          <div class="example-step"><span class="step-badge">Find electron-rich</span><div class="step-text">S in (CH₃)₂S has <span class="math">two lone pairs</span> → can <span class="math">donate</span> one.</div></div>
+          <div class="example-answer">✅ Lewis acid: <strong>BH₃</strong> &nbsp; Lewis base: <strong>(CH₃)₂S</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Write the Conjugate Base</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Write the conjugate base of HSO₄⁻.</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">Conjugate base = acid with <span class="math">one fewer H⁺</span> (and one more negative charge).</div></div>
+          <div class="example-step"><span class="step-badge">Remove H⁺</span><div class="step-text">HSO₄⁻ → SO₄²⁻ + H⁺</div></div>
+          <div class="example-answer">✅ Conjugate base of HSO₄⁻ is <strong>SO₄²⁻</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Rank Conjugate Base Strengths</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Rank the following conjugate bases from strongest to weakest: F⁻, NO₂⁻, CN⁻. Given Ka values: HF = 7.2 × 10⁻⁴, HNO₂ = 4.5 × 10⁻⁴, HCN = 6.2 × 10⁻¹⁰.</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">Stronger acid → <span class="math">weaker</span> conjugate base.</div></div>
+          <div class="example-step"><span class="step-badge">Rank acids</span><div class="step-text">HF (7.2×10⁻⁴) > HNO₂ (4.5×10⁻⁴) > HCN (6.2×10⁻¹⁰)</div></div>
+          <div class="example-step"><span class="step-badge">Reverse for bases</span><div class="step-text">So conjugate bases rank <span class="math">opposite</span>: CN⁻ > NO₂⁻ > F⁻</div></div>
+          <div class="example-answer">✅ Strongest → weakest: <strong>CN⁻ > NO₂⁻ > F⁻</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which definition of acids and bases is limited to aqueous solutions?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','A')"><div class="option-letter">A</div> Arrhenius</div>
+          <div class="quiz-option" onclick="answer(1,'B','A')"><div class="option-letter">B</div> Brønsted-Lowry</div>
+          <div class="quiz-option" onclick="answer(1,'C','A')"><div class="option-letter">C</div> Lewis</div>
+          <div class="quiz-option" onclick="answer(1,'D','A')"><div class="option-letter">D</div> All three</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">A Brønsted-Lowry base is a species that:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Produces OH⁻ in water</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Accepts an electron pair</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Accepts a proton (H⁺)</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Donates a proton</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">What is the conjugate base of H₂PO₄⁻?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> H₃PO₄</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> PO₄³⁻</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> HPO₄²⁻</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> H₂PO₄</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">In the reaction BF₃ + NH₃ → F₃BNH₃, the Lewis acid is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','A')"><div class="option-letter">A</div> BF₃</div>
+          <div class="quiz-option" onclick="answer(4,'B','A')"><div class="option-letter">B</div> NH₃</div>
+          <div class="quiz-option" onclick="answer(4,'C','A')"><div class="option-letter">C</div> F₃BNH₃</div>
+          <div class="quiz-option" onclick="answer(4,'D','A')"><div class="option-letter">D</div> Both BF₃ and NH₃</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A species that can both donate and accept a proton is called:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Polyprotic</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Amphoteric</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Amphiprotic</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Neutral</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+arrhenius+bronsted+lowry+lewis+acids+bases" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Arrhenius, Brønsted-Lowry, and Lewis Acid-Base Theories</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+conjugate+acid+base+pairs" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Conjugate Acid-Base Pairs Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+lewis+acid+base+examples" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Lewis Acids and Bases — Examples and Practice</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+amphiprotic+amphoteric+species" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Amphiprotic and Amphoteric Species</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.1</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Acid-Base Concepts</div>
+        <ul class="summary-list">
+          <li><strong>Arrhenius</strong>: acid → H⁺ in water; base → OH⁻ in water. Limited to aqueous.</li>
+          <li><strong>Brønsted-Lowry</strong>: acid → proton donor; base → proton acceptor. Works in any solvent.</li>
+          <li><strong>Lewis</strong>: acid → electron-pair acceptor; base → electron-pair donor. Most general.</li>
+          <li>A <strong>conjugate acid-base pair</strong> differs by one H⁺. Acid ⇌ Conjugate base + H⁺.</li>
+          <li>Stronger acid → <strong>weaker</strong> conjugate base.</li>
+          <li>Water is <strong>amphiprotic</strong> — acts as both acid and base.</li>
+          <li>Water autoionizes: 2H₂O ⇌ H₃O⁺ + OH⁻ (Kw = 1.0 × 10⁻¹⁴ at 25°C).</li>
+          <li>Amphiprotic species: H₂O, HCO₃⁻, H₂PO₄⁻, HSO₄⁻</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="index.html" class="btn btn-ghost">← Back to Unit 1</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 1 of 12</div>
+      <a href="lesson-1-2.html" class="btn btn-primary">Next: Water & pH Scale →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'A',2:'C',3:'C',4:'A',5:'C'};
+  const feedbacks={
+    1:{A:'✓ Correct! The Arrhenius theory is limited to aqueous solutions.',wrong:'✗ Arrhenius is aqueous-only; Brønsted-Lowry and Lewis are more general.'},
+    2:{C:'✓ Correct! A Brønsted-Lowry base accepts a proton (H⁺).',wrong:'✗ Brønsted-Lowry base = proton acceptor.'},
+    3:{C:'✓ Correct! Remove one H⁺ from H₂PO₄⁻ → HPO₄²⁻.',wrong:'✗ Conjugate base = acid minus H⁺ → H₂PO₄⁻ → HPO₄²⁻.'},
+    4:{A:'✓ Correct! BF₃ accepts a lone pair from NH₃ — it is the Lewis acid.',wrong:'✗ BF₃ has an empty orbital on B, so it accepts electrons — Lewis acid.'},
+    5:{C:'✓ Correct! Species that can donate OR accept a proton are amphiprotic.',wrong:'✗ Amphiprotic species (like H₂O) can both donate and accept protons.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','arrhenius','bronsted','lewis','amphiprotic','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
