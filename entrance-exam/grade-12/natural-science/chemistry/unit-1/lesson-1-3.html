@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.3: Strengths of Acids and Bases | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('strongweak')"><div class="sidebar-dot"></div> Strong vs Weak</button>
+      <button class="sidebar-link" onclick="scrollTo('compare')"><div class="sidebar-dot"></div> Three Measures</button>
+      <button class="sidebar-link" onclick="scrollTo('percent')"><div class="sidebar-dot"></div> Percent Ionization</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Acid-Base Concepts ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link active"><div class="sidebar-dot"></div> L3: Strengths</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Ka and Kb</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Common Ion Effect</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Buffers</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Indicators</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Equivalents</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Titrations</a>
+      <a href="lesson-1-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Titration Curves</a>
+      <a href="lesson-1-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>💪 Strengths of Acids and Bases</h1>
+      <p>Not all acids are created equal. HCl ionizes 100% in water — acetic acid only about 1%. Learn how to quantify the strength of acids and bases using three powerful tools: concentration, pH, and percent ionization.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Why is HCl a "strong" acid but acetic acid "weak"? The answer lies in how much each acid <strong>ionizes</strong> in water. A strong acid completely dissociates into ions; a weak acid only partially ionizes.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Distinguish between <strong>strong</strong> and <strong>weak</strong> acids and bases</li>
+          <li>Compare strengths using <strong>H₃O⁺ concentration</strong></li>
+          <li>Use <strong>pH/pOH</strong> to compare strengths</li>
+          <li>Calculate <strong>percent ionization</strong> of weak acids and bases</li>
+          <li>Apply the <strong>equilibrium direction rule</strong> for acid-base reactions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="strongweak">
+      <div class="section-header"><div class="section-icon">⚡</div>
+        <div><div class="section-title-text">3.1 Strong vs Weak Acids and Bases</div><div class="section-subtitle">The ionization difference</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Strong Acid</div>
+          <p>
+            An acid that <strong>completely ionizes</strong> in water (essentially 100%). For example:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            HCl(aq) + H₂O(l) → H₃O⁺(aq) + Cl⁻(aq)
+          </p>
+          <p>
+            <strong>Common strong acids</strong>: HCl, HBr, HI, HNO₃, HClO₄, H₂SO₄ (first ionization)
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Weak Acid</div>
+          <p>
+            An acid that <strong>partially ionizes</strong> in water (usually 1–5%). It reaches equilibrium. Example:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            CH₃COOH(aq) + H₂O(l) ⇌ CH₃COO⁻(aq) + H₃O⁺(aq)
+          </p>
+          <p>
+            <strong>Common weak acids</strong>: acetic acid, formic acid, HF, HCN, H₂CO₃
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Strong vs Weak Bases</div>
+          <p>
+            • <strong>Strong base</strong>: completely ionizes (all Group IA hydroxides + Ba(OH)₂, Sr(OH)₂, Ca(OH)₂)<br>
+            • <strong>Weak base</strong>: partially ionizes (NH₃, amines, most other hydroxides)
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Important distinction</div>
+          <p>
+            <strong>Strength ≠ Concentration!</strong><br>
+            • <strong>Strength</strong> = how completely it ionizes (a property of the substance)<br>
+            • <strong>Concentration</strong> = how much is dissolved in a given volume (a property of the solution)<br><br>
+            You can have a <strong>dilute</strong> solution of a strong acid, or a <strong>concentrated</strong> solution of a weak acid.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Visual Comparison — 0.1 M Solutions</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Ionization at the Same Concentration</div>
+          <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Strong acid -->
+            <text x="130" y="20" font-size="12" fill="#991B1B" text-anchor="middle" font-weight="bold">HCl — Strong Acid</text>
+            <rect x="40" y="40" width="180" height="60" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5" rx="4"/>
+            <text x="130" y="70" font-size="14" fill="#0F172A" text-anchor="middle">HCl(aq)</text>
+            <text x="130" y="90" font-size="10" fill="#64748b" text-anchor="middle">0.1 M</text>
+            <!-- Arrow down -->
+            <text x="130" y="120" font-size="20" fill="#DC2626" text-anchor="middle">↓ 100%</text>
+            <!-- Products -->
+            <text x="130" y="150" font-size="13" fill="#16A34A" text-anchor="middle" font-weight="bold">H₃O⁺ + Cl⁻</text>
+            <text x="130" y="170" font-size="10" fill="#166534" text-anchor="middle">0.1 M + 0.1 M</text>
+            <text x="130" y="190" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="bold">pH = 1.0</text>
+
+            <!-- Weak acid -->
+            <text x="390" y="20" font-size="12" fill="#991B1B" text-anchor="middle" font-weight="bold">CH₃COOH — Weak Acid</text>
+            <rect x="300" y="40" width="180" height="60" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.5" rx="4"/>
+            <text x="390" y="70" font-size="14" fill="#0F172A" text-anchor="middle">CH₃COOH(aq)</text>
+            <text x="390" y="90" font-size="10" fill="#64748b" text-anchor="middle">0.1 M</text>
+            <!-- Arrow down -->
+            <text x="390" y="120" font-size="20" fill="#DC2626" text-anchor="middle">↓ ~1.3%</text>
+            <!-- Products -->
+            <text x="390" y="150" font-size="13" fill="#16A34A" text-anchor="middle" font-weight="bold">H₃O⁺ + CH₃COO⁻</text>
+            <text x="390" y="170" font-size="10" fill="#166534" text-anchor="middle">0.0013 M each</text>
+            <text x="390" y="190" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="bold">pH = 2.9</text>
+          </svg>
+          <div class="visual-box-caption">
+            Both solutions have the same concentration (0.1 M) but HCl produces <strong>75× more H₃O⁺</strong> than acetic acid.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="compare">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">3.2 Three Measures of Acid Strength</div><div class="section-subtitle">Comparing acids and bases quantitatively</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Measure 1 — Concentration of H₃O⁺ (or OH⁻)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The most direct measure. If two acids have the <strong>same initial concentration</strong>, the one that produces more H₃O⁺ is stronger.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Rule</div>
+          <p>
+            For solutions of the <strong>same concentration</strong>:<br>
+            • Stronger acid → <strong>higher [H₃O⁺]</strong><br>
+            • Stronger base → <strong>higher [OH⁻]</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Measure 2 — pH and pOH</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Since pH = −log[H₃O⁺], higher [H₃O⁺] means lower pH.
+        </p>
+        <div class="definition-box">
+          <div class="def-label">📌 Rule</div>
+          <p>
+            For solutions of the <strong>same concentration</strong>:<br>
+            • Stronger acid → <strong>lower pH</strong><br>
+            • Stronger base → <strong>lower pOH</strong> (and higher pH)
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Measure 3 — Percent Ionization</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The most informative measure — it tells us <em>what fraction of the acid has actually ionized</em>.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Percent Ionization</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            % Ionization = ([ionized acid] / [initial acid]) × 100%
+          </p>
+          <p>
+            Same formula for bases using [ionized base] / [initial base].
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Typical values</div>
+          <p>
+            • Strong acids: <strong>~100%</strong> ionization<br>
+            • Weak acids: <strong>1–5%</strong> ionization<br>
+            • The lower the percent ionization, the weaker the acid
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="percent">
+      <div class="section-header"><div class="section-icon">📉</div>
+        <div><div class="section-title-text">3.3 How to Calculate Percent Ionization</div><div class="section-subtitle">Step-by-step</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Consider a weak acid HA with initial concentration C:
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">ICE Table for Weak Acid HA</div>
+          <table class="data-table" style="max-width:480px;margin:0 auto">
+            <thead>
+              <tr><th></th><th>HA</th><th>H₂O</th><th>⇌ H₃O⁺</th><th>A⁻</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Initial</strong></td><td>C</td><td>—</td><td>0</td><td>0</td></tr>
+              <tr><td><strong>Change</strong></td><td>−x</td><td>—</td><td>+x</td><td>+x</td></tr>
+              <tr><td><strong>Equilibrium</strong></td><td>C − x</td><td>—</td><td>x</td><td>x</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0">
+          At equilibrium, the amount of ionized acid is <strong>x</strong>, which equals <strong>[H₃O⁺]</strong>. So:
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Percent Ionization Formula</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            % ionization = (x / C) × 100% = ([H₃O⁺] / C) × 100%
+          </p>
+          <p>
+            Where <strong>C</strong> is the initial acid concentration.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The 5% rule</div>
+          <p>
+            When solving weak acid problems, if percent ionization is <strong>≤ 5%</strong>, you can use the approximation <strong>C − x ≈ C</strong> to simplify the math. If more than 5%, you must use the quadratic formula.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Everything you need for this lesson</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">💪 Lesson 1.3 — Strengths of Acids & Bases</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Strong acid</div><div class="formula-math">100% ionization</div><div class="formula-note">HCl, HNO₃, H₂SO₄</div></div>
+          <div class="formula-item"><div class="formula-name">Weak acid</div><div class="formula-math">Partial ionization</div><div class="formula-note">CH₃COOH, HF, HCN</div></div>
+          <div class="formula-item"><div class="formula-name">Strong base</div><div class="formula-math">100% ionization</div><div class="formula-note">NaOH, KOH, Ba(OH)₂</div></div>
+          <div class="formula-item"><div class="formula-name">Weak base</div><div class="formula-math">Partial ionization</div><div class="formula-note">NH₃, amines</div></div>
+          <div class="formula-item"><div class="formula-name">% ionization</div><div class="formula-math">([H₃O⁺] / C) × 100%</div><div class="formula-note">C = initial concentration</div></div>
+          <div class="formula-item"><div class="formula-name">Stronger acid</div><div class="formula-math">↓ pH, ↑ [H₃O⁺]</div><div class="formula-note">At same concentration</div></div>
+          <div class="formula-item"><div class="formula-name">Stronger base</div><div class="formula-math">↓ pOH, ↑ [OH⁻]</div><div class="formula-note">At same concentration</div></div>
+          <div class="formula-item"><div class="formula-name">5% rule</div><div class="formula-math">C − x ≈ C</div><div class="formula-note">Approximation valid if % ion ≤ 5%</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Compare Two Acids at Same Concentration</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> 0.10 M HCl has pH = 1.00. 0.10 M CH₃COOH has pH = 2.89. Which is the stronger acid, and by what factor is [H₃O⁺] different?</div>
+          <div class="example-step"><span class="step-badge">Find [H₃O⁺]</span><div class="step-text">
+            <span class="math">[H₃O⁺] of HCl = 10⁻¹·⁰⁰ = 0.10 M</span><br>
+            <span class="math">[H₃O⁺] of CH₃COOH = 10⁻²·⁸⁹ = 1.3 × 10⁻³ M</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text">HCl gives more H₃O⁺ → <span class="math">HCl is stronger</span></div></div>
+          <div class="example-step"><span class="step-badge">Factor</span><div class="step-text"><span class="math">0.10 / 1.3×10⁻³ ≈ 77</span></div></div>
+          <div class="example-answer">✅ <strong>HCl is ~77× stronger</strong> than CH₃COOH at the same concentration</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Percent Ionization of Acetic Acid</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A 0.100 M solution of acetic acid has [H₃O⁺] = 1.34 × 10⁻³ M at equilibrium. Calculate the percent ionization.</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">% ionization = ([H₃O⁺] / C) × 100%</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">% = (1.34×10⁻³ / 0.100) × 100%</span></div></div>
+          <div class="example-step"><span class="step-badge">Compute</span><div class="step-text"><span class="math">% = 0.0134 × 100 = 1.34%</span></div></div>
+          <div class="example-step"><span class="step-badge">Check rule</span><div class="step-text">1.34% ≤ 5% → approximation valid</div></div>
+          <div class="example-answer">✅ Percent ionization = <strong>1.34%</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Percent Ionization of Nitrous Acid</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A 0.125 M solution of nitrous acid (HNO₂) has pH = 2.09. Calculate the percent ionization.</div>
+          <div class="example-step"><span class="step-badge">Find [H₃O⁺]</span><div class="step-text"><span class="math">[H₃O⁺] = 10⁻²·⁰⁹ = 8.1 × 10⁻³ M</span></div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">% ionization = ([H₃O⁺] / C) × 100%</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">% = (8.1×10⁻³ / 0.125) × 100%</span></div></div>
+          <div class="example-step"><span class="step-badge">Compute</span><div class="step-text"><span class="math">% ≈ 6.5%</span></div></div>
+          <div class="example-step"><span class="step-badge">Check rule</span><div class="step-text">6.5% &gt; 5% → approximation NOT valid; must use quadratic. (Here just reporting % ionization.)</div></div>
+          <div class="example-answer">✅ Percent ionization ≈ <strong>6.5%</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Identify Strongest Base</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Rank these bases from strongest to weakest: NH₃ (Kb = 1.8×10⁻⁵), CH₃NH₂ (Kb = 4.4×10⁻⁴), C₅H₅N (Kb = 1.7×10⁻⁹).</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">Higher Kb → stronger base</div></div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text">
+            CH₃NH₂ (4.4×10⁻⁴) &gt; NH₃ (1.8×10⁻⁵) &gt; C₅H₅N (1.7×10⁻⁹)
+          </div></div>
+          <div class="example-answer">✅ Strongest → weakest: <strong>CH₃NH₂ > NH₃ > C₅H₅N</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Direction of Acid-Base Reaction</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Predict the direction of the reaction: HCN + HCOO⁻ ⇌ CN⁻ + HCOOH. Given: Ka(HCN) = 4.9×10⁻¹⁰, Ka(HCOOH) = 1.7×10⁻⁴.</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">Reaction favors formation of the <span class="math">weaker acid and weaker base</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Compare Ka</span><div class="step-text">HCOOH (1.7×10⁻⁴) is stronger than HCN (4.9×10⁻¹⁰)</div></div>
+          <div class="example-step"><span class="step-badge">Which side</span><div class="step-text">Products contain <span class="math">weaker acid</span> (HCN) and weaker base (CN⁻)... wait — check carefully.</div></div>
+          <div class="example-step"><span class="step-badge">Analysis</span><div class="step-text">Reactants: HCN (weak acid) + HCOO⁻ (strong base from weak acid). Products: CN⁻ (strong base) + HCOOH (strong acid). <span class="math">Reactants are more stable</span>.</div></div>
+          <div class="example-answer">✅ Equilibrium lies to the <strong>left</strong> (favors HCN + HCOO⁻)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which of these is a strong acid?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> CH₃COOH</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> HF</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> HNO₃</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> HCN</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Two 0.1 M acid solutions A and B have pH 2.0 and 3.0 respectively. Which is stronger?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','A')"><div class="option-letter">A</div> A (pH 2.0)</div>
+          <div class="quiz-option" onclick="answer(2,'B','A')"><div class="option-letter">B</div> B (pH 3.0)</div>
+          <div class="quiz-option" onclick="answer(2,'C','A')"><div class="option-letter">C</div> They are equal</div>
+          <div class="quiz-option" onclick="answer(2,'D','A')"><div class="option-letter">D</div> Cannot be determined</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A 0.20 M weak acid solution has [H₃O⁺] = 2.0 × 10⁻³ M. What is the percent ionization?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> 0.1%</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> 1.0%</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> 10%</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> 20%</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which statement is FALSE?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Strong acids ionize 100% in water</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Weak bases partially ionize in water</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> A dilute solution of HCl has low [H₃O⁺]</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> A concentrated solution of CH₃COOH is a strong acid</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">For weak acid HA with Ka = 1.8 × 10⁻⁵ and initial concentration 0.10 M, the 5% rule says:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','A')"><div class="option-letter">A</div> We can approximate C − x ≈ C</div>
+          <div class="quiz-option" onclick="answer(5,'B','A')"><div class="option-letter">B</div> We must use the quadratic formula</div>
+          <div class="quiz-option" onclick="answer(5,'C','A')"><div class="option-letter">C</div> The acid is strong</div>
+          <div class="quiz-option" onclick="answer(5,'D','A')"><div class="option-letter">D</div> pH = 5</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-4.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+strong+weak+acids+bases" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Strong vs Weak Acids and Bases — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+percent+ionization+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Percent Ionization of Weak Acids — Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+acid+base+strength+ka+kb" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Acid Strength, Ka, and Kb — Relationship</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+strong+acids+list+memorize" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Strong Acids and Strong Bases — List to Memorize</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.3</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Strengths of Acids & Bases</div>
+        <ul class="summary-list">
+          <li><strong>Strong acids</strong> ionize 100%; <strong>weak acids</strong> ionize partially (1–5%)</li>
+          <li>Common strong acids: <strong>HCl, HBr, HI, HNO₃, HClO₄, H₂SO₄</strong></li>
+          <li>Common strong bases: <strong>Group IA hydroxides + Ba(OH)₂, Sr(OH)₂, Ca(OH)₂</strong></li>
+          <li>Strength ≠ concentration — a dilute strong acid is still strong</li>
+          <li><strong>Stronger acid → higher [H₃O⁺] → lower pH</strong> (at same concentration)</li>
+          <li><strong>Percent ionization = ([H₃O⁺] / C) × 100%</strong></li>
+          <li>The <strong>5% rule</strong>: use approximation C − x ≈ C only if % ionization ≤ 5%</li>
+          <li>Higher <strong>Ka</strong> → stronger acid; higher <strong>Kb</strong> → stronger base</li>
+          <li>Reactions proceed toward the <strong>weaker acid and base</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-2.html" class="btn btn-ghost">← Lesson 1.2: Water & pH Scale</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 3 of 12</div>
+      <a href="lesson-1-4.html" class="btn btn-primary">Next: Ka and Kb →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'A',3:'B',4:'D',5:'A'};
+  const feedbacks={
+    1:{C:'✓ Correct! HNO₃ is a strong acid (nitric acid).',wrong:'✗ HNO₃ is a strong acid. CH₃COOH, HF, HCN are weak.'},
+    2:{A:'✓ Correct! Lower pH = higher [H₃O⁺] = stronger acid.',wrong:'✗ Lower pH means more H₃O⁺, so A (pH 2.0) is stronger.'},
+    3:{B:'✓ Correct! % = (2.0×10⁻³ / 0.20) × 100% = 1.0%.',wrong:'✗ % ionization = (2.0×10⁻³ / 0.20) × 100% = 1.0%.'},
+    4:{D:'✓ Correct! This is FALSE. A concentrated weak acid is still weak — it just has more molecules in solution.',wrong:'✗ Weak acids stay weak regardless of concentration. Strong/weak is a property of the substance, not the solution.'},
+    5:{A:'✓ Correct! With Ka = 1.8×10⁻⁵ and 0.10 M, % ionization is small enough to use C − x ≈ C.',wrong:'✗ The 5% rule lets us approximate C − x ≈ C when % ionization ≤ 5%.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','strongweak','compare','percent','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
