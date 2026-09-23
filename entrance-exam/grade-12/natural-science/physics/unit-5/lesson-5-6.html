@@ -10,57 +10,619 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:var(--brand-primary);margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:500px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .truth-table{width:100%;max-width:280px;margin:.875rem auto;border-collapse:collapse;font-family:monospace}
+    .truth-table th{background:var(--brand-primary);color:#fff;padding:.5rem .875rem;text-align:center;font-weight:600;font-size:.85rem}
+    .truth-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);text-align:center;font-size:.85rem;font-family:'Georgia',serif}
+    .truth-table tr:nth-child(even) td{background:var(--surface-2)}
+    .gate-card{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.25rem;text-align:center}
+    .gate-name{font-size:.9rem;font-weight:700;color:var(--brand-primary);margin-bottom:.5rem}
+    .gate-symbol{font-size:1.5rem;margin-bottom:.5rem}
+    .gate-desc{font-size:.75rem;color:var(--text-muted);line-height:1.5;margin-bottom:.5rem}
+    .gate-boolean{font-family:'Georgia',serif;font-weight:700;color:var(--brand-primary);font-size:.9rem}
+    .gates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1rem 0}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 5 · Lesson 5.6</div>
-    <a href="lesson-5-1.html" class="sidebar-link">L1: Semiconductors</a>
-    <a href="lesson-5-2.html" class="sidebar-link">L2: Diodes</a>
-    <a href="lesson-5-3.html" class="sidebar-link">L3: Rectification</a>
-    <a href="lesson-5-4.html" class="sidebar-link">L4: Transistors</a>
-    <a href="lesson-5-5.html" class="sidebar-link">L5: Integrated Circuits</a>
-    <a href="lesson-5-6.html" class="sidebar-link">L6: Logic Gates</a>
+    <div class="sidebar-title">Unit 5 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Boolean Rules</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="lesson-5-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Semiconductors ✓</a>
+      <a href="lesson-5-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Diodes ✓</a>
+      <a href="lesson-5-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Rectification ✓</a>
+      <a href="lesson-5-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Transistors ✓</a>
+      <a href="lesson-5-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Integrated Circuits ✓</a>
+      <a href="lesson-5-6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Logic Gates</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 5 · Basics of Electronics</div>
-      <h1>📘 Lesson 5.6: Logic Gates and Logic Circuits</h1>
-      <p>Content coming soon. This lesson is part of Unit 5: Basics of Electronics.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 5</a> ›
+      Lesson 5.6
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Basics of Electronics · Natural Science</div>
+      <h1>🔢 Logic Gates and Logic Circuits</h1>
+      <p>Logic gates are the building blocks of every digital computer. Learn how simple switches — AND, OR, NOT, NAND, NOR — implement logical operations and turn 0s and 1s into everything from calculators to AI.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Digital electronics processes information as <strong>0s and 1s</strong>. Logic gates are the fundamental circuits that implement logical operations on these binary values. Every computer, calculator, and smartphone is built from billions of logic gates.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Differentiate <strong>analog and digital signals</strong></li>
+          <li>Understand <strong>positive and negative logic</strong></li>
+          <li>Draw symbols and truth tables for <strong>AND, OR, NOT</strong></li>
+          <li>Draw symbols and truth tables for <strong>NAND, NOR</strong></li>
+          <li>Write <strong>Boolean expressions</strong> for each gate</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.1 Analog vs Digital Signals</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Analog Signal</div>
+          <p>
+            A <strong>continuous signal</strong> that varies smoothly with time — can take any value. Example: a sine wave voltage from 0 to 5 V. Analogue signals carry sound and temperature naturally.
+          </p>
+        </div>
+        <div class="definition-box">
+          <div class="def-label">📌 Digital Signal</div>
+          <p>
+            A signal that takes only <strong>discrete values</strong>. In binary digital circuits: two values only — <strong>0 (low, off)</strong> or <strong>1 (high, on)</strong>.<br><br>
+            Any information — pictures, music, text, video — can be turned into a pattern of 0s and 1s.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Analog vs Digital Waveforms</div>
+          <svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Analog -->
+            <text x="120" y="20" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="bold">Analog Signal</text>
+            <line x1="20" y1="110" x2="220" y2="110" stroke="#94A3B8" stroke-dasharray="3,3"/>
+            <path d="M20,110 Q40,50 60,110 Q80,170 100,110 Q120,50 140,110 Q160,170 180,110 Q200,50 220,110" fill="none" stroke="#DC2626" stroke-width="2"/>
+            <text x="20" y="140" font-size="9" fill="#64748B">0V</text>
+            <text x="20" y="55" font-size="9" fill="#64748B">5V</text>
+
+            <!-- Digital -->
+            <text x="360" y="20" font-size="12" fill="#0F172A" text-anchor="middle" font-weight="bold">Digital Signal</text>
+            <line x1="260" y1="110" x2="460" y2="110" stroke="#94A3B8" stroke-dasharray="3,3"/>
+            <path d="M260,60 L280,60 L280,110 L300,110 L300,60 L320,60 L320,110 L340,110 L340,60 L360,60 L360,110 L380,110 L380,60 L400,60 L400,110 L420,110 L420,60 L440,60 L440,110 L460,110" fill="none" stroke="#16A34A" stroke-width="2"/>
+            <text x="260" y="130" font-size="9" fill="#64748B">0</text>
+            <text x="260" y="55" font-size="9" fill="#64748B">1</text>
+          </svg>
+          <div class="visual-box-caption">Analog (red) is continuous; digital (green) toggles only between 0 and 1 — clean, noise-resistant, and easy to process.</div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.2 Positive and Negative Logic</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Positive Logic</div>
+          <p>
+            • <strong>1</strong> = ON circuit, closed switch, HIGH voltage (e.g., 5V), TRUE<br>
+            • <strong>0</strong> = OFF circuit, open switch, LOW voltage (0V), FALSE
+          </p>
+        </div>
+        <div class="definition-box">
+          <div class="def-label">📌 Negative Logic</div>
+          <p>
+            • <strong>0</strong> = ON circuit, HIGH voltage, TRUE<br>
+            • <strong>1</strong> = OFF circuit, LOW voltage, FALSE
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.3 The Three Basic Logic Gates</h3>
+
+        <div class="gates-grid">
+          <div class="gate-card">
+            <div class="gate-name">AND Gate</div>
+            <div class="gate-symbol">🔗</div>
+            <div class="gate-desc">Output is 1 only when ALL inputs are 1</div>
+            <div class="gate-boolean">y = A · B</div>
+          </div>
+          <div class="gate-card">
+            <div class="gate-name">OR Gate</div>
+            <div class="gate-symbol">⊕</div>
+            <div class="gate-desc">Output is 1 when ANY input is 1</div>
+            <div class="gate-boolean">y = A + B</div>
+          </div>
+          <div class="gate-card">
+            <div class="gate-name">NOT Gate</div>
+            <div class="gate-symbol">▷○</div>
+            <div class="gate-desc">Output is opposite of input (inverter)</div>
+            <div class="gate-boolean">y = Ā</div>
+          </div>
+        </div>
+
+        <h4 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .5rem">AND Gate — Truth Table</h4>
+        <table class="truth-table">
+          <thead><tr><th>A</th><th>B</th><th>y = A·B</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .5rem">OR Gate — Truth Table</h4>
+        <table class="truth-table">
+          <thead><tr><th>A</th><th>B</th><th>y = A+B</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td></tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .5rem">NOT Gate — Truth Table</h4>
+        <table class="truth-table">
+          <thead><tr><th>A</th><th>y = Ā</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.4 Universal Gates — NAND and NOR</h3>
+
+        <div class="gates-grid">
+          <div class="gate-card">
+            <div class="gate-name">NAND Gate</div>
+            <div class="gate-symbol">🔗○</div>
+            <div class="gate-desc">NOT + AND — output is 0 only when ALL inputs are 1</div>
+            <div class="gate-boolean">y = (A·B)‾</div>
+          </div>
+          <div class="gate-card">
+            <div class="gate-name">NOR Gate</div>
+            <div class="gate-symbol">⊕○</div>
+            <div class="gate-desc">NOT + OR — output is 1 only when ALL inputs are 0</div>
+            <div class="gate-boolean">y = (A+B)‾</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why "Universal Gates"?</div>
+          <p>
+            NAND and NOR are called <strong>universal logic gates</strong> because ANY other gate can be built from combinations of NAND alone or NOR alone.
+          </p>
+        </div>
+
+        <h4 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .5rem">NAND Gate — Truth Table</h4>
+        <table class="truth-table">
+          <thead><tr><th>A</th><th>B</th><th>y = (A·B)‾</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>0</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>0</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+
+        <h4 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .5rem">NOR Gate — Truth Table</h4>
+        <table class="truth-table">
+          <thead><tr><th>A</th><th>B</th><th>y = (A+B)‾</th></tr></thead>
+          <tbody>
+            <tr><td>0</td><td>0</td><td>1</td></tr>
+            <tr><td>0</td><td>1</td><td>0</td></tr>
+            <tr><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.5 Boolean Algebra Basics</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Notation Rules</div>
+          <p>
+            • <strong>OR</strong> → addition sign <strong>+</strong> (e.g., y = A + B)<br>
+            • <strong>AND</strong> → multiplication sign <strong>·</strong> (e.g., y = A·B)<br>
+            • <strong>NOT</strong> → bar over symbol <strong>‾</strong> (e.g., y = Ā)<br><br>
+            <strong>Note:</strong> In Boolean algebra, 1 + 1 = 1 (NOT 2). Logic has no "2".
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Boolean Rules Quick Reference</div><div class="section-subtitle">Every gate's Boolean expression</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🔢 Lesson 5.6 — Logic Gates</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">AND</div><div class="formula-math">y = A · B</div><div class="formula-note">1 only if both 1</div></div>
+          <div class="formula-item"><div class="formula-name">OR</div><div class="formula-math">y = A + B</div><div class="formula-note">1 if either 1</div></div>
+          <div class="formula-item"><div class="formula-name">NOT</div><div class="formula-math">y = Ā</div><div class="formula-note">Inverts input</div></div>
+          <div class="formula-item"><div class="formula-name">NAND</div><div class="formula-math">y = (A·B)‾</div><div class="formula-note">Inverted AND</div></div>
+          <div class="formula-item"><div class="formula-name">NOR</div><div class="formula-math">y = (A+B)‾</div><div class="formula-note">Inverted OR</div></div>
+          <div class="formula-item"><div class="formula-name">Boolean oddity</div><div class="formula-math">1 + 1 = 1</div><div class="formula-note">No "2" in logic</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">AND Gate Output</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> An AND gate has inputs A = 1 and B = 0. What is the output?</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">AND outputs 1 only when ALL inputs are 1.</div></div>
+          <div class="example-step"><span class="step-badge">Apply</span><div class="step-text">A = 1, B = 0 → at least one input is 0.</div></div>
+          <div class="example-answer">✅ Output y = <strong>0</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">OR Gate Output</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> An OR gate has inputs A = 0 and B = 1. What is the output?</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">OR outputs 1 when ANY input is 1.</div></div>
+          <div class="example-step"><span class="step-badge">Apply</span><div class="step-text">B = 1 → output = 1 regardless of A.</div></div>
+          <div class="example-answer">✅ Output y = <strong>1</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">NOT Gate Output</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A NOT gate has input A = 1. What is the output?</div>
+          <div class="example-step"><span class="step-badge">Rule</span><div class="step-text">NOT inverts the input: 0 → 1, 1 → 0.</div></div>
+          <div class="example-step"><span class="step-badge">Apply</span><div class="step-text">Input = 1 → output = 0.</div></div>
+          <div class="example-answer">✅ Output y = <strong>0</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">NAND Gate Output</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A NAND gate has inputs A = 1 and B = 1. What is the output?</div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">AND of 1 and 1 = 1</div></div>
+          <div class="example-step"><span class="step-badge">Step 2</span><div class="step-text">NAND = NOT(AND) = NOT(1) = <span class="math">0</span></div></div>
+          <div class="example-answer">✅ Output y = <strong>0</strong> (NAND outputs 0 only when both inputs are 1)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Circuit from a Truth Table</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Given the truth table below, what single gate produces this output?</div>
+          <div class="example-step"><span class="step-badge">Table</span><div class="step-text">
+            A=0, B=0 → 1<br>
+            A=0, B=1 → 0<br>
+            A=1, B=0 → 0<br>
+            A=1, B=1 → 0
+          </div></div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text">Output is 1 only when BOTH inputs are 0 — matches <span class="math">NOR</span> gate.</div></div>
+          <div class="example-answer">✅ The gate is <strong>NOR</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which logic gate outputs 1 only when ALL inputs are 1?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> OR</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> NOT</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> AND</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> NOR</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Which logic gate's output is the opposite (inverse) of its input?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> AND</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> OR</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> NOT</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> NAND</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">An OR gate has inputs A=0, B=0. What is the output?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> 1</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> 0</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> Undefined</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> Depends on circuit</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which gates are called "universal gates"?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> AND and OR</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> NOT and AND</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> NAND and NOR</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Only XOR</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">In Boolean algebra, 1 + 1 equals:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> 2</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> 0</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> 1</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Undefined</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Back to Physics Hub →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+logic+gates+explained" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Logic Gates — AND, OR, NOT Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+nand+nor+gates+truth+tables" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">NAND and NOR Gates with Truth Tables</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+boolean+algebra+logic+gates" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Boolean Algebra and Logic Gates</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+logic+circuits+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Logic Circuit Problems — Worked Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 5.6</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Logic Gates and Logic Circuits</div>
+        <ul class="summary-list">
+          <li><strong>Analog signals</strong> are continuous; <strong>digital signals</strong> are discrete (0 or 1).</li>
+          <li><strong>Positive logic</strong>: 1 = ON/HIGH, 0 = OFF/LOW.</li>
+          <li><strong>Three basic gates</strong>: AND, OR, NOT.</li>
+          <li><strong>AND</strong>: y = A·B — output 1 only if both inputs are 1.</li>
+          <li><strong>OR</strong>: y = A+B — output 1 if either input is 1.</li>
+          <li><strong>NOT</strong>: y = Ā — inverts the input.</li>
+          <li><strong>NAND</strong>: y = (A·B)‾ — inverse of AND.</li>
+          <li><strong>NOR</strong>: y = (A+B)‾ — inverse of OR.</li>
+          <li><strong>NAND and NOR</strong> are universal gates — any other gate can be built from them.</li>
+          <li>In Boolean algebra, <strong>1 + 1 = 1</strong> (there's no "2" in logic).</li>
+          <li>Logic gates are the foundation of <strong>every digital computer</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-5-5.html" class="btn btn-ghost">← Lesson 5.5: Integrated Circuits</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 5 · Lesson 6 of 6 · 🎉 Course Complete!</div>
+      <a href="../index.html" class="btn btn-primary">Back to Physics Hub →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'B',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! AND outputs 1 only when all inputs are 1.',wrong:'✗ AND: output = 1 only if ALL inputs = 1.'},
+    2:{C:'✓ Correct! NOT (inverter) outputs the opposite of the input.',wrong:'✗ NOT inverts the input.'},
+    3:{B:'✓ Correct! OR = 0 only when all inputs are 0.',wrong:'✗ OR with all 0s gives 0.'},
+    4:{C:'✓ Correct! NAND and NOR are universal gates.',wrong:'✗ NAND and NOR can be used to build any other gate.'},
+    5:{C:'✓ Correct! In Boolean algebra, 1 + 1 = 1 (OR logic).',wrong:'✗ There is no "2" in logic — 1 OR 1 = 1.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>
