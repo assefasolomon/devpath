@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.11: Titration Curves | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.sa{background:#FEF2F2;border-color:#FECACA}
+    .compare-card.wa{background:#EFF6FF;border-color:#BFDBFE}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.sa .compare-card-title{color:#991B1B}
+    .compare-card.wa .compare-card-title{color:#1E40AF}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.65;margin:0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 11</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('definition')"><div class="sidebar-dot"></div> What is a Curve?</button>
+      <button class="sidebar-link" onclick="scrollTo('types')"><div class="sidebar-dot"></div> Four Types</button>
+      <button class="sidebar-link" onclick="scrollTo('choosing')"><div class="sidebar-dot"></div> Matching Indicator</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Acid-Base Concepts ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Strengths ✓</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Ka and Kb ✓</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Common Ion Effect ✓</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Buffers ✓</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis ✓</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Indicators ✓</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Equivalents ✓</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Titrations ✓</a>
+      <a href="lesson-1-11.html" class="sidebar-link active"><div class="sidebar-dot"></div> L11: Titration Curves</a>
+      <a href="lesson-1-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.11
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>📉 Titration Curves</h1>
+      <p>A titration curve plots pH against the volume of titrant added. It reveals the story of the reaction — where the equivalence point is, how sharp the pH change is, and which indicator to use.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          During a titration, the pH doesn't change at a constant rate. It starts slowly, changes drastically near the equivalence point, then slows down. Plotting pH vs. titrant volume gives a <strong>titration curve</strong> — a visual map of the reaction.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define a <strong>titration curve</strong></li>
+          <li>Identify the <strong>four main types</strong> of titration curves</li>
+          <li>Locate the <strong>equivalence point</strong> on a curve</li>
+          <li>Explain why the pH <strong>changes sharply</strong> near the equivalence point</li>
+          <li>Choose the <strong>right indicator</strong> for each curve type</li>
+          <li>Interpret <strong>buffer regions</strong> on a curve</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">11.1 What is a Titration Curve?</div><div class="section-subtitle">The pH story of a titration</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition</div>
+          <p>
+            A <strong>titration curve</strong> is a plot of the <strong>pH</strong> of the solution being titrated (y-axis) against the <strong>volume of titrant added</strong> (x-axis). It provides insight into the titration process.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">Anatomy of a Titration Curve</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Generic Titration Curve (Acid → Base)</div>
+          <svg viewBox="0 0 520 320" xmlns="http://www.w3.org/2000/svg">
+            <!-- Axes -->
+            <line x1="60" y1="270" x2="480" y2="270" stroke="#0F172A" stroke-width="2"/>
+            <line x1="60" y1="30" x2="60" y2="270" stroke="#0F172A" stroke-width="2"/>
+
+            <!-- Y-axis labels -->
+            <text x="30" y="275" font-size="10" fill="#0F172A">0</text>
+            <text x="25" y="215" font-size="10" fill="#0F172A">3</text>
+            <text x="25" y="155" font-size="10" fill="#0F172A">7</text>
+            <text x="20" y="95" font-size="10" fill="#0F172A">11</text>
+            <text x="40" y="20" font-size="11" fill="#0F172A" font-weight="bold">pH</text>
+
+            <!-- X-axis label -->
+            <text x="500" y="285" font-size="11" fill="#0F172A" font-weight="bold">Volume (mL)</text>
+
+            <!-- Curve -->
+            <path d="M 60,240 Q 100,240 150,235 Q 220,225 270,210 Q 290,180 305,130 Q 315,70 330,40 Q 350,35 400,33 Q 440,33 470,33"
+                  fill="none" stroke="#DC2626" stroke-width="2.5"/>
+
+            <!-- Equivalence point marker -->
+            <circle cx="305" cy="150" r="5" fill="#DC2626"/>
+            <line x1="305" y1="150" x2="305" y2="270" stroke="#DC2626" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="305" y="290" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">Equivalence</text>
+
+            <!-- Buffer region label -->
+            <rect x="130" y="200" width="140" height="50" fill="#F0FDF4" opacity="0.6" stroke="#16A34A" stroke-width="1" stroke-dasharray="3,2" rx="4"/>
+            <text x="200" y="215" font-size="9" fill="#166534" text-anchor="middle" font-weight="bold">Buffer region</text>
+            <text x="200" y="230" font-size="8" fill="#166534" text-anchor="middle">(pH changes slowly)</text>
+
+            <!-- Sharp change label -->
+            <text x="360" y="130" font-size="9" fill="#991B1B" font-weight="bold">Sharp</text>
+            <text x="360" y="145" font-size="9" fill="#991B1B" font-weight="bold">pH change</text>
+
+            <!-- Excess base region -->
+            <text x="430" y="60" font-size="9" fill="#1E40AF" font-weight="bold">Excess</text>
+            <text x="430" y="75" font-size="9" fill="#1E40AF" font-weight="bold">base</text>
+          </svg>
+          <div class="visual-box-caption">
+            Titration curves have three phases: slow start (often buffered), sharp change at equivalence, and asymptotic approach to the excess-titrant pH.
+          </div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key Features</div>
+          <p>
+            • <strong>Initial pH:</strong> the pH of the analyte before titration begins<br>
+            • <strong>Buffer region:</strong> pH changes slowly (only for weak acid/base)<br>
+            • <strong>Equivalence point:</strong> the steepest part of the curve<br>
+            • <strong>Excess titrant:</strong> final flat region approaching the titrant's own pH
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why the pH changes sharply</div>
+          <p>
+            Near the equivalence point, the amounts of acid and base are nearly equal. A tiny addition of titrant shifts the balance dramatically — the solution goes from slightly acidic to slightly basic almost instantly, causing the steep pH jump.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="types">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">11.2 The Four Types of Titration Curves</div><div class="section-subtitle">Strong/weak combinations</div></div>
+      </div>
+
+      <div class="content-box">
+
+        <div class="definition-box">
+          <div class="def-label">📌 Type 1 — Strong Acid + Strong Base</div>
+          <p>
+            <strong>Equivalence pH = 7.0</strong><br>
+            Very sharp vertical jump around pH 4 → 10<br>
+            Initial pH very low (strong acid), final pH very high (strong base)
+          </p>
+        </div>
+        <div class="visual-box">
+          <div class="visual-box-title">SA + SB Curve — Sharp Jump at pH 7</div>
+          <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+            <line x1="40" y1="170" x2="440" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+            <line x1="40" y1="20" x2="40" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+            <text x="15" y="100" font-size="9" fill="#0F172A">pH 7</text>
+            <line x1="40" y1="95" x2="440" y2="95" stroke="#94A3B8" stroke-dasharray="3,3"/>
+            <path d="M 40,155 Q 100,155 180,150 Q 220,140 235,90 Q 245,30 260,25 Q 350,25 440,22"
+                  fill="none" stroke="#DC2626" stroke-width="2"/>
+            <circle cx="235" cy="95" r="4" fill="#DC2626"/>
+            <text x="235" y="185" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">Eq. pt</text>
+          </svg>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Type 2 — Weak Acid + Strong Base</div>
+          <p>
+            <strong>Equivalence pH &gt; 7</strong> (basic, because of conjugate base hydrolysis)<br>
+            Has a <strong>buffer region</strong> before equivalence<br>
+            Smaller vertical jump than SA + SB
+          </p>
+        </div>
+        <div class="visual-box">
+          <div class="visual-box-title">WA + SB Curve — Equivalence in Basic Region</div>
+          <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+            <line x1="40" y1="170" x2="440" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+            <line x1="40" y1="20" x2="40" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+            <text x="15" y="100" font-size="9" fill="#0F172A">pH 7</text>
+            <line x1="40" y1="95" x2="440" y2="95" stroke="#94A3B8" stroke-dasharray="3,3"/>
+            <path d="M 40,120 Q 100,110 160,95 Q 200,80 220,70 Q 240,60 255,55 Q 280,30 320,25 Q 400,22 440,20"
+                  fill="none" stroke="#DC2626" stroke-width="2"/>
+            <circle cx="255" cy="55" r="4" fill="#DC2626"/>
+            <text x="255" y="185" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">Eq. pt &gt; 7</text>
+            <rect x="70" y="105" width="120" height="25" fill="#F0FDF4" opacity="0.5" stroke="#16A34A" stroke-width="0.8"/>
+            <text x="130" y="120" font-size="8" fill="#166534" text-anchor="middle">Buffer</text>
+          </svg>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Type 3 — Strong Acid + Weak Base</div>
+          <p>
+            <strong>Equivalence pH &lt; 7</strong> (acidic, because of conjugate acid hydrolysis)<br>
+            Has a buffer region<br>
+            Smaller vertical jump on the acidic side
+          </p>
+        </div>
+        <div class="visual-box">
+          <div class="visual-box-title">SA + WB Curve — Equivalence in Acidic Region</div>
+          <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+            <line x1="40" y1="170" x2="440" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+            <line x1="40" y1="20" x2="40" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+            <text x="15" y="100" font-size="9" fill="#0F172A">pH 7</text>
+            <line x1="40" y1="95" x2="440" y2="95" stroke="#94A3B8" stroke-dasharray="3,3"/>
+            <path d="M 40,155 Q 100,155 160,150 Q 200,140 220,130 Q 240,120 255,115 Q 280,95 320,85 Q 400,80 440,75"
+                  fill="none" stroke="#DC2626" stroke-width="2"/>
+            <circle cx="255" cy="115" r="4" fill="#DC2626"/>
+            <text x="255" y="185" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">Eq. pt &lt; 7</text>
+            <rect x="70" y="130" width="120" height="25" fill="#F0FDF4" opacity="0.5" stroke="#16A34A" stroke-width="0.8"/>
+            <text x="130" y="145" font-size="8" fill="#166534" text-anchor="middle">Buffer</text>
+          </svg>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Type 4 — Weak Acid + Weak Base</div>
+          <p>
+            <strong>Equivalence pH depends on Ka vs Kb</strong><br>
+            <strong>No sharp vertical jump</strong> — the pH change is very gradual<br>
+            No suitable indicator — must use a pH meter
+          </p>
+        </div>
+        <div class="visual-box">
+          <div class="visual-box-title">WA + WB Curve — No Sharp Jump</div>
+          <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+            <line x1="40" y1="170" x2="440" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+            <line x1="40" y1="20" x2="40" y2="170" stroke="#0F172A" stroke-width="1.5"/>
+            <text x="15" y="100" font-size="9" fill="#0F172A">pH 7</text>
+            <line x1="40" y1="95" x2="440" y2="95" stroke="#94A3B8" stroke-dasharray="3,3"/>
+            <path d="M 40,130 Q 100,120 180,110 Q 240,100 300,90 Q 360,85 440,82"
+                  fill="none" stroke="#DC2626" stroke-width="2"/>
+            <circle cx="240" cy="105" r="4" fill="#DC2626"/>
+            <text x="240" y="185" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">Eq. pt (gradual)</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Summary table</div>
+          <p>
+            <strong>SA + SB</strong> → equivalence pH = 7, sharp jump<br>
+            <strong>WA + SB</strong> → equivalence pH &gt; 7, buffer region before<br>
+            <strong>SA + WB</strong> → equivalence pH &lt; 7, buffer region before<br>
+            <strong>WA + WB</strong> → equivalence pH varies, no sharp jump
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="choosing">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">11.3 Matching Indicator to Curve</div><div class="section-subtitle">Using the curve to pick your indicator</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The Rule</div>
+          <p>
+            The indicator's <strong>pH range</strong> must fall within the <strong>sharp vertical portion</strong> of the titration curve (near the equivalence point). Then the color change happens at the right time.
+          </p>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Titration Type</th><th>Equivalence pH</th><th>Best Indicator</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Strong acid + Strong base</td><td>7.0</td><td>Bromothymol blue (pH 6.0 – 7.6)</td></tr>
+            <tr><td>Weak acid + Strong base</td><td>~8.7 (basic)</td><td>Phenolphthalein (pH 8.2 – 10.0)</td></tr>
+            <tr><td>Strong acid + Weak base</td><td>~5.3 (acidic)</td><td>Methyl orange (pH 3.2 – 4.4) or methyl red (pH 4.8 – 6.0)</td></tr>
+            <tr><td>Weak acid + Weak base</td><td>Varies, no sharp jump</td><td>None — use pH meter</td></tr>
+          </tbody>
+        </table>
+
+        <div class="compare-grid">
+          <div class="compare-card sa">
+            <div class="compare-card-title">🔴 Strong Acid Titrations</div>
+            <p>Sharp jump spans pH 4 → 10<br>
+            Many indicators work<br>
+            Methyl orange, methyl red, or bromothymol blue</p>
+          </div>
+          <div class="compare-card wa">
+            <div class="compare-card-title">🔵 Weak Acid Titrations</div>
+            <p>Sharp jump is narrower and higher<br>
+            Need indicator that changes in basic range<br>
+            Use phenolphthalein</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Methyl orange vs phenolphthalein</div>
+          <p>
+            <strong>Methyl orange</strong> (red → yellow, pH 3.2–4.4) — best for titrations where the equivalence point is acidic.<br>
+            <strong>Phenolphthalein</strong> (colorless → pink, pH 8.2–10.0) — best for titrations where the equivalence point is basic.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Key Concepts Reference</div><div class="section-subtitle">Quick reference</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📉 Lesson 1.11 — Titration Curves</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Titration curve</div><div class="formula-math">pH vs. Volume</div><div class="formula-note">Visual map of the titration</div></div>
+          <div class="formula-item"><div class="formula-name">Equivalence point</div><div class="formula-math">Steepest point</div><div class="formula-note">mol H⁺ = mol OH⁻</div></div>
+          <div class="formula-item"><div class="formula-name">SA + SB</div><div class="formula-math">Eq. pH = 7</div><div class="formula-note">Sharp jump, any indicator</div></div>
+          <div class="formula-item"><div class="formula-name">WA + SB</div><div class="formula-math">Eq. pH &gt; 7</div><div class="formula-note">Use phenolphthalein</div></div>
+          <div class="formula-item"><div class="formula-name">SA + WB</div><div class="formula-math">Eq. pH &lt; 7</div><div class="formula-note">Use methyl orange / red</div></div>
+          <div class="formula-item"><div class="formula-name">WA + WB</div><div class="formula-math">No sharp jump</div><div class="formula-note">Use pH meter</div></div>
+          <div class="formula-item"><div class="formula-name">Buffer region</div><div class="formula-math">Half-equivalence</div><div class="formula-note">pH = pKa (Henderson-Hasselbalch)</div></div>
+          <div class="formula-item"><div class="formula-name">Indicator choice</div><div class="formula-math">Range overlaps jump</div><div class="formula-note">Match to equivalence pH</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identify Curve Type</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A titration curve starts at pH 2.9, has a sharp jump from pH 6 to pH 10, and ends at pH 11.5. What type of titration is it?</div>
+          <div class="example-step"><span class="step-badge">Initial pH</span><div class="step-text">Starts at pH 2.9 — strongly acidic. This could be a strong acid (pH ~1) or weak acid (pH ~3) as analyte.</div></div>
+          <div class="example-step"><span class="step-badge">Jump range</span><div class="step-text">Sharp jump from 6 to 10 — centers around pH 8.</div></div>
+          <div class="example-step"><span class="step-badge">Equivalence pH</span><div class="step-text">Equivalence at pH 8 → basic → indicates a <span class="math">weak acid + strong base</span> titration</div></div>
+          <div class="example-answer">✅ Weak acid titrated with strong base (e.g., CH₃COOH + NaOH)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Choose Indicator for SA + SB</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Which indicator would work best for a strong acid + strong base titration? Options: (a) methyl orange (3.2–4.4), (b) bromothymol blue (6.0–7.6), (c) phenolphthalein (8.2–10.0).</div>
+          <div class="example-step"><span class="step-badge">Equivalence pH</span><div class="step-text">For SA + SB, equivalence point = <span class="math">pH 7</span></div></div>
+          <div class="example-step"><span class="step-badge">Match</span><div class="step-text">
+            • Methyl orange: 3.2 – 4.4 — too acidic<br>
+            • Bromothymol blue: 6.0 – 7.6 — <span class="math">matches pH 7</span> ✓<br>
+            • Phenolphthalein: 8.2 – 10.0 — too basic
+          </div></div>
+          <div class="example-answer">✅ Use <strong>bromothymol blue</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Estimate pKa from a Curve</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A weak acid titration curve shows a buffer region at pH 4.7 at half-neutralization (halfway to equivalence). What is the Ka of the acid?</div>
+          <div class="example-step"><span class="step-badge">Key relation</span><div class="step-text">At half-equivalence, [HA] = [A⁻], so <span class="math">pH = pKa</span></div></div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">pH at half-eq = 4.7 → pKa = 4.7</div></div>
+          <div class="example-step"><span class="step-badge">Find Ka</span><div class="step-text"><span class="math">Ka = 10⁻ᵖᴷᵃ = 10⁻⁴·⁷ = 2.0 × 10⁻⁵</span></div></div>
+          <div class="example-answer">✅ Ka ≈ <strong>2.0 × 10⁻⁵</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Why WA + WB Has No Sharp Jump</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why a weak acid + weak base titration has no sharp vertical jump in its titration curve.</div>
+          <div class="example-step"><span class="step-badge">Reason 1</span><div class="step-text">Both weak acid and weak base establish <span class="math">equilibria</span> in solution.</div></div>
+          <div class="example-step"><span class="step-badge">Reason 2</span><div class="step-text">Near equivalence, both the conjugate acid and conjugate base buffer the solution — pH changes <span class="math">very gradually</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">No sharp color change for any indicator → must use a pH meter to detect equivalence.</div></div>
+          <div class="example-answer">✅ <strong>Mutual buffering</strong> by both conjugate species prevents a sharp pH jump</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Read the Curve</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A titration curve of 25.0 mL of HCl with 0.10 M NaOH shows the equivalence point at 20.0 mL of NaOH and pH = 7.0. What is the concentration of the HCl?</div>
+          <div class="example-step"><span class="step-badge">Reaction</span><div class="step-text">HCl + NaOH → NaCl + H₂O (1:1)</div></div>
+          <div class="example-step"><span class="step-badge">Moles NaOH</span><div class="step-text"><span class="math">n = 0.10 × 0.0200 = 2.00 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Moles HCl</span><div class="step-text">1:1 → <span class="math">n(HCl) = 2.00 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Molarity</span><div class="step-text"><span class="math">M = 2.00×10⁻³ / 0.0250 = 0.0800 M</span></div></div>
+          <div class="example-answer">✅ [HCl] = <strong>0.0800 M</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">A titration curve shows a very sharp vertical jump at pH 7. The most likely titration is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Weak acid + Weak base</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Weak acid + Strong base</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Strong acid + Strong base</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Strong acid + Weak base</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">For a weak acid + strong base titration, the equivalence point pH is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> Always 7</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> Greater than 7</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> Less than 7</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> Exactly 7.0</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">At the half-equivalence point of a weak acid titration, pH = pKa. Why?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> [H⁺] = [OH⁻]</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> All acid is neutralized</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> [HA] = [A⁻] so log([A⁻]/[HA]) = 0</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> It's a coincidence</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which indicator is best for titration of NH₃ with HCl (equivalence pH ≈ 5.3)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Phenolphthalein (8.2–10.0)</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Bromothymol blue (6.0–7.6)</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Methyl red (4.8–6.0)</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Methyl violet (0.0–1.6)</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Which titration would have NO sharp vertical jump in its curve?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Strong acid + Strong base</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Weak acid + Strong base</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Weak acid + Weak base</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Strong acid + Weak base</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-12.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+titration+curves" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Titration Curves — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+strong+weak+acid+base+titration+curves" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Strong vs Weak Acid-Base Titration Curves</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+titration+curve+equivalence+point" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Finding the Equivalence Point on a Titration Curve</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+choose+indicator+titration+curve" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Choosing the Right Indicator from a Titration Curve</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.11</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Titration Curves</div>
+        <ul class="summary-list">
+          <li>A <strong>titration curve</strong> plots pH vs. volume of titrant added</li>
+          <li>Three phases: <strong>initial</strong> (slow change) → <strong>equivalence</strong> (sharp jump) → <strong>excess</strong> (flattens)</li>
+          <li><strong>SA + SB</strong>: sharp jump at pH 7; any appropriate indicator works</li>
+          <li><strong>WA + SB</strong>: equivalence pH &gt; 7; use phenolphthalein</li>
+          <li><strong>SA + WB</strong>: equivalence pH &lt; 7; use methyl orange or methyl red</li>
+          <li><strong>WA + WB</strong>: no sharp jump; use a pH meter instead</li>
+          <li>At <strong>half-equivalence</strong>: pH = pKa (for weak acid titrations)</li>
+          <li>The buffer region appears at the half-equivalence point</li>
+          <li>The indicator's pH range must overlap the sharp vertical portion of the curve</li>
+          <li>Titration curves are powerful tools for choosing indicators and analyzing unknowns</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-10.html" class="btn btn-ghost">← Lesson 1.10: Titrations</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 11 of 12</div>
+      <a href="lesson-1-12.html" class="btn btn-primary">Next: Applications →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! A sharp jump at pH 7 indicates a strong acid + strong base titration.',wrong:'✗ Only SA + SB titrations have equivalence at exactly pH 7 with a sharp jump.'},
+    2:{B:'✓ Correct! WA + SB gives a basic equivalence point because the conjugate base hydrolyzes to give OH⁻.',wrong:'✗ For weak acid + strong base, the conjugate base makes the solution basic — pH > 7.'},
+    3:{C:'✓ Correct! At half-equivalence, [HA] = [A⁻], so the log term in Henderson-Hasselbalch becomes 0 and pH = pKa.',wrong:'✗ At half-eq, [HA] = [A⁻], so log([A⁻]/[HA]) = log(1) = 0, hence pH = pKa.'},
+    4:{C:'✓ Correct! Methyl red (4.8–6.0) covers the equivalence pH of ~5.3.',wrong:'✗ Choose methyl red — its range (4.8–6.0) matches the acidic equivalence pH of ~5.3.'},
+    5:{C:'✓ Correct! Weak acid + weak base has no sharp vertical jump because both species buffer the solution.',wrong:'✗ WA + WB titrations have gradual pH changes throughout — no sharp jump.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','definition','types','choosing','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
