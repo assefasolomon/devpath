@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.12: Applications and Review | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .app-card{background:#fff;border:1.5px solid #FECACA;border-radius:var(--radius-lg);padding:1.25rem}
+    .app-icon{font-size:1.75rem;margin-bottom:.5rem}
+    .app-title{font-size:.9rem;font-weight:700;color:#991B1B;margin-bottom:.5rem}
+    .app-desc{font-size:.8rem;color:var(--text);line-height:1.6;margin:0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 12</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('biology')"><div class="sidebar-dot"></div> Biology & Medicine</button>
+      <button class="sidebar-link" onclick="scrollTo('environment')"><div class="sidebar-dot"></div> Environment</button>
+      <button class="sidebar-link" onclick="scrollTo('industry')"><div class="sidebar-dot"></div> Industry & Home</button>
+      <button class="sidebar-link" onclick="scrollTo('review')"><div class="sidebar-dot"></div> Unit Review</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Acid-Base Concepts ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Strengths ✓</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Ka and Kb ✓</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Common Ion Effect ✓</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Buffers ✓</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis ✓</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Indicators ✓</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Equivalents ✓</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Titrations ✓</a>
+      <a href="lesson-1-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Titration Curves ✓</a>
+      <a href="lesson-1-12.html" class="sidebar-link active"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.12
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>🌍 Applications and Review</h1>
+      <p>Acid-base chemistry isn't just formulas — it's life. From the blood in your veins to the rain falling on Addis Ababa to the soap in your kitchen, everything depends on the principles you've learned in Unit 1.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Over 11 lessons, you've built a complete toolkit for understanding acids and bases. Now it's time to see how these tools solve real problems — in your body, your environment, and your daily life.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Explain <strong>biological pH control</strong> (blood, stomach, cell cytoplasm)</li>
+          <li>Understand the chemistry of <strong>acid rain</strong></li>
+          <li>Describe <strong>industrial and household applications</strong></li>
+          <li>Explain <strong>antacids, soap, and fertilizers</strong></li>
+          <li>Review all <strong>key concepts from Unit 1</strong></li>
+          <li>Prepare for <strong>EUEE exam questions</strong> on acid-base chemistry</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="biology">
+      <div class="section-header"><div class="section-icon">🧬</div>
+        <div><div class="section-title-text">12.1 Acid-Base Chemistry in Biology & Medicine</div><div class="section-subtitle">Why pH control keeps us alive</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Blood pH — Tightly Buffered at 7.4</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The Blood Buffer System</div>
+          <p>
+            Human blood is buffered at <strong>pH 7.35–7.45</strong>. Deviations of just 0.4 units can be fatal. The principal buffer is the <strong>carbonic acid/bicarbonate</strong> system:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            H₂CO₃ ⇌ H⁺ + HCO₃⁻
+          </p>
+        </div>
+
+        <div class="app-grid">
+          <div class="app-card">
+            <div class="app-icon">🫁</div>
+            <div class="app-title">Respiration Control</div>
+            <div class="app-desc">Breathing rate controls CO₂ levels → adjusts H₂CO₃ concentration → keeps pH stable.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🫘</div>
+            <div class="app-title">Kidney Regulation</div>
+            <div class="app-desc">Kidneys excrete excess H⁺ or HCO₃⁻ to fine-tune blood pH over hours/days.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🩸</div>
+            <div class="app-title">Hemoglobin Buffer</div>
+            <div class="app-desc">Hemoglobin protein also helps buffer pH inside red blood cells.</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 When things go wrong</div>
+          <p>
+            <strong>Acidosis</strong>: blood pH &lt; 7.35 — caused by diabetes, kidney disease, or respiratory failure.<br>
+            <strong>Alkalosis</strong>: blood pH &gt; 7.45 — caused by hyperventilation or excessive antacid use.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Stomach Acid — pH 1.5</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Why So Acidic?</div>
+          <p>
+            The stomach secretes <strong>HCl</strong>, creating a pH of ~1.5. This extreme acidity:
+          </p>
+          <ul style="margin:.5rem 0 0 1.25rem;line-height:1.9;font-size:.875rem;color:var(--heading)">
+            <li>Kills most bacteria in food</li>
+            <li>Activates the enzyme <strong>pepsin</strong> (needs pH 1–3 to work)</li>
+            <li>Denatures proteins for digestion</li>
+          </ul>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Antacids — Chemistry in Action</div>
+          <p>
+            Antacids neutralize excess stomach acid. Common antacids and their reactions:<br><br>
+            • <strong>Mg(OH)₂</strong>: Mg(OH)₂ + 2HCl → MgCl₂ + 2H₂O<br>
+            • <strong>CaCO₃</strong>: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂<br>
+            • <strong>NaHCO₃</strong>: NaHCO₃ + HCl → NaCl + H₂O + CO₂
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Cell Cytoplasm — pH 7.2</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 The Phosphate Buffer System</div>
+          <p>
+            Inside cells, the <strong>H₂PO₄⁻ / HPO₄²⁻</strong> buffer maintains pH around 7.2:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            H₂PO₄⁻ ⇌ H⁺ + HPO₄²⁻
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Medical Applications</h3>
+        <div class="app-grid">
+          <div class="app-card">
+            <div class="app-icon">💉</div>
+            <div class="app-title">IV Fluids</div>
+            <div class="app-desc">Saline and lactate solutions are pH-buffered to match blood pH.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🧪</div>
+            <div class="app-title">Blood Tests</div>
+            <div class="app-desc">Doctors monitor blood pH to detect respiratory or metabolic disorders.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">💊</div>
+            <div class="app-title">Drug Delivery</div>
+            <div class="app-desc">Many drugs are weak acids/bases — their absorption depends on body pH.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="environment">
+      <div class="section-header"><div class="section-icon">🌧️</div>
+        <div><div class="section-title-text">12.2 Environmental Acid-Base Chemistry</div><div class="section-subtitle">Acid rain and its effects</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Acid Rain Formation</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 What is Acid Rain?</div>
+          <p>
+            <strong>Acid rain</strong> is precipitation with pH &lt; 5.6 (natural rain is ~pH 5.6 due to dissolved CO₂). It forms when sulfur dioxide (SO₂) and nitrogen oxides (NOₓ) from burning fossil fuels react with water vapor in the atmosphere.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Chemical Reactions of Acid Rain</div>
+          <p style="font-size:.9rem;color:#334155;margin:.5rem 0;text-align:left;font-family:'Georgia',serif">
+            <strong>Step 1 — SO₂ oxidation:</strong><br>
+            2SO₂ + O₂ → 2SO₃<br><br>
+            <strong>Step 2 — SO₃ reaction with water:</strong><br>
+            SO₃ + H₂O → H₂SO₄ (sulfuric acid)<br><br>
+            <strong>From NOₓ:</strong><br>
+            2NO₂ + H₂O → HNO₃ + HNO₂ (nitric + nitrous acids)
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Sources of Acid Rain</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Source</th><th>Pollutant Released</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Coal power plants</td><td>SO₂ and NOₓ</td></tr>
+            <tr><td>Vehicle exhaust</td><td>NOₓ</td></tr>
+            <tr><td>Industrial smelting</td><td>SO₂</td></tr>
+            <tr><td>Volcanic eruptions</td><td>SO₂ (natural)</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Effects of Acid Rain</h3>
+        <div class="app-grid">
+          <div class="app-card">
+            <div class="app-icon">🌳</div>
+            <div class="app-title">Forest Damage</div>
+            <div class="app-desc">Leaches nutrients from soil, damages leaves, weakens trees.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🐟</div>
+            <div class="app-title">Lake Acidification</div>
+            <div class="app-desc">pH below 5 kills fish and aquatic life.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🏛️</div>
+            <div class="app-title">Building Corrosion</div>
+            <div class="app-desc">Dissolves limestone (CaCO₃) in statues and buildings.</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Limestone corrosion reaction</div>
+          <p>
+            <strong>CaCO₃ + H₂SO₄ → CaSO₄ + H₂O + CO₂</strong><br>
+            This reaction slowly dissolves marble statues, limestone buildings, and monuments.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="industry">
+      <div class="section-header"><div class="section-icon">🏭</div>
+        <div><div class="section-title-text">12.3 Industrial, Agricultural & Household Applications</div><div class="section-subtitle">Chemistry you use every day</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="app-grid">
+          <div class="app-card">
+            <div class="app-icon">🧼</div>
+            <div class="app-title">Soap Making (Saponification)</div>
+            <div class="app-desc">Fat + NaOH → soap + glycerol. The soap's –COO⁻Na⁺ makes it a weak base in water.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🌾</div>
+            <div class="app-title">Fertilizers</div>
+            <div class="app-desc">Ammonium salts (NH₄NO₃, (NH₄)₂SO₄) make soil acidic through hydrolysis of NH₄⁺.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🥫</div>
+            <div class="app-title">Food Preservation</div>
+            <div class="app-desc">Vinegar (acetic acid), citric acid, and lactic acid lower pH to inhibit bacteria.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🧴</div>
+            <div class="app-title">Cleaning Products</div>
+            <div class="app-desc">Toilet bowl cleaners (HCl), drain cleaners (NaOH), and window cleaners (NH₃).</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🧪</div>
+            <div class="app-title">Chemical Industry</div>
+            <div class="app-desc">Sulfuric acid is the world's most produced chemical — used in fertilizers, dyes, batteries.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🍷</div>
+            <div class="app-title">Wine Making</div>
+            <div class="app-desc">Yeast fermentation produces ethanol; pH control prevents spoilage and controls taste.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🧂</div>
+            <div class="app-title">Pool Chemistry</div>
+            <div class="app-desc">pH of pool water kept at 7.2–7.8 — chlorine works best in this range.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🔋</div>
+            <div class="app-title">Batteries</div>
+            <div class="app-desc">Car batteries use sulfuric acid as the electrolyte (H₂SO₄, ~35% concentration).</div>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Ethiopian Context</h3>
+        <div class="note-box">
+          <div class="note-label">📝 Acid-base chemistry in Ethiopia</div>
+          <p>
+            • <strong>Rift Valley soda lakes</strong> (Lake Shala, Lake Abijata) have pH 9–10 due to dissolved Na₂CO₃ and NaHCO₃<br>
+            • <strong>Tella and Tej</strong> (traditional Ethiopian beverages) rely on fermentation chemistry and pH control<br>
+            • <strong>Ethiopian agriculture</strong> uses lime (CaCO₃) to neutralize acidic soils<br>
+            • <strong>Cement industry</strong> uses CaCO₃ as a key raw material
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="review">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">12.4 Unit 1 Review — All Key Concepts</div><div class="section-subtitle">Master reference for exam preparation</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Three Definitions of Acids and Bases</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Theory</th><th>Acid</th><th>Base</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Arrhenius</td><td>Gives H⁺ in water</td><td>Gives OH⁻ in water</td></tr>
+            <tr><td>Brønsted-Lowry</td><td>Proton donor</td><td>Proton acceptor</td></tr>
+            <tr><td>Lewis</td><td>Electron-pair acceptor</td><td>Electron-pair donor</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The pH Scale</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Formula</th><th>Expression</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>pH</td><td>−log[H₃O⁺]</td></tr>
+            <tr><td>pOH</td><td>−log[OH⁻]</td></tr>
+            <tr><td>Kw</td><td>[H₃O⁺][OH⁻] = 1.0 × 10⁻¹⁴</td></tr>
+            <tr><td>pH + pOH</td><td>= 14</td></tr>
+            <tr><td>[H₃O⁺] from pH</td><td>10⁻ᵖᴴ</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Equilibrium Constants</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Constant</th><th>Expression</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ka</td><td>[H₃O⁺][A⁻]/[HA]</td><td>Acid strength</td></tr>
+            <tr><td>Kb</td><td>[HB⁺][OH⁻]/[B]</td><td>Base strength</td></tr>
+            <tr><td>Ka × Kb</td><td>= Kw = 1.0 × 10⁻¹⁴</td><td>Conjugate pair relation</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Salt Solutions</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Salt Type</th><th>pH</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Strong acid + Strong base</td><td>7 (neutral)</td></tr>
+            <tr><td>Weak acid + Strong base</td><td>&gt; 7 (basic)</td></tr>
+            <tr><td>Strong acid + Weak base</td><td>&lt; 7 (acidic)</td></tr>
+            <tr><td>Weak acid + Weak base</td><td>Compare Ka vs Kb</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Buffers</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Henderson-Hasselbalch Equations</div>
+          <p>
+            • Acidic buffer: <strong>pH = pKa + log([A⁻]/[HA])</strong><br>
+            • Basic buffer: <strong>pOH = pKb + log([HB⁺]/[B])</strong><br>
+            • Maximum buffer capacity when pH = pKa
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Titration Essentials</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Key Titration Formulas</div>
+          <p>
+            • <strong>N₁V₁ = N₂V₂</strong> (normality-based)<br>
+            • <strong>M₁V₁/n₁ = M₂V₂/n₂</strong> (molarity-based)<br>
+            • Equivalence point: <strong>mol H⁺ = mol OH⁻</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Blood pH and the Buffer System</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A patient's blood pH is measured at 7.25, indicating acidosis. Explain what could cause this and how the body would respond.</div>
+          <div class="example-step"><span class="step-badge">What is acidosis?</span><div class="step-text">Blood pH below 7.35 — too many H⁺ ions in the blood</div></div>
+          <div class="example-step"><span class="step-badge">Causes</span><div class="step-text">
+            • Diabetic ketoacidosis (excess keto acids)<br>
+            • Kidney failure (can't excrete H⁺)<br>
+            • Respiratory depression (CO₂ builds up)
+          </div></div>
+          <div class="example-step"><span class="step-badge">Body response</span><div class="step-text">
+            • Increase breathing rate (blows off CO₂, shifts equilibrium left)<br>
+            • Kidneys excrete H⁺ and reabsorb HCO₃⁻<br>
+            • Buffer: H⁺ + HCO₃⁻ → H₂CO₃ → CO₂ + H₂O
+          </div></div>
+          <div class="example-answer">✅ Acidosis is treated by addressing the cause and supporting the buffer system (e.g., IV bicarbonate in severe cases)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Acid Rain Chemistry</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain how SO₂ from coal burning leads to acid rain, including all chemical reactions.</div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text"><span class="math">S + O₂ → SO₂</span> (burning coal with sulfur impurities)</div></div>
+          <div class="example-step"><span class="step-badge">Step 2</span><div class="step-text"><span class="math">2SO₂ + O₂ → 2SO₃</span> (catalyzed by atmospheric particles)</div></div>
+          <div class="example-step"><span class="step-badge">Step 3</span><div class="step-text"><span class="math">SO₃ + H₂O → H₂SO₄</span> (sulfuric acid forms in clouds)</div></div>
+          <div class="example-step"><span class="step-badge">Final</span><div class="step-text">H₂SO₄ falls as acid rain, corroding limestone: <span class="math">CaCO₃ + H₂SO₄ → CaSO₄ + H₂O + CO₂</span></div></div>
+          <div class="example-answer">✅ Acid rain pH can reach 3–4, damaging ecosystems and buildings</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Antacid Neutralization</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> An antacid tablet contains 500 mg of CaCO₃. What volume of 0.10 M HCl can it neutralize? (Molar mass CaCO₃ = 100 g/mol.)</div>
+          <div class="example-step"><span class="step-badge">Reaction</span><div class="step-text"><span class="math">CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂</span></div></div>
+          <div class="example-step"><span class="step-badge">Moles CaCO₃</span><div class="step-text"><span class="math">n = 0.500 g / 100 g/mol = 5.00 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Moles HCl</span><div class="step-text">2 HCl per CaCO₃ → <span class="math">n(HCl) = 2 × 5.00×10⁻³ = 1.00 × 10⁻² mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Volume</span><div class="step-text"><span class="math">V = n / M = 1.00×10⁻² / 0.10 = 0.10 L = 100 mL</span></div></div>
+          <div class="example-answer">✅ The tablet neutralizes <strong>100 mL</strong> of 0.10 M HCl</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Fertilizer and Soil pH</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why does the use of ammonium-based fertilizers (like (NH₄)₂SO₄) acidify soil over time?</div>
+          <div class="example-step"><span class="step-badge">Dissociation</span><div class="step-text"><span class="math">(NH₄)₂SO₄ → 2NH₄⁺ + SO₄²⁻</span></div></div>
+          <div class="example-step"><span class="step-badge">Hydrolysis</span><div class="step-text"><span class="math">NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺</span> (NH₄⁺ is a weak acid)</div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">Repeated application produces excess H₃O⁺ → soil pH drops</div></div>
+          <div class="example-step"><span class="step-badge">Solution</span><div class="step-text">Farmers add <span class="math">lime (CaCO₃)</span> to neutralize the acid</div></div>
+          <div class="example-answer">✅ <strong>NH₄⁺ hydrolysis</strong> produces H₃O⁺, acidifying the soil</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Soap as a Weak Base</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why are soap solutions basic (pH ~9–10)?</div>
+          <div class="example-step"><span class="step-badge">Structure</span><div class="step-text">Soap is a sodium salt of a long-chain fatty acid: <span class="math">R-COO⁻Na⁺</span></div></div>
+          <div class="example-step"><span class="step-badge">In water</span><div class="step-text">
+            R-COO⁻Na⁺ → R-COO⁻ + Na⁺ (complete dissociation)<br>
+            R-COO⁻ + H₂O ⇌ R-COOH + OH⁻ (hydrolysis!)
+          </div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">The carboxylate ion (R-COO⁻) is the conjugate base of a weak acid → it hydrolyzes to give OH⁻ → basic solution</div></div>
+          <div class="example-answer">✅ Soap is <strong>basic</strong> because its anion is a weak base that hydrolyzes water</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The principal buffer system in human blood is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> H₂PO₄⁻/HPO₄²⁻</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> CH₃COOH/CH₃COO⁻</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> H₂CO₃/HCO₃⁻</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> NH₃/NH₄⁺</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The primary cause of acid rain is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> CO₂ from respiration</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> SO₂ and NOₓ from burning fossil fuels</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> O₃ from the upper atmosphere</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> CH₄ from livestock</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Antacids like Mg(OH)₂ work by:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Increasing stomach pH above 7</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Neutralizing excess HCl in the stomach</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Killing bacteria in the stomach</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Blocking acid secretion</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Why does soap solution have a pH of approximately 9–10?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> It contains NaOH directly</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> The carboxylate ion hydrolyzes water to produce OH⁻</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> It reacts with CO₂ in the air</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> It's a strong base</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A farmer's soil has become too acidic from fertilizer use. The best remedy is to add:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> More ammonium fertilizer</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> Lime (CaCO₃)</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> Vinegar</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> Table salt</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Back to Chemistry Hub →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+buffers+in+the+human+body" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Buffers in the Human Body — Blood pH</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+acid+rain+chemistry" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Acid Rain Chemistry — Formation and Effects</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+antacids+chemistry" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Antacids — Neutralization of Stomach Acid</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+ph+scale+applications+everyday+life" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">pH Scale and Everyday Applications</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.12</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Applications and Review</div>
+        <ul class="summary-list">
+          <li><strong>Blood pH</strong> is buffered at 7.4 by the H₂CO₃/HCO₃⁻ system</li>
+          <li><strong>Stomach pH</strong> is ~1.5 due to secreted HCl; antacids neutralize excess acid</li>
+          <li><strong>Cell cytoplasm</strong> is buffered by H₂PO₄⁻/HPO₄²⁻ at pH ~7.2</li>
+          <li><strong>Acid rain</strong> forms when SO₂ and NOₓ react with atmospheric water</li>
+          <li>Acid rain corrodes limestone: <strong>CaCO₃ + H₂SO₄ → CaSO₄ + H₂O + CO₂</strong></li>
+          <li><strong>Soap</strong> is basic (pH 9–10) because its carboxylate anion hydrolyzes water</li>
+          <li><strong>Ammonium fertilizers</strong> acidify soil via NH₄⁺ hydrolysis; lime corrects this</li>
+          <li>Applications: medicine, agriculture, industry, food preservation, cleaning</li>
+          <li>Ethiopian context: Rift Valley soda lakes, Tella/Tej fermentation, limestone for cement</li>
+          <li>Master reference: pH, Kw, Ka, Kb, buffers, salt hydrolysis, titration curves</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-11.html" class="btn btn-ghost">← Lesson 1.11: Titration Curves</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 12 of 12 · 🎉 Unit Complete!</div>
+      <a href="../index.html" class="btn btn-primary">Back to Chemistry Hub →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'B',4:'B',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! Blood is buffered by the carbonic acid/bicarbonate (H₂CO₃/HCO₃⁻) system at pH 7.4.',wrong:'✗ The primary blood buffer is H₂CO₃/HCO₃⁻.'},
+    2:{B:'✓ Correct! SO₂ and NOₓ from burning fossil fuels are the main causes of acid rain.',wrong:'✗ Acid rain is primarily caused by SO₂ and NOₓ from fossil fuel combustion.'},
+    3:{B:'✓ Correct! Antacids neutralize the excess HCl in the stomach, raising pH toward normal.',wrong:'✗ Antacids neutralize excess stomach HCl.'},
+    4:{B:'✓ Correct! The carboxylate ion (R-COO⁻) hydrolyzes water, producing OH⁻ and making the solution basic.',wrong:'✗ Soap\'s anion hydrolyzes water → basic solution.'},
+    5:{B:'✓ Correct! Lime (CaCO₃) is a base that neutralizes acidic soil.',wrong:'✗ Farmers add lime (CaCO₃) to raise soil pH.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','biology','environment','industry','review','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
