@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.9: Equivalents and Normality | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 9</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('equivalents')"><div class="sidebar-dot"></div> Equivalents</button>
+      <button class="sidebar-link" onclick="scrollTo('normality')"><div class="sidebar-dot"></div> Normality</button>
+      <button class="sidebar-link" onclick="scrollTo('titration')"><div class="sidebar-dot"></div> N₁V₁ = N₂V₂</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Acid-Base Concepts ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Strengths ✓</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Ka and Kb ✓</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Common Ion Effect ✓</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Buffers ✓</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis ✓</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Indicators ✓</a>
+      <a href="lesson-1-9.html" class="sidebar-link active"><div class="sidebar-dot"></div> L9: Equivalents</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Titrations</a>
+      <a href="lesson-1-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Titration Curves</a>
+      <a href="lesson-1-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.9
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>⚖️ Equivalents and Normality</h1>
+      <p>Normality is a concentration unit used frequently in acid-base titration. Instead of counting moles, it counts "reactive units" — accounting for how many H⁺ or OH⁻ each molecule can donate or accept.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          When you titrate an acid with a base, "equal moles" isn't always the neutralization condition. H₂SO₄ has TWO acidic protons per molecule. So 1 mole of H₂SO₄ can neutralize 2 moles of NaOH, not 1. The concept of <strong>equivalents</strong> captures this reactive capacity.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>equivalent</strong> and <strong>equivalent weight</strong></li>
+          <li>Calculate the number of <strong>equivalents</strong> in a given sample</li>
+          <li>Define and compute <strong>normality</strong></li>
+          <li>Convert between <strong>normality and molarity</strong></li>
+          <li>Apply the titration equation <strong>N₁V₁ = N₂V₂</strong></li>
+          <li>Perform neutralization calculations using equivalents</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="equivalents">
+      <div class="section-header"><div class="section-icon">⚗️</div>
+        <div><div class="section-title-text">9.1 Equivalents</div><div class="section-subtitle">The concept of reactive capacity</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Equivalent Definition</div>
+          <p>
+            An <strong>equivalent</strong> is the amount of a substance that reacts with (or supplies) <strong>one mole of H⁺ ions</strong> in an acid-base reaction.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">Number of Equivalents — Acids and Bases</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 For Acids</div>
+          <p>
+            The number of equivalents of an acid is the number of <strong>replaceable H⁺ ions</strong> per molecule:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            n (equivalents) = number of ionizable H⁺ per molecule
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 For Bases</div>
+          <p>
+            The number of equivalents of a base is the number of <strong>replaceable OH⁻ ions</strong> per molecule:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            n (equivalents) = number of OH⁻ provided per molecule
+          </p>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Substance</th><th>Formula</th><th>Equivalents per mole (n)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Hydrochloric acid</td><td>HCl</td><td>1</td></tr>
+            <tr><td>Nitric acid</td><td>HNO₃</td><td>1</td></tr>
+            <tr><td>Acetic acid</td><td>CH₃COOH</td><td>1</td></tr>
+            <tr><td>Sulfuric acid</td><td>H₂SO₄</td><td>2</td></tr>
+            <tr><td>Phosphoric acid</td><td>H₃PO₄</td><td>3</td></tr>
+            <tr><td>Sodium hydroxide</td><td>NaOH</td><td>1</td></tr>
+            <tr><td>Barium hydroxide</td><td>Ba(OH)₂</td><td>2</td></tr>
+            <tr><td>Aluminum hydroxide</td><td>Al(OH)₃</td><td>3</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Equivalent Weight</div>
+          <p>
+            <span style="font-family:'Georgia',serif;font-weight:700;color:#DC2626">Equivalent Weight = Molar Mass / n</span>
+            <br><br>
+            Example: Equivalent weight of H₂SO₄ = 98 g/mol ÷ 2 = <strong>49 g/equivalent</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="normality">
+      <div class="section-header"><div class="section-icon">🔢</div>
+        <div><div class="section-title-text">9.2 Normality</div><div class="section-subtitle">The concentration unit based on equivalents</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Normality (N)</div>
+          <p>
+            The <strong>normality</strong> of a solution is the number of equivalents of solute per liter of solution:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.15rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            N = number of equivalents / liters of solution
+          </p>
+          <p>
+            Equivalent to: <span style="font-family:'Georgia',serif;font-weight:700;color:#DC2626">N = equivalents × 1000 / mL solution</span>
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Relationship Between Normality and Molarity</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key Formula</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.2rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            N = M × n
+          </p>
+          <p>
+            Where <strong>M</strong> is molarity and <strong>n</strong> is the number of equivalents per mole (H⁺ or OH⁻ ions).
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Examples</div>
+          <p style="font-size:.9rem;color:#334155;margin:.5rem 0;text-align:left">
+            • 0.1 M HCl → <strong>0.1 N</strong> (n = 1)<br>
+            • 0.1 M H₂SO₄ → <strong>0.2 N</strong> (n = 2)<br>
+            • 0.5 M NaOH → <strong>0.5 N</strong> (n = 1)<br>
+            • 0.2 M Ba(OH)₂ → <strong>0.4 N</strong> (n = 2)
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 When is normality useful?</div>
+          <p>
+            Normality is especially useful in titration problems because <strong>equal volumes of solutions with equal normality always neutralize each other</strong> — no need to consider stoichiometry separately.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="titration">
+      <div class="section-header"><div class="section-icon">🧪</div>
+        <div><div class="section-title-text">9.3 The Titration Equation N₁V₁ = N₂V₂</div><div class="section-subtitle">Neutralization using normality</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          In a neutralization reaction, the acid and base must supply equal numbers of equivalents:
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Titration Equation</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.25rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            N₁ V₁ = N₂ V₂
+          </p>
+          <p>
+            Where:<br>
+            • <strong>N₁</strong> and <strong>N₂</strong> are normalities of acid and base<br>
+            • <strong>V₁</strong> and <strong>V₂</strong> are volumes in the same units (mL or L)
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why This Works</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          At the equivalence point: <strong>equivalents of acid = equivalents of base</strong>:
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Derivation</div>
+          <p style="font-size:.9rem;color:#334155;margin:.5rem 0">
+            N₁ × V₁ = equivalents of acid (in liters)<br>
+            N₂ × V₂ = equivalents of base (in liters)<br>
+            <br>
+            At equivalence: N₁V₁ = N₂V₂
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Compare with molarity method</div>
+          <p>
+            Using molarity, you would need: M₁V₁/n₁ = M₂V₂/n₂ (where n is electrons transferred). Normality absorbs the n factor into the concentration, making the equation simpler.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Everything you need for equivalents & normality</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">⚖️ Lesson 1.9 — Equivalents and Normality</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Equivalent definition</div><div class="formula-math">Reacts with 1 mol H⁺</div><div class="formula-note">Or supplies 1 mol H⁺</div></div>
+          <div class="formula-item"><div class="formula-name">Equivalent weight</div><div class="formula-math">Molar Mass / n</div><div class="formula-note">n = H⁺ or OH⁻ count</div></div>
+          <div class="formula-item"><div class="formula-name">Normality</div><div class="formula-math">N = eq / L</div><div class="formula-note">Equivalents per liter</div></div>
+          <div class="formula-item"><div class="formula-name">Normality from Molarity</div><div class="formula-math">N = M × n</div><div class="formula-note">n = equivalents per mole</div></div>
+          <div class="formula-item"><div class="formula-name">Titration relation</div><div class="formula-math">N₁ V₁ = N₂ V₂</div><div class="formula-note">At equivalence point</div></div>
+          <div class="formula-item"><div class="formula-name">Equivalents in sample</div><div class="formula-math">eq = N × V(L)</div><div class="formula-note">Volume in liters</div></div>
+          <div class="formula-item"><div class="formula-name">HCl</div><div class="formula-math">n = 1</div><div class="formula-note">Monoprotic</div></div>
+          <div class="formula-item"><div class="formula-name">H₂SO₄</div><div class="formula-math">n = 2</div><div class="formula-note">Diprotic</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Calculate Normality from Molarity</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What is the normality of a 0.5 M H₂SO₄ solution?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">N = M × n</span></div></div>
+          <div class="example-step"><span class="step-badge">Find n</span><div class="step-text">H₂SO₄ has <span class="math">2 replaceable H⁺ ions</span> per molecule → n = 2</div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">N = 0.5 × 2 = 1.0 N</span></div></div>
+          <div class="example-answer">✅ Normality = <strong>1.0 N</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Simple Titration</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What volume of 2.0 N NaOH is required to neutralize 25.0 mL of 2.70 N H₂SO₄?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">N₁ V₁ = N₂ V₂</span></div></div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">
+            Acid: N₁ = 2.70 N, V₁ = 25.0 mL<br>
+            Base: N₂ = 2.0 N, V₂ = ?
+          </div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">V₂ = (N₁ V₁) / N₂ = (2.70 × 25.0) / 2.0</span></div></div>
+          <div class="example-step"><span class="step-badge">Compute</span><div class="step-text"><span class="math">V₂ = 67.5 / 2.0 = 33.8 mL</span></div></div>
+          <div class="example-answer">✅ Volume of NaOH = <strong>33.8 mL</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Convert Molarity to Normality</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What is the normality of 0.20 M H₃PO₄?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">N = M × n</span></div></div>
+          <div class="example-step"><span class="step-badge">Find n</span><div class="step-text">H₃PO₄ has <span class="math">3 replaceable H⁺ ions</span> → n = 3</div></div>
+          <div class="example-step"><span class="step-badge">Compute</span><div class="step-text"><span class="math">N = 0.20 × 3 = 0.60 N</span></div></div>
+          <div class="example-answer">✅ Normality = <strong>0.60 N</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Calculate Normality from Mass</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What is the normality of a solution made by dissolving 4.9 g of H₂SO₄ in enough water to make 500 mL of solution? (Molar mass H₂SO₄ = 98 g/mol.)</div>
+          <div class="example-step"><span class="step-badge">Find moles</span><div class="step-text"><span class="math">moles = 4.9 g / 98 g/mol = 0.05 mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Find equivalents</span><div class="step-text"><span class="math">eq = moles × n = 0.05 × 2 = 0.10 eq</span></div></div>
+          <div class="example-step"><span class="step-badge">Convert volume</span><div class="step-text">V = 500 mL = <span class="math">0.500 L</span></div></div>
+          <div class="example-step"><span class="step-badge">Normality</span><div class="step-text"><span class="math">N = eq / V = 0.10 / 0.500 = 0.20 N</span></div></div>
+          <div class="example-answer">✅ Normality = <strong>0.20 N</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Find Unknown Concentration</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> 20.0 mL of an HCl solution is titrated with 0.10 N NaOH. If 25.0 mL of NaOH is required to reach the end point, what is the normality (and molarity) of the HCl solution?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">N₁ V₁ = N₂ V₂</span></div></div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">
+            HCl: N₁ = ?, V₁ = 20.0 mL<br>
+            NaOH: N₂ = 0.10 N, V₂ = 25.0 mL
+          </div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">N₁ = (0.10 × 25.0) / 20.0 = 0.125 N</span></div></div>
+          <div class="example-step"><span class="step-badge">Convert to M</span><div class="step-text">HCl has n = 1, so <span class="math">M = N/n = 0.125 M</span></div></div>
+          <div class="example-answer">✅ Normality = <strong>0.125 N</strong> &nbsp; Molarity = <strong>0.125 M</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">How many equivalents are in 1 mole of H₂SO₄?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> 0.5</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> 1</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> 2</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> 3</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">A 0.30 M solution of H₃PO₄ has a normality of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> 0.10 N</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> 0.30 N</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> 0.90 N</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> 3.0 N</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">If 15.0 mL of 0.2 N HCl neutralizes 30.0 mL of NaOH, the normality of NaOH is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> 0.05 N</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> 0.10 N</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> 0.20 N</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> 0.40 N</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">The equivalent weight of H₃PO₄ (molar mass 98 g/mol) is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> 98 g</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> 49 g</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> 32.7 g</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> 24.5 g</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A 0.25 N solution of H₂SO₄ has what molarity?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> 0.50 M</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> 0.125 M</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> 0.25 M</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> 1.0 M</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-10.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+normality+molarity" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Normality and Molarity — What's the Difference?</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+equivalents+chemistry" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Equivalents in Acid-Base Chemistry — Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+normality+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Normality Calculations — Worked Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+titration+n1v1+n2v2" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Titration Calculations Using N₁V₁ = N₂V₂</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.9</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Equivalents and Normality</div>
+        <ul class="summary-list">
+          <li>An <strong>equivalent</strong> is the amount of substance that reacts with 1 mole of H⁺ (or OH⁻)</li>
+          <li>For acids, n = number of replaceable H⁺ ions per molecule</li>
+          <li>For bases, n = number of OH⁻ ions per molecule</li>
+          <li><strong>Equivalent weight = Molar Mass / n</strong></li>
+          <li><strong>Normality (N) = equivalents / liter of solution</strong></li>
+          <li><strong>N = M × n</strong> — the key conversion formula</li>
+          <li>0.1 M H₂SO₄ = 0.2 N; 0.5 M H₃PO₄ = 1.5 N</li>
+          <li><strong>N₁V₁ = N₂V₂</strong> — the titration equation at the equivalence point</li>
+          <li>Volume can be in mL or L as long as both sides use the same unit</li>
+          <li>Normality simplifies titrations because it accounts for equivalent ratios directly</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-8.html" class="btn btn-ghost">← Lesson 1.8: Indicators</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 9 of 12</div>
+      <a href="lesson-1-10.html" class="btn btn-primary">Next: Titrations →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'B',4:'C',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! H₂SO₄ has 2 replaceable H⁺ ions, so 1 mole = 2 equivalents.',wrong:'✗ H₂SO₄ is diprotic: 2 equivalents per mole.'},
+    2:{C:'✓ Correct! N = M × n = 0.30 × 3 = 0.90 N.',wrong:'✗ H₃PO₄ has 3 H⁺, so N = 0.30 × 3 = 0.90 N.'},
+    3:{B:'✓ Correct! N₂ = (0.2 × 15.0)/30.0 = 0.10 N.',wrong:'✗ N₂ = (0.2 N × 15.0 mL) / 30.0 mL = 0.10 N.'},
+    4:{C:'✓ Correct! Equivalent weight = 98 / 3 = 32.7 g.',wrong:'✗ Equivalent weight = molar mass / n = 98 / 3 = 32.7 g.'},
+    5:{B:'✓ Correct! M = N/n = 0.25 / 2 = 0.125 M.',wrong:'✗ M = N/n = 0.25 / 2 = 0.125 M.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','equivalents','normality','titration','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
