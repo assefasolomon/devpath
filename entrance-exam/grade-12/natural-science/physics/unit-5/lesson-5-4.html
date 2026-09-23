@@ -10,57 +10,579 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:var(--brand-primary);margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:420px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.npn{background:#EFF6FF;border-color:#BFDBFE}
+    .compare-card.pnp{background:#FEF2F2;border-color:#FECACA}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.npn .compare-card-title{color:#1E40AF}
+    .compare-card.pnp .compare-card-title{color:#991B1B}
+    .compare-card ul{list-style:none;padding:0;margin:0}
+    .compare-card li{font-size:.8rem;color:var(--text);line-height:1.7;padding:.2rem 0;padding-left:1rem;position:relative}
+    .compare-card li::before{content:'•';position:absolute;left:0;font-weight:700}
+    .compare-card.npn li::before{color:#1E40AF}
+    .compare-card.pnp li::before{color:#991B1B}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 5 · Lesson 5.4</div>
-    <a href="lesson-5-1.html" class="sidebar-link">L1: Semiconductors</a>
-    <a href="lesson-5-2.html" class="sidebar-link">L2: Diodes</a>
-    <a href="lesson-5-3.html" class="sidebar-link">L3: Rectification</a>
-    <a href="lesson-5-4.html" class="sidebar-link">L4: Transistors</a>
-    <a href="lesson-5-5.html" class="sidebar-link">L5: Integrated Circuits</a>
-    <a href="lesson-5-6.html" class="sidebar-link">L6: Logic Gates</a>
+    <div class="sidebar-title">Unit 5 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="lesson-5-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Semiconductors ✓</a>
+      <a href="lesson-5-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Diodes ✓</a>
+      <a href="lesson-5-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Rectification ✓</a>
+      <a href="lesson-5-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Transistors</a>
+      <a href="lesson-5-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Integrated Circuits</a>
+      <a href="lesson-5-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Logic Gates</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 5 · Basics of Electronics</div>
-      <h1>📘 Lesson 5.4: Transistors and Their Application</h1>
-      <p>Content coming soon. This lesson is part of Unit 5: Basics of Electronics.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 5</a> ›
+      Lesson 5.4
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Basics of Electronics · Natural Science</div>
+      <h1>🔊 Transistors and Their Application</h1>
+      <p>The transistor is the building block of modern electronics. It can amplify signals and switch currents — and it's found in every computer, phone, and radio.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          A <strong>transistor</strong> is a three-terminal, two-junction semiconductor device used to control electron flow. By varying a small voltage, a tiny current can control a much larger current — this is the essence of <strong>amplification</strong> and <strong>switching</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe the structure of <strong>Bipolar Junction Transistors</strong> (BJTs)</li>
+          <li>Distinguish <strong>NPN</strong> and <strong>PNP</strong> transistors</li>
+          <li>Draw the transistor <strong>schematic symbols</strong></li>
+          <li>Explain the three <strong>transistor configurations</strong></li>
+          <li>Calculate <strong>current gain (β)</strong> and emitter current</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.1 What is a Transistor?</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Definition</div>
+          <p>
+            A <strong>transistor</strong> is a three-terminal, two-junction semiconductor device used to control electron flow. Two main types:<br><br>
+            • <strong>BJT</strong> — Bipolar Junction Transistor<br>
+            • <strong>FET</strong> — Field Effect Transistor<br><br>
+            This lesson focuses on BJTs.
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Three alternately doped regions</div>
+          <p>
+            A BJT consists of three alternately doped semiconductor regions arranged in one of two ways: <strong>NPN</strong> or <strong>PNP</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.2 NPN vs PNP Structure</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">NPN and PNP Transistor Structures</div>
+          <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- NPN -->
+            <text x="110" y="20" font-size="12" fill="#1E40AF" text-anchor="middle" font-weight="bold">NPN Transistor</text>
+            <rect x="30" y="40" width="50" height="80" fill="#EFF6FF" stroke="#1E40AF" stroke-width="2"/>
+            <text x="55" y="85" font-size="14" fill="#1E40AF" text-anchor="middle" font-weight="bold">N</text>
+            <rect x="80" y="40" width="60" height="80" fill="#FEF2F2" stroke="#991B1B" stroke-width="2"/>
+            <text x="110" y="85" font-size="14" fill="#991B1B" text-anchor="middle" font-weight="bold">P</text>
+            <rect x="140" y="40" width="50" height="80" fill="#EFF6FF" stroke="#1E40AF" stroke-width="2"/>
+            <text x="165" y="85" font-size="14" fill="#1E40AF" text-anchor="middle" font-weight="bold">N</text>
+            <text x="55" y="135" font-size="10" fill="#0F172A" text-anchor="middle">Emitter</text>
+            <text x="110" y="135" font-size="10" fill="#0F172A" text-anchor="middle">Base</text>
+            <text x="165" y="135" font-size="10" fill="#0F172A" text-anchor="middle">Collector</text>
+
+            <!-- PNP -->
+            <text x="360" y="20" font-size="12" fill="#991B1B" text-anchor="middle" font-weight="bold">PNP Transistor</text>
+            <rect x="280" y="40" width="50" height="80" fill="#FEF2F2" stroke="#991B1B" stroke-width="2"/>
+            <text x="305" y="85" font-size="14" fill="#991B1B" text-anchor="middle" font-weight="bold">P</text>
+            <rect x="330" y="40" width="60" height="80" fill="#EFF6FF" stroke="#1E40AF" stroke-width="2"/>
+            <text x="360" y="85" font-size="14" fill="#1E40AF" text-anchor="middle" font-weight="bold">N</text>
+            <rect x="390" y="40" width="50" height="80" fill="#FEF2F2" stroke="#991B1B" stroke-width="2"/>
+            <text x="415" y="85" font-size="14" fill="#991B1B" text-anchor="middle" font-weight="bold">P</text>
+            <text x="305" y="135" font-size="10" fill="#0F172A" text-anchor="middle">Emitter</text>
+            <text x="360" y="135" font-size="10" fill="#0F172A" text-anchor="middle">Base</text>
+            <text x="415" y="135" font-size="10" fill="#0F172A" text-anchor="middle">Collector</text>
+
+            <!-- Arrow distinction -->
+            <text x="240" y="185" font-size="10" fill="#0F172A" text-anchor="middle" font-style="italic">The arrow on the emitter shows conventional current direction</text>
+          </svg>
+          <div class="visual-box-caption">In NPN, the base is P-type (thin and lightly doped). In PNP, the base is N-type. The emitter is always heavily doped.</div>
+        </div>
+
+        <div class="compare-grid">
+          <div class="compare-card npn">
+            <div class="compare-card-title">⚡ NPN Transistor</div>
+            <ul>
+              <li>P-type <strong>base</strong> between two N-type regions</li>
+              <li>Majority carriers: <strong>electrons</strong></li>
+              <li>Current direction: <strong>Collector → Emitter</strong></li>
+              <li>Arrow on emitter points <strong>outward</strong></li>
+              <li>Emitter connected to <strong>−</strong> terminal</li>
+            </ul>
+          </div>
+          <div class="compare-card pnp">
+            <div class="compare-card-title">✨ PNP Transistor</div>
+            <ul>
+              <li>N-type <strong>base</strong> between two P-type regions</li>
+              <li>Majority carriers: <strong>holes</strong></li>
+              <li>Current direction: <strong>Emitter → Collector</strong></li>
+              <li>Arrow on emitter points <strong>inward</strong></li>
+              <li>Emitter connected to <strong>+</strong> terminal</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.3 Transistor Terminals — E, B, C</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 The Three Regions</div>
+          <p>
+            <strong>Emitter (E):</strong> Heavily doped region that <strong>supplies</strong> charge carriers.<br><br>
+            <strong>Base (B):</strong> Middle region, <strong>lightly doped</strong> and very thin. Controls the transistor action.<br><br>
+            <strong>Collector (C):</strong> Moderately doped region that <strong>collects</strong> charge carriers.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.4 Biasing a Transistor</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Correct Biasing</div>
+          <p>
+            For proper operation:<br>
+            • <strong>Emitter-Base junction</strong> → <strong>forward biased</strong><br>
+            • <strong>Collector-Base junction</strong> → <strong>reverse biased</strong><br><br>
+            In NPN, emitter is connected to negative terminal and base to positive (forward bias). Collector is connected to a more positive voltage (reverse bias) to attract electrons.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.5 Current Relationships</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Current Conservation</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.1rem">I_E = I_B + I_C</span><br><br>
+            The emitter current equals the sum of base and collector currents.<br><br>
+            The base current is <strong>very small</strong> (microamps), but it controls the much larger collector current (milliamps).
+          </p>
+        </div>
+        <div class="definition-box">
+          <div class="def-label">📌 Current Gain (β)</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.1rem">β = I_C / I_B</span><br><br>
+            A small change in base current produces a <strong>β times larger</strong> change in collector current — this is amplification.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">4.6 Transistor Configurations</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Three Ways to Connect</div>
+          <p>
+            <strong>Common Emitter (CE):</strong> Input B-E, output C-E. Provides <strong>voltage, current, AND power gain</strong>. Most commonly used.<br><br>
+            <strong>Common Collector (CC):</strong> Input B-C, output E-C. Provides <strong>good current gain</strong>.<br><br>
+            <strong>Common Base (CB):</strong> Input E, output C. Provides <strong>good voltage and power gain</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Memorize these for the exam</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🔊 Lesson 5.4 — Transistors</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Current conservation</div><div class="formula-math">I_E = I_B + I_C</div><div class="formula-note">Kirchhoff's law</div></div>
+          <div class="formula-item"><div class="formula-name">Current gain</div><div class="formula-math">β = I_C / I_B</div><div class="formula-note">Common emitter</div></div>
+          <div class="formula-item"><div class="formula-name">Collector current</div><div class="formula-math">I_C = β I_B</div><div class="formula-note">Amplification relation</div></div>
+          <div class="formula-item"><div class="formula-name">Emitter current</div><div class="formula-math">I_E = (β + 1) I_B</div><div class="formula-note">From above relations</div></div>
+          <div class="formula-item"><div class="formula-name">NPN majority</div><div class="formula-math">Electrons</div><div class="formula-note">Current C → E</div></div>
+          <div class="formula-item"><div class="formula-name">PNP majority</div><div class="formula-math">Holes</div><div class="formula-note">Current E → C</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Collector Current from β</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A transistor has β = 250 and base current I_B = 20 μA. What is the collector current I_C?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">I_C = β I_B</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">I_C = 250 × 20 μA = 5000 μA = 5 mA</span></div></div>
+          <div class="example-answer">✅ I_C = <strong>5 mA</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Emitter Current</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A transistor has I_B = 30 μA and I_C = 4.5 mA. Find I_E and β.</div>
+          <div class="example-step"><span class="step-badge">Convert</span><div class="step-text">I_C = 4.5 mA = 4500 μA</div></div>
+          <div class="example-step"><span class="step-badge">I_E</span><div class="step-text"><span class="math">I_E = I_B + I_C = 30 + 4500 = 4530 μA = 4.53 mA</span></div></div>
+          <div class="example-step"><span class="step-badge">β</span><div class="step-text"><span class="math">β = I_C / I_B = 4500 / 30 = 150</span></div></div>
+          <div class="example-answer">✅ I_E = <strong>4.53 mA</strong> &nbsp; β = <strong>150</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Base Current Calculation</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> If a transistor has β = 100 and collector current 10 mA, what is I_E?</div>
+          <div class="example-step"><span class="step-badge">Base current</span><div class="step-text"><span class="math">I_B = I_C / β = 10 mA / 100 = 0.1 mA = 100 μA</span></div></div>
+          <div class="example-step"><span class="step-badge">Emitter</span><div class="step-text"><span class="math">I_E = I_B + I_C = 0.1 + 10 = 10.1 mA</span></div></div>
+          <div class="example-answer">✅ I_E ≈ <strong>10.1 mA</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Identify the Transistor</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A transistor has its emitter arrow pointing outward, away from the base. What type of transistor is it?</div>
+          <div class="example-step"><span class="step-badge">Convention</span><div class="step-text">In circuit symbols, the arrow on the emitter shows the direction of <span class="math">conventional current</span>.</div></div>
+          <div class="example-step"><span class="step-badge">Direction</span><div class="step-text">Arrow pointing <span class="math">outward</span> = current flows out of emitter = <span class="math">NPN</span>.</div></div>
+          <div class="example-answer">✅ <strong>NPN transistor</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Why Common Emitter?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why is the common emitter configuration used most often?</div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text">CE provides <span class="math">voltage gain AND current gain</span> simultaneously.</div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">It gives the <span class="math">highest power gain</span> of the three configurations — best for amplifiers.</div></div>
+          <div class="example-answer">✅ CE is most used because it gives <strong>both voltage and current gain</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">A transistor has how many terminals?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> 2</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> 4</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> 3</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> 5</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The three terminals of a transistor are:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> Anode, cathode, gate</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> Emitter, base, collector</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> Source, drain, gate</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> Positive, negative, neutral</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">The current gain β of a transistor is defined as:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> I_B / I_C</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> I_E / I_B</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> I_C / I_B</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> I_E / I_C</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">In a properly biased NPN transistor:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Both junctions are forward biased</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Both junctions are reverse biased</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Emitter-base is forward; collector-base is reverse</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Emitter-base is reverse; collector-base is forward</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Which transistor configuration gives the highest power gain?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Common base</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Common collector</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Common emitter</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> They are all equal</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-5-5.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+transistor+introduction" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Transistors — Full Introduction to BJTs</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+npn+pnp+transistor" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">NPN vs PNP Transistors Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+transistor+current+gain+beta" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Transistor Current Gain β — Worked Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+transistor+amplifier+common+emitter" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Common Emitter Amplifier — Configuration and Gain</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 5.4</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Transistors</div>
+        <ul class="summary-list">
+          <li>A <strong>transistor</strong> is a three-terminal, two-junction device used to control current.</li>
+          <li>Two types: <strong>NPN</strong> and <strong>PNP</strong> bipolar junction transistors.</li>
+          <li>Three terminals: <strong>Emitter (E), Base (B), Collector (C)</strong>.</li>
+          <li><strong>Base</strong> is lightly doped and very thin — it controls the transistor.</li>
+          <li><strong>Emitter</strong> is heavily doped — supplies charge carriers.</li>
+          <li><strong>Collector</strong> is moderately doped — collects charge carriers.</li>
+          <li>Correct biasing: <strong>E-B forward, C-B reverse</strong>.</li>
+          <li>Current relations: <strong>I_E = I_B + I_C</strong> and <strong>β = I_C / I_B</strong>.</li>
+          <li>Three configurations: CE, CC, CB. <strong>Common emitter is most used</strong> — provides both voltage and current gain.</li>
+          <li>Transistors are used in amplifiers, switches, oscillators, and digital circuits.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-5-3.html" class="btn btn-ghost">← Lesson 5.3: Rectification</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 5 · Lesson 4 of 6</div>
+      <a href="lesson-5-5.html" class="btn btn-primary">Next: Integrated Circuits →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! Transistors have 3 terminals.',wrong:'✗ Transistors are 3-terminal devices.'},
+    2:{B:'✓ Correct! Emitter, base, collector.',wrong:'✗ The three terminals are emitter (E), base (B), and collector (C).'},
+    3:{C:'✓ Correct! β = I_C / I_B is the current gain in common emitter.',wrong:'✗ β (current gain) = I_C / I_B.'},
+    4:{C:'✓ Correct! E-B forward biased; C-B reverse biased.',wrong:'✗ Emitter-base forward, collector-base reverse.'},
+    5:{C:'✓ Correct! Common emitter provides the highest power gain.',wrong:'✗ Common emitter gives both voltage and current gain — highest power gain.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>

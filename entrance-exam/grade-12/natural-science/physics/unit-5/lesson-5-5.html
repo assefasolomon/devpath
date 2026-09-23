@@ -10,57 +10,561 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .warning-box{background:#FEF2F2;border:1px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .warning-box .warning-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .warning-box p{font-size:.875rem;color:#7F1D1D;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:var(--brand-primary);margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:380px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.adv{background:#F0FDF4;border-color:#BBF7D0}
+    .compare-card.dis{background:#FEF2F2;border-color:#FECACA}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.adv .compare-card-title{color:#166534}
+    .compare-card.dis .compare-card-title{color:#991B1B}
+    .compare-card ul{list-style:none;padding:0;margin:0}
+    .compare-card li{font-size:.8rem;color:var(--text);line-height:1.7;padding:.2rem 0;padding-left:1rem;position:relative}
+    .compare-card li::before{content:'•';position:absolute;left:0;font-weight:700}
+    .compare-card.adv li::before{color:#16A34A}
+    .compare-card.dis li::before{color:#DC2626}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 5 · Lesson 5.5</div>
-    <a href="lesson-5-1.html" class="sidebar-link">L1: Semiconductors</a>
-    <a href="lesson-5-2.html" class="sidebar-link">L2: Diodes</a>
-    <a href="lesson-5-3.html" class="sidebar-link">L3: Rectification</a>
-    <a href="lesson-5-4.html" class="sidebar-link">L4: Transistors</a>
-    <a href="lesson-5-5.html" class="sidebar-link">L5: Integrated Circuits</a>
-    <a href="lesson-5-6.html" class="sidebar-link">L6: Logic Gates</a>
+    <div class="sidebar-title">Unit 5 · Lesson 5</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Key Concepts</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="lesson-5-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Semiconductors ✓</a>
+      <a href="lesson-5-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Diodes ✓</a>
+      <a href="lesson-5-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Rectification ✓</a>
+      <a href="lesson-5-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Transistors ✓</a>
+      <a href="lesson-5-5.html" class="sidebar-link active"><div class="sidebar-dot"></div> L5: Integrated Circuits</a>
+      <a href="lesson-5-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Logic Gates</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 5 · Basics of Electronics</div>
-      <h1>📘 Lesson 5.5: Integrated Circuits</h1>
-      <p>Content coming soon. This lesson is part of Unit 5: Basics of Electronics.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 5</a> ›
+      Lesson 5.5
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Basics of Electronics · Natural Science</div>
+      <h1>💾 Integrated Circuits</h1>
+      <p>Integrated circuits (ICs) pack millions of transistors onto a single chip of silicon. They've shrunk computers from room-sized machines to phones in our pockets — and they've completely transformed electronics.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~15 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          As transistors became smaller and cheaper, engineers realized they could combine <strong>many transistors and other components on a single chip</strong>. This is the <strong>integrated circuit</strong> — a device that has revolutionized the world of electronics.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define what an <strong>integrated circuit</strong> is</li>
+          <li>Identify its <strong>key components</strong></li>
+          <li>List the <strong>advantages and disadvantages</strong></li>
+          <li>Explain why ICs replaced discrete circuits</li>
+          <li>Recognize common <strong>IC applications</strong> in daily life</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">5.1 What is an Integrated Circuit?</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Definition</div>
+          <p>
+            An <strong>integrated circuit (IC)</strong> — also called a <strong>chip</strong> or <strong>microchip</strong> — is a set of electronic circuits on one small flat piece of semiconductor material, usually silicon.<br><br>
+            Invented by <strong>Jack Kilby</strong> and <strong>Robert Noyce</strong>, ICs combine diodes, transistors, resistors, and capacitors into a single device.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Integrated Circuit Chip</div>
+          <svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- DIP IC -->
+            <rect x="80" y="60" width="160" height="60" rx="4" fill="#1F2937" stroke="#0F172A" stroke-width="2"/>
+            <circle cx="100" cy="70" r="3" fill="#4B5563"/>
+            <text x="160" y="95" font-size="12" fill="#E5E7EB" text-anchor="middle" font-weight="bold">IC CHIP</text>
+            <!-- Pins top -->
+            <g stroke="#94A3B8" stroke-width="2">
+              <line x1="100" y1="60" x2="100" y2="45"/>
+              <line x1="120" y1="60" x2="120" y2="45"/>
+              <line x1="140" y1="60" x2="140" y2="45"/>
+              <line x1="160" y1="60" x2="160" y2="45"/>
+              <line x1="180" y1="60" x2="180" y2="45"/>
+              <line x1="200" y1="60" x2="200" y2="45"/>
+              <line x1="220" y1="60" x2="220" y2="45"/>
+            </g>
+            <!-- Pins bottom -->
+            <g stroke="#94A3B8" stroke-width="2">
+              <line x1="100" y1="120" x2="100" y2="135"/>
+              <line x1="120" y1="120" x2="120" y2="135"/>
+              <line x1="140" y1="120" x2="140" y2="135"/>
+              <line x1="160" y1="120" x2="160" y2="135"/>
+              <line x1="180" y1="120" x2="180" y2="135"/>
+              <line x1="200" y1="120" x2="200" y2="135"/>
+              <line x1="220" y1="120" x2="220" y2="135"/>
+            </g>
+            <text x="160" y="165" font-size="11" fill="#0F172A" text-anchor="middle">Dual In-line Package (DIP)</text>
+            <text x="160" y="180" font-size="9" fill="#64748B" text-anchor="middle">~1/8 inch square chip with millions of transistors inside</text>
+          </svg>
+          <div class="visual-box-caption">An IC chip is tiny — often just 1/8 inch square — yet it contains millions of transistors and other components.</div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">5.2 Components Inside an IC</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 What's Inside</div>
+          <p>
+            An IC contains:<br>
+            • <strong>Transistors</strong><br>
+            • <strong>Diodes</strong><br>
+            • <strong>Resistors</strong><br>
+            • <strong>Capacitors</strong><br><br>
+            All are formed simultaneously on the same silicon chip using the same manufacturing technology.
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Space distribution</div>
+          <p>
+            Interestingly, diodes and transistors occupy only a <strong>very small percentage</strong> of the IC's space. Most of the space is taken by resistors and capacitors, whose size increases with their value.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">5.3 Advantages and Disadvantages of ICs</h3>
+
+        <div class="compare-grid">
+          <div class="compare-card adv">
+            <div class="compare-card-title">✓ Advantages of ICs</div>
+            <ul>
+              <li><strong>Small size</strong> — 1/8 inch square chip</li>
+              <li><strong>Low power consumption</strong></li>
+              <li><strong>High speed</strong> — short internal connections</li>
+              <li><strong>Reliable</strong> — components formed simultaneously</li>
+              <li><strong>Economical</strong> — mass production reduces cost</li>
+              <li><strong>Fewer parts</strong> — reduces assembly cost</li>
+              <li>Used extensively in <strong>military and aerospace</strong></li>
+            </ul>
+          </div>
+          <div class="compare-card dis">
+            <div class="compare-card-title">✗ Disadvantages of ICs</div>
+            <ul>
+              <li><strong>Cannot handle high current</strong> — heat damages them</li>
+              <li><strong>Cannot handle high voltage</strong> — breaks internal insulation</li>
+              <li><strong>Cannot be repaired</strong> — only replaced</li>
+              <li>Faults must be identified <strong>by circuit, not component</strong></li>
+              <li>Limited power ratings</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">5.4 Impact of Integrated Circuits</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 How ICs Changed the World</div>
+          <p>
+            ICs enabled:<br>
+            • <strong>Handheld calculators</strong> (from desktop-sized machines)<br>
+            • <strong>Portable computers</strong> (laptops, tablets, phones)<br>
+            • <strong>Digital watches</strong><br>
+            • <strong>Modern communication systems</strong><br>
+            • <strong>Digital cameras, MP3 players, DVD players</strong><br>
+            • <strong>Traffic lights, medical devices, satellites</strong>
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 A boon for digital technology</div>
+          <p>
+            ICs have made possible <strong>computers, mobile phones, MP3 players, digital fans, traffic lights, DVDs</strong> — the entire digital age.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Key Concepts Reference</div><div class="section-subtitle">Quick reference</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">💾 Lesson 5.5 — Integrated Circuits</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">IC = chip</div><div class="formula-math">Circuit on a chip</div><div class="formula-note">Silicon base</div></div>
+          <div class="formula-item"><div class="formula-name">Invented by</div><div class="formula-math">Kilby & Noyce</div><div class="formula-note">Late 1950s</div></div>
+          <div class="formula-item"><div class="formula-name">Size</div><div class="formula-math">~1/8 inch square</div><div class="formula-note">Very small footprint</div></div>
+          <div class="formula-item"><div class="formula-name">Contents</div><div class="formula-math">D, T, R, C on one chip</div><div class="formula-note">All in one</div></div>
+          <div class="formula-item"><div class="formula-name">Not possible</div><div class="formula-math">High V or I</div><div class="formula-note">Limited power</div></div>
+          <div class="formula-item"><div class="formula-name">Repair</div><div class="formula-math">Replace only</div><div class="formula-note">Not component-level</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">IC vs Discrete Circuit</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why is an IC smaller than the same circuit built from individual transistors?</div>
+          <div class="example-step"><span class="step-badge">Discrete</span><div class="step-text">Discrete components (individual transistors, resistors) each have their own case and leads — takes up lots of space.</div></div>
+          <div class="example-step"><span class="step-badge">IC</span><div class="step-text">All components are formed <span class="math">on the same silicon chip</span> — no separate casings, no leads between components.</div></div>
+          <div class="example-answer">✅ ICs save space by placing all components <strong>on one chip</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Why ICs Are Faster</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why do ICs operate faster than discrete circuits?</div>
+          <div class="example-step"><span class="step-badge">Distance</span><div class="step-text">Components inside an IC are <span class="math">extremely close together</span> — microns apart.</div></div>
+          <div class="example-step"><span class="step-badge">Time</span><div class="step-text">Electron travel time is <span class="math">shorter</span> — signals propagate faster.</div></div>
+          <div class="example-answer">✅ Shorter internal distances → <strong>faster operation</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Repairing ICs</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why can't ICs be repaired if a component fails?</div>
+          <div class="example-step"><span class="step-badge">Structure</span><div class="step-text">Components inside the IC are <span class="math">permanently connected</span> — not accessible individually.</div></div>
+          <div class="example-step"><span class="step-badge">Consequence</span><div class="step-text">You can't replace just one part — the whole chip must be replaced.</div></div>
+          <div class="example-answer">✅ Individual components can't be separated → <strong>only whole-chip replacement</strong>.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Why ICs Can't Handle High Power</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why can't ICs be used for high-power applications?</div>
+          <div class="example-step"><span class="step-badge">High current</span><div class="step-text">High current generates <span class="math">excessive heat</span> — damages the tiny internal components.</div></div>
+          <div class="example-step"><span class="step-badge">High voltage</span><div class="step-text">High voltage can <span class="math">break down the thin insulation</span> between internal components.</div></div>
+          <div class="example-answer">✅ ICs are limited to <strong>low voltage and current</strong> applications.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">IC Applications</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> List three everyday devices that use ICs and explain why.</div>
+          <div class="example-step"><span class="step-badge">1</span><div class="step-text"><span class="math">Smartphone</span> — processor, memory, radios all on ICs.</div></div>
+          <div class="example-step"><span class="step-badge">2</span><div class="step-text"><span class="math">Laptop</span> — CPU, GPU, RAM, all made as ICs.</div></div>
+          <div class="example-step"><span class="step-badge">3</span><div class="step-text"><span class="math">Digital watch</span> — timer and display chips are ICs.</div></div>
+          <div class="example-answer">✅ Nearly all modern electronics use ICs — they're smaller, faster, cheaper, more reliable.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">An integrated circuit is also called a:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Resistor</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Capacitor</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Chip or microchip</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Transistor</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">ICs are typically made of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Copper</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Aluminum</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Silicon</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Iron</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Which of the following is NOT an advantage of ICs?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Small size</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Low power consumption</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Can handle very high current</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> High reliability</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Who invented the integrated circuit?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Faraday and Maxwell</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Einstein and Bohr</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Kilby and Noyce</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Oersted and Ampere</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Why can't ICs be repaired?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> They don't fail</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> Components inside cannot be separated</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> They use too much power</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> They are too expensive</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-5-6.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+integrated+circuits+explained" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Integrated Circuits — What They Are and How They Work</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+ic+advantages+disadvantages" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Advantages and Disadvantages of ICs</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+microchip+history+kilby+noyce" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">History of the Microchip — Kilby and Noyce</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+how+processors+are+made" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">How Processors Are Made — IC Manufacturing</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 5.5</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Integrated Circuits</div>
+        <ul class="summary-list">
+          <li>An <strong>IC (chip, microchip)</strong> is a set of electronic circuits on one small silicon piece.</li>
+          <li>Invented by <strong>Jack Kilby</strong> and <strong>Robert Noyce</strong>.</li>
+          <li>ICs contain <strong>transistors, diodes, resistors, capacitors</strong>.</li>
+          <li>Typical size: about <strong>1/8 inch square</strong>.</li>
+          <li><strong>Advantages</strong>: small, low power, fast, reliable, economical.</li>
+          <li><strong>Disadvantages</strong>: can't handle high V/I, can't be repaired.</li>
+          <li>ICs enabled <strong>handheld calculators, portable computers, digital watches, phones</strong>.</li>
+          <li>They are a <strong>boon for digital technology</strong> — powering the modern world.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-5-4.html" class="btn btn-ghost">← Lesson 5.4: Transistors</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 5 · Lesson 5 of 6</div>
+      <a href="lesson-5-6.html" class="btn btn-primary">Next: Logic Gates →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'C',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! ICs are also called chips or microchips.',wrong:'✗ IC = chip = microchip.'},
+    2:{C:'✓ Correct! ICs are made of silicon.',wrong:'✗ ICs are made of silicon — the most common semiconductor.'},
+    3:{C:'✓ Correct! ICs CANNOT handle high current — it destroys them.',wrong:'✗ High current damages ICs — that\'s a limitation, not an advantage.'},
+    4:{C:'✓ Correct! Jack Kilby and Robert Noyce invented the IC.',wrong:'✗ Kilby and Noyce invented the integrated circuit.'},
+    5:{B:'✓ Correct! Components inside an IC cannot be separated — only replaced.',wrong:'✗ Internal components are permanently connected, so only whole-chip replacement is possible.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>
