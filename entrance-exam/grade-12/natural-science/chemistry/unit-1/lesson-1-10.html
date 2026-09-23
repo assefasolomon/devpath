@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.10: Acid-Base Titrations | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .steps-list{counter-reset:step;list-style:none;padding-left:0}
+    .steps-list li{counter-increment:step;position:relative;padding:.75rem 0 .75rem 3rem;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .steps-list li:last-child{border-bottom:none}
+    .steps-list li::before{content:counter(step);position:absolute;left:0;top:.75rem;width:32px;height:32px;background:#DC2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 10</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('definition')"><div class="sidebar-dot"></div> What is Titration?</button>
+      <button class="sidebar-link" onclick="scrollTo('equipment')"><div class="sidebar-dot"></div> Equipment & Procedure</button>
+      <button class="sidebar-link" onclick="scrollTo('calculations')"><div class="sidebar-dot"></div> Calculations</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Acid-Base Concepts ✓</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Water & pH Scale ✓</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Strengths ✓</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Ka and Kb ✓</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Common Ion Effect ✓</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Buffers ✓</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Hydrolysis ✓</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Indicators ✓</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Equivalents ✓</a>
+      <a href="lesson-1-10.html" class="sidebar-link active"><div class="sidebar-dot"></div> L10: Titrations</a>
+      <a href="lesson-1-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Titration Curves</a>
+      <a href="lesson-1-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Applications</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 1</a> ›
+      Lesson 1.10
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Acid-Base Equilibria · Natural Science</div>
+      <h1>🧪 Acid-Base Titrations</h1>
+      <p>Titration is one of the most precise techniques in analytical chemistry — it lets you determine the exact concentration of an unknown solution by carefully adding a known one until neutralization is complete.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          How do you find the concentration of acid in a sample of vinegar? Or test the purity of a medicine? You use <strong>titration</strong> — a procedure where you add a solution of known concentration (the <strong>titrant</strong>) to a solution of unknown concentration (the <strong>analyte</strong>) until neutralization is complete.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>titration</strong>, <strong>titrant</strong>, and <strong>analyte</strong></li>
+          <li>Distinguish <strong>equivalence point</strong> from <strong>end point</strong></li>
+          <li>Describe the <strong>procedure</strong> and equipment</li>
+          <li>Perform <strong>titration calculations</strong></li>
+          <li>Choose the <strong>right indicator</strong> for the titration</li>
+          <li>Understand sources of <strong>error</strong> in titrations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">10.1 What is Titration?</div><div class="section-subtitle">Definition and key terms</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Titration</div>
+          <p>
+            <strong>Titration</strong> is a procedure for determining the amount of acid (or base) in a solution by measuring the volume of base (or acid) of known concentration that completely reacts with it.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Terms</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Titrant</div>
+          <p>
+            The solution of <strong>known concentration</strong> that is added from a burette. In acid-base titration, this is the acid or base whose concentration you know precisely.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Analyte (Titrand)</div>
+          <p>
+            The solution of <strong>unknown concentration</strong> that is placed in the flask. This is the sample you want to analyze.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Equivalence Point</div>
+          <p>
+            The point at which the amount of titrant added is <strong>exactly enough</strong> to completely neutralize the analyte. At this point:<br>
+            <strong>moles of acid = moles of base</strong> (accounting for stoichiometry)
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 End Point</div>
+          <p>
+            The point where the <strong>indicator changes color</strong>. Ideally, the end point should match the equivalence point exactly. In practice, they are very close.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Equivalence vs End Point</div>
+          <p>
+            <strong>Equivalence point</strong> = theoretical (the actual stoichiometric neutralization)<br>
+            <strong>End point</strong> = observed (when indicator changes color)<br><br>
+            A good indicator ensures these two are <strong>as close as possible</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="equipment">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">10.2 Equipment and Procedure</div><div class="section-subtitle">How a titration is performed</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Equipment</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Titration Setup</div>
+          <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg">
+            <!-- Stand -->
+            <rect x="60" y="40" width="8" height="260" fill="#94A3B8"/>
+            <rect x="40" y="295" width="180" height="12" fill="#94A3B8"/>
+
+            <!-- Clamp -->
+            <rect x="68" y="80" width="30" height="8" fill="#64748B"/>
+            <rect x="94" y="72" width="20" height="24" fill="#475569"/>
+
+            <!-- Burette -->
+            <rect x="110" y="60" width="14" height="180" fill="#E0F2FE" stroke="#0F172A" stroke-width="1.5"/>
+            <!-- Burette graduations -->
+            <g stroke="#0F172A" stroke-width="0.5">
+              <line x1="110" y1="80" x2="118" y2="80"/>
+              <line x1="110" y1="100" x2="118" y2="100"/>
+              <line x1="110" y1="120" x2="118" y2="120"/>
+              <line x1="110" y1="140" x2="118" y2="140"/>
+              <line x1="110" y1="160" x2="118" y2="160"/>
+              <line x1="110" y1="180" x2="118" y2="180"/>
+              <line x1="110" y1="200" x2="118" y2="200"/>
+            </g>
+            <!-- Liquid in burette -->
+            <rect x="111" y="80" width="12" height="140" fill="#7DD3FC" opacity="0.7"/>
+            <!-- Stopcock -->
+            <circle cx="117" cy="242" r="6" fill="#64748B"/>
+
+            <!-- Drop -->
+            <path d="M 117 248 L 115 255 Q 117 258 119 255 Z" fill="#7DD3FC"/>
+
+            <!-- Flask -->
+            <path d="M 100 280 L 100 260 L 90 250 L 90 280 Z" fill="none"/>
+            <path d="M 100 260 L 90 240 L 145 240 L 135 260 Z" fill="none"/>
+            <path d="M 90 280 Q 90 300 117 300 Q 145 300 145 280 L 135 260 L 100 260 Z" fill="#E0F2FE" stroke="#0F172A" stroke-width="1.5" opacity="0.6"/>
+            <!-- Flask liquid -->
+            <path d="M 95 280 Q 95 296 117 296 Q 140 296 140 280 L 135 265 L 100 265 Z" fill="#FBCFE8" opacity="0.7"/>
+
+            <!-- Labels -->
+            <text x="160" y="90" font-size="10" fill="#0F172A">Burette</text>
+            <text x="160" y="140" font-size="9" fill="#64748B">(contains titrant)</text>
+            <text x="160" y="243" font-size="10" fill="#0F172A">Stopcock</text>
+            <text x="160" y="270" font-size="10" fill="#0F172A">Erlenmeyer flask</text>
+            <text x="160" y="285" font-size="9" fill="#64748B">(contains analyte + indicator)</text>
+            <text x="160" y="315" font-size="10" fill="#0F172A">Stand + Clamp</text>
+          </svg>
+          <div class="visual-box-caption">
+            The burette holds the titrant; the flask holds the analyte with a few drops of indicator.
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Step-by-Step Procedure</h3>
+        <ol class="steps-list">
+          <li><strong>Clean and rinse:</strong> Rinse the burette with distilled water, then with a small amount of titrant. Rinse the pipette with the analyte solution.</li>
+          <li><strong>Fill the burette:</strong> Pour titrant into the burette using a funnel. Remove the funnel before starting. Make sure there are no air bubbles in the tip.</li>
+          <li><strong>Record initial reading:</strong> Read the meniscus at eye level. Record to the nearest 0.1 mL.</li>
+          <li><strong>Prepare the analyte:</strong> Pipette a known volume of analyte into a clean Erlenmeyer flask. Add 2–3 drops of indicator.</li>
+          <li><strong>Titrate:</strong> Slowly add titrant from the burette while swirling the flask. Initially add quickly, then dropwise as you approach the end point.</li>
+          <li><strong>Detect the end point:</strong> Stop when the indicator shows a <strong>permanent color change</strong> (lasts ~30 seconds with swirling).</li>
+          <li><strong>Record final reading:</strong> Read the burette at eye level. Calculate the volume of titrant used.</li>
+          <li><strong>Repeat:</strong> Perform at least 2–3 trials for accuracy. Average the concordant values.</li>
+        </ol>
+
+        <div class="note-box">
+          <div class="note-label">📝 Safety notes</div>
+          <p>
+            • Never pipette by mouth — always use a suction bulb<br>
+            • Wear goggles and gloves<br>
+            • Add acid to water (not water to acid) if diluting<br>
+            • Read the meniscus at eye level to avoid parallax error
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="calculations">
+      <div class="section-header"><div class="section-icon">🔢</div>
+        <div><div class="section-title-text">10.3 Titration Calculations</div><div class="section-subtitle">Finding the unknown concentration</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          There are two common approaches to titration calculations:
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">Method 1 — Using Molarity and Stoichiometry</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 General Formula</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            M<sub>acid</sub> × V<sub>acid</sub> / n<sub>acid</sub> = M<sub>base</sub> × V<sub>base</sub> / n<sub>base</sub>
+          </p>
+          <p>
+            Where n is the number of H⁺ (acid) or OH⁻ (base) per molecule.
+          </p>
+        </div>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin:.875rem 0">
+          At the equivalence point:
+        </p>
+        <div class="visual-box">
+          <div class="visual-box-title">Moles Equality</div>
+          <p style="font-size:1rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin:0">
+            moles of H⁺ = moles of OH⁻
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .75rem">Method 2 — Using Normality (Simpler)</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 N₁V₁ = N₂V₂</div>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.25rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            N₁ V₁ = N₂ V₂
+          </p>
+          <p>
+            When both sides use normality, no stoichiometric factor is needed.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Reaction Ratios and Their Effects</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Acid</th><th>Base</th><th>Stoichiometric Ratio (H⁺:OH⁻)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>HCl (monoprotic)</td><td>NaOH (monobasic)</td><td>1 : 1</td></tr>
+            <tr><td>H₂SO₄ (diprotic)</td><td>NaOH (monobasic)</td><td>1 : 2</td></tr>
+            <tr><td>HCl (monoprotic)</td><td>Ba(OH)₂ (dibasic)</td><td>2 : 1</td></tr>
+            <tr><td>H₃PO₄ (triprotic)</td><td>NaOH (monobasic)</td><td>1 : 3</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why this matters</div>
+          <p>
+            If you use moles without adjusting for stoichiometry, you'll get the wrong answer. Using normality automatically handles this — that's why it's often preferred for titration calculations.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">All the formulas you need for titrations</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🧪 Lesson 1.10 — Titrations</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Titration (normality)</div><div class="formula-math">N₁ V₁ = N₂ V₂</div><div class="formula-note">Simplest form</div></div>
+          <div class="formula-item"><div class="formula-name">Titration (molarity)</div><div class="formula-math">M₁V₁/n₁ = M₂V₂/n₂</div><div class="formula-note">Account for stoichiometry</div></div>
+          <div class="formula-item"><div class="formula-name">Moles from volume</div><div class="formula-math">mol = M × V(L)</div><div class="formula-note">Basic concentration relation</div></div>
+          <div class="formula-item"><div class="formula-name">Equivalent relation</div><div class="formula-math">eq = N × V(L)</div><div class="formula-note">At equivalence</div></div>
+          <div class="formula-item"><div class="formula-name">Neutralization condition</div><div class="formula-math">mol H⁺ = mol OH⁻</div><div class="formula-note">Equivalence point</div></div>
+          <div class="formula-item"><div class="formula-name">Volume of titrant</div><div class="formula-math">V = V_final − V_initial</div><div class="formula-note">Reading from burette</div></div>
+          <div class="formula-item"><div class="formula-name">Percent purity</div><div class="formula-math">(actual/theoretical) × 100%</div><div class="formula-note">For sample analysis</div></div>
+          <div class="formula-item"><div class="formula-name">Average of trials</div><div class="formula-math">(V₁ + V₂ + V₃) / 3</div><div class="formula-note">Concordant values only</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Simple 1:1 Titration</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> 25.0 mL of HCl solution is titrated with 0.100 M NaOH. If 20.0 mL of NaOH is required, find the molarity of the HCl solution.</div>
+          <div class="example-step"><span class="step-badge">Reaction</span><div class="step-text">HCl + NaOH → NaCl + H₂O &nbsp; (1:1 ratio)</div></div>
+          <div class="example-step"><span class="step-badge">Moles NaOH</span><div class="step-text"><span class="math">n(NaOH) = 0.100 × 0.0200 = 2.00 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Moles HCl</span><div class="step-text">1:1 ratio → n(HCl) = <span class="math">2.00 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Molarity HCl</span><div class="step-text"><span class="math">M = 2.00×10⁻³ / 0.0250 = 0.0800 M</span></div></div>
+          <div class="example-answer">✅ [HCl] = <strong>0.0800 M</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">2:1 Ratio — H₂SO₄ with NaOH</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> 20.0 mL of H₂SO₄ is neutralized by 30.0 mL of 0.150 M NaOH. Find the molarity of the sulfuric acid.</div>
+          <div class="example-step"><span class="step-badge">Reaction</span><div class="step-text">H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O &nbsp; (1:2 ratio)</div></div>
+          <div class="example-step"><span class="step-badge">Moles NaOH</span><div class="step-text"><span class="math">n(NaOH) = 0.150 × 0.0300 = 4.50 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Moles H₂SO₄</span><div class="step-text">2 NaOH per H₂SO₄ → <span class="math">n(H₂SO₄) = 4.50×10⁻³ / 2 = 2.25 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Molarity</span><div class="step-text"><span class="math">M = 2.25×10⁻³ / 0.0200 = 0.1125 M</span></div></div>
+          <div class="example-answer">✅ [H₂SO₄] = <strong>0.1125 M</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Using Normality</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What volume of 0.50 N NaOH is needed to neutralize 25.0 mL of 0.80 N HCl?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">N₁ V₁ = N₂ V₂</span></div></div>
+          <div class="example-step"><span class="step-badge">Identify</span><div class="step-text">
+            Acid: N₁ = 0.80 N, V₁ = 25.0 mL<br>
+            Base: N₂ = 0.50 N, V₂ = ?
+          </div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">V₂ = (0.80 × 25.0) / 0.50 = 40.0 mL</span></div></div>
+          <div class="example-answer">✅ Volume of NaOH = <strong>40.0 mL</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Find Concentration of Vinegar</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A 10.0 mL sample of vinegar (acetic acid) is titrated with 0.500 M NaOH. The end point is reached at 16.5 mL of NaOH. What is the molarity of the acetic acid?</div>
+          <div class="example-step"><span class="step-badge">Reaction</span><div class="step-text">CH₃COOH + NaOH → CH₃COONa + H₂O &nbsp; (1:1 ratio)</div></div>
+          <div class="example-step"><span class="step-badge">Moles NaOH</span><div class="step-text"><span class="math">n = 0.500 × 0.0165 = 8.25 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Moles CH₃COOH</span><div class="step-text">1:1 → <span class="math">n = 8.25 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Molarity</span><div class="step-text"><span class="math">M = 8.25×10⁻³ / 0.0100 = 0.825 M</span></div></div>
+          <div class="example-answer">✅ Acetic acid concentration = <strong>0.825 M</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Titration of a Base with an Acid</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> 25.0 mL of Ca(OH)₂ solution is titrated with 0.200 M HCl. The end point is at 22.5 mL of HCl. Find the molarity of the Ca(OH)₂.</div>
+          <div class="example-step"><span class="step-badge">Reaction</span><div class="step-text">Ca(OH)₂ + 2HCl → CaCl₂ + 2H₂O &nbsp; (1:2 ratio)</div></div>
+          <div class="example-step"><span class="step-badge">Moles HCl</span><div class="step-text"><span class="math">n(HCl) = 0.200 × 0.0225 = 4.50 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Moles Ca(OH)₂</span><div class="step-text">2 HCl per Ca(OH)₂ → <span class="math">n = 4.50×10⁻³ / 2 = 2.25 × 10⁻³ mol</span></div></div>
+          <div class="example-step"><span class="step-badge">Molarity</span><div class="step-text"><span class="math">M = 2.25×10⁻³ / 0.0250 = 0.0900 M</span></div></div>
+          <div class="example-answer">✅ [Ca(OH)₂] = <strong>0.0900 M</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The solution of unknown concentration placed in the flask is called the:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div> Titrant</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div> Analyte</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div> Indicator</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div> Buffer</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The equivalence point of a titration is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> When the indicator changes color</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> When titrant volume reaches 50 mL</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> When moles of acid equal moles of base (adjusted for stoichiometry)</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> When the solution becomes neutral (pH = 7)</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">30.0 mL of 0.10 M NaOH neutralizes 20.0 mL of HCl. Find [HCl].</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> 0.067 M</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> 0.15 M</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> 0.20 M</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> 0.30 M</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">How many moles of NaOH are required to fully neutralize 2 moles of H₃PO₄?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> 2</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> 3</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> 6</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> 1</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The main purpose of swirling the flask during titration is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> To cool the solution</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> To make the indicator change color</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> To mix the reactants evenly so the reaction is complete</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> To increase the reaction rate only</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-1-11.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+acid+base+titration" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Acid-Base Titration — Complete Tutorial</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+titration+calculations+molarity" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Titration Calculations — Molarity and Volume</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+titration+lab+procedure" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Titration Lab Procedure — Step by Step</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+titration+equivalence+point+end+point" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Equivalence Point vs End Point Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 1.10</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Acid-Base Titrations</div>
+        <ul class="summary-list">
+          <li><strong>Titration</strong> determines unknown concentration by adding a known solution until neutralization</li>
+          <li><strong>Titrant</strong> = known solution in the burette; <strong>analyte</strong> = unknown in the flask</li>
+          <li><strong>Equivalence point</strong>: moles of H⁺ = moles of OH⁻</li>
+          <li><strong>End point</strong>: when indicator changes color</li>
+          <li>Choose an indicator whose range matches the equivalence point pH</li>
+          <li><strong>N₁V₁ = N₂V₂</strong> for normality-based calculations</li>
+          <li><strong>M₁V₁/n₁ = M₂V₂/n₂</strong> for molarity-based calculations</li>
+          <li>Account for stoichiometry: H₂SO₄ + 2NaOH → 1:2 ratio</li>
+          <li>Perform multiple trials to improve accuracy</li>
+          <li>Sources of error: parallax, air bubbles, overshooting the end point, indicator choice</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-9.html" class="btn btn-ghost">← Lesson 1.9: Equivalents</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 1 · Lesson 10 of 12</div>
+      <a href="lesson-1-11.html" class="btn btn-primary">Next: Titration Curves →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'B',2:'C',3:'B',4:'C',5:'C'};
+  const feedbacks={
+    1:{B:'✓ Correct! The analyte (titrand) is the solution of unknown concentration in the flask.',wrong:'✗ The unknown solution is the analyte (or titrand).'},
+    2:{C:'✓ Correct! At the equivalence point, moles of acid equal moles of base (accounting for stoichiometry).',wrong:'✗ Equivalence point: moles of H⁺ = moles of OH⁻ (with stoichiometry).'},
+    3:{B:'✓ Correct! M(HCl) = (0.10 × 30.0) / 20.0 = 0.15 M.',wrong:'✗ M = (0.10 M × 30.0 mL) / 20.0 mL = 0.15 M.'},
+    4:{C:'✓ Correct! H₃PO₄ has 3 acidic H⁺, so 2 mol H₃PO₄ needs 6 mol NaOH.',wrong:'✗ H₃PO₄ is triprotic: 3 NaOH per molecule. So 2 mol × 3 = 6 mol NaOH.'},
+    5:{C:'✓ Correct! Swirling ensures even mixing so the reaction reaches completion at every point.',wrong:'✗ Swirling mixes the reactants so the reaction goes to completion evenly.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','definition','equipment','calculations','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
