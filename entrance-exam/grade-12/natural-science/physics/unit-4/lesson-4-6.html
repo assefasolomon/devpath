@@ -10,58 +10,566 @@
     body{background:#F8FAFC}
     .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
     .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:var(--brand-primary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:var(--brand-primary)}
+    .sidebar-link.active{background:var(--brand-light);color:var(--brand-primary);font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
     .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
     .lesson-header{background:linear-gradient(135deg,#14532D,#166534);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
     .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
     .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid var(--brand-light)}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
     .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .placeholder-note{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;font-size:.875rem;color:#78350F}
+    .definition-box{background:#F0FDF4;border:1.5px solid #86EFAC;border-left:5px solid var(--brand-primary);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#22C55E;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:var(--brand-primary);padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid var(--brand-accent)}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:var(--brand-light);color:var(--brand-primary);font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:var(--brand-primary);font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--brand-primary);margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:var(--brand-accent);background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid var(--brand-accent);border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:var(--brand-primary)}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #86EFAC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:var(--brand-primary);margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(34,197,94,.2);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:var(--brand-accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:var(--brand-accent);border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:var(--brand-primary);margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:420px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.up{background:#EFF6FF;border-color:#BFDBFE}
+    .compare-card.down{background:#FEF2F2;border-color:#FECACA}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.up .compare-card-title{color:#1E40AF}
+    .compare-card.down .compare-card-title{color:#991B1B}
+    .compare-card ul{list-style:none;padding:0;margin:0}
+    .compare-card li{font-size:.8rem;color:var(--text);line-height:1.7;padding:.2rem 0;padding-left:1rem;position:relative}
+    .compare-card li::before{content:'•';position:absolute;left:0;font-weight:700}
+    .compare-card.up li::before{color:#1E40AF}
+    .compare-card.down li::before{color:#991B1B}
     @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Physics</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12 Physics</span></div>
   </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Physics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
 </nav>
 
 <div class="lesson-layout">
   <aside class="sidebar">
-    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Unit 4 · Lesson 4.6</div>
-    <a href="lesson-4-1.html" class="sidebar-link">L1: Magnets and Magnetic Field</a>
-    <a href="lesson-4-2.html" class="sidebar-link">L2: Magnetic Field Lines</a>
-    <a href="lesson-4-3.html" class="sidebar-link">L3: Current and Magnetism</a>
-    <a href="lesson-4-4.html" class="sidebar-link">L4: Electromagnetic Induction</a>
-    <a href="lesson-4-5.html" class="sidebar-link">L5: Faraday's Law</a>
-    <a href="lesson-4-6.html" class="sidebar-link">L6: Transformers</a>
-    <a href="lesson-4-7.html" class="sidebar-link">L7: Application and Safety</a>
+    <div class="sidebar-title">Unit 4 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('explanation')"><div class="sidebar-dot"></div> Explanation</button>
+      <button class="sidebar-link" onclick="scrollTo('formula')"><div class="sidebar-dot"></div> Formula Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Magnets and Magnetic Field ✓</a>
+      <a href="lesson-4-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Magnetic Field Lines ✓</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Current and Magnetism ✓</a>
+      <a href="lesson-4-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Electromagnetic Induction ✓</a>
+      <a href="lesson-4-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Faraday's Law ✓</a>
+      <a href="lesson-4-6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Transformers</a>
+      <a href="lesson-4-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Application and Safety</a>
+    </div>
   </aside>
 
   <main class="lesson-main">
-    <div class="lesson-header">
-      <div style="font-size:.72rem;font-weight:700;letter-spacing:.05em;margin-bottom:.5rem">Unit 4 · Electromagnetism</div>
-      <h1>📘 Lesson 4.6: Transformers</h1>
-      <p>Content coming soon. This lesson is part of Unit 4: Electromagnetism.</p>
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Physics</a> ›
+      <a href="index.html">Unit 4</a> ›
+      Lesson 4.6
     </div>
 
-    <div class="content-box">
-      <div class="placeholder-note">
-        🚧 <strong>Content in progress.</strong> Full lesson, worked examples, quiz, and video resources will appear here soon.
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Electromagnetism · Natural Science</div>
+      <h1>🔋 Transformers</h1>
+      <p>Transformers are the unsung heroes of the electrical grid — they step voltage up for transmission and down for safe use at home. Learn how they work using Faraday's law of induction.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          When you charge your phone from a wall outlet, a small <strong>transformer</strong> inside the charger steps high voltage (220 V) down to a safe level (5 V). Transformers use <strong>electromagnetic induction</strong> to change AC voltage without changing frequency.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Explain what a transformer does</li>
+          <li>Distinguish <strong>step-up</strong> from <strong>step-down</strong> transformers</li>
+          <li>Apply the <strong>turns ratio</strong> equation</li>
+          <li>Understand why transformers need <strong>AC, not DC</strong></li>
+          <li>Calculate <strong>efficiency and power</strong> in transformers</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="explanation">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Explanation</div><div class="section-subtitle">Complete theory from the textbook</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.1 What is a Transformer?</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Definition</div>
+          <p>
+            A <strong>transformer</strong> is an electrical device that transfers electrical energy from one circuit to another through <strong>electromagnetic induction</strong> — most commonly to <strong>increase (step up)</strong> or <strong>decrease (step down)</strong> voltage without changing frequency.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Transformer Structure</div>
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Core -->
+            <rect x="140" y="40" width="120" height="120" fill="none" stroke="#0F172A" stroke-width="3"/>
+            <rect x="160" y="60" width="80" height="80" fill="none" stroke="#0F172A" stroke-width="3"/>
+            <!-- Primary coil (left) -->
+            <g stroke="#DC2626" stroke-width="2" fill="none">
+              <circle cx="130" cy="60" r="6"/>
+              <circle cx="130" cy="80" r="6"/>
+              <circle cx="130" cy="100" r="6"/>
+              <circle cx="130" cy="120" r="6"/>
+              <circle cx="130" cy="140" r="6"/>
+            </g>
+            <line x1="60" y1="100" x2="124" y2="100" stroke="#DC2626" stroke-width="2"/>
+            <line x1="60" y1="60" x2="60" y2="140" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="35" y="50" font-size="10" fill="#DC2626" font-weight="bold">Primary</text>
+            <text x="35" y="63" font-size="9" fill="#DC2626">Vp, Np</text>
+            <text x="55" y="105" font-size="9" fill="#DC2626" font-weight="bold">AC</text>
+            <!-- Secondary coil (right) -->
+            <g stroke="#2563EB" stroke-width="2" fill="none">
+              <circle cx="270" cy="55" r="6"/>
+              <circle cx="270" cy="72" r="6"/>
+              <circle cx="270" cy="89" r="6"/>
+              <circle cx="270" cy="106" r="6"/>
+              <circle cx="270" cy="123" r="6"/>
+              <circle cx="270" cy="140" r="6"/>
+              <circle cx="270" cy="157" r="6"/>
+            </g>
+            <line x1="276" y1="100" x2="340" y2="100" stroke="#2563EB" stroke-width="2"/>
+            <line x1="340" y1="55" x2="340" y2="160" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <text x="315" y="45" font-size="10" fill="#2563EB" font-weight="bold">Secondary</text>
+            <text x="315" y="58" font-size="9" fill="#2563EB">Vs, Ns</text>
+            <text x="300" y="105" font-size="9" fill="#2563EB" font-weight="bold">AC</text>
+          </svg>
+          <div class="visual-box-caption">Two coils wrapped around a common iron core. AC current in the primary creates a changing magnetic flux in the core, inducing voltage in the secondary.</div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.2 Step-up vs Step-down Transformers</h3>
+
+        <div class="compare-grid">
+          <div class="compare-card up">
+            <div class="compare-card-title">⬆️ Step-up Transformer</div>
+            <ul>
+              <li><strong>More</strong> turns on secondary (Nₛ &gt; Nₚ)</li>
+              <li>Secondary voltage &gt; primary voltage (Vₛ &gt; Vₚ)</li>
+              <li>Used at power plants to raise voltage for transmission</li>
+              <li>Secondary current is <strong>lower</strong></li>
+            </ul>
+          </div>
+          <div class="compare-card down">
+            <div class="compare-card-title">⬇️ Step-down Transformer</div>
+            <ul>
+              <li><strong>Fewer</strong> turns on secondary (Nₛ &lt; Nₚ)</li>
+              <li>Secondary voltage &lt; primary voltage (Vₛ &lt; Vₚ)</li>
+              <li>Used in phone chargers, laptop adapters, home appliances</li>
+              <li>Secondary current is <strong>higher</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.3 Why AC, Not DC?</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 The Key Requirement</div>
+          <p>
+            Transformers only work with <strong>alternating current (AC)</strong>.<br><br>
+            Reason: The magnetic flux in the core must be <strong>changing</strong> to induce emf (Faraday's law). AC changes direction and magnitude continuously → flux continuously changes → emf is induced. DC produces constant flux → no induced emf.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.4 The Turns Ratio</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Transformer Equation</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.15rem">Nₚ / Nₛ = Vₚ / Vₛ</span><br><br>
+            Where:<br>
+            • Nₚ = number of primary turns<br>
+            • Nₛ = number of secondary turns<br>
+            • Vₚ = primary voltage<br>
+            • Vₛ = secondary voltage
+          </p>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Energy conservation</div>
+          <p>
+            Ideal transformer: <strong>Power in = Power out</strong><br>
+            <span style="font-family:Georgia,serif;font-weight:700;color:var(--brand-primary)">Vₚ Iₚ = Vₛ Iₛ</span><br><br>
+            If voltage is stepped up, current is stepped down proportionally.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">6.5 Efficiency</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Efficiency of a Transformer</div>
+          <p>
+            <span style="font-family:Georgia,serif;color:var(--brand-primary);font-weight:700;font-size:1.05rem">η = (output power / input power) × 100%</span><br><br>
+            Real transformers achieve <strong>up to 98% efficiency</strong>. Losses come from:<br>
+            • Resistance in the coils (I²R loss)<br>
+            • Eddy currents in the core<br>
+            • Hysteresis (magnetic friction)<br>
+            • Flux leakage
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Memorize these for the exam</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🔋 Lesson 4.6 — Transformers</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Turns ratio</div><div class="formula-math">Nₚ/Nₛ = Vₚ/Vₛ</div><div class="formula-note">Fundamental relation</div></div>
+          <div class="formula-item"><div class="formula-name">Power conservation</div><div class="formula-math">Vₚ Iₚ = Vₛ Iₛ</div><div class="formula-note">Ideal transformer</div></div>
+          <div class="formula-item"><div class="formula-name">Step-up condition</div><div class="formula-math">Nₛ > Nₚ</div><div class="formula-note">Voltage increases</div></div>
+          <div class="formula-item"><div class="formula-name">Step-down condition</div><div class="formula-math">Nₛ < Nₚ</div><div class="formula-note">Voltage decreases</div></div>
+          <div class="formula-item"><div class="formula-name">Efficiency</div><div class="formula-math">η = P_out/P_in × 100%</div><div class="formula-note">Up to 98%</div></div>
+          <div class="formula-item"><div class="formula-name">Current ratio</div><div class="formula-math">Iₚ/Iₛ = Nₛ/Nₚ</div><div class="formula-note">Inverse of voltage ratio</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 exam-style problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Output Voltage from Turns Ratio</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A transformer has 500 primary turns and 5000 secondary turns. Input voltage = 220 V. Find output voltage.</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">Vₛ = Vₚ × (Nₛ/Nₚ)</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">Vₛ = 220 × (5000/500) = 220 × 10</span></div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text"><span class="math">Vₛ = 2200 V</span> — this is a step-up transformer.</div></div>
+          <div class="example-answer">✅ Output voltage = <strong>2200 V</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Secondary Current</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A transformer has 1200 primary turns and 1000 secondary turns. Primary current = 4 A. Find secondary current.</div>
+          <div class="example-step"><span class="step-badge">Power conservation</span><div class="step-text"><span class="math">VₚIₚ = VₛIₛ → Iₛ = Iₚ × (Nₚ/Nₛ)</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">Iₛ = 4 × (1200/1000) = 4.8 A</span></div></div>
+          <div class="example-answer">✅ Secondary current = <strong>4.8 A</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Phone Charger Transformer</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A phone charger steps 240 V down to 5 V. If the primary has 1200 turns, how many turns does the secondary have?</div>
+          <div class="example-step"><span class="step-badge">Rearrange</span><div class="step-text"><span class="math">Nₛ = Nₚ × (Vₛ/Vₚ)</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">Nₛ = 1200 × (5/240) = 25 turns</span></div></div>
+          <div class="example-answer">✅ Secondary has <strong>25 turns</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Transformer Efficiency</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A transformer takes in 200 W and outputs 190 W. What is its efficiency?</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">η = (P_out / P_in) × 100%</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">η = (190/200) × 100% = 95%</span></div></div>
+          <div class="example-answer">✅ Efficiency = <strong>95%</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Why DC Fails</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why a transformer connected to a DC source (like a battery) produces no output voltage.</div>
+          <div class="example-step"><span class="step-badge">Faraday's law</span><div class="step-text">Induced emf requires a <span class="math">changing magnetic flux</span>.</div></div>
+          <div class="example-step"><span class="step-badge">DC behaviour</span><div class="step-text">DC produces a <span class="math">constant</span> flux → ΔΦ/Δt = 0 → ε = 0.</div></div>
+          <div class="example-answer">✅ No changing flux → <strong>no induced emf, no output</strong>.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">A transformer works on the principle of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Electrostatic induction</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Ohm's law</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Electromagnetic induction</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Thermionic emission</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">A step-up transformer has:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> More primary than secondary turns</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> More secondary than primary turns</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> Equal turns on both coils</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> No coils at all</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Transformers require which type of input?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> DC</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Static electricity</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> AC</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Either AC or DC</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">A transformer has Nₚ = 200, Nₛ = 800. If Vₚ = 50 V, find Vₛ.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> 12.5 V</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> 50 V</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> 200 V</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> 800 V</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">In an ideal transformer, if voltage is stepped up 10×, the current is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> Stepped up 10×</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> Stepped down to 1/10</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> Unchanged</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> Stepped down to 1/100</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-4-7.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+transformers+physics" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Transformers — Physics and Working Principle</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+step+up+step+down+transformer" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Step-up vs Step-down Transformers</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+transformer+turns+ratio+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Transformer Turns Ratio — Worked Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+transformer+efficiency+power" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Transformer Efficiency and Power Losses</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 4.6</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Transformers</div>
+        <ul class="summary-list">
+          <li>A <strong>transformer</strong> changes AC voltage without changing frequency.</li>
+          <li>Works on <strong>electromagnetic induction</strong> (Faraday's law).</li>
+          <li><strong>Step-up</strong>: Nₛ &gt; Nₚ, voltage increases.</li>
+          <li><strong>Step-down</strong>: Nₛ &lt; Nₚ, voltage decreases.</li>
+          <li>Turns ratio: <strong>Nₚ/Nₛ = Vₚ/Vₛ</strong>.</li>
+          <li>Power is conserved: <strong>VₚIₚ = VₛIₛ</strong>.</li>
+          <li>Transformers only work with <strong>AC</strong> — DC produces no changing flux.</li>
+          <li>Efficiency: η = (P_out/P_in) × 100%; up to 98% real.</li>
+          <li>Applications: <strong>phone chargers, laptop adapters, power grid transmission, microwaves</strong>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-4-5.html" class="btn btn-ghost">← Lesson 4.5: Faraday's Law</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 4 · Lesson 6 of 7</div>
+      <a href="lesson-4-7.html" class="btn btn-primary">Next: Application and Safety →</a>
     </div>
   </main>
 </div>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'C',4:'C',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! Transformers use electromagnetic induction.',wrong:'✗ Transformers work via electromagnetic induction.'},
+    2:{B:'✓ Correct! Step-up transformers have more secondary turns.',wrong:'✗ Step-up: Nₛ > Nₚ.'},
+    3:{C:'✓ Correct! Transformers only work with AC.',wrong:'✗ AC is required — DC produces no changing flux.'},
+    4:{C:'✓ Correct! Vₛ = Vₚ × (Nₛ/Nₚ) = 50 × 4 = 200 V.',wrong:'✗ Vₛ = 50 × (800/200) = 200 V.'},
+    5:{B:'✓ Correct! Power is conserved: if V × 10, then I ÷ 10.',wrong:'✗ Power conservation: VₚIₚ = VₛIₛ — current scales inversely.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','explanation','formula','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>
