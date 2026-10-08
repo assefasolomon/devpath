@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chemistry Grade 12 — Complete Review & EUEE Prep</title>
+  <link rel="stylesheet" href="../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .review-main{max-width:1100px;margin:0 auto;padding:2.5rem 2rem;min-width:0}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .review-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2.5rem 2.75rem;margin-bottom:2.5rem;color:#fff}
+    .review-header .tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .review-header h1{font-size:2rem;font-weight:900;margin-bottom:.5rem}
+    .review-header p{color:rgba(255,255,255,.75);font-size:.95rem;line-height:1.7;max-width:720px}
+    .review-header .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.875rem;margin-top:1.5rem}
+    .stat-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-lg);padding:.875rem 1rem}
+    .stat-num{font-size:1.5rem;font-weight:900;color:#fff}
+    .stat-label{font-size:.72rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem}
+    .unit-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;position:sticky;top:70px;background:#F8FAFC;padding:.75rem 0;z-index:10;border-bottom:1px solid var(--border)}
+    .unit-pill{background:#fff;border:1.5px solid var(--border);border-radius:999px;padding:.4rem 1rem;font-size:.78rem;font-weight:600;color:var(--text);text-decoration:none;transition:all var(--transition);cursor:pointer}
+    .unit-pill:hover{border-color:#DC2626;color:#DC2626;transform:translateY(-1px)}
+    .section-block{margin-bottom:3rem;scroll-margin-top:130px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem}
+    .formula-cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin:1rem 0}
+    .formula-chip{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-lg);padding:.875rem 1rem;color:#fff}
+    .formula-chip .fc-name{font-size:.68rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+    .formula-chip .fc-formula{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.4}
+    .formula-chip .fc-note{font-size:.7rem;color:rgba(255,255,255,.5);margin-top:.25rem}
+    .data-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.45rem .75rem;text-align:left;font-weight:600;font-size:.75rem}
+    .data-table td{padding:.45rem .75rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif;vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.85rem;color:var(--text);line-height:1.65;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#DC2626;font-weight:900;flex-shrink:0;margin-top:1px}
+    .quick-tips{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem}
+    .quick-tips-title{font-size:.92rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .quick-tips-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quick-tips-body ul{margin:.5rem 0;padding-left:1.25rem}
+    .quick-tips-body li{padding:.15rem 0}
+    .quiz-section{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-xl);padding:2rem;margin-bottom:1.5rem}
+    .quiz-header-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+    .quiz-header-bar h3{font-size:1.15rem;font-weight:800;color:var(--heading)}
+    .quiz-header-bar .q-count{background:#FEE2E2;color:#991B1B;font-size:.75rem;font-weight:700;padding:3px 12px;border-radius:999px}
+    .quiz-question-block{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px dashed var(--border)}
+    .quiz-question-block:last-of-type{border-bottom:none;padding-bottom:0}
+    .quiz-qnum{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.4rem}
+    .quiz-qtext{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.7rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:26px;height:26px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.75rem;padding:.7rem 1rem;border-radius:var(--radius);font-size:.8rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .progress-bar-wrap{background:#F1F5F9;border-radius:999px;height:8px;overflow:hidden;margin:1rem 0}
+    .progress-bar-fill{background:linear-gradient(90deg,#DC2626,#991B1B);height:100%;width:0%;transition:width .4s ease}
+    .score-display{display:none;text-align:center;padding:2rem;background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);margin-top:1rem}
+    .score-display.show{display:block}
+    .score-display .big-num{font-size:3rem;font-weight:900;color:#DC2626}
+    .score-display .score-msg{font-size:.95rem;color:var(--heading);margin-top:.5rem}
+    .cta-row{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.25rem}
+    .final-banner{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2.5rem;text-align:center;color:#fff;margin:2rem 0}
+    .final-banner .big{font-size:1.6rem;font-weight:900;margin-bottom:.75rem}
+    .final-banner .small{font-size:.95rem;color:rgba(255,255,255,.9);line-height:1.8}
+    @media(max-width:768px){.review-main{padding:1.5rem 1rem}.unit-nav{position:static}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="index.html" class="btn btn-ghost btn-sm">← Chemistry</a>
+    <a href="../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="review-main">
+  <div class="breadcrumb">
+    <a href="../../../../index.html">Home</a> ›
+    <a href="../../../index.html">Entrance Exam</a> ›
+    <a href="../../index.html">Grade 12</a> ›
+    <a href="../index.html">Natural Science</a> ›
+    <a href="index.html">Chemistry</a> ›
+    <span>Review</span>
+  </div>
+
+  <div class="review-header">
+    <div class="tag">🏆 COMPLETE REVIEW · EUEE PREP</div>
+    <h1>Chemistry Grade 12 — Full Course Review</h1>
+    <p>Every key formula, reaction, and concept from all 5 units — in one place. Perfect for last-minute EUEE revision, self-testing, and quick reference.</p>
+    <div class="stats">
+      <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Units</div></div>
+      <div class="stat-card"><div class="stat-num">40</div><div class="stat-label">Lessons</div></div>
+      <div class="stat-card"><div class="stat-num">200</div><div class="stat-label">Quiz Questions</div></div>
+      <div class="stat-card"><div class="stat-num">20</div><div class="stat-label">Review Qs Below</div></div>
+    </div>
+  </div>
+
+  <div class="unit-nav">
+    <a href="#u1" class="unit-pill">Unit 1 · Acid-Base</a>
+    <a href="#u2" class="unit-pill">Unit 2 · Electrochemistry</a>
+    <a href="#u3" class="unit-pill">Unit 3 · Industrial</a>
+    <a href="#u4" class="unit-pill">Unit 4 · Polymers</a>
+    <a href="#u5" class="unit-pill">Unit 5 · Environmental</a>
+    <a href="#quiz" class="unit-pill">📝 Mixed Quiz</a>
+  </div>
+
+  <!-- ============ UNIT 1 ============ -->
+  <div class="section-block" id="u1">
+    <div class="section-header">
+      <div class="section-icon">⚗️</div>
+      <div>
+        <div class="section-title-text">Unit 1 — Acid-Base Equilibria</div>
+        <div class="section-subtitle">12 lessons · 3 definitions · pH · Ka/Kb · buffers · hydrolysis · indicators · titration</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Key Formulas</h3>
+      <div class="formula-cards-grid">
+        <div class="formula-chip"><div class="fc-name">pH</div><div class="fc-formula">pH = −log[H₃O⁺]</div><div class="fc-note">10⁻ᵖᴴ = [H₃O⁺]</div></div>
+        <div class="formula-chip"><div class="fc-name">pOH</div><div class="fc-formula">pOH = −log[OH⁻]</div><div class="fc-note">pH + pOH = 14</div></div>
+        <div class="formula-chip"><div class="fc-name">Kw</div><div class="fc-formula">Kw = [H₃O⁺][OH⁻] = 10⁻¹⁴</div><div class="fc-note">At 25 °C</div></div>
+        <div class="formula-chip"><div class="fc-name">Ka</div><div class="fc-formula">Ka = [H₃O⁺][A⁻] / [HA]</div><div class="fc-note">Acid strength</div></div>
+        <div class="formula-chip"><div class="fc-name">Kb</div><div class="fc-formula">Kb = [HB⁺][OH⁻] / [B]</div><div class="fc-note">Base strength</div></div>
+        <div class="formula-chip"><div class="fc-name">Ka × Kb</div><div class="fc-formula">= Kw = 10⁻¹⁴</div><div class="fc-note">Conjugate pair</div></div>
+        <div class="formula-chip"><div class="fc-name">Henderson-Hasselbalch</div><div class="fc-formula">pH = pKa + log([A⁻]/[HA])</div><div class="fc-note">Buffer pH</div></div>
+        <div class="formula-chip"><div class="fc-name">Normality</div><div class="fc-formula">N = M × n</div><div class="fc-note">n = H⁺/OH⁻ count</div></div>
+        <div class="formula-chip"><div class="fc-name">Titration</div><div class="fc-formula">N₁V₁ = N₂V₂</div><div class="fc-note">Equivalence point</div></div>
+        <div class="formula-chip"><div class="fc-name">Equivalent weight</div><div class="fc-formula">E = M / n</div><div class="fc-note">g/eq</div></div>
+      </div>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Salt Hydrolysis Rules</h3>
+      <table class="data-table">
+        <thead><tr><th>Salt type</th><th>pH</th><th>Ion that hydrolyzes</th></tr></thead>
+        <tbody>
+          <tr><td>Strong acid + Strong base</td><td>7 (neutral)</td><td>Neither (e.g., NaCl)</td></tr>
+          <tr><td>Weak acid + Strong base</td><td>&gt; 7 (basic)</td><td>Anion (e.g., CH₃COO⁻)</td></tr>
+          <tr><td>Strong acid + Weak base</td><td>&lt; 7 (acidic)</td><td>Cation (e.g., NH₄⁺)</td></tr>
+          <tr><td>Weak acid + Weak base</td><td>Compare Ka vs Kb</td><td>Both</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Common Indicators</h3>
+      <table class="data-table">
+        <thead><tr><th>Indicator</th><th>Color change</th><th>pH range</th></tr></thead>
+        <tbody>
+          <tr><td>Methyl orange</td><td>Red → Yellow</td><td>3.2–4.4</td></tr>
+          <tr><td>Methyl red</td><td>Red → Yellow</td><td>4.8–6.0</td></tr>
+          <tr><td>Bromothymol blue</td><td>Yellow → Blue</td><td>6.0–7.6</td></tr>
+          <tr><td>Phenolphthalein</td><td>Colorless → Pink</td><td>8.2–10.0</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Titration Curves — Quick Guide</h3>
+      <ul class="key-points">
+        <li><strong>SA + SB</strong> → equivalence pH 7, sharp jump, bromothymol blue</li>
+        <li><strong>WA + SB</strong> → equivalence pH &gt; 7, use phenolphthalein</li>
+        <li><strong>SA + WB</strong> → equivalence pH &lt; 7, use methyl orange or methyl red</li>
+        <li><strong>WA + WB</strong> → no sharp jump, use pH meter</li>
+        <li>At half-equivalence: pH = pKa</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 2 ============ -->
+  <div class="section-block" id="u2">
+    <div class="section-header">
+      <div class="section-icon">⚡</div>
+      <div>
+        <div class="section-title-text">Unit 2 — Electrochemistry</div>
+        <div class="section-subtitle">Redox · balancing · electrolysis · Faraday's laws · galvanic cells · EMF · Nernst</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Key Formulas</h3>
+      <div class="formula-cards-grid">
+        <div class="formula-chip"><div class="fc-name">Oxidation</div><div class="fc-formula">Loses e⁻ (OIL)</div><div class="fc-note">Ox. no. ↑</div></div>
+        <div class="formula-chip"><div class="fc-name">Reduction</div><div class="fc-formula">Gains e⁻ (RIG)</div><div class="fc-note">Ox. no. ↓</div></div>
+        <div class="formula-chip"><div class="fc-name">Faraday's 1st Law</div><div class="fc-formula">m = M I t / (n F)</div><div class="fc-note">F = 96,500 C/mol</div></div>
+        <div class="formula-chip"><div class="fc-name">Faraday's 2nd Law</div><div class="fc-formula">m₁ / E₁ = m₂ / E₂</div><div class="fc-note">Cells in series</div></div>
+        <div class="formula-chip"><div class="fc-name">EMF</div><div class="fc-formula">E°cell = E°cathode − E°anode</div><div class="fc-note">Standard potentials</div></div>
+        <div class="formula-chip"><div class="fc-name">Nernst (25 °C)</div><div class="fc-formula">E = E° − (0.0592/n) log Q</div><div class="fc-note">Non-standard</div></div>
+        <div class="formula-chip"><div class="fc-name">pH from EMF</div><div class="fc-formula">pH = (0.76 − E) / 0.0592</div><div class="fc-note">Zn | H⁺ cell</div></div>
+        <div class="formula-chip"><div class="fc-name">SHE</div><div class="fc-formula">E° = 0.00 V</div><div class="fc-note">Reference electrode</div></div>
+      </div>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Five Classic Electrolysis Cases</h3>
+      <table class="data-table">
+        <thead><tr><th>Setup</th><th>Cathode</th><th>Anode</th></tr></thead>
+        <tbody>
+          <tr><td>Conc. NaCl (brine)</td><td>H₂</td><td>Cl₂</td></tr>
+          <tr><td>Dilute NaCl</td><td>H₂</td><td>O₂</td></tr>
+          <tr><td>Dilute H₂SO₄</td><td>H₂</td><td>O₂</td></tr>
+          <tr><td>CuSO₄ (inert electrodes)</td><td>Cu</td><td>O₂ (solution → acidic)</td></tr>
+          <tr><td>CuSO₄ (Cu electrodes)</td><td>Cu</td><td>Cu dissolves (concentration unchanged)</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Standard Reduction Potentials — Must-Know Values</h3>
+      <table class="data-table">
+        <thead><tr><th>Half-reaction</th><th>E° (V)</th></tr></thead>
+        <tbody>
+          <tr><td>F₂ + 2e⁻ → 2F⁻</td><td>+2.87</td></tr>
+          <tr><td>Cl₂ + 2e⁻ → 2Cl⁻</td><td>+1.36</td></tr>
+          <tr><td>Cu²⁺ + 2e⁻ → Cu</td><td>+0.34</td></tr>
+          <tr><td>2H⁺ + 2e⁻ → H₂ (SHE)</td><td>0.00</td></tr>
+          <tr><td>Zn²⁺ + 2e⁻ → Zn</td><td>−0.76</td></tr>
+          <tr><td>Al³⁺ + 3e⁻ → Al</td><td>−1.66</td></tr>
+          <tr><td>Na⁺ + e⁻ → Na</td><td>−2.71</td></tr>
+          <tr><td>Li⁺ + e⁻ → Li</td><td>−3.05</td></tr>
+        </tbody>
+      </table>
+
+      <ul class="key-points">
+        <li><strong>Daniell cell:</strong> Zn | Zn²⁺ ‖ Cu²⁺ | Cu → E°cell = +1.10 V</li>
+        <li><strong>Diagonal rule:</strong> Spontaneous when left species reacts with right species below it in the table</li>
+        <li><strong>An Ox, Red Cat</strong> — Anode = Oxidation, Cathode = Reduction (both galvanic and electrolytic)</li>
+        <li><strong>Concentration cell:</strong> E°cell = 0; dilute side = anode, concentrated side = cathode</li>
+        <li><strong>Corrosion of iron:</strong> Anode: Fe → Fe²⁺ + 2e⁻; Cathode: O₂ + 4H⁺ + 4e⁻ → 2H₂O</li>
+        <li><strong>Protection:</strong> Galvanizing (Zn sacrificial anode), cathodic protection, painting, alloying</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 3 ============ -->
+  <div class="section-block" id="u3">
+    <div class="section-header">
+      <div class="section-icon">🏭</div>
+      <div>
+        <div class="section-title-text">Unit 3 — Industrial Chemistry</div>
+        <div class="section-subtitle">Haber · Ostwald · Contact · Solvay · Castner-Kellner · Ethiopian industries</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">The Four Big Industrial Processes</h3>
+
+      <table class="data-table">
+        <thead><tr><th>Process</th><th>Product</th><th>Key reaction</th><th>Catalyst / Conditions</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Haber-Bosch</strong></td>
+            <td>Ammonia (NH₃)</td>
+            <td>N₂ + 3H₂ ⇌ 2NH₃</td>
+            <td>Fe catalyst, 300–500 °C, 15–25 MPa</td>
+          </tr>
+          <tr>
+            <td><strong>Ostwald</strong></td>
+            <td>Nitric acid (HNO₃)</td>
+            <td>4NH₃ + 5O₂ → 4NO + 6H₂O (step 1)</td>
+            <td>Pt catalyst, 850 °C</td>
+          </tr>
+          <tr>
+            <td><strong>Contact</strong></td>
+            <td>Sulphuric acid (H₂SO₄)</td>
+            <td>2SO₂ + O₂ ⇌ 2SO₃ (step 2)</td>
+            <td>V₂O₅ catalyst, 400 °C, 1–2 atm</td>
+          </tr>
+          <tr>
+            <td><strong>Solvay</strong></td>
+            <td>Sodium carbonate (Na₂CO₃)</td>
+            <td>CaCO₃ + 2NaCl → Na₂CO₃ + CaCl₂ (overall)</td>
+            <td>NH₃ recycled catalyst</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Reactions to Remember</h3>
+      <table class="data-table">
+        <thead><tr><th>Type</th><th>Equation</th></tr></thead>
+        <tbody>
+          <tr><td>Haber-Bosch</td><td>N₂ + 3H₂ ⇌ 2NH₃, ΔH = −92 kJ/mol</td></tr>
+          <tr><td>Ostwald step 1</td><td>4NH₃ + 5O₂ → 4NO + 6H₂O</td></tr>
+          <tr><td>Ostwald step 2</td><td>2NO + O₂ → 2NO₂</td></tr>
+          <tr><td>Ostwald step 3</td><td>3NO₂ + H₂O → 2HNO₃ + NO (NO recycled)</td></tr>
+          <tr><td>Contact step 1</td><td>S + O₂ → SO₂</td></tr>
+          <tr><td>Contact step 2</td><td>2SO₂ + O₂ ⇌ 2SO₃</td></tr>
+          <tr><td>Contact step 3</td><td>SO₃ + H₂SO₄ → H₂S₂O₇ (oleum)</td></tr>
+          <tr><td>Contact step 4</td><td>H₂S₂O₇ + H₂O → 2H₂SO₄</td></tr>
+          <tr><td>Solvay — 5 steps</td><td>CaCO₃ → CaO + CO₂; CaO + H₂O → Ca(OH)₂; 2NaCl + 2CO₂ + 2NH₃ + 2H₂O → 2NaHCO₃ + 2NH₄Cl; 2NaHCO₃ → Na₂CO₃ + H₂O + CO₂; Ca(OH)₂ + 2NH₄Cl → CaCl₂ + 2NH₃ + 2H₂O</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Ethiopian Industries — Quick Reference</h3>
+      <ul class="key-points">
+        <li><strong>Glass:</strong> silica (SiO₂) + Na₂CO₃ + CaCO₃, melted at 1600 °C; soda-lime = 90% of glass; borosilicate = Pyrex</li>
+        <li><strong>Cement:</strong> CaCO₃ + clay + alumina → 1450 °C → clinker; ground with 2–3% gypsum → OPC</li>
+        <li><strong>Sugar:</strong> 8 steps from sugarcane; by-product = bagasse (fuel)</li>
+        <li><strong>Paper:</strong> wood pulp; Kraft process (NaOH + Na₂S at 170 °C) is dominant</li>
+        <li><strong>Soap:</strong> saponification — Fat + 3NaOH → 3RCOONa + glycerol</li>
+        <li><strong>Ethanol:</strong> fermentation (sugar → ethanol + CO₂) or catalytic hydration of ethene</li>
+        <li><strong>Araki (Ethiopian):</strong> traditional distilled beverage; by-product = Atela (cattle feed)</li>
+        <li><strong>Detergents:</strong> R–C₆H₄–SO₃Na; work in hard water (Ca/Mg salts are soluble)</li>
+      </ul>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Fertilizers — N Content</h3>
+      <table class="data-table">
+        <thead><tr><th>Fertilizer</th><th>Formula</th><th>% N</th></tr></thead>
+        <tbody>
+          <tr><td>Anhydrous ammonia</td><td>NH₃</td><td>~82%</td></tr>
+          <tr><td>Urea</td><td>(NH₂)₂CO</td><td>46%</td></tr>
+          <tr><td>DAP</td><td>(NH₄)₂HPO₄</td><td>~18% N + ~20% P</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 4 ============ -->
+  <div class="section-block" id="u4">
+    <div class="section-header">
+      <div class="section-icon">🧬</div>
+      <div>
+        <div class="section-title-text">Unit 4 — Polymers</div>
+        <div class="section-subtitle">Monomers · polymers · addition · condensation · thermoplastic vs thermoset</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Key Formulas</h3>
+      <div class="formula-cards-grid">
+        <div class="formula-chip"><div class="fc-name">Polymer</div><div class="fc-formula">Poly + meros (many parts)</div><div class="fc-note">Large chainlike molecule</div></div>
+        <div class="formula-chip"><div class="fc-name">Monomer</div><div class="fc-formula">Mono + meros (one part)</div><div class="fc-note">Building block</div></div>
+        <div class="formula-chip"><div class="fc-name">Degree of Polymerization</div><div class="fc-formula">DP = M(polymer) / M(unit)</div><div class="fc-note">Number of repeat units</div></div>
+        <div class="formula-chip"><div class="fc-name">Addition — ethylene</div><div class="fc-formula">n CH₂=CH₂ → –(CH₂–CH₂)ₙ–</div><div class="fc-note">No by-product</div></div>
+        <div class="formula-chip"><div class="fc-name">Nylon 66</div><div class="fc-formula">diamine + diacid → polyamide + H₂O</div><div class="fc-note">Amide bonds</div></div>
+        <div class="formula-chip"><div class="fc-name">Dacron (PET)</div><div class="fc-formula">diol + diacid → polyester + H₂O</div><div class="fc-note">Ester bonds</div></div>
+      </div>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Classification Cheat Sheet</h3>
+      <table class="data-table">
+        <thead><tr><th>Classification</th><th>Types</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td>By monomer type</td><td>Homopolymer / Copolymer</td><td>PE (homo) / Nylon 66 (co)</td></tr>
+          <tr><td>By origin</td><td>Natural / Synthetic</td><td>Cellulose / Polyethylene</td></tr>
+          <tr><td>By reaction</td><td>Addition / Condensation</td><td>PVC / Nylon</td></tr>
+          <tr><td>By heat response</td><td>Thermoplastic / Thermoset</td><td>PE (thermoplastic) / Bakelite (thermoset)</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Polymer → Monomer Reference</h3>
+      <table class="data-table">
+        <thead><tr><th>Polymer</th><th>Monomer</th><th>Type</th></tr></thead>
+        <tbody>
+          <tr><td>Polyethylene</td><td>Ethylene (CH₂=CH₂)</td><td>Addition</td></tr>
+          <tr><td>PVC</td><td>Vinyl chloride (CH₂=CHCl)</td><td>Addition</td></tr>
+          <tr><td>Teflon (PTFE)</td><td>Tetrafluoroethylene (CF₂=CF₂)</td><td>Addition</td></tr>
+          <tr><td>Polystyrene</td><td>Styrene (C₆H₅CH=CH₂)</td><td>Addition</td></tr>
+          <tr><td>Nylon 66</td><td>Hexamethylene diamine + adipic acid</td><td>Condensation</td></tr>
+          <tr><td>Dacron (PET)</td><td>Terephthalic acid + ethylene glycol</td><td>Condensation</td></tr>
+          <tr><td>Natural rubber</td><td>Isoprene (C₅H₈)</td><td>Addition (natural)</td></tr>
+          <tr><td>Cellulose/Starch</td><td>Glucose (C₆H₁₂O₆)</td><td>Condensation (natural)</td></tr>
+          <tr><td>Proteins</td><td>Amino acids (peptide bonds)</td><td>Condensation (natural)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 5 ============ -->
+  <div class="section-block" id="u5">
+    <div class="section-header">
+      <div class="section-icon">🌍</div>
+      <div>
+        <div class="section-title-text">Unit 5 — Environmental Chemistry</div>
+        <div class="section-subtitle">Spheres · cycles · pollution · global warming · green chemistry</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">The Four Spheres</h3>
+      <table class="data-table">
+        <thead><tr><th>Sphere</th><th>Contains</th><th>Key Reactions</th></tr></thead>
+        <tbody>
+          <tr><td>Atmosphere</td><td>78% N₂, 21% O₂, 1% other</td><td>2NO + O₂ → 2NO₂ (UV); CFC + UV → Cl·; Cl· + O₃ → ClO + O₂</td></tr>
+          <tr><td>Hydrosphere</td><td>All water; ~1% fresh</td><td>NH₄⁺ + 2O₂ → NO₃⁻ + 2H⁺ + H₂O</td></tr>
+          <tr><td>Lithosphere</td><td>Crust + upper mantle</td><td>2FeCO₃ + ½O₂ + 3H₂O → 2Fe(OH)₃ + 2CO₂</td></tr>
+          <tr><td>Biosphere</td><td>Living organisms + ecosystems</td><td>6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂ (photosynthesis)</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Concepts</h3>
+      <ul class="key-points">
+        <li><strong>Pollutant</strong> — substance whose concentration increased due to human activity, causing harm</li>
+        <li><strong>Contaminant</strong> — introduced by humans but not yet causing harm</li>
+        <li><strong>Sink</strong> — medium that retains pollutants (water, soil)</li>
+        <li><strong>DO</strong> — Dissolved Oxygen (optimum 4–8 mg/L; below 4 = polluted)</li>
+        <li><strong>BOD</strong> — Biological Oxygen Demand; DO consumed by DOM over 5 days</li>
+        <li><strong>TLV</strong> — Threshold Limit Value; permissible 8-hour exposure level</li>
+      </ul>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Three Pollution Types</h3>
+      <table class="data-table">
+        <thead><tr><th>Type</th><th>Major pollutants</th><th>Key effects</th></tr></thead>
+        <tbody>
+          <tr><td>Air</td><td>SO₂, NOₓ, CO, CFCs, particulates, VOCs, Pb</td><td>Acid rain, ozone depletion, photochemical smog, respiratory disease</td></tr>
+          <tr><td>Water</td><td>Nitrates, phosphates, sewage, pesticides, Pb</td><td>Eutrophication (O₂ depletion → fish kill), heavy metal poisoning</td></tr>
+          <tr><td>Land</td><td>Garbage, plastics, mercury</td><td>Non-biodegradable waste, soil/water contamination, disease</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Greenhouse Gases & % Contribution</h3>
+      <table class="data-table">
+        <thead><tr><th>Gas</th><th>% contribution</th><th>Atmospheric lifetime</th></tr></thead>
+        <tbody>
+          <tr><td>CO₂</td><td>52.92%</td><td>80% lasts 200 years; 20% up to 30,000 years</td></tr>
+          <tr><td>CH₄</td><td>14.88%</td><td>~12 years</td></tr>
+          <tr><td>CFCs / HCFCs</td><td>10.78%</td><td>Months to tens of thousands of years</td></tr>
+          <tr><td>Tropospheric O₃</td><td>10.72%</td><td>Months</td></tr>
+          <tr><td>N₂O</td><td>10.70%</td><td>Up to 114 years</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">12 Principles of Green Chemistry — Quick List</h3>
+      <ol style="font-size:.85rem;color:var(--text);line-height:1.9;padding-left:1.5rem;margin:.5rem 0">
+        <li><strong>Prevention</strong> — prevent waste rather than treat it</li>
+        <li><strong>Atom economy</strong> — maximize atoms incorporated into product</li>
+        <li><strong>Less hazardous synthesis</strong> — use/generate low-toxicity chemicals</li>
+        <li><strong>Safer chemicals</strong> — design benign products</li>
+        <li><strong>Safer solvents</strong> — avoid solvents or use innocuous ones</li>
+        <li><strong>Energy efficiency</strong> — run at ambient conditions</li>
+        <li><strong>Renewable feedstock</strong> — use plant-based raw materials</li>
+        <li><strong>Reduce derivatives</strong> — avoid protecting groups</li>
+        <li><strong>Catalysis</strong> — use catalysts instead of stoichiometric reagents</li>
+        <li><strong>Design for degradation</strong> — products should break down safely</li>
+        <li><strong>Real-time analysis</strong> — monitor reactions in-process</li>
+        <li><strong>Inherently safer chemistry</strong> — prevent accidents by design</li>
+      </ol>
+
+      <div class="quick-tips">
+        <div class="quick-tips-title">📐 Atom Economy Formula</div>
+        <div class="quick-tips-body">
+          <strong>% Atom Economy = (mass of desired product / total mass of all products) × 100%</strong><br><br>
+          Example: Fe₂O₃ + 3CO → 2Fe + 3CO₂ → (112 / 244) × 100% = 45.9%<br>
+          Reaction with only ONE product = 100% atom economy (e.g., N₂ + 3H₂ → 2NH₃)<br><br>
+          <strong>Ibuprofen case study:</strong> Old (1960s) = 6 steps, 40% AE; BHC (1990s) = 3 steps, ~80% AE
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MIXED QUIZ ============ -->
+  <div class="section-block" id="quiz">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <div>
+        <div class="section-title-text">Mixed Review Quiz</div>
+        <div class="section-subtitle">20 questions across all 5 units — full EUEE-style practice</div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="quiz-header-bar">
+        <h3>Complete the quiz to see your score</h3>
+        <span class="q-count" id="quiz-progress-count">0 / 20 answered</span>
+      </div>
+
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="review-progress"></div></div>
+
+      <!-- Q1 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 1 · Unit 1</div>
+        <div class="quiz-qtext">What is the pH of a 0.01 M HCl solution?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',1)"><div class="option-letter">A</div> pH = 1</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',1)"><div class="option-letter">B</div> pH = 2</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',1)"><div class="option-letter">C</div> pH = 12</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',1)"><div class="option-letter">D</div> pH = 7</div>
+        </div>
+        <div class="quiz-feedback" id="rfb1"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 2 · Unit 1</div>
+        <div class="quiz-qtext">A solution of NH₄Cl in water will be:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',2)"><div class="option-letter">A</div> Neutral (pH = 7)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',2)"><div class="option-letter">B</div> Basic (pH &gt; 7)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',2)"><div class="option-letter">C</div> Acidic (pH &lt; 7)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',2)"><div class="option-letter">D</div> Cannot be determined</div>
+        </div>
+        <div class="quiz-feedback" id="rfb2"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 3 · Unit 1</div>
+        <div class="quiz-qtext">Which indicator is best for a strong acid + weak base titration (equivalence pH ≈ 5)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',3)"><div class="option-letter">A</div> Phenolphthalein</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',3)"><div class="option-letter">B</div> Methyl orange</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',3)"><div class="option-letter">C</div> Bromothymol blue</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',3)"><div class="option-letter">D</div> Litmus</div>
+        </div>
+        <div class="quiz-feedback" id="rfb3"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 4 · Unit 1</div>
+        <div class="quiz-qtext">At half-equivalence in a weak acid titration, which relationship holds?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',4)"><div class="option-letter">A</div> pH = pKb</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',4)"><div class="option-letter">B</div> pH = pKa</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',4)"><div class="option-letter">C</div> pH = 7</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',4)"><div class="option-letter">D</div> pH = pOH</div>
+        </div>
+        <div class="quiz-feedback" id="rfb4"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 5 · Unit 2</div>
+        <div class="quiz-qtext">In the reaction Zn + Cu²⁺ → Zn²⁺ + Cu, the oxidizing agent is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',5)"><div class="option-letter">A</div> Zn</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',5)"><div class="option-letter">B</div> Cu²⁺</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',5)"><div class="option-letter">C</div> Zn²⁺</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',5)"><div class="option-letter">D</div> Cu</div>
+        </div>
+        <div class="quiz-feedback" id="rfb5"></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 6 · Unit 2</div>
+        <div class="quiz-qtext">Faraday's First Law of Electrolysis is expressed as:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',6)"><div class="option-letter">A</div> m = M I t / (n F)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',6)"><div class="option-letter">B</div> m = z/Q</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',6)"><div class="option-letter">C</div> E = E° − (RT/nF) ln Q</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',6)"><div class="option-letter">D</div> N₁V₁ = N₂V₂</div>
+        </div>
+        <div class="quiz-feedback" id="rfb6"></div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 7 · Unit 2</div>
+        <div class="quiz-qtext">In the electrolysis of concentrated NaCl solution, the gas produced at the anode is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',7)"><div class="option-letter">A</div> O₂</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',7)"><div class="option-letter">B</div> H₂</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',7)"><div class="option-letter">C</div> Cl₂</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',7)"><div class="option-letter">D</div> HCl</div>
+        </div>
+        <div class="quiz-feedback" id="rfb7"></div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 8 · Unit 2</div>
+        <div class="quiz-qtext">Given E°(Zn²⁺/Zn) = −0.76 V and E°(Cu²⁺/Cu) = +0.34 V, the E°cell of the Daniell cell is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',8)"><div class="option-letter">A</div> +0.42 V</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',8)"><div class="option-letter">B</div> +1.10 V</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',8)"><div class="option-letter">C</div> −1.10 V</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',8)"><div class="option-letter">D</div> +0.76 V</div>
+        </div>
+        <div class="quiz-feedback" id="rfb8"></div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 9 · Unit 2</div>
+        <div class="quiz-qtext">In a Cu/Cu²⁺ concentration cell, E°cell equals:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',9)"><div class="option-letter">A</div> +0.34 V</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',9)"><div class="option-letter">B</div> −0.34 V</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',9)"><div class="option-letter">C</div> 0.00 V</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',9)"><div class="option-letter">D</div> +1.10 V</div>
+        </div>
+        <div class="quiz-feedback" id="rfb9"></div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 10 · Unit 3</div>
+        <div class="quiz-qtext">The Haber-Bosch process produces ammonia from:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',10)"><div class="option-letter">A</div> N₂ and H₂</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',10)"><div class="option-letter">B</div> NH₄Cl and Ca(OH)₂</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',10)"><div class="option-letter">C</div> HNO₃ and NH₃</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',10)"><div class="option-letter">D</div> CO₂ and H₂O</div>
+        </div>
+        <div class="quiz-feedback" id="rfb10"></div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 11 · Unit 3</div>
+        <div class="quiz-qtext">The catalyst in the Contact Process for H₂SO₄ is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',11)"><div class="option-letter">A</div> Iron (Fe)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',11)"><div class="option-letter">B</div> Platinum (Pt)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',11)"><div class="option-letter">C</div> Vanadium(V) oxide (V₂O₅)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',11)"><div class="option-letter">D</div> Nickel (Ni)</div>
+        </div>
+        <div class="quiz-feedback" id="rfb11"></div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 12 · Unit 3</div>
+        <div class="quiz-qtext">The Solvay process manufactures:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',12)"><div class="option-letter">A</div> NaOH</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',12)"><div class="option-letter">B</div> Na₂CO₃</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',12)"><div class="option-letter">C</div> HNO₃</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',12)"><div class="option-letter">D</div> H₂SO₄</div>
+        </div>
+        <div class="quiz-feedback" id="rfb12"></div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 13 · Unit 3</div>
+        <div class="quiz-qtext">The Ostwald process converts ammonia to:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',13)"><div class="option-letter">A</div> H₂SO₄</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',13)"><div class="option-letter">B</div> HNO₃</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',13)"><div class="option-letter">C</div> Na₂CO₃</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',13)"><div class="option-letter">D</div> Urea</div>
+        </div>
+        <div class="quiz-feedback" id="rfb13"></div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 14 · Unit 4</div>
+        <div class="quiz-qtext">Which of the following is made by condensation polymerization?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',14)"><div class="option-letter">A</div> Polyethylene</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',14)"><div class="option-letter">B</div> PVC</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',14)"><div class="option-letter">C</div> Nylon 66</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',14)"><div class="option-letter">D</div> Polystyrene</div>
+        </div>
+        <div class="quiz-feedback" id="rfb14"></div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 15 · Unit 4</div>
+        <div class="quiz-qtext">The monomer of natural rubber is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',15)"><div class="option-letter">A</div> Ethylene</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',15)"><div class="option-letter">B</div> Styrene</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',15)"><div class="option-letter">C</div> Isoprene</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',15)"><div class="option-letter">D</div> Vinyl chloride</div>
+        </div>
+        <div class="quiz-feedback" id="rfb15"></div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 16 · Unit 4</div>
+        <div class="quiz-qtext">A polymer with a 3-D cross-linked network is called a:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',16)"><div class="option-letter">A</div> Thermoplastic</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',16)"><div class="option-letter">B</div> Thermoset</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',16)"><div class="option-letter">C</div> Homopolymer</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',16)"><div class="option-letter">D</div> Copolymer</div>
+        </div>
+        <div class="quiz-feedback" id="rfb16"></div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 17 · Unit 5</div>
+        <div class="quiz-qtext">Which gas contributes the MOST to human-caused global warming?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',17)"><div class="option-letter">A</div> CH₄ (methane)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',17)"><div class="option-letter">B</div> CO₂ (carbon dioxide)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',17)"><div class="option-letter">C</div> N₂O (nitrous oxide)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',17)"><div class="option-letter">D</div> O₃ (ozone)</div>
+        </div>
+        <div class="quiz-feedback" id="rfb17"></div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 18 · Unit 5</div>
+        <div class="quiz-qtext">Eutrophication of a lake is primarily caused by:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',18)"><div class="option-letter">A</div> Oil spillage</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',18)"><div class="option-letter">B</div> Excess nitrates and phosphates washed into water</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',18)"><div class="option-letter">C</div> Acid rain</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',18)"><div class="option-letter">D</div> Heavy metal contamination</div>
+        </div>
+        <div class="quiz-feedback" id="rfb18"></div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 19 · Unit 5</div>
+        <div class="quiz-qtext">The first principle of Green Chemistry is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',19)"><div class="option-letter">A</div> Use catalysis</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',19)"><div class="option-letter">B</div> Prevent waste</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',19)"><div class="option-letter">C</div> Atom economy</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',19)"><div class="option-letter">D</div> Use safer solvents</div>
+        </div>
+        <div class="quiz-feedback" id="rfb19"></div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 20 · Unit 5</div>
+        <div class="quiz-qtext">The atom economy for the reaction N₂ + 3H₂ → 2NH₃ is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',20)"><div class="option-letter">A</div> 50%</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',20)"><div class="option-letter">B</div> 75%</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',20)"><div class="option-letter">C</div> 100%</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',20)"><div class="option-letter">D</div> 25%</div>
+        </div>
+        <div class="quiz-feedback" id="rfb20"></div>
+      </div>
+
+      <div class="score-display" id="review-score-display">
+        <div class="big-num" id="review-score-num">0/20</div>
+        <div class="score-msg" id="review-score-msg"></div>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="reviewReset()">Retake Quiz</button>
+          <a href="index.html" class="btn btn-outline">Back to Chemistry Hub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-banner">
+    <div class="big">🏆 You've reviewed the entire Chemistry Grade 12 course! 🏆</div>
+    <div class="small">
+      5 units · 40 lessons · hundreds of concepts — all in one place.<br>
+      Bookmark this page, revisit it before the EUEE exam, and share it with classmates.<br><br>
+      <strong>Good luck on your exam!</strong>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const reviewCorrect = {1:'B',2:'C',3:'B',4:'B',5:'B',6:'A',7:'C',8:'B',9:'C',10:'A',11:'C',12:'B',13:'B',14:'C',15:'C',16:'B',17:'B',18:'B',19:'B',20:'C'};
+  const reviewFeedback = {
+    1:{correct:'✓ Correct! HCl is a strong acid — it fully ionizes. [H⁺] = 0.01 = 10⁻². pH = −log(10⁻²) = 2.',wrong:'✗ HCl is a strong acid → [H⁺] = 0.01 = 10⁻² → pH = 2.'},
+    2:{correct:'✓ Correct! NH₄Cl is a strong acid + weak base salt. The NH₄⁺ ion hydrolyzes: NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺ → acidic.',wrong:'✗ NH₄Cl → NH₄⁺ hydrolyzes → H₃O⁺ → acidic (pH < 7).'},
+    3:{correct:'✓ Correct! Methyl orange (pH 3.2–4.4) is close to the equivalence pH of ~5 for strong acid + weak base.',wrong:'✗ SA + WB gives acidic equivalence (~pH 5). Methyl orange is best.'},
+    4:{correct:'✓ Correct! At half-equivalence, [HA] = [A⁻], so pH = pKa.',wrong:'✗ Half-equivalence: [HA] = [A⁻] → pH = pKa.'},
+    5:{correct:'✓ Correct! Cu²⁺ is reduced (Cu²⁺ → Cu), so it is the oxidizing agent.',wrong:'✗ Cu²⁺ accepts electrons → reduced → oxidizing agent.'},
+    6:{correct:'✓ Correct! m = M I t / (n F), derived from Faraday\'s First Law.',wrong:'✗ Faraday\'s First Law: m = MIt/(nF).'},
+    7:{correct:'✓ Correct! In concentrated NaCl, Cl⁻ is discharged at the anode → Cl₂ gas.',wrong:'✗ Concentrated NaCl → Cl⁻ oxidized at anode → Cl₂.'},
+    8:{correct:'✓ Correct! E°cell = E°(Cu²⁺/Cu) − E°(Zn²⁺/Zn) = 0.34 − (−0.76) = +1.10 V.',wrong:'✗ E°cell = 0.34 − (−0.76) = +1.10 V.'},
+    9:{correct:'✓ Correct! Concentration cells have identical half-reactions, so E°cell = 0.',wrong:'✗ Concentration cells → E°cell = 0.'},
+    10:{correct:'✓ Correct! Haber-Bosch: N₂ + 3H₂ ⇌ 2NH₃.',wrong:'✗ Haber-Bosch uses N₂ + 3H₂ → 2NH₃.'},
+    11:{correct:'✓ Correct! V₂O₅ is the catalyst in the Contact Process.',wrong:'✗ Contact Process catalyst = V₂O₅.'},
+    12:{correct:'✓ Correct! Solvay process → Na₂CO₃ (sodium carbonate).',wrong:'✗ Solvay → Na₂CO₃.'},
+    13:{correct:'✓ Correct! Ostwald: NH₃ → NO → NO₂ → HNO₃.',wrong:'✗ Ostwald produces HNO₃ (nitric acid).'},
+    14:{correct:'✓ Correct! Nylon 66 is made by condensation polymerization (diamine + diacid → polyamide + H₂O).',wrong:'✗ Nylon 66 = condensation polymer.'},
+    15:{correct:'✓ Correct! Natural rubber monomer = isoprene (C₅H₈).',wrong:'✗ Natural rubber = polyisoprene (monomer = isoprene).'},
+    16:{correct:'✓ Correct! Cross-linked 3-D network = thermoset (e.g., Bakelite).',wrong:'✗ Thermosets have cross-linked 3-D networks.'},
+    17:{correct:'✓ Correct! CO₂ contributes ~53% — the largest share of human-caused warming.',wrong:'✗ CO₂ (~53%) dominates.'},
+    18:{correct:'✓ Correct! Excess nitrates and phosphates cause eutrophication.',wrong:'✗ Eutrophication is caused by excess N and P.'},
+    19:{correct:'✓ Correct! Principle 1 = Prevention (prevent waste rather than treat it).',wrong:'✗ Principle 1 = Prevention.'},
+    20:{correct:'✓ Correct! Only one product → 100% atom economy.',wrong:'✗ N₂ + 3H₂ → 2NH₃ has only one product → 100% atom economy.'}
+  };
+
+  const reviewAnswers = {};
+  let reviewAnswered = 0;
+
+  function reviewAnswer(el, choice, qNum){
+    if(reviewAnswers[qNum]) return;
+    reviewAnswers[qNum] = choice;
+    reviewAnswered++;
+
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct = reviewCorrect[qNum];
+    const letters = ['A','B','C','D'];
+
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct) o.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('rfb'+qNum);
+    const ok = choice === correct;
+    fb.textContent = ok ? reviewFeedback[qNum].correct : reviewFeedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+
+    document.getElementById('quiz-progress-count').textContent = reviewAnswered + ' / 20 answered';
+    document.getElementById('review-progress').style.width = (reviewAnswered / 20 * 100) + '%';
+
+    if(reviewAnswered === 20) reviewShowScore();
+  }
+
+  function reviewShowScore(){
+    const score = Object.keys(reviewAnswers).filter(q => reviewAnswers[q] === reviewCorrect[q]).length;
+    const display = document.getElementById('review-score-display');
+    display.classList.add('show');
+    document.getElementById('review-score-num').textContent = score + ' / 20';
+    const pct = score / 20 * 100;
+    let msg = '';
+    if(pct === 100) msg = '🎉 Perfect score! You are EUEE-ready.';
+    else if(pct >= 80) msg = '👍 Excellent! Just a few areas to polish.';
+    else if(pct >= 60) msg = '📖 Good work — review the units where you missed questions.';
+    else if(pct >= 40) msg = '📚 Solid foundation — revisit the key formulas and concepts.';
+    else msg = '💪 Keep going! Revisit each unit\'s summary and try again.';
+    document.getElementById('review-score-msg').textContent = msg;
+    display.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  function reviewReset(){
+    Object.keys(reviewAnswers).forEach(k => delete reviewAnswers[k]);
+    reviewAnswered = 0;
+    document.querySelectorAll('.quiz-option').forEach(o => o.className = 'quiz-option');
+    document.querySelectorAll('.quiz-feedback').forEach(f => f.className = 'quiz-feedback');
+    document.getElementById('review-progress').style.width = '0%';
+    document.getElementById('quiz-progress-count').textContent = '0 / 20 answered';
+    document.getElementById('review-score-display').classList.remove('show');
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  // Smooth scroll for unit-nav
+  document.querySelectorAll('.unit-pill').forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const id = pill.getAttribute('href').substring(1);
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+</body>
+</html>
