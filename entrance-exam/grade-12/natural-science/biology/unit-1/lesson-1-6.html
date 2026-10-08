@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.6: Medicine | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .med-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .med-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .med-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .med-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .med-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .med-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 1</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What is Health?</button>
+      <button class="sidebar-link" onclick="scrollToId('diagnostics')"><div class="sidebar-dot"></div> Diagnostics &amp; PCR</button>
+      <button class="sidebar-link" onclick="scrollToId('vaccines')"><div class="sidebar-dot"></div> Vaccines</button>
+      <button class="sidebar-link" onclick="scrollToId('immunotherapy')"><div class="sidebar-dot"></div> Immunotherapy</button>
+      <button class="sidebar-link" onclick="scrollToId('transplant')"><div class="sidebar-dot"></div> Transplantation</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Appreciation of Nature</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Conservation</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Food Security</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Conscious Citizens</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Career Development</a>
+      <a href="lesson-1-6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Medicine</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Waste Treatment</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Biotechnology</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Fields of Biotech</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Promises to Society</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 1</a> ›
+      Lesson 1.6
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Applications of Biology · MoE Textbook §1.6</div>
+      <h1>💊 Medicine</h1>
+      <p>Biology is the foundation of modern medicine. From diagnosing diseases to developing vaccines to transplanting organs, biology provides the knowledge and tools that save millions of lives every year. This lesson explores how biology is applied in medicine.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Modern medicine is one of the greatest achievements of biological science. Vaccines have eradicated smallpox and nearly eliminated polio. Antibiotics have turned once-deadly infections into minor inconveniences. Genetic testing can predict disease risk. Organ transplants save thousands of lives each year — all because of our understanding of biology.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> health and explain the biological basis of medicine</li>
+          <li>Describe how <strong>diagnostic techniques</strong> like PCR work</li>
+          <li>Explain the biological principles behind <strong>vaccines</strong></li>
+          <li>Understand <strong>immunotherapy</strong> and its role in cancer treatment</li>
+          <li>Describe the biology of <strong>organ transplantation</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is Health?</div><div class="section-subtitle">Key definitions</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Health (WHO Definition)</div>
+          <p>
+            <strong>Health</strong> is a state of complete physical, mental, and social well-being — not merely the absence of disease or infirmity.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Medicine</div>
+          <p>
+            <strong>Medicine</strong> is the science and practice of diagnosing, treating, and preventing disease. Modern medicine is built on <strong>biology, chemistry, and physics</strong>, with biology as its foundation.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Biology's Contributions to Medicine</h3>
+        <div class="med-grid">
+          <div class="med-card">
+            <div class="med-icon">🔬</div>
+            <div class="med-title">Diagnostics</div>
+            <p class="med-desc">PCR, ELISA, microscopy, imaging — detecting disease at the molecular level.</p>
+          </div>
+          <div class="med-card">
+            <div class="med-icon">💉</div>
+            <div class="med-title">Vaccines</div>
+            <p class="med-desc">Training the immune system to prevent disease — smallpox eradicated, polio nearly gone.</p>
+          </div>
+          <div class="med-card">
+            <div class="med-icon">💊</div>
+            <div class="med-title">Pharmaceuticals</div>
+            <p class="med-desc">Antibiotics, antivirals, and other drugs developed from biological knowledge.</p>
+          </div>
+          <div class="med-card">
+            <div class="med-icon">🧬</div>
+            <div class="med-title">Genetics</div>
+            <p class="med-desc">Genetic testing, gene therapy, personalized medicine, genetic counseling.</p>
+          </div>
+          <div class="med-card">
+            <div class="med-icon">🫀</div>
+            <div class="med-title">Transplantation</div>
+            <p class="med-desc">Organ and tissue transplants save lives — with careful management of immune rejection.</p>
+          </div>
+          <div class="med-card">
+            <div class="med-icon">🎯</div>
+            <div class="med-title">Immunotherapy</div>
+            <p class="med-desc">Harnessing the immune system to fight cancer and other diseases.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="diagnostics">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Diagnostics &amp; PCR</div><div class="section-subtitle">Detecting disease at the molecular level</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          <strong>Diagnostics</strong> is the process of identifying a disease, condition, or injury. Modern diagnostics rely heavily on biology.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 PCR — Polymerase Chain Reaction</div>
+          <p>
+            <strong>PCR</strong> is a technique that <strong>copies a specific piece of DNA millions of times</strong> so it can be detected and analyzed. It's used to diagnose infectious diseases (like COVID-19, HIV, TB), detect genetic disorders, and identify cancer mutations.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How PCR Works — Three Steps</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Step</th><th>Temperature</th><th>What happens</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>1. Denaturation</strong></td><td>~95 °C</td><td>Double-stranded DNA separates into two single strands</td></tr>
+            <tr><td><strong>2. Annealing</strong></td><td>~55 °C</td><td>Primers (short DNA sequences) bind to the target DNA regions</td></tr>
+            <tr><td><strong>3. Extension</strong></td><td>~72 °C</td><td>DNA polymerase builds new strands, copying the target DNA</td></tr>
+          </tbody>
+        </table>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-top:1rem">
+          These three steps are repeated 25–40 times. Each cycle <strong>doubles the amount of DNA</strong> — after 30 cycles, one copy becomes over a billion copies.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Other Diagnostic Techniques</h3>
+        <ul class="key-points">
+          <li><strong>ELISA</strong> — detects antibodies or antigens in blood; used for HIV, hepatitis, and other infections</li>
+          <li><strong>Microscopy</strong> — direct observation of cells and microorganisms; used for malaria, TB, and blood disorders</li>
+          <li><strong>Genetic testing</strong> — analyzes DNA for mutations linked to inherited diseases</li>
+          <li><strong>Imaging</strong> — X-rays, CT, MRI, and ultrasound visualize internal structures</li>
+          <li><strong>Biopsy</strong> — examination of tissue samples for cancer and other diseases</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="vaccines">
+      <div class="section-header"><div class="section-icon">💉</div>
+        <div><div class="section-title-text">Vaccines</div><div class="section-subtitle">Training the immune system</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Vaccine</div>
+          <p>
+            A <strong>vaccine</strong> is a biological preparation that <strong>provides active acquired immunity</strong> to a particular infectious disease. It typically contains an agent resembling a disease-causing microorganism — often made from weakened or killed forms of the microbe, its toxins, or one of its surface proteins.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How Vaccines Work</h3>
+        <ul class="key-points">
+          <li>The vaccine introduces a <strong>harmless form of the pathogen</strong> (or its antigen) into the body</li>
+          <li>The immune system recognizes the antigen as foreign and produces <strong>antibodies</strong> against it</li>
+          <li>The immune system also creates <strong>memory cells</strong> that "remember" the pathogen</li>
+          <li>If the real pathogen ever enters the body, memory cells respond <strong>quickly and effectively</strong> — preventing illness</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Types of Vaccines</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>How it's made</th><th>Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Live attenuated</strong></td><td>Weakened but live pathogen</td><td>MMR, chickenpox, BCG</td></tr>
+            <tr><td><strong>Inactivated</strong></td><td>Killed pathogen</td><td>Polio (IPV), flu shot</td></tr>
+            <tr><td><strong>Toxoid</strong></td><td>Inactivated toxin</td><td>Tetanus, diphtheria</td></tr>
+            <tr><td><strong>Subunit</strong></td><td>Specific protein from pathogen</td><td>Hepatitis B, HPV</td></tr>
+            <tr><td><strong>mRNA</strong></td><td>Genetic instructions for antigen</td><td>COVID-19 (Pfizer, Moderna)</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Vaccines save millions of lives</div>
+          <p>
+            According to the WHO, vaccines prevent <strong>3.5–5 million deaths every year</strong> from diseases like diphtheria, tetanus, pertussis, influenza, and measles. Smallpox — once a global killer — has been <strong>completely eradicated</strong> thanks to vaccination.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="immunotherapy">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Immunotherapy</div><div class="section-subtitle">Harnessing the immune system to fight disease</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Immunotherapy</div>
+          <p>
+            <strong>Immunotherapy</strong> is a type of treatment that <strong>uses the body's own immune system</strong> to fight diseases like cancer. Rather than attacking the disease directly, immunotherapy helps the immune system recognize and destroy abnormal cells.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Types of Immunotherapy</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>How it works</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Monoclonal antibodies</strong></td><td>Lab-made antibodies that bind to specific targets on cancer cells, marking them for destruction</td></tr>
+            <tr><td><strong>Checkpoint inhibitors</strong></td><td>Drugs that "release the brakes" on the immune system so it can attack cancer cells</td></tr>
+            <tr><td><strong>CAR T-cell therapy</strong></td><td>T-cells are removed from the patient, engineered to recognize cancer, and returned</td></tr>
+            <tr><td><strong>Cancer vaccines</strong></td><td>Vaccines that stimulate the immune system against cancer cells</td></tr>
+            <tr><td><strong>Cytokines</strong></td><td>Proteins that boost immune cell activity</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why immunotherapy is exciting</div>
+          <p>
+            Traditional cancer treatments (surgery, radiation, chemotherapy) attack cancer directly — and often damage healthy cells too. <strong>Immunotherapy is different</strong>: it trains the patient's own immune system to do the work, often with fewer side effects and longer-lasting results.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="transplant">
+      <div class="section-header"><div class="section-icon">🫀</div>
+        <div><div class="section-title-text">Transplantation</div><div class="section-subtitle">The biology of organ transplants</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Transplantation</div>
+          <p>
+            <strong>Transplantation</strong> is the transfer of organs, tissues, or cells from one person (the <strong>donor</strong>) to another (the <strong>recipient</strong>) to replace a damaged or failing organ. Common transplants include kidney, heart, liver, lung, pancreas, and cornea.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Immune Challenge</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The biggest challenge in transplantation is <strong>immune rejection</strong>. The recipient's immune system recognizes the donor organ as foreign because of differences in proteins called <strong>HLA antigens</strong> (Human Leukocyte Antigens) on the surface of donor cells.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How Rejection is Managed</h3>
+        <ul class="key-points">
+          <li><strong>HLA matching</strong> — the closer the donor and recipient match, the lower the risk of rejection</li>
+          <li><strong>Immunosuppressant drugs</strong> — suppress the immune system to prevent it from attacking the donor organ</li>
+          <li><strong>Blood type matching</strong> — ABO compatibility is essential</li>
+          <li><strong>Crossmatching</strong> — testing for pre-existing antibodies against the donor</li>
+          <li><strong>Regular monitoring</strong> — lifelong check-ups to detect early signs of rejection</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Organ donation</div>
+          <p>
+            Ethiopia and many other countries face a critical <strong>shortage of organ donors</strong>. Educating the public about organ donation and improving transplant infrastructure can save thousands of lives each year.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is PCR and why is it important in medicine?<br>
+            B. Explain the biological principle behind how vaccines work.<br>
+            C. What is immunotherapy? Name two types.<br>
+            D. Why is immune rejection a major challenge in organ transplantation?<br>
+            E. What can be done to increase organ donation in Ethiopia?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What does <strong>PCR</strong> stand for?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Primary Care Response</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Polymerase Chain Reaction</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Pathogen Control Route</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Protein Cell Recognition</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">How do <strong>vaccines</strong> work?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> By directly killing all pathogens in the body</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> By training the immune system to recognize a pathogen so it can respond quickly if exposed later</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> By replacing all the body's blood cells</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> By strengthening the bones</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">What is <strong>immunotherapy</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> A treatment that uses the body's own immune system to fight disease</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> A surgery to remove tumors</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> A type of vitamin supplement</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> A diagnostic imaging technique</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Why is <strong>immune rejection</strong> a problem in organ transplantation?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> The organ may be too small</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> The recipient's immune system recognizes the donor organ as foreign and attacks it</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> The organ may run out of blood supply</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> The organ may not work without electricity</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which disease has been <strong>completely eradicated</strong> worldwide thanks to vaccines?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Smallpox</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Malaria</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Tuberculosis</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> HIV/AIDS</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=PCR+polymerase+chain+reaction+animation" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">PCR — Polymerase Chain Reaction Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=how+vaccines+work+immune+system" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">How Vaccines Work — Immune System</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=immunotherapy+cancer+treatment+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Cancer Immunotherapy Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=organ+transplant+immune+rejection" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Organ Transplant &amp; Immune Rejection</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 1.6</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Health</strong> is complete physical, mental, and social well-being — not just absence of disease</li>
+          <li><strong>PCR</strong> copies DNA millions of times — used to diagnose COVID-19, HIV, TB, genetic disorders</li>
+          <li><strong>Vaccines</strong> train the immune system to recognize pathogens, creating memory cells for future protection</li>
+          <li><strong>Smallpox</strong> is the only human disease completely eradicated through vaccination</li>
+          <li><strong>Immunotherapy</strong> uses the body's immune system to fight cancer — monoclonal antibodies, CAR T-cells, checkpoint inhibitors</li>
+          <li><strong>Transplantation</strong> faces the challenge of immune rejection — managed with HLA matching and immunosuppressant drugs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-5.html" class="btn btn-outline">← Lesson 1.5</a>
+      <a href="lesson-1-7.html" class="btn btn-primary">Next: Lesson 1.7 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 1 · Lesson 1.6 · Medicine</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'A', 4:'B', 5:'A'};
+  const feedback = {
+    1:{correct:'✓ Correct! PCR = Polymerase Chain Reaction — a technique that copies DNA millions of times.',wrong:'✗ PCR = Polymerase Chain Reaction.'},
+    2:{correct:'✓ Correct! Vaccines train the immune system to recognize a pathogen, creating memory cells for rapid response on future exposure.',wrong:'✗ Vaccines train the immune system by introducing a harmless form of the pathogen.'},
+    3:{correct:'✓ Correct! Immunotherapy uses the body\'s own immune system to fight diseases like cancer.',wrong:'✗ Immunotherapy harnesses the immune system to fight disease.'},
+    4:{correct:'✓ Correct! The recipient\'s immune system recognizes HLA antigens on donor cells as foreign and attacks the organ.',wrong:'✗ Immune rejection happens because the immune system sees the donor organ as foreign.'},
+    5:{correct:'✓ Correct! Smallpox was declared eradicated in 1980 — the only human disease completely eliminated by vaccination.',wrong:'✗ Smallpox is the only human disease completely eradicated by vaccines.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 1.6.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
