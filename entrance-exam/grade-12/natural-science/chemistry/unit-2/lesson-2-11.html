@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.11: Standard Electrode Potentials & EMF | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .formula-hero{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem;margin:1.5rem 0;color:#fff;text-align:center}
+    .formula-hero .main{font-size:1.5rem;font-weight:900;font-family:'Georgia',serif;letter-spacing:.02em;line-height:1.6}
+    .formula-hero .sub{font-size:.8rem;color:rgba(255,255,255,.7);margin-top:.5rem;letter-spacing:.05em}
+    .potential-table{width:100%;border-collapse:collapse;font-size:.8rem;margin:1rem 0;border:1px solid var(--border)}
+    .potential-table th{background:#7F1D1D;color:#fff;padding:.5rem .75rem;text-align:left;font-weight:600;font-size:.75rem;letter-spacing:.05em}
+    .potential-table td{padding:.4rem .75rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif;font-size:.8rem}
+    .potential-table tr:nth-child(even) td{background:var(--surface-2)}
+    .potential-table .arrow-cell{text-align:center;font-weight:bold;color:#DC2626;background:transparent!important}
+    .potential-table .top-row td{background:#FEE2E2!important}
+    .potential-table .mid-row td{background:#FEF3C7!important;font-weight:700}
+    .potential-table .bottom-row td{background:#DBEAFE!important}
+    .potential-table .pos{color:#166534;font-weight:700}
+    .potential-table .neg{color:#991B1B;font-weight:700}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 11</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('she')"><div class="sidebar-dot"></div> The SHE Reference</button>
+      <button class="sidebar-link" onclick="scrollTo('measure')"><div class="sidebar-dot"></div> Measuring Potentials</button>
+      <button class="sidebar-link" onclick="scrollTo('table')"><div class="sidebar-dot"></div> Standard Reduction Potentials</button>
+      <button class="sidebar-link" onclick="scrollTo('emf')"><div class="sidebar-dot"></div> Calculating EMF</button>
+      <button class="sidebar-link" onclick="scrollTo('spontaneity')"><div class="sidebar-dot"></div> Predicting Spontaneity</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Redox Reactions ✓</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Balancing (Ox. No.) ✓</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Balancing (Half-Rxn) ✓</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Conductivity ✓</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Electrolytic Cells ✓</a>
+      <a href="lesson-2-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Electrolysis Examples ✓</a>
+      <a href="lesson-2-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Faraday's 1st Law ✓</a>
+      <a href="lesson-2-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Faraday's 2nd Law ✓</a>
+      <a href="lesson-2-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Industrial Apps ✓</a>
+      <a href="lesson-2-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Galvanic Cells ✓</a>
+      <a href="lesson-2-11.html" class="sidebar-link active"><div class="sidebar-dot"></div> L11: Standard Potentials</a>
+      <a href="lesson-2-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Nernst & Corrosion</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.11
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Electrochemistry · MoE Textbook §2.5</div>
+      <h1>📏 Standard Electrode Potentials & EMF</h1>
+      <p>How do we know which metal will oxidize and which will reduce? By comparing their standard reduction potentials against the SHE (Standard Hydrogen Electrode). This lesson shows you how to measure those values and use them to predict any redox reaction.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          When you connect two half-cells, how do you know which will be the anode and which the cathode? How do you know the voltage the cell will produce? The answer lies in <strong>standard electrode potentials</strong> — a table of measured voltages for every common half-reaction, all measured relative to a single reference: the <strong>Standard Hydrogen Electrode (SHE)</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>standard electrode potential</strong> E°</li>
+          <li>Describe the <strong>Standard Hydrogen Electrode (SHE)</strong> and why it's used</li>
+          <li>Explain how electrode potentials are <strong>measured</strong> experimentally</li>
+          <li>Interpret the <strong>standard reduction potential table</strong></li>
+          <li>Apply <strong>E°cell = E°cathode − E°anode</strong></li>
+          <li>Predict <strong>spontaneity</strong> of redox reactions from E°cell</li>
+          <li>Use the <strong>diagonal rule</strong> to identify spontaneous reactions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="she">
+      <div class="section-header"><div class="section-icon">⚡</div>
+        <div><div class="section-title-text">The Standard Hydrogen Electrode (SHE)</div><div class="section-subtitle">The universal reference</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The measurement problem</div>
+          <p>
+            It is <strong>impossible to measure the potential of just a single electrode</strong>. But if we arbitrarily set the potential of one particular electrode to <strong>zero</strong>, we can measure every other electrode relative to it.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Standard Hydrogen Electrode (SHE)</div>
+          <p>
+            The <strong>SHE</strong> consists of a platinum electrode with H₂ gas at 1 atm bubbling through it, immersed in 1 M strong acid (H⁺). Its potential is defined as <strong>exactly 0.00 V</strong> by convention.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">The Standard Hydrogen Electrode</div>
+          <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Pt wire at top -->
+            <line x1="210" y1="20" x2="210" y2="80" stroke="#0F172A" stroke-width="2.5"/>
+            <text x="240" y="40" font-size="11" fill="#0F172A" font-weight="bold">Pt wire</text>
+
+            <!-- Glass tube -->
+            <rect x="195" y="80" width="30" height="80" fill="#E0F2FE" stroke="#0F172A" stroke-width="1.5"/>
+
+            <!-- Pt electrode -->
+            <rect x="203" y="140" width="14" height="40" fill="#64748B"/>
+            <text x="255" y="165" font-size="10" fill="#0F172A">Pt electrode</text>
+
+            <!-- H2 gas bubbles -->
+            <g fill="#7DD3FC" opacity="0.7">
+              <circle cx="180" cy="120" r="4"/>
+              <circle cx="175" cy="140" r="3"/>
+              <circle cx="185" cy="155" r="3.5"/>
+              <circle cx="170" cy="170" r="3"/>
+            </g>
+            <text x="120" y="130" font-size="10" fill="#0F172A" font-weight="bold">H₂(g, 1 atm)</text>
+
+            <!-- Beaker with acid -->
+            <path d="M 120 100 L 120 220 L 300 220 L 300 100" fill="#FEF2F2" stroke="#0F172A" stroke-width="2" fill-opacity="0.5"/>
+            <text x="210" y="205" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">1 M H⁺ (strong acid)</text>
+            <text x="210" y="240" font-size="10" fill="#64748b" text-anchor="middle">2H⁺(aq, 1 M) + 2e⁻ → H₂(g, 1 atm) &nbsp;&nbsp; E° = 0.00 V</text>
+          </svg>
+          <div class="visual-box-caption">
+            The SHE by definition has a reduction potential of exactly 0.00 V. Every other electrode potential is measured against it.
+          </div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The Pt electrode has two functions</div>
+          <p>
+            <strong>1. Provides a surface</strong> on which H₂ molecules can dissociate: H₂ → 2H⁺ + 2e⁻<br>
+            <strong>2. Conducts electricity</strong> to the external circuit
+          </p>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Standard Hydrogen Electrode — half-reaction</span>
+          <div class="eq">2H⁺(1 M) + 2e⁻ → H₂(1 atm) &nbsp;&nbsp; E° = 0.00 V</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Standard-state conditions</div>
+          <p>
+            For any standard electrode potential E°, all <strong>solutes must be 1 M</strong>, all <strong>gases at 1 atm</strong>, and the temperature must be <strong>25 °C (298 K)</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="measure">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Measuring Standard Electrode Potentials</div><div class="section-subtitle">How E° values are obtained</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          To find an unknown standard electrode potential, we construct a voltaic cell consisting of the <strong>SHE reference half-cell</strong> and the <strong>unknown half-cell</strong>. The measured EMF gives us the unknown E°.
+        </p>
+
+        <div class="formula-hero">
+          <div class="main">E°cell = E°cathode − E°anode</div>
+          <div class="sub">where E°(SHE) = 0.00 V</div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Measurement Scenarios</h3>
+
+        <div class="note-box">
+          <div class="note-label">📝 Scenario 1 — Unknown electrode is the CATHODE</div>
+          <p>
+            H₂ is oxidized at the reference half-cell (SHE is the anode). Reduction occurs at the unknown half-cell.<br><br>
+            <strong>E°cell = E°unknown − E°reference = E°unknown − 0.00 = E°unknown</strong><br>
+            So the measured EMF directly gives the unknown reduction potential.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Scenario 2 — Unknown electrode is the ANODE</div>
+          <p>
+            H₂ is reduced at the reference half-cell (SHE is the cathode). Oxidation occurs at the unknown half-cell.<br><br>
+            <strong>E°cell = E°reference − E°unknown = 0.00 − E°unknown = −E°unknown</strong><br>
+            The measured EMF is the negative of the unknown reduction potential.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Example — Measuring E° for Zn²⁺/Zn</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Zn | SHE Cell — Zn is the Anode</div>
+          <svg viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- Voltmeter -->
+            <circle cx="250" cy="30" r="18" fill="#FEF3C7" stroke="#92400E" stroke-width="2"/>
+            <text x="250" y="35" font-size="10" fill="#92400E" text-anchor="middle" font-weight="bold">V</text>
+            <text x="250" y="15" font-size="10" fill="#166534" text-anchor="middle" font-weight="bold">0.76 V</text>
+
+            <!-- Wires -->
+            <line x1="120" y1="30" x2="232" y2="30" stroke="#0F172A" stroke-width="2"/>
+            <line x1="268" y1="30" x2="380" y2="30" stroke="#0F172A" stroke-width="2"/>
+            <line x1="120" y1="30" x2="120" y2="70" stroke="#0F172A" stroke-width="2"/>
+            <line x1="380" y1="30" x2="380" y2="70" stroke="#0F172A" stroke-width="2"/>
+
+            <!-- Zn half-cell -->
+            <rect x="50" y="70" width="140" height="80" fill="#EFF6FF" stroke="#1E40AF" stroke-width="2" rx="6"/>
+            <text x="120" y="140" font-size="10" fill="#1E40AF" text-anchor="middle">1 M Zn²⁺</text>
+            <rect x="112" y="70" width="16" height="60" fill="#94A3B8"/>
+            <text x="120" y="65" font-size="10" fill="#0F172A" text-anchor="middle" font-weight="bold">Zn(s)</text>
+            <text x="120" y="158" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="bold">Anode (−)</text>
+
+            <!-- SHE half-cell -->
+            <rect x="310" y="70" width="140" height="80" fill="#FEF2F2" stroke="#991B1B" stroke-width="2" rx="6"/>
+            <text x="380" y="140" font-size="10" fill="#991B1B" text-anchor="middle">1 M H⁺</text>
+            <rect x="372" y="70" width="16" height="60" fill="#64748B"/>
+            <text x="380" y="65" font-size="10" fill="#0F172A" text-anchor="middle" font-weight="bold">Pt | H₂</text>
+            <text x="380" y="158" font-size="10" fill="#166534" text-anchor="middle" font-weight="bold">Cathode (+)</text>
+          </svg>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Anode (Oxidation)</span>
+          <div class="eq">Zn(s) → Zn²⁺(1 M) + 2e⁻</div>
+        </div>
+        <div class="reaction-block">
+          <span class="label">Cathode (Reduction)</span>
+          <div class="eq">2H⁺(1 M) + 2e⁻ → H₂(1 atm)</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.8;color:var(--text);margin:.875rem 0">
+          The measured EMF is 0.76 V and Zn is being oxidized. Apply the formula:
+        </p>
+
+        <div class="visual-box">
+          <p style="font-size:.9rem;color:#334155;font-family:'Georgia',serif;line-height:1.9;margin:.5rem 0">
+            E°cell = E°cathode − E°anode<br>
+            0.76 = E°(H⁺/H₂) − E°(Zn²⁺/Zn)<br>
+            0.76 = 0.00 − E°(Zn²⁺/Zn)<br>
+            <strong>E°(Zn²⁺/Zn) = −0.76 V</strong>
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Similar for copper</div>
+          <p>
+            For the Cu²⁺/Cu half-cell, Cu is the cathode (mass increases during operation). The measured EMF = 0.34 V.<br>
+            E°cell = E°(Cu²⁺/Cu) − E°(H⁺/H₂) → 0.34 = E°(Cu²⁺/Cu) − 0.00<br>
+            <strong>E°(Cu²⁺/Cu) = +0.34 V</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="table">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">Standard Reduction Potentials Table</div><div class="section-subtitle">MoE Textbook Table 2.3 (pp. 111)</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          This table is the heart of electrochemistry. All values are <strong>reduction potentials</strong> — E° measured for the half-reaction written as a reduction. Memorize the pattern and the key values, not the whole table.
+        </p>
+
+        <table class="potential-table">
+          <thead>
+            <tr><th style="text-align:left">Half-Reaction (as reduction)</th><th style="text-align:right">E° (V)</th></tr>
+          </thead>
+          <tbody>
+            <tr class="top-row"><td>F₂ + 2e⁻ → 2F⁻</td><td class="pos" style="text-align:right">+2.87</td></tr>
+            <tr><td>O₃ + 2H⁺ + 2e⁻ → O₂ + H₂O</td><td class="pos" style="text-align:right">+2.07</td></tr>
+            <tr><td>Co³⁺ + e⁻ → Co²⁺</td><td class="pos" style="text-align:right">+1.82</td></tr>
+            <tr><td>H₂O₂ + 2H⁺ + 2e⁻ → 2H₂O</td><td class="pos" style="text-align:right">+1.77</td></tr>
+            <tr><td>MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O</td><td class="pos" style="text-align:right">+1.51</td></tr>
+            <tr><td>Au³⁺ + 3e⁻ → Au(s)</td><td class="pos" style="text-align:right">+1.50</td></tr>
+            <tr><td>Cl₂ + 2e⁻ → 2Cl⁻</td><td class="pos" style="text-align:right">+1.36</td></tr>
+            <tr><td>Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O</td><td class="pos" style="text-align:right">+1.33</td></tr>
+            <tr><td>O₂ + 4H⁺ + 4e⁻ → 2H₂O</td><td class="pos" style="text-align:right">+1.23</td></tr>
+            <tr><td>Br₂ + 2e⁻ → 2Br⁻</td><td class="pos" style="text-align:right">+1.07</td></tr>
+            <tr><td>NO₃⁻ + 4H⁺ + 3e⁻ → NO + 2H₂O</td><td class="pos" style="text-align:right">+0.96</td></tr>
+            <tr><td>Ag⁺ + e⁻ → Ag(s)</td><td class="pos" style="text-align:right">+0.80</td></tr>
+            <tr><td>Fe³⁺ + e⁻ → Fe²⁺</td><td class="pos" style="text-align:right">+0.77</td></tr>
+            <tr><td>O₂ + 2H⁺ + 2e⁻ → H₂O₂</td><td class="pos" style="text-align:right">+0.68</td></tr>
+            <tr><td>I₂ + 2e⁻ → 2I⁻</td><td class="pos" style="text-align:right">+0.53</td></tr>
+            <tr><td>Cu²⁺ + 2e⁻ → Cu(s)</td><td class="pos" style="text-align:right">+0.34</td></tr>
+            <tr><td>AgCl + e⁻ → Ag + Cl⁻</td><td class="pos" style="text-align:right">+0.22</td></tr>
+            <tr><td>SO₄²⁻ + 4H⁺ + 2e⁻ → SO₂ + 2H₂O</td><td class="pos" style="text-align:right">+0.20</td></tr>
+            <tr><td>Cu²⁺ + e⁻ → Cu⁺</td><td class="pos" style="text-align:right">+0.15</td></tr>
+            <tr><td>Sn⁴⁺ + 2e⁻ → Sn²⁺</td><td class="pos" style="text-align:right">+0.13</td></tr>
+            <tr class="mid-row"><td><strong>2H⁺ + 2e⁻ → H₂(g)</strong></td><td style="text-align:right"><strong>0.00</strong></td></tr>
+            <tr><td>Pb²⁺ + 2e⁻ → Pb(s)</td><td class="neg" style="text-align:right">−0.13</td></tr>
+            <tr><td>Sn²⁺ + 2e⁻ → Sn(s)</td><td class="neg" style="text-align:right">−0.14</td></tr>
+            <tr><td>Ni²⁺ + 2e⁻ → Ni(s)</td><td class="neg" style="text-align:right">−0.25</td></tr>
+            <tr><td>Co²⁺ + 2e⁻ → Co(s)</td><td class="neg" style="text-align:right">−0.28</td></tr>
+            <tr><td>PbSO₄ + 2e⁻ → Pb + SO₄²⁻</td><td class="neg" style="text-align:right">−0.31</td></tr>
+            <tr><td>Cd²⁺ + 2e⁻ → Cd(s)</td><td class="neg" style="text-align:right">−0.40</td></tr>
+            <tr><td>Fe²⁺ + 2e⁻ → Fe(s)</td><td class="neg" style="text-align:right">−0.44</td></tr>
+            <tr><td>Cr³⁺ + 3e⁻ → Cr(s)</td><td class="neg" style="text-align:right">−0.74</td></tr>
+            <tr><td>Zn²⁺ + 2e⁻ → Zn(s)</td><td class="neg" style="text-align:right">−0.76</td></tr>
+            <tr><td>2H₂O + 2e⁻ → H₂ + 2OH⁻</td><td class="neg" style="text-align:right">−0.83</td></tr>
+            <tr><td>Mn²⁺ + 2e⁻ → Mn(s)</td><td class="neg" style="text-align:right">−1.18</td></tr>
+            <tr><td>Al³⁺ + 3e⁻ → Al(s)</td><td class="neg" style="text-align:right">−1.66</td></tr>
+            <tr><td>Be²⁺ + 2e⁻ → Be(s)</td><td class="neg" style="text-align:right">−1.85</td></tr>
+            <tr><td>Mg²⁺ + 2e⁻ → Mg(s)</td><td class="neg" style="text-align:right">−2.37</td></tr>
+            <tr><td>Na⁺ + e⁻ → Na(s)</td><td class="neg" style="text-align:right">−2.71</td></tr>
+            <tr><td>Ca²⁺ + 2e⁻ → Ca(s)</td><td class="neg" style="text-align:right">−2.87</td></tr>
+            <tr><td>K⁺ + e⁻ → K(s)</td><td class="neg" style="text-align:right">−2.93</td></tr>
+            <tr class="bottom-row"><td>Li⁺ + e⁻ → Li(s)</td><td class="neg" style="text-align:right">−3.05</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How to Read This Table</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Rule 1 — More positive E° means more easily reduced</div>
+          <p>
+            The species on the <strong>left</strong> of a half-reaction with a <strong>very positive E°</strong> (like F₂) is a <strong>strong oxidizing agent</strong> — it wants electrons badly.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Rule 2 — More negative E° means harder to reduce</div>
+          <p>
+            The species with a <strong>very negative E°</strong> (like Li⁺, K⁺, Na⁺) is very hard to reduce. The metal form (Li, K, Na) is a <strong>strong reducing agent</strong> — it gives away electrons easily.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Rule 3 — Oxidizing and reducing strengths</div>
+          <p>
+            • Oxidizing agents (left side) increase in strength from <strong>bottom to top</strong> of the table<br>
+            • Reducing agents (right side) increase in strength from <strong>top to bottom</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="emf">
+      <div class="section-header"><div class="section-icon">🧮</div>
+        <div><div class="section-title-text">Calculating EMF (Cell Potential)</div><div class="section-subtitle">The master formula</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="formula-hero">
+          <div class="main">E°cell = E°cathode − E°anode</div>
+          <div class="sub">using standard reduction potentials for both</div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key rule</div>
+          <p>
+            Both E°cathode and E°anode are the <strong>standard reduction potentials</strong> from the table. <strong>Do NOT flip the sign of the anode's E° value</strong> — the subtraction in the formula already handles the sign correctly.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Alternative method (also valid)</div>
+          <p>
+            Some textbooks use: <strong>E°cell = E°(reduction) + E°(oxidation)</strong> where E°(oxidation) = −E°(reduction for that half-cell from the table).<br>
+            Both methods give the same answer. Pick one and stick with it.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Example — The Daniell Cell</h3>
+
+        <div class="visual-box">
+          <p style="font-size:.9rem;color:#334155;font-family:'Georgia',serif;line-height:2;margin:.5rem 0;text-align:left">
+            <strong>Anode (oxidation):</strong> Zn(s) → Zn²⁺ + 2e⁻ &nbsp; [E°(Zn²⁺/Zn) = −0.76 V]<br>
+            <strong>Cathode (reduction):</strong> Cu²⁺ + 2e⁻ → Cu(s) &nbsp; [E°(Cu²⁺/Cu) = +0.34 V]<br><br>
+            E°cell = E°cathode − E°anode<br>
+            E°cell = E°(Cu²⁺/Cu) − E°(Zn²⁺/Zn)<br>
+            E°cell = 0.34 − (−0.76) = <strong>+1.10 V</strong>
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why don't we multiply E° when balancing?</div>
+          <p>
+            E° is an <strong>intensive property</strong> — like density or temperature. It does not depend on how many times the half-reaction occurs. So even if you multiply the Cu²⁺ half-reaction by 2 to balance electrons, <strong>E° stays 0.34 V</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="spontaneity">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Predicting Spontaneity</div><div class="section-subtitle">The sign of E° tells you everything</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Two possible outcomes</div>
+          <p>
+            <strong>E°cell &gt; 0 (positive)</strong> → reaction is <strong>spontaneous</strong>; forward direction favored; ΔG° is negative<br><br>
+            <strong>E°cell &lt; 0 (negative)</strong> → reaction is <strong>non-spontaneous</strong>; reverse direction favored; ΔG° is positive
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Diagonal Rule (Textbook p. 112)</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The rule</div>
+          <p>
+            Under standard-state conditions, any species on the <strong>left</strong> of a given half-cell reaction will react <strong>spontaneously</strong> with a species that appears on the <strong>right</strong> of any half-cell reaction located <strong>below it</strong> in the table.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Diagonal Rule — Reading the Table</div>
+          <svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Table cells -->
+            <rect x="60" y="30" width="380" height="30" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+            <text x="70" y="50" font-size="11" fill="#991B1B" font-family="Georgia,serif">Ag⁺ + e⁻ → Ag</text>
+            <text x="400" y="50" font-size="11" fill="#991B1B" text-anchor="end" font-weight="bold">E° = +0.80 V</text>
+
+            <rect x="60" y="60" width="380" height="30" fill="#FEF3C7" stroke="#DC2626" stroke-width="1"/>
+            <text x="70" y="80" font-size="11" fill="#78350F" font-family="Georgia,serif">Cu²⁺ + 2e⁻ → Cu</text>
+            <text x="400" y="80" font-size="11" fill="#78350F" text-anchor="end" font-weight="bold">E° = +0.34 V</text>
+
+            <rect x="60" y="90" width="380" height="30" fill="#FEF3C7" stroke="#DC2626" stroke-width="1"/>
+            <text x="70" y="110" font-size="11" fill="#78350F" font-family="Georgia,serif">2H⁺ + 2e⁻ → H₂</text>
+            <text x="400" y="110" font-size="11" fill="#78350F" text-anchor="end" font-weight="bold">E° = 0.00 V</text>
+
+            <rect x="60" y="120" width="380" height="30" fill="#FEF3C7" stroke="#DC2626" stroke-width="1"/>
+            <text x="70" y="140" font-size="11" fill="#78350F" font-family="Georgia,serif">Zn²⁺ + 2e⁻ → Zn</text>
+            <text x="400" y="140" font-size="11" fill="#78350F" text-anchor="end" font-weight="bold">E° = −0.76 V</text>
+
+            <rect x="60" y="150" width="380" height="30" fill="#DBEAFE" stroke="#DC2626" stroke-width="1"/>
+            <text x="70" y="170" font-size="11" fill="#1E40AF" font-family="Georgia,serif">Al³⁺ + 3e⁻ → Al</text>
+            <text x="400" y="170" font-size="11" fill="#1E40AF" text-anchor="end" font-weight="bold">E° = −1.66 V</text>
+
+            <!-- Diagonal arrow -->
+            <line x1="120" y1="70" x2="380" y2="160" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="5,3"/>
+            <text x="250" y="200" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">spontaneous direction — left species reacts with right species below</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Example — Can Zn reduce Cu²⁺?</div>
+          <p>
+            Zn is on the <strong>right</strong> of the Zn²⁺/Zn half-reaction. Cu²⁺ is on the <strong>left</strong> of a half-reaction <strong>above</strong> Zn²⁺/Zn.<br>
+            The diagonal rule says: spontaneous if right-species (Zn) is <strong>below</strong> left-species (Cu²⁺). Zn is below Cu²⁺ in the table → <strong>spontaneous ✓</strong><br><br>
+            <strong>Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)</strong> &nbsp; E°cell = +1.10 V
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Example — Can Sn reduce Zn²⁺?</div>
+          <p>
+            Sn is on the right of Sn²⁺/Sn (E° = −0.14 V); Zn²⁺ is on the left of Zn²⁺/Zn (E° = −0.76 V).<br>
+            Sn is <strong>above</strong> Zn²⁺/Zn, so it cannot reduce Zn²⁺.<br>
+            E°cell = E°(Zn²⁺/Zn) − E°(Sn²⁺/Sn) = (−0.76) − (−0.14) = −0.62 V → <strong>non-spontaneous</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Everything from Lesson 2.11</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📏 Lesson 2.11 — Standard Potentials & EMF</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">SHE potential</div><div class="formula-math">E° = 0.00 V</div><div class="formula-note">Reference by definition</div></div>
+          <div class="formula-item"><div class="formula-name">Standard conditions</div><div class="formula-math">1 M, 1 atm, 25 °C</div><div class="formula-note">Necessary for E° values</div></div>
+          <div class="formula-item"><div class="formula-name">Master formula</div><div class="formula-math">E°cell = E°cat − E°an</div><div class="formula-note">Both as reduction potentials</div></div>
+          <div class="formula-item"><div class="formula-name">Alternative form</div><div class="formula-math">E°cell = E°red + E°ox</div><div class="formula-note">E°ox = −E°red table value</div></div>
+          <div class="formula-item"><div class="formula-name">Spontaneous</div><div class="formula-math">E°cell &gt; 0</div><div class="formula-note">ΔG° &lt; 0, K &gt; 1</div></div>
+          <div class="formula-item"><div class="formula-name">Non-spontaneous</div><div class="formula-math">E°cell &lt; 0</div><div class="formula-note">ΔG° &gt; 0</div></div>
+          <div class="formula-item"><div class="formula-name">Daniell cell E°</div><div class="formula-math">0.34 − (−0.76) = 1.10 V</div><div class="formula-note">Classic example</div></div>
+          <div class="formula-item"><div class="formula-name">Intensive property</div><div class="formula-math">E° unchanged by ×n</div><div class="formula-note">Unlike mass or charge</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">E°cell for Cu-Zn (Daniell)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Calculate the standard EMF of the Daniell cell.<br>Given: E°(Zn²⁺/Zn) = −0.76 V, E°(Cu²⁺/Cu) = +0.34 V</div>
+          <div class="example-step"><span class="step-badge">Identify electrodes</span><div class="step-text">Zn is oxidized (anode) because its E° is more negative; Cu²⁺ is reduced (cathode)</div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">E°cell = E°cathode − E°anode</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">E°cell = 0.34 − (−0.76)</span></div></div>
+          <div class="example-step"><span class="step-badge">Compute</span><div class="step-text"><span class="math">E°cell = 1.10 V</span></div></div>
+          <div class="example-answer">✅ E°cell = <strong>+1.10 V</strong> — the reaction is spontaneous</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Mg-Ag Cell (Textbook Example 2.9)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A galvanic cell consists of a Mg electrode in 1.0 M Mg(NO₃)₂ and an Ag electrode in 1.0 M AgNO₃. Calculate the standard EMF and determine if the reaction is spontaneous.</div>
+          <div class="example-step"><span class="step-badge">E° values</span><div class="step-text">
+            Ag⁺ + e⁻ → Ag &nbsp; E° = <span class="math">+0.80 V</span><br>
+            Mg²⁺ + 2e⁻ → Mg &nbsp; E° = <span class="math">−2.37 V</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Identify electrodes</span><div class="step-text">Mg has more negative E° → oxidized (anode); Ag⁺ reduced (cathode)</div></div>
+          <div class="example-step"><span class="step-badge">Balance</span><div class="step-text">
+            Anode: Mg → Mg²⁺ + 2e⁻<br>
+            Cathode: 2Ag⁺ + 2e⁻ → 2Ag
+          </div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text">
+            <span class="math">E°cell = E°(Ag⁺/Ag) − E°(Mg²⁺/Mg)</span><br>
+            <span class="math">= 0.80 − (−2.37) = +3.17 V</span>
+          </div></div>
+          <div class="example-answer">✅ E°cell = <strong>+3.17 V</strong> — spontaneous (positive E°cell)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Can Sn Reduce Zn²⁺?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Can Sn metal reduce Zn²⁺(aq) under standard-state conditions?</div>
+          <div class="example-step"><span class="step-badge">E° values</span><div class="step-text">
+            Zn²⁺ + 2e⁻ → Zn &nbsp; E° = <span class="math">−0.76 V</span><br>
+            Sn²⁺ + 2e⁻ → Sn &nbsp; E° = <span class="math">−0.14 V</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Hypothetical cell</span><div class="step-text">
+            If Sn reduces Zn²⁺:<br>
+            Anode (Sn oxidized): Sn → Sn²⁺ + 2e⁻<br>
+            Cathode (Zn²⁺ reduced): Zn²⁺ + 2e⁻ → Zn
+          </div></div>
+          <div class="example-step"><span class="step-badge">Compute E°cell</span><div class="step-text">
+            <span class="math">E°cell = E°(Zn²⁺/Zn) − E°(Sn²⁺/Sn)</span><br>
+            <span class="math">= −0.76 − (−0.14) = −0.62 V</span>
+          </div></div>
+          <div class="example-answer">✅ <strong>No</strong> — E°cell is negative (−0.62 V) → the reaction is non-spontaneous</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Cu-Mg Cell (Textbook Exercise)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Given the reaction <strong>Cu²⁺(1.0 M) + Mg(s) → Cu(s) + Mg²⁺(1.0 M)</strong>, sketch the galvanic cell, identify the cathode and anode, and show the direction of electron flow.</div>
+          <div class="example-step"><span class="step-badge">E° values</span><div class="step-text">
+            Cu²⁺ + 2e⁻ → Cu &nbsp; E° = <span class="math">+0.34 V</span><br>
+            Mg²⁺ + 2e⁻ → Mg &nbsp; E° = <span class="math">−2.37 V</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Identify electrodes</span><div class="step-text">
+            Mg is oxidized (more negative E°) → <span class="math">anode (−)</span><br>
+            Cu²⁺ is reduced → <span class="math">cathode (+)</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Electron flow</span><div class="step-text">Electrons flow from <span class="math">Mg (anode) → Cu (cathode)</span> in the external wire</div></div>
+          <div class="example-step"><span class="step-badge">E°cell</span><div class="step-text"><span class="math">E°cell = 0.34 − (−2.37) = +2.71 V</span></div></div>
+          <div class="example-answer">✅ Anode = Mg (−); Cathode = Cu (+); e⁻ flow Mg → Cu; E°cell = +2.71 V</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Cd-Cr Cell (Textbook Exercise)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What is the standard EMF of a galvanic cell made of a Cd electrode in 1.0 M Cd(NO₃)₂ and a Cr electrode in 1.0 M Cr(NO₃)₃ at 25 °C?</div>
+          <div class="example-step"><span class="step-badge">E° values</span><div class="step-text">
+            Cd²⁺ + 2e⁻ → Cd &nbsp; E° = <span class="math">−0.40 V</span><br>
+            Cr³⁺ + 3e⁻ → Cr &nbsp; E° = <span class="math">−0.74 V</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Identify electrodes</span><div class="step-text">Cr has more negative E° → oxidized (anode); Cd²⁺ reduced (cathode)</div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text">
+            <span class="math">E°cell = E°(Cd²⁺/Cd) − E°(Cr³⁺/Cr)</span><br>
+            <span class="math">= −0.40 − (−0.74)</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Compute</span><div class="step-text"><span class="math">E°cell = +0.34 V</span></div></div>
+          <div class="example-answer">✅ E°cell = <strong>+0.34 V</strong> — spontaneous</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The standard hydrogen electrode (SHE) is assigned a potential of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> +1.00 V</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> −1.00 V</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> 0.00 V</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> +0.34 V</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Given E°(Zn²⁺/Zn) = −0.76 V and E°(Cu²⁺/Cu) = +0.34 V, the E°cell for the Daniell cell is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> −0.42 V</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> −1.10 V</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> +1.10 V</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> +0.42 V</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A redox reaction is spontaneous (favored in the forward direction) when:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> E°cell = 0</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> E°cell &lt; 0</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> E°cell &gt; 0</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> E°cell = 1.00 V always</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which species is the strongest oxidizing agent?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','A')"><div class="option-letter">A</div> F₂ (E° = +2.87 V)</div>
+          <div class="quiz-option" onclick="answer(4,'B','A')"><div class="option-letter">B</div> Cl₂ (E° = +1.36 V)</div>
+          <div class="quiz-option" onclick="answer(4,'C','A')"><div class="option-letter">C</div> Cu²⁺ (E° = +0.34 V)</div>
+          <div class="quiz-option" onclick="answer(4,'D','A')"><div class="option-letter">D</div> Li⁺ (E° = −3.05 V)</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The measured EMF of a Zn-SHE cell is 0.76 V with Zn as the anode. This tells us that E°(Zn²⁺/Zn) equals:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> +0.76 V</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> +1.52 V</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> −0.76 V</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> 0.00 V</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-2-12.html" class="btn btn-outline" style="margin-left:.75rem">Final Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+standard+reduction+potentials" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Standard Reduction Potentials — Full Table Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+standard+hydrogen+electrode+she" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">The Standard Hydrogen Electrode (SHE)</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+cell+potential+emf+calculation" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Calculating Cell Potential (EMF) — Worked Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+spontaneous+redox+reactions" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Predicting Spontaneous Redox Reactions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.11</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Standard Potentials & EMF</div>
+        <ul class="summary-list">
+          <li>It is impossible to measure a single electrode's potential — we use a <strong>reference</strong></li>
+          <li><strong>SHE</strong> = Pt electrode with H₂ at 1 atm in 1 M H⁺; E° = <strong>0.00 V by definition</strong></li>
+          <li>Standard conditions: 1 M solutes, 1 atm gases, 25 °C</li>
+          <li>Every E° value is a <strong>reduction</strong> potential — half-reactions written as reductions</li>
+          <li><strong>Master formula:</strong> E°cell = E°cathode − E°anode</li>
+          <li>E°cell &gt; 0 → spontaneous (ΔG° &lt; 0); E°cell &lt; 0 → non-spontaneous</li>
+          <li><strong>More positive E°</strong> = stronger oxidizing agent (left side of half-reaction)</li>
+          <li><strong>More negative E°</strong> = stronger reducing agent (right side / metal form)</li>
+          <li><strong>Diagonal rule:</strong> left species reacts with right species below it in the table</li>
+          <li>E° is an <strong>intensive property</strong> — not multiplied when balancing half-reactions</li>
+          <li>Daniell cell: E°cell = 0.34 − (−0.76) = <strong>+1.10 V</strong></li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §2.5 (pp. 105–117)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-10.html" class="btn btn-ghost">← Lesson 2.10: Galvanic Cells</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 11 of 12</div>
+      <a href="lesson-2-12.html" class="btn btn-primary">Final Lesson: Nernst & Corrosion →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'A',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! The SHE is assigned E° = 0.00 V by definition — it is the reference point for all other potentials.',wrong:'✗ The SHE is defined as 0.00 V — the reference.'},
+    2:{C:'✓ Correct! E°cell = E°(Cu²⁺/Cu) − E°(Zn²⁺/Zn) = 0.34 − (−0.76) = +1.10 V.',wrong:'✗ E°cell = 0.34 − (−0.76) = +1.10 V.'},
+    3:{C:'✓ Correct! E°cell > 0 means spontaneous (forward direction favored), ΔG° < 0.',wrong:'✗ Spontaneous when E°cell > 0.'},
+    4:{A:'✓ Correct! F₂ has the most positive E° (+2.87 V), making it the strongest oxidizing agent.',wrong:'✗ More positive E° → stronger oxidizing agent. F₂ (+2.87) is highest.'},
+    5:{C:'✓ Correct! E°cell = E°(SHE) − E°(Zn²⁺/Zn), so 0.76 = 0 − E°(Zn²⁺/Zn), giving E°(Zn²⁺/Zn) = −0.76 V.',wrong:'✗ 0.76 = 0 − E°(Zn), so E°(Zn²⁺/Zn) = −0.76 V.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','she','measure','table','emf','spontaneity','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
