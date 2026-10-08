@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4.2: Polymerization Reactions | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif;vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .reaction-block{background:#0F172A;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;font-family:'Georgia',serif;line-height:2}
+    .reaction-block .label{color:#F87171;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-sans);margin-bottom:.4rem;display:block}
+    .reaction-block .eq{color:#E2E8F0;font-size:.95rem;font-weight:600}
+    .steps-list{counter-reset:step;list-style:none;padding-left:0}
+    .steps-list li{counter-increment:step;position:relative;padding:.875rem 0 .875rem 3.25rem;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .steps-list li:last-child{border-bottom:none}
+    .steps-list li::before{content:counter(step);position:absolute;left:0;top:.875rem;width:34px;height:34px;background:#DC2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+    .steps-list strong{color:#991B1B}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.addition{background:#FEF2F2;border-color:#FECACA}
+    .compare-card.condensation{background:#DBEAFE;border-color:#BFDBFE}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.addition .compare-card-title{color:#991B1B}
+    .compare-card.condensation .compare-card-title{color:#1E40AF}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    .experiment-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .experiment-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .experiment-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .experiment-body strong{color:#78350F}
+    .experiment-body ul{margin:.5rem 0;padding-left:1.25rem}
+    .experiment-body li{padding:.15rem 0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 4 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('definition')"><div class="sidebar-dot"></div> What is Polymerization?</button>
+      <button class="sidebar-link" onclick="scrollTo('addition')"><div class="sidebar-dot"></div> Addition Polymerization</button>
+      <button class="sidebar-link" onclick="scrollTo('steps')"><div class="sidebar-dot"></div> Three Steps of Addition</button>
+      <button class="sidebar-link" onclick="scrollTo('condensation')"><div class="sidebar-dot"></div> Condensation Polymerization</button>
+      <button class="sidebar-link" onclick="scrollTo('nylon')"><div class="sidebar-dot"></div> Nylon 66</div></button>
+      <button class="sidebar-link" onclick="scrollTo('dacron')"><div class="sidebar-dot"></div> Dacron (PET)</button>
+      <button class="sidebar-link" onclick="scrollTo('experiment')"><div class="sidebar-dot"></div> Experiment 4.1</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Introduction ✓</a>
+      <a href="lesson-4-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Polymerization</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Classification</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 4</a> ›
+      Lesson 4.2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Polymers · MoE Textbook §4.2</div>
+      <h1>⚗️ Polymerization Reactions</h1>
+      <p>How do small molecules become giant polymers? There are two main routes: <strong>addition polymerization</strong> (chain-growth) and <strong>condensation polymerization</strong> (step-growth). This lesson covers both, plus the industrial polymers nylon and Dacron.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~28 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In Lesson 4.1 you learned what polymers and monomers are. Now we answer: <strong>how do monomers actually join together?</strong> The chemical change by which monomer units combine to form a polymer is called a <strong>polymerization reaction</strong>. There are two main types — and each produces very different materials.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>polymerization reaction</strong></li>
+          <li>Describe <strong>addition polymerization</strong> — its three steps</li>
+          <li>Describe <strong>condensation polymerization</strong> and its by-products</li>
+          <li>Write the synthesis of <strong>Nylon 66</strong> and <strong>Dacron (PET)</strong></li>
+          <li>Distinguish addition from condensation polymers</li>
+          <li>Recognize the <strong>uses of polyamides and polyesters</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is Polymerization?</div><div class="section-subtitle">The basic definition</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Polymerization (MoE Textbook, p. 216)</div>
+          <p>
+            The <strong>chemical change by which monomer units combine to form a polymer</strong> is known as a polymerization reaction.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Requirement for monomers</div>
+          <p>
+            The essential feature of a monomer is that it must have <strong>two or more functional groups (polyfunctionality)</strong>. This gives each monomer the capacity to form chemical bonds to at least two other monomer molecules.
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Bifunctional monomers</strong> → form linear, chainlike polymers<br>
+            • <strong>Higher-functionality monomers</strong> → yield cross-linked, network polymeric products
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Two main types of polymerization</div>
+          <p>
+            <strong>1. Addition polymerization</strong> (chain-growth) — unsaturated monomers join without losing any atoms<br>
+            <strong>2. Condensation polymerization</strong> (step-growth) — monomers join with the loss of a small molecule (like water or methanol)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="addition">
+      <div class="section-header"><div class="section-icon">🔗</div>
+        <div><div class="section-title-text">Addition Polymerization</div><div class="section-subtitle">Chain-growth polymerization</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition (MoE Textbook, p. 216)</div>
+          <p>
+            <strong>Addition polymerization</strong> is a reaction in which a chain reaction adds new monomer units to the growing polymer molecule <strong>one at a time</strong>. Also known as <strong>chain-growth polymerization</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Which monomers undergo addition?</div>
+          <p>
+            Addition polymerization occurs with <strong>unsaturated monomers</strong> — monomers that contain a double or triple bond (usually C=C).
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Classic Example — Ethylene → Polyethylene</h3>
+
+        <div class="reaction-block">
+          <span class="label">Addition polymerization of ethylene</span>
+          <div class="eq">n CH₂=CH₂ —[catalyst]→ –(CH₂–CH₂)ₙ–</div>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Ethylene → Polyethylene</div>
+          <svg viewBox="0 0 540 140" xmlns="http://www.w3.org/2000/svg">
+            <!-- Ethylene -->
+            <text x="70" y="75" font-size="14" fill="#991B1B" text-anchor="middle" font-weight="bold" font-family="Georgia,serif">CH₂=CH₂</text>
+            <text x="70" y="100" font-size="10" fill="#991B1B" text-anchor="middle">Ethylene (monomer)</text>
+
+            <!-- Arrow -->
+            <text x="200" y="75" font-size="20" fill="#DC2626" text-anchor="middle">→</text>
+            <text x="200" y="55" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">catalyst</text>
+
+            <!-- Polyethylene -->
+            <text x="400" y="75" font-size="14" fill="#991B1B" text-anchor="middle" font-weight="bold" font-family="Georgia,serif">–(CH₂–CH₂)ₙ–</text>
+            <text x="400" y="100" font-size="10" fill="#991B1B" text-anchor="middle">Polyethylene (polymer)</text>
+          </svg>
+          <div class="visual-box-caption">
+            The double bond of ethylene opens up and joins with other ethylene units. No atoms are lost.
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Other Addition Polymers</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Monomer</th><th>Polymer</th><th>Polymer Structure</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ethylene (CH₂=CH₂)</td><td>Polyethylene</td><td>–(CH₂–CH₂)ₙ–</td></tr>
+            <tr><td>Styrene (C₆H₅CH=CH₂)</td><td>Polystyrene</td><td>–(CH₂–CH(C₆H₅))ₙ–</td></tr>
+            <tr><td>Vinyl chloride (CH₂=CHCl)</td><td>PVC</td><td>–(CH₂–CHCl)ₙ–</td></tr>
+            <tr><td>Tetrafluoroethylene (CF₂=CF₂)</td><td>Teflon (PTFE)</td><td>–(CF₂–CF₂)ₙ–</td></tr>
+            <tr><td>Methyl methacrylate</td><td>Plexiglass (PMMA)</td><td>–(CH₂–C(CH₃)(COOCH₃))ₙ–</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Note on double bonds</div>
+          <p>
+            During addition polymerization, the <strong>double bond is converted to a single bond</strong>. When monomers with triple bonds are used, the triple bond is converted to a double bond.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="steps">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Three Steps of Addition Polymerization</div><div class="section-subtitle">MoE Textbook, p. 218</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Addition polymerization takes place in <strong>three distinct steps</strong>:
+        </p>
+
+        <ol class="steps-list">
+          <li><strong>Chain initiation</strong> — The polymerization process is started by means of a <strong>reactive initiator molecule</strong>. The initiator can be a <strong>free radical, a cation, or an anion</strong>. These reactive centers react readily with other monomers without eliminating the active center.</li>
+          <li><strong>Chain propagation</strong> — A monomer adds to the growing chain, with the free radical, cation, or anion <strong>transferring to the chain end</strong>. High molar mass polymers are formed right from the beginning of the reaction.</li>
+          <li><strong>Chain termination</strong> — The polymerization is stopped — chain reactions do not continue indefinitely. The radical, cation, or anion is "neutralized," stopping chain propagation.</li>
+        </ol>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Three Types of Addition Polymerization (by Initiator)</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Initiator</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Free radical polymerization</strong></td><td>Free radical — most important industrial route</td></tr>
+            <tr><td><strong>Cationic polymerization</strong></td><td>Cation (positive ion)</td></tr>
+            <tr><td><strong>Anionic polymerization</strong></td><td>Anion (negative ion)</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 The free-radical route</div>
+          <p>
+            The free-radical route to chain polymerization is the <strong>most important</strong> step in industrial polymerization. It's how polyethylene, PVC, polystyrene, and many other common plastics are made.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Free Radical Polymerization — Detailed Steps</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Step 1 — Chain initiation</div>
+          <p>
+            The free radical on the initiator fragment (Ra·) attacks the covalent π bond in the monomer, leaving a free radical on the monomer:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:.95rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            Ra· + CH₂=CH₂ → Ra–CH₂–CH₂·
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Step 2 — Chain propagation</div>
+          <p>
+            The radical on the end of the growing chain attacks the next monomer, regenerating the radical at the new chain end. This repeats thousands of times:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:.95rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            Ra–CH₂–CH₂· + n CH₂=CH₂ → Ra–(CH₂–CH₂)ₙ–CH₂–CH₂·
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Step 3 — Chain termination</div>
+          <p>
+            Two growing chain radicals combine, destroying both radicals and stopping growth:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:.95rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            Chain₁· + Chain₂· → Chain₁–Chain₂ (terminated)
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Polymers made by addition polymerization</div>
+          <p>
+            Polyethylene, polyvinyl chloride (PVC), acrylics, polystyrene, and polyoxymethylene (acetal).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="condensation">
+      <div class="section-header"><div class="section-icon">💧</div>
+        <div><div class="section-title-text">Condensation Polymerization</div><div class="section-subtitle">Step-growth polymerization</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition (MoE Textbook, p. 220)</div>
+          <p>
+            <strong>Condensation polymerization</strong> involves the combination of monomer molecules with the <strong>release of simple molecules</strong> like water or methanol as a by-product. These products are normally referred to as <strong>condensate</strong>. Also known as <strong>step-growth polymerization</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Requirement for monomers</div>
+          <p>
+            To produce a condensation polymer, the monomers involved must have <strong>two or more functional groups</strong>. Typical reactions:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Dibasic acids + diamines</strong> → polyamides (e.g., nylon)<br>
+            • <strong>Dibasic acids + diols</strong> → polyesters (e.g., Dacron)
+          </p>
+        </div>
+
+        <div class="compare-grid">
+          <div class="compare-card addition">
+            <div class="compare-card-title">🔴 Addition Polymerization</div>
+            <p>
+              • Monomers are <strong>unsaturated</strong> (contain C=C)<br>
+              • <strong>No by-product</strong> produced<br>
+              • All atoms of monomer end up in polymer<br>
+              • Chain-growth mechanism<br>
+              • Examples: polyethylene, PVC, Teflon, polystyrene
+            </p>
+          </div>
+          <div class="compare-card condensation">
+            <div class="compare-card-title">🔵 Condensation Polymerization</div>
+            <p>
+              • Monomers have <strong>two functional groups</strong><br>
+              • Produces a <strong>small molecule by-product</strong> (H₂O, methanol)<br>
+              • Not all atoms of monomers end up in polymer<br>
+              • Step-growth mechanism<br>
+              • Examples: nylon, Dacron, proteins, starch, cellulose
+            </p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Natural condensation polymers</div>
+          <p>
+            <strong>Proteins, starch, and cellulose</strong> are all examples of natural condensation polymers. Synthetic condensation polymers include <strong>polyester (Dacron/PET)</strong> and <strong>polyamide (Nylon 66)</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="nylon">
+      <div class="section-header"><div class="section-icon">🧵</div>
+        <div><div class="section-title-text">Nylon 66 — A Polyamide</div><div class="section-subtitle">The classic condensation polymer</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 What is Nylon 66?</div>
+          <p>
+            <strong>Nylon 66</strong> is one of the most common polyamides. It is a <strong>copolymer</strong> — prepared by the condensation of <strong>1,6-diaminohexane (hexamethylene diamine)</strong> and <strong>1,6-hexanedioic acid (adipic acid)</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Why "66"?</div>
+          <p>
+            The numbers indicate there are <strong>6 carbon atoms</strong> in each of the two monomers — hexamethylene diamine and adipic acid.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Reaction</h3>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The basic amine reacts with the acid to form a salt. Heating removes water and forms the amide bonds:
+        </p>
+
+        <div class="reaction-block">
+          <span class="label">Nylon 66 Synthesis</span>
+          <div class="eq">n H₂N–(CH₂)₆–NH₂ + n HOOC–(CH₂)₄–COOH → –[HN–(CH₂)₆–NH–CO–(CH₂)₄–CO]ₙ– + (2n−1) H₂O</div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The amide linkage</div>
+          <p>
+            The reaction forms <strong>amide bonds (–CO–NH–)</strong> between the amine nitrogen and the carbonyl carbon. These strong hydrogen-bonding amide groups give nylon its strength.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Uses of Nylon</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Common uses</div>
+          <p>
+            • Parachutes<br>
+            • Ropes<br>
+            • Clothes and stockings<br>
+            • Hair combs<br>
+            • Rugs<br>
+            • Reinforcing automobile tires
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="dacron">
+      <div class="section-header"><div class="section-icon">👕</div>
+        <div><div class="section-title-text">Dacron (PET) — A Polyester</div><div class="section-subtitle">The other big condensation polymer</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 What is Dacron?</div>
+          <p>
+            <strong>Dacron</strong> is a copolymer — a polyester formed when equimolar amounts of <strong>1,4-benzenedicarboxylic acid (terephthalic acid)</strong> and <strong>1,2-ethanediol (ethylene glycol)</strong> react.
+          </p>
+          <p style="margin-top:.5rem">
+            Also known as <strong>Polyethylene Terephthalate</strong> or <strong>PET</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Reaction</h3>
+
+        <div class="reaction-block">
+          <span class="label">Dacron (PET) Synthesis</span>
+          <div class="eq">n HOOC–C₆H₄–COOH + n HO–CH₂CH₂–OH → –[CO–C₆H₄–CO–O–CH₂CH₂–O]ₙ– + (2n−1) H₂O</div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The ester linkage</div>
+          <p>
+            The reaction forms <strong>ester bonds (–CO–O–)</strong> between the acid carbonyl and the alcohol oxygen.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Properties and Uses of Dacron</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Properties</div>
+          <p>
+            • Strong and impact resistant<br>
+            • Colourless with high transparency
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Uses</div>
+          <p>
+            • <strong>Synthetic fibers</strong> — the main use<br>
+            • Mixed with cotton to give durable, easily dyed, crease-resistant fabrics<br>
+            • Bottles and packaging materials
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The general polyester structure</div>
+          <p>
+            The repeating unit of a polyester is:<br>
+            <strong>–[–CO–R'–CO–O–R–O–]ₙ–</strong><br><br>
+            Where R and R' are the carbon backbones from the diol and diacid respectively.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="experiment">
+      <div class="section-header"><div class="section-icon">🧪</div>
+        <div><div class="section-title-text">Experiment 4.1 — Synthesis of Nylon</div><div class="section-subtitle">MoE Textbook, p. 222</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="experiment-card">
+          <div class="experiment-title">🧪 Synthesis of Nylon</div>
+          <div class="experiment-body">
+            <strong>Objective:</strong> To prepare nylon and study its properties.<br><br>
+            <strong>Apparatus & Chemicals:</strong> 250 mL beakers, dropping funnel, glass rod, forceps or copper wire hooks, 0.5 M basic solution of hexamethylenediamine, 0.5 M NaOH solution, adipoyl chloride, 0.5 M HNO₃.<br><br>
+            <strong>Caution:</strong> Wear gloves while doing this experiment.<br><br>
+            <strong>Procedure:</strong>
+            <ul>
+              <li>Place 5 mL of Solution A in a small beaker. (Solution A = 0.5 M basic solution of hexamethylenediamine: 6 g hexamethylene diamine + 100 mL of 0.5 M NaOH)</li>
+              <li>Place 5 mL of Solution B in a second beaker. (Solution B = 5 g adipoyl chloride dissolved in 100 mL cyclohexane)</li>
+              <li>Slowly add Solution B to Solution A down the side of the slanted beaker. <strong>Do not stir</strong> the mixture.</li>
+              <li>Nylon will form at the <strong>interface</strong> of the two solutions.</li>
+              <li>Draw the nylon thread out of the interface using forceps or a copper wire hook and slowly wind it up.</li>
+              <li>Wash the nylon with water, dry superficially with a towel, then let it dry.</li>
+              <li>Test its strength (stretch it), its melting behavior (heat a piece), and its reactivity with acids (add a drop of nitric acid).</li>
+            </ul>
+            <strong>Key Questions:</strong>
+            <ul>
+              <li>Why are the two solutions not able to mix?</li>
+              <li>Why is adipoyl chloride used instead of adipic acid?</li>
+              <li>What did you feel of the strength when you stretched the prepared nylon?</li>
+              <li>What happened to the nylon when it was heated?</li>
+              <li>Was nylon resistant to acids?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why adipoyl chloride (not adipic acid)?</div>
+          <p>
+            In the lab, the reaction rate matters. Using <strong>adipoyl chloride</strong> (instead of adipic acid) makes the reaction happen <em>quickly at the interface</em> — so nylon forms immediately as a visible film. In industry, adipic acid is used because it's cheaper and safer (no toxic HCl by-product), but the reaction needs heat and longer time.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Key reactions from Lesson 4.2</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">⚗️ Lesson 4.2 — Polymerization Reactions</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Polymerization</div><div class="formula-math">Monomers → Polymer</div><div class="formula-note">Chemical change</div></div>
+          <div class="formula-item"><div class="formula-name">Addition — ethylene</div><div class="formula-math">n CH₂=CH₂ → –(CH₂–CH₂)ₙ–</div><div class="formula-note">No by-product</div></div>
+          <div class="formula-item"><div class="formula-name">Addition — styrene</div><div class="formula-math">n C₆H₅CH=CH₂ → polystyrene</div><div class="formula-note">Unsaturated monomer</div></div>
+          <div class="formula-item"><div class="formula-name">Addition — vinyl chloride</div><div class="formula-math">n CH₂=CHCl → PVC</div><div class="formula-note">Double → single bond</div></div>
+          <div class="formula-item"><div class="formula-name">Condensation — Nylon 66</div><div class="formula-math">diamine + diacid → polyamide + H₂O</div><div class="formula-note">Amide bonds</div></div>
+          <div class="formula-item"><div class="formula-name">Condensation — Dacron</div><div class="formula-math">diol + diacid → polyester + H₂O</div><div class="formula-note">Ester bonds</div></div>
+          <div class="formula-item"><div class="formula-name">Nylon monomers</div><div class="formula-math">Hexamethylene diamine + adipic acid</div><div class="formula-note">Both 6-carbon</div></div>
+          <div class="formula-item"><div class="formula-name">Dacron monomers</div><div class="formula-math">Terephthalic acid + ethylene glycol</div><div class="formula-note">PET</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identify the Polymerization Type</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify each of the following polymerizations as addition or condensation: (a) ethylene → polyethylene, (b) hexamethylene diamine + adipic acid → nylon, (c) vinyl chloride → PVC, (d) terephthalic acid + ethylene glycol → Dacron.</div>
+          <div class="example-step"><span class="step-badge">(a) Ethylene → PE</span><div class="step-text"><span class="math">Addition</span> — unsaturated monomer, no by-product</div></div>
+          <div class="example-step"><span class="step-badge">(b) Diamine + diacid</span><div class="step-text"><span class="math">Condensation</span> — two functional groups, H₂O released</div></div>
+          <div class="example-step"><span class="step-badge">(c) Vinyl chloride → PVC</span><div class="step-text"><span class="math">Addition</span> — unsaturated monomer (C=C)</div></div>
+          <div class="example-step"><span class="step-badge">(d) Diacid + diol</span><div class="step-text"><span class="math">Condensation</span> — two functional groups, H₂O released</div></div>
+          <div class="example-answer">✅ (a) Addition | (b) Condensation | (c) Addition | (d) Condensation</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">The Three Steps Explained</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Briefly describe the three steps of addition polymerization.</div>
+          <div class="example-step"><span class="step-badge">1. Initiation</span><div class="step-text">A reactive initiator (free radical, cation, or anion) attacks the monomer's double bond, creating a reactive center at the end of the growing chain</div></div>
+          <div class="example-step"><span class="step-badge">2. Propagation</span><div class="step-text">Monomers add one at a time to the growing chain; the reactive center transfers to the chain end. High molar mass forms quickly</div></div>
+          <div class="example-step"><span class="step-badge">3. Termination</span><div class="step-text">The reactive center is neutralized — the chain reaction stops and the polymer chain is complete</div></div>
+          <div class="example-answer">✅ Initiation → Propagation → Termination</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Why "66"?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why is nylon made from hexamethylene diamine and adipic acid called "Nylon 66"?</div>
+          <div class="example-step"><span class="step-badge">Diamine</span><div class="step-text">Hexamethylene diamine has <span class="math">6 carbon atoms</span></div></div>
+          <div class="example-step"><span class="step-badge">Diacid</span><div class="step-text">Adipic acid also has <span class="math">6 carbon atoms</span></div></div>
+          <div class="example-step"><span class="step-badge">Nomenclature</span><div class="step-text">The two 6's refer to the <span class="math">number of carbons in each monomer</span></div></div>
+          <div class="example-answer">✅ Nylon 66 = both monomers have 6 carbons</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Match Monomer to Polymer</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Identify the monomers for each polymer: (a) Teflon, (b) Dacron, (c) Nylon 66, (d) polystyrene.</div>
+          <div class="example-step"><span class="step-badge">(a) Teflon</span><div class="step-text"><span class="math">Tetrafluoroethylene (CF₂=CF₂)</span> — addition polymer</div></div>
+          <div class="example-step"><span class="step-badge">(b) Dacron</span><div class="step-text"><span class="math">Terephthalic acid + ethylene glycol</span> — condensation</div></div>
+          <div class="example-step"><span class="step-badge">(c) Nylon 66</span><div class="step-text"><span class="math">Hexamethylene diamine + adipic acid</span> — condensation</div></div>
+          <div class="example-step"><span class="step-badge">(d) Polystyrene</span><div class="step-text"><span class="math">Styrene (C₆H₅CH=CH₂)</span> — addition polymer</div></div>
+          <div class="example-answer">✅ Teflon = CF₂=CF₂; Dacron = diacid + diol; Nylon 66 = diamine + diacid; Polystyrene = styrene</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Addition vs Condensation</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Compare addition and condensation polymerization in terms of (a) monomer type, (b) by-product, and (c) example.</div>
+          <div class="example-step"><span class="step-badge">(a) Monomer</span><div class="step-text">
+            Addition: <span class="math">unsaturated</span> (C=C or C≡C)<br>
+            Condensation: <span class="math">two or more functional groups</span> (–COOH, –OH, –NH₂)
+          </div></div>
+          <div class="example-step"><span class="step-badge">(b) By-product</span><div class="step-text">
+            Addition: <span class="math">none</span><br>
+            Condensation: <span class="math">small molecule</span> (H₂O, methanol)
+          </div></div>
+          <div class="example-step"><span class="step-badge">(c) Example</span><div class="step-text">
+            Addition: <span class="math">polyethylene, PVC, Teflon</span><br>
+            Condensation: <span class="math">nylon, Dacron, proteins, cellulose</span>
+          </div></div>
+          <div class="example-answer">✅ Addition: unsaturated monomers, no by-product. Condensation: polyfunctional monomers, small-molecule by-product</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Polyethylene is produced from ethylene by:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div> Condensation polymerization</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div> Addition polymerization</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div> Hydrolysis</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div> Saponification</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The three steps of addition polymerization, in order, are:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Propagation → initiation → termination</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Termination → initiation → propagation</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Initiation → propagation → termination</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Initiation → termination → propagation</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Which of the following is produced by condensation polymerization?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Polyethylene</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> PVC</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Nylon 66</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Polystyrene</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">The monomers used to synthesize Nylon 66 are:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Ethylene glycol + terephthalic acid</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Two molecules of ethylene</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Hexamethylene diamine + adipic acid</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Vinyl chloride + styrene</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Dacron (PET) is a polyester formed from:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Two molecules of ethylene</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Adipic acid + hexamethylene diamine</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Terephthalic acid + ethylene glycol</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Styrene + vinyl chloride</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-4-3.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+addition+polymerization" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Addition Polymerization — Chain Growth Mechanism</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+condensation+polymerization" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Condensation Polymerization — Nylon and Dacron</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=nylon+synthesis+demo+interface" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Nylon Synthesis — Interfacial Polymerization Demo</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=addition+vs+condensation+polymers" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Addition vs Condensation Polymers — Key Differences</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 4.2</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Polymerization Reactions</div>
+        <ul class="summary-list">
+          <li><strong>Polymerization</strong> = chemical change by which monomers combine to form a polymer</li>
+          <li>Monomers must have <strong>two or more functional groups (polyfunctionality)</strong> to form polymers</li>
+          <li><strong>Bifunctional monomers → linear polymers</strong>; higher functionality → cross-linked networks</li>
+          <li><strong>Addition polymerization</strong> (chain-growth): unsaturated monomers; <strong>no by-product</strong>; double bond → single bond</li>
+          <li>Addition polymerization has <strong>3 steps</strong>: initiation → propagation → termination</li>
+          <li>Three types by initiator: <strong>free-radical (most important), cationic, anionic</strong></li>
+          <li>Addition polymers: polyethylene, PVC, Teflon (PTFE), polystyrene, Plexiglass (PMMA)</li>
+          <li><strong>Condensation polymerization</strong> (step-growth): monomers with 2+ functional groups; <strong>small molecule by-product</strong> (H₂O, methanol)</li>
+          <li>Typical reactions: <strong>diamine + diacid → polyamide</strong>; <strong>diol + diacid → polyester</strong></li>
+          <li><strong>Nylon 66</strong> = hexamethylene diamine + adipic acid (both 6-carbon); forms <strong>amide bonds</strong></li>
+          <li><strong>Dacron (PET)</strong> = terephthalic acid + ethylene glycol; forms <strong>ester bonds</strong></li>
+          <li>Uses of nylon: parachutes, ropes, clothes, combs, rugs, tire reinforcement</li>
+          <li>Uses of Dacron: synthetic fibers, blended fabrics, bottles, packaging</li>
+          <li>Natural condensation polymers: proteins, starch, cellulose</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §4.2 (pp. 215–223)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-4-1.html" class="btn btn-ghost">← Lesson 4.1: Introduction</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 4 · Lesson 2 of 3</div>
+      <a href="lesson-4-3.html" class="btn btn-primary">Final Lesson: Classification →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'B',2:'C',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{B:'✓ Correct! Ethylene → polyethylene by addition polymerization (no by-product).',wrong:'✗ Ethylene → polyethylene is addition polymerization.'},
+    2:{C:'✓ Correct! The three steps are: initiation → propagation → termination.',wrong:'✗ Order: initiation, propagation, termination.'},
+    3:{C:'✓ Correct! Nylon 66 is made by condensation polymerization (diamine + diacid → polyamide + H₂O).',wrong:'✗ Nylon 66 is a condensation polymer.'},
+    4:{C:'✓ Correct! Nylon 66 = hexamethylene diamine + adipic acid.',wrong:'✗ Nylon 66 monomers: hexamethylene diamine + adipic acid.'},
+    5:{C:'✓ Correct! Dacron (PET) = terephthalic acid + ethylene glycol.',wrong:'✗ Dacron = terephthalic acid + ethylene glycol.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','definition','addition','steps','condensation','nylon','dacron','experiment','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
