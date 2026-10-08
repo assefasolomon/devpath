@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.1: Introduction to Industrial Chemistry | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .feature-card{background:#fff;border:1.5px solid #FECACA;border-radius:var(--radius-lg);padding:1.25rem;transition:all var(--transition)}
+    .feature-card:hover{border-color:#DC2626;box-shadow:0 4px 12px rgba(220,38,38,.1);transform:translateY(-2px)}
+    .feature-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;background:#DC2626;color:#fff;border-radius:50%;font-size:.78rem;font-weight:800;margin-bottom:.5rem}
+    .feature-title{font-size:.9rem;font-weight:700;color:#991B1B;margin-bottom:.5rem}
+    .feature-desc{font-size:.82rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .activity-body ul{margin:.5rem 0;padding-left:1.25rem}
+    .activity-body li{padding:.2rem 0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('what')"><div class="sidebar-dot"></div> What is Industrial Chemistry?</button>
+      <button class="sidebar-link" onclick="scrollTo('vsclassical')"><div class="sidebar-dot"></div> vs Classical Chemistry</button>
+      <button class="sidebar-link" onclick="scrollTo('features')"><div class="sidebar-dot"></div> Characteristics of Chemical Industries</button>
+      <button class="sidebar-link" onclick="scrollTo('role')"><div class="sidebar-dot"></div> Role in Society</button>
+      <button class="sidebar-link" onclick="scrollTo('ethiopia')"><div class="sidebar-dot"></div> Ethiopian Context</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Introduction</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Natural Resources</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Valuable Products</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Nitric Acid</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Sulphuric Acid</a>
+      <a href="lesson-3-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Na₂CO₃ & NaOH</a>
+      <a href="lesson-3-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Pesticides</a>
+      <a href="lesson-3-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Ethiopian Industries I</a>
+      <a href="lesson-3-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Ethiopian Industries II</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 3</a> ›
+      Lesson 3.1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Industrial Chemistry · MoE Textbook §3.1</div>
+      <h1>🏭 Introduction to Industrial Chemistry</h1>
+      <p>Every product you use — from the soap in your bathroom to the fertilizer that grows your food — is made by industrial chemistry. This lesson introduces the field, how it differs from classroom chemistry, and why it matters for Ethiopia.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In Grade 10 you learned how metals and non-metals occur in nature and how they're extracted. Now we take that further: how do we <strong>transform</strong> those natural raw materials into the thousands of products that modern life depends on? That's <strong>industrial chemistry</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>industrial chemistry</strong></li>
+          <li>Explain how it differs from <strong>classical (classroom) chemistry</strong></li>
+          <li>List the <strong>general characteristics</strong> of chemical industries</li>
+          <li>Describe the <strong>role of industrial chemistry</strong> in society</li>
+          <li>Recognize the <strong>importance for Ethiopia</strong>'s development</li>
+          <li>Identify common <strong>products of chemical industries</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="what">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is Industrial Chemistry?</div><div class="section-subtitle">The definition</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition (MoE Textbook, p. 145)</div>
+          <p>
+            <strong>Industrial chemistry</strong> is a branch of chemistry which applies physical and chemical procedures toward the transformation of <strong>natural raw materials</strong> and their derivatives into products that have <strong>benefit to humanity</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The chemical industry</div>
+          <p>
+            The <strong>chemical industry</strong> is an institution involved in producing chemical products such as food, medicine, building materials, plastics, etc. It uses chemical processes — reactions, refining methods — to produce a wide variety of materials with desirable properties and quality to satisfy social needs.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">The Manufacturing Workflow</div>
+          <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- Raw materials -->
+            <rect x="20" y="60" width="100" height="60" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="8"/>
+            <text x="70" y="85" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">Raw Materials</text>
+            <text x="70" y="102" font-size="9" fill="#991B1B" text-anchor="middle">(from nature)</text>
+
+            <!-- Arrow -->
+            <line x1="130" y1="90" x2="180" y2="90" stroke="#DC2626" stroke-width="2.5" marker-end="url(#arr1)"/>
+            <defs>
+              <marker id="arr1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+              <marker id="arr2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+              <marker id="arr3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+            </defs>
+
+            <!-- Processing -->
+            <rect x="190" y="50" width="140" height="80" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="8"/>
+            <text x="260" y="78" font-size="11" fill="#92400E" text-anchor="middle" font-weight="bold">Chemical</text>
+            <text x="260" y="93" font-size="11" fill="#92400E" text-anchor="middle" font-weight="bold">Processing</text>
+            <text x="260" y="112" font-size="9" fill="#92400E" text-anchor="middle">reactions + refining</text>
+
+            <!-- Arrow -->
+            <line x1="340" y1="90" x2="390" y2="90" stroke="#DC2626" stroke-width="2.5" marker-end="url(#arr2)"/>
+
+            <!-- Products -->
+            <rect x="400" y="60" width="100" height="60" fill="#F0FDF4" stroke="#16A34A" stroke-width="2" rx="8"/>
+            <text x="450" y="85" font-size="11" fill="#166534" text-anchor="middle" font-weight="bold">Valuable</text>
+            <text x="450" y="102" font-size="11" fill="#166534" text-anchor="middle" font-weight="bold">Products</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key insight</div>
+          <p>
+            Industrial chemistry isn't just about chemistry — it combines <strong>chemistry, engineering, economics, safety, and environmental management</strong>. A successful chemical plant must be efficient, profitable, safe, and sustainable.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="vsclassical">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">Industrial vs Classical Chemistry</div><div class="section-subtitle">How they differ</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Industrial chemistry differs from classical chemistry in that it <strong>closes the gap</strong> between chemistry as it is <em>taught in schools</em> and chemistry as it is <em>practiced commercially</em>.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Feature</th><th>Classical (Classroom) Chemistry</th><th>Industrial Chemistry</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Scale</td><td>Small (grams, mL)</td><td>Large (tons, tonnes/day)</td></tr>
+            <tr><td>Goal</td><td>Understand reactions</td><td>Produce profitable products</td></tr>
+            <tr><td>Focus</td><td>Theory, mechanisms</td><td>Efficiency, yield, cost, safety</td></tr>
+            <tr><td>Equipment</td><td>Beakers, flasks</td><td>Reactors, distillation towers, kilns</td></tr>
+            <tr><td>By-products</td><td>Discarded</td><td>Recycled or sold</td></tr>
+            <tr><td>Energy</td><td>Bunsen burner</td><td>Furnaces, heat exchangers, power plants</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Think of it this way</div>
+          <p>
+            <strong>Classical chemistry</strong> asks: "Can this reaction be done?"<br>
+            <strong>Industrial chemistry</strong> asks: "Can this reaction be done <em>safely, efficiently, economically, and repeatedly</em>, on a massive scale?"
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="features">
+      <div class="section-header"><div class="section-icon">🔧</div>
+        <div><div class="section-title-text">Characteristics of Chemical Industries</div><div class="section-subtitle">MoE Textbook, p. 145</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Generally, chemical industries share these five characteristics:
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-num">1</div>
+            <div class="feature-title">Use Raw Materials</div>
+            <div class="feature-desc">They use <strong>naturally or artificially available raw materials</strong> to produce the desired products.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">2</div>
+            <div class="feature-title">Involve Chemical Reactions</div>
+            <div class="feature-desc">They involve <strong>chemical reactions</strong> to transform raw materials into finished and semi-finished products.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">3</div>
+            <div class="feature-title">Consume Large Energy</div>
+            <div class="feature-desc">They consume <strong>relatively large quantities of energy</strong> during the manufacturing process.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">4</div>
+            <div class="feature-title">Safe Operation Methods</div>
+            <div class="feature-desc">They use <strong>safe operation methods</strong> in their manufacturing processes.</div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-num">5</div>
+            <div class="feature-title">Quality Control</div>
+            <div class="feature-desc">They <strong>test their products</strong> during and after manufacture in quality control laboratories to ensure they meet required specifications.</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why quality control matters</div>
+          <p>
+            A batch of medicine that's 95% pure instead of 99% pure could harm patients. A batch of cement with the wrong composition could collapse a building. <strong>Quality control laboratories</strong> ensure consistency and safety.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="role">
+      <div class="section-header"><div class="section-icon">🌍</div>
+        <div><div class="section-title-text">Role of Industrial Chemistry in Society</div><div class="section-subtitle">Why it matters</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The <strong>19th century industrial revolution</strong> began the development of chemical industries at a very high rate. Today, chemical industries in both developed and developing countries produce a huge range of useful products.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Major products of the chemical industry</div>
+          <p>
+            Synthetic fibers · Plastics · Rubber · Fertilizers · Dyes · Drugs · Paints · Detergents · Pesticides · Building materials · Food additives
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Types of Chemical Products</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Description</th><th>Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Direct use</strong></td><td>Used directly by consumers</td><td>Soap, medicine, food</td></tr>
+            <tr><td><strong>Intermediate</strong></td><td>Used by other industries to make more products</td><td>Sulfuric acid, ammonia, sodium hydroxide</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 The hidden chemical industry</div>
+          <p>
+            Many products you don't think of as "chemical" actually rely on chemical industries at some stage: your phone (semiconductors, plastics, batteries), your clothes (synthetic fibers, dyes), your food (fertilizers, preservatives). <strong>It's very difficult to think of life without the chemical industry.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ethiopia">
+      <div class="section-header"><div class="section-icon">🇪🇹</div>
+        <div><div class="section-title-text">Industrial Chemistry in Ethiopia</div><div class="section-subtitle">The path forward</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 MoE Textbook, p. 145</div>
+          <p>
+            Chemistry and chemical technology are <strong>very important for economic growth and development</strong>, especially for developing countries like Ethiopia.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Ethiopia's Natural Resource Base</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Category</th><th>Resources Found in Ethiopia</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Metallic minerals</td><td>Iron, lead, copper, gold, platinum, tantalum, and many rare-earth metals</td></tr>
+            <tr><td>Non-metallic minerals</td><td>Rock salt, gypsum, coal, and crude oil</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 The opportunity</div>
+          <p>
+            Ethiopia <strong>needs an industrial revolution</strong> to use its mineral deposits to produce various chemicals on a large scale. Currently, the country imports many chemicals that could be produced locally from its own raw materials.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 3.1 (Textbook p. 144)</div>
+          <div class="activity-body">
+            <ol style="padding-left:1.25rem;margin:0">
+              <li>Discuss in groups of three and comment on the following statement: <em>"It is very difficult to think of life without the chemical industry."</em></li>
+              <li>List at least five products that are manufactured by Ethiopian chemical industries. Then, report your answer to your classmates.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Key concepts from Lesson 3.1</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🏭 Lesson 3.1 — Key Concepts</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Industrial chemistry</div><div class="formula-math">Transforms raw materials → valuable products</div><div class="formula-note">Applying chem + physics procedures</div></div>
+          <div class="formula-item"><div class="formula-name">Chemical industry</div><div class="formula-math">Institution producing chemical products</div><div class="formula-note">Food, medicine, plastics, building materials</div></div>
+          <div class="formula-item"><div class="formula-name">Scale difference</div><div class="formula-math">grams → tonnes</div><div class="formula-note">Industrial = large-scale</div></div>
+          <div class="formula-item"><div class="formula-name">Goal difference</div><div class="formula-math">Understand → Produce profitably</div><div class="formula-note">Chemistry vs. chemical engineering</div></div>
+          <div class="formula-item"><div class="formula-name">Characteristic 1</div><div class="formula-math">Uses natural/artificial raw materials</div><div class="formula-note">From environment</div></div>
+          <div class="formula-item"><div class="formula-name">Characteristic 2</div><div class="formula-math">Involves chemical reactions</div><div class="formula-note">Transform → products</div></div>
+          <div class="formula-item"><div class="formula-name">Characteristic 3</div><div class="formula-math">High energy consumption</div><div class="formula-note">Furnaces, reactors, power</div></div>
+          <div class="formula-item"><div class="formula-name">Characteristic 4</div><div class="formula-math">Safe operation + QC labs</div><div class="formula-note">Safety + quality</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Classify a Chemical Product</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Is table salt (NaCl) a "direct use" product or an "intermediate" product?</div>
+          <div class="example-step"><span class="step-badge">Direct use</span><div class="step-text">Table salt is used directly by consumers as food seasoning</div></div>
+          <div class="example-step"><span class="step-badge">But also…</span><div class="step-text">NaCl is ALSO used as a raw material for the chlor-alkali industry (Lesson 2.9), so it's an intermediate too</div></div>
+          <div class="example-answer">✅ Both — NaCl is a rare case of a substance with <strong>direct and intermediate use</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Industrial vs Classical</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A chemist in a lab makes 5 g of aspirin by reacting salicylic acid with acetic anhydride. A factory makes 5 tonnes of the same drug by the same reaction. What makes the factory approach "industrial"?</div>
+          <div class="example-step"><span class="step-badge">Scale</span><div class="step-text">5 g → 5 tonnes = 1,000,000× larger</div></div>
+          <div class="example-step"><span class="step-badge">Safety</span><div class="step-text">Acetic anhydride is corrosive and flammable — requires <strong>safe operating procedures</strong></div></div>
+          <div class="example-step"><span class="step-badge">Quality control</span><div class="step-text">Every batch must be tested in a QC lab to meet pharmaceutical purity standards</div></div>
+          <div class="example-step"><span class="step-badge">Economics</span><div class="step-text">By-products must be recycled or sold; energy must be optimized</div></div>
+          <div class="example-answer">✅ The factory approach is industrial because of scale, safety, QC, and economics</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Identify Raw Materials</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Name the raw materials needed for a soap factory.</div>
+          <div class="example-step"><span class="step-badge">Fat/oil source</span><div class="step-text">Animal fat (tallow) OR vegetable oil (palm, coconut, olive)</div></div>
+          <div class="example-step"><span class="step-badge">Alkali</span><div class="step-text">NaOH (for hard soap) or KOH (for soft soap)</div></div>
+          <div class="example-step"><span class="step-badge">Additives</span><div class="step-text">Perfume, colorants, preservatives</div></div>
+          <div class="example-answer">✅ Raw materials: fat/oil + NaOH/KOH + additives</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Why Ethiopia Needs Industrial Chemistry</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Ethiopia has huge mineral deposits of iron, copper, gold, and rare-earth metals. Explain how industrial chemistry could help Ethiopia develop economically.</div>
+          <div class="example-step"><span class="step-badge">Value addition</span><div class="step-text">Instead of exporting raw ore, Ethiopia could <strong>process it locally</strong> into finished metals or chemicals</div></div>
+          <div class="example-step"><span class="step-badge">Import substitution</span><div class="step-text">Producing chemicals locally reduces imports and saves foreign currency</div></div>
+          <div class="example-step"><span class="step-badge">Jobs and skills</span><div class="step-text">Chemical industries create skilled jobs and build technical capacity</div></div>
+          <div class="example-step"><span class="step-badge">Infrastructure</span><div class="step-text">Requires investment in roads, power, water — all support broader development</div></div>
+          <div class="example-answer">✅ Local processing → higher value, fewer imports, more jobs</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Safety and QC</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why do chemical industries invest heavily in both safety procedures AND quality control labs?</div>
+          <div class="example-step"><span class="step-badge">Safety</span><div class="step-text">Chemical plants handle corrosive, toxic, and flammable substances. A leak or explosion can kill workers and destroy a community</div></div>
+          <div class="example-step"><span class="step-badge">Legal</span><div class="step-text">Governments regulate chemical industries. Non-compliance means fines or shutdown</div></div>
+          <div class="example-step"><span class="step-badge">Quality control</span><div class="step-text">A defective batch of medicine, food additive, or fertilizer can harm consumers and ruin the company's reputation</div></div>
+          <div class="example-step"><span class="step-badge">Economics</span><div class="step-text">Safe, high-quality production is cheaper long-term than accidents, recalls, and lawsuits</div></div>
+          <div class="example-answer">✅ Safety + QC protect workers, consumers, reputation, and profits</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Industrial chemistry is best defined as a branch of chemistry that:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Studies only inorganic reactions</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Focuses on the theory of reaction mechanisms</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Applies procedures to transform natural raw materials into beneficial products</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Handles only laboratory-scale reactions</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Which of the following is NOT a general characteristic of chemical industries?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','D')"><div class="option-letter">A</div> Use of naturally or artificially available raw materials</div>
+          <div class="quiz-option" onclick="answer(2,'B','D')"><div class="option-letter">B</div> Involves chemical reactions to transform raw materials</div>
+          <div class="quiz-option" onclick="answer(2,'C','D')"><div class="option-letter">C</div> Consumes relatively large quantities of energy</div>
+          <div class="quiz-option" onclick="answer(2,'D','D')"><div class="option-letter">D</div> Avoids quality-control testing to reduce costs</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A key difference between classical chemistry and industrial chemistry is that industrial chemistry:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Ignores the underlying reaction mechanisms</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Uses only organic compounds</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Operates at large scale with focus on efficiency and safety</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Never produces by-products</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which of the following is an example of a chemical product used as an INTERMEDIATE (by another industry)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Toothpaste</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Table salt used at home</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Sulfuric acid used to make fertilizers</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Drinking water</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Ethiopia has significant deposits of iron, copper, gold, and rare-earth metals. According to the textbook, what does Ethiopia need in order to use these deposits effectively?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> To export all raw ore to other countries</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> To stop all industrial activity</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> An industrial revolution to produce chemicals on a large scale</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> To rely entirely on imported chemicals</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-3-2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=industrial+chemistry+introduction" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Introduction to Industrial Chemistry — Overview</div><div class="resource-channel">Chemistry · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=what+is+the+chemical+industry" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">What is the Chemical Industry?</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=industrial+chemistry+vs+classroom+chemistry" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Industrial vs Classroom Chemistry — The Difference</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=chemical+industry+ethiopia" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Chemical Industry Development in Ethiopia</div><div class="resource-channel">Documentary · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 3.1</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Introduction to Industrial Chemistry</div>
+        <ul class="summary-list">
+          <li><strong>Industrial chemistry</strong> applies physical and chemical procedures to transform natural raw materials into beneficial products</li>
+          <li>The <strong>chemical industry</strong> produces food, medicine, building materials, plastics, and more</li>
+          <li>It <strong>closes the gap</strong> between chemistry as taught in schools and chemistry as practiced commercially</li>
+          <li>Five <strong>characteristics</strong> of chemical industries: use raw materials, involve reactions, consume large energy, use safe methods, test products</li>
+          <li>Industrial chemistry is <strong>large-scale, safety-focused, quality-controlled, and economically driven</strong></li>
+          <li>Products can be <strong>direct-use</strong> (consumers) or <strong>intermediate</strong> (other industries)</li>
+          <li>The <strong>19th-century industrial revolution</strong> began the rapid growth of chemical industries</li>
+          <li>Ethiopia has significant mineral deposits (iron, copper, gold, tantalum, rare-earths, rock salt, gypsum, coal, crude oil)</li>
+          <li>Ethiopia needs an <strong>industrial revolution</strong> to use these resources for large-scale chemical production</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §3.1 (pp. 144–146)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="index.html" class="btn btn-ghost">← Unit 3 Hub</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 1 of 9</div>
+      <a href="lesson-3-2.html" class="btn btn-primary">Next: Natural Resources & Industry →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'D',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! Industrial chemistry applies procedures to transform natural raw materials into beneficial products.',wrong:'✗ Industrial chemistry transforms raw materials into useful products.'},
+    2:{D:'✓ Correct! Chemical industries DO test products in quality control labs — this is one of their key characteristics.',wrong:'✗ Quality control testing is essential, not avoided.'},
+    3:{C:'✓ Correct! Industrial chemistry operates at large scale with focus on efficiency, safety, and economics.',wrong:'✗ Industrial chemistry: large-scale, efficient, safe.'},
+    4:{C:'✓ Correct! Sulfuric acid is used by other industries (e.g., fertilizer production), so it is an intermediate product.',wrong:'✗ Intermediate products are used by other industries. H₂SO₄ → fertilizer is the classic example.'},
+    5:{C:'✓ Correct! The textbook states Ethiopia needs an industrial revolution to use its mineral deposits for large-scale chemical production.',wrong:'✗ Ethiopia needs an industrial revolution for large-scale chemical production.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','what','vsclassical','features','role','ethiopia','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
