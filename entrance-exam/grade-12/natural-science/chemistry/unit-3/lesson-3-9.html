@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.9: Manufacturing Industries in Ethiopia (Part 2) | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif;vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .reaction-block{background:#0F172A;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;font-family:'Georgia',serif;line-height:2}
+    .reaction-block .label{color:#F87171;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-sans);margin-bottom:.4rem;display:block}
+    .reaction-block .eq{color:#E2E8F0;font-size:.95rem;font-weight:600}
+    .steps-list{counter-reset:step;list-style:none;padding-left:0}
+    .steps-list li{counter-increment:step;position:relative;padding:.875rem 0 .875rem 3.25rem;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .steps-list li:last-child{border-bottom:none}
+    .steps-list li::before{content:counter(step);position:absolute;left:0;top:.875rem;width:34px;height:34px;background:#DC2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+    .steps-list strong{color:#991B1B}
+    .industry-tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+    .industry-tab{background:#fff;border:1.5px solid var(--border);border-radius:999px;padding:.5rem 1.1rem;font-size:.8rem;font-weight:600;color:var(--text);text-decoration:none;transition:all var(--transition);cursor:pointer}
+    .industry-tab:hover{border-color:#DC2626;color:#DC2626}
+    .use-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .use-card{background:#fff;border:1.5px solid #FECACA;border-radius:var(--radius-lg);padding:1.25rem;transition:all var(--transition)}
+    .use-card:hover{border-color:#DC2626;box-shadow:0 4px 12px rgba(220,38,38,.1);transform:translateY(-2px)}
+    .use-icon{font-size:1.75rem;margin-bottom:.5rem}
+    .use-title{font-size:.9rem;font-weight:700;color:#991B1B;margin-bottom:.4rem}
+    .use-desc{font-size:.8rem;color:var(--text);line-height:1.65;margin:0}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.veg{background:#F0FDF4;border-color:#BBF7D0}
+    .compare-card.mineral{background:#FEF2F2;border-color:#FECACA}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.veg .compare-card-title{color:#166534}
+    .compare-card.mineral .compare-card-title{color:#991B1B}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    .completion-banner{background:linear-gradient(135deg,#166534,#15803D);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin:2rem 0;text-align:center;color:#fff}
+    .completion-banner .big{font-size:1.5rem;font-weight:900;margin-bottom:.5rem}
+    .completion-banner .small{font-size:.9rem;color:rgba(255,255,255,.85);line-height:1.7}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 9</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('tanning')"><div class="sidebar-dot"></div> Tanning (Leather)</button>
+      <button class="sidebar-link" onclick="scrollTo('food')"><div class="sidebar-dot"></div> Food Processing</button>
+      <button class="sidebar-link" onclick="scrollTo('ethanol')"><div class="sidebar-dot"></div> Ethanol Manufacturing</button>
+      <button class="sidebar-link" onclick="scrollTo('local')"><div class="sidebar-dot"></div> Local Beverages (Araki/Tej)</button>
+      <button class="sidebar-link" onclick="scrollTo('soap')"><div class="sidebar-dot"></div> Soap Manufacturing</button>
+      <button class="sidebar-link" onclick="scrollTo('detergent')"><div class="sidebar-dot"></div> Detergents</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Introduction ✓</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Natural Resources ✓</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Ammonia ✓</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Nitric Acid ✓</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Sulphuric Acid ✓</a>
+      <a href="lesson-3-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Na₂CO₃ & NaOH ✓</a>
+      <a href="lesson-3-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Pesticides ✓</a>
+      <a href="lesson-3-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Ethiopian Industries I ✓</a>
+      <a href="lesson-3-9.html" class="sidebar-link active"><div class="sidebar-dot"></div> L9: Ethiopian Industries II</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 3</a> ›
+      Lesson 3.9
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Industrial Chemistry · MoE Textbook §3.4.6–3.4.9 · 🎉 Final Lesson</div>
+      <h1>🧼 Manufacturing Industries in Ethiopia (Part 2)</h1>
+      <p>Four more Ethiopian industries complete our tour: leather tanning, food processing and preservation, ethanol production (including traditional Araki and Tella), and soap & detergent manufacturing.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~28 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In Lesson 3.8 we covered glass, ceramics, cement, sugar, and paper. Now we complete the picture with four more industries that are especially important for Ethiopia: <strong>leather tanning, food processing, ethanol (including traditional beverages), and soap & detergent</strong>. Along the way, we'll see how traditional Ethiopian practices (like tanning hides and brewing Araki) connect to industrial chemistry.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe <strong>leather tanning</strong> — preparatory stages, tanning, crusting</li>
+          <li>Distinguish <strong>vegetable (natural)</strong> from <strong>mineral tanning</strong></li>
+          <li>Explain <strong>modern methods of food preservation</strong></li>
+          <li>Describe <strong>industrial ethanol production</strong> — fermentation and catalytic hydration</li>
+          <li>Outline the traditional Ethiopian preparation of <strong>Araki and Tella</strong></li>
+          <li>Write the <strong>saponification reaction</strong> and explain <strong>soap vs detergent</strong> action</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="industry-tabs">
+      <a href="#tanning" class="industry-tab">🐄 Tanning</a>
+      <a href="#food" class="industry-tab">🥫 Food</a>
+      <a href="#ethanol" class="industry-tab">🍶 Ethanol</a>
+      <a href="#local" class="industry-tab">🍺 Local Beverages</a>
+      <a href="#soap" class="industry-tab">🧼 Soap</a>
+      <a href="#detergent" class="industry-tab">🧴 Detergent</a>
+    </div>
+
+    <div class="section-block" id="tanning">
+      <div class="section-header"><div class="section-icon">🐄</div>
+        <div><div class="section-title-text">3.9.1 Tannery (Leather Manufacturing)</div><div class="section-subtitle">MoE Textbook, pp. 195–196</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definitions</div>
+          <p>
+            <strong>Tanning</strong> is the process of converting raw animal hides and skin to <strong>leather</strong>, using <strong>tannin</strong>. <strong>Leather</strong> is a durable and flexible material created by the tanning of animal hides and skin. <strong>Tannin</strong> is an acidic chemical that permanently alters the protein structure of a skin so that it can never return to raw hide again.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Three Phases of Leather Production</h3>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.5rem">
+          Leather production involves <strong>preparatory stages, tanning, and crusting</strong>:
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Phase 1 — Preparatory Stages</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Six preparatory steps</div>
+          <p>
+            <strong>1. Curing</strong> — salting or drying the hide once removed from the animal. Prevents putrefaction of collagen from bacterial infection. <strong>Brine curing</strong> is the simplest and fastest method.<br><br>
+            <strong>2. Soaking</strong> — cured hides soaked in water for hours to days to remove salt, dirt, blood, and excess animal fat.<br><br>
+            <strong>3. Flesh removal</strong> — hides moved through a machine that strips flesh from the hide surface.<br><br>
+            <strong>4. Hair removal (liming)</strong> — hides immersed in a mixture of lime and water for 1–10 days. Loosens hair from the skin, then mechanically removed.<br><br>
+            <strong>5. Scudding</strong> — removal of hair and fat missed by machines, using a plastic tool or dull knife.<br><br>
+            <strong>6. Deliming</strong> — removal of lime from the skin in a vat of acid. After this, the hide is ready for tanning.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Phase 2 — Tanning (Two Types)</h3>
+
+        <div class="compare-grid">
+          <div class="compare-card veg">
+            <div class="compare-card-title">🌿 Vegetable (Natural) Tanning</div>
+            <p>
+              Skin placed in a solution of <strong>tannin</strong>.<br><br>
+              Tannins occur naturally in the <strong>barks and leaves of many plants</strong> — chestnut, oak, tanoak, hemlock, quebracho, mangrove, wattle (acacia), myrobalan.<br><br>
+              Produces <strong>flexible leather</strong> — used for shoes, luggage, and furniture.<br><br>
+              <strong>Slower process</strong> (weeks to months).
+            </p>
+          </div>
+          <div class="compare-card mineral">
+            <div class="compare-card-title">⚗️ Mineral Tanning</div>
+            <p>
+              Skin placed in solutions of <strong>chromium sulfate</strong> and other chromium salts.<br><br>
+              <strong>Chrome tanning</strong> is faster — requires only <strong>24 hours</strong>.<br><br>
+              Produces leather that is <strong>greenish-blue</strong> in color (from chromium).<br><br>
+              Produces <strong>stretchable leather</strong> — used for garments and handbags.<br><br>
+              <strong>Faster process</strong> — much shorter than vegetable tanning.
+            </p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Phase 3 — Crusting</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The final stage</div>
+          <p>
+            The final stage in leather manufacturing. Includes <strong>dyeing</strong>, <strong>rolling</strong> the leather to make it strong, <strong>stretching</strong> it in a heat-controlled room, and <strong>covering the grain surface</strong> with chemical compounds such as wax, oil, and glazes to make the leather attractive.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The three tanning questions from the textbook</div>
+          <p>
+            1. Why do people prefer imported leather products over Ethiopian ones despite higher quality and lower cost locally?<br>
+            2. Why are leather products being replaced by synthetic (artificial) materials?<br>
+            3. What is the traditional way of tanning in Ethiopia? How does it compare to modern methods?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="food">
+      <div class="section-header"><div class="section-icon">🥫</div>
+        <div><div class="section-title-text">3.9.2 Food Processing and Preservation</div><div class="section-subtitle">MoE Textbook, pp. 197–198</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition</div>
+          <p>
+            <strong>Food preservation</strong> is the process of treating and handling food to stop or greatly reduce spoilage, loss of quality, edibility, or nutritive value caused or accelerated by microorganisms.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 What preservation prevents</div>
+          <p>
+            • Growth of bacteria, fungi, and other microorganisms<br>
+            • Oxidation of fats (which causes rancidity)<br>
+            • Loss of color, flavor, and nutritive value
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Modern Methods of Preservation</h3>
+
+        <div class="use-grid">
+          <div class="use-card">
+            <div class="use-icon">❄️</div>
+            <div class="use-title">Freezing</div>
+            <div class="use-desc">One of the most common methods, used commercially and domestically for a wide range of foods — potatoes, prepared foodstuffs, meats.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🧊</div>
+            <div class="use-title">Freeze-Drying</div>
+            <div class="use-desc">Water vapour escapes gently through the cell structure, leaving the product close to its original shape, taste, and colour with no aroma loss. Used for coffee, tea, juices, vegetables, fish, meat.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🎁</div>
+            <div class="use-title">Vacuum-Packing</div>
+            <div class="use-desc">Stores food in a vacuum environment (air-tight bag or bottle). Strips bacteria of the oxygen needed for survival, slowing spoilage. Common for nuts (reduces oxidation).</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🧪</div>
+            <div class="use-title">Chemical Preservatives</div>
+            <div class="use-desc">Both inorganic (NaCl, nitrates, sulfites, SO₂) and organic (lactic acid, propionic acid, citric acid, benzoic acid) preservatives extend shelf life.</div>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Inorganic Preservatives</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Preservative</th><th>How it works</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Sodium chloride (NaCl)</strong></td><td>Lowers water activity; causes plasmolysis by withdrawing water from cells</td></tr>
+            <tr><td><strong>Nitrates and nitrites</strong></td><td>Curing agents for meats (hams, bacon, sausages); inhibit Clostridium botulinum under vacuum packaging</td></tr>
+            <tr><td><strong>Sulfur dioxide (SO₂)</strong>, sulfites (SO₃²⁻), bisulfite (HSO₃⁻), metabisulfites (S₂O₅²⁻)</td><td>Form sulfurous acid in aqueous solutions — the actual antimicrobial agent. Used in the wine industry, dried fruits, and fruit juices. Also prevents enzymatic browning in cut potatoes and vegetables.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Organic Preservatives</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Common organic acid preservatives</div>
+          <p>
+            • <strong>Lactic acid and lactates</strong><br>
+            • <strong>Propionic acid and propionates</strong> (calcium most common) — active against molds at pH &lt; 6. Used in baked products and cheeses.<br>
+            • <strong>Citric acid</strong><br>
+            • <strong>Acetic acid</strong> — found in vinegar (4–5%). Used in mayonnaise, pickles, ketchup. Most active against bacteria.<br>
+            • <strong>Sorbic acid and sorbates</strong><br>
+            • <strong>Benzoic acid and benzoates</strong><br>
+            • <strong>Methyl and propyl parabens</strong> (benzoic acid derivatives)
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Wine yeasts are sulfite-resistant</div>
+          <p>
+            Sulfites are widely used in the wine industry to sanitize equipment and reduce competing microorganisms — but <strong>wine yeasts are resistant to sulfites</strong>. This allows the desired fermentation to continue while other microbes are suppressed.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ethanol">
+      <div class="section-header"><div class="section-icon">🍶</div>
+        <div><div class="section-title-text">3.9.3 Manufacturing of Ethanol</div><div class="section-subtitle">MoE Textbook, pp. 199–200</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 What is ethanol?</div>
+          <p>
+            <strong>Ethanol</strong> is one of the constituents of all alcoholic beverages. <em>Tella</em>, <em>Tej</em>, beer, wine, <em>Katikalla</em>, ouzo, gin, and whisky contain ethanol.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Industrial Methods</h3>
+
+        <div class="compare-grid">
+          <div class="compare-card veg">
+            <div class="compare-card-title">🍯 1. Fermentation of Carbohydrates</div>
+            <p>
+              Slow decomposition of carbohydrates (sucrose, starch, cellulose) by enzymes, producing ethanol and CO₂.<br><br>
+              <strong>Sucrose → Glucose + Fructose</strong> (by invertase)<br>
+              <strong>C₆H₁₂O₆ → 2CH₃CH₂OH + 2CO₂</strong> (by zymase)<br><br>
+              Fermentation can produce ethanol up to <strong>12–15%</strong>. Higher concentrations kill the yeast. To produce stronger beverages, <strong>distillation</strong> is required.<br><br>
+              Most Ethiopian liquor factories use <strong>molasses</strong> (a by-product of sugar industries) as raw material. In brewing, <strong>malted barley</strong> ("Bikil") is the starting material.
+            </p>
+          </div>
+          <div class="compare-card mineral">
+            <div class="compare-card-title">💨 2. Catalytic Hydration of Ethene</div>
+            <p>
+              Most ethanol is manufactured at present by this method.<br><br>
+              <strong>Ethene + steam at 573 K and 60 atm over H₃PO₄ catalyst:</strong><br><br>
+              <strong>CH₂=CH₂(g) + H₂O(g) → CH₃CH₂OH(g)</strong><br><br>
+              Faster, higher-yield process — used for industrial ethanol (fuel, solvent, chemical feedstock).
+            </p>
+          </div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Fermentation — Step 1 (invertase)</span>
+          <div class="eq">C₁₂H₂₂O₁₁ (sucrose) → C₆H₁₂O₆ (glucose) + C₆H₁₂O₆ (fructose)</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Fermentation — Step 2 (zymase)</span>
+          <div class="eq">C₆H₁₂O₆ → 2CH₃CH₂OH + 2CO₂</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Catalytic Hydration of Ethene</span>
+          <div class="eq">CH₂=CH₂(g) + H₂O(g) —[H₃PO₄, 573 K, 60 atm]→ CH₃CH₂OH(g)</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Beer, wine, liquor</div>
+          <p>
+            • <strong>Beer</strong> — from barley and hops; average alcohol 2–6% by volume<br>
+            • <strong>Wine</strong> — from grapes (or other fruits); alcohol 10–16% by volume<br>
+            • <strong>Liquor</strong> — made by distillation of fermented beverages; alcohol 30–45% by volume (cognac from grape wine, rum from sugarcane, whisky from rye)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="local">
+      <div class="section-header"><div class="section-icon">🍺</div>
+        <div><div class="section-title-text">3.9.4 Local Ethiopian Beverages — Araki and Tella</div><div class="section-subtitle">MoE Textbook, pp. 200–205</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Araki — Local Ethiopian distilled alcohol</div>
+          <p>
+            Araki is the local Ethiopian alcohol which is prepared almost everywhere with certain local differences. The differences are in the <strong>ingredients</strong>, not in the <strong>process</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Traditional Preparation of Araki</h3>
+
+        <ol class="steps-list">
+          <li><strong>Prepare Bikel (malt)</strong> — Barley is germinated as in beer production.</li>
+          <li><strong>Prepare Tinses (starter)</strong> — Bikel is mixed with water and Gesho (<em>Rhamnus prinoides</em>) powder to make a starter. Left to ferment for about <strong>4 days</strong> (varies by locality depending on humidity and temperature).</li>
+          <li><strong>Bake bread</strong> — Bread is baked from Teff, Barley, Wheat, and Sorghum, depending on availability and local preferences.</li>
+          <li><strong>Mix and ferment</strong> — Bread broken into small pieces, mixed with the starter, and left to ferment for <strong>5–10 days</strong>.</li>
+          <li><strong>Add water</strong> — A proportional amount of water is added to liquefy the thick dough-like mixture. Left for 1–2 days for further fermentation.</li>
+          <li><strong>Boil and distill</strong> — The liquid mixture is boiled and distilled in the traditional way. The distillate is <strong>Araki</strong>.</li>
+          <li><strong>By-product: Atela</strong> — The leftover residue (un-distilled component) is locally called <strong>Atela</strong> and is usually used to feed cattle.</li>
+        </ol>
+
+        <div class="note-box">
+          <div class="note-label">📝 Tella — Non-distilled local alcohol</div>
+          <p>
+            Tella is a traditional non-distilled Ethiopian beverage. It is prepared similarly to beer — through fermentation of grains (barley, wheat, sorghum) with Gesho, but <strong>without distillation</strong>. Its alcohol content is lower (typically 2–6%) than Araki.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The role of Gesho</div>
+          <p>
+            Gesho (<em>Rhamnus prinoides</em>) is a plant whose leaves and twigs are used as a bittering and fermenting agent — the Ethiopian equivalent of hops in beer. It also provides antimicrobial properties that help control the fermentation.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="soap">
+      <div class="section-header"><div class="section-icon">🧼</div>
+        <div><div class="section-title-text">3.9.5 Soap Manufacturing</div><div class="section-subtitle">MoE Textbook, pp. 198–201</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 What are soaps?</div>
+          <p>
+            <strong>Soaps</strong> are substances used to remove dirt. They are also called <strong>surfactants</strong> or <strong>surface-active agents</strong> because they reduce the surface tension of water and change surface properties.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Chemical nature</div>
+          <p>
+            Soaps are either <strong>sodium or potassium salts of higher (long-chain) carboxylic acids</strong>.<br><br>
+            • <strong>Sodium salts → hard soaps</strong><br>
+            • <strong>Potassium salts → soft soaps</strong><br><br>
+            Soaps are prepared by boiling <strong>animal fat or vegetable oil</strong> with a <strong>base</strong>. The reaction is called <strong>saponification</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Saponification Reaction</h3>
+
+        <div class="reaction-block">
+          <span class="label">Animal Fat + NaOH → Soap + Glycerol</span>
+          <div class="eq">Fat + 3NaOH → 3C₁₇H₃₅COONa (soap) + Glycerol (C₃H₅(OH)₃)</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The two ends of a soap molecule</div>
+          <p>
+            A soap molecule (e.g., C₁₇H₃₅COONa) has two distinct ends:<br><br>
+            • <strong>Hydrophilic (water-loving) end:</strong> –COONa — the ionic "head" that dissolves in water<br>
+            • <strong>Hydrophobic (water-fearing) end:</strong> the C₁₇H₃₅ hydrocarbon chain — the fatty "tail" that dissolves in grease/oil<br><br>
+            This dual nature is why soap can lift grease off surfaces and suspend it in water.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Soap Molecule Structure</div>
+          <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg">
+            <!-- Hydrophobic tail -->
+            <rect x="40" y="55" width="240" height="30" fill="#FCD34D" stroke="#92400E" stroke-width="2" rx="4"/>
+            <text x="160" y="75" font-size="11" fill="#92400E" text-anchor="middle" font-weight="bold">C₁₇H₃₅ — hydrocarbon chain</text>
+            <text x="160" y="100" font-size="10" fill="#78350F" text-anchor="middle" font-style="italic">Hydrophobic (oil-soluble)</text>
+
+            <!-- Hydrophilic head -->
+            <rect x="300" y="50" width="180" height="40" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2" rx="20"/>
+            <text x="390" y="75" font-size="12" fill="#1E40AF" text-anchor="middle" font-weight="bold">–COO⁻Na⁺</text>
+            <text x="390" y="105" font-size="10" fill="#1E40AF" text-anchor="middle" font-style="italic">Hydrophilic (water-soluble)</text>
+
+            <!-- Separator -->
+            <text x="290" y="80" font-size="16" fill="#DC2626" text-anchor="middle">+</text>
+          </svg>
+          <div class="visual-box-caption">
+            The dual nature of soap: a hydrophobic tail that dissolves in grease, and a hydrophilic head that dissolves in water.
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Industrial Soap Manufacturing — 4 Steps</h3>
+
+        <ol class="steps-list">
+          <li><strong>Saponification</strong> — A mixture of tallow (animal fat) and coconut oil is mixed with sodium hydroxide and heated. The soap is the salt of a long-chain carboxylic acid.</li>
+          <li><strong>Glycerine removal</strong> — Glycerine is more valuable than soap, so most is removed. Adding salt causes soap to separate from glycerine in salt water.</li>
+          <li><strong>Soap purification</strong> — Any remaining NaOH is neutralized with a weak acid (e.g., citric acid); two-thirds of remaining water is removed.</li>
+          <li><strong>Finishing</strong> — Additives (preservatives, colour, perfume) are mixed in; soap is shaped into bars for sale.</li>
+        </ol>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Types of soap by lye</div>
+          <p>
+            • <strong>Hard soap</strong> — made with NaOH (caustic soda)<br>
+            • <strong>Soft soap</strong> — made with KOH (caustic potash) or K₂CO₃ (potassium carbonate)<br><br>
+            In industry, tallow, lard, cotton seed oil, palm oil, castor oil, olive oil, whale oil, and soybean oil are used to prepare soap.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="detergent">
+      <div class="section-header"><div class="section-icon">🧴</div>
+        <div><div class="section-title-text">3.9.6 Detergents</div><div class="section-subtitle">Soapless soaps</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 What are detergents?</div>
+          <p>
+            Detergents are cleaning agents often called <strong>soapless soaps</strong> because they lather well but are chemically different from ordinary soaps. <strong>Long open-chain alcohols and alkyl benzene sulphonic acid</strong> can be used for the production of detergents.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Chemical nature</div>
+          <p>
+            Detergents are <strong>sodium salts of sulphonated long-chain organic alcohols</strong>:<br><br>
+            <strong>R–C₆H₄–SO₃Na</strong><br><br>
+            Where:<br>
+            • <strong>R</strong> = an alkyl group with a chain of 10 to 18 carbon atoms<br>
+            • <strong>–SO₃Na</strong> = the water-soluble (hydrophilic) group<br>
+            • <strong>–R–C₆H₄</strong> = the fat-soluble (hydrophobic) group
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Advantage of Detergents over Soap</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The key advantage</div>
+          <p>
+            Detergents lather well with <strong>both soft AND hard water</strong>, and even with water that contains common salt or acids. They are <strong>more soluble than soap in water</strong>, form stable emulsions with grease, and <strong>do not form a scum with hard water</strong> because their calcium and magnesium salts are <strong>soluble</strong>.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why soap fails in hard water</div>
+          <p>
+            Hard water contains Ca²⁺ and Mg²⁺ ions. When soap (RCOO⁻Na⁺) meets these ions, it forms <strong>insoluble precipitates</strong> (scum) — calcium and magnesium salts of the fatty acid:<br><br>
+            <strong>2RCOO⁻Na⁺ + Ca²⁺ → (RCOO)₂Ca↓ + 2Na⁺</strong><br><br>
+            This scum wastes soap and leaves deposits on clothes and skin. Detergents solve this problem because their Ca²⁺ and Mg²⁺ salts are soluble.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Example — Sodium Lauryl Sulfate</h3>
+
+        <div class="reaction-block">
+          <span class="label">Step 1 — Alcohol + H₂SO₄</span>
+          <div class="eq">C₁₂H₂₅OH + H₂SO₄ → C₁₂H₂₅OSO₂OH + H₂O</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Step 2 — Neutralization with NaOH</span>
+          <div class="eq">C₁₂H₂₅OSO₂OH + NaOH → C₁₂H₂₅OSO₂ONa + H₂O</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Dry cleaning — when water is not an option</div>
+          <p>
+            Some clothes (like silk) lose quality when washed with water and ordinary soap. <strong>Dry cleaning</strong> uses organic chemicals that dissolve grease and stains without water:<br><br>
+            • Tetrachloromethane (CCl₄)<br>
+            • Tetrachloroethylene (Cl₂C=CCl₂)<br>
+            • Benzene<br>
+            • Gasoline
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Key reactions and processes from Lesson 3.9</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🧼 Lesson 3.9 — Ethiopian Industries (Part 2)</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Tanning</div><div class="formula-math">Hide + Tannin → Leather</div><div class="formula-note">Vegetable or mineral</div></div>
+          <div class="formula-item"><div class="formula-name">Chrome tanning</div><div class="formula-math">Cr₂(SO₄)₃ solution</div><div class="formula-note">Only 24 hours</div></div>
+          <div class="formula-item"><div class="formula-name">Fermentation — Step 1</div><div class="formula-math">C₁₂H₂₂O₁₁ → C₆H₁₂O₆ + C₆H₁₂O₆</div><div class="formula-note">Invertase</div></div>
+          <div class="formula-item"><div class="formula-name">Fermentation — Step 2</div><div class="formula-math">C₆H₁₂O₆ → 2CH₃CH₂OH + 2CO₂</div><div class="formula-note">Zymase</div></div>
+          <div class="formula-item"><div class="formula-name">Catalytic hydration</div><div class="formula-math">CH₂=CH₂ + H₂O → CH₃CH₂OH</div><div class="formula-note">H₃PO₄, 573 K, 60 atm</div></div>
+          <div class="formula-item"><div class="formula-name">Saponification</div><div class="formula-math">Fat + 3NaOH → 3RCOONa + Glycerol</div><div class="formula-note">Soap + glycerine</div></div>
+          <div class="formula-item"><div class="formula-name">Soap + hard water</div><div class="formula-math">2RCOO⁻Na⁺ + Ca²⁺ → (RCOO)₂Ca↓</div><div class="formula-note">Insoluble scum</div></div>
+          <div class="formula-item"><div class="formula-name">Detergent structure</div><div class="formula-math">R–C₆H₄–SO₃Na</div><div class="formula-note">Sulphonated long-chain alcohol</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Vegetable vs Mineral Tanning</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Compare vegetable (natural) and mineral tanning in terms of (a) chemical agent, (b) time required, and (c) typical leather products.</div>
+          <div class="example-step"><span class="step-badge">(a) Agent</span><div class="step-text">
+            Vegetable: <span class="math">tannin</span> (natural, from bark and leaves)<br>
+            Mineral: <span class="math">chromium sulfate</span> (chrome tanning)
+          </div></div>
+          <div class="example-step"><span class="step-badge">(b) Time</span><div class="step-text">
+            Vegetable: <span class="math">weeks to months</span><br>
+            Mineral: <span class="math">only 24 hours</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">(c) Products</span><div class="step-text">
+            Vegetable: flexible leather — <span class="math">shoes, luggage, furniture</span><br>
+            Mineral: stretchable leather (greenish-blue) — <span class="math">garments, handbags</span>
+          </div></div>
+          <div class="example-answer">✅ Vegetable = tannin, slow, flexible leather; Mineral = Cr-sulfate, fast (24 h), stretchable leather</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Why Freeze-Drying is Superior</span></div>
+      </div>
+      <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why freeze-drying is considered a superior preservation method for certain foods.</div>
+          <div class="example-step"><span class="step-badge">Mechanism</span><div class="step-text">Water vapour escapes <span class="math">through the cell structure</span> of the product — a gentle process</div></div>
+          <div class="example-step"><span class="step-badge">Comparison</span><div class="step-text">Other drying methods evaporate water from the surface, causing shrinkage and flavor loss</div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">The product keeps its <span class="math">original shape, taste, and colour</span> — and there is <span class="math">no loss of aroma or flavour</span></div></div>
+          <div class="example-step"><span class="step-badge">Applications</span><div class="step-text">Coffee, tea, juices, vegetables, fish, meat products</div></div>
+          <div class="example-answer">✅ Freeze-drying preserves shape, taste, colour, and aroma by gentle water vapour escape through cell structure</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Why Fermentation Stops at 12–15%</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why fermentation stops naturally at 12–15% ethanol concentration, and what must be done to obtain higher concentrations.</div>
+          <div class="example-step"><span class="step-badge">Cause</span><div class="step-text">At ~12–15% ethanol, the alcohol concentration becomes <span class="math">toxic to the yeast</span></div></div>
+          <div class="example-step"><span class="step-badge">Effect</span><div class="step-text">The yeast cells die, and fermentation <span class="math">stops by itself</span></div></div>
+          <div class="example-step"><span class="step-badge">Solution</span><div class="step-text">To obtain beverages with higher alcohol content (30–45% in liquors), you must <span class="math">distill</span> the fermented mixture</div></div>
+          <div class="example-step"><span class="step-badge">Examples</span><div class="step-text">Cognac (from grape wine), rum (from sugarcane), whisky (from rye) — all made by distillation</div></div>
+          <div class="example-answer">✅ Yeast dies above 12–15% ethanol; distillation is required for higher concentrations</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Why Soap Fails in Hard Water</span></div>
+      </div>
+      <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why ordinary soap does not clean well in hard water, using a chemical equation. Why is detergent preferred in hard water?</div>
+          <div class="example-step"><span class="step-badge">Hard water</span><div class="step-text">Contains dissolved <span class="math">Ca²⁺ and Mg²⁺</span> ions (from dissolved carbonates and sulfates)</div></div>
+          <div class="example-step"><span class="step-badge">Reaction</span><div class="step-text">Soap anions react with Ca²⁺/Mg²⁺ to form <span class="math">insoluble scum</span>:<br><span class="math">2RCOO⁻Na⁺ + Ca²⁺ → (RCOO)₂Ca↓ + 2Na⁺</span></div></div>
+          <div class="example-step"><span class="step-badge">Soap problem</span><div class="step-text">The scum wastes soap, deposits on clothes and skin, and reduces cleaning efficiency</div></div>
+          <div class="example-step"><span class="step-badge">Detergent solution</span><div class="step-text">Detergent's Ca²⁺/Mg²⁺ salts are <span class="math">soluble</span>, so no scum forms → detergents lather well even in hard water</div></div>
+          <div class="example-answer">✅ Soap forms insoluble scum with Ca²⁺/Mg²⁺; detergents form soluble salts, so they work in hard water</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Araki Process vs Industrial Ethanol</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Compare the traditional Ethiopian preparation of Araki with industrial ethanol production. Identify one similarity and one difference.</div>
+          <div class="example-step"><span class="step-badge">Similarity</span><div class="step-text">Both rely on <span class="math">fermentation</span> of carbohydrates followed by <span class="math">distillation</span></div></div>
+          <div class="example-step"><span class="step-badge">Difference (raw material)</span><div class="step-text">Traditional uses <span class="math">locally-available cereals</span> (barley, teff, wheat, sorghum); industrial often uses <span class="math">molasses</span> or <span class="math">ethene</span></div></div>
+          <div class="example-step"><span class="step-badge">Difference (scale)</span><div class="step-text">Traditional is small-scale, household-level; industrial is <span class="math">large-scale</span> with controlled conditions</div></div>
+          <div class="example-step"><span class="step-badge">By-product</span><div class="step-text">Traditional residue is <span class="math">Atela</span> — used to feed cattle; industrial residues have separate management</div></div>
+          <div class="example-answer">✅ Same chemistry (fermentation + distillation); different raw materials, scale, and by-product use</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Chrome tanning produces leather in about:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> 1 hour</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> 24 hours</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> 2 weeks</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> 3 months</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The saponification reaction produces soap and:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Ethanol</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Acetic acid</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Glycerol (glycerine)</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Sodium chloride</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Why is detergent more effective than soap in hard water?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Detergents are cheaper</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Detergents form insoluble scum with Ca²⁺ and Mg²⁺</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> The calcium and magnesium salts of detergents are soluble</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Detergents contain more Na⁺ ions</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">In the traditional Ethiopian preparation of Araki, the leftover residue used to feed cattle is called:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Tinses</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Bikel</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Atela</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Gesho</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Fermentation stops naturally when the ethanol concentration reaches about:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> 2–3%</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> 12–15%</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> 25–30%</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> 50–60%</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Back to Chemistry Hub →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=leather+tanning+process+industrial" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Leather Tanning — Vegetable vs Chrome Tanning</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=ethanol+fermentation+industrial+production" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Ethanol Production — Fermentation and Distillation</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=soap+making+saponification+reaction" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Soap Making — The Saponification Reaction</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=soap+vs+detergent+hard+water" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Soap vs Detergent — Why Detergents Work in Hard Water</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 3.9</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Ethiopian Industries (Part 2)</div>
+        <ul class="summary-list">
+          <li><strong>Tanning</strong> — converts animal hides to leather using tannin; three phases: preparatory, tanning, crusting</li>
+          <li><strong>Preparatory steps:</strong> curing → soaking → flesh removal → liming (hair removal) → scudding → deliming</li>
+          <li><strong>Vegetable tanning:</strong> tannin from barks/leaves (chestnut, oak, wattle); slow (weeks to months); flexible leather</li>
+          <li><strong>Mineral (chrome) tanning:</strong> chromium sulfate; only 24 hours; greenish-blue; stretchable leather</li>
+          <li><strong>Food preservation:</strong> prevents bacterial growth, fungal growth, and fat oxidation (rancidity)</li>
+          <li><strong>Modern methods:</strong> freezing, freeze-drying (best for shape/taste/colour), vacuum-packing, chemical preservatives</li>
+          <li><strong>Inorganic preservatives:</strong> NaCl, nitrates/nitrites, sulfites/SO₂ (wine, dried fruits)</li>
+          <li><strong>Organic preservatives:</strong> lactic, propionic, citric, acetic, sorbic, benzoic acids and their salts</li>
+          <li><strong>Ethanol — Fermentation:</strong> carbohydrates (sucrose, starch, cellulose) → ethanol + CO₂; stops at 12–15% because yeast dies</li>
+          <li><strong>Ethanol — Catalytic hydration:</strong> CH₂=CH₂ + H₂O → CH₃CH₂OH (H₃PO₄, 573 K, 60 atm)</li>
+          <li><strong>Araki (Ethiopian):</strong> Bikel → Tinses (with Gesho) → bread → ferment 5–10 days → add water → boil and distill; by-product is <strong>Atela</strong> (cattle feed)</li>
+          <li><strong>Soap = sodium/potassium salts of long-chain carboxylic acids</strong>; hard soap uses NaOH, soft soap uses KOH</li>
+          <li><strong>Saponification:</strong> Fat + 3NaOH → 3RCOONa (soap) + Glycerol</li>
+          <li>Soap has a <strong>hydrophobic tail</strong> (dissolves in grease) and a <strong>hydrophilic head</strong> (dissolves in water)</li>
+          <li><strong>Soap + hard water</strong> → insoluble scum: 2RCOO⁻Na⁺ + Ca²⁺ → (RCOO)₂Ca↓</li>
+          <li><strong>Detergents = sodium salts of sulphonated long-chain alcohols</strong>: R–C₆H₄–SO₃Na</li>
+          <li>Detergents lather well in hard water because their Ca²⁺/Mg²⁺ salts are <strong>soluble</strong></li>
+          <li><strong>Dry cleaning</strong> uses organic solvents (CCl₄, tetrachloroethylene, benzene) instead of water</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §3.4.6–3.4.9 (pp. 195–210)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="completion-banner">
+      <div class="big">🎉 Unit 3 — Industrial Chemistry Complete! 🎉</div>
+      <div class="small">
+        You've finished all 9 lessons of Unit 3: from the basics of industrial chemistry and natural resources, through ammonia, nitric acid, sulfuric acid, Na₂CO₃, NaOH, pesticides, and the manufacturing industries of Ethiopia. You now understand the chemistry behind the products of modern life.<br><br>
+        <strong>Remaining units:</strong> Unit 4 — Polymers (4.1–4.3) · Unit 5 — Environmental Chemistry (5.1–5.4)
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-8.html" class="btn btn-ghost">← Lesson 3.8: Ethiopian Industries I</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 9 of 9 · ✅ Unit Complete</div>
+      <a href="../index.html" class="btn btn-primary">Back to Chemistry Hub →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'B',2:'C',3:'C',4:'C',5:'B'};
+  const feedbacks={
+    1:{B:'✓ Correct! Chrome tanning takes only about 24 hours.',wrong:'✗ Chrome tanning: ~24 hours.'},
+    2:{C:'✓ Correct! Saponification produces soap + glycerol (glycerine).',wrong:'✗ Saponification produces soap and glycerol.'},
+    3:{C:'✓ Correct! The Ca²⁺ and Mg²⁺ salts of detergents are soluble, so no scum forms.',wrong:'✗ Detergent Ca/Mg salts are soluble → no scum.'},
+    4:{C:'✓ Correct! The by-product Atela is used to feed cattle.',wrong:'✗ Atela is the cattle-feed by-product.'},
+    5:{B:'✓ Correct! Fermentation stops at ~12–15% ethanol because the yeast dies.',wrong:'✗ Fermentation stops at 12–15% — higher kills the yeast.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','tanning','food','ethanol','local','soap','detergent','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
