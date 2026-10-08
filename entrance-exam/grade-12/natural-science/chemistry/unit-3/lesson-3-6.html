@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.6: Sodium Carbonate & Sodium Hydroxide | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .reaction-block{background:#0F172A;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;font-family:'Georgia',serif;line-height:2}
+    .reaction-block .label{color:#F87171;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-sans);margin-bottom:.4rem;display:block}
+    .reaction-block .eq{color:#E2E8F0;font-size:.95rem;font-weight:600}
+    .steps-list{counter-reset:step;list-style:none;padding-left:0}
+    .steps-list li{counter-increment:step;position:relative;padding:.875rem 0 .875rem 3.25rem;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .steps-list li:last-child{border-bottom:none}
+    .steps-list li::before{content:counter(step);position:absolute;left:0;top:.875rem;width:34px;height:34px;background:#DC2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+    .steps-list strong{color:#991B1B}
+    .use-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .use-card{background:#fff;border:1.5px solid #FECACA;border-radius:var(--radius-lg);padding:1.25rem;transition:all var(--transition)}
+    .use-card:hover{border-color:#DC2626;box-shadow:0 4px 12px rgba(220,38,38,.1);transform:translateY(-2px)}
+    .use-icon{font-size:1.75rem;margin-bottom:.5rem}
+    .use-title{font-size:.9rem;font-weight:700;color:#991B1B;margin-bottom:.4rem}
+    .use-desc{font-size:.8rem;color:var(--text);line-height:1.65;margin:0}
+    .process-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin:1rem 0}
+    .process-card{background:#fff;border:2px solid #FECACA;border-radius:var(--radius-lg);padding:1rem;text-align:center}
+    .process-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;background:#DC2626;color:#fff;border-radius:50%;font-size:.75rem;font-weight:800;margin-bottom:.5rem}
+    .process-name{font-size:.8rem;font-weight:700;color:#991B1B;margin-bottom:.4rem}
+    .process-eq{font-size:.72rem;font-family:'Georgia',serif;color:var(--text);line-height:1.5}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('na2co3')"><div class="sidebar-dot"></div> Sodium Carbonate</button>
+      <button class="sidebar-link" onclick="scrollTo('solvay')"><div class="sidebar-dot"></div> Solvay Process</button>
+      <button class="sidebar-link" onclick="scrollTo('naoh')"><div class="sidebar-dot"></div> Sodium Hydroxide</button>
+      <button class="sidebar-link" onclick="scrollTo('castner')"><div class="sidebar-dot"></div> Castner-Kellner Process</button>
+      <button class="sidebar-link" onclick="scrollTo('safety')"><div class="sidebar-dot"></div> Safety</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Introduction ✓</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Natural Resources ✓</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Ammonia ✓</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Nitric Acid ✓</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Sulphuric Acid ✓</a>
+      <a href="lesson-3-6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Na₂CO₃ & NaOH</a>
+      <a href="lesson-3-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Pesticides</a>
+      <a href="lesson-3-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Ethiopian Industries I</a>
+      <a href="lesson-3-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Ethiopian Industries II</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 3</a> ›
+      Lesson 3.6
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Industrial Chemistry · MoE Textbook §3.3.6 + §3.3.7</div>
+      <h1>🧂 Sodium Carbonate & Sodium Hydroxide</h1>
+      <p>Two of the most important industrial bases. Sodium carbonate (washing soda) is made from salt and limestone via the Solvay process; sodium hydroxide (caustic soda) is made by electrolysis of brine in the Castner-Kellner cell.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Two inorganic compounds drive a huge portion of the chemical industry: <strong>sodium carbonate (Na₂CO₃)</strong> — the "washing soda" used to make glass — and <strong>sodium hydroxide (NaOH)</strong> — the "caustic soda" used to make soap. Both come from cheap, abundant raw materials.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>List the <strong>properties</strong> and <strong>uses</strong> of Na₂CO₃</li>
+          <li>Describe the <strong>Solvay process</strong> step-by-step</li>
+          <li>Write the <strong>overall reaction</strong> of the Solvay process</li>
+          <li>List the <strong>properties</strong> and <strong>uses</strong> of NaOH</li>
+          <li>Describe the <strong>Castner-Kellner process</strong> for NaOH production</li>
+          <li>Explain <strong>safety hazards</strong> of both compounds</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="na2co3">
+      <div class="section-header"><div class="section-icon">🧂</div>
+        <div><div class="section-title-text">Sodium Carbonate (Na₂CO₃)</div><div class="section-subtitle">Properties and Uses</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Names to know</div>
+          <p>
+            • <strong>Sodium carbonate (Na₂CO₃)</strong> — the anhydrous form<br>
+            • <strong>Washing soda</strong> — the decahydrate: Na₂CO₃·10H₂O<br>
+            • <strong>Soda ash</strong> — the commercial anhydrous form<br>
+            • <strong>Baking soda</strong> — actually NaHCO₃ (sodium hydrogen carbonate), a different compound!
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Physical Properties (MoE Textbook, p. 178)</div>
+          <p>
+            • <strong>White crystalline solid</strong> powder<br>
+            • Exists as the decahydrate: <strong>Na₂CO₃·10H₂O</strong><br>
+            • <strong>Density</strong> = 2.54 g/cm³<br>
+            • <strong>Purity</strong> &gt; 98% (commercial)<br>
+            • <strong>Melting point</strong> = 851 °C<br>
+            • <strong>Boiling point</strong> = 1,600 °C<br>
+            • <strong>Hygroscopic</strong> — absorbs moisture from the air<br>
+            • Two commercial forms: <strong>light soda</strong> (0.7 g/mL) and <strong>dense soda</strong> (0.9 g/mL)
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Chemical Properties</div>
+          <p>
+            • <strong>Dissolves easily in water</strong> — forms a moderately alkaline solution<br>
+            • <strong>Insoluble in alcohol</strong><br>
+            • <strong>Anhydrous Na₂CO₃ is unaffected by heat</strong> — melts without decomposing<br>
+            • Aqueous solution is <strong>somewhat alkaline</strong> due to hydrolysis:<br>
+            <strong>Na₂CO₃(s) + 2H₂O(l) → H₂CO₃(aq) + 2Na⁺(aq) + 2OH⁻(aq)</strong><br>
+            • <strong>Absorbs CO₂ from air</strong> to form sodium hydrogen carbonate:<br>
+            <strong>Na₂CO₃(aq) + H₂O + CO₂(g) → 2NaHCO₃(aq)</strong>
+          </p>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Hydrolysis in Water (Basic Solution)</span>
+          <div class="eq">Na₂CO₃(s) + 2H₂O(l) → H₂CO₃(aq) + 2Na⁺(aq) + 2OH⁻(aq)</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Reaction with CO₂ from Air</span>
+          <div class="eq">Na₂CO₃(aq) + H₂O + CO₂(g) → 2NaHCO₃(aq)</div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Uses of Sodium Carbonate</h3>
+
+        <div class="use-grid">
+          <div class="use-card">
+            <div class="use-icon">🪟</div>
+            <div class="use-title">Glass Manufacturing</div>
+            <div class="use-desc">Biggest use — about half of all Na₂CO₃ goes to glassmaking. Acts as a flux in melting silica.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🧼</div>
+            <div class="use-title">Soap & Detergent</div>
+            <div class="use-desc">Used to make soap and detergent products.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">📰</div>
+            <div class="use-title">Pulp & Paper</div>
+            <div class="use-desc">Used in the Kraft pulping process.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🧵</div>
+            <div class="use-title">Textiles</div>
+            <div class="use-desc">Used in textile processing and dyeing.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">💧</div>
+            <div class="use-title">Water Treatment</div>
+            <div class="use-desc">Used in drinking water treatment to adjust pH.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🧱</div>
+            <div class="use-title">Brick Industry</div>
+            <div class="use-desc">Used as an additive in brick manufacturing.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🧽</div>
+            <div class="use-title">Cleaning Agent</div>
+            <div class="use-desc">Washing soda is a classic household cleaner (removes grease).</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🍽️</div>
+            <div class="use-title">Food Preparation</div>
+            <div class="use-desc">Used in food processing (as a food additive).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="solvay">
+      <div class="section-header"><div class="section-icon">🏭</div>
+        <div><div class="section-title-text">The Solvay Process</div><div class="section-subtitle">Industrial production of Na₂CO₃</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The Solvay Process</div>
+          <p>
+            Sodium carbonate is manufactured synthetically by the <strong>Solvay process</strong> (also called the ammonia-soda process). It involves a series of partial reactions, using <strong>brine (NaCl), limestone (CaCO₃), and ammonia (NH₃)</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Raw materials</div>
+          <p>
+            • <strong>NaCl</strong> (brine) — source of sodium<br>
+            • <strong>CaCO₃</strong> (limestone) — source of CO₂ and CaO<br>
+            • <strong>NH₃</strong> — recycled catalyst (not consumed in overall reaction)
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Five Steps</h3>
+
+        <div class="process-flow">
+          <div class="process-card">
+            <div class="process-num">1</div>
+            <div class="process-name">Calcination of CaCO₃</div>
+            <div class="process-eq">CaCO₃ → CaO + CO₂</div>
+          </div>
+          <div class="process-card">
+            <div class="process-num">2</div>
+            <div class="process-name">Slaking of lime</div>
+            <div class="process-eq">CaO + H₂O → Ca(OH)₂</div>
+          </div>
+          <div class="process-card">
+            <div class="process-num">3</div>
+            <div class="process-name">Formation of NaHCO₃</div>
+            <div class="process-eq">2NaCl + 2CO₂ + 2NH₃ + 2H₂O → 2NaHCO₃ + 2NH₄Cl</div>
+          </div>
+          <div class="process-card">
+            <div class="process-num">4</div>
+            <div class="process-name">Decomposition of NaHCO₃</div>
+            <div class="process-eq">2NaHCO₃ → Na₂CO₃ + H₂O + CO₂</div>
+          </div>
+          <div class="process-card">
+            <div class="process-num">5</div>
+            <div class="process-name">Recovery of NH₃</div>
+            <div class="process-eq">Ca(OH)₂ + 2NH₄Cl → CaCl₂ + 2NH₃ + 2H₂O</div>
+          </div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Overall Reaction</span>
+          <div class="eq">CaCO₃ + 2NaCl → Na₂CO₃ + CaCl₂</div>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Solvay Process — Simplified Flow</div>
+          <svg viewBox="0 0 540 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Step 1 top-left -->
+            <rect x="20" y="30" width="120" height="50" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="6"/>
+            <text x="80" y="50" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="bold">CaCO₃</text>
+            <text x="80" y="68" font-size="10" fill="#991B1B" text-anchor="middle" font-family="Georgia,serif">→ CaO + CO₂</text>
+
+            <!-- Step 2 top-right -->
+            <rect x="400" y="30" width="120" height="50" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="6"/>
+            <text x="460" y="50" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="bold">CaO + H₂O</text>
+            <text x="460" y="68" font-size="10" fill="#991B1B" text-anchor="middle" font-family="Georgia,serif">→ Ca(OH)₂</text>
+
+            <!-- Center Step 3 -->
+            <rect x="180" y="90" width="180" height="70" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="6"/>
+            <text x="270" y="112" font-size="11" fill="#92400E" text-anchor="middle" font-weight="bold">Main Reaction</text>
+            <text x="270" y="130" font-size="9" fill="#92400E" text-anchor="middle" font-family="Georgia,serif">2NaCl + 2CO₂ + 2NH₃ + 2H₂O</text>
+            <text x="270" y="147" font-size="9" fill="#92400E" text-anchor="middle" font-family="Georgia,serif">→ 2NaHCO₃ + 2NH₄Cl</text>
+
+            <!-- Step 4 bottom-center -->
+            <rect x="180" y="185" width="180" height="55" fill="#F0FDF4" stroke="#16A34A" stroke-width="2" rx="6"/>
+            <text x="270" y="205" font-size="10" fill="#166534" text-anchor="middle" font-weight="bold">2NaHCO₃</text>
+            <text x="270" y="225" font-size="9" fill="#166534" text-anchor="middle" font-family="Georgia,serif">→ Na₂CO₃ + H₂O + CO₂</text>
+
+            <!-- Arrows -->
+            <line x1="140" y1="55" x2="175" y2="115" stroke="#0F172A" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <line x1="400" y1="55" x2="365" y2="115" stroke="#0F172A" stroke-width="1.5" stroke-dasharray="3,3"/>
+            <line x1="270" y1="160" x2="270" y2="180" stroke="#0F172A" stroke-width="2" marker-end="url(#sa1)"/>
+            <defs>
+              <marker id="sa1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#0F172A"/></marker>
+            </defs>
+
+            <!-- NH3 recycle -->
+            <path d="M 370 130 Q 480 130 480 100" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,3"/>
+            <text x="490" y="120" font-size="9" fill="#DC2626" font-weight="bold">NH₃</text>
+            <text x="490" y="132" font-size="9" fill="#DC2626" font-weight="bold">recycled</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The clever trick: ammonia is recycled</div>
+          <p>
+            NH₃ is used in Step 3 but regenerated in Step 5 — so it acts as a <strong>catalyst</strong>, not consumed overall. This is why the Solvay process is so economical.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Natural vs synthetic sources</div>
+          <p>
+            Historically, all Na₂CO₃ came from natural deposits (like trona ore) or was made by the Solvay process. Today, <strong>natural production has surpassed synthetic production</strong> — large natural deposits in the USA, Kenya, and elsewhere are now mined directly.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="naoh">
+      <div class="section-header"><div class="section-icon">🧴</div>
+        <div><div class="section-title-text">Sodium Hydroxide (NaOH)</div><div class="section-subtitle">Properties and Uses</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The compound</div>
+          <p>
+            <strong>Sodium hydroxide (NaOH)</strong> is also known as <strong>caustic soda</strong>. It does <strong>not occur in nature</strong> — it must be manufactured.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Physical Properties (MoE Textbook, p. 180)</div>
+          <p>
+            • <strong>White, translucent crystalline solid</strong><br>
+            • <strong>Melting point</strong> = 591 K (318 °C)<br>
+            • <strong>Stable</strong> compound<br>
+            • <strong>Dissolves readily in water</strong> and moderately in alcohol<br>
+            • Its solution has a <strong>bitter taste</strong> and a <strong>soapy feeling</strong><br>
+            • <strong>Strongly alkaline</strong> in nature<br>
+            • Very <strong>corrosive</strong> — decomposes proteins at room temperature<br>
+            • Causes <strong>chemical burns</strong> on contact with human skin
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Why "caustic"?</div>
+          <p>
+            "Caustic" comes from the Latin <em>causticus</em> — "burning". NaOH is named caustic soda because of its <strong>corrosive action on many substances</strong>, including human tissue.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Uses of Sodium Hydroxide</h3>
+
+        <div class="use-grid">
+          <div class="use-card">
+            <div class="use-icon">🧼</div>
+            <div class="use-title">Soap & Detergent</div>
+            <div class="use-desc">Main use — saponification of fats and oils to make soap. Also in detergents.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">📰</div>
+            <div class="use-title">Pulp & Paper</div>
+            <div class="use-desc">Used in the Kraft pulping process to break down wood lignin.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🔋</div>
+            <div class="use-title">Alumina Extraction</div>
+            <div class="use-desc">Used in the Bayer process to extract Al₂O₃ from bauxite for aluminum production.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🧵</div>
+            <div class="use-title">Textiles</div>
+            <div class="use-desc">Used in textile processing (mercerization of cotton).</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">💧</div>
+            <div class="use-title">Drinking Water</div>
+            <div class="use-desc">Used to adjust pH and remove heavy metals in water treatment.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🧽</div>
+            <div class="use-title">Washing Soda Production</div>
+            <div class="use-desc">Used to manufacture Na₂CO₃ (in alternative processes).</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">⚗️</div>
+            <div class="use-title">Chemical Catalyst</div>
+            <div class="use-desc">Used in base catalysis, esterification, etherification reactions.</div>
+          </div>
+          <div class="use-card">
+            <div class="use-icon">🚰</div>
+            <div class="use-title">Drain Cleaners</div>
+            <div class="use-desc">Main ingredient in household and industrial drain cleaners.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="castner">
+      <div class="section-header"><div class="section-icon">🔋</div>
+        <div><div class="section-title-text">The Castner-Kellner Process</div><div class="section-subtitle">Industrial production of NaOH</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 What it is</div>
+          <p>
+            NaOH is manufactured at large scale from <strong>sodium chloride (NaCl)</strong> and <strong>water (H₂O)</strong> by <strong>electrolysis</strong>. There are several methods:
+          </p>
+          <p style="margin-top:.5rem">
+            1. <strong>Castner-Kellner process</strong><br>
+            2. <strong>Nelson Diaphragm cell</strong><br>
+            3. <strong>Loewig's process</strong>
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The Castner-Kellner principle</div>
+          <p>
+            In the Castner-Kellner method, <strong>electrolysis of brine solution</strong> is performed to obtain sodium hydroxide.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Castner-Kellner Cell</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Cell construction</div>
+          <p>
+            • A <strong>rectangular steel tank</strong><br>
+            • Lined inside with <strong>ebonite</strong><br>
+            • <strong>Titanium anode</strong> (positive electrode)<br>
+            • A layer of <strong>mercury at the bottom</strong> acts as the cathode (negative electrode)
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How it works</h3>
+
+        <ol class="steps-list">
+          <li><strong>Ionization of brine</strong> occurs: <strong>2NaCl → 2Na⁺ + 2Cl⁻</strong></li>
+          <li><strong>Sodium ions (Na⁺) migrate</strong> to the mercury cathode and form a sodium amalgam (Na-Hg).</li>
+          <li><strong>Chloride ions (Cl⁻) migrate</strong> to the titanium anode and are discharged as chlorine gas (which exits from the top).</li>
+          <li>The <strong>sodium amalgam is transferred</strong> to a separate chamber called the <strong>denuder</strong>.</li>
+          <li>In the denuder, the amalgam is treated with <strong>water</strong> to form a <strong>sodium hydroxide solution</strong>.</li>
+          <li>The solution is <strong>evaporated</strong> to obtain solid NaOH.</li>
+        </ol>
+
+        <div class="reaction-block">
+          <span class="label">Ionization of Brine</span>
+          <div class="eq">2NaCl → 2Na⁺ + 2Cl⁻</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">At the Anode (Oxidation)</span>
+          <div class="eq">2Cl⁻ → Cl₂ + 2e⁻</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">At the Cathode (Reduction)</span>
+          <div class="eq">2Na⁺ + 2e⁻ → 2Na (dissolves in Hg to form amalgam)</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">In the Denuder (with water)</span>
+          <div class="eq">2Na(Hg) + 2H₂O → 2NaOH + H₂(g) + 2Hg</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why mercury?</div>
+          <p>
+            Mercury is used because sodium dissolves readily in it to form an amalgam. This keeps the sodium separated from the water, preventing it from reacting with water directly. The mercury is <strong>recycled back to the cell</strong>. However, mercury is toxic — strict precautions are needed to prevent mercury losses.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The efficiency advantage</div>
+          <p>
+            The Castner-Kellner process is a very efficient way to obtain <strong>pure caustic soda</strong> from brine. The chlorine gas produced at the anode is a valuable by-product.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="safety">
+      <div class="section-header"><div class="section-icon">⚠️</div>
+        <div><div class="section-title-text">Safety and Health Effects</div><div class="section-subtitle">Handling caustic compounds</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 NaOH Safety (MoE Textbook, p. 181)</div>
+          <p>
+            • <strong>Strong corrosive qualities</strong> — exposure to solid NaOH or its solution can cause <strong>skin and eye irritation</strong><br>
+            • Decomposes proteins at room temperature<br>
+            • Causes chemical burns on contact with human skin<br>
+            • <strong>High affinity for water</strong> — may form hydrates depending on concentration<br>
+            • Some hydrates have melting points &gt; 0 °C, so <strong>insulation or heating during storage</strong> may be needed<br>
+            • Wear goggles, gloves, and lab coat when handling
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 First aid</div>
+          <p>
+            • <strong>Skin contact:</strong> Flush with plenty of water for at least 15 minutes, then seek medical attention<br>
+            • <strong>Eye contact:</strong> Flush with water for at least 15 minutes while holding eyelids open, seek medical attention immediately<br>
+            • <strong>Ingestion:</strong> Do NOT induce vomiting. Rinse mouth, drink water or milk, seek medical attention
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Na₂CO₃ is milder but still alkaline</div>
+          <p>
+            Sodium carbonate is less dangerous than NaOH, but its aqueous solution is still <strong>moderately alkaline</strong>. Prolonged contact can irritate skin. Always handle with basic lab safety.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Key reactions from Lesson 3.6</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🧂 Lesson 3.6 — Na₂CO₃ & NaOH</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Solvay — Step 1</div><div class="formula-math">CaCO₃ → CaO + CO₂</div><div class="formula-note">Calcination of limestone</div></div>
+          <div class="formula-item"><div class="formula-name">Solvay — Step 2</div><div class="formula-math">CaO + H₂O → Ca(OH)₂</div><div class="formula-note">Slaking of lime</div></div>
+          <div class="formula-item"><div class="formula-name">Solvay — Step 3</div><div class="formula-math">2NaCl + 2CO₂ + 2NH₃ + 2H₂O → 2NaHCO₃ + 2NH₄Cl</div><div class="formula-note">Formation of NaHCO₃</div></div>
+          <div class="formula-item"><div class="formula-name">Solvay — Step 4</div><div class="formula-math">2NaHCO₃ → Na₂CO₃ + H₂O + CO₂</div><div class="formula-note">Decomposition</div></div>
+          <div class="formula-item"><div class="formula-name">Solvay — Step 5</div><div class="formula-math">Ca(OH)₂ + 2NH₄Cl → CaCl₂ + 2NH₃ + 2H₂O</div><div class="formula-note">Recovery of NH₃</div></div>
+          <div class="formula-item"><div class="formula-name">Solvay — Overall</div><div class="formula-math">CaCO₃ + 2NaCl → Na₂CO₃ + CaCl₂</div><div class="formula-note">Net reaction</div></div>
+          <div class="formula-item"><div class="formula-name">Castner-Kellner — anode</div><div class="formula-math">2Cl⁻ → Cl₂ + 2e⁻</div><div class="formula-note">Cl₂ produced</div></div>
+          <div class="formula-item"><div class="formula-name">Castner-Kellner — cathode</div><div class="formula-math">2Na⁺ + 2e⁻ → 2Na(Hg)</div><div class="formula-note">Sodium amalgam</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Name the Compound</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Give the chemical formula for (a) washing soda, (b) soda ash, and (c) baking soda.</div>
+          <div class="example-step"><span class="step-badge">(a) Washing soda</span><div class="step-text"><span class="math">Na₂CO₃·10H₂O</span> — the decahydrate of sodium carbonate</div></div>
+          <div class="example-step"><span class="step-badge">(b) Soda ash</span><div class="step-text"><span class="math">Na₂CO₃</span> — anhydrous sodium carbonate (commercial form)</div></div>
+          <div class="example-step"><span class="step-badge">(c) Baking soda</span><div class="step-text"><span class="math">NaHCO₃</span> — sodium hydrogen carbonate (DIFFERENT compound)</div></div>
+          <div class="example-answer">✅ Washing soda = Na₂CO₃·10H₂O; Soda ash = Na₂CO₃; Baking soda = NaHCO₃</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Write the Solvay Overall Reaction</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Write the overall reaction of the Solvay process. Why is NH₃ not shown in the overall reaction?</div>
+          <div class="example-step"><span class="step-badge">Overall</span><div class="step-text"><span class="math">CaCO₃ + 2NaCl → Na₂CO₃ + CaCl₂</span></div></div>
+          <div class="example-step"><span class="step-badge">NH₃ role</span><div class="step-text">NH₃ is used in Step 3 and <span class="math">regenerated</span> in Step 5</div></div>
+          <div class="example-step"><span class="step-badge">Catalyst</span><div class="step-text">Because it is not consumed overall, NH₃ acts as a <span class="math">catalyst</span>, so it doesn't appear in the net equation</div></div>
+          <div class="example-answer">✅ CaCO₃ + 2NaCl → Na₂CO₃ + CaCl₂; NH₃ is a recycled catalyst</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Identify the By-Product</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What is the main by-product of the Solvay process, and where does it come from?</div>
+          <div class="example-step"><span class="step-badge">By-product</span><div class="step-text"><span class="math">CaCl₂</span> (calcium chloride)</div></div>
+          <div class="example-step"><span class="step-badge">Source</span><div class="step-text">Formed in Step 5 when Ca(OH)₂ reacts with NH₄Cl: <span class="math">Ca(OH)₂ + 2NH₄Cl → CaCl₂ + 2NH₃ + 2H₂O</span></div></div>
+          <div class="example-step"><span class="step-badge">Fate</span><div class="step-text">The NH₃ is recycled; the CaCl₂ is a by-product that must be disposed of or sold</div></div>
+          <div class="example-answer">✅ Main by-product = CaCl₂ (calcium chloride)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Why Mercury in Castner-Kellner?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why is mercury used as the cathode in the Castner-Kellner process instead of a solid metal cathode?</div>
+          <div class="example-step"><span class="step-badge">Amalgam</span><div class="step-text">Sodium dissolves readily in mercury to form a <span class="math">sodium amalgam (Na-Hg)</span></div></div>
+          <div class="example-step"><span class="step-badge">Separates Na from H₂O</span><div class="step-text">This keeps the sodium separated from the water in the brine, <span class="math">preventing it from reacting directly with water</span></div></div>
+          <div class="example-step"><span class="step-badge">Reaction control</span><div class="step-text">The amalgam is transferred to a separate <span class="math">denuder</span>, where water reacts with Na to form NaOH safely</div></div>
+          <div class="example-step"><span class="step-badge">Mercury recycled</span><div class="step-text">Mercury is recovered and recycled back to the cell — very efficient, but needs care because mercury is <span class="math">toxic</span></div></div>
+          <div class="example-answer">✅ Mercury forms a sodium amalgam that separates Na from water; the amalgam is then safely decomposed in the denuder</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Why Does Na₂CO₃ Solution Feel Soapy?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why an aqueous solution of Na₂CO₃ is alkaline, using the appropriate reaction equation.</div>
+          <div class="example-step"><span class="step-badge">Hydrolysis</span><div class="step-text">The carbonate ion (CO₃²⁻) is the conjugate base of a weak acid (H₂CO₃). It hydrolyzes water:</div></div>
+          <div class="example-step"><span class="step-badge">Reaction</span><div class="step-text"><span class="math">Na₂CO₃(s) + 2H₂O(l) → H₂CO₃(aq) + 2Na⁺(aq) + 2OH⁻(aq)</span></div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">OH⁻ ions are produced → the solution is <span class="math">basic</span> (that's why it feels soapy — saponification of skin oils)</div></div>
+          <div class="example-answer">✅ CO₃²⁻ hydrolyzes water to give OH⁻, making the solution alkaline (soapy feel)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The Solvay process is used to manufacture:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Sodium hydroxide (NaOH)</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Nitric acid (HNO₃)</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Sodium carbonate (Na₂CO₃)</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Sulphuric acid (H₂SO₄)</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The main by-product of the Solvay process is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> NaCl</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> NaOH</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> CaCl₂</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> CaCO₃</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">The Castner-Kellner process uses which electrode material as the cathode?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Platinum</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Graphite</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Mercury (as a layer at the bottom of the cell)</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Titanium</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">In the Solvay process, ammonia (NH₃) is used but does not appear in the overall equation because:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> It is fully consumed in Step 3</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> It is destroyed by heat</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> It is regenerated in Step 5 and acts as a catalyst</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> It is replaced by NaOH</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The reaction that occurs in the denuder of the Castner-Kellner cell is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> 2Cl⁻ → Cl₂ + 2e⁻</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> 2Na⁺ + 2e⁻ → 2Na</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> 2Na(Hg) + 2H₂O → 2NaOH + H₂ + 2Hg</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> NaCl + H₂O → NaOH + HCl</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-3-7.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=solvay+process+sodium+carbonate" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">The Solvay Process — Making Sodium Carbonate</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=castner+kellner+process+sodium+hydroxide" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Castner-Kellner Process — NaOH Production</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=chlor+alkali+process+mercury+cell" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Chlor-Alkali Process — Mercury Cell Method</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=sodium+carbonate+uses+glass+manufacturing" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Uses of Sodium Carbonate — Glass and Soap</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 3.6</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Na₂CO₃ & NaOH</div>
+        <ul class="summary-list">
+          <li><strong>Sodium carbonate (Na₂CO₃)</strong> — also called soda ash (anhydrous) or washing soda (decahydrate Na₂CO₃·10H₂O)</li>
+          <li>Physical: white crystalline solid; density 2.54 g/cm³; mp 851 °C; bp 1,600 °C; hygroscopic; two forms — light (0.7 g/mL) and dense (0.9 g/mL)</li>
+          <li>Chemical: hydrolyzes in water to give alkaline solution; absorbs CO₂ from air to form NaHCO₃</li>
+          <li><strong>Main use:</strong> glass manufacturing (~50%); also soaps, detergents, paper, textiles, water treatment, cleaning</li>
+          <li><strong>Solvay process</strong> — 5 steps: calcination → slaking → main reaction → decomposition → ammonia recovery</li>
+          <li>Solvay <strong>overall reaction:</strong> CaCO₃ + 2NaCl → Na₂CO₃ + CaCl₂</li>
+          <li>NH₃ acts as a <strong>recycled catalyst</strong> in the Solvay process</li>
+          <li><strong>Main by-product:</strong> CaCl₂</li>
+          <li><strong>Sodium hydroxide (NaOH)</strong> — also called caustic soda; does not occur in nature</li>
+          <li>Physical: white translucent solid; mp 591 K; strongly alkaline; strongly corrosive; causes chemical burns</li>
+          <li><strong>Main use:</strong> soap and detergent manufacturing; also paper, alumina extraction, textiles, water treatment, drain cleaners</li>
+          <li><strong>Castner-Kellner process:</strong> electrolysis of brine with titanium anode + mercury cathode → Cl₂ (anode) + Na-Hg amalgam; amalgam treated with water in denuder → NaOH</li>
+          <li>Mercury is <strong>recycled</strong> but is toxic — requires careful handling</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §3.3.6 + §3.3.7 (pp. 178–182)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-5.html" class="btn btn-ghost">← Lesson 3.5: Sulphuric Acid</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 6 of 9</div>
+      <a href="lesson-3-7.html" class="btn btn-primary">Next: Pesticides & Herbicides →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! The Solvay process manufactures sodium carbonate (Na₂CO₃).',wrong:'✗ Solvay process → Na₂CO₃.'},
+    2:{C:'✓ Correct! The main by-product of the Solvay process is calcium chloride (CaCl₂).',wrong:'✗ Main by-product = CaCl₂.'},
+    3:{C:'✓ Correct! Mercury forms the cathode in the Castner-Kellner cell.',wrong:'✗ Castner-Kellner cathode = mercury (amalgam formation).'},
+    4:{C:'✓ Correct! NH₃ is used in Step 3 and regenerated in Step 5, so it acts as a catalyst.',wrong:'✗ NH₃ is regenerated — it is a recycled catalyst.'},
+    5:{C:'✓ Correct! Denuder reaction: 2Na(Hg) + 2H₂O → 2NaOH + H₂ + 2Hg.',wrong:'✗ Denuder: sodium amalgam + water → NaOH + H₂.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','na2co3','solvay','naoh','castner','safety','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
