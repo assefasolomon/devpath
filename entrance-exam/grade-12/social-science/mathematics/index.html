@@ -3,113 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grade 12 Mathematics | Entrance Exam Prep</title>
+  <title>Mathematics · Social Science · Grade 12 | Freelance Skills Hub</title>
   <link rel="stylesheet" href="../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
-    .course-hero{background:linear-gradient(135deg,#0F172A,#14532D);padding:3rem 2rem}
-    .course-hero-inner{max-width:800px;margin:0 auto}
-    .course-stream-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);color:#86EFAC;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:999px;margin-bottom:1rem}
-    .course-hero h1{font-size:2.25rem;font-weight:900;color:#fff;margin-bottom:.5rem}
-    .course-hero p{color:rgba(255,255,255,.7);font-size:.95rem;line-height:1.7;margin-bottom:1.5rem}
-    .course-stats{display:flex;gap:2rem;flex-wrap:wrap}
-    .course-stat-num{font-size:1.5rem;font-weight:800;color:#22C55E}
-    .course-stat-label{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:2px}
-    .wrap{max-width:900px;margin:0 auto;padding:3rem 2rem}
-    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
-    .breadcrumb a{color:var(--brand-primary);text-decoration:none}
-    .unit-section{margin-bottom:2.5rem}
-    .unit-header{display:flex;align-items:center;gap:12px;padding:1rem 1.25rem;background:var(--brand-primary);border-radius:var(--radius-lg);margin-bottom:1rem;color:#fff}
-    .unit-header.common{background:#1E40AF}
-    .unit-num{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;flex-shrink:0}
-    .unit-title{font-size:1rem;font-weight:700}
-    .unit-sub{font-size:.78rem;color:rgba(255,255,255,.65);margin-top:2px}
-    .common-notice{background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:2rem;font-size:.875rem;color:#1E40AF;line-height:1.6}
-    .common-notice strong{color:#1D4ED8}
-    .lessons-list{display:flex;flex-direction:column;gap:.625rem}
-    .lesson-item{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition)}
-    .lesson-item.available:hover{border-color:var(--brand-accent);box-shadow:var(--shadow);transform:translateX(4px)}
-    .lesson-item.locked{opacity:.55;cursor:not-allowed;pointer-events:none}
-    .lesson-item.common-link{border-color:#BFDBFE;background:#F0F9FF}
-    .lesson-item.common-link:hover{border-color:#3B82F6;background:#EFF6FF;transform:translateX(4px)}
-    .lesson-left{display:flex;align-items:center;gap:.875rem}
-    .lesson-right{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
-    .lesson-num{width:32px;height:32px;border-radius:50%;background:var(--brand-light);color:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:800;flex-shrink:0}
-    .lesson-num.done{background:var(--brand-primary);color:#fff}
-    .lesson-num.common{background:#DBEAFE;color:#1E40AF}
-    .lesson-title{font-size:.9rem;font-weight:700;color:var(--heading)}
-    .lesson-desc{font-size:.78rem;color:var(--text-muted);margin-top:2px}
-    .lesson-badge{font-size:.7rem;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
-    .badge-available{background:#DCFCE7;color:#166534}
-    .badge-locked{background:var(--surface-2);color:var(--text-muted)}
-    .badge-quiz{background:#DBEAFE;color:#1E40AF}
-    .badge-common{background:#DBEAFE;color:#1E40AF}
-  
-    /* ═══════════════════════════════════════════════════════════
-       RESPONSIVE — Tablet (≤ 900px)
-       ═══════════════════════════════════════════════════════════ */
-    @media (max-width: 900px) {
-      .course-hero { padding: 2.5rem 1.5rem; }
-      .course-hero h1 { font-size: 1.875rem; }
-      .course-hero p { font-size: .9rem; }
-      .wrap { padding: 2.5rem 1.5rem; }
-    }
-
-    /* ═══════════════════════════════════════════════════════════
-       RESPONSIVE — Phone (≤ 640px)
-       ═══════════════════════════════════════════════════════════ */
-    @media (max-width: 640px) {
-      .course-hero { padding: 2rem 1rem; }
-      .course-hero h1 { font-size: clamp(1.5rem, 6vw, 1.875rem); line-height: 1.2; }
-      .course-hero p { font-size: .875rem; line-height: 1.6; }
-      .course-stream-tag { font-size: .68rem; padding: 3px 10px; }
-      .course-stats { gap: 1rem 1.5rem; }
-      .course-stat-num { font-size: 1.25rem; }
-      .course-stat-label { font-size: .68rem; }
-      .wrap { padding: 2rem 1rem; }
-      .breadcrumb { row-gap: 4px; font-size: .75rem; margin-bottom: 1.5rem; }
-      .common-notice { padding: .875rem 1rem; font-size: .8rem; margin-bottom: 1.5rem; }
-      .unit-section { margin-bottom: 2rem; }
-      .unit-header { padding: .875rem 1rem; gap: 10px; }
-      .unit-num { width: 28px; height: 28px; font-size: .75rem; }
-      .unit-title { font-size: .95rem; line-height: 1.3; }
-      .unit-sub { font-size: .72rem; }
-      .lesson-item {
-        flex-direction: column;
-        align-items: stretch;
-        gap: .75rem;
-        padding: .875rem 1rem;
-      }
-      .lesson-item.available:hover,
-      .lesson-item.common-link:hover { transform: none; }
-      .lesson-left { gap: .75rem; align-items: flex-start; }
-      .lesson-num { width: 28px; height: 28px; font-size: .72rem; margin-top: 2px; }
-      .lesson-title { font-size: .875rem; }
-      .lesson-desc { font-size: .75rem; line-height: 1.5; }
-      .lesson-right { width: 100%; flex-wrap: wrap; gap: 6px; padding-left: 38px; }
-      .lesson-badge { font-size: .68rem; padding: 3px 9px; }
-    }
-
-    /* ═══════════════════════════════════════════════════════════
-       RESPONSIVE — Small phone (≤ 380px)
-       ═══════════════════════════════════════════════════════════ */
-    @media (max-width: 380px) {
-      .course-hero { padding: 1.5rem .875rem; }
-      .course-hero h1 { font-size: 1.375rem; }
-      .course-hero p { font-size: .8rem; }
-      .course-stream-tag { font-size: .62rem; }
-      .course-stat-num { font-size: 1.1rem; }
-      .course-stat-label { font-size: .62rem; }
-      .wrap { padding: 1.5rem .875rem; }
-      .common-notice { padding: .75rem .875rem; font-size: .75rem; }
-      .unit-header { padding: .75rem .875rem; }
-      .unit-title { font-size: .875rem; }
-      .unit-sub { font-size: .68rem; }
-      .lesson-item { padding: .75rem .875rem; }
-      .lesson-title { font-size: .82rem; }
-      .lesson-desc { font-size: .7rem; }
-      .lesson-right { padding-left: 34px; }
-      .lesson-badge { font-size: .62rem; padding: 2px 8px; }
+    body{background:#F8FAFC}
+    .math-hero{background:linear-gradient(135deg,#0F172A 0%,#1E40AF 100%);padding:3rem 2rem 3.5rem;color:#fff;position:relative;overflow:hidden}
+    .math-hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(30,64,175,.15),transparent 70%);border-radius:50%;pointer-events:none}
+    .math-hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+    .math-hero .tag{display:inline-flex;gap:6px;background:rgba(30,64,175,.18);border:1px solid rgba(30,64,175,.35);color:#93C5FD;font-size:.75rem;font-weight:600;padding:4px 14px;border-radius:999px;margin-bottom:1rem}
+    .math-hero h1{font-size:2.25rem;font-weight:900;color:#fff;margin-bottom:.5rem;letter-spacing:-.02em}
+    .math-hero p{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.7;max-width:680px;margin-bottom:1.5rem}
+    .hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:1.5rem}
+    .hero-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.25rem}
+    .hero-stat .num{font-size:1.75rem;font-weight:900;color:#fff;line-height:1}
+    .hero-stat .label{font-size:.72rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;margin-top:.35rem}
+    .wrap{max-width:1000px;margin:0 auto;padding:3rem 2rem}
+    .breadcrumb{display:flex;gap:6px;font-size:.82rem;color:var(--text-muted,#64748b);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#1E40AF;text-decoration:none}
+    .breadcrumb a:hover{text-decoration:underline}
+    .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+    .progress-summary{font-size:.8rem;font-weight:600;color:#1E40AF;background:#EFF6FF;border:1px solid #BFDBFE;padding:4px 12px;border-radius:999px}
+    .unit-block{margin-bottom:1.75rem}
+    .unit-header{background:linear-gradient(135deg,#1E3A8A,#1E40AF);border-radius:16px 16px 0 0;padding:1.25rem 1.75rem;color:#fff;display:flex;align-items:center;gap:1.25rem}
+    .unit-num{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:1.25rem;font-weight:900;flex-shrink:0}
+    .unit-info{flex:1;min-width:0}
+    .unit-title{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.2rem}
+    .unit-subtitle{font-size:.78rem;color:rgba(255,255,255,.75)}
+    .unit-badge{font-size:.68rem;font-weight:700;background:rgba(255,255,255,.18);color:#fff;padding:3px 10px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
+    .lessons-list{background:#fff;border:1.5px solid #e2e8f0;border-top:none;border-radius:0 0 16px 16px;padding:.5rem}
+    .lesson-item{display:flex;align-items:center;gap:1rem;padding:.875rem 1.25rem;border-radius:12px;text-decoration:none;color:inherit;transition:all .2s ease;cursor:pointer}
+    .lesson-item:hover{background:#EFF6FF;transform:translateX(3px)}
+    .lesson-item.locked{opacity:.6;cursor:not-allowed;pointer-events:none}
+    .lesson-item.locked:hover{background:transparent;transform:none}
+    .lesson-num{width:32px;height:32px;border-radius:50%;background:#DBEAFE;color:#1E40AF;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;flex-shrink:0}
+    .lesson-item.locked .lesson-num{background:#F1F5F9;color:#94a3b8}
+    .lesson-body{flex:1;min-width:0}
+    .lesson-title{font-size:.92rem;font-weight:700;color:#0f172a;margin-bottom:.15rem}
+    .lesson-desc{font-size:.78rem;color:#64748b;line-height:1.5}
+    .lesson-tag{font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:999px;flex-shrink:0}
+    .lesson-tag.common{background:#DBEAFE;color:#1E40AF}
+    .lesson-tag.ss{background:#DCFCE7;color:#166534}
+    .lesson-tag.locked{background:#F1F5F9;color:#94a3b8}
+    .lesson-quizzes{font-size:.72rem;color:#64748b;font-weight:600;flex-shrink:0}
+    @media (max-width: 640px){
+      .math-hero{padding:2.25rem 1rem 2.5rem}
+      .math-hero h1{font-size:1.6rem}
+      .wrap{padding:2rem 1rem}
+      .unit-header{padding:1rem 1.25rem;gap:.875rem;flex-wrap:wrap}
+      .unit-num{width:40px;height:40px;font-size:1.05rem}
+      .unit-title{font-size:1rem}
+      .lesson-item{padding:.75rem 1rem;gap:.75rem;flex-wrap:wrap}
+      .lesson-desc{display:none}
     }
   </style>
 </head>
@@ -126,256 +71,520 @@
     </div>
     <div class="fsh-logo-text">
       <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Mathematics</span>
+      <span class="fsh-logo-tag">Mathematics · Social Science</span>
     </div>
   </a>
   <div class="fsh-nav-actions">
-    <a href="../../../index.html" class="btn btn-ghost btn-sm">← Grade 12</a>
-    <a href="../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Social Science</a>
+    <a href="/dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
   </div>
 </nav>
 
-<div class="course-hero">
-  <div class="course-hero-inner">
-    <div class="course-stream-tag">📊 Common Course · Grade 12</div>
-    <h1>📐 Mathematics</h1>
-    <p>Grade 12 Mathematics is a <strong>Common Course</strong> — Units 1–5 are shared by both Natural Science and Social Science students. Units 8 and 9 are exclusively for Social Science students and cover advanced Statistics and Business Mathematics.</p>
-    <div class="course-stats">
-      <div><div class="course-stat-num">7</div><div class="course-stat-label">Units</div></div>
-      <div><div class="course-stat-num">23</div><div class="course-stat-label">Lessons</div></div>
-      <div><div class="course-stat-num">115</div><div class="course-stat-label">Quiz Questions</div></div>
-      <div><div class="course-stat-num">4 yrs</div><div class="course-stat-label">Past Exams</div></div>
+<div class="math-hero">
+  <div class="math-hero-inner">
+    <div class="tag">📐 Grade 12 · Social Science Stream</div>
+    <h1>Mathematics</h1>
+    <p>Complete Grade 12 Mathematics preparation for the Ethiopian University Entrance Examination — with common units shared with Natural Science, plus Social Science–specific units 8 and 9.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">9</div><div class="label">Units</div></div>
+      <div class="hero-stat"><div class="num">37</div><div class="label">Lessons</div></div>
+      <div class="hero-stat"><div class="num">185</div><div class="label">Quiz Questions</div></div>
+      <div class="hero-stat"><div class="num">100%</div><div class="label">Complete</div></div>
     </div>
   </div>
 </div>
 
 <div class="wrap">
-
   <div class="breadcrumb">
     <a href="../../../../index.html">Home</a> ›
     <a href="../../../index.html">Entrance Exam</a> ›
     <a href="../../index.html">Grade 12</a> ›
+    <a href="../index.html">Social Science</a> ›
     <span>Mathematics</span>
   </div>
 
-  <div class="common-notice">
-    📘 <strong>Common Course:</strong> Units 1–5 below are shared with Natural Science students — the content is identical. Click any available lesson to study it. Units 8 and 9 are Social Science exclusive content.
+  <div class="section-title">
+    <span>Common Units (1–7)</span>
+    <span class="progress-summary">Shared with Natural Science</span>
   </div>
 
-  <!-- UNIT 1 — COMMON -->
-  <div class="unit-section">
-    <div class="unit-header common">
+  <!-- UNIT 1 -->
+  <div class="unit-block">
+    <div class="unit-header">
       <div class="unit-num">1</div>
-      <div>
+      <div class="unit-info">
         <div class="unit-title">Sequences and Series</div>
-        <div class="unit-sub">Common Unit · Arithmetic, Geometric and Infinite Series</div>
+        <div class="unit-subtitle">Common Unit · Arithmetic and geometric sequences and series</div>
       </div>
+      <span class="unit-badge">Common</span>
     </div>
     <div class="lessons-list">
-      <a href="../../natural-science/mathematics/lessons/unit1-lesson1.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">1</div><div><div class="lesson-title">Introduction to Sequences</div><div class="lesson-desc">Definition, notation, types and patterns of sequences</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit1-lesson1.html" class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Introduction to Sequences</div>
+          <div class="lesson-desc">Definition, notation, types and patterns of sequences</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit1-lesson2.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">2</div><div><div class="lesson-title">Arithmetic Sequences</div><div class="lesson-desc">Common difference, nth term formula and applications</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit1-lesson2.html" class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Arithmetic Sequences</div>
+          <div class="lesson-desc">Common difference, nth term formula and applications</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit1-lesson3.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">3</div><div><div class="lesson-title">Geometric Sequences</div><div class="lesson-desc">Common ratio, nth term and geometric means</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit1-lesson3.html" class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Geometric Sequences</div>
+          <div class="lesson-desc">Common ratio, nth term and geometric means</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit1-lesson4.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">4</div><div><div class="lesson-title">Arithmetic Series and Sigma Notation</div><div class="lesson-desc">Sum formulas, sigma notation and partial sums</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit1-lesson4.html" class="lesson-item">
+        <div class="lesson-num">4</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Arithmetic Series</div>
+          <div class="lesson-desc">Sum of arithmetic sequences and applications</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit1-lesson5.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">5</div><div><div class="lesson-title">Geometric Series and Infinite Series</div><div class="lesson-desc">Sum of geometric series, convergence and applications</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit1-lesson5.html" class="lesson-item">
+        <div class="lesson-num">5</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Geometric Series and Infinite Series</div>
+          <div class="lesson-desc">Sum of geometric series, convergence and applications</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
     </div>
   </div>
 
-  <!-- UNIT 2 — COMMON -->
-  <div class="unit-section">
-    <div class="unit-header common">
+  <!-- UNIT 2 -->
+  <div class="unit-block">
+    <div class="unit-header">
       <div class="unit-num">2</div>
-      <div>
+      <div class="unit-info">
         <div class="unit-title">Introduction to Limits and Continuity</div>
-        <div class="unit-sub">Common Unit · Limits, Continuity and applications</div>
+        <div class="unit-subtitle">Common Unit · Limits, limit theorems, and continuity</div>
       </div>
+      <span class="unit-badge">Common</span>
     </div>
     <div class="lessons-list">
-      <a href="../../natural-science/mathematics/lessons/unit2-lesson1.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">1</div><div><div class="lesson-title">Concept of a Limit</div><div class="lesson-desc">Intuitive approach, notation and existence of limits</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit2-lesson1.html" class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Concept of a Limit</div>
+          <div class="lesson-desc">Intuitive approach, notation and existence of limits</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit2-lesson2.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">2</div><div><div class="lesson-title">Limit Theorems</div><div class="lesson-desc">Rules for computing limits algebraically</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit2-lesson2.html" class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Limit Theorems</div>
+          <div class="lesson-desc">Rules for computing limits algebraically</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit2-lesson3.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">3</div><div><div class="lesson-title">One-Sided Limits</div><div class="lesson-desc">Left-hand and right-hand limits</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit2-lesson3.html" class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-body">
+          <div class="lesson-title">One-Sided Limits</div>
+          <div class="lesson-desc">Left-hand and right-hand limits</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit2-lesson4.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">4</div><div><div class="lesson-title">Continuity of Functions</div><div class="lesson-desc">Definition, types of discontinuity and Intermediate Value Theorem</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit2-lesson4.html" class="lesson-item">
+        <div class="lesson-num">4</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Continuity of Functions</div>
+          <div class="lesson-desc">Definition, types of discontinuity and Intermediate Value Theorem</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
     </div>
   </div>
 
-  <!-- UNIT 3 — COMMON -->
-  <div class="unit-section">
-    <div class="unit-header common">
+  <!-- UNIT 3 -->
+  <div class="unit-block">
+    <div class="unit-header">
       <div class="unit-num">3</div>
-      <div>
+      <div class="unit-info">
         <div class="unit-title">Introduction to Differential Calculus</div>
-        <div class="unit-sub">Common Unit · Derivatives and differentiation rules</div>
+        <div class="unit-subtitle">Common Unit · Derivatives and their applications</div>
       </div>
+      <span class="unit-badge">Common</span>
     </div>
     <div class="lessons-list">
-      <a href="../../natural-science/mathematics/lessons/unit3-lesson1.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">1</div><div><div class="lesson-title">The Derivative</div><div class="lesson-desc">Definition using limits, slope of tangent line</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit3-lesson1.html" class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-body">
+          <div class="lesson-title">The Derivative</div>
+          <div class="lesson-desc">Definition using limits, slope of tangent line</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit3-lesson2.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">2</div><div><div class="lesson-title">Rules of Differentiation</div><div class="lesson-desc">Power, product, quotient and chain rules</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit3-lesson2.html" class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Rules of Differentiation</div>
+          <div class="lesson-desc">Power, product, quotient and chain rules</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit3-lesson3.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">3</div><div><div class="lesson-title">Derivatives of Combinations and Compositions</div><div class="lesson-desc">Chain rule in depth, implicit differentiation</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit3-lesson3.html" class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Higher Order Derivatives</div>
+          <div class="lesson-desc">Second and higher derivatives and their meaning</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+      <a href="../../natural-science/mathematics/lessons/unit3-lesson4.html" class="lesson-item">
+        <div class="lesson-num">4</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Applications of Derivatives</div>
+          <div class="lesson-desc">Increasing/decreasing, extrema, optimization problems</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
     </div>
   </div>
 
-  <!-- UNIT 4 — COMMON -->
-  <div class="unit-section">
-    <div class="unit-header common">
+  <!-- UNIT 4 -->
+  <div class="unit-block">
+    <div class="unit-header">
       <div class="unit-num">4</div>
-      <div>
-        <div class="unit-title">Applications of Differential Calculus</div>
-        <div class="unit-sub">Common Unit · Extrema, optimisation and rate of change</div>
-      </div>
-    </div>
-    <div class="lessons-list">
-      <a href="../../natural-science/mathematics/lessons/unit3-lesson4.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">1</div><div><div class="lesson-title">Extreme Values of Functions</div><div class="lesson-desc">Local and global maxima and minima, first and second derivative tests</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
-      </a>
-      <a href="../../natural-science/mathematics/lessons/unit3-lesson4.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">2</div><div><div class="lesson-title">Minimisation and Maximisation Problems</div><div class="lesson-desc">Applied optimisation using calculus</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
-      </a>
-      <div class="lesson-item locked">
-        <div class="lesson-left"><div class="lesson-num">4</div><div><div class="lesson-title">Rate of Change</div><div class="lesson-desc">Related rates and real-world rate of change problems</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-locked">🔒 Coming Soon</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- UNIT 5 — COMMON -->
-  <div class="unit-section">
-    <div class="unit-header common">
-      <div class="unit-num">5</div>
-      <div>
+      <div class="unit-info">
         <div class="unit-title">Introduction to Integral Calculus</div>
-        <div class="unit-sub">Common Unit · Integration and applications</div>
+        <div class="unit-subtitle">Common Unit · Antiderivatives, definite integrals, and applications</div>
       </div>
+      <span class="unit-badge">Common</span>
     </div>
     <div class="lessons-list">
-      <a href="../../natural-science/mathematics/lessons/unit4-lesson1.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">1</div><div><div class="lesson-title">Integration as Reverse of Differentiation</div><div class="lesson-desc">Antiderivatives, indefinite integrals and basic rules</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit4-lesson1.html" class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Antiderivatives and Indefinite Integrals</div>
+          <div class="lesson-desc">Basic integration rules and techniques</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit4-lesson2.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">2</div><div><div class="lesson-title">Techniques of Integration</div><div class="lesson-desc">Substitution, integration by parts and special cases</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit4-lesson2.html" class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Definite Integrals</div>
+          <div class="lesson-desc">Fundamental Theorem of Calculus</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="../../natural-science/mathematics/lessons/unit4-lesson2.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">3</div><div><div class="lesson-title">Definite Integrals, Area and Fundamental Theorem</div><div class="lesson-desc">FTC, definite integrals and area under curves</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
-      </a>
-      <a href="../../natural-science/mathematics/lessons/unit4-lesson3.html" class="lesson-item common-link">
-        <div class="lesson-left"><div class="lesson-num common">4</div><div><div class="lesson-title">Applications of Integral Calculus</div><div class="lesson-desc">Area between curves, displacement and total distance</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-common">📘 Common</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="../../natural-science/mathematics/lessons/unit4-lesson3.html" class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Applications of Integration</div>
+          <div class="lesson-desc">Area under curves and between curves</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
     </div>
   </div>
 
-  <!-- UNIT 8 — SOCIAL SCIENCE ONLY -->
-  <div class="unit-section">
+  <!-- UNIT 5 -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">5</div>
+      <div class="unit-info">
+        <div class="unit-title">Statistics and Probability</div>
+        <div class="unit-subtitle">Common Unit · Data analysis, probability, and distributions</div>
+      </div>
+      <span class="unit-badge">Common</span>
+    </div>
+    <div class="lessons-list">
+      <a href="../../natural-science/mathematics/lessons/unit5-lesson1.html" class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Statistical Data Analysis</div>
+          <div class="lesson-desc">Measures of central tendency and dispersion</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+      <a href="../../natural-science/mathematics/lessons/unit5-lesson2.html" class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Introduction to Probability</div>
+          <div class="lesson-desc">Sample space, events and probability rules</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+      <a href="../../natural-science/mathematics/lessons/unit5-lesson3.html" class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Probability Distributions</div>
+          <div class="lesson-desc">Binomial, normal distribution and applications</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- UNIT 6 -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">6</div>
+      <div class="unit-info">
+        <div class="unit-title">Coordinate Geometry in Space</div>
+        <div class="unit-subtitle">Common Unit · 3D coordinates, spheres, and vectors</div>
+      </div>
+      <span class="unit-badge">Common</span>
+    </div>
+    <div class="lessons-list">
+      <a href="../../natural-science/mathematics/lessons/unit6-lesson1.html" class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Coordinate Axes and Coordinate Planes in Space</div>
+          <div class="lesson-desc">3D coordinate system, axes, planes and octants</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+      <a href="../../natural-science/mathematics/lessons/unit6-lesson2.html" class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Coordinates of a Point in Space</div>
+          <div class="lesson-desc">Plotting and reading points in 3D, ordered triples</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+      <a href="../../natural-science/mathematics/lessons/unit6-lesson3.html" class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Distance Between Two Points in Space</div>
+          <div class="lesson-desc">3D distance formula and applications</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+      <a href="../../natural-science/mathematics/lessons/unit6-lesson4.html" class="lesson-item">
+        <div class="lesson-num">4</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Midpoint of a Line Segment in Space</div>
+          <div class="lesson-desc">3D midpoint formula and applications</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+      <a href="../../natural-science/mathematics/lessons/unit6-lesson5.html" class="lesson-item">
+        <div class="lesson-num">5</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Equation of a Sphere</div>
+          <div class="lesson-desc">Standard form, centre, radius and related problems</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+      <a href="../../natural-science/mathematics/lessons/unit6-lesson6.html" class="lesson-item">
+        <div class="lesson-num">6</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Vectors in Space</div>
+          <div class="lesson-desc">3D vectors, operations, dot product and applications</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- UNIT 7 -->
+  <div class="unit-block">
+    <div class="unit-header">
+      <div class="unit-num">7</div>
+      <div class="unit-info">
+        <div class="unit-title">Mathematical Logic and Proof</div>
+        <div class="unit-subtitle">Common Unit · Logic, propositions, and proof methods</div>
+      </div>
+      <span class="unit-badge">Common</span>
+    </div>
+    <div class="lessons-list">
+      <a href="../../natural-science/mathematics/lessons/unit7-lesson1.html" class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Logic and Propositions</div>
+          <div class="lesson-desc">Statements, connectives and truth tables</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+      <a href="../../natural-science/mathematics/lessons/unit7-lesson2.html" class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Methods of Proof</div>
+          <div class="lesson-desc">Direct proof, contradiction, contrapositive and induction</div>
+        </div>
+        <span class="lesson-tag common">Common</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section-title" style="margin-top:2.5rem">
+    <span>Social Science Units (8–9)</span>
+    <span class="progress-summary">Social Science–specific</span>
+  </div>
+
+  <!-- UNIT 8 -->
+  <div class="unit-block">
     <div class="unit-header">
       <div class="unit-num">8</div>
-      <div>
-        <div class="unit-title">Further on Statistics</div>
-        <div class="unit-sub">Social Science Exclusive · Advanced data analysis and interpretation</div>
+      <div class="unit-info">
+        <div class="unit-title">Further on Statistics and Probability</div>
+        <div class="unit-subtitle">Social Science Unit · Advanced statistics, sampling, and inference</div>
       </div>
+      <span class="unit-badge">SS Only</span>
     </div>
     <div class="lessons-list">
-      <a href="lessons/unit8-lesson1.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num done">1</div><div><div class="lesson-title">Sampling Techniques</div><div class="lesson-desc">Simple random, systematic, stratified and cluster sampling</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit8-lesson1.html" class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 1</div>
+          <div class="lesson-desc">Foundations of the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="lessons/unit8-lesson2.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num">2</div><div><div class="lesson-title">Representation of Data</div><div class="lesson-desc">Frequency tables, class intervals and stem-and-leaf plots</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit8-lesson2.html" class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 2</div>
+          <div class="lesson-desc">Continuing the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="lessons/unit8-lesson3.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num">3</div><div><div class="lesson-title">Construction and Interpretation of Graphs</div><div class="lesson-desc">Histograms, frequency polygons and ogives</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit8-lesson3.html" class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 3</div>
+          <div class="lesson-desc">Continuing the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="lessons/unit8-lesson4.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num">4</div><div><div class="lesson-title">Measures of Central Tendency and Variability</div><div class="lesson-desc">Mean, median, mode, variance and standard deviation for grouped data</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit8-lesson4.html" class="lesson-item">
+        <div class="lesson-num">4</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 4</div>
+          <div class="lesson-desc">Continuing the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="lessons/unit8-lesson5.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num">5</div><div><div class="lesson-title">Analysis of Frequency Distributions</div><div class="lesson-desc">Skewness, outliers and distribution shape analysis</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit8-lesson5.html" class="lesson-item">
+        <div class="lesson-num">5</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 5</div>
+          <div class="lesson-desc">Continuing the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="lessons/unit8-lesson6.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num">6</div><div><div class="lesson-title">Use of Cumulative Frequency Curves</div><div class="lesson-desc">Ogives, quartiles, percentiles and box plots</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit8-lesson6.html" class="lesson-item">
+        <div class="lesson-num">6</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 6</div>
+          <div class="lesson-desc">Concluding the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
     </div>
   </div>
 
-  <!-- UNIT 9 — SOCIAL SCIENCE ONLY -->
-  <div class="unit-section">
+  <!-- UNIT 9 -->
+  <div class="unit-block">
     <div class="unit-header">
       <div class="unit-num">9</div>
-      <div>
-        <div class="unit-title">Mathematical Applications for Business and Consumers</div>
-        <div class="unit-sub">Social Science Exclusive · Financial mathematics and applied problems</div>
+      <div class="unit-info">
+        <div class="unit-title">Further on Financial Mathematics</div>
+        <div class="unit-subtitle">Social Science Unit · Financial applications of mathematics</div>
       </div>
+      <span class="unit-badge">SS Only</span>
     </div>
     <div class="lessons-list">
-      <a href="lessons/unit9-lesson1.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num">1</div><div><div class="lesson-title">Applications to Purchasing</div><div class="lesson-desc">Discounts, mark-ups, VAT and consumer mathematics</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit9-lesson1.html" class="lesson-item">
+        <div class="lesson-num">1</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 1</div>
+          <div class="lesson-desc">Foundations of the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="lessons/unit9-lesson2.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num">2</div><div><div class="lesson-title">Percent Increase and Percent Decrease</div><div class="lesson-desc">Percentage change, inflation, depreciation and real-world applications</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit9-lesson2.html" class="lesson-item">
+        <div class="lesson-num">2</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 2</div>
+          <div class="lesson-desc">Continuing the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="lessons/unit9-lesson3.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num">3</div><div><div class="lesson-title">Real Estate Expenses</div><div class="lesson-desc">Property tax, mortgage, rent and ownership costs</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit9-lesson3.html" class="lesson-item">
+        <div class="lesson-num">3</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 3</div>
+          <div class="lesson-desc">Continuing the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
-      <a href="lessons/unit9-lesson4.html" class="lesson-item available">
-        <div class="lesson-left"><div class="lesson-num">4</div><div><div class="lesson-title">Wages</div><div class="lesson-desc">Salary, hourly pay, overtime, commissions and income tax</div></div></div>
-        <div class="lesson-right"><span class="lesson-badge badge-available">✓ Available</span><span class="lesson-badge badge-quiz">5 Quizzes</span></div>
+      <a href="lessons/unit9-lesson4.html" class="lesson-item">
+        <div class="lesson-num">4</div>
+        <div class="lesson-body">
+          <div class="lesson-title">Lesson 4</div>
+          <div class="lesson-desc">Concluding the unit</div>
+        </div>
+        <span class="lesson-tag ss">SS Only</span>
+        <span class="lesson-quizzes">5 Quizzes</span>
       </a>
     </div>
   </div>
-
 </div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Mathematics · Social Science</p>
+      <p>9 Units · 37 Lessons · EUEE Prep</p>
+    </div>
+  </div>
+</footer>
 
 <script>
   fetch('/api/auth/me',{credentials:'include'})
-    .then(r=>r.json())
-    .then(d=>{if(!d.user)location.href='/login.html?reason=login_required';})
-    .catch(()=>{});
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
 </script>
 </body>
 </html>
