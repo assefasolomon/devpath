@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physics Grade 12 — Complete Review & EUEE Prep</title>
+  <link rel="stylesheet" href="../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .review-main{max-width:1100px;margin:0 auto;padding:2.5rem 2rem;min-width:0}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .review-header{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:2.5rem 2.75rem;margin-bottom:2.5rem;color:#fff}
+    .review-header .tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .review-header h1{font-size:2rem;font-weight:900;margin-bottom:.5rem}
+    .review-header p{color:rgba(255,255,255,.75);font-size:.95rem;line-height:1.7;max-width:720px}
+    .review-header .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.875rem;margin-top:1.5rem}
+    .stat-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-lg);padding:.875rem 1rem}
+    .stat-num{font-size:1.5rem;font-weight:900;color:#fff}
+    .stat-label{font-size:.72rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.05em;margin-top:.25rem}
+    .unit-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;position:sticky;top:70px;background:#F8FAFC;padding:.75rem 0;z-index:10;border-bottom:1px solid var(--border)}
+    .unit-pill{background:#fff;border:1.5px solid var(--border);border-radius:999px;padding:.4rem 1rem;font-size:.78rem;font-weight:600;color:var(--text);text-decoration:none;transition:all var(--transition);cursor:pointer}
+    .unit-pill:hover{border-color:#DC2626;color:#DC2626;transform:translateY(-1px)}
+    .section-block{margin-bottom:3rem;scroll-margin-top:130px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem}
+    .formula-cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin:1rem 0}
+    .formula-chip{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-lg);padding:.875rem 1rem;color:#fff}
+    .formula-chip .fc-name{font-size:.68rem;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+    .formula-chip .fc-formula{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.4}
+    .formula-chip .fc-note{font-size:.7rem;color:rgba(255,255,255,.5);margin-top:.25rem}
+    .data-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.45rem .75rem;text-align:left;font-weight:600;font-size:.75rem}
+    .data-table td{padding:.45rem .75rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif;vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.85rem;color:var(--text);line-height:1.65;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#DC2626;font-weight:900;flex-shrink:0;margin-top:1px}
+    .quick-tips{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.5rem;margin-bottom:1.25rem}
+    .quick-tips-title{font-size:.92rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .quick-tips-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quick-tips-body ul{margin:.5rem 0;padding-left:1.25rem}
+    .quick-tips-body li{padding:.15rem 0}
+    .quiz-section{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-xl);padding:2rem;margin-bottom:1.5rem}
+    .quiz-header-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+    .quiz-header-bar h3{font-size:1.15rem;font-weight:800;color:var(--heading)}
+    .quiz-header-bar .q-count{background:#FEE2E2;color:#991B1B;font-size:.75rem;font-weight:700;padding:3px 12px;border-radius:999px}
+    .quiz-question-block{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px dashed var(--border)}
+    .quiz-question-block:last-of-type{border-bottom:none;padding-bottom:0}
+    .quiz-qnum{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.4rem}
+    .quiz-qtext{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.7rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:26px;height:26px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.75rem;padding:.7rem 1rem;border-radius:var(--radius);font-size:.8rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .progress-bar-wrap{background:#F1F5F9;border-radius:999px;height:8px;overflow:hidden;margin:1rem 0}
+    .progress-bar-fill{background:linear-gradient(90deg,#DC2626,#991B1B);height:100%;width:0%;transition:width .4s ease}
+    .score-display{display:none;text-align:center;padding:2rem;background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);margin-top:1rem}
+    .score-display.show{display:block}
+    .score-display .big-num{font-size:3rem;font-weight:900;color:#DC2626}
+    .score-display .score-msg{font-size:.95rem;color:var(--heading);margin-top:.5rem}
+    .cta-row{display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.25rem}
+    .final-banner{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:2.5rem;text-align:center;color:#fff;margin:2rem 0}
+    .final-banner .big{font-size:1.6rem;font-weight:900;margin-bottom:.75rem}
+    .final-banner .small{font-size:.95rem;color:rgba(255,255,255,.9);line-height:1.8}
+    @media(max-width:768px){.review-main{padding:1.5rem 1rem}.unit-nav{position:static}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Physics Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="index.html" class="btn btn-ghost btn-sm">← Physics</a>
+    <a href="../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="review-main">
+  <div class="breadcrumb">
+    <a href="../../../../index.html">Home</a> ›
+    <a href="../../../index.html">Entrance Exam</a> ›
+    <a href="../../index.html">Grade 12</a> ›
+    <a href="../index.html">Natural Science</a> ›
+    <a href="index.html">Physics</a> ›
+    <span>Review</span>
+  </div>
+
+  <div class="review-header">
+    <div class="tag">🏆 COMPLETE REVIEW · EUEE PREP</div>
+    <h1>Physics Grade 12 — Full Course Review</h1>
+    <p>Every key formula, constant, and concept from all 5 units — in one place. Perfect for last-minute EUEE revision, self-testing, and quick reference.</p>
+    <div class="stats">
+      <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Units</div></div>
+      <div class="stat-card"><div class="stat-num">32</div><div class="stat-label">Lessons</div></div>
+      <div class="stat-card"><div class="stat-num">160</div><div class="stat-label">Quiz Questions</div></div>
+      <div class="stat-card"><div class="stat-num">20</div><div class="stat-label">Review Qs Below</div></div>
+    </div>
+  </div>
+
+  <div class="unit-nav">
+    <a href="#u1" class="unit-pill">Unit 1 · Mechanics</a>
+    <a href="#u2" class="unit-pill">Unit 2 · Fluids</a>
+    <a href="#u3" class="unit-pill">Unit 3 · Thermal</a>
+    <a href="#u4" class="unit-pill">Unit 4 · Waves</a>
+    <a href="#u5" class="unit-pill">Unit 5 · Electricity</a>
+    <a href="#quiz" class="unit-pill">📝 Mixed Quiz</a>
+  </div>
+
+  <!-- ============ UNIT 1 ============ -->
+  <div class="section-block" id="u1">
+    <div class="section-header">
+      <div class="section-icon">🎯</div>
+      <div>
+        <div class="section-title-text">Unit 1 — Mechanics</div>
+        <div class="section-subtitle">Kinematics · Projectile motion · Circular motion · Dynamics · Work & energy · Momentum</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Key Formulas</h3>
+      <div class="formula-cards-grid">
+        <div class="formula-chip"><div class="fc-name">Velocity (uniform accel.)</div><div class="fc-formula">v = u + at</div><div class="fc-note">Final velocity</div></div>
+        <div class="formula-chip"><div class="fc-name">Displacement</div><div class="fc-formula">s = ut + ½at²</div><div class="fc-note">Position change</div></div>
+        <div class="formula-chip"><div class="fc-name">Velocity squared</div><div class="fc-formula">v² = u² + 2as</div><div class="fc-note">No time needed</div></div>
+        <div class="formula-chip"><div class="fc-name">Newton's 2nd Law</div><div class="fc-formula">F = ma</div><div class="fc-note">Net force</div></div>
+        <div class="formula-chip"><div class="fc-name">Weight</div><div class="fc-formula">W = mg</div><div class="fc-note">g ≈ 9.8 m/s²</div></div>
+        <div class="formula-chip"><div class="fc-name">Friction</div><div class="fc-formula">f = μN</div><div class="fc-note">Static or kinetic</div></div>
+        <div class="formula-chip"><div class="fc-name">Momentum</div><div class="fc-formula">p = mv</div><div class="fc-note">Vector quantity</div></div>
+        <div class="formula-chip"><div class="fc-name">Impulse</div><div class="fc-formula">J = FΔt = Δp</div><div class="fc-note">Change in momentum</div></div>
+        <div class="formula-chip"><div class="fc-name">Work</div><div class="fc-formula">W = Fd cos θ</div><div class="fc-note">Joules (J)</div></div>
+        <div class="formula-chip"><div class="fc-name">Kinetic Energy</div><div class="fc-formula">KE = ½mv²</div><div class="fc-note">Motion energy</div></div>
+        <div class="formula-chip"><div class="fc-name">Potential Energy</div><div class="fc-formula">PE = mgh</div><div class="fc-note">Gravitational</div></div>
+        <div class="formula-chip"><div class="fc-name">Power</div><div class="fc-formula">P = W/t = Fv</div><div class="fc-note">Watts (W)</div></div>
+        <div class="formula-chip"><div class="fc-name">Centripetal acceleration</div><div class="fc-formula">a = v²/r</div><div class="fc-note">Toward center</div></div>
+        <div class="formula-chip"><div class="fc-name">Circular motion force</div><div class="fc-formula">F = mv²/r</div><div class="fc-note">Centripetal force</div></div>
+        <div class="formula-chip"><div class="fc-name">Projectile range</div><div class="fc-formula">R = u²sin(2θ)/g</div><div class="fc-note">Flat ground</div></div>
+        <div class="formula-chip"><div class="fc-name">Projectile max height</div><div class="fc-formula">H = u²sin²θ / (2g)</div><div class="fc-note">Peak of trajectory</div></div>
+      </div>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Concepts — Mechanics</h3>
+      <ul class="key-points">
+        <li><strong>Equations of motion</strong> apply only for uniform (constant) acceleration</li>
+        <li><strong>Newton's three laws:</strong> (1) Inertia, (2) F = ma, (3) Action-reaction</li>
+        <li><strong>Projectile motion:</strong> horizontal velocity is constant; vertical is accelerated by g</li>
+        <li><strong>Range is maximum at 45°</strong> for flat ground launches</li>
+        <li><strong>Momentum is conserved</strong> in all collisions (elastic and inelastic)</li>
+        <li><strong>Energy is conserved</strong>; total KE + PE stays constant (no friction)</li>
+        <li><strong>Elastic collision:</strong> KE and momentum conserved; <strong>inelastic:</strong> only momentum conserved</li>
+        <li><strong>Centripetal force</strong> is directed toward the center — it's the <em>net</em> force</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 2 ============ -->
+  <div class="section-block" id="u2">
+    <div class="section-header">
+      <div class="section-icon">💧</div>
+      <div>
+        <div class="section-title-text">Unit 2 — Fluid Mechanics</div>
+        <div class="section-subtitle">Density · Pressure · Buoyancy · Archimedes' principle · Bernoulli · Continuity</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Key Formulas</h3>
+      <div class="formula-cards-grid">
+        <div class="formula-chip"><div class="fc-name">Density</div><div class="fc-formula">ρ = m/V</div><div class="fc-note">kg/m³</div></div>
+        <div class="formula-chip"><div class="fc-name">Pressure</div><div class="fc-formula">P = F/A</div><div class="fc-note">Pascals (Pa)</div></div>
+        <div class="formula-chip"><div class="fc-name">Fluid pressure</div><div class="fc-formula">P = ρgh</div><div class="fc-note">Depth pressure</div></div>
+        <div class="formula-chip"><div class="fc-name">Absolute pressure</div><div class="fc-formula">P = P₀ + ρgh</div><div class="fc-note">Total at depth</div></div>
+        <div class="formula-chip"><div class="fc-name">Buoyant force</div><div class="fc-formula">F_B = ρ_fluid × V_displaced × g</div><div class="fc-note">Archimedes</div></div>
+        <div class="formula-chip"><div class="fc-name">Continuity equation</div><div class="fc-formula">A₁v₁ = A₂v₂</div><div class="fc-note">Incompressible flow</div></div>
+        <div class="formula-chip"><div class="fc-name">Bernoulli's equation</div><div class="fc-formula">P + ½ρv² + ρgh = constant</div><div class="fc-note">Ideal fluid</div></div>
+        <div class="formula-chip"><div class="fc-name">Volume flow rate</div><div class="fc-formula">Q = Av</div><div class="fc-note">m³/s</div></div>
+      </div>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Concepts — Fluids</h3>
+      <ul class="key-points">
+        <li><strong>Pressure is scalar</strong> — acts equally in all directions at a point</li>
+        <li><strong>Atmospheric pressure</strong> at sea level = 1.013 × 10⁵ Pa</li>
+        <li><strong>Buoyant force</strong> = weight of displaced fluid; determines floating or sinking</li>
+        <li><strong>Floating object:</strong> density less than fluid; sinks if greater</li>
+        <li><strong>Pascal's principle:</strong> pressure change transmits undiminished through a fluid (hydraulic press)</li>
+        <li><strong>Bernoulli:</strong> faster flow = lower pressure (venturi effect)</li>
+        <li><strong>Continuity:</strong> narrower pipe → faster flow (mass conservation)</li>
+        <li><strong>Ideal fluid:</strong> incompressible, non-viscous, steady, irrotational flow</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 3 ============ -->
+  <div class="section-block" id="u3">
+    <div class="section-header">
+      <div class="section-icon">🔥</div>
+      <div>
+        <div class="section-title-text">Unit 3 — Thermal Physics</div>
+        <div class="section-subtitle">Temperature · Heat · Expansion · Gas laws · Thermodynamics</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Key Formulas</h3>
+      <div class="formula-cards-grid">
+        <div class="formula-chip"><div class="fc-name">Celsius to Kelvin</div><div class="fc-formula">T(K) = T(°C) + 273.15</div><div class="fc-note">Absolute temp</div></div>
+        <div class="formula-chip"><div class="fc-name">Linear expansion</div><div class="fc-formula">ΔL = αL₀ΔT</div><div class="fc-note">α = linear coeff.</div></div>
+        <div class="formula-chip"><div class="fc-name">Volume expansion</div><div class="formula-chip-inner">ΔV = βV₀ΔT</div><div class="fc-note">β = 3α (solids)</div></div>
+        <div class="formula-chip"><div class="fc-name">Heat energy</div><div class="fc-formula">Q = mcΔT</div><div class="fc-note">c = specific heat</div></div>
+        <div class="formula-chip"><div class="fc-name">Latent heat</div><div class="fc-formula">Q = mL</div><div class="fc-note">Phase change</div></div>
+        <div class="formula-chip"><div class="fc-name">Boyle's law</div><div class="fc-formula">P₁V₁ = P₂V₂</div><div class="fc-note">Constant T</div></div>
+        <div class="formula-chip"><div class="fc-name">Charles's law</div><div class="fc-formula">V₁/T₁ = V₂/T₂</div><div class="fc-note">Constant P</div></div>
+        <div class="formula-chip"><div class="fc-name">Ideal gas law</div><div class="fc-formula">PV = nRT</div><div class="fc-note">R = 8.314 J/(mol·K)</div></div>
+        <div class="formula-chip"><div class="fc-name">Combined gas law</div><div class="fc-formula">P₁V₁/T₁ = P₂V₂/T₂</div><div class="fc-note">n constant</div></div>
+        <div class="formula-chip"><div class="fc-name">1st Law of Thermo</div><div class="fc-formula">ΔU = Q − W</div><div class="fc-note">Internal energy</div></div>
+        <div class="formula-chip"><div class="fc-name">Efficiency (heat engine)</div><div class="fc-formula">η = 1 − Q_c/Q_h</div><div class="fc-note">Carnot: η = 1 − T_c/T_h</div></div>
+        <div class="formula-chip"><div class="fc-name">Kinetic theory</div><div class="fc-formula">KE_avg = (3/2)kT</div><div class="fc-note">k = 1.38 × 10⁻²³ J/K</div></div>
+      </div>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Concepts — Thermal Physics</h3>
+      <ul class="key-points">
+        <li><strong>Temperature</strong> = measure of average kinetic energy of particles</li>
+        <li><strong>Heat</strong> = energy transferred due to temperature difference</li>
+        <li><strong>Absolute zero</strong> = 0 K = −273.15 °C (no molecular motion)</li>
+        <li><strong>Three modes of heat transfer:</strong> conduction, convection, radiation</li>
+        <li><strong>Latent heat of fusion:</strong> solid ↔ liquid; <strong>vaporization:</strong> liquid ↔ gas</li>
+        <li><strong>1st law of thermodynamics:</strong> energy conservation (ΔU = Q − W)</li>
+        <li><strong>2nd law:</strong> entropy of an isolated system always increases; heat flows from hot to cold</li>
+        <li><strong>Carnot efficiency:</strong> maximum possible efficiency of any heat engine</li>
+      </ul>
+
+      <div class="quick-tips">
+        <div class="quick-tips-title">🌡️ Constant Reminders</div>
+        <div class="quick-tips-body">
+          <ul>
+            <li>All gas law calculations must use <strong>Kelvin</strong>, not Celsius</li>
+            <li>Water's specific heat c = 4186 J/(kg·K) — memorize this</li>
+            <li>Latent heat of fusion of water = 3.34 × 10⁵ J/kg; vaporization = 2.26 × 10⁶ J/kg</li>
+            <li>At STP: 1 mol gas = 22.4 L</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 4 ============ -->
+  <div class="section-block" id="u4">
+    <div class="section-header">
+      <div class="section-icon">🌊</div>
+      <div>
+        <div class="section-title-text">Unit 4 — Waves & Optics</div>
+        <div class="section-subtitle">Wave properties · Sound · Light · Reflection · Refraction · Lenses & mirrors</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Key Formulas</h3>
+      <div class="formula-cards-grid">
+        <div class="formula-chip"><div class="fc-name">Wave speed</div><div class="fc-formula">v = fλ</div><div class="fc-note">v = speed, f = freq, λ = wavelength</div></div>
+        <div class="formula-chip"><div class="fc-name">Period & frequency</div><div class="fc-formula">T = 1/f</div><div class="fc-note">Seconds / Hz</div></div>
+        <div class="formula-chip"><div class="fc-name">Snell's law</div><div class="fc-formula">n₁ sin θ₁ = n₂ sin θ₂</div><div class="fc-note">Refraction</div></div>
+        <div class="formula-chip"><div class="fc-name">Refractive index</div><div class="fc-formula">n = c/v</div><div class="fc-note">c = 3 × 10⁸ m/s</div></div>
+        <div class="formula-chip"><div class="fc-name">Critical angle</div><div class="fc-formula">sin θc = n₂/n₁</div><div class="fc-note">Total internal reflection</div></div>
+        <div class="formula-chip"><div class="fc-name">Mirror/lens equation</div><div class="fc-formula">1/f = 1/v + 1/u</div><div class="fc-note">Sign conventions matter</div></div>
+        <div class="formula-chip"><div class="fc-name">Magnification</div><div class="fc-formula">m = −v/u = h_i/h_o</div><div class="fc-note">+ = upright, − = inverted</div></div>
+        <div class="formula-chip"><div class="fc-name">Power of lens</div><div class="fc-formula">P = 1/f</div><div class="fc-note">Diopters (D) if f in meters</div></div>
+      </div>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Concepts — Waves & Optics</h3>
+      <ul class="key-points">
+        <li><strong>Transverse waves:</strong> oscillation ⟂ to propagation (light, water surface)</li>
+        <li><strong>Longitudinal waves:</strong> oscillation ∥ to propagation (sound)</li>
+        <li><strong>Sound</strong> travels faster in solids &gt; liquids &gt; gases; cannot travel in vacuum</li>
+        <li><strong>Light</strong> is electromagnetic; travels at c in vacuum</li>
+        <li><strong>Reflection:</strong> angle of incidence = angle of reflection</li>
+        <li><strong>Refraction:</strong> light bends when entering a different medium</li>
+        <li><strong>Total internal reflection</strong> occurs when angle &gt; critical angle (fiber optics)</li>
+        <li><strong>Convex lens</strong> converges; <strong>concave lens</strong> diverges</li>
+        <li><strong>Real image</strong> is inverted, formed on opposite side; <strong>virtual image</strong> is upright</li>
+      </ul>
+
+      <div class="quick-tips">
+        <div class="quick-tips-title">🔍 Sign Conventions (Mirrors & Lenses)</div>
+        <div class="quick-tips-body">
+          <ul>
+            <li><strong>f &gt; 0</strong> for concave mirrors & convex lenses</li>
+            <li><strong>f &lt; 0</strong> for convex mirrors & concave lenses</li>
+            <li><strong>u &gt; 0</strong> for real objects (almost always)</li>
+            <li><strong>v &gt; 0</strong> = real image (same side as object for mirrors, opposite for lenses)</li>
+            <li><strong>v &lt; 0</strong> = virtual image</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ UNIT 5 ============ -->
+  <div class="section-block" id="u5">
+    <div class="section-header">
+      <div class="section-icon">⚡</div>
+      <div>
+        <div class="section-title-text">Unit 5 — Electricity & Magnetism</div>
+        <div class="section-subtitle">Electrostatics · Capacitance · Current · Resistance · DC circuits · Magnetism · Induction</div>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Key Formulas</h3>
+      <div class="formula-cards-grid">
+        <div class="formula-chip"><div class="fc-name">Coulomb's law</div><div class="fc-formula">F = kq₁q₂/r²</div><div class="fc-note">k = 9 × 10⁹ N·m²/C²</div></div>
+        <div class="formula-chip"><div class="fc-name">Electric field</div><div class="fc-formula">E = F/q = kQ/r²</div><div class="fc-note">N/C or V/m</div></div>
+        <div class="formula-chip"><div class="fc-name">Electric potential</div><div class="fc-formula">V = kQ/r</div><div class="fc-note">Volts (V)</div></div>
+        <div class="formula-chip"><div class="fc-name">Capacitance</div><div class="fc-formula">C = Q/V</div><div class="fc-note">Farads (F)</div></div>
+        <div class="formula-chip"><div class="fc-name">Capacitor energy</div><div class="fc-formula">E = ½CV²</div><div class="fc-note">Joules</div></div>
+        <div class="formula-chip"><div class="fc-name">Ohm's law</div><div class="fc-formula">V = IR</div><div class="fc-note">V = volts, I = amps, R = ohms</div></div>
+        <div class="formula-chip"><div class="fc-name">Electric power</div><div class="fc-formula">P = VI = I²R = V²/R</div><div class="fc-note">Watts</div></div>
+        <div class="formula-chip"><div class="fc-name">Resistance (wire)</div><div class="fc-formula">R = ρL/A</div><div class="fc-note">ρ = resistivity</div></div>
+        <div class="formula-chip"><div class="fc-name">Resistors in series</div><div class="fc-formula">R_eq = R₁ + R₂ + …</div><div class="fc-note">Same current</div></div>
+        <div class="formula-chip"><div class="fc-name">Resistors in parallel</div><div class="fc-formula">1/R_eq = 1/R₁ + 1/R₂ + …</div><div class="fc-note">Same voltage</div></div>
+        <div class="formula-chip"><div class="fc-name">Magnetic force on charge</div><div class="fc-formula">F = qvB sin θ</div><div class="fc-note">Charged particle in B field</div></div>
+        <div class="formula-chip"><div class="fc-name">Magnetic force on wire</div><div class="fc-formula">F = BIL sin θ</div><div class="fc-note">Current-carrying wire</div></div>
+        <div class="formula-chip"><div class="fc-name">Faraday's law</div><div class="fc-formula">ε = −N ΔΦ/Δt</div><div class="fc-note">Induced EMF</div></div>
+        <div class="formula-chip"><div class="fc-name">Magnetic flux</div><div class="fc-formula">Φ = BA cos θ</div><div class="fc-note">Webers (Wb)</div></div>
+      </div>
+
+      <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Concepts — Electricity & Magnetism</h3>
+      <ul class="key-points">
+        <li><strong>Like charges repel, unlike attract</strong> — Coulomb's law follows inverse-square</li>
+        <li><strong>Electric field lines</strong> point from + to −; denser where field is stronger</li>
+        <li><strong>Current</strong> is flow of charge: conventional current flows + → − (opposite of electron flow)</li>
+        <li><strong>Resistance</strong> depends on material (ρ), length (L), and area (A): R = ρL/A</li>
+        <li><strong>Kirchhoff's laws:</strong> (1) Current into junction = current out; (2) Sum of voltages around a loop = 0</li>
+        <li><strong>Right-hand rule</strong> for magnetic field around a current-carrying wire</li>
+        <li><strong>Fleming's left-hand rule</strong> for the force on a current-carrying conductor in a magnetic field</li>
+        <li><strong>Faraday:</strong> changing magnetic field induces an EMF (basis of generators, transformers)</li>
+        <li><strong>Lenz's law:</strong> induced current opposes the change that produced it</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ MIXED QUIZ ============ -->
+  <div class="section-block" id="quiz">
+    <div class="section-header">
+      <div class="section-icon">📝</div>
+      <div>
+        <div class="section-title-text">Mixed Review Quiz</div>
+        <div class="section-subtitle">20 questions across all 5 units — full EUEE-style practice</div>
+      </div>
+    </div>
+
+    <div class="quiz-section">
+      <div class="quiz-header-bar">
+        <h3>Complete the quiz to see your score</h3>
+        <span class="q-count" id="quiz-progress-count">0 / 20 answered</span>
+      </div>
+
+      <div class="progress-bar-wrap"><div class="progress-bar-fill" id="review-progress"></div></div>
+
+      <!-- Q1 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 1 · Unit 1</div>
+        <div class="quiz-qtext">A car accelerates uniformly from rest at 2 m/s² for 5 s. What is its final velocity?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',1)"><div class="option-letter">A</div> 5 m/s</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',1)"><div class="option-letter">B</div> 10 m/s</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',1)"><div class="option-letter">C</div> 15 m/s</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',1)"><div class="option-letter">D</div> 20 m/s</div>
+        </div>
+        <div class="quiz-feedback" id="rfb1"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 2 · Unit 1</div>
+        <div class="quiz-qtext">The maximum range of a projectile launched on flat ground occurs at what angle?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',2)"><div class="option-letter">A</div> 30°</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',2)"><div class="option-letter">B</div> 45°</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',2)"><div class="option-letter">C</div> 60°</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',2)"><div class="option-letter">D</div> 90°</div>
+        </div>
+        <div class="quiz-feedback" id="rfb2"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 3 · Unit 1</div>
+        <div class="quiz-qtext">In a perfectly elastic collision between two objects, which quantities are conserved?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',3)"><div class="option-letter">A</div> Only momentum</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',3)"><div class="option-letter">B</div> Only kinetic energy</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',3)"><div class="option-letter">C</div> Both momentum and kinetic energy</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',3)"><div class="option-letter">D</div> Neither</div>
+        </div>
+        <div class="quiz-feedback" id="rfb3"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 4 · Unit 1</div>
+        <div class="quiz-qtext">A 2 kg object moves at 5 m/s. Its kinetic energy is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',4)"><div class="option-letter">A</div> 10 J</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',4)"><div class="option-letter">B</div> 20 J</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',4)"><div class="option-letter">C</div> 25 J</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',4)"><div class="option-letter">D</div> 50 J</div>
+        </div>
+        <div class="quiz-feedback" id="rfb4"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 5 · Unit 2</div>
+        <div class="quiz-qtext">Archimedes' principle states that the buoyant force on an object equals:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',5)"><div class="option-letter">A</div> The weight of the object</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',5)"><div class="option-letter">B</div> The weight of the fluid displaced by the object</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',5)"><div class="option-letter">C</div> The volume of the object</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',5)"><div class="option-letter">D</div> The density of the object</div>
+        </div>
+        <div class="quiz-feedback" id="rfb5"></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 6 · Unit 2</div>
+        <div class="quiz-qtext">The pressure at a depth of 10 m in water (ρ = 1000 kg/m³) is approximately (g = 10 m/s²):</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',6)"><div class="option-letter">A</div> 1 × 10⁴ Pa</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',6)"><div class="option-letter">B</div> 1 × 10⁵ Pa</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',6)"><div class="option-letter">C</div> 1 × 10⁶ Pa</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',6)"><div class="option-letter">D</div> 1 × 10³ Pa</div>
+        </div>
+        <div class="quiz-feedback" id="rfb6"></div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 7 · Unit 2</div>
+        <div class="quiz-qtext">Bernoulli's principle states that as the speed of a fluid increases:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',7)"><div class="option-letter">A</div> Its pressure increases</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',7)"><div class="option-letter">B</div> Its pressure decreases</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',7)"><div class="option-letter">C</div> Its pressure remains constant</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',7)"><div class="option-letter">D</div> Its density increases</div>
+        </div>
+        <div class="quiz-feedback" id="rfb7"></div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 8 · Unit 3</div>
+        <div class="quiz-qtext">What is 27 °C in Kelvin?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',8)"><div class="option-letter">A</div> 27 K</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',8)"><div class="option-letter">B</div> 246 K</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',8)"><div class="option-letter">C</div> 300 K</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',8)"><div class="option-letter">D</div> 327 K</div>
+        </div>
+        <div class="quiz-feedback" id="rfb8"></div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 9 · Unit 3</div>
+        <div class="quiz-qtext">In the ideal gas law PV = nRT, what does R represent?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',9)"><div class="option-letter">A</div> Radiant heat</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',9)"><div class="option-letter">B</div> Universal gas constant (8.314 J/mol·K)</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',9)"><div class="option-letter">C</div> Radius of the gas molecules</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',9)"><div class="option-letter">D</div> Reynolds number</div>
+        </div>
+        <div class="quiz-feedback" id="rfb9"></div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 10 · Unit 3</div>
+        <div class="quiz-qtext">According to the 2nd law of thermodynamics, in an isolated system:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',10)"><div class="option-letter">A</div> Entropy decreases over time</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',10)"><div class="option-letter">B</div> Entropy increases over time</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',10)"><div class="option-letter">C</div> Energy is destroyed</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',10)"><div class="option-letter">D</div> Heat flows from cold to hot</div>
+        </div>
+        <div class="quiz-feedback" id="rfb10"></div>
+      </div>
+
+      <!-- Q11 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 11 · Unit 4</div>
+        <div class="quiz-qtext">A wave has frequency 50 Hz and wavelength 4 m. Its speed is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',11)"><div class="option-letter">A</div> 12.5 m/s</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',11)"><div class="option-letter">B</div> 54 m/s</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',11)"><div class="option-letter">C</div> 200 m/s</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',11)"><div class="option-letter">D</div> 0.08 m/s</div>
+        </div>
+        <div class="quiz-feedback" id="rfb11"></div>
+      </div>
+
+      <!-- Q12 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 12 · Unit 4</div>
+        <div class="quiz-qtext">Light travels from air into glass. If the angle of incidence is 30° and n_glass = 1.5, the angle of refraction is approximately:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',12)"><div class="option-letter">A</div> 19.5°</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',12)"><div class="option-letter">B</div> 30°</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',12)"><div class="option-letter">C</div> 45°</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',12)"><div class="option-letter">D</div> 60°</div>
+        </div>
+        <div class="quiz-feedback" id="rfb12"></div>
+      </div>
+
+      <!-- Q13 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 13 · Unit 4</div>
+        <div class="quiz-qtext">Total internal reflection can occur when light travels:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',13)"><div class="option-letter">A</div> From a less dense to a denser medium</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',13)"><div class="option-letter">B</div> From a denser to a less dense medium at an angle greater than the critical angle</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',13)"><div class="option-letter">C</div> Only in vacuum</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',13)"><div class="option-letter">D</div> Only for sound waves</div>
+        </div>
+        <div class="quiz-feedback" id="rfb13"></div>
+      </div>
+
+      <!-- Q14 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 14 · Unit 5</div>
+        <div class="quiz-qtext">Two charges q₁ and q₂ are separated by a distance r. If the distance is doubled, the electric force becomes:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',14)"><div class="option-letter">A</div> Twice as large</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',14)"><div class="option-letter">B</div> Half as large</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',14)"><div class="option-letter">C</div> One-quarter as large</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',14)"><div class="option-letter">D</div> Four times as large</div>
+        </div>
+        <div class="quiz-feedback" id="rfb14"></div>
+      </div>
+
+      <!-- Q15 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 15 · Unit 5</div>
+        <div class="quiz-qtext">A 12 V battery drives a current of 2 A through a resistor. The resistance is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',15)"><div class="option-letter">A</div> 3 Ω</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',15)"><div class="option-letter">B</div> 6 Ω</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',15)"><div class="option-letter">C</div> 14 Ω</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',15)"><div class="option-letter">D</div> 24 Ω</div>
+        </div>
+        <div class="quiz-feedback" id="rfb15"></div>
+      </div>
+
+      <!-- Q16 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 16 · Unit 5</div>
+        <div class="quiz-qtext">Two 6 Ω resistors are connected in parallel. The equivalent resistance is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',16)"><div class="option-letter">A</div> 12 Ω</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',16)"><div class="option-letter">B</div> 6 Ω</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',16)"><div class="option-letter">C</div> 3 Ω</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',16)"><div class="option-letter">D</div> 1.5 Ω</div>
+        </div>
+        <div class="quiz-feedback" id="rfb16"></div>
+      </div>
+
+      <!-- Q17 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 17 · Unit 5</div>
+        <div class="quiz-qtext">Faraday's law of electromagnetic induction states that the induced EMF depends on:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',17)"><div class="option-letter">A</div> The strength of the magnetic field only</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',17)"><div class="option-letter">B</div> The rate of change of magnetic flux</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',17)"><div class="option-letter">C</div> The resistance of the circuit only</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',17)"><div class="option-letter">D</div> The temperature of the conductor</div>
+        </div>
+        <div class="quiz-feedback" id="rfb17"></div>
+      </div>
+
+      <!-- Q18 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 18 · Unit 3</div>
+        <div class="quiz-qtext">The 1st law of thermodynamics is expressed as:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',18)"><div class="option-letter">A</div> ΔU = Q + W</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',18)"><div class="option-letter">B</div> ΔU = Q − W</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',18)"><div class="option-letter">C</div> ΔU = Q × W</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',18)"><div class="option-letter">D</div> ΔU = W/Q</div>
+        </div>
+        <div class="quiz-feedback" id="rfb18"></div>
+      </div>
+
+      <!-- Q19 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 19 · Unit 1</div>
+        <div class="quiz-qtext">An object is dropped from rest. After 3 seconds (g = 10 m/s²), its velocity is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',19)"><div class="option-letter">A</div> 10 m/s</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',19)"><div class="option-letter">B</div> 20 m/s</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',19)"><div class="option-letter">C</div> 30 m/s</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',19)"><div class="option-letter">D</div> 45 m/s</div>
+        </div>
+        <div class="quiz-feedback" id="rfb19"></div>
+      </div>
+
+      <!-- Q20 -->
+      <div class="quiz-question-block">
+        <div class="quiz-qnum">Question 20 · Unit 5</div>
+        <div class="quiz-qtext">The magnetic force on a charged particle moving parallel to a magnetic field is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="reviewAnswer(this,'A',20)"><div class="option-letter">A</div> Maximum</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'B',20)"><div class="option-letter">B</div> Zero</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'C',20)"><div class="option-letter">C</div> Equal to qvB</div>
+          <div class="quiz-option" onclick="reviewAnswer(this,'D',20)"><div class="option-letter">D</div> Equal to qvB/2</div>
+        </div>
+        <div class="quiz-feedback" id="rfb20"></div>
+      </div>
+
+      <div class="score-display" id="review-score-display">
+        <div class="big-num" id="review-score-num">0/20</div>
+        <div class="score-msg" id="review-score-msg"></div>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="reviewReset()">Retake Quiz</button>
+          <a href="index.html" class="btn btn-outline">Back to Physics Hub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-banner">
+    <div class="big">🏆 You've reviewed the entire Physics Grade 12 course! 🏆</div>
+    <div class="small">
+      5 units · 32 lessons · every key formula from mechanics to electromagnetism.<br>
+      Bookmark this page, revisit it before the EUEE exam, and share it with classmates.<br><br>
+      <strong>Good luck on your exam!</strong>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const reviewCorrect = {1:'B',2:'B',3:'C',4:'C',5:'B',6:'B',7:'B',8:'C',9:'B',10:'B',11:'C',12:'A',13:'B',14:'C',15:'B',16:'C',17:'B',18:'B',19:'C',20:'B'};
+  const reviewFeedback = {
+    1:{correct:'✓ Correct! v = u + at = 0 + (2)(5) = 10 m/s.',wrong:'✗ v = u + at = 0 + 2×5 = 10 m/s.'},
+    2:{correct:'✓ Correct! Maximum range occurs at 45° because R = u²sin(2θ)/g is maximized when sin(2θ) = 1.',wrong:'✗ Max range at 45° (sin 90° = 1).'},
+    3:{correct:'✓ Correct! In a perfectly elastic collision, both momentum AND kinetic energy are conserved.',wrong:'✗ Elastic: KE + momentum both conserved.'},
+    4:{correct:'✓ Correct! KE = ½mv² = ½(2)(5²) = ½(2)(25) = 25 J.',wrong:'✗ KE = ½mv² = ½(2)(25) = 25 J.'},
+    5:{correct:'✓ Correct! Buoyant force = weight of fluid displaced (Archimedes\' principle).',wrong:'✗ Archimedes: buoyant force = weight of displaced fluid.'},
+    6:{correct:'✓ Correct! P = ρgh = 1000 × 10 × 10 = 1 × 10⁵ Pa.',wrong:'✗ P = ρgh = 1000 × 10 × 10 = 10⁵ Pa.'},
+    7:{correct:'✓ Correct! Bernoulli: faster flow = lower pressure.',wrong:'✗ Bernoulli: as speed ↑, pressure ↓.'},
+    8:{correct:'✓ Correct! T(K) = 27 + 273 = 300 K.',wrong:'✗ 27 + 273 = 300 K.'},
+    9:{correct:'✓ Correct! R is the universal gas constant = 8.314 J/(mol·K).',wrong:'✗ R = 8.314 J/(mol·K) — universal gas constant.'},
+    10:{correct:'✓ Correct! The 2nd law: entropy of an isolated system increases over time.',wrong:'✗ 2nd law: entropy always increases in an isolated system.'},
+    11:{correct:'✓ Correct! v = fλ = 50 × 4 = 200 m/s.',wrong:'✗ v = fλ = 50 × 4 = 200 m/s.'},
+    12:{correct:'✓ Correct! n₁ sin θ₁ = n₂ sin θ₂ → 1 × sin 30° = 1.5 × sin θ₂ → sin θ₂ = 0.333 → θ₂ ≈ 19.5°.',wrong:'✗ Snell\'s law: θ₂ ≈ 19.5°.'},
+    13:{correct:'✓ Correct! Total internal reflection requires light going from denser → less dense medium AND angle > critical angle.',wrong:'✗ TIR requires denser → less dense and angle > critical.'},
+    14:{correct:'✓ Correct! Coulomb: F ∝ 1/r². Doubling r → force becomes 1/4.',wrong:'✗ F ∝ 1/r². Doubling r → 1/4 the force.'},
+    15:{correct:'✓ Correct! R = V/I = 12/2 = 6 Ω.',wrong:'✗ R = V/I = 12/2 = 6 Ω.'},
+    16:{correct:'✓ Correct! For parallel: 1/R_eq = 1/6 + 1/6 = 2/6 → R_eq = 3 Ω.',wrong:'✗ Parallel: R_eq = 3 Ω.'},
+    17:{correct:'✓ Correct! Faraday: induced EMF = −N(ΔΦ/Δt) — depends on rate of change of flux.',wrong:'✗ Faraday: EMF ∝ rate of change of flux.'},
+    18:{correct:'✓ Correct! 1st law: ΔU = Q − W (heat in minus work done by system).',wrong:'✗ ΔU = Q − W.'},
+    19:{correct:'✓ Correct! v = u + at = 0 + (10)(3) = 30 m/s.',wrong:'✗ v = 0 + 10×3 = 30 m/s.'},
+    20:{correct:'✓ Correct! F = qvB sin θ; if v ∥ B, sin θ = 0 → F = 0.',wrong:'✗ When velocity is parallel to B, sin θ = 0 → force = 0.'}
+  };
+
+  const reviewAnswers = {};
+  let reviewAnswered = 0;
+
+  function reviewAnswer(el, choice, qNum){
+    if(reviewAnswers[qNum]) return;
+    reviewAnswers[qNum] = choice;
+    reviewAnswered++;
+
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct = reviewCorrect[qNum];
+    const letters = ['A','B','C','D'];
+
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct) o.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('rfb'+qNum);
+    const ok = choice === correct;
+    fb.textContent = ok ? reviewFeedback[qNum].correct : reviewFeedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+
+    document.getElementById('quiz-progress-count').textContent = reviewAnswered + ' / 20 answered';
+    document.getElementById('review-progress').style.width = (reviewAnswered / 20 * 100) + '%';
+
+    if(reviewAnswered === 20) reviewShowScore();
+  }
+
+  function reviewShowScore(){
+    const score = Object.keys(reviewAnswers).filter(q => reviewAnswers[q] === reviewCorrect[q]).length;
+    const display = document.getElementById('review-score-display');
+    display.classList.add('show');
+    document.getElementById('review-score-num').textContent = score + ' / 20';
+    const pct = score / 20 * 100;
+    let msg = '';
+    if(pct === 100) msg = '🎉 Perfect score! You are EUEE-ready in Physics.';
+    else if(pct >= 80) msg = '👍 Excellent! Just a few areas to polish.';
+    else if(pct >= 60) msg = '📖 Good work — review the units where you missed questions.';
+    else if(pct >= 40) msg = '📚 Solid foundation — revisit the key formulas and concepts.';
+    else msg = '💪 Keep going! Revisit each unit\'s summary and try again.';
+    document.getElementById('review-score-msg').textContent = msg;
+    display.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  function reviewReset(){
+    Object.keys(reviewAnswers).forEach(k => delete reviewAnswers[k]);
+    reviewAnswered = 0;
+    document.querySelectorAll('.quiz-option').forEach(o => o.className = 'quiz-option');
+    document.querySelectorAll('.quiz-feedback').forEach(f => f.className = 'quiz-feedback');
+    document.getElementById('review-progress').style.width = '0%';
+    document.getElementById('quiz-progress-count').textContent = '0 / 20 answered';
+    document.getElementById('review-score-display').classList.remove('show');
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  }
+
+  // Smooth scroll for unit-nav
+  document.querySelectorAll('.unit-pill').forEach(pill => {
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const id = pill.getAttribute('href').substring(1);
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+</script>
+</body>
+</html>
