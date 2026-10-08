@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.2: Natural Resources & Industry | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .sphere-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .sphere-card{background:#fff;border:1.5px solid #FECACA;border-radius:var(--radius-lg);padding:1.25rem;transition:all var(--transition)}
+    .sphere-card:hover{border-color:#DC2626;box-shadow:0 4px 12px rgba(220,38,38,.1);transform:translateY(-2px)}
+    .sphere-icon{font-size:2rem;margin-bottom:.5rem}
+    .sphere-title{font-size:.95rem;font-weight:700;color:#991B1B;margin-bottom:.5rem}
+    .sphere-desc{font-size:.82rem;color:var(--text);line-height:1.65;margin:0 0 .5rem 0}
+    .sphere-source{font-size:.75rem;color:var(--text-muted);font-style:italic;margin:0}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.renewable{background:#F0FDF4;border-color:#BBF7D0}
+    .compare-card.nonrenewable{background:#FEF2F2;border-color:#FECACA}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.renewable .compare-card-title{color:#166534}
+    .compare-card.nonrenewable .compare-card-title{color:#991B1B}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .activity-body ol{margin:.5rem 0;padding-left:1.25rem}
+    .activity-body li{padding:.2rem 0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('definition')"><div class="sidebar-dot"></div> What are Natural Resources?</button>
+      <button class="sidebar-link" onclick="scrollTo('spheres')"><div class="sidebar-dot"></div> Four Spheres of Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('renewable')"><div class="sidebar-dot"></div> Renewable vs Non-Renewable</button>
+      <button class="sidebar-link" onclick="scrollTo('industry')"><div class="sidebar-dot"></div> Industry & Manufacturing</button>
+      <button class="sidebar-link" onclick="scrollTo('classification')"><div class="sidebar-dot"></div> Classifying Chemical Industries</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Introduction ✓</a>
+      <a href="lesson-3-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Natural Resources</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Valuable Products</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Nitric Acid</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Sulphuric Acid</a>
+      <a href="lesson-3-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Na₂CO₃ & NaOH</a>
+      <a href="lesson-3-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Pesticides</a>
+      <a href="lesson-3-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Ethiopian Industries I</a>
+      <a href="lesson-3-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Ethiopian Industries II</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 3</a> ›
+      Lesson 3.2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Industrial Chemistry · MoE Textbook §3.2</div>
+      <h1>🌍 Natural Resources & Industry</h1>
+      <p>Every product of the chemical industry begins with a raw material taken from the environment — from the air, the ocean, the earth's crust, or living things. This lesson surveys Earth's four resource spheres and how industry classifies them.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In Lesson 3.1 you learned what industrial chemistry is. Now we ask: <strong>where do the raw materials come from?</strong> The Earth provides resources from four major compartments — atmosphere, hydrosphere, lithosphere, and biosphere. Understanding these sources is the first step in any chemical industry.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>natural resources</strong> and <strong>raw materials</strong></li>
+          <li>List the four <strong>spheres of the environment</strong> and their resources</li>
+          <li>Classify resources as <strong>renewable</strong> or <strong>non-renewable</strong></li>
+          <li>Define <strong>industry</strong> and <strong>manufacturing industry</strong></li>
+          <li>Classify chemical industries based on <strong>raw materials</strong> and <strong>product type</strong></li>
+          <li>Relate raw materials to industrial products</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What are Natural Resources?</div><div class="section-subtitle">The raw materials of industry</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Natural Resources (MoE Textbook, p. 147)</div>
+          <p>
+            <strong>Natural resources</strong> are the raw materials for the chemical industry which are obtained from the <strong>natural environment</strong> — from the atmosphere, hydrosphere, lithosphere, and biosphere.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Two types of raw materials</div>
+          <p>
+            • <strong>Natural raw materials</strong> — obtained directly from the environment (e.g., air, seawater, mineral ores)<br>
+            • <strong>Synthetic / derived raw materials</strong> — processed in one industry to serve as feedstock for another (e.g., ethanol from sugar for plastics)
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Everything traces back to nature</div>
+          <p>
+            Even plastics, medicines, and synthetic fibers eventually trace back to <strong>natural sources</strong> — fossil fuels from the lithosphere, minerals from ores, or plants from the biosphere. Industry is fundamentally about <em>transforming what nature provides</em>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="spheres">
+      <div class="section-header"><div class="section-icon">🌐</div>
+        <div><div class="section-title-text">The Four Spheres of Resources</div><div class="section-subtitle">MoE Textbook, p. 147</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Natural resources come from four major compartments of the environment:
+        </p>
+
+        <div class="sphere-grid">
+          <div class="sphere-card">
+            <div class="sphere-icon">🌬️</div>
+            <div class="sphere-title">1. Atmosphere</div>
+            <div class="sphere-desc">Contains approximately <strong>5 × 10¹⁵ tons</strong> of gases. Composed mainly of N₂, O₂, CO₂, plus trace Ne, Ar, Kr, Xe.</div>
+            <p class="sphere-source">Source: Nitrogen for fertilizers, oxygen for combustion, argon for welding, neon for lighting</p>
+          </div>
+          <div class="sphere-card">
+            <div class="sphere-icon">💧</div>
+            <div class="sphere-title">2. Hydrosphere</div>
+            <div class="sphere-desc">Ocean water amounts to about <strong>1.5 × 10²¹ liters</strong>, with about <strong>3.5% by mass dissolved material</strong>.</div>
+            <p class="sphere-source">Source: Sodium chloride, magnesium, bromine from seawater</p>
+          </div>
+          <div class="sphere-card">
+            <div class="sphere-icon">🪨</div>
+            <div class="sphere-title">3. Lithosphere</div>
+            <div class="sphere-desc">The vast majority of elements are obtained from the <strong>earth's crust</strong> in the form of mineral ores, carbon, and hydrocarbons.</div>
+            <p class="sphere-source">Source: Coal, natural gas, crude petroleum, metal ores</p>
+          </div>
+          <div class="sphere-card">
+            <div class="sphere-icon">🌱</div>
+            <div class="sphere-title">4. Biosphere</div>
+            <div class="sphere-desc">Vegetation and animals contribute raw materials to <strong>agro-based industries</strong>.</div>
+            <p class="sphere-source">Source: Oils, fats, waxes, resins, sugar, natural fibers, leather</p>
+          </div>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">The Four Spheres — Visual Overview</div>
+          <svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Atmosphere -->
+            <rect x="10" y="10" width="240" height="110" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2" rx="8"/>
+            <text x="130" y="40" font-size="13" fill="#1E40AF" text-anchor="middle" font-weight="bold">🌬️ Atmosphere</text>
+            <text x="130" y="62" font-size="10" fill="#1E40AF" text-anchor="middle">N₂, O₂, CO₂, Ne, Ar, Kr, Xe</text>
+            <text x="130" y="82" font-size="9" fill="#1E40AF" text-anchor="middle">5 × 10¹⁵ tons of gases</text>
+            <text x="130" y="102" font-size="9" fill="#64748b" text-anchor="middle" font-style="italic">Fertilizers, welding, lighting</text>
+
+            <!-- Hydrosphere -->
+            <rect x="270" y="10" width="240" height="110" fill="#BFDBFE" stroke="#1E40AF" stroke-width="2" rx="8"/>
+            <text x="390" y="40" font-size="13" fill="#1E40AF" text-anchor="middle" font-weight="bold">💧 Hydrosphere</text>
+            <text x="390" y="62" font-size="10" fill="#1E40AF" text-anchor="middle">Oceans, seas, rivers, lakes</text>
+            <text x="390" y="82" font-size="9" fill="#1E40AF" text-anchor="middle">1.5 × 10²¹ L; 3.5% dissolved salts</text>
+            <text x="390" y="102" font-size="9" fill="#64748b" text-anchor="middle" font-style="italic">NaCl, Mg, Br₂ from seawater</text>
+
+            <!-- Lithosphere -->
+            <rect x="10" y="140" width="240" height="110" fill="#FED7AA" stroke="#92400E" stroke-width="2" rx="8"/>
+            <text x="130" y="170" font-size="13" fill="#92400E" text-anchor="middle" font-weight="bold">🪨 Lithosphere</text>
+            <text x="130" y="192" font-size="10" fill="#92400E" text-anchor="middle">Earth's crust and upper mantle</text>
+            <text x="130" y="212" font-size="9" fill="#92400E" text-anchor="middle">Mineral ores, coal, oil, gas</text>
+            <text x="130" y="232" font-size="9" fill="#64748b" text-anchor="middle" font-style="italic">Metals, hydrocarbons, chemicals</text>
+
+            <!-- Biosphere -->
+            <rect x="270" y="140" width="240" height="110" fill="#BBF7D0" stroke="#166534" stroke-width="2" rx="8"/>
+            <text x="390" y="170" font-size="13" fill="#166534" text-anchor="middle" font-weight="bold">🌱 Biosphere</text>
+            <text x="390" y="192" font-size="10" fill="#166534" text-anchor="middle">Vegetation + animals</text>
+            <text x="390" y="212" font-size="9" fill="#166534" text-anchor="middle">Oils, fats, waxes, resins, sugar, fibers, leather</text>
+            <text x="390" y="232" font-size="9" fill="#64748b" text-anchor="middle" font-style="italic">Agro-based industries</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The atmosphere's unlimited supply</div>
+          <p>
+            The natural supply of atmospheric gases (N₂, O₂, Ar, etc.) is essentially <strong>unlimited</strong>. This is why nitrogen fertilizer production (Haber process — Lesson 3.3) can never run out of its key raw material.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="renewable">
+      <div class="section-header"><div class="section-icon">♻️</div>
+        <div><div class="section-title-text">Renewable vs Non-Renewable Resources</div><div class="section-subtitle">The critical distinction</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="compare-grid">
+          <div class="compare-card renewable">
+            <div class="compare-card-title">♻️ Renewable Resources</div>
+            <p>
+              Resources that can be replenished through <strong>rapid natural cycles</strong>. They can increase in abundance through reproduction and use of simple substances.<br><br>
+              <strong>Examples:</strong><br>
+              • Plants (crops, forests)<br>
+              • Animals<br>
+              • Wood and wood products<br>
+              • Natural rubber<br>
+              • Fibers (cotton, jute, wool, silk)<br>
+              • Pulp products<br>
+              • Leather<br>
+              • Water and soil<br>
+              • Solar energy
+            </p>
+          </div>
+          <div class="compare-card nonrenewable">
+            <div class="compare-card-title">⛔ Non-Renewable Resources</div>
+            <p>
+              Resources that <strong>cannot be replenished</strong> through natural processes. Available in limited amounts — once consumed, gone forever.<br><br>
+              <strong>Examples:</strong><br>
+              • Fossil fuels (petrol, coal)<br>
+              • Metals (iron, copper, gold, silver, lead, zinc)<br>
+              • Minerals and salts (carbonates, phosphates, nitrates)<br><br>
+              A <strong>substitute</strong> is needed once these run out.
+            </p>
+          </div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Why this matters for industry</div>
+          <p>
+            Industries built on <strong>renewable resources</strong> (e.g., sugar from sugarcane, ethanol from fermentation) can be sustainable long-term.<br>
+            Industries built on <strong>non-renewable resources</strong> (e.g., plastics from petroleum) face eventual shortages and must develop substitutes.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 3.3 (Textbook p. 148)</div>
+          <div class="activity-body">
+            Although renewable resources can be replenished by natural processes, they are practically getting depleted. Similarly, non-renewable resources are over-used and may be exhausted shortly.<br><br>
+            <strong>Think:</strong> How can chemical knowledge be used to tackle such problems? Share your views with the class.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="industry">
+      <div class="section-header"><div class="section-icon">🏭</div>
+        <div><div class="section-title-text">Industry & Manufacturing</div><div class="section-subtitle">MoE Textbook, p. 148</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Industry</div>
+          <p>
+            <strong>Industry</strong> is a well-organized facility with a high degree of automation and specialization where large-scale manufacturing of goods takes place. It can also include commercial activities that provide goods and services — agriculture, transportation, hospitality, and many others.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Manufacturing Industry</div>
+          <p>
+            A <strong>manufacturing industry</strong> is a compartment of industry or economy which is concerned with the production or making of goods out of <strong>raw materials</strong> by means of a system of <strong>organized labor</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Chemical Industry</div>
+          <p>
+            A <strong>chemical industry</strong> is a facility where industrial chemicals are manufactured. The products result from:
+          </p>
+          <p style="margin-top:.5rem">
+            <strong>a.</strong> Chemical reaction between organic materials, inorganic materials, or both<br>
+            <strong>b.</strong> Extraction, separation, or purification of natural products, with or without chemical reactions<br>
+            <strong>c.</strong> The preparation of specifically valuable materials
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="classification">
+      <div class="section-header"><div class="section-icon">📂</div>
+        <div><div class="section-title-text">Classifying Chemical Industries</div><div class="section-subtitle">Two different ways</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Method 1 — Based on Raw Material</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Uses natural raw materials</strong></td><td>Directly from the environment</td><td>Sugar industry uses sugarcane</td></tr>
+            <tr><td><strong>Uses products from other industries</strong></td><td>Processed inputs from elsewhere</td><td>Soap industry uses caustic soda (NaOH) from the chlor-alkali industry</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Method 2 — Based on Product Type</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Category</th><th>Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Food processing industries</td><td>Flour mills, canning, dairies</td></tr>
+            <tr><td>Beverages industries</td><td>Beer, wine, soft drinks, bottled water</td></tr>
+            <tr><td>Textiles industries</td><td>Cotton mills, weaving, dyeing</td></tr>
+            <tr><td>Wearing apparel industries</td><td>Garment manufacturing</td></tr>
+            <tr><td>Leather industries</td><td>Tanning, shoe and bag manufacturing</td></tr>
+            <tr><td>Paper and chemical industries</td><td>Pulp and paper, basic chemicals</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Two lenses on the same industry</div>
+          <p>
+            A <strong>soap factory</strong> could be classified either:<br>
+            • By <strong>raw materials</strong> — "uses products from other industries" (NaOH from chlor-alkali, oils from agriculture)<br>
+            • By <strong>product type</strong> — "chemical industry" (produces a chemical product)<br><br>
+            Both classifications are valid — they answer different questions.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Key concepts from Lesson 3.2</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🌍 Lesson 3.2 — Natural Resources & Industry</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Natural resources</div><div class="formula-math">From environment → raw materials</div><div class="formula-note">For the chemical industry</div></div>
+          <div class="formula-item"><div class="formula-name">Atmosphere</div><div class="formula-math">5 × 10¹⁵ tons gases</div><div class="formula-note">N₂, O₂, CO₂, noble gases</div></div>
+          <div class="formula-item"><div class="formula-name">Hydrosphere</div><div class="formula-math">1.5 × 10²¹ L water</div><div class="formula-note">3.5% dissolved salts</div></div>
+          <div class="formula-item"><div class="formula-name">Lithosphere</div><div class="formula-math">Mineral ores + coal + oil</div><div class="formula-note">Earth's crust and upper mantle</div></div>
+          <div class="formula-item"><div class="formula-name">Biosphere</div><div class="formula-math">Plants + animals</div><div class="formula-note">Agro-based raw materials</div></div>
+          <div class="formula-item"><div class="formula-name">Renewable</div><div class="formula-math">Replenished by nature</div><div class="formula-note">Plants, animals, water, soil</div></div>
+          <div class="formula-item"><div class="formula-name">Non-renewable</div><div class="formula-math">Finite, exhaustible</div><div class="formula-note">Fossil fuels, metals, minerals</div></div>
+          <div class="formula-item"><div class="formula-name">Industry</div><div class="formula-math">Large-scale organized production</div><div class="formula-note">Raw materials → goods</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identify the Source Sphere</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> For each of these raw materials, identify which sphere (atmosphere, hydrosphere, lithosphere, or biosphere) provides it: (a) bromine, (b) sugarcane, (c) nitrogen, (d) iron ore.</div>
+          <div class="example-step"><span class="step-badge">(a) Bromine</span><div class="step-text"><span class="math">Hydrosphere</span> — extracted from seawater (3.5% dissolved material)</div></div>
+          <div class="example-step"><span class="step-badge">(b) Sugarcane</span><div class="step-text"><span class="math">Biosphere</span> — plant-based (agro-based raw material)</div></div>
+          <div class="example-step"><span class="step-badge">(c) Nitrogen</span><div class="step-text"><span class="math">Atmosphere</span> — makes up 78% of the air</div></div>
+          <div class="example-step"><span class="step-badge">(d) Iron ore</span><div class="step-text"><span class="math">Lithosphere</span> — mined from Earth's crust</div></div>
+          <div class="example-answer">✅ Bromine = hydrosphere; Sugarcane = biosphere; Nitrogen = atmosphere; Iron ore = lithosphere</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Renewable or Non-Renewable?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify each of the following as renewable or non-renewable: (a) natural rubber, (b) copper, (c) petroleum, (d) solar energy, (e) cotton.</div>
+          <div class="example-step"><span class="step-badge">(a) Natural rubber</span><div class="step-text"><span class="math">Renewable</span> — comes from rubber trees which regrow</div></div>
+          <div class="example-step"><span class="step-badge">(b) Copper</span><div class="step-text"><span class="math">Non-renewable</span> — a metal from finite ore deposits</div></div>
+          <div class="example-step"><span class="step-badge">(c) Petroleum</span><div class="step-text"><span class="math">Non-renewable</span> — fossil fuel, formed over millions of years</div></div>
+          <div class="example-step"><span class="step-badge">(d) Solar energy</span><div class="step-text"><span class="math">Renewable</span> — inexhaustible on the human timescale</div></div>
+          <div class="example-step"><span class="step-badge">(e) Cotton</span><div class="step-text"><span class="math">Renewable</span> — plant fiber, regrows each season</div></div>
+          <div class="example-answer">✅ Renewable: rubber, solar, cotton | Non-renewable: copper, petroleum</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Classify an Industry Two Ways</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A brewery makes beer from barley. Classify this industry (a) by raw material and (b) by product type.</div>
+          <div class="example-step"><span class="step-badge">(a) By raw material</span><div class="step-text">The brewery uses <span class="math">natural raw materials</span> — barley is grown directly from the biosphere</div></div>
+          <div class="example-step"><span class="step-badge">(b) By product type</span><div class="step-text">It is a <span class="math">beverages industry</span> — producing a drinkable alcohol product</div></div>
+          <div class="example-answer">✅ (a) Uses natural raw materials | (b) Beverages industry</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">From Sphere to Product</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Trace the source of the following products back to their raw materials and spheres: (a) glass, (b) plastic bottle, (c) soap.</div>
+          <div class="example-step"><span class="step-badge">(a) Glass</span><div class="step-text">
+            Made from silica sand (SiO₂), sodium carbonate (Na₂CO₃), and limestone (CaCO₃) — all from the <span class="math">lithosphere</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">(b) Plastic bottle</span><div class="step-text">
+            Made from petroleum-based polymers — fossil fuels from the <span class="math">lithosphere</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">(c) Soap</span><div class="step-text">
+            Made from animal fat or vegetable oil (<span class="math">biosphere</span>) + NaOH from chlor-alkali (NaCl from <span class="math">lithosphere</span>/hydrosphere)
+          </div></div>
+          <div class="example-answer">✅ Every product ultimately traces back to one or more of the four spheres</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Why Substitutes Matter</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Petroleum is a non-renewable resource. Explain why the chemical industry is actively developing substitutes for petroleum-based plastics.</div>
+          <div class="example-step"><span class="step-badge">Finite supply</span><div class="step-text">Petroleum reserves are <span class="math">limited</span> — once extracted, they cannot be regenerated within human timescales</div></div>
+          <div class="example-step"><span class="step-badge">Rising cost</span><div class="step-text">As reserves decline, extraction cost rises — eventually making petroleum-based plastics uneconomical</div></div>
+          <div class="example-step"><span class="step-badge">Sustainability</span><div class="step-text">Bioplastics from corn starch, sugarcane (biosphere sources) offer a <span class="math">renewable alternative</span></div></div>
+          <div class="example-step"><span class="step-badge">Environment</span><div class="step-text">Bioplastics are often <span class="math">biodegradable</span>, reducing pollution</div></div>
+          <div class="example-answer">✅ Petroleum is finite → industry must develop renewable substitutes to remain sustainable</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which sphere of the environment is the source of sodium chloride (NaCl) for industry?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Atmosphere</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Biosphere</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Hydrosphere</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Lithosphere</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Which of the following is a NON-RENEWABLE resource?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Cotton</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Wood</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Petroleum</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Natural rubber</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A manufacturing industry is best defined as one that:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Extracts raw materials directly from nature</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Provides transportation and hospitality services</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Produces goods from raw materials using organized labor</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Only sells imported products</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which of the following is a chemical industry classified by PRODUCT TYPE?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> An industry that uses sugarcane directly</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> The leather industry</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> An industry that uses NaOH from another factory</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> An industry that uses mineral ore directly</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The atmosphere is the source of which of the following raw materials for industry?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Iron ore</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Sugarcane</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Nitrogen for fertilizer production</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Crude petroleum</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-3-3.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=renewable+vs+nonrenewable+natural+resources" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Renewable vs Non-Renewable Natural Resources</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=earth+four+spheres+atmosphere+hydrosphere+lithosphere+biosphere" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">The Four Spheres of Earth Explained</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=raw+materials+in+chemical+industry" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Raw Materials of the Chemical Industry</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=classification+of+industries" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Classification of Industries — Overview</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 3.2</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Natural Resources & Industry</div>
+        <ul class="summary-list">
+          <li><strong>Natural resources</strong> = raw materials from the environment for the chemical industry</li>
+          <li>The <strong>four spheres</strong> are atmosphere, hydrosphere, lithosphere, and biosphere</li>
+          <li><strong>Atmosphere</strong> — ~5 × 10¹⁵ tons of gases (N₂, O₂, CO₂, noble gases)</li>
+          <li><strong>Hydrosphere</strong> — ~1.5 × 10²¹ L water, ~3.5% dissolved salts (NaCl, Mg, Br₂)</li>
+          <li><strong>Lithosphere</strong> — mineral ores, coal, natural gas, crude petroleum</li>
+          <li><strong>Biosphere</strong> — vegetation and animals for agro-based industries (oils, fats, waxes, resins, sugar, fibers, leather)</li>
+          <li><strong>Renewable resources</strong> — plants, animals, wood, rubber, fibers, water, soil, solar energy</li>
+          <li><strong>Non-renewable resources</strong> — fossil fuels, metals, minerals, salts (finite, exhaustible)</li>
+          <li><strong>Industry</strong> — organized facility for large-scale manufacturing</li>
+          <li><strong>Chemical industry</strong> — manufactures chemicals by reactions, extraction, purification, or preparation of valuable materials</li>
+          <li>Chemical industries can be classified by <strong>raw material source</strong> (natural vs derived) or by <strong>product type</strong> (food, beverages, textiles, leather, paper, etc.)</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §3.2 (pp. 146–149)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-1.html" class="btn btn-ghost">← Lesson 3.1: Introduction</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 2 of 9</div>
+      <a href="lesson-3-3.html" class="btn btn-primary">Next: Manufacturing Valuable Products →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'B',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! NaCl is a dissolved salt in the hydrosphere (seawater is ~3.5% dissolved salts).',wrong:'✗ NaCl comes from the hydrosphere (seawater).'},
+    2:{C:'✓ Correct! Petroleum is a fossil fuel — non-renewable, formed over millions of years.',wrong:'✗ Petroleum is non-renewable (fossil fuel).'},
+    3:{C:'✓ Correct! Manufacturing produces goods from raw materials using organized labor.',wrong:'✗ Manufacturing: goods from raw materials + organized labor.'},
+    4:{B:'✓ Correct! The leather industry is classified by its product type (leather goods).',wrong:'✗ Product-type classification: leather industry is classified by what it produces.'},
+    5:{C:'✓ Correct! Nitrogen (78% of the atmosphere) is used for fertilizer production.',wrong:'✗ Nitrogen for fertilizer comes from the atmosphere.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','definition','spheres','renewable','industry','classification','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
