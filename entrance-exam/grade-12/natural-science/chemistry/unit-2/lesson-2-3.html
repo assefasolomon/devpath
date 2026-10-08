@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.3: Balancing Redox (Half-Reaction Method) | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .steps-list{counter-reset:step;list-style:none;padding-left:0}
+    .steps-list li{counter-increment:step;position:relative;padding:.875rem 0 .875rem 3.25rem;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .steps-list li:last-child{border-bottom:none}
+    .steps-list li::before{content:counter(step);position:absolute;left:0;top:.875rem;width:34px;height:34px;background:#DC2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+    .steps-list strong{color:#991B1B}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.acid{background:#FEF2F2;border-color:#FECACA}
+    .compare-card.base{background:#EFF6FF;border-color:#BFDBFE}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.acid .compare-card-title{color:#991B1B}
+    .compare-card.base .compare-card-title{color:#1E40AF}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    .compare-card code{background:rgba(0,0,0,.06);padding:1px 5px;border-radius:4px;font-size:.78rem}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('concept')"><div class="sidebar-dot"></div> The Half-Reaction Idea</button>
+      <button class="sidebar-link" onclick="scrollTo('rules')"><div class="sidebar-dot"></div> Acidic vs Basic Media</button>
+      <button class="sidebar-link" onclick="scrollTo('steps')"><div class="sidebar-dot"></div> The 5-Step Procedure</button>
+      <button class="sidebar-link" onclick="scrollTo('worked')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('basic')"><div class="sidebar-dot"></div> Basic Medium Strategy</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Redox Reactions ✓</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Balancing (Ox. No.) ✓</a>
+      <a href="lesson-2-3.html" class="sidebar-link active"><div class="sidebar-dot"></div> L3: Balancing (Half-Rxn)</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Conductivity</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Electrolytic Cells</a>
+      <a href="lesson-2-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Electrolysis Examples</a>
+      <a href="lesson-2-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Faraday's 1st Law</a>
+      <a href="lesson-2-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Faraday's 2nd Law</a>
+      <a href="lesson-2-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Industrial Apps</a>
+      <a href="lesson-2-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Galvanic Cells</a>
+      <a href="lesson-2-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Standard Potentials</a>
+      <a href="lesson-2-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Nernst & Corrosion</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Electrochemistry · MoE Textbook §2.1.3</div>
+      <h1>⚗️ Balancing Redox — Half-Reaction Method</h1>
+      <p>The half-reaction method is the most reliable way to balance complex redox equations, especially in acidic or basic aqueous solutions. It splits the reaction into two halves, balances each separately, then recombines them.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          The <strong>half-reaction method</strong> (also called the <strong>ion-electron method</strong>) is the standard approach for balancing redox reactions that occur in aqueous solution — particularly those involving ions and especially those in acidic or basic media. It is more systematic than the oxidation number method and the method of choice in IB, AP, and EUEE exams.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Split any redox equation into its <strong>oxidation half-reaction</strong> and <strong>reduction half-reaction</strong></li>
+          <li>Balance each half-reaction for <strong>atoms</strong> (non-H/O → O → H) and <strong>charge</strong></li>
+          <li>Use <strong>H₂O</strong> and <strong>H⁺</strong> to balance in <strong>acidic media</strong></li>
+          <li>Convert to <strong>basic media</strong> by adding <strong>OH⁻</strong></li>
+          <li>Multiply and combine half-reactions so electrons cancel</li>
+          <li>Balance complex ionic equations like <strong>Fe²⁺ + Cr₂O₇²⁻</strong> and <strong>MnO₄⁻ + I⁻</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="concept">
+      <div class="section-header"><div class="section-icon">💡</div>
+        <div><div class="section-title-text">The Half-Reaction Idea</div><div class="section-subtitle">Split, balance, recombine</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Core idea</div>
+          <p>
+            Any redox reaction can be split into <strong>two separate half-reactions</strong>: one for oxidation and one for reduction. We balance each one independently, then add them back together, making sure the electrons cancel.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Half-Reaction Method — Workflow</div>
+          <svg viewBox="0 0 520 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- Full equation -->
+            <rect x="140" y="10" width="240" height="36" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="8"/>
+            <text x="260" y="33" font-size="12" fill="#991B1B" text-anchor="middle" font-weight="bold" font-family="Georgia,serif">Full redox equation</text>
+
+            <!-- Split arrows -->
+            <line x1="200" y1="46" x2="120" y2="86" stroke="#DC2626" stroke-width="2" marker-end="url(#arrowSplit)"/>
+            <line x1="320" y1="46" x2="400" y2="86" stroke="#1E40AF" stroke-width="2" marker-end="url(#arrowSplitB)"/>
+            <defs>
+              <marker id="arrowSplit" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+              <marker id="arrowSplitB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#1E40AF"/></marker>
+            </defs>
+
+            <!-- Oxidation half -->
+            <rect x="30" y="90" width="180" height="46" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="8"/>
+            <text x="120" y="111" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">Oxidation half</text>
+            <text x="120" y="127" font-size="10" fill="#991B1B" text-anchor="middle" font-family="Georgia,serif">e⁻ on the RIGHT</text>
+
+            <!-- Reduction half -->
+            <rect x="310" y="90" width="180" height="46" fill="#EFF6FF" stroke="#1E40AF" stroke-width="2" rx="8"/>
+            <text x="400" y="111" font-size="11" fill="#1E40AF" text-anchor="middle" font-weight="bold">Reduction half</text>
+            <text x="400" y="127" font-size="10" fill="#1E40AF" text-anchor="middle" font-family="Georgia,serif">e⁻ on the LEFT</text>
+
+            <!-- Balance arrows -->
+            <line x1="120" y1="136" x2="200" y2="176" stroke="#DC2626" stroke-width="2" marker-end="url(#arrowSplit)"/>
+            <line x1="400" y1="136" x2="320" y2="176" stroke="#1E40AF" stroke-width="2" marker-end="url(#arrowSplitB)"/>
+
+            <!-- Balance each -->
+            <rect x="140" y="180" width="240" height="46" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2" rx="8"/>
+            <text x="260" y="200" font-size="11" fill="#92400E" text-anchor="middle" font-weight="bold">Balance each for atoms + charge</text>
+            <text x="260" y="216" font-size="10" fill="#92400E" text-anchor="middle">Add H₂O / H⁺ (acidic) or H₂O / OH⁻ (basic)</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Remember</div>
+          <p>
+            In an <strong>oxidation</strong> half-reaction, electrons appear as a <strong>product</strong> (right side).<br>
+            In a <strong>reduction</strong> half-reaction, electrons appear as a <strong>reactant</strong> (left side).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="rules">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">Acidic vs Basic Media</div><div class="section-subtitle">The key difference</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The atoms-and-charge balancing rules are the same in both media — only the "helper" species differ:
+        </p>
+
+        <div class="compare-grid">
+          <div class="compare-card acid">
+            <div class="compare-card-title">🔴 Acidic Medium</div>
+            <p>
+              Balance <strong>O</strong> by adding <code>H₂O</code><br>
+              Balance <strong>H</strong> by adding <code>H⁺</code><br>
+              Balance charge by adding <code>e⁻</code><br>
+              <br>
+              <em>Example: Fe²⁺ + Cr₂O₇²⁻ → Fe³⁺ + Cr³⁺</em>
+            </p>
+          </div>
+          <div class="compare-card base">
+            <div class="compare-card-title">🔵 Basic Medium</div>
+            <p>
+              First balance as if it were <strong>acidic</strong>.<br>
+              Then for every <code>H⁺</code>, add equal <code>OH⁻</code> to <strong>both sides</strong>.<br>
+              Combine <code>H⁺ + OH⁻ → H₂O</code> where they appear on the same side.<br>
+              Cancel any remaining <code>H₂O</code> molecules.
+            </p>
+          </div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Balance order for atoms</div>
+          <p>
+            1. <strong>Atoms other than O and H</strong> first (e.g., Cr, Mn, Fe, I)<br>
+            2. <strong>Oxygen</strong> atoms (use H₂O)<br>
+            3. <strong>Hydrogen</strong> atoms (use H⁺ for acidic; convert to OH⁻ for basic)<br>
+            4. <strong>Charge</strong> (add electrons e⁻)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="steps">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">The 5-Step Procedure</div><div class="section-subtitle">MoE Textbook, p. 62</div></div>
+      </div>
+
+      <div class="content-box">
+        <ol class="steps-list">
+          <li><strong>Separate the equation</strong> into an oxidation half-reaction and a reduction half-reaction.</li>
+          <li><strong>Balance the atoms and charges in each half-reaction.</strong> Balance atoms in this order: atoms other than O and H, then O, then H. For acidic media, add H₂O to balance O and H⁺ to balance H. Balance charge by adding electrons (e⁻) to the <em>right</em> in the oxidation half-reaction and to the <em>left</em> in the reduction half-reaction.</li>
+          <li><strong>Multiply one or both half-reactions</strong> by an integer so that the number of electrons gained in reduction equals the number of electrons lost in oxidation.</li>
+          <li><strong>Add the balanced half-reactions</strong> together and include states of matter. Electrons on both sides must cancel.</li>
+          <li><strong>Check that the atoms and charges are balanced</strong> on both sides of the final equation.</li>
+        </ol>
+
+        <div class="note-box">
+          <div class="note-label">📝 For basic media</div>
+          <p>
+            Proceed through all 5 steps as if the reaction were in acidic medium. Then, for <strong>every H⁺</strong> ion, add an equal number of <strong>OH⁻</strong> ions to <em>both</em> sides of the equation. Where H⁺ and OH⁻ appear on the same side, combine them to give H₂O. Finally, cancel any water molecules that appear on both sides.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="worked">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">Two textbook examples</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Fe²⁺ + Cr₂O₇²⁻ (acidic medium)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Use the half-reaction method to balance:<br><strong>Fe²⁺ + Cr₂O₇²⁻ → Fe³⁺ + Cr³⁺</strong></div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">Separate into half-reactions:<br><span class="math">Fe²⁺ → Fe³⁺</span> (oxidation)<br><span class="math">Cr₂O₇²⁻ → Cr³⁺</span> (reduction)</div></div>
+          <div class="example-step"><span class="step-badge">Step 2a</span><div class="step-text">
+            <strong>Oxidation half:</strong> Fe already balanced for atoms. Add 1 e⁻ to the right to balance charge:<br>
+            <span class="math">Fe²⁺ → Fe³⁺ + e⁻</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 2b</span><div class="step-text">
+            <strong>Reduction half (acidic):</strong> Balance Cr: <span class="math">Cr₂O₇²⁻ → 2Cr³⁺</span><br>
+            Balance O by adding 7 H₂O on right: <span class="math">Cr₂O₇²⁻ → 2Cr³⁺ + 7H₂O</span><br>
+            Balance H by adding 14 H⁺ on left: <span class="math">14H⁺ + Cr₂O₇²⁻ → 2Cr³⁺ + 7H₂O</span><br>
+            Balance charge (left = +12, right = +6 → add 6 e⁻ on left):<br>
+            <span class="math">14H⁺ + Cr₂O₇²⁻ + 6e⁻ → 2Cr³⁺ + 7H₂O</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 3</span><div class="step-text">
+            Oxidation gives 1 e⁻, reduction needs 6 e⁻. Multiply the oxidation half by 6:
+            <br><span class="math">6Fe²⁺ → 6Fe³⁺ + 6e⁻</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 4</span><div class="step-text">
+            Add the two halves together and cancel the 6 e⁻ on both sides:<br>
+            <span class="math">6Fe²⁺ + 14H⁺ + Cr₂O₇²⁻ + 6e⁻ → 6Fe³⁺ + 2Cr³⁺ + 7H₂O + 6e⁻</span><br>
+            Cancelling electrons gives:<br>
+            <span class="math">6Fe²⁺ + 14H⁺ + Cr₂O₇²⁻ → 6Fe³⁺ + 2Cr³⁺ + 7H₂O</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 5</span><div class="step-text">
+            <strong>Check atoms:</strong> Fe: 6=6; Cr: 2=2; H: 14=14; O: 7=7<br>
+            <strong>Check charge:</strong> Left = 6(+2) + 14(+1) + (−2) = +24. Right = 6(+3) + 2(+3) = +24 ✓
+          </div></div>
+          <div class="example-answer">✅ <strong>6Fe²⁺ + 14H⁺ + Cr₂O₇²⁻ → 6Fe³⁺ + 2Cr³⁺ + 7H₂O</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">MnO₄⁻ + I⁻ (basic medium)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Balance in basic solution:<br><strong>MnO₄⁻ + I⁻ → MnO₂ + I₂</strong></div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">Separate:<br>Oxidation: <span class="math">I⁻ → I₂</span><br>Reduction: <span class="math">MnO₄⁻ → MnO₂</span></div></div>
+          <div class="example-step"><span class="step-badge">Step 2a</span><div class="step-text">
+            <strong>Oxidation half:</strong> Balance I: <span class="math">2I⁻ → I₂</span><br>
+            Balance charge: add 2 e⁻ to right → <span class="math">2I⁻ → I₂ + 2e⁻</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 2b</span><div class="step-text">
+            <strong>Reduction half (as if acidic):</strong> Balance O by adding 2 H₂O on right: <span class="math">MnO₄⁻ → MnO₂ + 2H₂O</span><br>
+            Balance H by adding 4 H⁺ on left: <span class="math">MnO₄⁻ + 4H⁺ → MnO₂ + 2H₂O</span><br>
+            Balance charge: left = +3, right = 0 → add 3 e⁻ on left:<br>
+            <span class="math">MnO₄⁻ + 4H⁺ + 3e⁻ → MnO₂ + 2H₂O</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 3</span><div class="step-text">
+            Oxidation gives 2 e⁻, reduction needs 3 e⁻. LCM = 6 → multiply oxidation by 3 and reduction by 2:
+            <br><span class="math">3(2I⁻ → I₂ + 2e⁻)</span><br>
+            <span class="math">2(MnO₄⁻ + 4H⁺ + 3e⁻ → MnO₂ + 2H₂O)</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 4</span><div class="step-text">
+            Add and cancel electrons:<br>
+            <span class="math">6I⁻ + 2MnO₄⁻ + 8H⁺ + 6e⁻ → 3I₂ + 2MnO₂ + 4H₂O + 6e⁻</span><br>
+            After cancellation:<br>
+            <span class="math">6I⁻ + 2MnO₄⁻ + 8H⁺ → 3I₂ + 2MnO₂ + 4H₂O</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Convert to basic</span><div class="step-text">
+            Add 8 OH⁻ to <em>both</em> sides to neutralize the 8 H⁺:<br>
+            <span class="math">6I⁻ + 2MnO₄⁻ + 8H⁺ + 8OH⁻ → 3I₂ + 2MnO₂ + 4H₂O + 8OH⁻</span><br>
+            Combine H⁺ + OH⁻ → H₂O on the left (8 pairs give 8 H₂O):<br>
+            <span class="math">6I⁻ + 2MnO₄⁻ + 8H₂O → 3I₂ + 2MnO₂ + 4H₂O + 8OH⁻</span><br>
+            Cancel 4 H₂O from both sides:<br>
+            <span class="math">6I⁻ + 2MnO₄⁻ + 4H₂O → 3I₂ + 2MnO₂ + 8OH⁻</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 5</span><div class="step-text">
+            <strong>Check atoms:</strong> I: 6=6; Mn: 2=2; O: 2(4) + 4 = 12 on left, 2(2) + 4 + 8 = 12 on right ✓<br>
+            <strong>Check charge:</strong> Left = 6(−1) + 2(−1) = −8. Right = 8(−1) = −8 ✓
+          </div></div>
+          <div class="example-answer">✅ <strong>6I⁻ + 2MnO₄⁻ + 4H₂O → 3I₂ + 2MnO₂ + 8OH⁻</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="basic">
+      <div class="section-header"><div class="section-icon">🔵</div>
+        <div><div class="section-title-text">Basic Medium Strategy — Quick Reference</div><div class="section-subtitle">Convert from acid to base in one line</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The conversion trick</div>
+          <p>
+            Balance the equation <strong>as if it were in acidic medium</strong>, then:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1.05rem;color:#DC2626;font-weight:700;margin:.75rem 0">
+            Add (number of H⁺) OH⁻ to BOTH sides → H⁺ + OH⁻ → H₂O → cancel water
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Worked conversion</div>
+          <p style="font-size:.9rem;color:#334155;font-family:'Georgia',serif;line-height:2;margin:.5rem 0;text-align:left">
+            <strong>Step A — Acidic form:</strong><br>
+            6I⁻ + 2MnO₄⁻ + 8H⁺ → 3I₂ + 2MnO₂ + 4H₂O<br><br>
+            <strong>Step B — Add 8 OH⁻ to both sides:</strong><br>
+            6I⁻ + 2MnO₄⁻ + 8H⁺ + 8OH⁻ → 3I₂ + 2MnO₂ + 4H₂O + 8OH⁻<br><br>
+            <strong>Step C — Combine H⁺ + OH⁻ → H₂O on left:</strong><br>
+            6I⁻ + 2MnO₄⁻ + 8H₂O → 3I₂ + 2MnO₂ + 4H₂O + 8OH⁻<br><br>
+            <strong>Step D — Cancel 4 H₂O:</strong><br>
+            6I⁻ + 2MnO₄⁻ + 4H₂O → 3I₂ + 2MnO₂ + 8OH⁻
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Exam tip</div>
+          <p>
+            In basic medium final answers, <strong>OH⁻ appears as a product</strong> if the reduction used up H⁺. If you see OH⁻ on the reactant side, double-check — you may have added it to the wrong side.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Everything from Lesson 2.3</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">⚗️ Lesson 2.3 — Half-Reaction Method</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Step 1</div><div class="formula-math">Split into 2 halves</div><div class="formula-note">Oxidation + reduction</div></div>
+          <div class="formula-item"><div class="formula-name">Atom order</div><div class="formula-math">Non-H/O → O → H</div><div class="formula-note">Balance in that order</div></div>
+          <div class="formula-item"><div class="formula-name">Acidic: balance O</div><div class="formula-math">Add H₂O</div><div class="formula-note">To the O-deficient side</div></div>
+          <div class="formula-item"><div class="formula-name">Acidic: balance H</div><div class="formula-math">Add H⁺</div><div class="formula-note">To the H-deficient side</div></div>
+          <div class="formula-item"><div class="formula-name">Balance charge</div><div class="formula-math">Add e⁻</div><div class="formula-note">Oxidation: right side; Reduction: left side</div></div>
+          <div class="formula-item"><div class="formula-name">Step 3</div><div class="formula-math">Multiply to balance e⁻</div><div class="formula-note">Use LCM</div></div>
+          <div class="formula-item"><div class="formula-name">Basic conversion</div><div class="formula-math">+ OH⁻ to both sides</div><div class="formula-note">For every H⁺</div></div>
+          <div class="formula-item"><div class="formula-name">Final check</div><div class="formula-math">Atoms + charge</div><div class="formula-note">Both sides must match</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">More Practice</div><div class="section-subtitle">3 additional worked problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">MnO₄⁻ + Fe²⁺ (acidic)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Balance in acidic medium:<br><strong>MnO₄⁻ + Fe²⁺ → Mn²⁺ + Fe³⁺</strong></div>
+          <div class="example-step"><span class="step-badge">Halves</span><div class="step-text">
+            Oxidation: Fe²⁺ → Fe³⁺ + e⁻<br>
+            Reduction: MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O
+          </div></div>
+          <div class="example-step"><span class="step-badge">Balance e⁻</span><div class="step-text">Multiply oxidation by 5 to match 5 e⁻ from reduction</div></div>
+          <div class="example-step"><span class="step-badge">Combine</span><div class="step-text">
+            <span class="math">5Fe²⁺ + MnO₄⁻ + 8H⁺ → 5Fe³⁺ + Mn²⁺ + 4H₂O</span>
+          </div></div>
+          <div class="example-answer">✅ <strong>5Fe²⁺ + MnO₄⁻ + 8H⁺ → 5Fe³⁺ + Mn²⁺ + 4H₂O</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Cr₂O₇²⁻ + I⁻ (acidic)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Balance in acidic medium:<br><strong>Cr₂O₇²⁻ + I⁻ → Cr³⁺ + I₂</strong></div>
+          <div class="example-step"><span class="step-badge">Halves</span><div class="step-text">
+            Oxidation: 2I⁻ → I₂ + 2e⁻<br>
+            Reduction: Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O
+          </div></div>
+          <div class="example-step"><span class="step-badge">Balance e⁻</span><div class="step-text">Multiply oxidation by 3 to match 6 e⁻</div></div>
+          <div class="example-step"><span class="step-badge">Combine</span><div class="step-text">
+            <span class="math">Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O</span>
+          </div></div>
+          <div class="example-answer">✅ <strong>Cr₂O₇²⁻ + 6I⁻ + 14H⁺ → 2Cr³⁺ + 3I₂ + 7H₂O</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Cl₂ + OH⁻ (basic)</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Balance in basic medium:<br><strong>Cl₂ → Cl⁻ + ClO⁻</strong> (disproportionation)</div>
+          <div class="example-step"><span class="step-badge">Halves</span><div class="step-text">
+            Reduction: Cl₂ + 2e⁻ → 2Cl⁻<br>
+            Oxidation: Cl₂ + 4OH⁻ → 2ClO⁻ + 2H₂O + 2e⁻
+          </div></div>
+          <div class="example-step"><span class="step-badge">Balance e⁻</span><div class="step-text">Both halves have 2 e⁻ — already balanced</div></div>
+          <div class="example-step"><span class="step-badge">Combine</span><div class="step-text">
+            <span class="math">2Cl₂ + 4OH⁻ → 2Cl⁻ + 2ClO⁻ + 2H₂O</span><br>
+            Simplify by dividing by 2:<br>
+            <span class="math">Cl₂ + 2OH⁻ → Cl⁻ + ClO⁻ + H₂O</span>
+          </div></div>
+          <div class="example-answer">✅ <strong>Cl₂ + 2OH⁻ → Cl⁻ + ClO⁻ + H₂O</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">In a reduction half-reaction, electrons appear as:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div> A product on the right side</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div> A reactant on the left side</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div> Both sides equally</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div> Electrons never appear in half-reactions</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">When balancing a half-reaction in acidic medium, oxygen atoms are balanced by adding:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> OH⁻</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> O₂</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> H₂O</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> H₂O₂</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">The balanced equation for Fe²⁺ + Cr₂O₇²⁻ → Fe³⁺ + Cr³⁺ in acidic medium is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Fe²⁺ + Cr₂O₇²⁻ → Fe³⁺ + Cr³⁺</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> 3Fe²⁺ + Cr₂O₇²⁻ + 7H⁺ → 3Fe³⁺ + 2Cr³⁺ + 7H₂O</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> 6Fe²⁺ + Cr₂O₇²⁻ + 14H⁺ → 6Fe³⁺ + 2Cr³⁺ + 7H₂O</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> 6Fe²⁺ + Cr₂O₇²⁻ → 6Fe³⁺ + 2Cr³⁺</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">To convert a balanced acidic-medium equation to basic medium, you should:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Add H⁺ to both sides</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Remove all H₂O molecules</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Add OH⁻ ions equal to the number of H⁺ ions, to both sides, and combine H⁺ + OH⁻ → H₂O</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Reverse the oxidation half-reaction</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">The balanced basic-medium equation for MnO₄⁻ + I⁻ → MnO₂ + I₂ is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> 6I⁻ + 2MnO₄⁻ + 8H⁺ → 3I₂ + 2MnO₂ + 4H₂O</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> 6I⁻ + 2MnO₄⁻ + 4H₂O → 3I₂ + 2MnO₂ + 8OH⁻</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> 2I⁻ + MnO₄⁻ → I₂ + MnO₂</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> 6I⁻ + 2MnO₄⁻ + 8OH⁻ → 3I₂ + 2MnO₂ + 4H₂O</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-2-4.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+balancing+redox+half+reaction+method+acidic" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Balancing Redox in Acidic Solution — Half-Reaction Method</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+balancing+redox+basic+solution" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Balancing Redox in Basic Solution — Full Tutorial</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+half+reaction+method+practice+problems" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Half-Reaction Method — Practice Problems</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+balancing+redox+dichromate+permanganate" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Balancing Cr₂O₇²⁻ and MnO₄⁻ Redox Reactions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.3</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Half-Reaction Method</div>
+        <ul class="summary-list">
+          <li>The half-reaction method splits redox reactions into <strong>oxidation</strong> and <strong>reduction</strong> halves</li>
+          <li>Balance atoms in this order: <strong>non-H/O → O → H</strong></li>
+          <li><strong>Acidic medium:</strong> balance O with H₂O, balance H with H⁺</li>
+          <li><strong>Basic medium:</strong> first balance as acidic, then add OH⁻ to both sides for every H⁺, combine H⁺ + OH⁻ → H₂O, cancel water</li>
+          <li>Electrons: <strong>product</strong> in oxidation half, <strong>reactant</strong> in reduction half</li>
+          <li>Step 3 multiplies halves so <strong>e⁻ lost = e⁻ gained</strong></li>
+          <li>Electrons must cancel when the halves are recombined</li>
+          <li>Key textbook example: <strong>6Fe²⁺ + 14H⁺ + Cr₂O₇²⁻ → 6Fe³⁺ + 2Cr³⁺ + 7H₂O</strong></li>
+          <li>Key textbook example (basic): <strong>6I⁻ + 2MnO₄⁻ + 4H₂O → 3I₂ + 2MnO₂ + 8OH⁻</strong></li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §2.1.3 (pp. 62–65)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-2.html" class="btn btn-ghost">← Lesson 2.2: Oxidation Number Method</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 3 of 12</div>
+      <a href="lesson-2-4.html" class="btn btn-primary">Next: Conductivity →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'B',2:'C',3:'C',4:'C',5:'B'};
+  const feedbacks={
+    1:{B:'✓ Correct! In a reduction half-reaction, electrons appear on the reactant (left) side because they are gained.',wrong:'✗ Reduction half-reactions have electrons on the LEFT (reactant) side because electrons are gained.'},
+    2:{C:'✓ Correct! In acidic medium, oxygen atoms are balanced by adding H₂O molecules to the O-deficient side.',wrong:'✗ Add H₂O to balance O in acidic medium (H⁺ is for balancing H).'},
+    3:{C:'✓ Correct! 6Fe²⁺ + Cr₂O₇²⁻ + 14H⁺ → 6Fe³⁺ + 2Cr³⁺ + 7H₂O. Fe loses 1 e⁻ × 6 = 6 e⁻; Cr₂O₇²⁻ gains 6 e⁻.',wrong:'✗ Balanced: 6Fe²⁺ + Cr₂O₇²⁻ + 14H⁺ → 6Fe³⁺ + 2Cr³⁺ + 7H₂O.'},
+    4:{C:'✓ Correct! Add OH⁻ equal to the number of H⁺ on both sides, then combine H⁺ + OH⁻ → H₂O, and cancel water.',wrong:'✗ To convert to basic: add OH⁻ (equal to H⁺ count) on both sides, combine to H₂O, cancel water.'},
+    5:{B:'✓ Correct! 6I⁻ + 2MnO₄⁻ + 4H₂O → 3I₂ + 2MnO₂ + 8OH⁻ is the balanced basic-medium equation.',wrong:'✗ Balanced basic form: 6I⁻ + 2MnO₄⁻ + 4H₂O → 3I₂ + 2MnO₂ + 8OH⁻.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','concept','rules','steps','worked','basic','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
