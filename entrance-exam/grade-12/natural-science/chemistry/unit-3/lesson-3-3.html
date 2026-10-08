@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.3: Manufacturing of Valuable Products — Ammonia & the Haber Process | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .reaction-block{background:#0F172A;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;font-family:'Georgia',serif;line-height:2}
+    .reaction-block .label{color:#F87171;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-sans);margin-bottom:.4rem;display:block}
+    .reaction-block .eq{color:#E2E8F0;font-size:.95rem;font-weight:600}
+    .steps-list{counter-reset:step;list-style:none;padding-left:0}
+    .steps-list li{counter-increment:step;position:relative;padding:.875rem 0 .875rem 3.25rem;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .steps-list li:last-child{border-bottom:none}
+    .steps-list li::before{content:counter(step);position:absolute;left:0;top:.875rem;width:34px;height:34px;background:#DC2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+    .steps-list strong{color:#991B1B}
+    .app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .app-card{background:#fff;border:1.5px solid #FECACA;border-radius:var(--radius-lg);padding:1.25rem;transition:all var(--transition)}
+    .app-card:hover{border-color:#DC2626;box-shadow:0 4px 12px rgba(220,38,38,.1);transform:translateY(-2px)}
+    .app-icon{font-size:1.75rem;margin-bottom:.5rem}
+    .app-title{font-size:.9rem;font-weight:700;color:#991B1B;margin-bottom:.5rem}
+    .app-desc{font-size:.82rem;color:var(--text);line-height:1.65;margin:0}
+    .experiment-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .experiment-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .experiment-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .experiment-body strong{color:#78350F}
+    .experiment-body ul{margin:.5rem 0;padding-left:1.25rem}
+    .experiment-body li{padding:.15rem 0}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.forward{background:#F0FDF4;border-color:#BBF7D0}
+    .compare-card.reverse{background:#FEF2F2;border-color:#FECACA}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.forward .compare-card-title{color:#166534}
+    .compare-card.reverse .compare-card-title{color:#991B1B}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('workflow')"><div class="sidebar-dot"></div> Manufacturing Workflow</button>
+      <button class="sidebar-link" onclick="scrollTo('ammonia')"><div class="sidebar-dot"></div> Ammonia Properties</button>
+      <button class="sidebar-link" onclick="scrollTo('uses')"><div class="sidebar-dot"></div> Uses of Ammonia</button>
+      <button class="sidebar-link" onclick="scrollTo('labprep')"><div class="sidebar-dot"></div> Lab Preparation</button>
+      <button class="sidebar-link" onclick="scrollTo('haber')"><div class="sidebar-dot"></div> The Haber-Bosch Process</button>
+      <button class="sidebar-link" onclick="scrollTo('lechatelier')"><div class="sidebar-dot"></div> Le Chatelier Conditions</button>
+      <button class="sidebar-link" onclick="scrollTo('experiment')"><div class="sidebar-dot"></div> Experiments 3.1 & 3.2</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Introduction ✓</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Natural Resources ✓</a>
+      <a href="lesson-3-3.html" class="sidebar-link active"><div class="sidebar-dot"></div> L3: Valuable Products</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Nitric Acid</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Sulphuric Acid</a>
+      <a href="lesson-3-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Na₂CO₃ & NaOH</a>
+      <a href="lesson-3-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Pesticides</a>
+      <a href="lesson-3-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Ethiopian Industries I</a>
+      <a href="lesson-3-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Ethiopian Industries II</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 3</a> ›
+      Lesson 3.3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Industrial Chemistry · MoE Textbook §3.3 + §3.3.1</div>
+      <h1>🧪 Manufacturing Valuable Products — Ammonia & the Haber Process</h1>
+      <p>How are raw materials turned into the products we use? This lesson introduces the general manufacturing workflow, then dives into ammonia — the compound behind nearly all the world's fertilizers — and the famous Haber-Bosch process that produces it.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Manufacturing involves a number of chemical processes designed to produce a desired product from a variety of starting raw materials, using energy through a succession of treatment steps integrated in a rational fashion. Today we focus on the most important chemical in world agriculture: <strong>ammonia (NH₃)</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe the <strong>general manufacturing workflow</strong> (physical + chemical treatment steps)</li>
+          <li>List the <strong>physical and chemical properties</strong> of ammonia</li>
+          <li>List the major <strong>uses of ammonia</strong> in industry and agriculture</li>
+          <li>Describe <strong>laboratory preparation</strong> of ammonia</li>
+          <li>Explain the <strong>Haber-Bosch process</strong> — its chemistry and industrial conditions</li>
+          <li>Apply <strong>Le Chatelier's principle</strong> to optimize ammonia yield</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="workflow">
+      <div class="section-header"><div class="section-icon">⚙️</div>
+        <div><div class="section-title-text">The General Manufacturing Workflow</div><div class="section-subtitle">How products are made</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Manufacturing of valuable products involves a number of chemical processes. The process is designed to produce a desired product from a variety of starting raw materials, using energy through a <strong>succession of treatment steps integrated in a rational fashion</strong>.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Two types of treatment steps</div>
+          <p>
+            <strong>1. Physical steps</strong> — separation, filtration, distillation, heating, cooling, compression<br>
+            <strong>2. Chemical steps</strong> — reactions, catalysis, neutralization, oxidation/reduction
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Basic Steps in a Manufacturing Process</div>
+          <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Raw materials -->
+            <rect x="10" y="80" width="90" height="50" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="6"/>
+            <text x="55" y="105" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">Raw</text>
+            <text x="55" y="120" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">Materials</text>
+
+            <!-- Arrow -->
+            <line x1="105" y1="105" x2="135" y2="105" stroke="#DC2626" stroke-width="2.5" marker-end="url(#arr1)"/>
+            <defs>
+              <marker id="arr1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+              <marker id="arr2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+              <marker id="arr3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+              <marker id="arr4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+            </defs>
+
+            <!-- Pretreatment -->
+            <rect x="140" y="80" width="90" height="50" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="6"/>
+            <text x="185" y="100" font-size="10" fill="#92400E" text-anchor="middle" font-weight="bold">Pre-</text>
+            <text x="185" y="114" font-size="10" fill="#92400E" text-anchor="middle" font-weight="bold">treatment</text>
+            <text x="185" y="126" font-size="8" fill="#92400E" text-anchor="middle">(physical)</text>
+
+            <!-- Arrow -->
+            <line x1="235" y1="105" x2="265" y2="105" stroke="#DC2626" stroke-width="2.5" marker-end="url(#arr2)"/>
+
+            <!-- Chemical reaction -->
+            <rect x="270" y="80" width="90" height="50" fill="#FECACA" stroke="#991B1B" stroke-width="2" rx="6"/>
+            <text x="315" y="100" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="bold">Chemical</text>
+            <text x="315" y="114" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="bold">Reaction</text>
+            <text x="315" y="126" font-size="8" fill="#991B1B" text-anchor="middle">(catalyst, heat)</text>
+
+            <!-- Arrow -->
+            <line x1="365" y1="105" x2="395" y2="105" stroke="#DC2626" stroke-width="2.5" marker-end="url(#arr3)"/>
+
+            <!-- Product -->
+            <rect x="400" y="80" width="90" height="50" fill="#F0FDF4" stroke="#16A34A" stroke-width="2" rx="6"/>
+            <text x="445" y="100" font-size="11" fill="#166534" text-anchor="middle" font-weight="bold">Valuable</text>
+            <text x="445" y="118" font-size="11" fill="#166534" text-anchor="middle" font-weight="bold">Product</text>
+
+            <!-- Byproduct circle -->
+            <circle cx="315" cy="170" r="18" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+            <text x="315" y="174" font-size="9" fill="#991B1B" text-anchor="middle" font-weight="bold">By-</text>
+            <text x="315" y="186" font-size="9" fill="#991B1B" text-anchor="middle" font-weight="bold">products</text>
+            <line x1="315" y1="132" x2="315" y2="150" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="3,3"/>
+          </svg>
+          <div class="visual-box-caption">
+            Raw materials → pretreatment → chemical reaction → product. By-products may be recycled, sold, or treated.
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Every product is different</div>
+          <p>
+            Valuable products include every industrial product. They are either <strong>directly used</strong> by consumers or serve as <strong>raw materials</strong> to synthesize products that solve societal demands. Both organic and inorganic chemicals can be used in manufacturing.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ammonia">
+      <div class="section-header"><div class="section-icon">💨</div>
+        <div><div class="section-title-text">Ammonia (NH₃) — Properties</div><div class="section-subtitle">MoE Textbook, p. 151</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Physical Properties</div>
+          <p>
+            • <strong>Lighter than air</strong> — density 0.769 kg/m³ at STP<br>
+            • <strong>Colorless</strong> gas at room temperature<br>
+            • <strong>Sharp, intensely irritating odor</strong><br>
+            • <strong>Melting point</strong> = −77.7 °C<br>
+            • <strong>Boiling point</strong> = −33.35 °C<br>
+            • <strong>Highly soluble in water</strong> — 34% (w/w) at 25 °C<br>
+            • Commercially available as a <strong>28–30% aqueous solution</strong>
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Chemical Properties</div>
+          <p>
+            <strong>Weak base</strong> — partially ionizes in water:
+          </p>
+          <p style="text-align:center;font-family:'Georgia',serif;font-size:1rem;color:#DC2626;font-weight:700;margin:.5rem 0">
+            NH₃ + H₂O ⇌ NH₄⁺ + OH⁻
+          </p>
+          <p>
+            Often referred to as <strong>ammonium hydroxide</strong> (NH₄OH).
+          </p>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Ionization in Water</span>
+          <div class="eq">NH₃(aq) + H₂O(l) ⇌ NH₄⁺(aq) + OH⁻(aq)</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why is NH₃ so soluble in water?</div>
+          <p>
+            Ammonia is a <strong>polar molecule</strong> with a lone pair of electrons on nitrogen. It forms <strong>hydrogen bonds with water molecules</strong>, making it very soluble. Additionally, the reaction with water to form NH₄⁺ and OH⁻ pulls more NH₃ into solution.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="uses">
+      <div class="section-header"><div class="section-icon">🌾</div>
+        <div><div class="section-title-text">Uses of Ammonia</div><div class="section-subtitle">Why it's so important</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Ammonia is an important compound, essential to man for a variety of diverse uses. Such a diverse applicability has caused large demand for its production.
+        </p>
+
+        <div class="app-grid">
+          <div class="app-card">
+            <div class="app-icon">🌾</div>
+            <div class="app-title">Fertilizers</div>
+            <div class="app-desc">The biggest use — as a raw material for nitrogen fertilizers like urea, ammonium nitrate, and DAP.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🧽</div>
+            <div class="app-title">Cleaning Agent</div>
+            <div class="app-desc">Household ammonia solution is a common glass and surface cleaner.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🦠</div>
+            <div class="app-title">Antimicrobial Agent</div>
+            <div class="app-desc">Used in some disinfectants and food processing.</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">💥</div>
+            <div class="app-title">Explosives</div>
+            <div class="app-desc">Raw material for nitrocellulose and trinitrotoluene (TNT).</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🧂</div>
+            <div class="app-title">Soda Ash Production</div>
+            <div class="app-desc">Used in the Solvay process to make Na₂CO₃ (see Lesson 3.6).</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">⚗️</div>
+            <div class="app-title">Nitric Acid (Ostwald)</div>
+            <div class="app-desc">Ammonia is the starting material for the Ostwald process (see Lesson 3.4).</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🧊</div>
+            <div class="app-title">Refrigeration</div>
+            <div class="app-desc">Liquid ammonia is an excellent refrigerant (high latent heat of vaporization).</div>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🧵</div>
+            <div class="app-title">Textiles & Dyes</div>
+            <div class="app-desc">Used in the production of synthetic fibers and dye intermediates.</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The scale of ammonia production</div>
+          <p>
+            Globally, over <strong>180 million tonnes of ammonia</strong> are produced each year, making it one of the most-produced industrial chemicals. About 80–90% goes into fertilizers — without it, we could not feed the world's population.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="labprep">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Laboratory Preparation of Ammonia</div><div class="section-subtitle">Heating an ammonium salt with a strong alkali</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Lab Method</div>
+          <p>
+            Ammonia is easily made in the laboratory by <strong>heating an ammonium salt</strong> such as ammonium chloride (NH₄Cl) <strong>with a strong alkali</strong> such as sodium hydroxide (NaOH) or calcium hydroxide (Ca(OH)₂).
+          </p>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Preferred Lab Method (using Ca(OH)₂)</span>
+          <div class="eq">2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2H₂O + 2NH₃(g)</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Alternative (using NaOH)</span>
+          <div class="eq">NH₄Cl + NaOH → NaCl + H₂O + NH₃(g)</div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Why Ca(OH)₂ is preferred</div>
+          <p>
+            Ca(OH)₂ is preferred over NaOH in the lab because it is <strong>cheaper, safer to handle</strong>, and less hygroscopic. The gas produced is dried using quicklime (CaO).
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Collection method</div>
+          <p>
+            Ammonia is lighter than air, so it is collected by <strong>upward displacement of air</strong> — the collecting tube is held upside down.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Alternative lab method</div>
+          <p>
+            Ammonia gas may also be made by <strong>warming concentrated ammonium hydroxide</strong> (NH₄OH). But the alkali method above is standard in textbooks and exams.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="haber">
+      <div class="section-header"><div class="section-icon">🏭</div>
+        <div><div class="section-title-text">The Haber-Bosch Process</div><div class="section-subtitle">Industrial ammonia production</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Historical background (MoE Textbook, p. 152)</div>
+          <p>
+            The development of the <strong>Haber-Bosch process</strong> for ammonia production made it possible to meet the world's demand. German chemist <strong>Fritz Haber</strong> discovered the process in the early 20th century, using atmospheric hydrogen and nitrogen to produce ammonia. <strong>Carl Bosch</strong> then scaled the process up to industrial production. Both men were awarded Nobel Prizes (Haber in 1918, Bosch in 1931).
+          </p>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Haber-Bosch Reaction</span>
+          <div class="eq">N₂(g) + 3H₂(g) ⇌ 2NH₃(g) &nbsp;&nbsp; ΔH = −92 kJ/mol</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The reaction is exothermic and reversible</div>
+          <p>
+            The forward reaction releases heat (−92 kJ/mol) and is a <strong>reversible equilibrium</strong>. This means the yield can be optimized using Le Chatelier's principle (see next section).
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Step-by-Step Production</h3>
+
+        <ol class="steps-list">
+          <li><strong>Obtain the raw materials.</strong> Hydrogen (H₂) is obtained by <strong>electrolyzing water</strong> or (more commonly today) from <strong>methane (natural gas)</strong>. Nitrogen (N₂) is obtained by <strong>fractional distillation of liquid air</strong>.</li>
+          <li><strong>React the gases.</strong> The H₂ and N₂ are introduced into a chamber containing <strong>iron particles</strong> (catalyst) at a pressure of <strong>15–25 MPa</strong> and temperature of <strong>300–500 °C</strong>. The reaction produces ammonia: <strong>N₂ + 3H₂ → 2NH₃</strong>.</li>
+          <li><strong>Separate and recycle.</strong> The hot gas mixture is passed through a <strong>condenser</strong>. Ammonia condenses easily compared to N₂ and H₂, so <strong>liquefied ammonia is collected</strong>, and the leftover nitrogen and hydrogen gases are <strong>re-introduced into the reactor</strong>. This recycling allows about <strong>97% conversion</strong> of initial reactants into ammonia.</li>
+        </ol>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Haber-Bosch Process Flow</div>
+          <svg viewBox="0 0 540 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- Reactor -->
+            <rect x="160" y="70" width="140" height="100" fill="#FECACA" stroke="#991B1B" stroke-width="2" rx="8"/>
+            <text x="230" y="100" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">Reactor</text>
+            <text x="230" y="118" font-size="9" fill="#991B1B" text-anchor="middle">Fe catalyst</text>
+            <text x="230" y="132" font-size="9" fill="#991B1B" text-anchor="middle">300–500 °C</text>
+            <text x="230" y="146" font-size="9" fill="#991B1B" text-anchor="middle">15–25 MPa</text>
+
+            <!-- H2 + N2 in -->
+            <text x="20" y="115" font-size="11" fill="#0F172A" font-weight="bold">H₂ + N₂</text>
+            <line x1="70" y1="120" x2="155" y2="120" stroke="#0F172A" stroke-width="2" marker-end="url(#arrH)"/>
+            <defs>
+              <marker id="arrH" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#0F172A"/></marker>
+              <marker id="arrC" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#0F172A"/></marker>
+              <marker id="arrR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#16A34A"/></marker>
+              <marker id="arrB" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+            </defs>
+
+            <!-- Condenser -->
+            <rect x="330" y="80" width="110" height="80" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2" rx="8"/>
+            <text x="385" y="105" font-size="11" fill="#1E40AF" text-anchor="middle" font-weight="bold">Condenser</text>
+            <text x="385" y="125" font-size="9" fill="#1E40AF" text-anchor="middle">NH₃ liquefies</text>
+            <text x="385" y="140" font-size="9" fill="#1E40AF" text-anchor="middle">(cooled)</text>
+            <line x1="305" y1="120" x2="325" y2="120" stroke="#0F172A" stroke-width="2" marker-end="url(#arrC)"/>
+
+            <!-- NH3 out -->
+            <line x1="440" y1="120" x2="490" y2="120" stroke="#16A34A" stroke-width="2.5" marker-end="url(#arrR)"/>
+            <text x="505" y="118" font-size="11" fill="#166534" font-weight="bold">NH₃</text>
+            <text x="505" y="132" font-size="9" fill="#166534" font-weight="bold">(liquid)</text>
+
+            <!-- Recycle -->
+            <path d="M 385 165 Q 385 210 230 210 Q 90 210 90 165 Q 90 120 155 120" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrB)"/>
+            <text x="240" y="228" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">Recycle H₂ + N₂ (→ 97% conversion)</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="lechatelier">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">Le Chatelier's Principle & Ammonia Yield</div><div class="section-subtitle">Why the process conditions were chosen</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The Haber reaction is reversible and exothermic. We can use <strong>Le Chatelier's principle</strong> to figure out what conditions favor the forward reaction (more ammonia).
+        </p>
+
+        <div class="reaction-block">
+          <span class="label">The equilibrium</span>
+          <div class="eq">N₂(g) + 3H₂(g) ⇌ 2NH₃(g) &nbsp;&nbsp; ΔH = −92 kJ/mol</div>
+        </div>
+
+        <div class="compare-grid">
+          <div class="compare-card forward">
+            <div class="compare-card-title">✅ Favors MORE NH₃ (forward)</div>
+            <p>
+              <strong>High pressure</strong> — 4 moles gas → 2 moles gas, so increasing pressure shifts right<br><br>
+              <strong>Low temperature</strong> — forward reaction is exothermic, so cooling shifts right<br><br>
+              <strong>Removing NH₃</strong> — condensing it out pulls the equilibrium right<br><br>
+              <strong>Adding more N₂ or H₂</strong> — pushes equilibrium right<br><br>
+              <strong>Catalyst (Fe)</strong> — doesn't shift equilibrium but speeds up reaching it
+            </p>
+          </div>
+          <div class="compare-card reverse">
+            <div class="compare-card-title">⚠️ Favors LESS NH₃ (reverse)</div>
+            <p>
+              <strong>Low pressure</strong> — shifts left, favoring N₂ + H₂<br><br>
+              <strong>High temperature</strong> — shifts left, favoring the endothermic reverse reaction<br><br>
+              <strong>Adding NH₃</strong> — shifts left<br><br>
+              <strong>Removing N₂ or H₂</strong> — shifts left
+            </p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The engineering compromise</div>
+          <p>
+            Low temperature favors more NH₃ (thermodynamics), but the reaction would be <strong>too slow</strong> at low T (kinetics). So industry uses a <strong>moderate temperature (300–500 °C)</strong> with a <strong>catalyst (Fe)</strong> to speed it up. High pressure favors NH₃, so industry uses <strong>15–25 MPa</strong>.<br><br>
+            <strong>Result:</strong> A practical compromise that maximizes yield AND reaction rate.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Recycled gases — 97% conversion</div>
+          <p>
+            Even after condensation, some unreacted N₂ and H₂ remain. Rather than waste them, industry <strong>recycles</strong> them back into the reactor. Combined with continuous removal of NH₃, this raises the overall conversion to about <strong>97%</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="experiment">
+      <div class="section-header"><div class="section-icon">🧪</div>
+        <div><div class="section-title-text">Experiments 3.1 & 3.2</div><div class="section-subtitle">Textbook pp. 154–159</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="experiment-card">
+          <div class="experiment-title">🧪 Experiment 3.1 — Preparation and Testing of Ammonia</div>
+          <div class="experiment-body">
+            <strong>Objective:</strong> To prepare ammonia, test its solubility, and test its alkaline nature.<br><br>
+            <strong>Apparatus:</strong> Eye protection, stand and clamp, dried boiling tube with stopper and delivery tube, 100 mL beaker, 250 mL beaker, Bunsen burner, spatula, test tubes.<br><br>
+            <strong>Chemicals:</strong> Ammonium chloride (NH₄Cl), calcium hydroxide (Ca(OH)₂), calcium oxide (CaO), concentrated HCl, red/blue litmus paper, universal indicator paper.<br><br>
+            <strong>Safety:</strong> Wear eye protection throughout. Ammonia gas is toxic, pungent, and dangerous for the environment — must not be inhaled. Perform in a fume cupboard or well-ventilated lab.<br><br>
+            <strong>Procedure:</strong>
+            <ul>
+              <li>Mix 2 spatulas of NH₄Cl with 2 spatulas of Ca(OH)₂ — reaction begins immediately.</li>
+              <li>Hold litmus paper over the mixture — observe color change. Test with universal indicator paper.</li>
+              <li>Transfer mixture to boiling tube and set up apparatus (see Figure 3.4).</li>
+              <li>Optional: add a lump of CaO to absorb water and dry the ammonia.</li>
+              <li>Gently warm the mixture and collect ammonia gas (tube held upside down since NH₃ is lighter than air).</li>
+              <li>Test with universal indicator paper at the open end.</li>
+              <li>Hold the tube of ammonia upside down and quickly place it, mouth down, into water — the level should rise dramatically (high solubility).</li>
+            </ul>
+            <strong>Key Questions:</strong>
+            <ul>
+              <li>Why is a dried boiling tube required?</li>
+              <li>What is the purpose of the CaO?</li>
+              <li>What is the white "smoke" produced when NH₃ meets HCl?</li>
+              <li>Is ammonia acidic or alkaline? Write the reaction equation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Answer to the "white smoke" question</div>
+          <p>
+            When NH₃ gas meets HCl gas, they react to form solid <strong>ammonium chloride (NH₄Cl)</strong>, which appears as a white smoke:<br>
+            <strong>NH₃(g) + HCl(g) → NH₄Cl(s)</strong>
+          </p>
+        </div>
+
+        <div class="experiment-card">
+          <div class="experiment-title">🧪 Experiment 3.2 — Ammonia Fountain Demonstration</div>
+          <div class="experiment-body">
+            <strong>Objective:</strong> To make a miniature chemical fountain using soluble ammonia and atmospheric pressure.<br><br>
+            <strong>Materials:</strong> Water, 2-L round-bottomed flask, 2-L beaker, 2-hole stopper, syringe, glass tube with rubber tube, stand with ring and clamp, test tube, tong, Bunsen burner, heat-proof mat.<br><br>
+            <strong>Chemicals:</strong> NH₄Cl and NaOH (or NH₄OH solution or dry NH₃ gas), water, phenolphthalein.<br><br>
+            <strong>Procedure — Preparing dry ammonia:</strong>
+            <ul>
+              <li>Add 50 mL concentrated ammonia solution to a 100 mL test tube.</li>
+              <li>Place the test tube in a holder fitted to the mouth of an inverted conical flask.</li>
+              <li>Heat with a Bunsen burner to generate ammonia gas, collected by upward displacement of air.</li>
+              <li>Alternatively, use a 1:1 mixture of NH₄Cl and NaOH in the flask.</li>
+            </ul>
+            <strong>Procedure — Demonstration:</strong>
+            <ul>
+              <li>Fill a beaker with water and add 1 mL phenolphthalein indicator.</li>
+              <li>Clamp the flask with its tube below the water level. Fill the syringe with water, dry the nozzle, and fit into the second hole of the stopper.</li>
+              <li>Remove the plain stopper from the inverted gas-filled flask and quickly fit the stopper holding the jet and syringe.</li>
+              <li>Squirt a few mL of water into the flask using the syringe.</li>
+              <li>As the gas dissolves, a partial vacuum forms — external air pressure forces water up the tube and through the jet, forming a <strong>fountain</strong>.</li>
+              <li>The indicator changes color as the ammonia dissolves in the water.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why the fountain works</div>
+          <p>
+            Ammonia is extremely soluble in water. When a small amount of water enters the flask, it <strong>rapidly dissolves a large volume of NH₃ gas</strong>, creating a <strong>partial vacuum</strong>. Atmospheric pressure then pushes water up the tube and out the jet, producing the fountain. The pink color appears because NH₃ dissolves to form a basic solution (NH₄OH).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Key concepts and reactions from Lesson 3.3</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🧪 Lesson 3.3 — Ammonia & the Haber Process</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Ammonia formula</div><div class="formula-math">NH₃</div><div class="formula-note">Weak base, highly soluble</div></div>
+          <div class="formula-item"><div class="formula-name">Ammonia ionization</div><div class="formula-math">NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</div><div class="formula-note">Forms basic solution</div></div>
+          <div class="formula-item"><div class="formula-name">Lab preparation</div><div class="formula-math">2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2H₂O + 2NH₃</div><div class="formula-note">Heat ammonium salt + alkali</div></div>
+          <div class="formula-item"><div class="formula-name">Haber-Bosch reaction</div><div class="formula-math">N₂ + 3H₂ ⇌ 2NH₃</div><div class="formula-note">ΔH = −92 kJ/mol</div></div>
+          <div class="formula-item"><div class="formula-name">Industrial conditions</div><div class="formula-math">300–500 °C, 15–25 MPa, Fe catalyst</div><div class="formula-note">Compromise yield + rate</div></div>
+          <div class="formula-item"><div class="formula-name">Effect of high pressure</div><div class="formula-math">Shifts right → more NH₃</div><div class="formula-note">4 mol → 2 mol gas</div></div>
+          <div class="formula-item"><div class="formula-name">Effect of high temperature</div><div class="formula-math">Shifts left → less NH₃</div><div class="formula-note">Forward is exothermic</div></div>
+          <div class="formula-item"><div class="formula-name">Conversion efficiency</div><div class="formula-math">~97% (with recycling)</div><div class="formula-note">Unreacted gases re-used</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identify the Raw Materials</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What are the two primary raw materials for the Haber-Bosch process, and where does each come from?</div>
+          <div class="example-step"><span class="step-badge">Hydrogen (H₂)</span><div class="step-text">Obtained by <span class="math">electrolysis of water</span> or more commonly from <span class="math">methane (natural gas)</span></div></div>
+          <div class="example-step"><span class="step-badge">Nitrogen (N₂)</span><div class="step-text">Obtained by <span class="math">fractional distillation of liquid air</span></div></div>
+          <div class="example-step"><span class="step-badge">Source spheres</span><div class="step-text">N₂ from the <span class="math">atmosphere</span>; H₂ from water (hydrosphere) or natural gas (lithosphere)</div></div>
+          <div class="example-answer">✅ H₂ (from water or methane) + N₂ (from air) → NH₃</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Effect of Pressure</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Predict the effect of increasing the pressure on the Haber equilibrium: N₂ + 3H₂ ⇌ 2NH₃</div>
+          <div class="example-step"><span class="step-badge">Count moles</span><div class="step-text">Reactants: 1 + 3 = <span class="math">4 moles gas</span>. Products: <span class="math">2 moles gas</span></div></div>
+          <div class="example-step"><span class="step-badge">Le Chatelier</span><div class="step-text">Increasing pressure shifts equilibrium toward the side with <span class="math">fewer gas moles</span></div></div>
+          <div class="example-step"><span class="step-badge">Direction</span><div class="step-text">4 moles → 2 moles: shift <span class="math">right → more NH₃</span></div></div>
+          <div class="example-answer">✅ Higher pressure → more NH₃ (why industry uses 15–25 MPa)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Effect of Temperature</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> The Haber reaction has ΔH = −92 kJ/mol (exothermic). Predict the effect of increasing the temperature on NH₃ yield.</div>
+          <div class="example-step"><span class="step-badge">Direction</span><div class="step-text">Forward reaction is <span class="math">exothermic</span> (releases heat)</div></div>
+          <div class="example-step"><span class="step-badge">Le Chatelier</span><div class="step-text">Adding heat (higher T) shifts equilibrium in the <span class="math">endothermic direction</span> — which is the reverse</div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">Higher T → <span class="math">less NH₃</span> at equilibrium</div></div>
+          <div class="example-step"><span class="step-badge">Compromise</span><div class="step-text">Industry uses <span class="math">300–500 °C</span> (not lower) because kinetics dominate — a low-T reaction would be too slow</div></div>
+          <div class="example-answer">✅ Higher T → lower equilibrium yield, but necessary for a practical reaction rate</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">The Role of the Catalyst</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Finely divided iron is used as a catalyst in the Haber process. Does it affect the equilibrium position? Explain.</div>
+          <div class="example-step"><span class="step-badge">Definition</span><div class="step-text">A <span class="math">catalyst</span> speeds up both the forward and reverse reactions equally</div></div>
+          <div class="example-step"><span class="step-badge">Equilibrium</span><div class="step-text">It helps the system <span class="math">reach</span> equilibrium faster but does <span class="math">not shift</span> the equilibrium position</div></div>
+          <div class="example-step"><span class="step-badge">Yield vs rate</span><div class="step-text">Yield is unchanged; only the <span class="math">time to reach equilibrium</span> is reduced</div></div>
+          <div class="example-answer">✅ The Fe catalyst speeds up the reaction but does not change the equilibrium yield</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Why 97% Conversion?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> In the Haber process, only about 15–20% of the N₂ and H₂ reacts on a single pass through the reactor. Yet the overall conversion is ~97%. Explain.</div>
+          <div class="example-step"><span class="step-badge">Single pass</span><div class="step-text">A single pass reaches equilibrium at ~15–20% NH₃ — but the gases don't disappear</div></div>
+          <div class="example-step"><span class="step-badge">Separation</span><div class="step-text">The NH₃ is <span class="math">liquefied and removed</span> by condenser — the N₂ and H₂ stay as gas</div></div>
+          <div class="example-step"><span class="step-badge">Recycle</span><div class="step-text">The leftover N₂ and H₂ are <span class="math">sent back into the reactor</span> for another pass</div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text">With continuous recycling, total conversion reaches <span class="math">~97%</span></div></div>
+          <div class="example-answer">✅ Recycling the unreacted gases raises overall conversion from 15–20% per pass to ~97%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The Haber-Bosch process produces ammonia from:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> CO₂ and H₂O</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> NH₄Cl and Ca(OH)₂</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> N₂ and H₂</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> HNO₃ and NH₃</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">In the Haber process, the catalyst used is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> V₂O₅</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> Finely divided iron (Fe)</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> Platinum (Pt)</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> Palladium (Pd)</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">According to Le Chatelier's principle, increasing the pressure in the Haber process will:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Favor the reverse reaction (less NH₃)</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Have no effect on the equilibrium</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Favor the forward reaction (more NH₃)</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Stop the reaction completely</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">In the laboratory, ammonia gas is typically prepared by:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Reacting N₂ with H₂ at high pressure</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Electrolyzing water</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Heating NH₄Cl with Ca(OH)₂</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Passing HCl gas through water</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">In the ammonia fountain demonstration, the water rises dramatically because:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Ammonia reacts with water to make a solid</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> The pressure inside the flask increases</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> NH₃ dissolves rapidly in water, creating a partial vacuum</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> The phenolphthalein attracts water</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-3-4.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=haber+bosch+process+ammonia+production" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">The Haber-Bosch Process — Full Explanation</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=le+chatelier+principle+haber+process" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Le Chatelier's Principle & the Haber Process</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=ammonia+fountain+demonstration" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Ammonia Fountain Demonstration — Explained</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=ammonia+uses+industrial+agriculture" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Uses of Ammonia in Industry and Agriculture</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 3.3</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Ammonia & the Haber Process</div>
+        <ul class="summary-list">
+          <li>Manufacturing involves <strong>physical and chemical treatment steps</strong> integrated in a rational sequence</li>
+          <li>Products can be <strong>direct-use</strong> or serve as <strong>raw materials for other industries</strong></li>
+          <li><strong>Ammonia (NH₃)</strong> is a colorless, lighter-than-air gas with a sharp irritating odor</li>
+          <li>Ammonia is <strong>highly soluble in water</strong> (34% w/w at 25 °C) and forms a <strong>weak base</strong></li>
+          <li><strong>Major uses:</strong> fertilizers (biggest), cleaning agents, antimicrobials, explosives, soda ash, nitric acid, refrigeration, textiles</li>
+          <li><strong>Lab preparation:</strong> 2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2H₂O + 2NH₃ (heat ammonium salt + alkali)</li>
+          <li><strong>Haber-Bosch process:</strong> N₂ + 3H₂ ⇌ 2NH₃, ΔH = −92 kJ/mol</li>
+          <li><strong>Industrial conditions:</strong> 300–500 °C, 15–25 MPa, Fe catalyst</li>
+          <li><strong>Le Chatelier:</strong> High pressure favors NH₃ (fewer gas moles); low T favors NH₃ (exothermic), but moderate T is used for kinetics</li>
+          <li><strong>Catalyst</strong> speeds up the reaction but does not shift equilibrium</li>
+          <li><strong>Recycling</strong> unreacted N₂ and H₂ boosts overall conversion to ~97%</li>
+          <li><strong>Ammonia fountain:</strong> NH₃'s high solubility creates a partial vacuum that sucks water up</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §3.3 + §3.3.1 (pp. 150–159)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-2.html" class="btn btn-ghost">← Lesson 3.2: Natural Resources</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 3 of 9</div>
+      <a href="lesson-3-4.html" class="btn btn-primary">Next: Nitric Acid & Fertilizers →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! Haber-Bosch combines N₂ (from air) with H₂ (from water or methane) to make NH₃.',wrong:'✗ Haber-Bosch: N₂ + 3H₂ ⇌ 2NH₃.'},
+    2:{B:'✓ Correct! Finely divided iron (Fe) is the catalyst in the Haber process.',wrong:'✗ The Haber catalyst is finely divided iron (Fe).'},
+    3:{C:'✓ Correct! Higher pressure shifts equilibrium toward the side with fewer gas moles (4 → 2), so more NH₃.',wrong:'✗ Higher pressure → fewer gas moles → shifts right → more NH₃.'},
+    4:{C:'✓ Correct! Lab preparation: heat NH₄Cl with Ca(OH)₂ → NH₃ gas.',wrong:'✗ Lab: 2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2H₂O + 2NH₃.'},
+    5:{C:'✓ Correct! NH₃ dissolves rapidly in water, creating a partial vacuum — atmospheric pressure then pushes water up the tube.',wrong:'✗ NH₃ dissolves rapidly → partial vacuum → water rises (fountain effect).'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','workflow','ammonia','uses','labprep','haber','lechatelier','experiment','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
