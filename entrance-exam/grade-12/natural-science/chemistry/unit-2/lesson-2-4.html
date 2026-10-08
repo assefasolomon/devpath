@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.4: Conductivity — Metallic vs Electrolytic | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.metallic{background:#FEF2F2;border-color:#FECACA}
+    .compare-card.electrolytic{background:#EFF6FF;border-color:#BFDBFE}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.metallic .compare-card-title{color:#991B1B}
+    .compare-card.electrolytic .compare-card-title{color:#1E40AF}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    .compare-card code{background:rgba(0,0,0,.06);padding:1px 5px;border-radius:4px;font-size:.78rem}
+    .experiment-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .experiment-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .experiment-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .experiment-body strong{color:#78350F}
+    .experiment-body ul{margin:.5rem 0;padding-left:1.25rem}
+    .experiment-body li{padding:.15rem 0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('conductors')"><div class="sidebar-dot"></div> What is a Conductor?</button>
+      <button class="sidebar-link" onclick="scrollTo('metallic')"><div class="sidebar-dot"></div> Metallic Conduction</button>
+      <button class="sidebar-link" onclick="scrollTo('electrolytic')"><div class="sidebar-dot"></div> Electrolytic Conduction</button>
+      <button class="sidebar-link" onclick="scrollTo('compare')"><div class="sidebar-dot"></div> Side-by-Side Comparison</button>
+      <button class="sidebar-link" onclick="scrollTo('experiment')"><div class="sidebar-dot"></div> Experiment 2.1</button>
+      <button class="sidebar-link" onclick="scrollTo('types')"><div class="sidebar-dot"></div> Strong vs Weak Electrolytes</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Redox Reactions ✓</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Balancing (Ox. No.) ✓</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Balancing (Half-Rxn) ✓</a>
+      <a href="lesson-2-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Conductivity</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Electrolytic Cells</a>
+      <a href="lesson-2-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Electrolysis Examples</a>
+      <a href="lesson-2-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Faraday's 1st Law</a>
+      <a href="lesson-2-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Faraday's 2nd Law</a>
+      <a href="lesson-2-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Industrial Apps</a>
+      <a href="lesson-2-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Galvanic Cells</a>
+      <a href="lesson-2-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Standard Potentials</a>
+      <a href="lesson-2-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Nernst & Corrosion</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Electrochemistry · MoE Textbook §2.2 (intro)</div>
+      <h1>🔌 Conductivity — Metallic vs Electrolytic</h1>
+      <p>Why does a copper wire conduct electricity without changing, but salt water conducts only when ions move and chemical reactions occur? Understanding these two different mechanisms is the foundation of electrochemistry.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Before we can study electrolysis (Lesson 2.5) or galvanic cells (Lesson 2.10), we need to understand <strong>how electricity travels through matter</strong>. There are two fundamentally different mechanisms — one in metals, one in electrolyte solutions — and mixing them up is one of the most common sources of confusion in electrochemistry.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>electrical conductivity</strong> and <strong>conductors</strong></li>
+          <li>Explain how <strong>metallic (electronic) conduction</strong> works</li>
+          <li>Explain how <strong>electrolytic (ionic) conduction</strong> works</li>
+          <li>Compare the two mechanisms — <strong>carriers, temperature effect, chemical change</strong></li>
+          <li>Classify substances as conductors, strong electrolytes, weak electrolytes, or non-electrolytes</li>
+          <li>Describe the <strong>conductivity test experiment</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="conductors">
+      <div class="section-header"><div class="section-icon">⚡</div>
+        <div><div class="section-title-text">What is a Conductor?</div><div class="section-subtitle">Definition and classification</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Electrical Conductivity</div>
+          <p>
+            <strong>Electrical conductivity</strong> is the ability of a substance to transmit electricity. Substances that allow the passage of electric current are called <strong>conductors</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Two Types of Conductors</div>
+          <p>
+            Conductors are classified into two types depending on their <strong>mode of transport of electrical charges</strong>:<br><br>
+            • <strong>Electronic (metallic) conductors</strong> — charge carried by mobile electrons<br>
+            • <strong>Electrolytic conductors</strong> — charge carried by mobile ions
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Classification of Conductors</div>
+          <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Top: Conductors -->
+            <rect x="180" y="10" width="160" height="40" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="8"/>
+            <text x="260" y="35" font-size="13" fill="#991B1B" text-anchor="middle" font-weight="bold">Conductors</text>
+
+            <!-- Split lines -->
+            <line x1="220" y1="50" x2="120" y2="90" stroke="#DC2626" stroke-width="2"/>
+            <line x1="300" y1="50" x2="400" y2="90" stroke="#DC2626" stroke-width="2"/>
+
+            <!-- Left: Metallic -->
+            <rect x="20" y="95" width="200" height="60" fill="#FEE2E2" stroke="#991B1B" stroke-width="2" rx="8"/>
+            <text x="120" y="118" font-size="12" fill="#991B1B" text-anchor="middle" font-weight="bold">Metallic (Electronic)</text>
+            <text x="120" y="138" font-size="10" fill="#991B1B" text-anchor="middle">e.g. Cu, Ag, Al, graphite</text>
+
+            <!-- Right: Electrolytic -->
+            <rect x="300" y="95" width="200" height="60" fill="#EFF6FF" stroke="#1E40AF" stroke-width="2" rx="8"/>
+            <text x="400" y="118" font-size="12" fill="#1E40AF" text-anchor="middle" font-weight="bold">Electrolytic (Ionic)</text>
+            <text x="400" y="138" font-size="10" fill="#1E40AF" text-anchor="middle">e.g. NaCl(aq), H₂SO₄(aq)</text>
+
+            <!-- Footer note -->
+            <text x="260" y="185" font-size="10" fill="#64748b" text-anchor="middle">Charge carries differ: electrons vs ions</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The core difference</div>
+          <p>
+            In metals, only <strong>electrons</strong> move. In electrolytes, entire <strong>ions</strong> (atoms or molecules with charge) physically migrate through the solution — meaning <strong>matter moves too</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="metallic">
+      <div class="section-header"><div class="section-icon">🔴</div>
+        <div><div class="section-title-text">Metallic (Electronic) Conduction</div><div class="section-subtitle">Movement of delocalized electrons</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition (MoE Textbook, p. 75)</div>
+          <p>
+            <strong>Metallic conduction</strong> — metals and alloys conduct electricity due to the movement (mobility) of <strong>delocalized outer-shell electrons</strong> present inside them. These are also called <strong>electronic conductors</strong>.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Metallic Conduction — Electron Sea Model</div>
+          <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg">
+            <!-- Metal bar -->
+            <rect x="60" y="40" width="400" height="60" fill="#FEE2E2" stroke="#991B1B" stroke-width="2" rx="8"/>
+            <!-- Positive metal ions -->
+            <g fill="#991B1B">
+              <circle cx="100" cy="55" r="8"/>
+              <circle cx="150" cy="55" r="8"/>
+              <circle cx="200" cy="55" r="8"/>
+              <circle cx="250" cy="55" r="8"/>
+              <circle cx="300" cy="55" r="8"/>
+              <circle cx="350" cy="55" r="8"/>
+              <circle cx="400" cy="55" r="8"/>
+              <circle cx="440" cy="55" r="8"/>
+              <circle cx="100" cy="85" r="8"/>
+              <circle cx="150" cy="85" r="8"/>
+              <circle cx="200" cy="85" r="8"/>
+              <circle cx="250" cy="85" r="8"/>
+              <circle cx="300" cy="85" r="8"/>
+              <circle cx="350" cy="85" r="8"/>
+              <circle cx="400" cy="85" r="8"/>
+              <circle cx="440" cy="85" r="8"/>
+            </g>
+            <!-- Mobile electrons -->
+            <g fill="#DC2626">
+              <circle cx="120" cy="70" r="3"/>
+              <circle cx="180" cy="70" r="3"/>
+              <circle cx="230" cy="70" r="3"/>
+              <circle cx="280" cy="70" r="3"/>
+              <circle cx="330" cy="70" r="3"/>
+              <circle cx="380" cy="70" r="3"/>
+              <circle cx="420" cy="70" r="3"/>
+            </g>
+            <text x="260" y="125" font-size="11" fill="#991B1B" text-anchor="middle">Metal cations fixed in lattice + free electrons move</text>
+          </svg>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Key Feature</th><th>Metallic Conduction</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Charge carrier</td><td>Delocalized electrons (e⁻)</td></tr>
+            <tr><td>Transfer of matter?</td><td>No — only energy flows</td></tr>
+            <tr><td>Chemical change?</td><td>No chemical transformation</td></tr>
+            <tr><td>Examples</td><td>Cu, Ag, Al, Fe, graphite, alloys</td></tr>
+            <tr><td>State required</td><td>Solid (or molten metal)</td></tr>
+            <tr><td>Effect of temperature ↑</td><td>Conductivity <strong>decreases</strong></td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why does heat decrease metallic conductivity?</div>
+          <p>
+            Higher temperature makes the metal atoms vibrate more. These vibrations disrupt the smooth flow of electrons through the lattice, so <strong>conductivity drops</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="electrolytic">
+      <div class="section-header"><div class="section-icon">🔵</div>
+        <div><div class="section-title-text">Electrolytic (Ionic) Conduction</div><div class="section-subtitle">Movement of ions in solution</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition (MoE Textbook, p. 75)</div>
+          <p>
+            <strong>Electrolytic conduction</strong> — electrovalent (ionic) compounds conduct electricity in their <strong>dissolved state (in solution)</strong> or in their <strong>fused (molten) state</strong> only. In the presence of an applied electric field, the ions migrate to their respective electrodes, exhibiting electrical conductivity.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Electrolytic Conduction — Ion Migration</div>
+          <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Battery -->
+            <rect x="200" y="10" width="120" height="35" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="6"/>
+            <text x="260" y="33" font-size="11" fill="#92400E" text-anchor="middle" font-weight="bold">Battery</text>
+
+            <!-- Wires -->
+            <line x1="200" y1="27" x2="100" y2="27" stroke="#0F172A" stroke-width="2"/>
+            <line x1="100" y1="27" x2="100" y2="80" stroke="#0F172A" stroke-width="2"/>
+            <line x1="320" y1="27" x2="420" y2="27" stroke="#0F172A" stroke-width="2"/>
+            <line x1="420" y1="27" x2="420" y2="80" stroke="#0F172A" stroke-width="2"/>
+
+            <!-- Solution container -->
+            <rect x="60" y="80" width="400" height="120" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2" rx="6"/>
+            <text x="260" y="200" font-size="10" fill="#1E40AF" text-anchor="middle" font-style="italic">Electrolyte solution</text>
+
+            <!-- Electrodes -->
+            <rect x="90" y="80" width="20" height="100" fill="#64748B"/>
+            <text x="100" y="75" font-size="10" fill="#0F172A" text-anchor="middle" font-weight="bold">−</text>
+            <text x="100" y="70" font-size="8" fill="#DC2626" text-anchor="middle">Cathode</text>
+
+            <rect x="410" y="80" width="20" height="100" fill="#64748B"/>
+            <text x="420" y="75" font-size="10" fill="#0F172A" text-anchor="middle" font-weight="bold">+</text>
+            <text x="420" y="70" font-size="8" fill="#DC2626" text-anchor="middle">Anode</text>
+
+            <!-- Cations moving toward cathode -->
+            <g font-size="12" font-family="Georgia,serif" fill="#DC2626">
+              <text x="230" y="120">Na⁺ →</text>
+              <text x="180" y="150">Na⁺ →</text>
+              <text x="150" y="180">Na⁺ →</text>
+            </g>
+
+            <!-- Anions moving toward anode -->
+            <g font-size="12" font-family="Georgia,serif" fill="#1E40AF">
+              <text x="290" y="120">← Cl⁻</text>
+              <text x="340" y="150">← Cl⁻</text>
+              <text x="370" y="180">← Cl⁻</text>
+            </g>
+          </svg>
+          <div class="visual-box-caption">
+            Cations (Na⁺) migrate toward the negative electrode (cathode). Anions (Cl⁻) migrate toward the positive electrode (anode).
+          </div>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Key Feature</th><th>Electrolytic Conduction</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Charge carrier</td><td>Ions (cations + anions)</td></tr>
+            <tr><td>Transfer of matter?</td><td>Yes — ions physically move</td></tr>
+            <tr><td>Chemical change?</td><td>Yes — reactions at electrodes</td></tr>
+            <tr><td>Examples</td><td>NaCl(aq), H₂SO₄(aq), molten KCl</td></tr>
+            <tr><td>State required</td><td>Dissolved or molten</td></tr>
+            <tr><td>Effect of temperature ↑</td><td>Conductivity <strong>increases</strong></td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why does heat increase electrolytic conductivity?</div>
+          <p>
+            Higher temperature increases <strong>ionic mobility</strong> — the ions move faster through the solution, so more charge is carried per second and conductivity rises.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="compare">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">Side-by-Side Comparison</div><div class="section-subtitle">The complete table</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="compare-grid">
+          <div class="compare-card metallic">
+            <div class="compare-card-title">🔴 Metallic Conduction</div>
+            <p>
+              <strong>Carrier:</strong> electrons<br>
+              <strong>Matter transfer:</strong> no<br>
+              <strong>Chemical change:</strong> no<br>
+              <strong>State:</strong> solid / molten metal<br>
+              <strong>Examples:</strong> Cu, Ag, graphite<br>
+              <strong>Temp ↑:</strong> conductivity ↓
+            </p>
+          </div>
+          <div class="compare-card electrolytic">
+            <div class="compare-card-title">🔵 Electrolytic Conduction</div>
+            <p>
+              <strong>Carrier:</strong> ions<br>
+              <strong>Matter transfer:</strong> yes<br>
+              <strong>Chemical change:</strong> yes<br>
+              <strong>State:</strong> solution / molten salt<br>
+              <strong>Examples:</strong> NaCl(aq), H₂SO₄(aq)<br>
+              <strong>Temp ↑:</strong> conductivity ↑
+            </p>
+          </div>
+        </div>
+
+        <table class="data-table" style="margin-top:1.25rem">
+          <thead>
+            <tr><th>Property</th><th>Metallic</th><th>Electrolytic</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Charge carrier</td><td>Electrons</td><td>Ions</td></tr>
+            <tr><td>Matter transfer</td><td>No</td><td>Yes</td></tr>
+            <tr><td>Chemical reaction</td><td>None</td><td>Yes (at electrodes)</td></tr>
+            <tr><td>Effect of temperature</td><td>Decreases</td><td>Increases</td></tr>
+            <tr><td>Example substances</td><td>Cu, Ag, Fe</td><td>NaCl(aq), KCl(l)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="experiment">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Experiment 2.1 — Electrical Conductivity Test</div><div class="section-subtitle">Textbook pp. 76–77</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="experiment-card">
+          <div class="experiment-title">🧪 Experiment 2.1 — Classifying Substances as Conductors and Insulators</div>
+          <div class="experiment-body">
+            <strong>Objective:</strong> To classify substances as electrical conductors and insulators.<br><br>
+            <strong>Materials & Chemicals:</strong> Copper wire, light bulb, power supply (DC) or dry cells, scotch tape, distilled water, 1 M NaCl solution, 1 M H₂SO₄ solution, 1 M CH₃COOH solution, 1 M sugar solution, magnesium ribbon, iron nail.<br><br>
+            <strong>Procedure:</strong>
+            <ul>
+              <li>Polish a copper strip and connect it as shown in Figure 2.2a. Repeat with the iron nail and magnesium ribbon.</li>
+              <li>Rinse a 100 mL beaker with distilled water, fill to 50 mL mark, and insert the two ends of the copper wire (Figure 2.2b).</li>
+              <li>Clean the wire ends, then insert into beakers containing 1 M NaCl, 1 M H₂SO₄, 1 M CH₃COOH, and 1 M sugar solution. Record observations.</li>
+            </ul>
+            <strong>Key Questions (from textbook):</strong>
+            <ul>
+              <li>Why is it important to polish the magnesium ribbon and iron nail before use?</li>
+              <li>Classify the materials you used as conductors, strong electrolytes, weak electrolytes, and non-electrolytes.</li>
+              <li>Label the two ends of the wire in Figure 2.2b as cathode and anode.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why polish metals first?</div>
+          <p>
+            A layer of oxide (rust) or tarnish on the surface is an <strong>insulator</strong>. Polishing removes it so the metal underneath can make proper contact with the circuit.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="types">
+      <div class="section-header"><div class="section-icon">🧪</div>
+        <div><div class="section-title-text">Strong vs Weak Electrolytes</div><div class="section-subtitle">Not all electrolytes conduct equally well</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Electrolytes are substances whose aqueous solutions conduct electricity. The <strong>brightness of the bulb</strong> in the experiment tells you how well they conduct — which depends on how fully they ionize.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Category</th><th>Ionization</th><th>Bulb brightness</th><th>Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Strong electrolyte</td><td>~100% (complete)</td><td>Bright</td><td>NaCl, H₂SO₄, HCl, NaOH</td></tr>
+            <tr><td>Weak electrolyte</td><td>Partial (&lt;5%)</td><td>Dim</td><td>CH₃COOH, NH₃, H₂CO₃</td></tr>
+            <tr><td>Non-electrolyte</td><td>None — molecular</td><td>Off</td><td>Sugar, ethanol, distilled water</td></tr>
+          </tbody>
+        </table>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key rule</div>
+          <p>
+            Conductivity depends on the <strong>concentration of free ions</strong> in solution.<br>
+            More ions → more charge carriers → brighter bulb.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Everything from Lesson 2.4</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🔌 Lesson 2.4 — Conductivity</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Electrical conductivity</div><div class="formula-math">Ability to transmit electricity</div><div class="formula-note">Depends on mobile charge carriers</div></div>
+          <div class="formula-item"><div class="formula-name">Metallic conduction</div><div class="formula-math">e⁻ mobility</div><div class="formula-note">No matter transfer</div></div>
+          <div class="formula-item"><div class="formula-name">Electrolytic conduction</div><div class="formula-math">Ion migration</div><div class="formula-note">Matter transferred</div></div>
+          <div class="formula-item"><div class="formula-name">Metals + heat</div><div class="formula-math">Conductivity ↓</div><div class="formula-note">Vibrations disrupt e⁻ flow</div></div>
+          <div class="formula-item"><div class="formula-name">Electrolytes + heat</div><div class="formula-math">Conductivity ↑</div><div class="formula-note">Higher ionic mobility</div></div>
+          <div class="formula-item"><div class="formula-name">Strong electrolyte</div><div class="formula-math">100% ionized</div><div class="formula-note">Bright bulb</div></div>
+          <div class="formula-item"><div class="formula-name">Weak electrolyte</div><div class="formula-math">Partial ionized</div><div class="formula-note">Dim bulb</div></div>
+          <div class="formula-item"><div class="formula-name">Non-electrolyte</div><div class="formula-math">No ions</div><div class="formula-note">Bulb off</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Classify a Substance</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify each of the following as a metallic conductor, strong electrolyte, weak electrolyte, or non-electrolyte: (a) iron, (b) solid NaCl, (c) molten CaCl₂, (d) sugar solution.</div>
+          <div class="example-step"><span class="step-badge">(a) Iron</span><div class="step-text">Metal → <span class="math">metallic conductor</span></div></div>
+          <div class="example-step"><span class="step-badge">(b) Solid NaCl</span><div class="step-text">Ions locked in crystal lattice cannot move → <span class="math">does not conduct (insulator)</span></div></div>
+          <div class="example-step"><span class="step-badge">(c) Molten CaCl₂</span><div class="step-text">Ions free to move → <span class="math">strong electrolyte</span></div></div>
+          <div class="example-step"><span class="step-badge">(d) Sugar solution</span><div class="step-text">Molecular — no ions formed → <span class="math">non-electrolyte</span></div></div>
+          <div class="example-answer">✅ (a) metallic | (b) insulator | (c) strong electrolyte | (d) non-electrolyte</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Temperature Effect</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why increasing the temperature increases the conductivity of an electrolyte solution but decreases the conductivity of a metal.</div>
+          <div class="example-step"><span class="step-badge">Electrolyte</span><div class="step-text">Higher T → higher <span class="math">ionic mobility</span> → more ions reach electrodes per second → <span class="math">conductivity ↑</span></div></div>
+          <div class="example-step"><span class="step-badge">Metal</span><div class="step-text">Higher T → stronger thermal vibrations of metal atoms → more collisions with electrons → <span class="math">conductivity ↓</span></div></div>
+          <div class="example-answer">✅ Opposite effects because the charge carriers are different (ions vs electrons)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Why Solid NaCl Doesn't Conduct</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Solid NaCl does not conduct electricity, but NaCl solution does. Explain why.</div>
+          <div class="example-step"><span class="step-badge">Solid state</span><div class="step-text">Na⁺ and Cl⁻ ions are locked into fixed positions in the crystal lattice. They cannot move → <span class="math">no charge flow</span></div></div>
+          <div class="example-step"><span class="step-badge">Dissolved state</span><div class="step-text">When dissolved in water, the lattice breaks apart and ions become <span class="math">free to move</span>. They migrate toward the electrodes → solution conducts</div></div>
+          <div class="example-answer">✅ Conductivity requires <strong>mobile charge carriers</strong> — locked ions cannot carry charge</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Compare Brightness</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Three beakers contain 1 M NaCl, 1 M CH₃COOH, and 1 M glucose. A conductivity test is performed. Predict the order of bulb brightness from brightest to dimmest.</div>
+          <div class="example-step"><span class="step-badge">1 M NaCl</span><div class="step-text"><span class="math">Strong electrolyte</span> — fully ionized → <span class="math">brightest</span></div></div>
+          <div class="example-step"><span class="step-badge">1 M CH₃COOH</span><div class="step-text"><span class="math">Weak electrolyte</span> — partially ionized → <span class="math">dim</span></div></div>
+          <div class="example-step"><span class="step-badge">1 M glucose</span><div class="step-text"><span class="math">Non-electrolyte</span> — no ions → <span class="math">off</span></div></div>
+          <div class="example-answer">✅ NaCl (brightest) &gt; CH₃COOH (dim) &gt; glucose (off)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Graphite vs Diamond</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Both graphite and diamond are made of pure carbon. Graphite conducts electricity; diamond does not. Explain why.</div>
+          <div class="example-step"><span class="step-badge">Graphite</span><div class="step-text">Each C atom bonds to only 3 others; the 4th electron is <span class="math">delocalized</span> across the layers → free to move → conducts</div></div>
+          <div class="example-step"><span class="step-badge">Diamond</span><div class="step-text">Each C atom bonds to 4 others in a rigid tetrahedral lattice — <span class="math">no free electrons</span> → does not conduct</div></div>
+          <div class="example-answer">✅ Graphite = metallic conductor; Diamond = insulator (no delocalized electrons)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">The charge carriers in metallic conduction are:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div> Positive ions</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div> Delocalized electrons</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div> Negative ions</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div> Both cations and anions</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Which of the following is NOT a characteristic of electrolytic conduction?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Transfer of matter</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Chemical change at electrodes</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Electrons move through the solution</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Ions migrate to opposite electrodes</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">When the temperature of a metal conductor increases, its conductivity:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','B')"><div class="option-letter">A</div> Increases</div>
+          <div class="quiz-option" onclick="answer(3,'B','B')"><div class="option-letter">B</div> Decreases</div>
+          <div class="quiz-option" onclick="answer(3,'C','B')"><div class="option-letter">C</div> Stays the same</div>
+          <div class="quiz-option" onclick="answer(3,'D','B')"><div class="option-letter">D</div> Becomes zero</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">In the electrolytic conduction of NaCl(aq), which direction do Na⁺ ions move?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','B')"><div class="option-letter">A</div> Toward the positive anode</div>
+          <div class="quiz-option" onclick="answer(4,'B','B')"><div class="option-letter">B</div> Toward the negative cathode</div>
+          <div class="quiz-option" onclick="answer(4,'C','B')"><div class="option-letter">C</div> They do not move</div>
+          <div class="quiz-option" onclick="answer(4,'D','B')"><div class="option-letter">D</div> They move randomly in both directions equally</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Which of the following substances is a weak electrolyte?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> NaCl</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> H₂SO₄</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> CH₃COOH</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Glucose</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-2-5.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+metallic+vs+electrolytic+conduction" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Metallic vs Electrolytic Conduction — Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+electrical+conductivity+solutions" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Electrical Conductivity of Solutions — Full Tutorial</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+strong+weak+electrolytes" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Strong vs Weak Electrolytes — Classification Guide</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+electrolysis+aqueous+solutions" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Introduction to Electrolysis of Aqueous Solutions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.4</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Conductivity</div>
+        <ul class="summary-list">
+          <li><strong>Electrical conductivity</strong> = ability to transmit electricity; substances that do this are <strong>conductors</strong></li>
+          <li>Two types: <strong>electronic (metallic)</strong> and <strong>electrolytic</strong></li>
+          <li><strong>Metallic conduction</strong>: carried by delocalized electrons; no matter transfer; no chemical change; <strong>conductivity ↓ with temperature ↑</strong></li>
+          <li><strong>Electrolytic conduction</strong>: carried by migrating ions; involves matter transfer and chemical reactions at electrodes; <strong>conductivity ↑ with temperature ↑</strong></li>
+          <li>Solid ionic compounds do <strong>not</strong> conduct — ions are locked in the lattice</li>
+          <li>Ionic compounds <strong>do</strong> conduct when dissolved or molten — ions are free to move</li>
+          <li><strong>Strong electrolytes</strong> (NaCl, H₂SO₄, HCl) → bright bulb</li>
+          <li><strong>Weak electrolytes</strong> (CH₃COOH, NH₃) → dim bulb</li>
+          <li><strong>Non-electrolytes</strong> (sugar, ethanol) → bulb off</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §2.2 intro + Experiment 2.1 (pp. 74–77)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-3.html" class="btn btn-ghost">← Lesson 2.3: Half-Reaction Method</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 4 of 12</div>
+      <a href="lesson-2-5.html" class="btn btn-primary">Next: Electrolytic Cells →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'B',2:'C',3:'B',4:'B',5:'C'};
+  const feedbacks={
+    1:{B:'✓ Correct! Metallic conduction is carried by delocalized electrons moving through the metal lattice.',wrong:'✗ In metals, the charge carriers are delocalized electrons, not ions.'},
+    2:{C:'✓ Correct! In electrolytic conduction, ions move through the solution — electrons do NOT travel through the electrolyte (they travel through the external wire).',wrong:'✗ Electrons flow only through the external circuit. In solution, ions are the charge carriers.'},
+    3:{B:'✓ Correct! Higher temperature increases lattice vibrations, disrupting electron flow → conductivity decreases.',wrong:'✗ Metals: conductivity decreases with temperature (vibrations disrupt electron flow).'},
+    4:{B:'✓ Correct! Cations (positive ions) are attracted to the negative electrode — the cathode.',wrong:'✗ Na⁺ (a cation) is attracted to the negatively charged cathode.'},
+    5:{C:'✓ Correct! CH₃COOH is a weak acid — it only partially ionizes in water, so it is a weak electrolyte.',wrong:'✗ CH₃COOH (acetic acid) is a weak acid → weak electrolyte (partial ionization).'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','conductors','metallic','electrolytic','compare','experiment','types','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
