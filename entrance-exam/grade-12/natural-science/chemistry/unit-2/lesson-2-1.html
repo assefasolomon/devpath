@@ -1,62 +1,127 @@
-cat > ~/devpath/create-chemistry-unit2-hub.sh << 'SCRIPT_EOF'
-#!/bin/bash
-set -e
-
-HUB="$HOME/devpath/entrance-exam/grade-12/natural-science/chemistry/unit-2/index.html"
-mkdir -p "$(dirname "$HUB")"
-
-cat > "$HUB" << 'HTML'
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unit 2: Electrochemistry | Chemistry Grade 12</title>
+  <title>Lesson 2.1: Oxidation-Reduction Reactions | Chemistry Grade 12</title>
   <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
-    body { background: #F8FAFC; }
-    .unit-hero { background: linear-gradient(135deg, #0F172A 0%, #7F1D1D 100%); padding: 3rem 2rem; color: #fff; }
-    .unit-hero-inner { max-width: 900px; margin: 0 auto; }
-    .unit-tag { display: inline-flex; gap: 6px; background: rgba(220,38,38,.15); border: 1px solid rgba(220,38,38,.3); color: #FCA5A5; font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 1rem; }
-    .unit-hero h1 { font-size: 2rem; font-weight: 900; color: #fff; margin-bottom: .5rem; }
-    .unit-hero p { color: rgba(255,255,255,.72); font-size: .95rem; line-height: 1.7; max-width: 640px; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 3rem 2rem; }
-    .breadcrumb { display: flex; gap: 6px; font-size: .82rem; color: var(--text-muted, #64748b); margin-bottom: 2rem; flex-wrap: wrap; }
-    .breadcrumb a { color: #DC2626; text-decoration: none; }
-    .section-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #DC2626; margin-bottom: .75rem; }
-    .section-title { font-size: 1.35rem; font-weight: 800; color: var(--heading, #0f172a); margin-bottom: 1.25rem; }
-    .lesson-list { display: flex; flex-direction: column; gap: .75rem; }
-    .lesson-card { background: #fff; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 1rem 1.25rem; text-decoration: none; color: inherit; display: flex; align-items: center; gap: 1rem; transition: all .2s ease; }
-    .lesson-card:hover { border-color: #DC2626; transform: translateX(4px); box-shadow: 0 6px 16px rgba(220,38,38,.12); }
-    .lesson-icon { font-size: 1.5rem; flex-shrink: 0; }
-    .lesson-info { flex: 1; min-width: 0; }
-    .lesson-title { font-size: .95rem; font-weight: 700; color: #0f172a; margin-bottom: .15rem; }
-    .lesson-meta { font-size: .75rem; color: #64748b; }
-    .lesson-arrow { color: #DC2626; font-weight: 900; font-size: 1.1rem; flex-shrink: 0; }
-    @media (max-width: 640px) {
-      .unit-hero { padding: 2.25rem 1rem; }
-      .unit-hero h1 { font-size: 1.5rem; }
-      .wrap { padding: 2rem 1rem; }
-      .lesson-card { padding: .875rem 1rem; }
-    }
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.ox{background:#FEF2F2;border-color:#FECACA}
+    .compare-card.red{background:#EFF6FF;border-color:#BFDBFE}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.ox .compare-card-title{color:#991B1B}
+    .compare-card.red .compare-card-title{color:#1E40AF}
+    .compare-card p{font-size:.8rem;color:var(--text);line-height:1.65;margin:0}
+    .mnemonic{background:linear-gradient(135deg,#7F1D1D,#991B1B);color:#fff;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin:1rem 0;text-align:center}
+    .mnemonic .big{font-size:1.15rem;font-weight:800;letter-spacing:.05em;margin-bottom:.25rem}
+    .mnemonic .small{font-size:.82rem;color:rgba(255,255,255,.85)}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
   </style>
 </head>
 <body>
 
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon">
-      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
-      </svg>
-    </div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Chemistry Grade 12</span>
-    </div>
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
   </a>
   <div class="fsh-nav-actions">
     <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
@@ -64,159 +129,571 @@ cat > "$HUB" << 'HTML'
   </div>
 </nav>
 
-<div class="unit-hero">
-  <div class="unit-hero-inner">
-    <div class="unit-tag">⚡ Unit 2 · MoE 2023 Curriculum</div>
-    <h1>Electrochemistry</h1>
-    <p>Redox reactions, balancing, electrolysis, Faraday's laws, galvanic cells, standard electrode potentials, EMF, Nernst equation, and corrosion.</p>
-  </div>
-</div>
-
-<div class="wrap">
-  <div class="breadcrumb">
-    <a href="../../../../../index.html">Home</a> ›
-    <a href="../../../../index.html">Entrance Exam</a> ›
-    <a href="../../../index.html">Grade 12</a> ›
-    <a href="../../index.html">Natural Science</a> ›
-    <a href="../index.html">Chemistry</a> ›
-    <span>Unit 2</span>
-  </div>
-
-  <div class="section-label">Lessons</div>
-  <div class="section-title">12 Lessons in this Unit</div>
-
-  <div class="lesson-list">
-    <a href="lesson-2-1.html" class="lesson-card">
-      <div class="lesson-icon">⚡</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.1 — Oxidation-Reduction Reactions</div>
-        <div class="lesson-meta">Oxidation · Reduction · Oxidizing agents · Reducing agents</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-2.html" class="lesson-card">
-      <div class="lesson-icon">⚖️</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.2 — Balancing Redox (Oxidation Number Method)</div>
-        <div class="lesson-meta">Steps · Assigning oxidation numbers · Examples</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-3.html" class="lesson-card">
-      <div class="lesson-icon">⚗️</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.3 — Balancing Redox (Half-Reaction Method)</div>
-        <div class="lesson-meta">Acidic media · Basic media · Steps</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-4.html" class="lesson-card">
-      <div class="lesson-icon">🔌</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.4 — Conductivity: Metallic vs Electrolytic</div>
-        <div class="lesson-meta">Conductors · Electrolytes · Comparison</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-5.html" class="lesson-card">
-      <div class="lesson-icon">🧪</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.5 — Electrolytic Cells & Preferential Discharge</div>
-        <div class="lesson-meta">Cell structure · Electrochemical series · Factors</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-6.html" class="lesson-card">
-      <div class="lesson-icon">💧</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.6 — Electrolysis of Selected Aqueous Solutions</div>
-        <div class="lesson-meta">NaCl · H₂SO₄ · CuSO₄ · Electrode effects</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-7.html" class="lesson-card">
-      <div class="lesson-icon">📊</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.7 — Faraday's First Law of Electrolysis</div>
-        <div class="lesson-meta">m = zQ · Calculations · Applications</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-8.html" class="lesson-card">
-      <div class="lesson-icon">📈</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.8 — Faraday's Second Law of Electrolysis</div>
-        <div class="lesson-meta">m₁/E₁ = m₂/E₂ · Series cells</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-9.html" class="lesson-card">
-      <div class="lesson-icon">🏭</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.9 — Industrial Applications of Electrolysis</div>
-        <div class="lesson-meta">Metal extraction · Refining · Electroplating</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-10.html" class="lesson-card">
-      <div class="lesson-icon">🔋</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.10 — Galvanic Cells & the Daniell Cell</div>
-        <div class="lesson-meta">Zn-Cu cell · Salt bridge · Cell notation</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-11.html" class="lesson-card">
-      <div class="lesson-icon">📏</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.11 — Standard Electrode Potentials & EMF</div>
-        <div class="lesson-meta">SHE · Standard reduction potentials · EMF calculations</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-12.html" class="lesson-card">
-      <div class="lesson-icon">🌐</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.12 — Nernst Equation, Concentration Cells & Corrosion</div>
-        <div class="lesson-meta">Nernst · Concentration cells · Corrosion prevention</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-  </div>
-</div>
-
-<footer class="fsh-footer">
-  <div class="fsh-footer-inner">
-    <div class="fsh-footer-bottom">
-      <p>© 2025 Freelance Skills Hub · Chemistry Grade 12</p>
-      <p>Unit 2: Electrochemistry · 12 lessons</p>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
     </div>
-  </div>
-</footer>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('oxidation')"><div class="sidebar-dot"></div> Oxidation</button>
+      <button class="sidebar-link" onclick="scrollTo('reduction')"><div class="sidebar-dot"></div> Reduction</button>
+      <button class="sidebar-link" onclick="scrollTo('agents')"><div class="sidebar-dot"></div> Oxidizing & Reducing Agents</button>
+      <button class="sidebar-link" onclick="scrollTo('redoxvsnon')"><div class="sidebar-dot"></div> Redox vs Non-Redox</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Redox Reactions</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Balancing (Ox. No.)</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Balancing (Half-Rxn)</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Conductivity</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Electrolytic Cells</a>
+      <a href="lesson-2-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Electrolysis Examples</a>
+      <a href="lesson-2-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Faraday's 1st Law</a>
+      <a href="lesson-2-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Faraday's 2nd Law</a>
+      <a href="lesson-2-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Industrial Apps</a>
+      <a href="lesson-2-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Galvanic Cells</a>
+      <a href="lesson-2-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Standard Potentials</a>
+      <a href="lesson-2-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Nernst & Corrosion</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Electrochemistry · MoE Textbook §2.1.1–2.1.2</div>
+      <h1>⚡ Oxidation-Reduction Reactions</h1>
+      <p>Redox reactions power batteries, rust iron, and keep you alive. Learn the modern definitions of oxidation and reduction, how to spot them in any reaction, and how to identify oxidizing and reducing agents.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Every time you charge your phone, digest food, or watch iron rust, a <strong>redox reaction</strong> is at work. The term comes from the two coupled processes — <strong>red</strong>uction and <strong>ox</strong>idation — that always happen together. In this lesson we build the modern electron-based understanding of both.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>oxidation</strong> in terms of electron loss and change in oxidation number</li>
+          <li>Define <strong>reduction</strong> in terms of electron gain and change in oxidation number</li>
+          <li>Identify the species <strong>oxidized</strong> and <strong>reduced</strong> in a reaction</li>
+          <li>Distinguish the <strong>oxidizing agent</strong> from the <strong>reducing agent</strong></li>
+          <li>Recognize <strong>redox reactions</strong> versus non-redox reactions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="oxidation">
+      <div class="section-header"><div class="section-icon">🔴</div>
+        <div><div class="section-title-text">2.1.1 Oxidation</div><div class="section-subtitle">Loss of electrons</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Original Definition</div>
+          <p>
+            The term <strong>oxidation</strong> was originally defined in terms of the <strong>addition of oxygen</strong> to a compound — for example, burning magnesium in air to form MgO.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Modern Definition (MoE Textbook, p. 57)</div>
+          <p>
+            <strong>Oxidation</strong> is a process in which an atom/element <strong>loses an electron</strong> and therefore <strong>increases its oxidation number</strong>.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Oxidation — Electron Loss</div>
+          <svg viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left: reactant -->
+            <rect x="40" y="40" width="140" height="60" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="8"/>
+            <text x="110" y="70" font-size="15" fill="#991B1B" text-anchor="middle" font-weight="bold">M</text>
+            <text x="110" y="88" font-size="10" fill="#991B1B" text-anchor="middle">(reduced form)</text>
+
+            <!-- Arrow -->
+            <line x1="190" y1="70" x2="290" y2="70" stroke="#DC2626" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+            <defs>
+              <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#DC2626"/>
+              </marker>
+            </defs>
+            <text x="240" y="60" font-size="11" fill="#DC2626" text-anchor="middle" font-weight="bold">lose e⁻</text>
+            <text x="240" y="88" font-size="10" fill="#64748b" text-anchor="middle">oxidation number ↑</text>
+
+            <!-- Right: product -->
+            <rect x="300" y="40" width="140" height="60" fill="#FEE2E2" stroke="#991B1B" stroke-width="2" rx="8"/>
+            <text x="370" y="70" font-size="15" fill="#991B1B" text-anchor="middle" font-weight="bold">Mⁿ⁺</text>
+            <text x="370" y="88" font-size="10" fill="#991B1B" text-anchor="middle">(oxidized form)</text>
+          </svg>
+        </div>
+
+        <div class="mnemonic">
+          <div class="big">OIL — Oxidation Is Loss</div>
+          <div class="small">of electrons (and oxidation number increases)</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Example</div>
+          <p>
+            <strong>Zn → Zn²⁺ + 2e⁻</strong><br>
+            Zinc loses 2 electrons. Its oxidation number goes from <strong>0 to +2</strong>. Zinc is oxidized.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="reduction">
+      <div class="section-header"><div class="section-icon">🔵</div>
+        <div><div class="section-title-text">2.1.2 Reduction</div><div class="section-subtitle">Gain of electrons</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Original Definition</div>
+          <p>
+            The term <strong>reduction</strong> was originally used to describe the <strong>production of a metal from its ore</strong> — for example, extracting iron from iron oxide.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Modern Definition (MoE Textbook, p. 58)</div>
+          <p>
+            <strong>Reduction</strong> is a process in which an atom <strong>gains an electron</strong> and therefore <strong>decreases its oxidation number</strong>.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Reduction — Electron Gain</div>
+          <svg viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left: reactant -->
+            <rect x="40" y="40" width="140" height="60" fill="#EFF6FF" stroke="#1E40AF" stroke-width="2" rx="8"/>
+            <text x="110" y="70" font-size="15" fill="#1E40AF" text-anchor="middle" font-weight="bold">Xⁿ⁺</text>
+            <text x="110" y="88" font-size="10" fill="#1E40AF" text-anchor="middle">(oxidized form)</text>
+
+            <!-- Arrow -->
+            <line x1="190" y1="70" x2="290" y2="70" stroke="#1E40AF" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+            <defs>
+              <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#1E40AF"/>
+              </marker>
+            </defs>
+            <text x="240" y="60" font-size="11" fill="#1E40AF" text-anchor="middle" font-weight="bold">gain e⁻</text>
+            <text x="240" y="88" font-size="10" fill="#64748b" text-anchor="middle">oxidation number ↓</text>
+
+            <!-- Right: product -->
+            <rect x="300" y="40" width="140" height="60" fill="#BFDBFE" stroke="#1E40AF" stroke-width="2" rx="8"/>
+            <text x="370" y="70" font-size="15" fill="#1E40AF" text-anchor="middle" font-weight="bold">X</text>
+            <text x="370" y="88" font-size="10" fill="#1E40AF" text-anchor="middle">(reduced form)</text>
+          </svg>
+        </div>
+
+        <div class="mnemonic">
+          <div class="big">RIG — Reduction Is Gain</div>
+          <div class="small">of electrons (and oxidation number decreases)</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Example</div>
+          <p>
+            <strong>Cu²⁺ + 2e⁻ → Cu</strong><br>
+            Copper ion gains 2 electrons. Its oxidation number goes from <strong>+2 to 0</strong>. Copper is reduced.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key Statement (MoE Textbook, p. 58)</div>
+          <p>
+            <strong>Oxidation and reduction reactions always occur in pairs.</strong> Since they cannot occur independently, they are collectively called <strong>Redox Reactions</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="agents">
+      <div class="section-header"><div class="section-icon">🔁</div>
+        <div><div class="section-title-text">Oxidizing and Reducing Agents</div><div class="section-subtitle">Who causes what</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Students often confuse the <em>substance that is oxidized</em> with the <em>substance that causes oxidation</em>. Here is the precise distinction:
+        </p>
+
+        <div class="compare-grid">
+          <div class="compare-card ox">
+            <div class="compare-card-title">🔴 Oxidizing Agent</div>
+            <p>
+              <strong>Gets reduced itself</strong><br>
+              Takes electrons <em>from</em> the other species<br>
+              Causes the other species to be oxidized<br>
+              <br>
+              <em>Example: Cu²⁺ in Zn + Cu²⁺ → Zn²⁺ + Cu</em>
+            </p>
+          </div>
+          <div class="compare-card red">
+            <div class="compare-card-title">🔵 Reducing Agent</div>
+            <p>
+              <strong>Gets oxidized itself</strong><br>
+              Gives electrons <em>to</em> the other species<br>
+              Causes the other species to be reduced<br>
+              <br>
+              <em>Example: Zn in Zn + Cu²⁺ → Zn²⁺ + Cu</em>
+            </p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Memory trick</div>
+          <p>
+            The word always describes what the agent <strong>does to the OTHER species</strong>, not what happens to itself:<br><br>
+            • <strong>Oxidizing agent</strong> → oxidizes the other species (and is reduced itself)<br>
+            • <strong>Reducing agent</strong> → reduces the other species (and is oxidized itself)
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Electron Flow in a Redox Reaction</div>
+          <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- Reducing agent box -->
+            <rect x="20" y="40" width="180" height="100" fill="#EFF6FF" stroke="#1E40AF" stroke-width="2" rx="10"/>
+            <text x="110" y="70" font-size="13" fill="#1E40AF" text-anchor="middle" font-weight="bold">Reducing Agent</text>
+            <text x="110" y="90" font-size="11" fill="#1E40AF" text-anchor="middle">(is oxidized)</text>
+            <text x="110" y="115" font-size="12" fill="#1E40AF" text-anchor="middle" font-family="Georgia,serif">M → Mⁿ⁺ + ne⁻</text>
+
+            <!-- Arrow -->
+            <line x1="210" y1="90" x2="310" y2="90" stroke="#DC2626" stroke-width="3" marker-end="url(#arrowFlow)"/>
+            <defs>
+              <marker id="arrowFlow" markerWidth="12" markerHeight="12" refX="11" refY="3.5" orient="auto">
+                <polygon points="0 0, 12 3.5, 0 7" fill="#DC2626"/>
+              </marker>
+            </defs>
+            <text x="260" y="80" font-size="12" fill="#DC2626" text-anchor="middle" font-weight="bold">e⁻</text>
+            <text x="260" y="110" font-size="10" fill="#64748b" text-anchor="middle">electron transfer</text>
+
+            <!-- Oxidizing agent box -->
+            <rect x="320" y="40" width="180" height="100" fill="#FEF2F2" stroke="#991B1B" stroke-width="2" rx="10"/>
+            <text x="410" y="70" font-size="13" fill="#991B1B" text-anchor="middle" font-weight="bold">Oxidizing Agent</text>
+            <text x="410" y="90" font-size="11" fill="#991B1B" text-anchor="middle">(is reduced)</text>
+            <text x="410" y="115" font-size="12" fill="#991B1B" text-anchor="middle" font-family="Georgia,serif">Xⁿ⁺ + ne⁻ → X</text>
+          </svg>
+          <div class="visual-box-caption">
+            Electrons flow from the reducing agent (oxidized) to the oxidizing agent (reduced).
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="redoxvsnon">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">Redox vs Non-Redox Reactions</div><div class="section-subtitle">How to tell them apart</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Not every reaction is a redox reaction. A quick test: <strong>track oxidation numbers</strong>. If any element's oxidation number changes, it is a redox reaction. If nothing changes, it is not.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Reaction Type</th><th>Oxidation Number Change?</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Redox</td><td>Yes — at least one element changes</td><td>Zn + Cu²⁺ → Zn²⁺ + Cu</td></tr>
+            <tr><td>Redox</td><td>Yes</td><td>Mg + 2HCl → MgCl₂ + H₂</td></tr>
+            <tr><td>Non-redox (acid-base)</td><td>No</td><td>HCl + NaOH → NaCl + H₂O</td></tr>
+            <tr><td>Non-redox (precipitation)</td><td>No</td><td>AgNO₃ + NaCl → AgCl↓ + NaNO₃</td></tr>
+            <tr><td>Non-redox (double displacement)</td><td>No</td><td>H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Quick test procedure</div>
+          <p>
+            1. Assign oxidation numbers to every element on both sides.<br>
+            2. If any element's number changes → redox reaction.<br>
+            3. If no number changes → non-redox reaction.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Everything from Lesson 2.1</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">⚡ Lesson 2.1 — Oxidation-Reduction Reactions</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Oxidation</div><div class="formula-math">Loses e⁻</div><div class="formula-note">Oxidation number ↑</div></div>
+          <div class="formula-item"><div class="formula-name">Reduction</div><div class="formula-math">Gains e⁻</div><div class="formula-note">Oxidation number ↓</div></div>
+          <div class="formula-item"><div class="formula-name">Mnemonic</div><div class="formula-math">OIL RIG</div><div class="formula-note">Oxidation Is Loss, Reduction Is Gain</div></div>
+          <div class="formula-item"><div class="formula-name">Oxidizing agent</div><div class="formula-math">Is reduced</div><div class="formula-note">Causes oxidation of the other</div></div>
+          <div class="formula-item"><div class="formula-name">Reducing agent</div><div class="formula-math">Is oxidized</div><div class="formula-note">Causes reduction of the other</div></div>
+          <div class="formula-item"><div class="formula-name">Redox reaction</div><div class="formula-math">Ox + Red together</div><div class="formula-note">Cannot occur independently</div></div>
+          <div class="formula-item"><div class="formula-name">Test for redox</div><div class="formula-math">Δ oxidation number ≠ 0</div><div class="formula-note">Any element changing number</div></div>
+          <div class="formula-item"><div class="formula-name">Spectator ions</div><div class="formula-math">Ox. no. unchanged</div><div class="formula-note">Do not participate in redox</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 problems solved step by step</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identify Oxidation and Reduction</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> For the reaction <strong>Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g)</strong>, identify which species is oxidized and which is reduced.</div>
+          <div class="example-step"><span class="step-badge">Ox. numbers</span><div class="step-text">Mg: 0 → +2 &nbsp;|&nbsp; H: +1 → 0 &nbsp;|&nbsp; Cl: −1 → −1 (unchanged)</div></div>
+          <div class="example-step"><span class="step-badge">Oxidized</span><div class="step-text">Mg loses 2 electrons and its oxidation number increases → <span class="math">Mg is oxidized</span></div></div>
+          <div class="example-step"><span class="step-badge">Reduced</span><div class="step-text">H⁺ gains 1 electron (per atom) and its oxidation number decreases → <span class="math">H⁺ is reduced</span></div></div>
+          <div class="example-step"><span class="step-badge">Spectator</span><div class="step-text">Cl⁻ does not change — it is a spectator ion</div></div>
+          <div class="example-answer">✅ Mg is oxidized; H⁺ (from HCl) is reduced</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Identify the Agents</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> In the reaction <strong>Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s)</strong>, identify the oxidizing agent and the reducing agent.</div>
+          <div class="example-step"><span class="step-badge">Ox. numbers</span><div class="step-text">Zn: 0 → +2 (oxidized) &nbsp;|&nbsp; Cu: +2 → 0 (reduced)</div></div>
+          <div class="example-step"><span class="step-badge">Reducing agent</span><div class="step-text">Zn is oxidized → it is the <span class="math">reducing agent</span> (it gives electrons to Cu²⁺)</div></div>
+          <div class="example-step"><span class="step-badge">Oxidizing agent</span><div class="step-text">Cu²⁺ is reduced → it is the <span class="math">oxidizing agent</span> (it takes electrons from Zn)</div></div>
+          <div class="example-answer">✅ Reducing agent = <strong>Zn</strong> &nbsp;|&nbsp; Oxidizing agent = <strong>Cu²⁺</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Spot the Redox Reaction</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Which of the following is a redox reaction? <br>(a) HCl + NaOH → NaCl + H₂O <br>(b) 2Mg + O₂ → 2MgO <br>(c) AgNO₃ + NaCl → AgCl + NaNO₃</div>
+          <div class="example-step"><span class="step-badge">Check (a)</span><div class="step-text">H: +1, Cl: −1, Na: +1, O: −2 → no change → <span class="math">not redox</span></div></div>
+          <div class="example-step"><span class="step-badge">Check (b)</span><div class="step-text">Mg: 0 → +2 (oxidized); O: 0 → −2 (reduced) → <span class="math">redox ✓</span></div></div>
+          <div class="example-step"><span class="step-badge">Check (c)</span><div class="step-text">Ag: +1 → +1, Na: +1 → +1, Cl: −1 → −1 → no change → <span class="math">not redox</span></div></div>
+          <div class="example-answer">✅ Only <strong>(b) 2Mg + O₂ → 2MgO</strong> is a redox reaction</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Oxidation Number Change for Carbon</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Determine the oxidation number of carbon in C₂O₄²⁻ (oxalate ion) and explain how the carbon is oxidized when oxalate is converted to CO₂.</div>
+          <div class="example-step"><span class="step-badge">Set up equation</span><div class="step-text">2x + 4(−2) = −2 (where x = ox. no. of C)</div></div>
+          <div class="example-step"><span class="step-badge">Solve</span><div class="step-text"><span class="math">2x − 8 = −2</span> → <span class="math">2x = +6</span> → <span class="math">x = +3</span></div></div>
+          <div class="example-step"><span class="step-badge">Compare</span><div class="step-text">In CO₂, C = +4. In C₂O₄²⁻, C = +3. Change is +3 → +4 → <span class="math">oxidation</span> (loss of electrons)</div></div>
+          <div class="example-answer">✅ Oxidation number of C in C₂O₄²⁻ = <strong>+3</strong>; oxidation to CO₂ raises it to +4</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Chromium and Chlorine Oxidation Numbers</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Calculate the oxidation number of (a) Cr in K₂CrO₄ and (b) Cl in HClO₄.</div>
+          <div class="example-step"><span class="step-badge">(a) K₂CrO₄</span><div class="step-text">K = +1, O = −2. Let Cr = x → 2(+1) + x + 4(−2) = 0 → 2 + x − 8 = 0 → <span class="math">x = +6</span></div></div>
+          <div class="example-step"><span class="step-badge">(b) HClO₄</span><div class="step-text">H = +1, O = −2. Let Cl = x → +1 + x + 4(−2) = 0 → 1 + x − 8 = 0 → <span class="math">x = +7</span></div></div>
+          <div class="example-answer">✅ (a) Cr = <strong>+6</strong> &nbsp;|&nbsp; (b) Cl = <strong>+7</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">In modern chemistry, oxidation is best defined as:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Gain of oxygen atoms only</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Gain of electrons and decrease in oxidation number</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Loss of electrons and increase in oxidation number</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Reaction with an acid</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">In the reaction Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s), which species is the oxidizing agent?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','B')"><div class="option-letter">A</div> Zn</div>
+          <div class="quiz-option" onclick="answer(2,'B','B')"><div class="option-letter">B</div> Cu²⁺</div>
+          <div class="quiz-option" onclick="answer(2,'C','B')"><div class="option-letter">C</div> Zn²⁺</div>
+          <div class="quiz-option" onclick="answer(2,'D','B')"><div class="option-letter">D</div> Cu</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Which of the following is NOT a redox reaction?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Mg + 2HCl → MgCl₂ + H₂</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> 2Mg + O₂ → 2MgO</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> HCl + NaOH → NaCl + H₂O</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Zn + Cu²⁺ → Zn²⁺ + Cu</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">The oxidation number of Cr in K₂CrO₄ is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> +3</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> +4</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> +6</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> +7</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A reducing agent is a species that:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Gains electrons and is reduced</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Causes reduction and is itself reduced</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Causes reduction of another species and is itself oxidized</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Does not change its oxidation number</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-2-2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+oxidation+reduction+reactions" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Oxidation and Reduction Reactions — Full Introduction</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+oxidizing+and+reducing+agents" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Oxidizing Agents vs Reducing Agents — Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+how+to+identify+redox+reactions" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">How to Identify Redox Reactions</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+oxidation+number+rules" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Oxidation Number Rules — With Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.1</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Oxidation-Reduction Reactions</div>
+        <ul class="summary-list">
+          <li><strong>Oxidation</strong> = loss of electrons → oxidation number increases</li>
+          <li><strong>Reduction</strong> = gain of electrons → oxidation number decreases</li>
+          <li>Mnemonic: <strong>OIL RIG</strong> — Oxidation Is Loss, Reduction Is Gain</li>
+          <li>Oxidation and reduction <strong>always occur in pairs</strong> → redox reactions</li>
+          <li><strong>Oxidizing agent</strong> = gets reduced; causes the other species to be oxidized</li>
+          <li><strong>Reducing agent</strong> = gets oxidized; causes the other species to be reduced</li>
+          <li>To test if a reaction is redox: track <strong>oxidation number changes</strong></li>
+          <li>Acid-base and precipitation reactions are usually <strong>not</strong> redox</li>
+          <li><strong>Spectator ions</strong> do not change oxidation number and do not participate in redox</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §2.1.1–2.1.2 (pp. 57–58)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="index.html" class="btn btn-ghost">← Unit 2 Hub</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 1 of 12</div>
+      <a href="lesson-2-2.html" class="btn btn-primary">Next: Balancing Redox (Ox. No.) →</a>
+    </div>
+  </main>
+</div>
 
 <script>
-  fetch('/api/auth/me', {credentials:'include'})
-    .then(r => r.json())
-    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
-    .catch(() => {});
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! Oxidation is loss of electrons, which increases the oxidation number.',wrong:'✗ Oxidation = loss of electrons → oxidation number increases.'},
+    2:{B:'✓ Correct! Cu²⁺ is reduced to Cu, so it is the oxidizing agent (it accepts electrons from Zn).',wrong:'✗ The oxidizing agent is the species that gets reduced. Cu²⁺ → Cu, so Cu²⁺ is the oxidizing agent.'},
+    3:{C:'✓ Correct! In HCl + NaOH → NaCl + H₂O no oxidation number changes — it is an acid-base reaction, not redox.',wrong:'✗ Track oxidation numbers: in HCl + NaOH → NaCl + H₂O, none change, so it is NOT redox.'},
+    4:{C:'✓ Correct! 2(+1) + x + 4(−2) = 0 → x = +6.',wrong:'✗ K = +1, O = −2. 2(+1) + x + 4(−2) = 0 → x = +6.'},
+    5:{C:'✓ Correct! A reducing agent causes reduction of another species and is itself oxidized.',wrong:'✗ A reducing agent gives electrons to another species (causing it to be reduced) and is itself oxidized.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','oxidation','reduction','agents','redoxvsnon','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
 </script>
 </body>
 </html>
-HTML
-
-echo "✅ Created Unit 2 hub: $HUB"
-SCRIPT_EOF
-
-chmod +x ~/devpath/create-chemistry-unit2-hub.sh
-~/devpath/create-chemistry-unit2-hub.sh
