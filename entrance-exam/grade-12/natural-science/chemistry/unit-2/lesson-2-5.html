@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.5: Electrolytic Cells & Preferential Discharge | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.inert{background:#EFF6FF;border-color:#BFDBFE}
+    .compare-card.active{background:#FEF2F2;border-color:#FECACA}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.inert .compare-card-title{color:#1E40AF}
+    .compare-card.active .compare-card-title{color:#991B1B}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    .series-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:.875rem 0}
+    .series-table th{background:#7F1D1D;color:#fff;padding:.5rem .75rem;text-align:center;font-weight:600;font-size:.78rem}
+    .series-table td{padding:.45rem .75rem;border-bottom:1px solid var(--border);text-align:center;font-family:'Georgia',serif}
+    .series-table tr:nth-child(even) td{background:var(--surface-2)}
+    .series-table .top{background:#FEE2E2!important;font-weight:700;color:#991B1B}
+    .series-table .bottom{background:#DBEAFE!important;font-weight:700;color:#1E40AF}
+    .split-table{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin:1rem 0}
+    .split-table .series-table{margin:0}
+    @media(max-width:640px){.split-table{grid-template-columns:1fr}}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 5</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('cell')"><div class="sidebar-dot"></div> Electrolytic Cell Structure</button>
+      <button class="sidebar-link" onclick="scrollTo('preferential')"><div class="sidebar-dot"></div> Preferential Discharge</button>
+      <button class="sidebar-link" onclick="scrollTo('position')"><div class="sidebar-dot"></div> Factor 1: Position in Series</button>
+      <button class="sidebar-link" onclick="scrollTo('concentration')"><div class="sidebar-dot"></div> Factor 2: Concentration</button>
+      <button class="sidebar-link" onclick="scrollTo('electrode')"><div class="sidebar-dot"></div> Factor 3: Nature of Electrode</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Redox Reactions ✓</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Balancing (Ox. No.) ✓</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Balancing (Half-Rxn) ✓</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Conductivity ✓</a>
+      <a href="lesson-2-5.html" class="sidebar-link active"><div class="sidebar-dot"></div> L5: Electrolytic Cells</a>
+      <a href="lesson-2-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Electrolysis Examples</a>
+      <a href="lesson-2-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Faraday's 1st Law</a>
+      <a href="lesson-2-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Faraday's 2nd Law</a>
+      <a href="lesson-2-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Industrial Apps</a>
+      <a href="lesson-2-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Galvanic Cells</a>
+      <a href="lesson-2-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Standard Potentials</a>
+      <a href="lesson-2-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Nernst & Corrosion</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.5
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Electrochemistry · MoE Textbook §2.2.1–2.2.2</div>
+      <h1>🧪 Electrolytic Cells & Preferential Discharge</h1>
+      <p>When more than one ion arrives at an electrode, which one gets discharged? The answer depends on three factors — position in the electrochemical series, ion concentration, and the nature of the electrode.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          An <strong>electrolytic cell</strong> uses electrical energy to drive a non-spontaneous chemical reaction. When an aqueous solution is electrolyzed, there are usually <strong>multiple ions competing</strong> at each electrode — and only one of them actually gets discharged. Understanding <em>which one</em> is the heart of this lesson.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe the structure of an <strong>electrolytic cell</strong></li>
+          <li>Explain the migration of ions during <strong>electrolysis</strong></li>
+          <li>Define <strong>preferential discharge</strong></li>
+          <li>Apply the three factors: <strong>position in the electrochemical series</strong>, <strong>concentration</strong>, and <strong>nature of the electrode</strong></li>
+          <li>Distinguish between <strong>inert</strong> and <strong>active (reactive) electrodes</strong></li>
+          <li>Predict products at anode and cathode for a given setup</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="cell">
+      <div class="section-header"><div class="section-icon">🔋</div>
+        <div><div class="section-title-text">Electrolytic Cell — Structure & Function</div><div class="section-subtitle">MoE Textbook §2.2.1</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Electrochemical Cell</div>
+          <p>
+            An <strong>electrochemical cell</strong> is a device that can generate electrical energy from a chemical reaction, or use electrical energy to drive a chemical reaction. There are two types:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Galvanic (Voltaic) cells</strong> — spontaneous reaction → produce electricity (Lesson 2.10)<br>
+            • <strong>Electrolytic cells</strong> — electrical energy supplied → drive non-spontaneous reaction (this lesson)
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Electrolytic Cell</div>
+          <p>
+            An <strong>electrolytic cell</strong> is an electrochemical cell that uses an <strong>external source of electrical energy</strong> to force a non-spontaneous redox reaction to occur.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Structure & Charge Sign Convention</h3>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Electrolytic Cell — Basic Setup</div>
+          <svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg">
+            <!-- Battery -->
+            <rect x="200" y="10" width="120" height="40" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="6"/>
+            <text x="260" y="35" font-size="12" fill="#92400E" text-anchor="middle" font-weight="bold">Power Source</text>
+
+            <!-- Wires -->
+            <line x1="200" y1="30" x2="100" y2="30" stroke="#0F172A" stroke-width="2"/>
+            <line x1="100" y1="30" x2="100" y2="90" stroke="#0F172A" stroke-width="2"/>
+            <line x1="320" y1="30" x2="420" y2="30" stroke="#0F172A" stroke-width="2"/>
+            <line x1="420" y1="30" x2="420" y2="90" stroke="#0F172A" stroke-width="2"/>
+
+            <!-- Electron flow arrows on wires -->
+            <text x="150" y="22" font-size="9" fill="#DC2626" text-anchor="middle">e⁻ →</text>
+            <text x="370" y="22" font-size="9" fill="#DC2626" text-anchor="middle">← e⁻</text>
+
+            <!-- Container -->
+            <rect x="50" y="90" width="420" height="150" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2" rx="6"/>
+
+            <!-- Electrodes -->
+            <rect x="85" y="90" width="20" height="130" fill="#64748B"/>
+            <text x="95" y="85" font-size="10" fill="#0F172A" text-anchor="middle" font-weight="bold">(−)</text>
+            <text x="95" y="248" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">Cathode</text>
+            <text x="95" y="260" font-size="8" fill="#64748b" text-anchor="middle">Reduction</text>
+
+            <rect x="415" y="90" width="20" height="130" fill="#64748B"/>
+            <text x="425" y="85" font-size="10" fill="#0F172A" text-anchor="middle" font-weight="bold">(+)</text>
+            <text x="425" y="248" font-size="10" fill="#DC2626" text-anchor="middle" font-weight="bold">Anode</text>
+            <text x="425" y="260" font-size="8" fill="#64748b" text-anchor="middle">Oxidation</text>
+
+            <!-- Ion movement -->
+            <g font-size="11" font-family="Georgia,serif" fill="#DC2626">
+              <text x="200" y="140">Cations →</text>
+              <text x="180" y="180">(to cathode)</text>
+            </g>
+            <g font-size="11" font-family="Georgia,serif" fill="#1E40AF">
+              <text x="290" y="140">← Anions</text>
+              <text x="290" y="180">(to anode)</text>
+            </g>
+
+            <!-- Solution label -->
+            <text x="260" y="220" font-size="10" fill="#1E40AF" text-anchor="middle" font-style="italic">Electrolyte solution</text>
+          </svg>
+        </div>
+
+        <div class="data-table" style="margin-top:1rem">
+          <table class="data-table">
+            <thead>
+              <tr><th>Electrode</th><th>Charge</th><th>Process</th><th>Ions attracted</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Cathode</td><td>Negative (−)</td><td>Reduction</td><td>Cations (+)</td></tr>
+              <tr><td>Anode</td><td>Positive (+)</td><td>Oxidation</td><td>Anions (−)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key terminology reminder</div>
+          <p>
+            In <em>both</em> galvanic and electrolytic cells:<br>
+            • <strong>Cathode</strong> = reduction always (Red Cat)<br>
+            • <strong>Anode</strong> = oxidation always (An Ox)<br>
+            But the <strong>charge signs are opposite</strong> between the two cell types!
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 What happens during electrolysis (MoE, p. 75)</div>
+          <p>
+            • Cations migrate to the cathode, take electrons, and are <strong>reduced</strong> to neutral atoms<br>
+            • Anions give up electrons to the anode and are <strong>oxidized</strong> to neutral atoms<br>
+            • Electrons released by anions travel through the external circuit to complete the flow
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="preferential">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Preferential Discharge</div><div class="section-subtitle">MoE Textbook §2.2.2</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition (MoE Textbook, p. 70)</div>
+          <p>
+            During electrolysis, if <strong>more than one cation</strong> or <strong>more than one anion</strong> arrive at an electrode, only <strong>one of them preferentially gets discharged</strong>. This choice among competing ions is called <strong>preferential discharge</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The three factors</div>
+          <p>
+            Which ion is discharged first depends on:<br><br>
+            <strong>1.</strong> Its position in the <strong>electrochemical (reactivity) series</strong><br>
+            <strong>2.</strong> Its <strong>concentration</strong> in the solution<br>
+            <strong>3.</strong> The <strong>nature of the electrode</strong> (inert vs active)
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Conceptual View</div>
+          <svg viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="20" width="140" height="100" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="8"/>
+            <text x="90" y="50" font-size="12" fill="#991B1B" text-anchor="middle" font-weight="bold">Multiple Cations</text>
+            <text x="90" y="75" font-size="10" fill="#991B1B" text-anchor="middle" font-family="Georgia,serif">Na⁺, H⁺, Cu²⁺</text>
+            <text x="90" y="95" font-size="9" fill="#991B1B" text-anchor="middle">all arrive at cathode</text>
+
+            <text x="250" y="75" font-size="22" fill="#DC2626" text-anchor="middle">→</text>
+
+            <rect x="340" y="20" width="140" height="100" fill="#F0FDF4" stroke="#16A34A" stroke-width="2" rx="8"/>
+            <text x="410" y="50" font-size="12" fill="#166534" text-anchor="middle" font-weight="bold">Only one reduced</text>
+            <text x="410" y="75" font-size="12" fill="#166534" text-anchor="middle" font-family="Georgia,serif">Cu²⁺ → Cu</text>
+            <text x="410" y="95" font-size="9" fill="#166534" text-anchor="middle">lowest in series</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="position">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">Factor 1 — Position in the Electrochemical Series</div><div class="section-subtitle">The most important factor</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The Rule (MoE Textbook, p. 81)</div>
+          <p>
+            The ions that are <strong>lower in the electrochemical series get discharged in preference</strong> to those above them.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Reactivity Series of Metals (Table 2.1)</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Reactivity</th><th>Metals</th><th>Behaviour</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Most reactive</td><td>Li, K, Ba, Sr, Ca, Na</td><td>Displace H₂ from cold water, steam and acids</td></tr>
+            <tr><td>Reactive</td><td>Mg, Al, Zn, Cr, Fe, Cd</td><td>Displace H₂ from steam and acids (not cold water)</td></tr>
+            <tr><td>Moderate</td><td>Co, Ni, Sn, Pb</td><td>Displace H₂ from acids only</td></tr>
+            <tr><td>Reference</td><td>H₂</td><td>Boundary between reactive and unreactive</td></tr>
+            <tr><td>Unreactive</td><td>Cu, Hg, Ag, Pt, Au</td><td>Do not react with water or acids</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Ease of Discharge (Table 2.2)</h3>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Ions <strong>lower</strong> in each list are discharged <strong>first</strong>.
+        </p>
+
+        <div class="split-table">
+          <table class="series-table">
+            <thead>
+              <tr><th colspan="2">Cations (easier to discharge ↓)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Li⁺</td></tr>
+              <tr><td>K⁺</td></tr>
+              <tr><td>Na⁺</td></tr>
+              <tr><td>Mg²⁺</td></tr>
+              <tr><td>Al³⁺</td></tr>
+              <tr><td>Mn²⁺</td></tr>
+              <tr><td>Zn²⁺</td></tr>
+              <tr><td>Cr³⁺</td></tr>
+              <tr><td>Fe²⁺</td></tr>
+              <tr><td>Cd²⁺</td></tr>
+              <tr><td>Pb²⁺</td></tr>
+              <tr><td>Fe³⁺</td></tr>
+              <tr><td>H⁺</td></tr>
+              <tr class="top"><td>Cu²⁺</td></tr>
+              <tr class="top"><td>Ag⁺</td></tr>
+              <tr class="top"><td>Au³⁺</td></tr>
+            </tbody>
+          </table>
+
+          <table class="series-table">
+            <thead>
+              <tr><th colspan="2">Anions (easier to discharge ↓)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>F⁻</td></tr>
+              <tr><td>SO₄²⁻</td></tr>
+              <tr><td>NO₃⁻</td></tr>
+              <tr><td>CO₃²⁻</td></tr>
+              <tr><td>Cl⁻</td></tr>
+              <tr><td>Br⁻</td></tr>
+              <tr><td>I⁻</td></tr>
+              <tr class="bottom"><td>OH⁻</td></tr>
+              <tr class="bottom"><td>S²⁻</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Worked example (from textbook)</div>
+          <p>
+            If a solution contains both <strong>K⁺</strong> and <strong>Cu²⁺</strong>:<br>
+            • Cu²⁺ is <strong>lower</strong> in the series → Cu²⁺ accepts electrons first → copper metal is deposited<br>
+            • K⁺ stays in solution<br><br>
+            Similarly, if a solution has <strong>Cl⁻</strong> and <strong>OH⁻</strong>, the OH⁻ (lower) is preferentially discharged.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="concentration">
+      <div class="section-header"><div class="section-icon">💧</div>
+        <div><div class="section-title-text">Factor 2 — Concentration of Ions</div><div class="section-subtitle">When concentration overrides position</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The Rule (MoE Textbook, p. 81)</div>
+          <p>
+            The <strong>higher the concentration</strong> of an anion in the electrolytic solution, the <strong>greater its probability of being discharged</strong> at the anode.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Classic Example — NaCl Solution</h3>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A sodium chloride solution contains <strong>two competing anions</strong> at the anode:
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Ion</th><th>Position in series</th><th>What happens</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>OH⁻</td><td>Lower (more easily discharged)</td><td>Discharged if concentration is normal</td></tr>
+            <tr><td>Cl⁻</td><td>Higher (harder to discharge)</td><td>Discharged if concentration is <strong>high</strong></td></tr>
+          </tbody>
+        </table>
+
+        <div class="compare-grid">
+          <div class="compare-card inert">
+            <div class="compare-card-title">💧 Dilute NaCl</div>
+            <p>
+              OH⁻ is discharged preferentially.<br>
+              <strong>Product at anode:</strong> O₂ gas<br>
+              <strong>Product at cathode:</strong> H₂ gas<br>
+              (Essentially electrolysis of water)
+            </p>
+          </div>
+          <div class="compare-card active">
+            <div class="compare-card-title">🧂 Concentrated NaCl (brine)</div>
+            <p>
+              Cl⁻ concentration is high enough that it <strong>overrides</strong> the position rule.<br>
+              <strong>Product at anode:</strong> Cl₂ gas<br>
+              <strong>Product at cathode:</strong> H₂ gas
+            </p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The lesson</div>
+          <p>
+            Position in the series is the <strong>default</strong> rule, but <strong>concentration can override it</strong>. When Cl⁻ is very concentrated, it gets discharged in preference to OH⁻ even though OH⁻ is lower in the series.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="electrode">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Factor 3 — Nature of the Electrode</div><div class="section-subtitle">Inert vs Active</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="compare-grid">
+          <div class="compare-card inert">
+            <div class="compare-card-title">🔵 Inert (Unreactive) Electrode</div>
+            <p>
+              Made of <strong>graphite, platinum, gold</strong><br>
+              Does <strong>not</strong> take part in the reaction<br>
+              Only the ions in solution are discharged<br>
+              Anode itself does not dissolve
+            </p>
+          </div>
+          <div class="compare-card active">
+            <div class="compare-card-title">🔴 Active (Reactive) Electrode</div>
+            <p>
+              Made of <strong>Cu, Ag, Ni, Zn</strong><br>
+              <strong>Does</strong> take part in the reaction<br>
+              Anode itself dissolves instead of anions being discharged<br>
+              Used in electroplating and electrorefining
+            </p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Classic Example — CuSO₄ Solution</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Electrode Type</th><th>Anode Reaction</th><th>Cathode Reaction</th><th>Net Effect</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Inert (Pt / graphite)</strong></td>
+              <td>4OH⁻ → O₂ + 2H₂O + 4e⁻</td>
+              <td>Cu²⁺ + 2e⁻ → Cu(s)</td>
+              <td>Cu deposited at cathode; O₂ at anode; solution becomes acidic (H₂SO₄ forms)</td>
+            </tr>
+            <tr>
+              <td><strong>Active (Cu electrode)</strong></td>
+              <td>Cu(s) → Cu²⁺ + 2e⁻</td>
+              <td>Cu²⁺ + 2e⁻ → Cu(s)</td>
+              <td>Copper is <strong>transferred</strong> from anode to cathode; solution concentration stays constant</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 The key insight</div>
+          <p>
+            With an <strong>active anode</strong>, the anode itself loses electrons and dissolves — so <strong>no anions are discharged</strong>. This is the basis for electrolytic refining and electroplating.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Everything from Lesson 2.5</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🧪 Lesson 2.5 — Electrolytic Cells</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Electrolytic cell</div><div class="formula-math">Electrical → Chemical</div><div class="formula-note">Non-spontaneous reaction driven</div></div>
+          <div class="formula-item"><div class="formula-name">Cathode</div><div class="formula-math">(−) · Reduction</div><div class="formula-note">Cations discharged</div></div>
+          <div class="formula-item"><div class="formula-name">Anode</div><div class="formula-math">(+) · Oxidation</div><div class="formula-note">Anions discharged</div></div>
+          <div class="formula-item"><div class="formula-name">Preferential discharge</div><div class="formula-math">Lower in series wins</div><div class="formula-note">Default rule</div></div>
+          <div class="formula-item"><div class="formula-name">Concentration effect</div><div class="formula-math">High [ion] can override</div><div class="formula-note">e.g. conc. Cl⁻ → Cl₂</div></div>
+          <div class="formula-item"><div class="formula-name">Inert electrode</div><div class="formula-math">Pt, graphite</div><div class="formula-note">No reaction at anode surface</div></div>
+          <div class="formula-item"><div class="formula-name">Active electrode</div><div class="formula-math">Cu, Ag, Ni</div><div class="formula-note">Anode dissolves</div></div>
+          <div class="formula-item"><div class="formula-name">Electrolysis</div><div class="formula-math">Ions migrate → discharge</div><div class="formula-note">Matter is transferred</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identify Electrodes in a Cell</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> In an electrolytic cell with a 9 V battery, which electrode is the cathode and which is the anode? What process happens at each?</div>
+          <div class="example-step"><span class="step-badge">Definition</span><div class="step-text">The electrode connected to the <strong>negative terminal</strong> of the battery is the cathode</div></div>
+          <div class="example-step"><span class="step-badge">Cathode</span><div class="step-text">(−) charged → <span class="math">reduction</span> occurs; cations migrate here</div></div>
+          <div class="example-step"><span class="step-badge">Anode</span><div class="step-text">(+) charged → <span class="math">oxidation</span> occurs; anions migrate here</div></div>
+          <div class="example-answer">✅ Cathode (−) = reduction; Anode (+) = oxidation</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Preferential Discharge — Cu²⁺ vs Na⁺</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> An aqueous solution contains both Cu²⁺ and Na⁺ ions. Which is discharged at the cathode? Explain.</div>
+          <div class="example-step"><span class="step-badge">Check series</span><div class="step-text">Na⁺ is very high in the series (very reactive metal); Cu²⁺ is much lower (unreactive metal)</div></div>
+          <div class="example-step"><span class="step-badge">Apply rule</span><div class="step-text">Lower in series is discharged first → <span class="math">Cu²⁺ is discharged</span></div></div>
+          <div class="example-step"><span class="step-badge">Half-reaction</span><div class="step-text"><span class="math">Cu²⁺ + 2e⁻ → Cu(s)</span> (copper metal deposits on cathode)</div></div>
+          <div class="example-answer">✅ Cu²⁺ is discharged; Na⁺ stays in solution</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Concentration Override</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> In concentrated NaCl solution, why is Cl₂ (not O₂) produced at the anode, even though OH⁻ is lower in the electrochemical series?</div>
+          <div class="example-step"><span class="step-badge">Normal rule</span><div class="step-text">By position, OH⁻ would be discharged first (lower in the series)</div></div>
+          <div class="example-step"><span class="step-badge">But…</span><div class="step-text">In <strong>concentrated</strong> brine, [Cl⁻] is very high → far more Cl⁻ ions reach the anode than OH⁻</div></div>
+          <div class="example-step"><span class="step-badge">Result</span><div class="step-text"><span class="math">2Cl⁻ → Cl₂ + 2e⁻</span> — the concentration factor overrides the position rule</div></div>
+          <div class="example-answer">✅ High [Cl⁻] overrides the series position, so Cl₂ is produced</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Inert vs Active Electrode</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Compare the electrolysis of CuSO₄ solution using (a) platinum electrodes and (b) copper electrodes.</div>
+          <div class="example-step"><span class="step-badge">(a) Pt — inert</span><div class="step-text">
+            Anode: <span class="math">4OH⁻ → O₂ + 2H₂O + 4e⁻</span><br>
+            Cathode: <span class="math">Cu²⁺ + 2e⁻ → Cu(s)</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">(b) Cu — active</span><div class="step-text">
+            Anode: <span class="math">Cu(s) → Cu²⁺ + 2e⁻</span> (anode dissolves)<br>
+            Cathode: <span class="math">Cu²⁺ + 2e⁻ → Cu(s)</span>
+          </div></div>
+          <div class="example-answer">✅ Pt: O₂ at anode + Cu at cathode. Cu: Cu transferred from anode to cathode (concentration unchanged)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Predict Products — Dilute NaCl</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Predict the products at the anode and cathode when dilute NaCl solution is electrolyzed with graphite electrodes.</div>
+          <div class="example-step"><span class="step-badge">Ions present</span><div class="step-text">Na⁺, Cl⁻, H⁺, OH⁻</div></div>
+          <div class="example-step"><span class="step-badge">Cathode competition</span><div class="step-text">Na⁺ vs H⁺ — H⁺ is much lower in series → <span class="math">H⁺ is discharged → H₂ gas</span></div></div>
+          <div class="example-step"><span class="step-badge">Anode competition</span><div class="step-text">Cl⁻ vs OH⁻ — in dilute solution, OH⁻ is lower → <span class="math">OH⁻ discharged → O₂ gas</span></div></div>
+          <div class="example-answer">✅ Cathode: H₂ gas; Anode: O₂ gas (effectively electrolysis of water)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">In an electrolytic cell, the cathode is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> The positive electrode where oxidation occurs</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> The positive electrode where reduction occurs</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> The negative electrode where reduction occurs</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> The negative electrode where oxidation occurs</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Preferential discharge refers to:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> The faster movement of cations compared to anions</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> The choice of which ion is discharged first when several compete at an electrode</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> The order in which electrodes are placed in solution</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> The order of migration of ions</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">A solution contains both Na⁺ and Ag⁺. Which ion will be preferentially discharged at the cathode?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Na⁺, because it is smaller</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Ag⁺, because it is lower in the electrochemical series</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Both are discharged equally</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Neither — no discharge occurs</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">When CuSO₄ solution is electrolyzed using copper electrodes:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> O₂ is produced at the anode</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> The anode dissolves and copper is deposited at the cathode</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> The concentration of the solution increases</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Cl₂ is produced at the anode</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Which of the following is NOT one of the three factors affecting preferential discharge?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','D')"><div class="option-letter">A</div> Position of the ion in the electrochemical series</div>
+          <div class="quiz-option" onclick="answer(5,'B','D')"><div class="option-letter">B</div> Concentration of the ion in solution</div>
+          <div class="quiz-option" onclick="answer(5,'C','D')"><div class="option-letter">C</div> Nature of the electrode (inert or active)</div>
+          <div class="quiz-option" onclick="answer(5,'D','D')"><div class="option-letter">D</div> The colour of the electrolyte solution</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-2-6.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+electrolytic+cells" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Electrolytic Cells — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+preferential+discharge+electrolysis" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Preferential Discharge of Ions — Explained</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+inert+vs+active+electrodes" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Inert vs Active Electrodes — Comparison</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+reactivity+series+electrolysis" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Using the Reactivity Series in Electrolysis</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.5</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Electrolytic Cells</div>
+        <ul class="summary-list">
+          <li>An <strong>electrochemical cell</strong> either generates or uses electrical energy from redox reactions</li>
+          <li><strong>Electrolytic cell</strong> uses external electrical energy to drive a non-spontaneous reaction</li>
+          <li>In electrolytic cells: <strong>Cathode (−) = reduction</strong>, <strong>Anode (+) = oxidation</strong></li>
+          <li><strong>Preferential discharge</strong> = the choice among competing ions at an electrode</li>
+          <li><strong>Factor 1:</strong> The ion <strong>lower in the electrochemical series</strong> is discharged first</li>
+          <li><strong>Factor 2:</strong> Higher concentration increases the chance of discharge (can override Factor 1)</li>
+          <li><strong>Factor 3:</strong> An <strong>active electrode</strong> dissolves at the anode instead of anions being discharged</li>
+          <li><strong>Inert electrodes</strong> (Pt, graphite) do not participate; only ions are discharged</li>
+          <li>In <strong>CuSO₄</strong>: Pt electrodes → O₂ + Cu; Cu electrodes → Cu transferred anode to cathode</li>
+          <li>In <strong>dilute NaCl</strong>: H₂ at cathode, O₂ at anode; in <strong>concentrated NaCl</strong>: H₂ at cathode, Cl₂ at anode</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §2.2.1–2.2.2 (pp. 69–82)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-4.html" class="btn btn-ghost">← Lesson 2.4: Conductivity</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 5 of 12</div>
+      <a href="lesson-2-6.html" class="btn btn-primary">Next: Electrolysis Examples →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'B',4:'B',5:'D'};
+  const feedbacks={
+    1:{C:'✓ Correct! The cathode in an electrolytic cell is the negative electrode where reduction occurs.',wrong:'✗ In electrolytic cells, the cathode is the negative electrode where reduction occurs.'},
+    2:{B:'✓ Correct! Preferential discharge is the choice among competing ions for discharge at an electrode.',wrong:'✗ Preferential discharge = when multiple ions compete, only one is discharged.'},
+    3:{B:'✓ Correct! Ag⁺ is lower in the electrochemical series than Na⁺, so it is discharged first.',wrong:'✗ Ag⁺ is much lower than Na⁺ in the series → Ag⁺ discharges first.'},
+    4:{B:'✓ Correct! With copper electrodes, the anode dissolves and copper deposits at the cathode.',wrong:'✗ Cu electrodes: anode Cu → Cu²⁺ + 2e⁻ (dissolves), cathode Cu²⁺ + 2e⁻ → Cu.'},
+    5:{D:'✓ Correct! Colour has no effect on preferential discharge. The three factors are series position, concentration, and electrode nature.',wrong:'✗ Colour is not a factor. Factors: series position, concentration, electrode nature.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','cell','preferential','position','concentration','electrode','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
