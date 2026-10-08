@@ -38,23 +38,23 @@
     .stream-info{flex:1;min-width:0}
     .stream-title{font-size:1.35rem;font-weight:900;color:#0f172a;margin-bottom:.35rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;letter-spacing:-.01em}
     .stream-badge{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
-    .stream-badge.live{color:#166534;background:#DCFCE7}
     .stream-badge.building{color:#166534;background:#DCFCE7}
     .stream-badge.partial{color:#92400E;background:#FFFBEB}
     .stream-desc{font-size:.88rem;color:#475569;line-height:1.6}
     .subject-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.625rem;margin-top:1.25rem}
     .subject-pill{display:flex;align-items:center;gap:.5rem;background:#F8FAFC;border:1.5px solid #e2e8f0;border-radius:12px;padding:.625rem .875rem;font-size:.82rem;font-weight:600;color:#0f172a;text-decoration:none;transition:all .2s ease}
-    .subject-pill:hover{border-color:#DC2626;background:#FEF2F2;transform:translateX(2px)}
-    .stream-card.ns .subject-pill:hover{border-color:#16A34A;background:#F0FDF4}
-    .stream-card.ss .subject-pill:hover{border-color:#1E40AF;background:#EFF6FF}
+    .subject-pill.live{cursor:pointer}
+    .subject-pill.live:hover{border-color:#DC2626;background:#FEF2F2;transform:translateX(2px)}
+    .stream-card.ns .subject-pill.live:hover{border-color:#16A34A;background:#F0FDF4}
+    .stream-card.ss .subject-pill.live:hover{border-color:#1E40AF;background:#EFF6FF}
     .subject-pill.done{border-color:#BBF7D0;background:#F0FDF4}
-    .stream-card.ns .subject-pill.done{border-color:#BBF7D0;background:#F0FDF4}
+    .stream-card.ss .subject-pill.done{border-color:#BFDBFE;background:#EFF6FF}
     .subject-pill.done .subject-status{color:#16A34A}
+    .stream-card.ss .subject-pill.done .subject-status{color:#1E40AF}
     .subject-pill.building{border-color:#BBF7D0;background:#F0FDF4}
-    .stream-card.ns .subject-pill.building{border-color:#BBF7D0;background:#F0FDF4}
     .subject-pill.building .subject-status{color:#16A34A}
-    .subject-pill.pending{border-color:#e2e8f0;background:#F8FAFC;opacity:.75}
-    .subject-pill.pending .subject-status{color:#94a3b8}
+    .subject-pill.soon{border-color:#e2e8f0;background:#F8FAFC;opacity:.7;cursor:not-allowed}
+    .subject-pill.soon .subject-status{color:#94a3b8}
     .subject-icon-small{font-size:1.1rem;flex-shrink:0}
     .subject-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .subject-status{font-size:.72rem;font-weight:700;flex-shrink:0}
@@ -102,9 +102,9 @@
     <p>Choose your stream to access the full EUEE curriculum. Both streams cover common subjects (Aptitude, English, Mathematics) plus stream-specific subjects.</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num">2</div><div class="label">Streams</div></div>
-      <div class="hero-stat"><div class="num">12</div><div class="label">Subjects</div></div>
-      <div class="hero-stat"><div class="num">72+</div><div class="label">Lessons Built</div></div>
-      <div class="hero-stat"><div class="num">2</div><div class="label">Complete Streams of Content</div></div>
+      <div class="hero-stat"><div class="num">9</div><div class="label">Subjects</div></div>
+      <div class="hero-stat"><div class="num">112+</div><div class="label">Lessons Built</div></div>
+      <div class="hero-stat"><div class="num">4</div><div class="label">Complete Subjects</div></div>
     </div>
   </div>
 </div>
@@ -118,7 +118,7 @@
 
   <div class="section-title">
     <span>Streams</span>
-    <span class="progress-summary">✓ Physics & Chemistry Complete · Biology Building</span>
+    <span class="progress-summary">✓ Physics · Chemistry · Math (both streams) Complete</span>
   </div>
 
   <div class="stream-list">
@@ -132,36 +132,36 @@
         </div>
       </div>
       <div class="subject-grid">
-        <a href="natural-science/physics/index.html" class="subject-pill done" onclick="event.stopPropagation();">
+        <a href="natural-science/physics/index.html" class="subject-pill live done" onclick="event.stopPropagation();">
           <span class="subject-icon-small">⚛️</span>
           <span class="subject-name">Physics</span>
-          <span class="subject-status">✓ Done</span>
+          <span class="subject-status">✓ Complete</span>
         </a>
-        <a href="natural-science/chemistry/index.html" class="subject-pill done" onclick="event.stopPropagation();">
+        <a href="natural-science/chemistry/index.html" class="subject-pill live done" onclick="event.stopPropagation();">
           <span class="subject-icon-small">⚗️</span>
           <span class="subject-name">Chemistry</span>
-          <span class="subject-status">✓ Done</span>
+          <span class="subject-status">✓ Complete</span>
         </a>
-        <a href="natural-science/biology/index.html" class="subject-pill building" onclick="event.stopPropagation();">
+        <a href="natural-science/mathematics/index.html" class="subject-pill live done" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">📐</span>
+          <span class="subject-name">Mathematics</span>
+          <span class="subject-status">✓ Complete</span>
+        </a>
+        <a href="natural-science/biology/index.html" class="subject-pill live building" onclick="event.stopPropagation();">
           <span class="subject-icon-small">🧬</span>
           <span class="subject-name">Biology</span>
           <span class="subject-status">🚀 Building</span>
         </a>
-        <a href="natural-science/mathematics/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
-          <span class="subject-icon-small">📐</span>
-          <span class="subject-name">Mathematics</span>
-          <span class="subject-status">Pending</span>
-        </a>
-        <a href="natural-science/aptitude/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+        <div class="subject-pill soon">
           <span class="subject-icon-small">🧩</span>
           <span class="subject-name">Aptitude</span>
-          <span class="subject-status">Pending</span>
-        </a>
-        <a href="natural-science/english/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-status">⏳ Soon</span>
+        </div>
+        <div class="subject-pill soon">
           <span class="subject-icon-small">📘</span>
           <span class="subject-name">English</span>
-          <span class="subject-status">Pending</span>
-        </a>
+          <span class="subject-status">⏳ Soon</span>
+        </div>
       </div>
     </a>
 
@@ -170,41 +170,41 @@
       <div class="stream-header">
         <div class="stream-icon">🌍</div>
         <div class="stream-info">
-          <div class="stream-title">Social Science <span class="stream-badge partial">🌱 Ready for Content</span></div>
+          <div class="stream-title">Social Science <span class="stream-badge partial">🌱 Math Ready</span></div>
           <div class="stream-desc">History, Geography, Economics, and Mathematics — the social-science-track EUEE curriculum.</div>
         </div>
       </div>
       <div class="subject-grid">
-        <a href="social-science/history/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
-          <span class="subject-icon-small">📜</span>
-          <span class="subject-name">History</span>
-          <span class="subject-status">Pending</span>
-        </a>
-        <a href="social-science/geography/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
-          <span class="subject-icon-small">🗺️</span>
-          <span class="subject-name">Geography</span>
-          <span class="subject-status">Pending</span>
-        </a>
-        <a href="social-science/economics/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
-          <span class="subject-icon-small">💹</span>
-          <span class="subject-name">Economics</span>
-          <span class="subject-status">Pending</span>
-        </a>
-        <a href="social-science/mathematics/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+        <a href="social-science/mathematics/index.html" class="subject-pill live done" onclick="event.stopPropagation();">
           <span class="subject-icon-small">📐</span>
           <span class="subject-name">Mathematics</span>
-          <span class="subject-status">Pending</span>
+          <span class="subject-status">✓ Complete</span>
         </a>
-        <a href="social-science/aptitude/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+        <div class="subject-pill soon">
+          <span class="subject-icon-small">📜</span>
+          <span class="subject-name">History</span>
+          <span class="subject-status">⏳ Soon</span>
+        </div>
+        <div class="subject-pill soon">
+          <span class="subject-icon-small">🗺️</span>
+          <span class="subject-name">Geography</span>
+          <span class="subject-status">⏳ Soon</span>
+        </div>
+        <div class="subject-pill soon">
+          <span class="subject-icon-small">💹</span>
+          <span class="subject-name">Economics</span>
+          <span class="subject-status">⏳ Soon</span>
+        </div>
+        <div class="subject-pill soon">
           <span class="subject-icon-small">🧩</span>
           <span class="subject-name">Aptitude</span>
-          <span class="subject-status">Pending</span>
-        </a>
-        <a href="social-science/english/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-status">⏳ Soon</span>
+        </div>
+        <div class="subject-pill soon">
           <span class="subject-icon-small">📘</span>
           <span class="subject-name">English</span>
-          <span class="subject-status">Pending</span>
-        </a>
+          <span class="subject-status">⏳ Soon</span>
+        </div>
       </div>
     </a>
   </div>
@@ -214,7 +214,7 @@
   <div class="fsh-footer-inner">
     <div class="fsh-footer-bottom">
       <p>© 2025 Freelance Skills Hub · Grade 12 Entrance Exam</p>
-      <p>Natural Science & Social Science · EUEE Prep</p>
+      <p>Natural Science &amp; Social Science · EUEE Prep</p>
     </div>
   </div>
 </footer>
