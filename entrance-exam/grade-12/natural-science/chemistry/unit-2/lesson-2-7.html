@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.7: Faraday's First Law of Electrolysis | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.95rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .formula-hero{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem;margin:1.5rem 0;color:#fff;text-align:center}
+    .formula-hero .main{font-size:1.5rem;font-weight:900;font-family:'Georgia',serif;letter-spacing:.02em;line-height:1.6}
+    .formula-hero .sub{font-size:.8rem;color:rgba(255,255,255,.7);margin-top:.5rem;letter-spacing:.05em}
+    .var-table td:first-child{font-family:'Georgia',serif;font-weight:700;color:#DC2626;width:30%}
+    .steps-list{counter-reset:step;list-style:none;padding-left:0}
+    .steps-list li{counter-increment:step;position:relative;padding:.875rem 0 .875rem 3.25rem;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .steps-list li:last-child{border-bottom:none}
+    .steps-list li::before{content:counter(step);position:absolute;left:0;top:.875rem;width:34px;height:34px;background:#DC2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+    .steps-list strong{color:#991B1B}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 7</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('statement')"><div class="sidebar-dot"></div> The Law Statement</button>
+      <button class="sidebar-link" onclick="scrollTo('formulas')"><div class="sidebar-dot"></div> All the Formulas</button>
+      <button class="sidebar-link" onclick="scrollTo('variables')"><div class="sidebar-dot"></div> What Each Symbol Means</button>
+      <button class="sidebar-link" onclick="scrollTo('steps')"><div class="sidebar-dot"></div> Problem-Solving Steps</button>
+      <button class="sidebar-link" onclick="scrollTo('worked')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Redox Reactions ✓</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Balancing (Ox. No.) ✓</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Balancing (Half-Rxn) ✓</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Conductivity ✓</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Electrolytic Cells ✓</a>
+      <a href="lesson-2-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Electrolysis Examples ✓</a>
+      <a href="lesson-2-7.html" class="sidebar-link active"><div class="sidebar-dot"></div> L7: Faraday's 1st Law</a>
+      <a href="lesson-2-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Faraday's 2nd Law</a>
+      <a href="lesson-2-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Industrial Apps</a>
+      <a href="lesson-2-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Galvanic Cells</a>
+      <a href="lesson-2-11.html" class="sidebar-link"><div class="sidebar-dot"></div> L11: Standard Potentials</a>
+      <a href="lesson-2-12.html" class="sidebar-link"><div class="sidebar-dot"></div> L12: Nernst & Corrosion</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 2</a> ›
+      Lesson 2.7
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Electrochemistry · MoE Textbook §2.3.1</div>
+      <h1>📊 Faraday's First Law of Electrolysis</h1>
+      <p>How much copper is deposited when a known current flows for a known time? Faraday's First Law answers this: the mass deposited is directly proportional to the charge passed. One formula, four variables, unlimited applications.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In 1834, Michael Faraday discovered the first quantitative relationship in electrolysis: <strong>the mass of a substance deposited or dissolved at an electrode is directly proportional to the quantity of electricity passed through the electrolyte.</strong> This simple law turns electrolysis from a qualitative observation into an exact science.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>State</strong> Faraday's First Law</li>
+          <li>Write the formula <strong>m = zQ = MIt/nF</strong></li>
+          <li>Define the <strong>Faraday constant</strong> (F = 96,500 C)</li>
+          <li>Calculate <strong>electrochemical equivalent</strong> (z) and <strong>equivalent weight</strong></li>
+          <li>Solve problems involving <strong>mass, current, time, valence, and molar mass</strong></li>
+          <li>Determine any one variable when the others are given</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="statement">
+      <div class="section-header"><div class="section-icon">📜</div>
+        <div><div class="section-title-text">The Law Statement</div><div class="section-subtitle">MoE Textbook, p. 81</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Faraday's First Law of Electrolysis</div>
+          <p>
+            When an electrolyte, either in <strong>molten</strong> state or <strong>solution</strong> state, is electrolyzed, the <strong>mass of a substance (m) deposited or dissolved at the electrodes is directly proportional to the quantity of electricity (coulombs, Q) passed through the electrolyte.</strong>
+          </p>
+        </div>
+
+        <div class="formula-hero">
+          <div class="main">m ∝ Q &nbsp; → &nbsp; m = z Q</div>
+          <div class="sub">where z is the electrochemical equivalent</div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 In words</div>
+          <p>
+            Double the charge → double the mass deposited. Triple the charge → triple the mass. The relationship is <strong>linear</strong> with no intercept.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Direct Proportionality — Mass vs Charge</div>
+          <svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- Axes -->
+            <line x1="60" y1="190" x2="450" y2="190" stroke="#0F172A" stroke-width="2"/>
+            <line x1="60" y1="20" x2="60" y2="190" stroke="#0F172A" stroke-width="2"/>
+
+            <!-- Y label -->
+            <text x="30" y="110" font-size="11" fill="#0F172A" font-weight="bold" transform="rotate(-90 30 110)">Mass (g)</text>
+            <!-- X label -->
+            <text x="255" y="210" font-size="11" fill="#0F172A" font-weight="bold" text-anchor="middle">Charge Q (C)</text>
+
+            <!-- Linear line -->
+            <line x1="60" y1="190" x2="420" y2="40" stroke="#DC2626" stroke-width="3"/>
+
+            <!-- Data points -->
+            <circle cx="120" cy="162" r="5" fill="#DC2626"/>
+            <circle cx="200" cy="128" r="5" fill="#DC2626"/>
+            <circle cx="280" cy="95" r="5" fill="#DC2626"/>
+            <circle cx="360" cy="61" r="5" fill="#DC2626"/>
+
+            <!-- Slope annotation -->
+            <text x="300" y="60" font-size="10" fill="#DC2626" font-weight="bold" transform="rotate(-22 300 60)">slope = z</text>
+
+            <!-- Origin marker -->
+            <circle cx="60" cy="190" r="3" fill="#0F172A"/>
+            <text x="50" y="205" font-size="9" fill="#0F172A">0</text>
+          </svg>
+          <div class="visual-box-caption">
+            Mass deposited is a straight line through the origin, with slope equal to the electrochemical equivalent z.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formulas">
+      <div class="section-header"><div class="section-icon">🧮</div>
+        <div><div class="section-title-text">All the Formulas</div><div class="section-subtitle">From simplest to most useful</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Faraday's First Law can be written several equivalent ways. Learn the top one; understand the bottom one.
+        </p>
+
+        <div class="formula-hero">
+          <div class="main">m = z Q</div>
+          <div class="sub">base form — mass = (electrochemical equivalent) × (charge)</div>
+        </div>
+
+        <div class="formula-hero" style="background:linear-gradient(135deg,#0F172A,#7F1D1D)">
+          <div class="main">m = z I t</div>
+          <div class="sub">since Q = I × t &nbsp; (current × time)</div>
+        </div>
+
+        <div class="formula-hero" style="background:linear-gradient(135deg,#1E293B,#991B1B)">
+          <div class="main">m = (E / F) I t</div>
+          <div class="sub">since z = E / F &nbsp; (E = equivalent weight)</div>
+        </div>
+
+        <div class="formula-hero" style="background:linear-gradient(135deg,#7F1D1D,#450A0A)">
+          <div class="main">m = (M I t) / (n F)</div>
+          <div class="sub">★ most useful — since E = M / n &nbsp; (M = molar mass, n = valence)</div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Four Key Relationships</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Formula</th><th>Used when…</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>m = z Q</td><td>You know the electrochemical equivalent and total charge</td></tr>
+            <tr><td>m = z I t</td><td>You know current (A) and time (s)</td></tr>
+            <tr><td>m = E I t / F</td><td>You know the equivalent weight E</td></tr>
+            <tr><td>m = M I t / (n F)</td><td>You know molar mass M and valency n (most common in exams)</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Choosing the right formula</div>
+          <p>
+            In MoE exams, you're usually given <strong>M (molar mass), n (charge on the ion), I (current), t (time)</strong>. So the formula <strong>m = M I t / (n F)</strong> is the one you'll use most often.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="variables">
+      <div class="section-header"><div class="section-icon">🔤</div>
+        <div><div class="section-title-text">What Each Symbol Means</div><div class="section-subtitle">Vocabulary and units</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table var-table">
+          <thead>
+            <tr><th>Symbol</th><th>Meaning</th><th>Unit</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>m</td><td>Mass of substance deposited or dissolved</td><td>grams (g)</td></tr>
+            <tr><td>z</td><td>Electrochemical equivalent</td><td>g/C</td></tr>
+            <tr><td>Q</td><td>Quantity of electricity (charge)</td><td>coulombs (C)</td></tr>
+            <tr><td>I</td><td>Current</td><td>amperes (A)</td></tr>
+            <tr><td>t</td><td>Time</td><td>seconds (s)</td></tr>
+            <tr><td>F</td><td>Faraday constant = 96,500 C/mol</td><td>C/mol</td></tr>
+            <tr><td>E</td><td>Equivalent weight = M / n</td><td>g/eq</td></tr>
+            <tr><td>M</td><td>Molar mass of the substance</td><td>g/mol</td></tr>
+            <tr><td>n</td><td>Valence (number of electrons transferred per ion)</td><td>—</td></tr>
+          </tbody>
+        </table>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The Faraday Constant F</div>
+          <p>
+            <strong>F = 96,500 C/mol</strong> is the charge on one mole of electrons (Avogadro's number × charge on one electron). This is the fundamental constant of electrochemistry.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Electrochemical Equivalent z</div>
+          <p>
+            <strong>z = E / F = M / (n F)</strong><br>
+            It is the mass of substance deposited by <strong>1 coulomb</strong> of charge. Its units are grams per coulomb (g/C).
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Equivalent Weight E</div>
+          <p>
+            <strong>E = M / n</strong><br>
+            For example, Cu²⁺ (M = 63.5, n = 2) → E = 31.75 g/eq<br>
+            For Ag⁺ (M = 108, n = 1) → E = 108 g/eq
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 One mole of electrons = 96,500 C</div>
+          <p>
+            If you pass <strong>96,500 C</strong> through a solution of Ag⁺, you deposit <strong>1 mole of Ag (108 g)</strong>.<br>
+            If you pass 96,500 C through a Cu²⁺ solution, you deposit <strong>half a mole of Cu (31.75 g)</strong> — because Cu²⁺ needs 2 electrons per atom.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="steps">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Problem-Solving Steps</div><div class="section-subtitle">A repeatable 5-step procedure</div></div>
+      </div>
+
+      <div class="content-box">
+        <ol class="steps-list">
+          <li><strong>Identify the ion being deposited</strong> and write its reduction/oxidation half-reaction. This tells you the value of <strong>n</strong>.</li>
+          <li><strong>Convert time to seconds</strong> — always. If time is given in minutes, multiply by 60; if in hours, multiply by 3600.</li>
+          <li><strong>Compute the charge</strong> Q = I × t (in coulombs).</li>
+          <li><strong>Apply the formula</strong> m = M I t / (n F) or m = z Q, substituting all known values. Use F = 96,500 C/mol.</li>
+          <li><strong>Check units and significant figures</strong>. The answer should be in grams and should be reasonable (a few grams for typical lab-scale currents).</li>
+        </ol>
+
+        <div class="note-box">
+          <div class="note-label">📝 Common pitfalls</div>
+          <p>
+            • <strong>Forgetting to convert time to seconds</strong> — the #1 mistake<br>
+            • Using molar mass M when you should use equivalent weight E (or vice versa)<br>
+            • Using the wrong value of n (e.g. n = 1 for Cu²⁺ when it should be 2)<br>
+            • Forgetting that F = 96,500 C (not 96.5 or 965)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="worked">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">Textbook Example 2.4 + more</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Textbook Example 2.4 — CaCl₂ Electrolysis</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Calculate the mass of calcium metal and chlorine gas that can be produced when a current of 0.452 A is passed through molten CaCl₂ for 1.5 hours.</div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">
+            Identify half-reactions in molten CaCl₂ (only Ca²⁺ and Cl⁻ present):<br>
+            Anode: <span class="math">2Cl⁻ → Cl₂ + 2e⁻</span><br>
+            Cathode: <span class="math">Ca²⁺ + 2e⁻ → Ca(s)</span><br>
+            Both n = 2
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 2</span><div class="step-text">
+            Time in seconds: <span class="math">t = 1.5 × 60 × 60 = 5400 s</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 3</span><div class="step-text">
+            Charge: <span class="math">Q = I × t = 0.452 × 5400 = 2440.8 C</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 4a — Ca</span><div class="step-text">
+            M(Ca) = 40.08 g/mol, n = 2<br>
+            <span class="math">m(Ca) = (40.08 × 0.452 × 5400) / (2 × 96500)</span><br>
+            <span class="math">m(Ca) = 97,777 / 193,000 ≈ 0.507 g</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Step 4b — Cl₂</span><div class="step-text">
+            M(Cl₂) = 71 g/mol, n = 2<br>
+            <span class="math">m(Cl₂) = (71 × 0.452 × 5400) / (2 × 96500)</span><br>
+            <span class="math">m(Cl₂) = 173,207 / 193,000 ≈ 0.898 g</span>
+          </div></div>
+          <div class="example-answer">✅ Mass of Ca = <strong>0.507 g</strong>; Mass of Cl₂ = <strong>0.898 g</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Ag Deposition from AgNO₃</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> What mass of silver is deposited at the cathode when a current of 2.0 A flows through AgNO₃ solution for 30 minutes? (M(Ag) = 108 g/mol.)</div>
+          <div class="example-step"><span class="step-badge">n value</span><div class="step-text"><span class="math">Ag⁺ + e⁻ → Ag(s)</span> → n = 1</div></div>
+          <div class="example-step"><span class="step-badge">Time</span><div class="step-text"><span class="math">t = 30 × 60 = 1800 s</span></div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text">
+            <span class="math">m = M I t / (n F)</span><br>
+            <span class="math">m = (108 × 2.0 × 1800) / (1 × 96500)</span><br>
+            <span class="math">m = 388,800 / 96,500 ≈ 4.03 g</span>
+          </div></div>
+          <div class="example-answer">✅ Mass of silver deposited = <strong>4.03 g</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Copper from CuSO₄</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Calculate the mass of copper deposited when 0.5 A is passed through CuSO₄ solution for 3 hours. (M(Cu) = 63.5 g/mol.)</div>
+          <div class="example-step"><span class="step-badge">n value</span><div class="step-text"><span class="math">Cu²⁺ + 2e⁻ → Cu(s)</span> → n = 2</div></div>
+          <div class="example-step"><span class="step-badge">Time</span><div class="step-text"><span class="math">t = 3 × 3600 = 10,800 s</span></div></div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text">
+            <span class="math">m = (63.5 × 0.5 × 10800) / (2 × 96500)</span><br>
+            <span class="math">m = 342,900 / 193,000 ≈ 1.78 g</span>
+          </div></div>
+          <div class="example-answer">✅ Mass of copper deposited = <strong>1.78 g</strong></div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Find Current from Mass</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A constant current is passed through CuSO₄ solution for 5.00 hours and deposits 404 mg of copper. What was the current? (M(Cu) = 63.5 g/mol.)</div>
+          <div class="example-step"><span class="step-badge">Given</span><div class="step-text">
+            m = 0.404 g, t = 5.00 × 3600 = 18,000 s, M = 63.5, n = 2
+          </div></div>
+          <div class="example-step"><span class="step-badge">Rearrange</span><div class="step-text">
+            <span class="math">I = m n F / (M t)</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text">
+            <span class="math">I = (0.404 × 2 × 96500) / (63.5 × 18000)</span><br>
+            <span class="math">I = 77,972 / 1,143,000 ≈ 0.0682 A</span>
+          </div></div>
+          <div class="example-answer">✅ Current ≈ <strong>0.0682 A</strong> (or 68.2 mA)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Find Time from Mass</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> How long must a current of 2.5 A flow through AgNO₃ solution to deposit 10.8 g of silver? (M(Ag) = 108 g/mol.)</div>
+          <div class="example-step"><span class="step-badge">n value</span><div class="step-text">Ag⁺ + e⁻ → Ag → n = 1</div></div>
+          <div class="example-step"><span class="step-badge">Rearrange</span><div class="step-text">
+            <span class="math">t = m n F / (M I)</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text">
+            <span class="math">t = (10.8 × 1 × 96500) / (108 × 2.5)</span><br>
+            <span class="math">t = 1,042,200 / 270 ≈ 3860 s</span>
+          </div></div>
+          <div class="example-step"><span class="step-badge">Convert</span><div class="step-text">
+            <span class="math">t = 3860 / 60 ≈ 64.3 minutes ≈ 1.07 hours</span>
+          </div></div>
+          <div class="example-answer">✅ Time required ≈ <strong>3860 s</strong> ≈ 64 minutes</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Formula Reference Card</div><div class="section-subtitle">Everything from Lesson 2.7</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📊 Lesson 2.7 — Faraday's First Law</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">The Law</div><div class="formula-math">m ∝ Q</div><div class="formula-note">Mass is proportional to charge</div></div>
+          <div class="formula-item"><div class="formula-name">Base formula</div><div class="formula-math">m = z Q</div><div class="formula-note">z = electrochemical equivalent</div></div>
+          <div class="formula-item"><div class="formula-name">With current & time</div><div class="formula-math">Q = I t</div><div class="formula-note">t must be in seconds</div></div>
+          <div class="formula-item"><div class="formula-name">Electrochemical equivalent</div><div class="formula-math">z = E / F</div><div class="formula-note">Units: g/C</div></div>
+          <div class="formula-item"><div class="formula-name">Equivalent weight</div><div class="formula-math">E = M / n</div><div class="formula-note">n = valence of ion</div></div>
+          <div class="formula-item"><div class="formula-name">Faraday constant</div><div class="formula-math">F = 96,500 C/mol</div><div class="formula-note">Charge on 1 mole of e⁻</div></div>
+          <div class="formula-item"><div class="formula-name">Master formula</div><div class="formula-math">m = M I t / (n F)</div><div class="formula-note">Most used in exams</div></div>
+          <div class="formula-item"><div class="formula-name">Rearranged (current)</div><div class="formula-math">I = m n F / (M t)</div><div class="formula-note">When current is unknown</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Faraday's First Law of Electrolysis states that the mass of a substance deposited at an electrode is directly proportional to:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> The voltage of the cell</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> The molar mass of the electrolyte</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> The quantity of electricity passed</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> The temperature of the solution</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The value of the Faraday constant (F) is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> 965 C/mol</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> 9,650 C/mol</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> 96,500 C/mol</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> 965,000 C/mol</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">In the formula m = M I t / (n F), what does n represent?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Number of moles of substance deposited</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Number of atoms per molecule</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Valence (electrons transferred per ion)</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Avogadro's number</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">A current of 1.0 A flows through AgNO₃ solution for 1000 seconds. What mass of silver is deposited? (M(Ag) = 108 g/mol, n = 1.)</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> 0.56 g</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> 2.24 g</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> 1.12 g</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> 5.60 g</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">When the same quantity of charge is passed through CuSO₄ and AgNO₃ solutions in series, which metal deposits more mass? (M(Cu) = 63.5, M(Ag) = 108; n(Cu²⁺) = 2, n(Ag⁺) = 1.)</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','B')"><div class="option-letter">A</div> Copper, because it has a lower molar mass</div>
+          <div class="quiz-option" onclick="answer(5,'B','B')"><div class="option-letter">B</div> Silver, because its equivalent weight (108) is larger than copper's (31.75)</div>
+          <div class="quiz-option" onclick="answer(5,'C','B')"><div class="option-letter">C</div> Both deposit equal masses</div>
+          <div class="quiz-option" onclick="answer(5,'D','B')"><div class="option-letter">D</div> Cannot be determined without knowing the current</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-2-8.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+faradays+first+law+electrolysis" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Faraday's First Law of Electrolysis — Full Explanation</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+electrolysis+calculations+faraday" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Electrolysis Calculations — Mass, Current, Time</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+faraday+constant+electrochemistry" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">The Faraday Constant and Electrochemical Equivalent</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+electroplating+mass+calculation" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Electroplating Mass Calculation — Worked Examples</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 2.7</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Faraday's First Law</div>
+        <ul class="summary-list">
+          <li><strong>Faraday's First Law:</strong> mass deposited ∝ quantity of electricity passed</li>
+          <li>Base formula: <strong>m = z Q</strong> &nbsp; where z = electrochemical equivalent</li>
+          <li>Master formula: <strong>m = M I t / (n F)</strong></li>
+          <li><strong>Q = I × t</strong> — time must always be in seconds</li>
+          <li><strong>z = E / F = M / (n F)</strong> — electrochemical equivalent</li>
+          <li><strong>E = M / n</strong> — equivalent weight</li>
+          <li><strong>F = 96,500 C/mol</strong> — the Faraday constant</li>
+          <li><strong>n = valence</strong> = electrons transferred per ion (1 for Ag⁺, 2 for Cu²⁺, 2 for Ca²⁺, 2 for Cl⁻ → Cl₂)</li>
+          <li>Typical applications: electroplating, refining, calculating deposition mass</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §2.3.1 (pp. 80–83)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-6.html" class="btn btn-ghost">← Lesson 2.6: Electrolysis Examples</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 2 · Lesson 7 of 12</div>
+      <a href="lesson-2-8.html" class="btn btn-primary">Next: Faraday's Second Law →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'C',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! Mass deposited is directly proportional to the quantity of electricity (charge) passed.',wrong:'✗ Faraday\'s First Law: m ∝ Q (the charge passed).'},
+    2:{C:'✓ Correct! F = 96,500 C/mol — the charge on one mole of electrons.',wrong:'✗ F = 96,500 C/mol.'},
+    3:{C:'✓ Correct! n is the valence — the number of electrons transferred per ion (1 for Ag⁺, 2 for Cu²⁺, etc.).',wrong:'✗ n = valence = electrons transferred per ion.'},
+    4:{C:'✓ Correct! m = (108 × 1.0 × 1000) / (1 × 96500) = 108000 / 96500 ≈ 1.12 g.',wrong:'✗ m = (108 × 1.0 × 1000)/(1 × 96500) ≈ 1.12 g.'},
+    5:{B:'✓ Correct! Equivalent weight of Ag is 108; of Cu is 63.5/2 = 31.75. Larger equivalent weight → more mass deposited for the same charge.',wrong:'✗ Equivalent weight of Ag (108) > Cu (31.75) → more Ag by mass for the same charge.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','statement','formulas','variables','steps','worked','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
