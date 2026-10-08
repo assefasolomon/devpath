@@ -3,192 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grade 12 | Entrance Exam Prep</title>
+  <title>Grade 12 · Entrance Exam | Freelance Skills Hub</title>
   <link rel="stylesheet" href="../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
-    .grade-hero {
-      background: linear-gradient(135deg, #0F172A 0%, #14532D 100%);
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .grade-hero h1 { font-size: 2.25rem; font-weight: 900; color: #fff; margin-bottom: .5rem; }
-    .grade-hero p  { color: rgba(255,255,255,.7); font-size: .95rem; max-width: 500px; margin: 0 auto; }
-    .wrap { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
-    .stream-tabs {
-      display: flex; gap: .75rem; margin-bottom: 2rem; flex-wrap: wrap;
-    }
-    .stream-tab {
-      padding: .6rem 1.5rem;
-      border: 1.5px solid var(--border);
-      border-radius: 999px;
-      background: #fff;
-      color: var(--text-muted);
-      font-size: .875rem;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: var(--font-sans);
-      transition: all var(--transition);
-    }
-    .stream-tab.active {
-      background: var(--brand-primary);
-      border-color: var(--brand-primary);
-      color: #fff;
-    }
-    .subjects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
-    }
-    .subject-card {
-      background: #fff;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 1.75rem;
-      text-decoration: none;
-      color: inherit;
-      transition: all var(--transition);
-      display: block;
-      position: relative;
-    }
-    .subject-card.active:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(34,197,94,.15);
-      border-color: var(--brand-accent);
-    }
-    .subject-card.locked { opacity: .55; cursor: not-allowed; }
-    .subject-icon { font-size: 2.25rem; margin-bottom: .75rem; }
-    .subject-name { font-size: 1.05rem; font-weight: 800; color: var(--heading); margin-bottom: .35rem; }
-    .subject-desc { font-size: .82rem; color: var(--text-muted); line-height: 1.55; margin-bottom: 1rem; }
-    .subject-meta {
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: .78rem;
-    }
-    .lessons-count { color: var(--brand-primary); font-weight: 700; }
-    .lock-tag {
-      background: var(--surface-2);
-      color: var(--text-muted);
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: .7rem;
-      font-weight: 600;
-    }
-    .open-tag {
-      background: #DCFCE7;
-      color: #166534;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: .7rem;
-      font-weight: 700;
-    }
-    .breadcrumb {
-      display: flex; align-items: center; gap: 6px;
-      font-size: .82rem; color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-    .breadcrumb a { color: var(--brand-primary); text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; }
-        /* ══════════════════════════════════════════════════════════
-       RESPONSIVE — Tablet (≤ 900px)
-       ══════════════════════════════════════════════════════════ */
-    @media (max-width: 900px) {
-      .grade-hero { padding: 2.5rem 1.5rem; }
-      .grade-hero h1 { font-size: 1.875rem; }
-      .wrap { padding: 2.5rem 1.5rem; }
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       RESPONSIVE — Phone (≤ 640px)
-       ══════════════════════════════════════════════════════════ */
-    @media (max-width: 640px) {
-      /* Hero */
-      .grade-hero { padding: 2rem 1rem; }
-      .grade-hero h1 {
-        font-size: clamp(1.5rem, 6vw, 1.875rem);
-        line-height: 1.2;
-      }
-      .grade-hero p {
-        font-size: .875rem;
-        line-height: 1.55;
-        max-width: 100%;
-      }
-
-      /* Wrap container */
-      .wrap { padding: 2rem 1rem; }
-
-      /* Breadcrumb */
-      .breadcrumb {
-        flex-wrap: wrap;
-        row-gap: 4px;
-        font-size: .75rem;
-        margin-bottom: 1.5rem;
-      }
-
-      /* Stream tabs — full-width stacked buttons */
-      .stream-tabs {
-        gap: .5rem;
-        margin-bottom: 1.5rem;
-      }
-      .stream-tab {
-        flex: 1 1 calc(50% - .25rem);
-        padding: .55rem 1rem;
-        font-size: .8rem;
-        text-align: center;
-        justify-content: center;
-      }
-
-      /* Subject grid — single column */
-      .subjects-grid { gap: 1rem; }
-      .subject-card {
-        padding: 1.25rem 1.125rem;
-      }
-      .subject-icon {
-        font-size: 1.875rem;
-        margin-bottom: .5rem;
-      }
-      .subject-name { font-size: .95rem; }
-      .subject-desc {
-        font-size: .78rem;
-        line-height: 1.5;
-        margin-bottom: .875rem;
-      }
-
-      /* Subject meta — stack vertically */
-      .subject-meta {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px;
-        font-size: .72rem;
-      }
-      .lessons-count { font-size: .72rem; }
-      .lock-tag, .open-tag {
-        font-size: .65rem;
-        padding: 2px 8px;
-      }
-    }
-
-    /* ══════════════════════════════════════════════════════════
-       RESPONSIVE — Small phone (≤ 380px)
-       ══════════════════════════════════════════════════════════ */
-    @media (max-width: 380px) {
-      .grade-hero { padding: 1.5rem .875rem; }
-      .grade-hero h1 { font-size: 1.375rem; }
-      .grade-hero p { font-size: .8rem; }
-
-      .wrap { padding: 1.5rem .875rem; }
-
-      .stream-tab {
-        padding: .5rem .75rem;
-        font-size: .72rem;
-      }
-
-      .subject-card { padding: 1rem .875rem; }
-      .subject-icon { font-size: 1.625rem; }
-      .subject-name { font-size: .875rem; }
-      .subject-desc { font-size: .72rem; }
-
-      .lesson-title { font-size: .82rem; }
-      .lesson-desc  { font-size: .7rem; }
+    body{background:#F8FAFC}
+    .g12-hero{background:linear-gradient(135deg,#0F172A 0%,#7F1D1D 100%);padding:3rem 2rem 3.5rem;color:#fff;position:relative;overflow:hidden}
+    .g12-hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(220,38,38,.15),transparent 70%);border-radius:50%;pointer-events:none}
+    .g12-hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
+    .g12-hero .tag{display:inline-flex;gap:6px;background:rgba(220,38,38,.15);border:1px solid rgba(220,38,38,.3);color:#FCA5A5;font-size:.75rem;font-weight:600;padding:4px 14px;border-radius:999px;margin-bottom:1rem}
+    .g12-hero h1{font-size:2.5rem;font-weight:900;color:#fff;margin-bottom:.5rem;letter-spacing:-.02em}
+    .g12-hero p{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.7;max-width:680px;margin-bottom:1.5rem}
+    .hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:1.5rem}
+    .hero-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.25rem}
+    .hero-stat .num{font-size:1.75rem;font-weight:900;color:#fff;line-height:1}
+    .hero-stat .label{font-size:.72rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;margin-top:.35rem}
+    .wrap{max-width:1000px;margin:0 auto;padding:3rem 2rem}
+    .breadcrumb{display:flex;gap:6px;font-size:.82rem;color:var(--text-muted,#64748b);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .breadcrumb a:hover{text-decoration:underline}
+    .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+    .progress-summary{font-size:.8rem;font-weight:600;color:#166534;background:#F0FDF4;border:1px solid #BBF7D0;padding:4px 12px;border-radius:999px}
+    .stream-list{display:flex;flex-direction:column;gap:1.25rem}
+    .stream-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:20px;padding:1.75rem 2rem;text-decoration:none;color:inherit;display:block;transition:all .25s ease;position:relative;overflow:hidden}
+    .stream-card:hover{border-color:#DC2626;transform:translateY(-3px);box-shadow:0 12px 32px rgba(220,38,38,.14)}
+    .stream-card.ns{border-color:#BBF7D0}
+    .stream-card.ns:hover{border-color:#16A34A;box-shadow:0 12px 32px rgba(22,163,74,.16)}
+    .stream-card.ss{border-color:#BFDBFE}
+    .stream-card.ss:hover{border-color:#1E40AF;box-shadow:0 12px 32px rgba(30,64,175,.16)}
+    .stream-header{display:flex;align-items:center;gap:1.25rem;margin-bottom:1rem}
+    .stream-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;background:linear-gradient(135deg,#7F1D1D,#991B1B);color:#fff}
+    .stream-card.ns .stream-icon{background:linear-gradient(135deg,#166534,#16A34A)}
+    .stream-card.ss .stream-icon{background:linear-gradient(135deg,#1E3A8A,#1E40AF)}
+    .stream-info{flex:1;min-width:0}
+    .stream-title{font-size:1.35rem;font-weight:900;color:#0f172a;margin-bottom:.35rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;letter-spacing:-.01em}
+    .stream-badge{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
+    .stream-badge.live{color:#166534;background:#DCFCE7}
+    .stream-badge.building{color:#166534;background:#DCFCE7}
+    .stream-badge.partial{color:#92400E;background:#FFFBEB}
+    .stream-desc{font-size:.88rem;color:#475569;line-height:1.6}
+    .subject-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.625rem;margin-top:1.25rem}
+    .subject-pill{display:flex;align-items:center;gap:.5rem;background:#F8FAFC;border:1.5px solid #e2e8f0;border-radius:12px;padding:.625rem .875rem;font-size:.82rem;font-weight:600;color:#0f172a;text-decoration:none;transition:all .2s ease}
+    .subject-pill:hover{border-color:#DC2626;background:#FEF2F2;transform:translateX(2px)}
+    .stream-card.ns .subject-pill:hover{border-color:#16A34A;background:#F0FDF4}
+    .stream-card.ss .subject-pill:hover{border-color:#1E40AF;background:#EFF6FF}
+    .subject-pill.done{border-color:#BBF7D0;background:#F0FDF4}
+    .stream-card.ns .subject-pill.done{border-color:#BBF7D0;background:#F0FDF4}
+    .subject-pill.done .subject-status{color:#16A34A}
+    .subject-pill.building{border-color:#BBF7D0;background:#F0FDF4}
+    .stream-card.ns .subject-pill.building{border-color:#BBF7D0;background:#F0FDF4}
+    .subject-pill.building .subject-status{color:#16A34A}
+    .subject-pill.pending{border-color:#e2e8f0;background:#F8FAFC;opacity:.75}
+    .subject-pill.pending .subject-status{color:#94a3b8}
+    .subject-icon-small{font-size:1.1rem;flex-shrink:0}
+    .subject-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .subject-status{font-size:.72rem;font-weight:700;flex-shrink:0}
+    .stream-arrow{position:absolute;top:1.5rem;right:1.75rem;color:#DC2626;font-weight:900;font-size:1.5rem}
+    .stream-card.ns .stream-arrow{color:#16A34A}
+    .stream-card.ss .stream-arrow{color:#1E40AF}
+    @media (max-width: 640px){
+      .g12-hero{padding:2.25rem 1rem 2.5rem}
+      .g12-hero h1{font-size:1.75rem}
+      .wrap{padding:2rem 1rem}
+      .stream-card{padding:1.25rem 1.25rem}
+      .stream-icon{width:52px;height:52px;font-size:1.5rem}
+      .stream-title{font-size:1.15rem}
+      .stream-arrow{top:1.25rem;right:1.25rem;font-size:1.25rem}
+      .subject-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -205,164 +86,142 @@
     </div>
     <div class="fsh-logo-text">
       <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Grade 12 Prep</span>
+      <span class="fsh-logo-tag">Grade 12 · Entrance Exam</span>
     </div>
   </a>
   <div class="fsh-nav-actions">
-    <a href="../index.html" class="btn btn-ghost btn-sm">← Exam Hub</a>
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Entrance Exam</a>
     <a href="../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
   </div>
 </nav>
 
-<div class="grade-hero">
-  <h1>Grade 12 Entrance Prep</h1>
-  <p>Choose your stream and subject to start preparing for the Ethiopian University Entrance Examination.</p>
+<div class="g12-hero">
+  <div class="g12-hero-inner">
+    <div class="tag">🎓 Grade 12 · EUEE Preparation</div>
+    <h1>Grade 12</h1>
+    <p>Choose your stream to access the full EUEE curriculum. Both streams cover common subjects (Aptitude, English, Mathematics) plus stream-specific subjects.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">2</div><div class="label">Streams</div></div>
+      <div class="hero-stat"><div class="num">12</div><div class="label">Subjects</div></div>
+      <div class="hero-stat"><div class="num">72+</div><div class="label">Lessons Built</div></div>
+      <div class="hero-stat"><div class="num">2</div><div class="label">Complete Streams of Content</div></div>
+    </div>
+  </div>
 </div>
 
 <div class="wrap">
-
   <div class="breadcrumb">
     <a href="../../index.html">Home</a> ›
     <a href="../index.html">Entrance Exam</a> ›
     <span>Grade 12</span>
   </div>
 
-  <!-- Stream tabs -->
-  <div class="stream-tabs">
-    <button class="stream-tab active" onclick="showStream('natural')">🔬 Natural Science</button>
-    <button class="stream-tab" onclick="showStream('social')">📊 Social Science</button>
+  <div class="section-title">
+    <span>Streams</span>
+    <span class="progress-summary">✓ Physics & Chemistry Complete · Biology Building</span>
   </div>
 
-  <!-- Natural Science subjects -->
-  <div id="natural-subjects">
-    <div class="subjects-grid">
-
-      <!-- Mathematics — ACTIVE -->
-      <a href="natural-science/mathematics/index.html" class="subject-card active">
-        <div class="subject-icon">📐</div>
-        <div class="subject-name">Mathematics</div>
-        <div class="subject-desc">Sequences, Calculus, Statistics, Linear Programming and Mathematical Proofs — complete Grade 12 curriculum.</div>
-        <div class="subject-meta">
-          <span class="lessons-count">7 units · 35+ lessons</span>
-          <span class="open-tag">🔓 Available</span>
-        </div>
-      </a>
-
-      <!-- Physics — ACTIVE -->
-      <a href="natural-science/physics/index.html" class="subject-card active">
-        <div class="subject-icon">⚡</div>
-        <div class="subject-name">Physics</div>
-        <div class="subject-desc">Applications of Physics, Two Dimensional Motion, Fluid Mechanics, Electromagnetism, and Electronics.</div>
-        <div class="subject-meta">
-          <span class="lessons-count">5 units · 32 lessons</span>
-          <span class="open-tag">🔓 Available</span>
-        </div>
-      </a>
-
-            <!-- Chemistry — ACTIVE -->
-      <a href="natural-science/chemistry/index.html" class="subject-card active">
-        <div class="subject-icon">🧪</div>
-        <div class="subject-name">Chemistry</div>
-        <div class="subject-desc">Acid-Base Equilibria, Electrochemistry, Industrial Chemistry, Polymers and Environmental Chemistry.</div>
-        <div class="subject-meta">
-          <span class="lessons-count">5 units · 50 lessons</span>
-          <span class="open-tag">🔓 Available</span>
-        </div>
-      </a>
-
-      <!-- Biology — LOCKED -->
-      <div class="subject-card locked">
-        <div class="subject-icon">🧬</div>
-        <div class="subject-name">Biology</div>
-        <div class="subject-desc">Cell Biology, Genetics, Evolution, Ecology and Human Physiology.</div>
-        <div class="subject-meta">
-          <span class="lessons-count">Coming soon</span>
-          <span class="lock-tag">🔒 Locked</span>
+  <div class="stream-list">
+    <a href="natural-science/index.html" class="stream-card ns">
+      <span class="stream-arrow">→</span>
+      <div class="stream-header">
+        <div class="stream-icon">🔬</div>
+        <div class="stream-info">
+          <div class="stream-title">Natural Science <span class="stream-badge building">🚀 Building</span></div>
+          <div class="stream-desc">Physics, Chemistry, Biology, and Mathematics — the science-track EUEE curriculum.</div>
         </div>
       </div>
+      <div class="subject-grid">
+        <a href="natural-science/physics/index.html" class="subject-pill done" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">⚛️</span>
+          <span class="subject-name">Physics</span>
+          <span class="subject-status">✓ Done</span>
+        </a>
+        <a href="natural-science/chemistry/index.html" class="subject-pill done" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">⚗️</span>
+          <span class="subject-name">Chemistry</span>
+          <span class="subject-status">✓ Done</span>
+        </a>
+        <a href="natural-science/biology/index.html" class="subject-pill building" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">🧬</span>
+          <span class="subject-name">Biology</span>
+          <span class="subject-status">🚀 Building</span>
+        </a>
+        <a href="natural-science/mathematics/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">📐</span>
+          <span class="subject-name">Mathematics</span>
+          <span class="subject-status">Pending</span>
+        </a>
+        <a href="natural-science/aptitude/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">🧩</span>
+          <span class="subject-name">Aptitude</span>
+          <span class="subject-status">Pending</span>
+        </a>
+        <a href="natural-science/english/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">📘</span>
+          <span class="subject-name">English</span>
+          <span class="subject-status">Pending</span>
+        </a>
+      </div>
+    </a>
 
-      <!-- English — LOCKED -->
-      <div class="subject-card locked">
-        <div class="subject-icon">📝</div>
-        <div class="subject-name">English</div>
-        <div class="subject-desc">Reading Comprehension, Grammar, Vocabulary and Writing Skills for the entrance exam.</div>
-        <div class="subject-meta">
-          <span class="lessons-count">Coming soon</span>
-          <span class="lock-tag">🔒 Locked</span>
+    <a href="social-science/index.html" class="stream-card ss">
+      <span class="stream-arrow">→</span>
+      <div class="stream-header">
+        <div class="stream-icon">🌍</div>
+        <div class="stream-info">
+          <div class="stream-title">Social Science <span class="stream-badge partial">🌱 Ready for Content</span></div>
+          <div class="stream-desc">History, Geography, Economics, and Mathematics — the social-science-track EUEE curriculum.</div>
         </div>
       </div>
-
-      <!-- Aptitude — LOCKED -->
-      <div class="subject-card locked">
-        <div class="subject-icon">🧠</div>
-        <div class="subject-name">Aptitude</div>
-        <div class="subject-desc">Logical Reasoning, Numerical Ability, Spatial Reasoning and Problem Solving.</div>
-        <div class="subject-meta">
-          <span class="lessons-count">Coming soon</span>
-          <span class="lock-tag">🔒 Locked</span>
-        </div>
+      <div class="subject-grid">
+        <a href="social-science/history/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">📜</span>
+          <span class="subject-name">History</span>
+          <span class="subject-status">Pending</span>
+        </a>
+        <a href="social-science/geography/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">🗺️</span>
+          <span class="subject-name">Geography</span>
+          <span class="subject-status">Pending</span>
+        </a>
+        <a href="social-science/economics/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">💹</span>
+          <span class="subject-name">Economics</span>
+          <span class="subject-status">Pending</span>
+        </a>
+        <a href="social-science/mathematics/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">📐</span>
+          <span class="subject-name">Mathematics</span>
+          <span class="subject-status">Pending</span>
+        </a>
+        <a href="social-science/aptitude/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">🧩</span>
+          <span class="subject-name">Aptitude</span>
+          <span class="subject-status">Pending</span>
+        </a>
+        <a href="social-science/english/index.html" class="subject-pill pending" onclick="event.stopPropagation();">
+          <span class="subject-icon-small">📘</span>
+          <span class="subject-name">English</span>
+          <span class="subject-status">Pending</span>
+        </a>
       </div>
-
-    </div>
+    </a>
   </div>
-
-  <!-- Social Science subjects -->
-  <div id="social-subjects" style="display:none">
-    <div class="subjects-grid">
-      <a href="social-science/mathematics/index.html" class="subject-card active">
-        <div class="subject-icon">📐</div>
-        <div class="subject-name">Mathematics</div>
-        <div class="subject-desc">Statistics, Probability, Linear Programming and applied mathematics for Social Science stream.</div>
-        <div class="subject-meta"><span class="lessons-count">1 unit · 1 lesson</span><span class="open-tag">🔓 Available</span></div>
-      </a>
-      <div class="subject-card locked">
-        <div class="subject-icon">💰</div>
-        <div class="subject-name">Economics</div>
-        <div class="subject-desc">Microeconomics, Macroeconomics, Ethiopian Economy and Global Economic Issues.</div>
-        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
-      </div>
-      <div class="subject-card locked">
-        <div class="subject-icon">🌍</div>
-        <div class="subject-name">Geography</div>
-        <div class="subject-desc">Physical Geography, Human Geography, Ethiopian Geography and Environmental Issues.</div>
-        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
-      </div>
-      <div class="subject-card locked">
-        <div class="subject-icon">📜</div>
-        <div class="subject-name">History</div>
-        <div class="subject-desc">Ethiopian History, African History, World History and Contemporary Issues.</div>
-        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
-      </div>
-      <div class="subject-card locked">
-        <div class="subject-icon">📝</div>
-        <div class="subject-name">English</div>
-        <div class="subject-desc">Reading Comprehension, Grammar, Vocabulary and Writing Skills.</div>
-        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
-      </div>
-      <div class="subject-card locked">
-        <div class="subject-icon">🧠</div>
-        <div class="subject-name">Aptitude</div>
-        <div class="subject-desc">Logical Reasoning, Verbal Ability, Numerical Skills and Problem Solving.</div>
-        <div class="subject-meta"><span class="lessons-count">Coming soon</span><span class="lock-tag">🔒 Locked</span></div>
-      </div>
-    </div>
-  </div>
-
 </div>
 
-<script>
-  fetch('/api/auth/me', {credentials:'include'})
-    .then(r => r.json())
-    .then(d => { if (!d.user) location.href = '/login.html?reason=login_required'; })
-    .catch(() => {});
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Grade 12 Entrance Exam</p>
+      <p>Natural Science & Social Science · EUEE Prep</p>
+    </div>
+  </div>
+</footer>
 
-  function showStream(stream) {
-    document.getElementById('natural-subjects').style.display = stream === 'natural' ? 'block' : 'none';
-    document.getElementById('social-subjects').style.display  = stream === 'social'  ? 'block' : 'none';
-    document.querySelectorAll('.stream-tab').forEach((t, i) => {
-      t.classList.toggle('active', (i === 0 && stream === 'natural') || (i === 1 && stream === 'social'));
-    });
-  }
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
 </script>
 </body>
 </html>

@@ -25,8 +25,7 @@
     .breadcrumb a{color:#DC2626;text-decoration:none}
     .breadcrumb a:hover{text-decoration:underline}
     .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-    .progress-summary{font-size:.8rem;font-weight:600;color:#16A34A;background:#F0FDF4;border:1px solid #BBF7D0;padding:4px 12px;border-radius:999px}
-    .progress-partial{font-size:.8rem;font-weight:600;color:#92400E;background:#FFFBEB;border:1px solid #FDE68A;padding:4px 12px;border-radius:999px}
+    .progress-summary{font-size:.8rem;font-weight:600;color:#166534;background:#F0FDF4;border:1px solid #BBF7D0;padding:4px 12px;border-radius:999px}
     .grade-list{display:flex;flex-direction:column;gap:1rem}
     .grade-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:18px;padding:1.5rem 1.75rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1.5rem;transition:all .25s ease;position:relative;overflow:hidden}
     .grade-card:hover{border-color:#DC2626;transform:translateY(-3px);box-shadow:0 12px 32px rgba(220,38,38,.14)}
@@ -38,10 +37,10 @@
     .grade-title{font-size:1.4rem;font-weight:900;color:#0f172a;margin-bottom:.35rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;letter-spacing:-.01em}
     .grade-check{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;color:#166534;background:#DCFCE7;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
     .grade-desc{font-size:.9rem;color:#475569;line-height:1.6;margin-bottom:.5rem}
-    .grade-subjects{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
-    .subject-chip{font-size:.72rem;font-weight:600;color:#991B1B;background:#FEE2E2;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
-    .subject-chip.live{color:#166534;background:#DCFCE7}
-    .subject-chip.pending{color:#64748b;background:#F1F5F9}
+    .grade-streams{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
+    .stream-chip{font-size:.72rem;font-weight:600;color:#991B1B;background:#FEE2E2;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
+    .stream-chip.live{color:#166534;background:#DCFCE7}
+    .stream-chip.pending{color:#64748b;background:#F1F5F9}
     .grade-arrow{color:#DC2626;font-weight:900;font-size:1.6rem;flex-shrink:0}
     .grade-card.complete .grade-arrow{color:#16A34A}
     .coming-soon{background:#fff;border:1.5px dashed #cbd5e1;border-radius:18px;padding:1.5rem 1.75rem;display:flex;align-items:center;gap:1.5rem;opacity:.75}
@@ -88,8 +87,8 @@
     <h1>Entrance Exam <span class="accent">Prep</span></h1>
     <p>Complete, curriculum-aligned study materials for the Ethiopian University Entrance Examination (EUEE). Full lessons, worked examples, practice quizzes, and comprehensive reviews — all built from the MoE textbooks.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="num">2</div><div class="label">Subjects Live</div></div>
-      <div class="hero-stat"><div class="num">72</div><div class="label">Lessons</div></div>
+      <div class="hero-stat"><div class="num">2</div><div class="label">Streams</div></div>
+      <div class="hero-stat"><div class="num">72+</div><div class="label">Lessons</div></div>
       <div class="hero-stat"><div class="num">360+</div><div class="label">Practice Questions</div></div>
       <div class="hero-stat"><div class="num">100%</div><div class="label">Curriculum Aligned</div></div>
     </div>
@@ -104,20 +103,18 @@
 
   <div class="section-title">
     <span>Grades</span>
-    <span class="progress-summary">✓ Grade 12 Natural Science Complete</span>
+    <span class="progress-summary">✓ Grade 12 Ready · Physics & Chemistry Complete</span>
   </div>
 
   <div class="grade-list">
     <a href="grade-12/index.html" class="grade-card complete">
       <div class="grade-icon">12</div>
       <div class="grade-info">
-        <div class="grade-title">Grade 12 <span class="grade-check">✓ 2 / 4 Subjects Complete</span></div>
-        <div class="grade-desc">The full Grade 12 EUEE curriculum. Physics and Chemistry are complete — Biology and Mathematics are coming soon.</div>
-        <div class="grade-subjects">
-          <span class="subject-chip live">⚛️ Physics ✓</span>
-          <span class="subject-chip live">⚗️ Chemistry ✓</span>
-          <span class="subject-chip pending">🧬 Biology</span>
-          <span class="subject-chip pending">📐 Mathematics</span>
+        <div class="grade-title">Grade 12 <span class="grade-check">✓ Physics & Chemistry Complete</span></div>
+        <div class="grade-desc">The full Grade 12 EUEE curriculum with two streams. Natural Science has Physics and Chemistry complete, Biology building now. Social Science streams are ready for content.</div>
+        <div class="grade-streams">
+          <span class="stream-chip live">🔬 Natural Science ✓</span>
+          <span class="stream-chip">🌍 Social Science</span>
         </div>
       </div>
       <span class="grade-arrow">→</span>
@@ -127,7 +124,7 @@
       <div class="grade-icon">11</div>
       <div class="grade-info">
         <div class="grade-title">Grade 11 <span class="cs-badge">Coming Soon</span></div>
-        <div class="grade-desc">Grade 11 Physics, Chemistry, Biology, and Mathematics — coming soon to complete the EUEE preparation set.</div>
+        <div class="grade-desc">Grade 11 subjects for the national exam and Grade 12 preparation.</div>
       </div>
     </div>
 
@@ -160,7 +157,7 @@
   <div class="fsh-footer-inner">
     <div class="fsh-footer-bottom">
       <p>© 2025 Freelance Skills Hub · Entrance Exam Prep</p>
-      <p>Grade 12 Physics & Chemistry Complete · More Coming Soon</p>
+      <p>Grade 12 · Physics & Chemistry Complete · Biology Building</p>
     </div>
   </div>
 </footer>
