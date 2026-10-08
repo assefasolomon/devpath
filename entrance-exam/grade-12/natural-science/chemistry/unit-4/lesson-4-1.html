@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4.1: Introduction to Polymers | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif;vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .poly-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .poly-card{background:#fff;border:1.5px solid #FECACA;border-radius:var(--radius-lg);padding:1.25rem;transition:all var(--transition)}
+    .poly-card:hover{border-color:#DC2626;box-shadow:0 4px 12px rgba(220,38,38,.1);transform:translateY(-2px)}
+    .poly-icon{font-size:1.75rem;margin-bottom:.5rem}
+    .poly-name{font-size:.9rem;font-weight:700;color:#991B1B;margin-bottom:.4rem}
+    .poly-formula{font-size:.78rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin-bottom:.5rem}
+    .poly-desc{font-size:.8rem;color:var(--text);line-height:1.65;margin:0}
+    .structure-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .structure-card{background:#fff;border:2px solid #BFDBFE;border-radius:var(--radius-lg);padding:1.25rem;text-align:center}
+    .structure-card svg{width:100%;max-width:180px;height:auto;margin:.5rem auto;display:block}
+    .structure-name{font-size:.9rem;font-weight:700;color:#1E40AF;margin-bottom:.4rem}
+    .structure-desc{font-size:.78rem;color:var(--text);line-height:1.6;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 4 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('what')"><div class="sidebar-dot"></div> What is a Polymer?</button>
+      <button class="sidebar-link" onclick="scrollTo('monomer')"><div class="sidebar-dot"></div> Monomers</button>
+      <button class="sidebar-link" onclick="scrollTo('dp')"><div class="sidebar-dot"></div> Degree of Polymerization</button>
+      <button class="sidebar-link" onclick="scrollTo('structure')"><div class="sidebar-dot"></div> Polymer Structures</button>
+      <button class="sidebar-link" onclick="scrollTo('examples-natural')"><div class="sidebar-dot"></div> Natural Polymers</button>
+      <button class="sidebar-link" onclick="scrollTo('examples-synthetic')"><div class="sidebar-dot"></div> Synthetic Polymers</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Introduction</a>
+      <a href="lesson-4-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Polymerization</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Classification</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 4</a> ›
+      Lesson 4.1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Polymers · MoE Textbook §4.1</div>
+      <h1>🧬 Introduction to Polymers</h1>
+      <p>The chair you're sitting on, the clothes you're wearing, the DNA in your cells — all are polymers. This lesson introduces the building blocks (monomers), the giant molecules they form (polymers), and how to describe their size and shape.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Look around the room you're in. The plastic in your pen, the fibers in your clothes, the wood of your desk, the proteins in your body — all of these are <strong>polymers</strong>. The word comes from Greek: <em>poly</em> (many) + <em>meros</em> (parts). Understanding polymers is understanding the materials that build the modern world.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>polymer</strong> and <strong>monomer</strong></li>
+          <li>Identify <strong>polymers in everyday materials</strong></li>
+          <li>Explain <strong>degree of polymerization (DP)</strong></li>
+          <li>Distinguish polymers from <strong>oligomers</strong></li>
+          <li>Describe <strong>linear, branched, and network</strong> polymer structures</li>
+          <li>Give examples of <strong>natural and synthetic polymers</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="what">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is a Polymer?</div><div class="section-subtitle">The definition</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Polymer (MoE Textbook, p. 214)</div>
+          <p>
+            A <strong>polymer</strong> is a large chainlike molecule built up from many repeating smaller molecules. The word comes from the Greek <em>poly</em> (many) and <em>meros</em> (part) — literally "many parts."
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key numbers</div>
+          <p>
+            • A polymer generally comprises <strong>more than 100 monomers</strong><br>
+            • Structures with <strong>lower numbers</strong> of monomers are called <strong>oligomers</strong><br>
+            • The <strong>repeat unit</strong> in a polymer usually corresponds to the monomer from which the polymer was made (few exceptions exist)
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 4.1 (Textbook p. 214)</div>
+          <div class="activity-body">
+            With your friends at your bench, look at the following materials. Then set criteria and categorize them:<br><br>
+            • The textile fibre of your clothes<br>
+            • Your hair and skin<br>
+            • The wood from which your desk is made<br>
+            • The glass of the window
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Which of these are polymers?</div>
+          <p>
+            • <strong>Textile fiber</strong> (cotton, wool, polyester) → polymer ✓<br>
+            • <strong>Hair and skin</strong> (keratin protein) → polymer ✓<br>
+            • <strong>Wood</strong> (cellulose + lignin) → polymer ✓<br>
+            • <strong>Glass</strong> (SiO₂ network) → <em>not</em> a polymer in the organic sense (though it is a network solid)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="monomer">
+      <div class="section-header"><div class="section-icon">🔗</div>
+        <div><div class="section-title-text">Monomers</div><div class="section-subtitle">The building blocks</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Monomer (MoE Textbook, p. 215)</div>
+          <p>
+            The <strong>small molecules used as the basic building blocks for polymers</strong> are known as monomers. <em>Mono</em> means one.
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Monomers → Polymer</div>
+          <svg viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg">
+            <!-- Individual monomers -->
+            <circle cx="60" cy="80" r="18" fill="#FECACA" stroke="#DC2626" stroke-width="2"/>
+            <circle cx="120" cy="80" r="18" fill="#FECACA" stroke="#DC2626" stroke-width="2"/>
+            <circle cx="180" cy="80" r="18" fill="#FECACA" stroke="#DC2626" stroke-width="2"/>
+            <circle cx="240" cy="80" r="18" fill="#FECACA" stroke="#DC2626" stroke-width="2"/>
+            <text x="150" y="125" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">Many monomers</text>
+
+            <!-- Arrow -->
+            <text x="305" y="85" font-size="24" fill="#DC2626" text-anchor="middle" font-weight="bold">→</text>
+            <text x="305" y="115" font-size="10" fill="#DC2626" text-anchor="middle">polymerize</text>
+
+            <!-- Polymer chain -->
+            <rect x="345" y="65" width="180" height="30" fill="#FEE2E2" stroke="#991B1B" stroke-width="2" rx="15"/>
+            <circle cx="365" cy="80" r="11" fill="#DC2626"/>
+            <circle cx="390" cy="80" r="11" fill="#DC2626"/>
+            <circle cx="415" cy="80" r="11" fill="#DC2626"/>
+            <circle cx="440" cy="80" r="11" fill="#DC2626"/>
+            <circle cx="465" cy="80" r="11" fill="#DC2626"/>
+            <circle cx="490" cy="80" r="11" fill="#DC2626"/>
+            <text x="435" y="125" font-size="11" fill="#991B1B" text-anchor="middle" font-weight="bold">Polymer (chain)</text>
+          </svg>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Examples of Monomers</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Monomer</th><th>Formula</th><th>Polymer Produced</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Glucose</td><td>C₆H₁₂O₆</td><td>Cellulose (wood, cotton)</td></tr>
+            <tr><td>Ethylene (ethene)</td><td>CH₂=CH₂</td><td>Polyethylene</td></tr>
+            <tr><td>Amino acid</td><td>NH₂CH(R)COOH</td><td>Protein (hair, skin, enzymes)</td></tr>
+            <tr><td>Vinyl chloride</td><td>CH₂=CHCl</td><td>PVC (polyvinyl chloride)</td></tr>
+            <tr><td>Styrene</td><td>C₆H₅CH=CH₂</td><td>Polystyrene</td></tr>
+            <tr><td>Isoprene</td><td>C₅H₈</td><td>Natural rubber</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 The pattern</div>
+          <p>
+            In most polymers, the <strong>repeat unit corresponds exactly to the monomer</strong>. For example, polyethylene is just (–CH₂–CH₂–)ₙ, where each –CH₂–CH₂– comes from one ethylene molecule.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="dp">
+      <div class="section-header"><div class="section-icon">📏</div>
+        <div><div class="section-title-text">Degree of Polymerization (DP)</div><div class="section-subtitle">How big is the polymer?</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition (MoE Textbook, p. 214)</div>
+          <p>
+            The size of a polymer molecule may be defined either by its <strong>mass</strong> or by the <strong>number of repeat units</strong> in the molecule. This latter indicator of size is called the <strong>degree of polymerization, DP</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Relationship</div>
+          <p>
+            <strong>Relative molar mass of polymer = (Relative molar mass of repeat unit) × DP</strong>
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <p style="font-size:.95rem;color:#334155;font-family:'Georgia',serif;line-height:1.9;margin:.5rem 0">
+            M(polymer) = M(repeat unit) × n &nbsp;&nbsp;&nbsp;(where n = DP)
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Worked example</div>
+          <p>
+            A polyethylene molecule has a molar mass of 140,000 g/mol. What is its degree of polymerization?<br><br>
+            Repeat unit: –CH₂–CH₂– → M = 2(12) + 4(1) = 28 g/mol<br>
+            DP = 140,000 / 28 = <strong>5,000</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="structure">
+      <div class="section-header"><div class="section-icon">🌐</div>
+        <div><div class="section-title-text">Polymer Structures</div><div class="section-subtitle">Linear, branched, or network</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Polymer molecules may be <strong>linear, slightly branched, or highly interconnected</strong>. In the branched case, the structure can develop into a large three-dimensional network.
+        </p>
+
+        <div class="structure-grid">
+          <div class="structure-card">
+            <div class="structure-name">Linear</div>
+            <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="30" x2="160" y2="30" stroke="#1E40AF" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="20" cy="30" r="6" fill="#1E40AF"/>
+              <circle cx="160" cy="30" r="6" fill="#1E40AF"/>
+            </svg>
+            <p class="structure-desc">Straight chains. Example: HDPE (high-density polyethylene)</p>
+          </div>
+          <div class="structure-card">
+            <div class="structure-name">Branched</div>
+            <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="30" x2="160" y2="30" stroke="#1E40AF" stroke-width="4" stroke-linecap="round"/>
+              <line x1="60" y1="30" x2="60" y2="10" stroke="#1E40AF" stroke-width="4" stroke-linecap="round"/>
+              <line x1="100" y1="30" x2="100" y2="50" stroke="#1E40AF" stroke-width="4" stroke-linecap="round"/>
+              <line x1="130" y1="30" x2="130" y2="12" stroke="#1E40AF" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <p class="structure-desc">Chains with side branches. Example: LDPE (low-density polyethylene)</p>
+          </div>
+          <div class="structure-card">
+            <div class="structure-name">Network (Cross-linked)</div>
+            <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20" y1="30" x2="160" y2="30" stroke="#1E40AF" stroke-width="3"/>
+              <line x1="20" y1="15" x2="160" y2="15" stroke="#1E40AF" stroke-width="3"/>
+              <line x1="20" y1="45" x2="160" y2="45" stroke="#1E40AF" stroke-width="3"/>
+              <line x1="40" y1="15" x2="40" y2="45" stroke="#1E40AF" stroke-width="3"/>
+              <line x1="90" y1="15" x2="90" y2="45" stroke="#1E40AF" stroke-width="3"/>
+              <line x1="140" y1="15" x2="140" y2="45" stroke="#1E40AF" stroke-width="3"/>
+            </svg>
+            <p class="structure-desc">Three-dimensional network. Example: Bakelite, vulcanized rubber</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why structure matters</div>
+          <p>
+            The structure determines properties:<br>
+            • <strong>Linear</strong> → flexible, can be melted and reshaped<br>
+            • <strong>Branched</strong> → lower density, weaker<br>
+            • <strong>Network</strong> → rigid, cannot be melted (decomposes instead)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples-natural">
+      <div class="section-header"><div class="section-icon">🌿</div>
+        <div><div class="section-title-text">Natural Polymers</div><div class="section-subtitle">Made by nature</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Natural polymers occur in nature and can be extracted. They are often referred to as <strong>biopolymers</strong>.
+        </p>
+
+        <div class="poly-grid">
+          <div class="poly-card">
+            <div class="poly-icon">🌳</div>
+            <div class="poly-name">Cellulose</div>
+            <div class="poly-formula">(C₆H₁₀O₅)ₙ</div>
+            <div class="poly-desc">Monomer = glucose. Found in wood, cotton, and plant fibers.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🧬</div>
+            <div class="poly-name">Proteins</div>
+            <div class="poly-formula">–(NH–CHR–CO)ₙ–</div>
+            <div class="poly-desc">Monomer = amino acids. Found in skin, hair, muscles, enzymes.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🧪</div>
+            <div class="poly-name">Starch</div>
+            <div class="poly-formula">(C₆H₁₀O₅)ₙ</div>
+            <div class="poly-desc">Monomer = glucose. Found in potatoes, corn, rice.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🪵</div>
+            <div class="poly-name">Natural Rubber</div>
+            <div class="poly-formula">(C₅H₈)ₙ</div>
+            <div class="poly-desc">Monomer = isoprene. Produced by rubber trees.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🧬</div>
+            <div class="poly-name">DNA & RNA</div>
+            <div class="poly-formula">Nucleotide chains</div>
+            <div class="poly-desc">Monomer = nucleotides. Carry the genetic code.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🕸️</div>
+            <div class="poly-name">Silk & Wool</div>
+            <div class="poly-formula">Protein chains</div>
+            <div class="poly-desc">Monomer = amino acids. Natural fibers from animals.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples-synthetic">
+      <div class="section-header"><div class="section-icon">🏭</div>
+        <div><div class="section-title-text">Synthetic Polymers</div><div class="section-subtitle">Made by humans</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Synthetic polymers are human-made polymers. They are sometimes referred to as <strong>plastics</strong>. One well-known example is polyethylene — it has no taste or odour, and is lightweight, nontoxic, and relatively cheap.
+        </p>
+
+        <div class="poly-grid">
+          <div class="poly-card">
+            <div class="poly-icon">🛍️</div>
+            <div class="poly-name">Polyethylene</div>
+            <div class="poly-formula">–(CH₂–CH₂)ₙ–</div>
+            <div class="poly-desc">From ethylene. Used in squeeze bottles, plastic wrapping, garment bags, trash bags, electrical insulation.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🪣</div>
+            <div class="poly-name">Polypropylene</div>
+            <div class="poly-formula">–(CH₂–CH(CH₃))ₙ–</div>
+            <div class="poly-desc">From propylene. Stronger than polyethylene. Used in food containers, ropes, fishing nets, carpets, bottles.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🚰</div>
+            <div class="poly-name">PVC</div>
+            <div class="poly-formula">–(CH₂–CHCl)ₙ–</div>
+            <div class="poly-desc">Polyvinyl chloride. From vinyl chloride. Used for pipes, leather-like materials, shoes, raincoats, wallpaper, floor tiles.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🍳</div>
+            <div class="poly-name">Teflon (PTFE)</div>
+            <div class="poly-formula">–(CF₂–CF₂)ₙ–</div>
+            <div class="poly-desc">Polytetrafluoroethylene. From tetrafluoroethylene. Used for non-stick coatings, electrical insulation.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">✈️</div>
+            <div class="poly-name">Plexiglass (PMMA)</div>
+            <div class="poly-formula">–(CH₂–C(CH₃)(COOCH₃))ₙ–</div>
+            <div class="poly-desc">Polymethyl methacrylate. Lightweight glass substitute — airplane windows, streetlights.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">☕</div>
+            <div class="poly-name">Polystyrene</div>
+            <div class="poly-formula">–(CH₂–CH(C₆H₅))ₙ–</div>
+            <div class="poly-desc">From styrene. Used in disposable cups, packaging, insulation foam.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Key concepts from Lesson 4.1</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🧬 Lesson 4.1 — Introduction to Polymers</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Polymer</div><div class="formula-math">Many + parts</div><div class="formula-note">Large chainlike molecule</div></div>
+          <div class="formula-item"><div class="formula-name">Monomer</div><div class="formula-math">One + parts</div><div class="formula-note">Building block</div></div>
+          <div class="formula-item"><div class="formula-name">Oligomer</div><div class="formula-math">&lt; 100 monomers</div><div class="formula-note">Short chain</div></div>
+          <div class="formula-item"><div class="formula-name">Degree of polymerization</div><div class="formula-math">DP = M(polymer) / M(unit)</div><div class="formula-note">Number of repeat units</div></div>
+          <div class="formula-item"><div class="formula-name">Linear structure</div><div class="formula-math">Straight chains</div><div class="formula-note">Flexible, meltable</div></div>
+          <div class="formula-item"><div class="formula-name">Branched structure</div><div class="formula-math">Chains with side branches</div><div class="formula-note">Lower density</div></div>
+          <div class="formula-item"><div class="formula-name">Network structure</div><div class="formula-math">3-D cross-linked</div><div class="formula-note">Rigid, non-meltable</div></div>
+          <div class="formula-item"><div class="formula-name">Examples</div><div class="formula-math">Cellulose, proteins, PE, PVC</div><div class="formula-note">Natural vs synthetic</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Identify the Monomer</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Identify the monomer for each of the following polymers: (a) polyethylene, (b) PVC, (c) Teflon, (d) natural rubber.</div>
+          <div class="example-step"><span class="step-badge">(a) Polyethylene</span><div class="step-text">Monomer = <span class="math">ethylene (CH₂=CH₂)</span></div></div>
+          <div class="example-step"><span class="step-badge">(b) PVC</span><div class="step-text">Monomer = <span class="math">vinyl chloride (CH₂=CHCl)</span></div></div>
+          <div class="example-step"><span class="step-badge">(c) Teflon</span><div class="step-text">Monomer = <span class="math">tetrafluoroethylene (CF₂=CF₂)</span></div></div>
+          <div class="example-step"><span class="step-badge">(d) Natural rubber</span><div class="step-text">Monomer = <span class="math">isoprene (C₅H₈)</span></div></div>
+          <div class="example-answer">✅ Ethylene, vinyl chloride, tetrafluoroethylene, isoprene</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Calculate DP</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> A PVC sample has a molar mass of 125,000 g/mol. What is its degree of polymerization? (Repeat unit = CH₂–CHCl; M = 62.5 g/mol.)</div>
+          <div class="example-step"><span class="step-badge">Formula</span><div class="step-text"><span class="math">DP = M(polymer) / M(unit)</span></div></div>
+          <div class="example-step"><span class="step-badge">Substitute</span><div class="step-text"><span class="math">DP = 125,000 / 62.5</span></div></div>
+          <div class="example-step"><span class="step-badge">Compute</span><div class="step-text"><span class="math">DP = 2000</span></div></div>
+          <div class="example-answer">✅ DP = <strong>2,000</strong> repeat units</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Natural vs Synthetic</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify each of the following as a natural or synthetic polymer: cellulose, nylon, DNA, Teflon, silk, PVC.</div>
+          <div class="example-step"><span class="step-badge">Natural</span><div class="step-text"><span class="math">Cellulose</span> (plant), <span class="math">DNA</span> (biological), <span class="math">silk</span> (animal)</div></div>
+          <div class="example-step"><span class="step-badge">Synthetic</span><div class="step-text"><span class="math">Nylon</span> (polyamide), <span class="math">Teflon</span> (PTFE), <span class="math">PVC</span> (polyvinyl chloride)</div></div>
+          <div class="example-answer">✅ Natural: cellulose, DNA, silk | Synthetic: nylon, Teflon, PVC</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Why Glass isn't a Polymer</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why glass — despite being a network of SiO₂ units — is not usually classified as a polymer in the organic chemistry sense.</div>
+          <div class="example-step"><span class="step-badge">Definition review</span><div class="step-text">Polymers are <span class="math">large chainlike molecules built from many repeating monomer units</span></div></div>
+          <div class="example-step"><span class="step-badge">Glass structure</span><div class="step-text">Glass is a <span class="math">non-crystalline (amorphous) network solid</span> with SiO₂ units</div></div>
+          <div class="example-step"><span class="step-badge">Key difference</span><div class="step-text">Glass is not built from discrete monomer molecules that connect — it's a continuous network without distinguishable repeating molecular units that "came from a monomer"</div></div>
+          <div class="example-answer">✅ Glass is a network solid, not a polymer in the organic sense — no discrete monomer</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Match Structure to Property</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Match each property to the correct polymer structure: (a) can be melted and reshaped, (b) rigid and cannot be melted, (c) lower density and weaker than linear form.</div>
+          <div class="example-step"><span class="step-badge">(a) Meltable</span><div class="step-text"><span class="math">Linear structure</span> — chains can slide past each other when heated</div></div>
+          <div class="example-step"><span class="step-badge">(b) Rigid</span><div class="step-text"><span class="math">Network (cross-linked) structure</span> — covalent bonds lock the chains together</div></div>
+          <div class="example-step"><span class="step-badge">(c) Lower density</span><div class="step-text"><span class="math">Branched structure</span> — side branches prevent tight packing</div></div>
+          <div class="example-answer">✅ (a) Linear → meltable; (b) Network → rigid; (c) Branched → lower density</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">A polymer is best defined as:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> A small molecule with one functional group</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> A long chainlike molecule built from many repeating units</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> An inorganic crystal</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> A single atom</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The building blocks from which polymers are made are called:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Polymers</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Oligomers</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Monomers</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Dimers</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">The monomer of natural rubber is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Ethylene</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Styrene</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Isoprene</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> Vinyl chloride</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">A polymer with a 3-dimensional cross-linked network structure will:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Melt easily when heated</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Be flexible like a straight chain</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Be rigid and not meltable (decomposes instead)</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Have lower density than linear chains</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">A polyethylene sample has a molar mass of 56,000 g/mol. Its degree of polymerization is: (M of –CH₂–CH₂– = 28 g/mol)</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> 1000</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> 2000</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> 200</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> 28,000</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-4-2.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=organic+chemistry+tutor+introduction+to+polymers" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Introduction to Polymers — Monomers and Polymers</div><div class="resource-channel">The Organic Chemistry Tutor · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=degree+of+polymerization+calculation" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Degree of Polymerization — Calculation Examples</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=natural+vs+synthetic+polymers" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Natural vs Synthetic Polymers — Differences</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=polymer+structure+linear+branched+crosslinked" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Polymer Structure — Linear, Branched, Network</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 4.1</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Introduction to Polymers</div>
+        <ul class="summary-list">
+          <li><strong>Polymer</strong> = large chainlike molecule built from many repeating smaller molecules (Greek: <em>poly</em> = many, <em>meros</em> = part)</li>
+          <li><strong>Monomer</strong> = small molecule used as the basic building block (Greek: <em>mono</em> = one)</li>
+          <li>A polymer generally contains <strong>more than 100 monomers</strong>; shorter chains are called <strong>oligomers</strong></li>
+          <li><strong>Degree of polymerization (DP)</strong> = number of repeat units in the polymer molecule</li>
+          <li>Relationship: <strong>M(polymer) = M(repeat unit) × DP</strong></li>
+          <li>Polymers can be <strong>linear, branched, or network (cross-linked)</strong></li>
+          <li>Structure determines properties: linear = flexible/meltable; branched = lower density; network = rigid/non-meltable</li>
+          <li><strong>Natural polymers (biopolymers):</strong> cellulose, proteins, starch, natural rubber, DNA, RNA, silk, wool</li>
+          <li>Common monomers: <strong>glucose</strong> (→ cellulose, starch), <strong>ethylene</strong> (→ polyethylene), <strong>amino acids</strong> (→ proteins), <strong>isoprene</strong> (→ natural rubber), <strong>vinyl chloride</strong> (→ PVC)</li>
+          <li><strong>Synthetic polymers (plastics):</strong> polyethylene, polypropylene, PVC, Teflon (PTFE), Plexiglass (PMMA), polystyrene</li>
+          <li>Polyethylene: no taste/odor, lightweight, nontoxic, relatively cheap</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §4.1 (pp. 213–215)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="index.html" class="btn btn-ghost">← Unit 4 Hub</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 4 · Lesson 1 of 3</div>
+      <a href="lesson-4-2.html" class="btn btn-primary">Next: Polymerization Reactions →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'B',2:'C',3:'C',4:'C',5:'B'};
+  const feedbacks={
+    1:{B:'✓ Correct! A polymer is a large chainlike molecule built from many repeating units.',wrong:'✗ Polymer = large chainlike molecule of repeating units.'},
+    2:{C:'✓ Correct! Monomers are the small building-block molecules that join to form polymers.',wrong:'✗ Monomers are the building blocks.'},
+    3:{C:'✓ Correct! The monomer of natural rubber is isoprene (C₅H₈).',wrong:'✗ Natural rubber monomer = isoprene.'},
+    4:{C:'✓ Correct! Network (cross-linked) polymers are rigid and cannot be melted — they decompose instead.',wrong:'✗ Network polymers: rigid, non-meltable, decompose.'},
+    5:{B:'✓ Correct! DP = 56,000 / 28 = 2000.',wrong:'✗ DP = 56,000 / 28 = 2000.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','what','monomer','dp','structure','examples-natural','examples-synthetic','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
