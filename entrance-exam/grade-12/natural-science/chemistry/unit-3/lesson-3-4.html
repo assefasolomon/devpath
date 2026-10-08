@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.4: Nitric Acid & Nitrogen Fertilizers | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .reaction-block{background:#0F172A;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;font-family:'Georgia',serif;line-height:2}
+    .reaction-block .label{color:#F87171;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-sans);margin-bottom:.4rem;display:block}
+    .reaction-block .eq{color:#E2E8F0;font-size:.95rem;font-weight:600}
+    .steps-list{counter-reset:step;list-style:none;padding-left:0}
+    .steps-list li{counter-increment:step;position:relative;padding:.875rem 0 .875rem 3.25rem;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .steps-list li:last-child{border-bottom:none}
+    .steps-list li::before{content:counter(step);position:absolute;left:0;top:.875rem;width:34px;height:34px;background:#DC2626;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+    .steps-list strong{color:#991B1B}
+    .fertilizer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .fertilizer-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.25rem;transition:all var(--transition)}
+    .fertilizer-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .fertilizer-icon{font-size:1.75rem;margin-bottom:.5rem}
+    .fertilizer-name{font-size:.9rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .fertilizer-formula{font-size:.82rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin-bottom:.5rem}
+    .fertilizer-desc{font-size:.8rem;color:var(--text);line-height:1.65;margin:0}
+    .experiment-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .experiment-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .experiment-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .experiment-body strong{color:#78350F}
+    .experiment-body ul{margin:.5rem 0;padding-left:1.25rem}
+    .experiment-body li{padding:.15rem 0}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.step1{background:#FEF2F2;border-color:#FECACA}
+    .compare-card.step2{background:#FEF3C7;border-color:#FDE68A}
+    .compare-card.step3{background:#DBEAFE;border-color:#BFDBFE}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.step1 .compare-card-title{color:#991B1B}
+    .compare-card.step2 .compare-card-title{color:#92400E}
+    .compare-card.step3 .compare-card-title{color:#1E40AF}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('nitricprops')"><div class="sidebar-dot"></div> Nitric Acid Properties</button>
+      <button class="sidebar-link" onclick="scrollTo('nitricuses')"><div class="sidebar-dot"></div> Uses of Nitric Acid</button>
+      <button class="sidebar-link" onclick="scrollTo('labprep')"><div class="sidebar-dot"></div> Lab Preparation</button>
+      <button class="sidebar-link" onclick="scrollTo('ostwald')"><div class="sidebar-dot"></div> Ostwald Process</button>
+      <button class="sidebar-link" onclick="scrollTo('fertilizers')"><div class="sidebar-dot"></div> N-Based Fertilizers</button>
+      <button class="sidebar-link" onclick="scrollTo('soil')"><div class="sidebar-dot"></div> Soil Reactions</button>
+      <button class="sidebar-link" onclick="scrollTo('dap')"><div class="sidebar-dot"></div> DAP (Detailed)</button>
+      <button class="sidebar-link" onclick="scrollTo('experiments')"><div class="sidebar-dot"></div> Experiments 3.3 & 3.4</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Introduction ✓</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Natural Resources ✓</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Ammonia ✓</a>
+      <a href="lesson-3-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Nitric Acid</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Sulphuric Acid</a>
+      <a href="lesson-3-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Na₂CO₃ & NaOH</a>
+      <a href="lesson-3-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Pesticides</a>
+      <a href="lesson-3-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Ethiopian Industries I</a>
+      <a href="lesson-3-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Ethiopian Industries II</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 3</a> ›
+      Lesson 3.4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Industrial Chemistry · MoE Textbook §3.3.2 + §3.3.3</div>
+      <h1>⚗️ Nitric Acid & Nitrogen Fertilizers</h1>
+      <p>Nitric acid is a highly corrosive mineral acid and the key to nitrogen fertilizers. Made industrially from ammonia via the Ostwald process, it feeds the world's crops through urea, DAP, and other fertilizer products.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In Lesson 3.3 we produced ammonia. Now we take it further: ammonia is the starting material for <strong>nitric acid</strong>, which in turn is the key ingredient in most nitrogen fertilizers. This lesson traces that chain — from NH₃ → HNO₃ → fertilizer → food.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>List the <strong>properties</strong> and <strong>uses</strong> of nitric acid</li>
+          <li>Describe the <strong>Ostwald process</strong> — the 3-step industrial synthesis of HNO₃</li>
+          <li>Explain <strong>laboratory preparation</strong> of nitric acid</li>
+          <li>Identify the main <strong>nitrogen-based fertilizers</strong>: anhydrous ammonia, urea, UAN, DAP</li>
+          <li>Describe the <strong>soil reactions</strong> of each fertilizer</li>
+          <li>Explain the role of <strong>nitrifying bacteria</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="nitricprops">
+      <div class="section-header"><div class="section-icon">💧</div>
+        <div><div class="section-title-text">Nitric Acid — Properties</div><div class="section-subtitle">MoE Textbook, p. 160</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Physical Properties</div>
+          <p>
+            • <strong>Density</strong> = 1.51 g/cm³ (pure)<br>
+            • <strong>Colorless liquid</strong> with a highly pungent odor<br>
+            • Appearance similar to water<br>
+            • On exposure to light, turns <strong>brown</strong> due to slight decomposition<br>
+            • Commercial concentration: <strong>65–68%</strong>
+          </p>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Decomposition on Exposure to Light</span>
+          <div class="eq">4HNO₃(l) → 4NO₂(g) + O₂(g) + 2H₂O(l)</div>
+        </div>
+
+        <p style="font-size:.85rem;color:#64748b;font-style:italic;margin:.5rem 0 1rem 0">
+          (The brown color comes from NO₂ gas produced by this decomposition.)
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Chemical Properties</div>
+          <p>
+            • <strong>Strong acid</strong> — dissociates completely in dilute aqueous solution<br>
+            • Forms salts called <strong>nitrates</strong>, typically very soluble in water<br>
+            • <strong>Highly corrosive mineral acid</strong><br>
+            • <strong>Strong oxidizing agent</strong>, especially when hot and concentrated<br>
+            • Reacts readily with metals (violent reactions)<br>
+            • Produces heat when dissolved in water<br>
+            • Some reactions are even explosive<br>
+            • <strong>Highly hazardous</strong> — causes severe burns and necrosis on contact with skin
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="nitricuses">
+      <div class="section-header"><div class="section-icon">🌾</div>
+        <div><div class="section-title-text">Uses of Nitric Acid</div><div class="section-subtitle">MoE Textbook, p. 160</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The biggest use: fertilizers</div>
+          <p>
+            Neutralization of nitric acid with ammonia produces <strong>ammonium nitrate (NH₄NO₃)</strong> — the most important component of mineral fertilizers used worldwide.
+          </p>
+        </div>
+
+        <div class="fertilizer-grid">
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🌾</div>
+            <div class="fertilizer-name">Fertilizers</div>
+            <div class="fertilizer-desc">Ammonium nitrate (from NH₃ + HNO₃) — largest single use.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">💥</div>
+            <div class="fertilizer-name">Explosives</div>
+            <div class="fertilizer-desc">TNT (trinitrotoluene) and nitroglycerin — made by nitrating aromatic compounds.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🧪</div>
+            <div class="fertilizer-name">Organic Nitrogen Compounds</div>
+            <div class="fertilizer-desc">Precursor to nitrobenzenes and other industrial chemicals.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🚀</div>
+            <div class="fertilizer-name">Rocket Fuel</div>
+            <div class="fertilizer-desc">Red fuming nitric acid (HNO₃ + N₂O₄ + H₂O₂ mixture).</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🎨</div>
+            <div class="fertilizer-name">Dyes and Lacquers</div>
+            <div class="fertilizer-desc">Used to produce organic dyes and industrial lacquers.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">💊</div>
+            <div class="fertilizer-name">Pharmaceuticals</div>
+            <div class="fertilizer-desc">Used in the synthesis of many drugs.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🍄</div>
+            <div class="fertilizer-name">Fungicides</div>
+            <div class="fertilizer-desc">Production of agricultural fungicides.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🔧</div>
+            <div class="fertilizer-name">Metal Cleaning & Etching</div>
+            <div class="fertilizer-desc">Refining precious metals; cleaning and etching metal surfaces.</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Other less common uses</div>
+          <p>
+            • Soil acidification in horticulture<br>
+            • Artificial ageing of wood to obtain desired shade<br>
+            • Household cleaning products<br>
+            • Detection of trace metals in analytical labs
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="labprep">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Laboratory Preparation of Nitric Acid</div><div class="section-subtitle">Displacement of a volatile acid</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The lab method</div>
+          <p>
+            Nitric acid is prepared by reacting <strong>potassium nitrate (KNO₃)</strong> with <strong>concentrated sulfuric acid (H₂SO₄)</strong>.
+          </p>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Laboratory Preparation</span>
+          <div class="eq">2KNO₃ + H₂SO₄ → K₂SO₄ + 2HNO₃</div>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The general principle</div>
+          <p>
+            <strong>Salt of a more volatile acid + less volatile acid → displaces the more volatile acid</strong><br><br>
+            In this case:<br>
+            • KNO₃ = salt of the volatile acid HNO₃<br>
+            • H₂SO₄ = the less volatile acid<br>
+            • The less volatile H₂SO₄ displaces the more volatile HNO₃ from its salt
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Industrial vs lab</div>
+          <p>
+            The laboratory method uses KNO₃ and H₂SO₄. But for <strong>commercial production</strong>, the industry uses the <strong>Ostwald process</strong> (next section) — much more efficient and cheaper.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ostwald">
+      <div class="section-header"><div class="section-icon">🏭</div>
+        <div><div class="section-title-text">The Ostwald Process</div><div class="section-subtitle">Industrial production of nitric acid</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition (MoE Textbook, p. 161)</div>
+          <p>
+            The <strong>Ostwald process</strong> is the catalytic oxidation of ammonia to nitric oxide, which, using special absorption towers, yields concentrated HNO₃ acid. It's the basic commercial production method.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 The principle</div>
+          <p>
+            The conversion of ammonia to nitric acid occurs as a result of <strong>oxidation</strong>. The oxidation reaction gives <strong>nitric oxide (NO)</strong>. When NO is further oxidized, <strong>nitrous gases (NO₂)</strong> are formed, and those gases <strong>trap water molecules</strong> — resulting in nitric acid.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Three Steps</h3>
+
+        <div class="compare-grid">
+          <div class="compare-card step1">
+            <div class="compare-card-title">Step 1 — Oxidation of NH₃</div>
+            <p>
+              Ammonia is burned in <strong>excess oxygen</strong> over a <strong>platinum catalyst</strong> at ~850 °C to form nitric oxide (NO):<br><br>
+              <strong>4NH₃(g) + 5O₂(g) → 4NO(g) + 6H₂O(g)</strong>
+            </p>
+          </div>
+          <div class="compare-card step2">
+            <div class="compare-card-title">Step 2 — Oxidation of NO</div>
+            <p>
+              Additional air is added to cool the mixture and oxidize NO to <strong>NO₂</strong>:<br><br>
+              <strong>2NO(g) + O₂(g) → 2NO₂(g)</strong>
+            </p>
+          </div>
+          <div class="compare-card step3">
+            <div class="compare-card-title">Step 3 — Absorption in Water</div>
+            <p>
+              The NO₂ gas is bubbled into warm water to give nitric acid and NO (which is recycled):<br><br>
+              <strong>3NO₂(g) + H₂O(l) → 2HNO₃(aq) + NO(g)</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Ostwald Process — Simplified Flow</div>
+          <svg viewBox="0 0 540 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- NH3 input -->
+            <rect x="20" y="105" width="70" height="40" fill="#FEF2F2" stroke="#DC2626" stroke-width="2" rx="6"/>
+            <text x="55" y="130" font-size="12" fill="#991B1B" text-anchor="middle" font-weight="bold">NH₃</text>
+            <line x1="95" y1="125" x2="135" y2="125" stroke="#0F172A" stroke-width="2" marker-end="url(#a1)"/>
+            <defs>
+              <marker id="a1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#0F172A"/></marker>
+              <marker id="a2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#0F172A"/></marker>
+              <marker id="a3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#0F172A"/></marker>
+              <marker id="a4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#16A34A"/></marker>
+              <marker id="a5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+            </defs>
+
+            <!-- Step 1 -->
+            <rect x="140" y="95" width="90" height="60" fill="#FEE2E2" stroke="#991B1B" stroke-width="2" rx="6"/>
+            <text x="185" y="118" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="bold">Step 1</text>
+            <text x="185" y="132" font-size="9" fill="#991B1B" text-anchor="middle">NH₃ + O₂</text>
+            <text x="185" y="146" font-size="9" fill="#991B1B" text-anchor="middle">Pt cat., 850°C</text>
+
+            <!-- Arrow to Step 2 -->
+            <line x1="235" y1="125" x2="270" y2="125" stroke="#0F172A" stroke-width="2" marker-end="url(#a2)"/>
+
+            <!-- Step 2 -->
+            <rect x="275" y="95" width="90" height="60" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="6"/>
+            <text x="320" y="118" font-size="10" fill="#92400E" text-anchor="middle" font-weight="bold">Step 2</text>
+            <text x="320" y="132" font-size="9" fill="#92400E" text-anchor="middle">NO + O₂</text>
+            <text x="320" y="146" font-size="9" fill="#92400E" text-anchor="middle">→ NO₂</text>
+
+            <!-- Arrow to Step 3 -->
+            <line x1="370" y1="125" x2="405" y2="125" stroke="#0F172A" stroke-width="2" marker-end="url(#a3)"/>
+
+            <!-- Step 3 -->
+            <rect x="410" y="95" width="90" height="60" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2" rx="6"/>
+            <text x="455" y="118" font-size="10" fill="#1E40AF" text-anchor="middle" font-weight="bold">Step 3</text>
+            <text x="455" y="132" font-size="9" fill="#1E40AF" text-anchor="middle">NO₂ + H₂O</text>
+            <text x="455" y="146" font-size="9" fill="#1E40AF" text-anchor="middle">→ HNO₃</text>
+
+            <!-- Output HNO3 -->
+            <line x1="455" y1="160" x2="455" y2="195" stroke="#16A34A" stroke-width="2.5" marker-end="url(#a4)"/>
+            <text x="455" y="215" font-size="12" fill="#166534" text-anchor="middle" font-weight="bold">HNO₃</text>
+
+            <!-- Recycle NO -->
+            <path d="M 410 155 Q 320 220 185 220 Q 140 220 140 175" fill="none" stroke="#DC2626" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#a5)"/>
+            <text x="290" y="235" font-size="9" fill="#DC2626" text-anchor="middle" font-weight="bold">NO recycled → Step 2</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why recycle NO?</div>
+          <p>
+            Step 3 produces <strong>NO gas as a by-product</strong>. Rather than waste it, the NO is <strong>recycled back into Step 2</strong>, where it is re-oxidized to NO₂. This improves the overall yield of nitric acid.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="fertilizers">
+      <div class="section-header"><div class="section-icon">🌱</div>
+        <div><div class="section-title-text">Nitrogen-Based Fertilizers</div><div class="section-subtitle">MoE Textbook, p. 166</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The main forms</div>
+          <p>
+            Common forms of N-based fertilizer:<br>
+            • <strong>Anhydrous ammonia</strong> (NH₃)<br>
+            • <strong>Urea</strong> — (NH₂)₂CO<br>
+            • <strong>Urea-ammonium nitrate (UAN)</strong> solutions<br>
+            • <strong>Diammonium monohydrogen phosphate (DAP)</strong> — (NH₄)₂HPO₄
+          </p>
+        </div>
+
+        <div class="fertilizer-grid">
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">💨</div>
+            <div class="fertilizer-name">Anhydrous Ammonia</div>
+            <div class="fertilizer-formula">NH₃</div>
+            <div class="fertilizer-desc">Most basic N fertilizer. Gas at room temperature — must be compressed into liquid and injected into soil. <strong>82% N content</strong>.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🧂</div>
+            <div class="fertilizer-name">Urea</div>
+            <div class="fertilizer-formula">(NH₂)₂CO</div>
+            <div class="fertilizer-desc">Solid fertilizer with <strong>46% N content</strong>. World's most widely used N fertilizer. Made from CO₂ + NH₃.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">💧</div>
+            <div class="fertilizer-name">UAN Solution</div>
+            <div class="fertilizer-formula">Urea + NH₄NO₃ + H₂O</div>
+            <div class="fertilizer-desc">Liquid fertilizer — 35% urea, 45% ammonium nitrate, 20% water. Easy to apply by spraying.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">💎</div>
+            <div class="fertilizer-name">DAP</div>
+            <div class="fertilizer-formula">(NH₄)₂HPO₄</div>
+            <div class="fertilizer-desc">White crystalline solid. Contains BOTH <strong>nitrogen AND phosphorus</strong>. Made from NH₃ + H₃PO₄.</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why so many different fertilizers?</div>
+          <p>
+            Each has advantages and disadvantages:<br>
+            • <strong>Anhydrous NH₃</strong> — highest N content, but requires special equipment (pressure tank, injection)<br>
+            • <strong>Urea</strong> — easy to handle, store, and transport; can be blended<br>
+            • <strong>UAN solutions</strong> — easy liquid application by spraying<br>
+            • <strong>DAP</strong> — provides TWO nutrients (N + P) in one product
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="soil">
+      <div class="section-header"><div class="section-icon">🌍</div>
+        <div><div class="section-title-text">Soil Reactions of Fertilizers</div><div class="section-subtitle">What happens after application</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">Anhydrous Ammonia in Soil</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Application</div>
+          <p>
+            Anhydrous ammonia is applied by <strong>injection 6–8 inches below the soil surface</strong> to minimize escape of gaseous NH₃ into the air.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Once in the soil</div>
+          <p>
+            NH₃ is a very <strong>hygroscopic</strong> compound. Once in the soil, it reacts quickly with water and changes to the <strong>ammonium (NH₄⁺)</strong> form.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Binding to soil</div>
+          <p>
+            As a <strong>positively charged ion</strong>, NH₄⁺ reacts and binds with <strong>negatively charged soil constituents</strong> (clay and organic matter). Thus, it is held on the soil exchange complex and is <strong>not subject to movement with water</strong> (i.e., it does not leach away).
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Nitrification — The Two-Step Conversion</h3>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Over time (with appropriate soil temperature and biological activity), NH₄⁺ ions are converted to the <strong>nitrate (NO₃⁻)</strong> form by specific soil bacteria — a process called <strong>nitrification</strong>.
+        </p>
+
+        <div class="reaction-block">
+          <span class="label">Step 1 — Nitrosomonas bacteria</span>
+          <div class="eq">NH₄⁺ → NO₂⁻ (nitrite)</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Step 2 — Nitrobacter bacteria</span>
+          <div class="eq">NO₂⁻ → NO₃⁻ (nitrate)</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Conditions for nitrification</div>
+          <p>
+            Nitrification generally occurs at soil temperatures <strong>above 50 °F (10 °C)</strong> and increases as temperatures rise. Some limited activity occurs below 50 °F as well.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Urea in Soil</h3>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Urea readily dissolves in water (including soil moisture), so it can be "incorporated" into the soil by rainfall or irrigation.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Volatilization losses</div>
+          <p>
+            If urea is applied to the soil surface and not incorporated by water or tillage, it is subject to <strong>volatilization losses of nitrogen</strong>. This occurs as urea undergoes hydrolysis:
+          </p>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Urea Hydrolysis in Soil</span>
+          <div class="eq">(NH₂)₂CO + H₂O → CO₂ + 2NH₃</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why incorporate urea?</div>
+          <p>
+            If applied on the surface, the released NH₃ can escape into the atmosphere as gas — wasting the fertilizer. Incorporating urea into the soil (by tillage or irrigation) traps the NH₃ as NH₄⁺ (which binds to soil particles).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="dap">
+      <div class="section-header"><div class="section-icon">💎</div>
+        <div><div class="section-title-text">DAP — Diammonium Monohydrogen Phosphate</div><div class="section-subtitle">The dual-nutrient fertilizer</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 What is DAP?</div>
+          <p>
+            <strong>Diammonium monohydrogen phosphate (DAP)</strong>, with the formula <strong>(NH₄)₂HPO₄</strong>, is a white crystalline compound. It contains both <strong>nitrogen (N)</strong> and <strong>phosphorus (P)</strong> — two of the three primary macronutrients plants need.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Production of DAP — Two Steps</h3>
+
+        <div class="reaction-block">
+          <span class="label">Step 1 — Ammonia + Phosphoric acid</span>
+          <div class="eq">3NH₃(g) + 2H₃PO₄(l) → NH₄H₂PO₄(s) + (NH₄)₂HPO₄(s)</div>
+        </div>
+
+        <p style="font-size:.85rem;color:#64748b;font-style:italic;margin:.5rem 0 .875rem 0">
+          (Produces a mixture of monoammonium dihydrogen phosphate + diammonium monohydrogen phosphate.)
+        </p>
+
+        <div class="reaction-block">
+          <span class="label">Step 2 — Recycling for further reaction</span>
+          <div class="eq">NH₄H₂PO₄(s) + NH₃(g) → (NH₄)₂HPO₄(s)</div>
+        </div>
+
+        <p style="font-size:.85rem;color:#64748b;font-style:italic;margin:.5rem 0 .875rem 0">
+          (Recycling the monoammonium salt for further reaction with anhydrous ammonia yields DAP.)
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Uses of DAP</h3>
+
+        <div class="fertilizer-grid">
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🌾</div>
+            <div class="fertilizer-name">Fertilizer</div>
+            <div class="fertilizer-desc">The main use — supplies both N and P for plant growth.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🔥</div>
+            <div class="fertilizer-name">Fire Retardant</div>
+            <div class="fertilizer-desc">Lowers combustion temperature, decreases weight-loss rates, increases char production.</div>
+          </div>
+          <div class="fertilizer-card">
+            <div class="fertilizer-icon">🍷</div>
+            <div class="fertilizer-name">Yeast Nutrient</div>
+            <div class="fertilizer-desc">Used in wine making and beer brewing.</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Soil acidification by DAP</div>
+          <p>
+            DAP temporarily increases soil acidity. Over the long term, the soil becomes <strong>more acidic</strong> than before, upon <strong>nitrification</strong> of the ammonium (NH₄⁺ → NO₃⁻ releases H⁺ ions).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="experiments">
+      <div class="section-header"><div class="section-icon">🧪</div>
+        <div><div class="section-title-text">Experiments 3.3 & 3.4</div><div class="section-subtitle">Textbook pp. 163–165</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="experiment-card">
+          <div class="experiment-title">🧪 Experiment 3.3 — Preparation of Nitric Acid in Laboratory</div>
+          <div class="experiment-body">
+            <strong>Objective:</strong> To prepare nitric acid in the laboratory.<br><br>
+            <strong>Apparatus:</strong> Round-bottomed borosilicate flask (thick-walled preferred), delivery tube, glass stopper, glass retort, tripod stand, Bunsen burner, ice-cold water.<br><br>
+            <strong>Chemicals:</strong> Potassium nitrate (KNO₃), concentrated sulfuric acid (H₂SO₄).<br><br>
+            <strong>Safety:</strong> Concentrated nitric acid is corrosive and oxidizing — wear goggles or face shield. Use nitrile gloves.<br><br>
+            <strong>Procedure:</strong>
+            <ul>
+              <li>Place 50 g of KNO₃ and 25 mL of concentrated H₂SO₄ in a round-bottom flask.</li>
+              <li>Heat the reactants to about <strong>200 °C</strong> — do not let the temperature exceed 200 °C.</li>
+              <li>Observe nitric acid vapors cooled and condensed in a receiver cooled under cold water.</li>
+              <li>Collect the brown liquid (nitric acid) in the receiving flask.</li>
+            </ul>
+            <strong>Reaction:</strong> 2KNO₃ + H₂SO₄ → K₂SO₄ + 2HNO₃
+          </div>
+        </div>
+
+        <div class="experiment-card">
+          <div class="experiment-title">🧪 Experiment 3.4 — Properties of Nitric Acid (Oxidizing Property)</div>
+          <div class="experiment-body">
+            <strong>Objective:</strong> To investigate the oxidizing property of nitric acid.<br><br>
+            <strong>Apparatus:</strong> Round-bottomed borosilicate flask, clamp stand, delivery tube, test tube, tongs, glass wool, bowl or trough, safety screens.<br><br>
+            <strong>Chemicals:</strong> 5 g copper turnings, 40 mL concentrated nitric acid.<br><br>
+            <strong>Safety:</strong> Same as above — concentrated HNO₃ is corrosive and oxidizing.<br><br>
+            <strong>Procedure:</strong>
+            <ul>
+              <li>Fill the test tube flask with water and add acid to the round-bottomed flask.</li>
+              <li>Clamp the flask into position with the delivery tube at the bottom.</li>
+              <li>Loosely plug the neck with glass wool; prepare delivery tube.</li>
+              <li>Add the copper and fit the delivery tube.</li>
+              <li>After ~80 seconds, the reaction slows — observe what happens.</li>
+            </ul>
+            <strong>Expected observation:</strong> Brown NO₂ gas is produced; copper dissolves to form blue Cu(NO₃)₂ solution.
+          </div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Copper + Concentrated HNO₃</span>
+          <div class="eq">Cu + 4HNO₃ → Cu(NO₃)₂ + 2NO₂ + 2H₂O</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why is nitric acid a strong oxidizing agent?</div>
+          <p>
+            Nitric acid oxidizes metals not by releasing H⁺ (like typical acids), but by the oxidizing power of the <strong>nitrate ion (NO₃⁻)</strong>. This is why copper — which doesn't react with HCl — readily dissolves in HNO₃, producing brown NO₂ gas.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Key reactions from Lesson 3.4</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">⚗️ Lesson 3.4 — Nitric Acid & Fertilizers</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">HNO₃ decomposition</div><div class="formula-math">4HNO₃ → 4NO₂ + O₂ + 2H₂O</div><div class="formula-note">Turn brown in light</div></div>
+          <div class="formula-item"><div class="formula-name">Lab preparation</div><div class="formula-math">2KNO₃ + H₂SO₄ → K₂SO₄ + 2HNO₃</div><div class="formula-note">Volatile acid displacement</div></div>
+          <div class="formula-item"><div class="formula-name">Ostwald — Step 1</div><div class="formula-math">4NH₃ + 5O₂ → 4NO + 6H₂O</div><div class="formula-note">Pt catalyst, 850 °C</div></div>
+          <div class="formula-item"><div class="formula-name">Ostwald — Step 2</div><div class="formula-math">2NO + O₂ → 2NO₂</div><div class="formula-note">Cool the mixture</div></div>
+          <div class="formula-item"><div class="formula-name">Ostwald — Step 3</div><div class="formula-math">3NO₂ + H₂O → 2HNO₃ + NO</div><div class="formula-note">NO recycled</div></div>
+          <div class="formula-item"><div class="formula-name">Urea synthesis</div><div class="formula-math">2NH₃ + CO₂ → NH₂COONH₄</div><div class="formula-note">→ (NH₂)₂CO + H₂O</div></div>
+          <div class="formula-item"><div class="formula-name">Urea hydrolysis</div><div class="formula-math">(NH₂)₂CO + H₂O → CO₂ + 2NH₃</div><div class="formula-note">Volatilization loss</div></div>
+          <div class="formula-item"><div class="formula-name">DAP formation</div><div class="formula-math">NH₄H₂PO₄ + NH₃ → (NH₄)₂HPO₄</div><div class="formula-note">Step 2 of DAP synthesis</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Ostwald Process Identification</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Identify each step of the Ostwald process and the catalyst used in Step 1.</div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">NH₃ oxidized by O₂ → NO. Catalyst = <span class="math">platinum (Pt)</span> at ~850 °C</div></div>
+          <div class="example-step"><span class="step-badge">Step 2</span><div class="step-text">NO oxidized by more O₂ → NO₂</div></div>
+          <div class="example-step"><span class="step-badge">Step 3</span><div class="step-text">NO₂ absorbed in warm water → HNO₃ + NO (which is recycled)</div></div>
+          <div class="example-answer">✅ Step 1: 4NH₃ + 5O₂ → 4NO + 6H₂O (Pt catalyst). Step 2: 2NO + O₂ → 2NO₂. Step 3: 3NO₂ + H₂O → 2HNO₃ + NO</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Lab vs Industrial HNO₃</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Compare how nitric acid is prepared in the laboratory vs how it's made industrially.</div>
+          <div class="example-step"><span class="step-badge">Lab method</span><div class="step-text">2KNO₃ + H₂SO₄ → K₂SO₄ + 2HNO₃ (displacement of volatile acid by non-volatile acid)</div></div>
+          <div class="example-step"><span class="step-badge">Industrial method</span><div class="step-text">Ostwald process: NH₃ + O₂ → NO → NO₂ → HNO₃ (3 steps, Pt catalyst)</div></div>
+          <div class="example-step"><span class="step-badge">Why different?</span><div class="step-text">Lab: uses readily available reagents, small scale. Industrial: uses cheap NH₃, large scale, catalyst</div></div>
+          <div class="example-answer">✅ Lab uses KNO₃ + H₂SO₄; industry uses NH₃ + O₂ (Ostwald process)</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Compare N Content</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Which fertilizer has higher nitrogen content by mass — anhydrous ammonia (NH₃) or urea ((NH₂)₂CO)?</div>
+          <div class="example-step"><span class="step-badge">NH₃</span><div class="step-text">M = 17 g/mol; N = 14 g/mol. % N = 14/17 × 100 = <span class="math">≈ 82%</span></div></div>
+          <div class="example-step"><span class="step-badge">Urea</span><div class="step-text">M = 60 g/mol; N = 28 g/mol (2 atoms). % N = 28/60 × 100 = <span class="math">≈ 46%</span></div></div>
+          <div class="example-step"><span class="step-badge">Conclusion</span><div class="step-text">Anhydrous NH₃ has the highest N content — but it requires special handling (pressure tank, injection)</div></div>
+          <div class="example-answer">✅ NH₃ (≈82%) &gt; urea (≈46%). Higher N content ≠ always better — handling matters too.</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Why Bind NH₄⁺ to Soil?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why NH₄⁺ (ammonium) stays in the soil while NO₃⁻ (nitrate) can leach away.</div>
+          <div class="example-step"><span class="step-badge">Soil charge</span><div class="step-text">Clay particles and organic matter are <span class="math">negatively charged</span></div></div>
+          <div class="example-step"><span class="step-badge">NH₄⁺ binding</span><div class="step-text">NH₄⁺ is <span class="math">positively charged</span> → attracted to negative soil particles → held in place</div></div>
+          <div class="example-step"><span class="step-badge">NO₃⁻ problem</span><div class="step-text">NO₃⁻ is <span class="math">negatively charged</span> → repelled by soil → moves freely with water → leaches away</div></div>
+          <div class="example-step"><span class="step-badge">Implication</span><div class="step-text">Nitrification (NH₄⁺ → NO₃⁻) actually makes N more <span class="math">mobile</span> in the soil — which is good for uptake by plant roots but bad for retention</div></div>
+          <div class="example-answer">✅ NH₄⁺ binds to negative soil particles; NO₃⁻ does not, so it can leach</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">DAP — Dual Nutrient Advantage</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Why is DAP ((NH₄)₂HPO₄) considered more efficient than a single-nutrient fertilizer like urea?</div>
+          <div class="example-step"><span class="step-badge">DAP composition</span><div class="step-text">Contains both <span class="math">nitrogen (N)</span> and <span class="math">phosphorus (P)</span> — two primary macronutrients</div></div>
+          <div class="example-step"><span class="step-badge">Single nutrient</span><div class="step-text">Urea provides only N. Farmers growing crops need both N and P — they'd have to apply two separate fertilizers</div></div>
+          <div class="example-step"><span class="step-badge">Efficiency</span><div class="step-text">One product supplies two nutrients → saves time, money, and application steps</div></div>
+          <div class="example-step"><span class="step-badge">Caveat</span><div class="step-text">DAP acidifies soil over time, so pH management is needed</div></div>
+          <div class="example-answer">✅ DAP supplies both N and P in one product — more efficient than single-nutrient fertilizers</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">In the Ostwald process, ammonia is first oxidized to form:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','B')"><div class="option-letter">A</div> NO₂</div>
+          <div class="quiz-option" onclick="answer(1,'B','B')"><div class="option-letter">B</div> NO (nitric oxide)</div>
+          <div class="quiz-option" onclick="answer(1,'C','B')"><div class="option-letter">C</div> N₂O</div>
+          <div class="quiz-option" onclick="answer(1,'D','B')"><div class="option-letter">D</div> N₂</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">The catalyst used in Step 1 of the Ostwald process is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Iron (Fe)</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> V₂O₅</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Platinum (Pt)</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Nickel (Ni)</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">When concentrated nitric acid is exposed to light, it turns brown due to formation of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> NO</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> N₂O₃</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> NO₂</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> HNO₂</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which fertilizer contains BOTH nitrogen and phosphorus?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Urea</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Anhydrous ammonia</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> DAP — (NH₄)₂HPO₄</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> UAN solution</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">In the soil, the conversion of NH₄⁺ to NO₃⁻ is called:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Denitrification</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Nitrogen fixation</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Nitrification</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Volatilization</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-3-5.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=ostwald+process+nitric+acid+industrial" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">The Ostwald Process — Making Nitric Acid</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=nitrogen+fertilizers+types+urea+DAP" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Nitrogen Fertilizers — Urea, DAP, UAN</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=nitrification+nitrogen+cycle+soil" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Nitrification in Soil — Nitrogen Cycle Explained</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=urea+production+process+ammonia+co2" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Urea Production — NH₃ + CO₂ Process</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 3.4</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Nitric Acid & Nitrogen Fertilizers</div>
+        <ul class="summary-list">
+          <li><strong>Nitric acid (HNO₃)</strong> — colorless, pungent liquid; density 1.51 g/cm³; commercial form 65–68%</li>
+          <li>Turns <strong>brown on exposure to light</strong> due to decomposition producing NO₂: 4HNO₃ → 4NO₂ + O₂ + 2H₂O</li>
+          <li><strong>Strong acid + strong oxidizing agent</strong>, especially when hot and concentrated</li>
+          <li><strong>Lab preparation:</strong> 2KNO₃ + H₂SO₄ → K₂SO₄ + 2HNO₃ (volatile acid displaced by non-volatile acid)</li>
+          <li><strong>Ostwald process</strong> — 3 steps: NH₃ → NO (Pt catalyst, 850 °C) → NO₂ → HNO₃ (NO recycled)</li>
+          <li><strong>Main use:</strong> making ammonium nitrate fertilizer (NH₃ + HNO₃ → NH₄NO₃)</li>
+          <li>Other uses: explosives (TNT), rocket fuel, dyes, pharmaceuticals, fungicides, metal etching</li>
+          <li><strong>N-based fertilizers:</strong> anhydrous NH₃ (~82% N), urea (46% N), UAN solution, DAP</li>
+          <li><strong>Urea synthesis:</strong> 2NH₃ + CO₂ → NH₂COONH₄ → (NH₂)₂CO + H₂O</li>
+          <li><strong>Urea hydrolysis in soil:</strong> (NH₂)₂CO + H₂O → CO₂ + 2NH₃ (volatilization loss if not incorporated)</li>
+          <li><strong>Nitrification:</strong> NH₄⁺ → NO₂⁻ (Nitrosomonas) → NO₃⁻ (Nitrobacter)</li>
+          <li>NH₄⁺ binds to negatively-charged soil particles; NO₃⁻ does not (leaches)</li>
+          <li><strong>DAP</strong> = (NH₄)₂HPO₄ — supplies both N and P; also used as fire retardant and yeast nutrient</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §3.3.2 + §3.3.3 (pp. 160–170)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-3.html" class="btn btn-ghost">← Lesson 3.3: Ammonia</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 3 · Lesson 4 of 9</div>
+      <a href="lesson-3-5.html" class="btn btn-primary">Next: Sulphuric Acid →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'B',2:'C',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{B:'✓ Correct! Step 1 of the Ostwald process oxidizes NH₃ to NO using a Pt catalyst.',wrong:'✗ Step 1: 4NH₃ + 5O₂ → 4NO + 6H₂O (produces NO).'},
+    2:{C:'✓ Correct! Platinum (Pt) is the catalyst in Step 1 of the Ostwald process.',wrong:'✗ Ostwald Step 1 catalyst = platinum (Pt).'},
+    3:{C:'✓ Correct! Exposure to light decomposes HNO₃ into NO₂ (brown gas), giving the brown color.',wrong:'✗ HNO₃ turns brown due to NO₂ from light-induced decomposition.'},
+    4:{C:'✓ Correct! DAP contains both N and P — that is its main advantage.',wrong:'✗ DAP (NH₄)₂HPO₄ has both N and P.'},
+    5:{C:'✓ Correct! Nitrification is the conversion of NH₄⁺ to NO₃⁻ via Nitrosomonas and Nitrobacter bacteria.',wrong:'✗ NH₄⁺ → NO₃⁻ conversion = nitrification.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','nitricprops','nitricuses','labprep','ostwald','fertilizers','soil','dap','experiments','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
