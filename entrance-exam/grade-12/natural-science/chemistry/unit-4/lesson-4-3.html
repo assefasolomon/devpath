@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4.3: Classification of Polymers | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif;vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.thermo{background:#FEF2F2;border-color:#FECACA}
+    .compare-card.thermoset{background:#DBEAFE;border-color:#BFDBFE}
+    .compare-card.homo{background:#F0FDF4;border-color:#BBF7D0}
+    .compare-card.co{background:#FEF3C7;border-color:#FDE68A}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.thermo .compare-card-title{color:#991B1B}
+    .compare-card.thermoset .compare-card-title{color:#1E40AF}
+    .compare-card.homo .compare-card-title{color:#166534}
+    .compare-card.co .compare-card-title{color:#92400E}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    .poly-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .poly-card{background:#fff;border:1.5px solid #FECACA;border-radius:var(--radius-lg);padding:1.25rem;transition:all var(--transition)}
+    .poly-card:hover{border-color:#DC2626;box-shadow:0 4px 12px rgba(220,38,38,.1);transform:translateY(-2px)}
+    .poly-icon{font-size:1.75rem;margin-bottom:.5rem}
+    .poly-name{font-size:.9rem;font-weight:700;color:#991B1B;margin-bottom:.4rem}
+    .poly-formula{font-size:.78rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin-bottom:.5rem}
+    .poly-desc{font-size:.8rem;color:var(--text);line-height:1.65;margin:0}
+    .completion-banner{background:linear-gradient(135deg,#166534,#15803D);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin:2rem 0;text-align:center;color:#fff}
+    .completion-banner .big{font-size:1.5rem;font-weight:900;margin-bottom:.5rem}
+    .completion-banner .small{font-size:.9rem;color:rgba(255,255,255,.85);line-height:1.7}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 4 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('homocopoly')"><div class="sidebar-dot"></div> Homo vs Copolymers</button>
+      <button class="sidebar-link" onclick="scrollTo('natursynth')"><div class="sidebar-dot"></div> Natural vs Synthetic</button>
+      <button class="sidebar-link" onclick="scrollTo('addcondense')"><div class="sidebar-dot"></div> Addition vs Condensation</button>
+      <button class="sidebar-link" onclick="scrollTo('thermo')"><div class="sidebar-dot"></div> Thermoplastics vs Thermosets</button>
+      <button class="sidebar-link" onclick="scrollTo('common')"><div class="sidebar-dot"></div> Common Synthetic Polymers</button>
+      <button class="sidebar-link" onclick="scrollTo('natural')"><div class="sidebar-dot"></div> Natural Polymers (Detailed)</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Introduction ✓</a>
+      <a href="lesson-4-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Polymerization ✓</a>
+      <a href="lesson-4-3.html" class="sidebar-link active"><div class="sidebar-dot"></div> L3: Classification</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 4</a> ›
+      Lesson 4.3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Polymers · MoE Textbook §4.3 · 🎉 Final Lesson</div>
+      <h1>📊 Classification of Polymers</h1>
+      <p>There are many ways to classify polymers: by monomer type (homo vs co), by origin (natural vs synthetic), by reaction type (addition vs condensation), and by thermal behavior (thermoplastic vs thermoset). This final Unit 4 lesson brings them all together.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~28 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Polymers can be classified in <strong>several different ways</strong>, depending on which property you focus on. In this lesson we cover <strong>four classification systems</strong> plus a detailed treatment of the most important synthetic and natural polymers.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Distinguish <strong>homopolymers</strong> from <strong>copolymers</strong></li>
+          <li>Classify polymers as <strong>natural or synthetic</strong></li>
+          <li>Classify polymers as <strong>addition or condensation</strong> types</li>
+          <li>Distinguish <strong>thermoplastics</strong> from <strong>thermosets</strong></li>
+          <li>Recognize <strong>common synthetic polymers</strong> and their properties</li>
+          <li>Describe the structure and role of <strong>natural polymers</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="homocopoly">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Classification 1 — Homo vs Copolymers</div><div class="section-subtitle">By number of monomer types</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="compare-grid">
+          <div class="compare-card homo">
+            <div class="compare-card-title">🟢 Homopolymers</div>
+            <p>
+              Made from <strong>only one type of monomer</strong>.<br><br>
+              <strong>Example:</strong> Polyethylene is synthesized by the polymerization of one type of monomer — ethene (ethylene).<br><br>
+              <strong>n CH₂=CH₂ → –(CH₂–CH₂)ₙ–</strong>
+            </p>
+          </div>
+          <div class="compare-card co">
+            <div class="compare-card-title">🟡 Copolymers</div>
+            <p>
+              Prepared by polymerizing <strong>more than one kind of monomer unit</strong>.<br><br>
+              <strong>Example:</strong> Ethene (H₂C=CH₂) and propene (H₂C=CH–CH₃) can be copolymerized to produce a polymer with two kinds of repeating units.
+            </p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Types of Copolymers</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Random copolymer</div>
+          <p>
+            Repeating units arranged in a <strong>random fashion</strong>: A-B-B-A-A-A-B-A-A
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Regular (alternating) copolymer</div>
+          <p>
+            Monomers arranged in a <strong>regular alternating sequence</strong>: A-B-A-B-A-B-A-B-A
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Random vs Regular Copolymers</div>
+          <svg viewBox="0 0 500 140" xmlns="http://www.w3.org/2000/svg">
+            <!-- Random -->
+            <text x="20" y="35" font-size="11" fill="#92400E" font-weight="bold">Random:</text>
+            <g>
+              <rect x="100" y="20" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="115" y="40" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+              <rect x="135" y="20" width="30" height="30" fill="#1E40AF" rx="4"/>
+              <text x="150" y="40" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">B</text>
+              <rect x="170" y="20" width="30" height="30" fill="#1E40AF" rx="4"/>
+              <text x="185" y="40" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">B</text>
+              <rect x="205" y="20" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="220" y="40" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+              <rect x="240" y="20" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="255" y="40" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+              <rect x="275" y="20" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="290" y="40" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+              <rect x="310" y="20" width="30" height="30" fill="#1E40AF" rx="4"/>
+              <text x="325" y="40" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">B</text>
+              <rect x="345" y="20" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="360" y="40" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+              <rect x="380" y="20" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="395" y="40" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+            </g>
+
+            <!-- Regular -->
+            <text x="20" y="105" font-size="11" fill="#92400E" font-weight="bold">Regular:</text>
+            <g>
+              <rect x="100" y="90" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="115" y="110" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+              <rect x="135" y="90" width="30" height="30" fill="#1E40AF" rx="4"/>
+              <text x="150" y="110" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">B</text>
+              <rect x="170" y="90" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="185" y="110" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+              <rect x="205" y="90" width="30" height="30" fill="#1E40AF" rx="4"/>
+              <text x="220" y="110" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">B</text>
+              <rect x="240" y="90" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="255" y="110" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+              <rect x="275" y="90" width="30" height="30" fill="#1E40AF" rx="4"/>
+              <text x="290" y="110" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">B</text>
+              <rect x="310" y="90" width="30" height="30" fill="#DC2626" rx="4"/>
+              <text x="325" y="110" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">A</text>
+              <rect x="345" y="90" width="30" height="30" fill="#1E40AF" rx="4"/>
+              <text x="360" y="110" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">B</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="natursynth">
+      <div class="section-header"><div class="section-icon">🌍</div>
+        <div><div class="section-title-text">Classification 2 — Natural vs Synthetic</div><div class="section-subtitle">By origin</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Natural polymers (biopolymers)</div>
+          <p>
+            Occur in nature and can be extracted. Common examples:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Carbohydrates</strong> — monosaccharides (glucose, fructose, galactose, ribose), disaccharides (sucrose, lactose, maltose)<br>
+            • <strong>Polysaccharides</strong> — starch, cellulose, gums<br>
+            • <strong>Proteins</strong> — enzymes, structural proteins<br>
+            • <strong>Fibers</strong> — wool, silk, cotton<br>
+            • <strong>Polyisoprenes</strong> — natural rubber<br>
+            • <strong>Nucleic acids</strong> — RNA, DNA
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Synthetic polymers (plastics)</div>
+          <p>
+            Human-made polymers. One well-known example is <strong>polyethylene</strong> — it has no taste or odour, and is lightweight, nontoxic, and relatively cheap.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key difference</div>
+          <p>
+            <strong>Natural</strong> polymers are produced by living organisms through biochemical processes.<br>
+            <strong>Synthetic</strong> polymers are produced industrially from petrochemicals or other chemical feedstocks.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="addcondense">
+      <div class="section-header"><div class="section-icon">⚗️</div>
+        <div><div class="section-title-text">Classification 3 — Addition vs Condensation</div><div class="section-subtitle">By reaction type</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="compare-grid">
+          <div class="compare-card thermo">
+            <div class="compare-card-title">🔴 Addition Polymers</div>
+            <p>
+              Formed by the <strong>addition reaction of an unsaturated monomer</strong> — no by-product formed.<br><br>
+              <strong>n CH₂=CHCl → –(CH₂–CHCl)ₙ–</strong><br>
+              (Vinyl chloride → PVC)<br><br>
+              <strong>Examples:</strong> Polyethylene, polypropylene, PVC, polystyrene, Teflon, natural rubber
+            </p>
+          </div>
+          <div class="compare-card thermoset">
+            <div class="compare-card-title">🔵 Condensation Polymers</div>
+            <p>
+              Formed from monomers with <strong>two functional groups</strong>, with the <strong>loss of a small molecule</strong> (usually water).<br><br>
+              <strong>HO–R–OH + HOOC–R'–COOH → polyester + H₂O</strong><br><br>
+              <strong>Examples:</strong> Nylons, polyesters (Dacron), Bakelite, carbohydrates, proteins
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="thermo">
+      <div class="section-header"><div class="section-icon">🌡️</div>
+        <div><div class="section-title-text">Classification 4 — Thermoplastics vs Thermosets</div><div class="section-subtitle">By response to heat</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="compare-grid">
+          <div class="compare-card thermo">
+            <div class="compare-card-title">🔴 Thermoplastic Polymers</div>
+            <p>
+              • <strong>Melt when heated</strong> and resolidify when cooled<br>
+              • Comprised of essentially <strong>linear or lightly branched</strong> polymer molecules<br>
+              • Can be <strong>remelted or reprocessed (recycled)</strong><br><br>
+              <strong>Examples:</strong> Polyethylene, polypropylene, PVC, Teflon, PMMA, nylon, polyester (Dacron), polystyrene, polyamide
+            </p>
+          </div>
+          <div class="compare-card thermoset">
+            <div class="compare-card-title">🔵 Thermoset Polymers</div>
+            <p>
+              • <strong>Do NOT melt</strong> when heated; decompose irreversibly at high temperatures<br>
+              • Substantially <strong>cross-linked</strong> — extensive 3-D network of covalent bonds<br>
+              • Exhibit resistance to heat, corrosion, and mechanical stress<br>
+              • <strong>Non-recyclable</strong><br><br>
+              <strong>Examples:</strong> Bakelite, cyanate esters, epoxy resin, fiberglass, polyester resin, polyurethane, silicone resin, vinyl esters, vulcanized rubber
+            </p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why thermosets can't be recycled</div>
+          <p>
+            Thermosets are held together by a <strong>covalent 3-D network</strong>. When heated, the covalent bonds don't break cleanly for reshaping — they just decompose. Because the network is permanent, thermosets can't be melted and reshaped like thermoplastics can.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="common">
+      <div class="section-header"><div class="section-icon">🏭</div>
+        <div><div class="section-title-text">Common Synthetic Polymers — Detailed</div><div class="section-subtitle">Structure, properties, and uses</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="poly-grid">
+          <div class="poly-card">
+            <div class="poly-icon">🛍️</div>
+            <div class="poly-name">Polyethylene</div>
+            <div class="poly-formula">–(CH₂–CH₂)ₙ–</div>
+            <div class="poly-desc">No taste or odour; lightweight, nontoxic, relatively cheap. Used in squeeze bottles, plastic wrapping, garment bags, trash bags, and electrical insulation.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🪣</div>
+            <div class="poly-name">Polypropylene</div>
+            <div class="poly-formula">–(CH₂–CH(CH₃))ₙ–</div>
+            <div class="poly-desc"><strong>Stronger than polyethylene</strong>. Used for food containers that can be washed in a dishwasher; ropes; fishing nets; carpets; bottles.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🚰</div>
+            <div class="poly-name">PVC (Polyvinyl chloride)</div>
+            <div class="poly-formula">–(CH₂–CHCl)ₙ–</div>
+            <div class="poly-desc">Third most widely produced plastic, after polyethylene and polypropylene. Used for pipes, leather-like materials, shoes, raincoats, wallpaper, floor tile, and phonograph records.</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">✈️</div>
+            <div class="poly-name">PMMA (Perspex / Plexiglass)</div>
+            <div class="poly-formula">–(CH₂–C(CH₃)(COOCH₃))ₙ–</div>
+            <div class="poly-desc">Polymethyl methacrylate — sold as Lucite or Plexiglass. A lightweight glass-like polymer used as a glass substitute (airplane windows, streetlights).</div>
+          </div>
+          <div class="poly-card">
+            <div class="poly-icon">🍳</div>
+            <div class="poly-name">PTFE (Teflon)</div>
+            <div class="poly-formula">–(CF₂–CF₂)ₙ–</div>
+            <div class="poly-desc">Polytetrafluoroethylene. Good resistance to chemical attack; works from −73 °C to 260 °C; low coefficient of friction (waxy/slippery). Used for non-stick coatings and electrical insulation.</div>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Teflon's unique property</div>
+          <p>
+            Teflon's very low coefficient of friction makes it feel <strong>waxy or slippery</strong> — that's why bread dough doesn't stick to a Teflon-coated surface. It's also why Teflon is used on non-stick cookware.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="natural">
+      <div class="section-header"><div class="section-icon">🌿</div>
+        <div><div class="section-title-text">Natural Polymers — Detailed</div><div class="section-subtitle">Biopolymers in depth</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.875rem">1. Carbohydrates</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Monosaccharides</td><td>Glucose, fructose, galactose, ribose</td></tr>
+            <tr><td>Disaccharides</td><td>Sucrose, lactose, maltose</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">2. Macromolecules</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Examples of biological macromolecules</div>
+          <p>
+            • <strong>Polysaccharides</strong> — starches (300–600 glucose units), cellulose, gums<br>
+            • <strong>Proteins</strong> — enzymes, structural proteins (skin, hair, muscles)<br>
+            • <strong>Fibers</strong> — wool, silk, cotton<br>
+            • <strong>Polyisoprenes</strong> — natural rubber<br>
+            • <strong>Nucleic acids</strong> — RNA, DNA (genetic material)
+          </p>
+        </div>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Natural Polymers — Key Examples</div>
+          <svg viewBox="0 0 540 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- Starch -->
+            <rect x="20" y="30" width="150" height="120" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="10"/>
+            <text x="95" y="55" font-size="12" fill="#92400E" text-anchor="middle" font-weight="bold">Starch</text>
+            <text x="95" y="75" font-size="10" fill="#92400E" text-anchor="middle">300–600 glucose</text>
+            <text x="95" y="95" font-size="10" fill="#92400E" text-anchor="middle">units</text>
+            <text x="95" y="120" font-size="10" fill="#78350F" text-anchor="middle" font-style="italic">Potatoes, corn, rice</text>
+
+            <!-- Cellulose -->
+            <rect x="190" y="30" width="150" height="120" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="10"/>
+            <text x="265" y="55" font-size="12" fill="#92400E" text-anchor="middle" font-weight="bold">Cellulose</text>
+            <text x="265" y="75" font-size="10" fill="#92400E" text-anchor="middle">Glucose chains</text>
+            <text x="265" y="95" font-size="10" fill="#92400E" text-anchor="middle">(β-1,4 linked)</text>
+            <text x="265" y="120" font-size="10" fill="#78350F" text-anchor="middle" font-style="italic">Cotton, wood</text>
+
+            <!-- Protein -->
+            <rect x="360" y="30" width="150" height="120" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="10"/>
+            <text x="435" y="55" font-size="12" fill="#92400E" text-anchor="middle" font-weight="bold">Protein</text>
+            <text x="435" y="75" font-size="10" fill="#92400E" text-anchor="middle">Amino acid chains</text>
+            <text x="435" y="95" font-size="10" fill="#92400E" text-anchor="middle">(peptide bonds)</text>
+            <text x="435" y="120" font-size="10" fill="#78350F" text-anchor="middle" font-style="italic">Skin, hair, muscles</text>
+          </svg>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Protein structure</div>
+          <p>
+            Proteins are condensation polymers of <strong>amino acids</strong>. Each amino acid has an amine group (–NH₂) and a carboxylic acid group (–COOH). The <strong>peptide bond (–CO–NH–)</strong> links them into long chains.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">All classifications from Lesson 4.3</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">📊 Lesson 4.3 — Classification of Polymers</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Homopolymer</div><div class="formula-math">One monomer type</div><div class="formula-note">e.g., polyethylene</div></div>
+          <div class="formula-item"><div class="formula-name">Copolymer</div><div class="formula-math">Two+ monomer types</div><div class="formula-note">Random or regular</div></div>
+          <div class="formula-item"><div class="formula-name">Natural polymer</div><div class="formula-math">From living organisms</div><div class="formula-note">Starch, protein, DNA</div></div>
+          <div class="formula-item"><div class="formula-name">Synthetic polymer</div><div class="formula-math">Human-made</div><div class="formula-note">Polyethylene, PVC, Teflon</div></div>
+          <div class="formula-item"><div class="formula-name">Addition polymer</div><div class="formula-math">Unsaturated monomer</div><div class="formula-note">No by-product</div></div>
+          <div class="formula-item"><div class="formula-name">Condensation polymer</div><div class="formula-math">Polyfunctional monomers</div><div class="formula-note">H₂O by-product</div></div>
+          <div class="formula-item"><div class="formula-name">Thermoplastic</div><div class="formula-math">Melts on heating</div><div class="formula-note">Recyclable</div></div>
+          <div class="formula-item"><div class="formula-name">Thermoset</div><div class="formula-math">Decomposes on heating</div><div class="formula-note">Not recyclable</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Homo vs Copolymer</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify each polymer as homopolymer or copolymer: (a) polyethylene, (b) Nylon 66, (c) PVC, (d) SBR (styrene-butadiene rubber).</div>
+          <div class="example-step"><span class="step-badge">(a) Polyethylene</span><div class="step-text"><span class="math">Homopolymer</span> — only ethylene monomers</div></div>
+          <div class="example-step"><span class="step-badge">(b) Nylon 66</span><div class="step-text"><span class="math">Copolymer</span> — two different monomers (diamine + diacid)</div></div>
+          <div class="example-step"><span class="step-badge">(c) PVC</span><div class="step-text"><span class="math">Homopolymer</span> — only vinyl chloride monomers</div></div>
+          <div class="example-step"><span class="step-badge">(d) SBR</span><div class="step-text"><span class="math">Copolymer</span> — styrene + butadiene</div></div>
+          <div class="example-answer">✅ Homo: polyethylene, PVC | Co: Nylon 66, SBR</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Thermoplastic or Thermoset?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify each as thermoplastic or thermoset: (a) polyethylene, (b) Bakelite, (c) PVC, (d) vulcanized rubber.</div>
+          <div class="example-step"><span class="step-badge">(a) Polyethylene</span><div class="step-text"><span class="math">Thermoplastic</span> — linear chains, melts on heating, recyclable</div></div>
+          <div class="example-step"><span class="step-badge">(b) Bakelite</span><div class="step-text"><span class="math">Thermoset</span> — cross-linked network, decomposes on heating</div></div>
+          <div class="example-step"><span class="step-badge">(c) PVC</span><div class="step-text"><span class="math">Thermoplastic</span> — melts and can be reshaped</div></div>
+          <div class="example-step"><span class="step-badge">(d) Vulcanized rubber</span><div class="step-text"><span class="math">Thermoset</span> — sulfur cross-links make it rigid</div></div>
+          <div class="example-answer">✅ Thermoplastic: polyethylene, PVC | Thermoset: Bakelite, vulcanized rubber</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Natural or Synthetic?</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify each polymer as natural or synthetic: cellulose, nylon, DNA, Teflon, silk, PVC, natural rubber, polystyrene.</div>
+          <div class="example-step"><span class="step-badge">Natural</span><div class="step-text"><span class="math">Cellulose, DNA, silk, natural rubber</span> — from plants or animals</div></div>
+          <div class="example-step"><span class="step-badge">Synthetic</span><div class="step-text"><span class="math">Nylon, Teflon, PVC, polystyrene</span> — made industrially</div></div>
+          <div class="example-answer">✅ Natural: cellulose, DNA, silk, natural rubber | Synthetic: nylon, Teflon, PVC, polystyrene</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Why Teflon is Non-Stick</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why Teflon (PTFE) is used for non-stick cookware, and list two other uses.</div>
+          <div class="example-step"><span class="step-badge">Structure</span><div class="step-text">Teflon has a <span class="math">very low coefficient of friction</span> — it feels waxy or slippery to touch</div></div>
+          <div class="example-step"><span class="step-badge">Why non-stick works</span><div class="step-text">Because of the low friction, food (like bread dough) doesn't stick to a Teflon-coated surface</div></div>
+          <div class="example-step"><span class="step-badge">Other properties</span><div class="step-text">Also resists chemical attack and works from −73 °C to 260 °C with no effect on properties</div></div>
+          <div class="example-step"><span class="step-badge">Other uses</span><div class="step-text"><span class="math">Electrical insulation</span>, and coatings for laboratory equipment</div></div>
+          <div class="example-answer">✅ Teflon's low friction makes it non-stick; it's also used for electrical insulation and chemical-resistant coatings</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">Protein Peptide Bonds</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Proteins are natural condensation polymers. Explain what monomer they use and what bond links the monomers.</div>
+          <div class="example-step"><span class="step-badge">Monomer</span><div class="step-text"><span class="math">Amino acids</span> — each has an amine (–NH₂) and a carboxyl (–COOH) group</div></div>
+          <div class="example-step"><span class="step-badge">Bond formation</span><div class="step-text">The amine of one amino acid reacts with the carboxyl of another, releasing <span class="math">water (H₂O)</span></div></div>
+          <div class="example-step"><span class="step-badge">Bond type</span><div class="step-text">Forms a <span class="math">peptide bond (–CO–NH–)</span> — an amide linkage</div></div>
+          <div class="example-step"><span class="step-badge">Polymer type</span><div class="step-text"><span class="math">Condensation polymerization</span> — because water is released</div></div>
+          <div class="example-answer">✅ Monomer: amino acids. Bond: peptide (–CO–NH–). Type: condensation polymerization</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">A polymer made from only one type of monomer is called a:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> Copolymer</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> Random polymer</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> Homopolymer</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> Regular polymer</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Which of the following is a thermoset polymer?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Polyethylene</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> PVC</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Bakelite</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Nylon</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">Which of the following is NOT a natural polymer?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> Cellulose</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Silk</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> Teflon</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> DNA</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Thermosetting polymers are not recyclable because:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> They contain too much plasticizer</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> They melt at room temperature</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> They have a covalently cross-linked 3-D network that decomposes instead of melting</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> They are too expensive to recycle</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Proteins are examples of which type of polymer?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Synthetic, addition polymer</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Natural, addition polymer</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Natural, condensation polymer</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Synthetic, condensation polymer</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="../index.html" class="btn btn-outline" style="margin-left:.75rem">Back to Chemistry Hub →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=classification+of+polymers" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Classification of Polymers — Complete Overview</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=thermoplastic+vs+thermosetting+polymers" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Thermoplastic vs Thermosetting Polymers</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=homopolymer+vs+copolymer" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Homopolymers vs Copolymers — Explained</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=natural+polymers+starch+cellulose+protein" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Natural Polymers — Starch, Cellulose, Proteins</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 4.3</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Classification of Polymers</div>
+        <ul class="summary-list">
+          <li>Polymers can be classified in <strong>four main ways</strong>: by monomer type, by origin, by reaction type, and by thermal behavior</li>
+          <li><strong>Homopolymers</strong> — one monomer type (e.g., polyethylene, PVC)</li>
+          <li><strong>Copolymers</strong> — two or more monomer types; can be <strong>random</strong> or <strong>regular (alternating)</strong></li>
+          <li><strong>Natural polymers (biopolymers)</strong> — carbohydrates, polysaccharides, proteins, fibers, natural rubber, DNA/RNA</li>
+          <li><strong>Synthetic polymers (plastics)</strong> — human-made; polyethylene is the classic example</li>
+          <li><strong>Addition polymers</strong> — from unsaturated monomers; no by-product (e.g., PE, PP, PVC, PS, Teflon)</li>
+          <li><strong>Condensation polymers</strong> — polyfunctional monomers with small-molecule by-product (e.g., nylon, Dacron, Bakelite, carbohydrates, proteins)</li>
+          <li><strong>Thermoplastics</strong> — melt when heated, can be remelted and recycled (linear/branched); e.g., PE, PP, PVC, Teflon, PMMA, nylon</li>
+          <li><strong>Thermosets</strong> — do NOT melt, decompose irreversibly; are cross-linked 3-D networks; non-recyclable; e.g., Bakelite, epoxy, vulcanized rubber</li>
+          <li>Common synthetic polymers and uses: <strong>PE</strong> (bags, bottles), <strong>PP</strong> (food containers, ropes), <strong>PVC</strong> (pipes, raincoats), <strong>PMMA</strong> (airplane windows), <strong>PTFE/Teflon</strong> (non-stick, insulation)</li>
+          <li>Common natural polymers: <strong>starch</strong> (300–600 glucose units), <strong>cellulose</strong> (glucose, β-1,4), <strong>proteins</strong> (amino acids, peptide bonds), <strong>natural rubber</strong> (isoprene), <strong>DNA/RNA</strong> (nucleotides)</li>
+          <li>Proteins are <strong>natural condensation polymers</strong> of amino acids joined by peptide (–CO–NH–) bonds</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §4.3 (pp. 224–239)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="completion-banner">
+      <div class="big">🎉 Unit 4 — Polymers Complete! 🎉</div>
+      <div class="small">
+        You've finished all 3 lessons of Unit 4: from monomers, polymers, and degree of polymerization, through addition and condensation polymerization, to the four systems of classification. You now understand the chemistry of the materials that build the modern world.<br><br>
+        <strong>Remaining:</strong> Unit 5 — Introduction to Environmental Chemistry (5.1–5.4) · Then Chemistry is complete!
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-4-2.html" class="btn btn-ghost">← Lesson 4.2: Polymerization</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 4 · Lesson 3 of 3 · ✅ Unit Complete</div>
+      <a href="../index.html" class="btn btn-primary">Back to Chemistry Hub →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'C',3:'C',4:'C',5:'C'};
+  const feedbacks={
+    1:{C:'✓ Correct! A homopolymer is made from only one type of monomer.',wrong:'✗ Homopolymer = one monomer type.'},
+    2:{C:'✓ Correct! Bakelite is a thermoset — a cross-linked 3-D network that decomposes instead of melting.',wrong:'✗ Bakelite is a thermoset.'},
+    3:{C:'✓ Correct! Teflon is synthetic (human-made). Cellulose, silk, and DNA are all natural.',wrong:'✗ Teflon is synthetic; cellulose, silk, and DNA are natural.'},
+    4:{C:'✓ Correct! Thermosets have a covalent 3-D cross-linked network, so they decompose rather than melt and cannot be reshaped.',wrong:'✗ Thermosets decompose because of their cross-linked network.'},
+    5:{C:'✓ Correct! Proteins are natural condensation polymers of amino acids joined by peptide bonds.',wrong:'✗ Proteins are natural condensation polymers.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','homocopoly','natursynth','addcondense','thermo','common','natural','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
