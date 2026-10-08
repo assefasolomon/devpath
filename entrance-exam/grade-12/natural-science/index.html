@@ -23,24 +23,28 @@
     .breadcrumb a{color:#DC2626;text-decoration:none}
     .breadcrumb a:hover{text-decoration:underline}
     .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-    .progress-summary{font-size:.8rem;font-weight:600;color:#16A34A;background:#F0FDF4;border:1px solid #BBF7D0;padding:4px 12px;border-radius:999px}
+    .progress-summary{font-size:.8rem;font-weight:600;color:#166534;background:#F0FDF4;border:1px solid #BBF7D0;padding:4px 12px;border-radius:999px}
     .progress-partial{font-size:.8rem;font-weight:600;color:#92400E;background:#FFFBEB;border:1px solid #FDE68A;padding:4px 12px;border-radius:999px}
     .subject-list{display:flex;flex-direction:column;gap:1rem}
     .subject-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:18px;padding:1.5rem 1.75rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1.5rem;transition:all .25s ease;position:relative;overflow:hidden}
     .subject-card:hover{border-color:#DC2626;transform:translateY(-3px);box-shadow:0 12px 32px rgba(220,38,38,.14)}
     .subject-card.complete{border-color:#BBF7D0;background:linear-gradient(135deg,#fff 0%,#F0FDF4 100%)}
     .subject-card.complete:hover{border-color:#16A34A;box-shadow:0 12px 32px rgba(22,163,74,.16)}
+    .subject-card.building{border-color:#BBF7D0;background:linear-gradient(135deg,#fff 0%,#F0FDF4 100%)}
+    .subject-card.building:hover{border-color:#16A34A;box-shadow:0 12px 32px rgba(22,163,74,.16)}
     .subject-icon{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;background:linear-gradient(135deg,#7F1D1D,#991B1B);color:#fff}
     .subject-card.complete .subject-icon{background:linear-gradient(135deg,#166534,#16A34A)}
+    .subject-card.building .subject-icon{background:linear-gradient(135deg,#14532D,#16A34A)}
     .subject-info{flex:1;min-width:0}
     .subject-title{font-size:1.35rem;font-weight:900;color:#0f172a;margin-bottom:.35rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;letter-spacing:-.01em}
     .subject-check{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;color:#166534;background:#DCFCE7;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
+    .subject-badge-building{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;color:#166534;background:#DCFCE7;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
     .subject-desc{font-size:.88rem;color:#475569;line-height:1.6;margin-bottom:.5rem}
     .subject-units{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
     .unit-chip{font-size:.72rem;font-weight:600;color:#991B1B;background:#FEE2E2;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
-    .subject-card.complete .unit-chip{color:#166534;background:#DCFCE7}
+    .subject-card.complete .unit-chip,.subject-card.building .unit-chip{color:#166534;background:#DCFCE7}
     .subject-arrow{color:#DC2626;font-weight:900;font-size:1.6rem;flex-shrink:0}
-    .subject-card.complete .subject-arrow{color:#16A34A}
+    .subject-card.complete .subject-arrow,.subject-card.building .subject-arrow{color:#16A34A}
     .coming-soon{background:#fff;border:1.5px dashed #cbd5e1;border-radius:18px;padding:1.5rem 1.75rem;display:flex;align-items:center;gap:1.5rem;opacity:.75}
     .coming-soon .subject-icon{background:linear-gradient(135deg,#94a3b8,#64748b)}
     .coming-soon .subject-title{color:#64748b}
@@ -85,8 +89,8 @@
     <h1>Natural Science</h1>
     <p>The complete Grade 12 Natural Science curriculum — Physics, Chemistry, Biology, and Mathematics. Every lesson, every quiz, every review, prepared for the EUEE.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="num">2</div><div class="label">Subjects Live</div></div>
-      <div class="hero-stat"><div class="num">72</div><div class="label">Lessons</div></div>
+      <div class="hero-stat"><div class="num">3</div><div class="label">Subjects Live</div></div>
+      <div class="hero-stat"><div class="num">72+</div><div class="label">Lessons Built</div></div>
       <div class="hero-stat"><div class="num">360+</div><div class="label">Quiz Questions</div></div>
       <div class="hero-stat"><div class="num">2</div><div class="label">Full Reviews</div></div>
     </div>
@@ -103,7 +107,7 @@
 
   <div class="section-title">
     <span>Subjects</span>
-    <span class="progress-summary">✓ 2 / 4 Subjects Complete</span>
+    <span class="progress-summary">✓ 2 Complete · 1 Building · 1 Pending</span>
   </div>
 
   <div class="subject-list">
@@ -139,13 +143,22 @@
       <span class="subject-arrow">→</span>
     </a>
 
-    <div class="coming-soon">
+    <a href="biology/index.html" class="subject-card building">
       <div class="subject-icon">🧬</div>
       <div class="subject-info">
-        <div class="subject-title">Biology <span class="cs-badge">Coming Soon</span></div>
-        <div class="subject-desc">Cell biology, genetics, evolution, human biology, and ecology — the full Grade 12 Biology curriculum.</div>
+        <div class="subject-title">Biology <span class="subject-badge-building">🚀 Building Now</span></div>
+        <div class="subject-desc">The full Grade 12 Biology curriculum — applications of biology, microorganisms, energy transformation, evolution, human body systems, and climate change.</div>
+        <div class="subject-units">
+          <span class="unit-chip">Applications of Biology</span>
+          <span class="unit-chip">Microorganisms</span>
+          <span class="unit-chip">Energy Transformation</span>
+          <span class="unit-chip">Evolution</span>
+          <span class="unit-chip">Human Body System</span>
+          <span class="unit-chip">Climate Change</span>
+        </div>
       </div>
-    </div>
+      <span class="subject-arrow">→</span>
+    </a>
 
     <div class="coming-soon">
       <div class="subject-icon">📐</div>
@@ -161,7 +174,7 @@
   <div class="fsh-footer-inner">
     <div class="fsh-footer-bottom">
       <p>© 2025 Freelance Skills Hub · Grade 12 Natural Science</p>
-      <p>Physics & Chemistry Complete · Biology & Mathematics Coming Soon</p>
+      <p>Physics & Chemistry Complete · Biology Building · Mathematics Coming Soon</p>
     </div>
   </div>
 </footer>
