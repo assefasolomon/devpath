@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5.2: Environmental Pollution | Chemistry Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#DC2626}
+    .sidebar-link.active{background:#FEE2E2;color:#991B1B;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7F1D1D,#991B1B);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FEE2E2}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#DC2626;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FEF2F2;border:1.5px solid #FECACA;border-left:5px solid #DC2626;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#991B1B;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .formula-card{background:linear-gradient(135deg,#0F172A,#7F1D1D);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem;color:#fff}
+    .formula-card-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#FCA5A5;margin-bottom:1.25rem}
+    .formula-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#F87171;font-family:'Georgia',serif;line-height:1.5}
+    .formula-note{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.4rem;line-height:1.5}
+    .example-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:1.25rem}
+    .example-header{background:#DC2626;padding:.875rem 1.5rem;display:flex;align-items:center;gap:10px}
+    .example-num{background:rgba(255,255,255,.2);color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px}
+    .example-title{font-size:.875rem;font-weight:700;color:#fff}
+    .example-body{padding:1.5rem}
+    .example-problem{background:var(--surface-2);border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:var(--heading);margin-bottom:1rem;border-left:3px solid #DC2626}
+    .example-step{display:flex;gap:.875rem;margin-bottom:.75rem;align-items:flex-start}
+    .step-badge{background:#FEE2E2;color:#991B1B;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:999px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+    .step-text{font-size:.875rem;color:var(--text);line-height:1.7}
+    .step-text .math{color:#DC2626;font-weight:700;font-family:'Georgia',serif}
+    .example-answer{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius);padding:.875rem 1rem;font-size:.9rem;color:#166534;font-weight:700;margin-top:1rem}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#DC2626;background:#FEF2F2}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #DC2626;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#DC2626}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FEF2F2,#FEE2E2);border:1.5px solid #FECACA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#991B1B;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(220,38,38,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#DC2626;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#DC2626;border-radius:999px;transition:width .5s ease}
+    .visual-box{background:var(--surface-2);border-radius:var(--radius-lg);padding:1.5rem;margin:1rem 0;text-align:center}
+    .visual-box-title{font-size:.85rem;font-weight:700;color:#991B1B;margin-bottom:1rem}
+    .visual-box svg{width:100%;max-width:520px;height:auto}
+    .visual-box-caption{font-size:.75rem;color:var(--text-muted);margin-top:.875rem;line-height:1.5}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#DC2626;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);font-family:'Georgia',serif;vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .reaction-block{background:#0F172A;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;font-family:'Georgia',serif;line-height:2}
+    .reaction-block .label{color:#F87171;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-sans);margin-bottom:.4rem;display:block}
+    .reaction-block .eq{color:#E2E8F0;font-size:.95rem;font-weight:600}
+    .pollutant-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .pollutant-card{background:#fff;border:1.5px solid #FECACA;border-radius:var(--radius-lg);padding:1.25rem;transition:all var(--transition)}
+    .pollutant-card:hover{border-color:#DC2626;box-shadow:0 4px 12px rgba(220,38,38,.1);transform:translateY(-2px)}
+    .pollutant-icon{font-size:1.75rem;margin-bottom:.5rem}
+    .pollutant-name{font-size:.9rem;font-weight:700;color:#991B1B;margin-bottom:.4rem}
+    .pollutant-formula{font-size:.78rem;font-family:'Georgia',serif;color:#DC2626;font-weight:700;margin-bottom:.5rem}
+    .pollutant-desc{font-size:.8rem;color:var(--text);line-height:1.65;margin:0}
+    .reduction-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin:1rem 0}
+    .reduction-card{background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:var(--radius-lg);padding:1rem;text-align:center}
+    .reduction-icon{font-size:1.5rem;margin-bottom:.4rem}
+    .reduction-text{font-size:.82rem;color:#166534;font-weight:600;margin:0;line-height:1.5}
+    .compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin:1rem 0}
+    .compare-card{border-radius:var(--radius-lg);padding:1.25rem;border:2px solid}
+    .compare-card.air{background:#DBEAFE;border-color:#BFDBFE}
+    .compare-card.water{background:#E0F2FE;border-color:#BAE6FD}
+    .compare-card.land{background:#FED7AA;border-color:#FDBA74}
+    .compare-card-title{font-size:.9rem;font-weight:700;margin-bottom:.75rem}
+    .compare-card.air .compare-card-title{color:#1E40AF}
+    .compare-card.water .compare-card-title{color:#0369A1}
+    .compare-card.land .compare-card-title{color:#9A3412}
+    .compare-card p{font-size:.82rem;color:var(--text);line-height:1.7;margin:0}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Chemistry Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Chemistry Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 5 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:0%"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollTo('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollTo('overview')"><div class="sidebar-dot"></div> What is Pollution?</button>
+      <button class="sidebar-link" onclick="scrollTo('air')"><div class="sidebar-dot"></div> Air Pollution</button>
+      <button class="sidebar-link" onclick="scrollTo('airpollutants')"><div class="sidebar-dot"></div> Air Pollutants in Detail</button>
+      <button class="sidebar-link" onclick="scrollTo('airreduce')"><div class="sidebar-dot"></div> Reducing Air Pollution</button>
+      <button class="sidebar-link" onclick="scrollTo('water')"><div class="sidebar-dot"></div> Water Pollution</button>
+      <button class="sidebar-link" onclick="scrollTo('waterreduce')"><div class="sidebar-dot"></div> Reducing Water Pollution</button>
+      <button class="sidebar-link" onclick="scrollTo('land')"><div class="sidebar-dot"></div> Land Pollution</button>
+      <button class="sidebar-link" onclick="scrollTo('landreduce')"><div class="sidebar-dot"></div> Reducing Land Pollution</button>
+      <button class="sidebar-link" onclick="scrollTo('examples')"><div class="sidebar-dot"></div> Worked Examples</button>
+      <button class="sidebar-link" onclick="scrollTo('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollTo('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollTo('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="lesson-5-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Introduction ✓</a>
+      <a href="lesson-5-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Pollution</a>
+      <a href="lesson-5-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Global Warming</a>
+      <a href="lesson-5-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Green Chemistry</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../index.html">Grade 12</a> ›
+      <a href="../index.html">Natural Science</a> ›
+      <a href="index.html">Chemistry</a> ›
+      <a href="index.html">Unit 5</a> ›
+      Lesson 5.2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Environmental Chemistry · MoE Textbook §5.2</div>
+      <h1>🏭 Environmental Pollution</h1>
+      <p>Pollution takes three main forms: air, water, and land. Each has its own sources, its own chemistry, and its own remedies. This lesson breaks down the pollutants, the damage they cause, and the methods we use to reduce them.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">✏️ <strong>Examples:</strong> 5 worked</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Pollution is the dark side of industrial progress. When chemicals enter the environment faster than natural cycles can process them, they accumulate and cause harm. In this lesson we'll examine the three main types — <strong>air, water, and land pollution</strong> — and the methods we use to fight each.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>pollution</strong> and <strong>pollutant</strong></li>
+          <li>Identify the major <strong>air pollutants</strong> and their effects</li>
+          <li>Explain <strong>water pollution</strong> — eutrophication, sewage, fertilizers, pesticides</li>
+          <li>Explain <strong>land pollution</strong> — plastics, garbage, mercury</li>
+          <li>List methods to <strong>reduce</strong> each type of pollution</li>
+          <li>Recognize how the three types of pollution are <strong>interconnected</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="overview">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is Pollution?</div><div class="section-subtitle">Definitions</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Pollution (MoE Textbook, p. 256)</div>
+          <p>
+            <strong>Pollution</strong> is any discharge of a solid, liquid, or gaseous substance or radiation (energy) into an environment that causes unwanted changes. It causes short-term or long-term harm that affects the Earth's ecological balance and lowers the quality of life in the environment.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Pollutant</div>
+          <p>
+            A <strong>pollutant</strong> is any substance that changes air, water, or any other natural resource in a way that impairs the use of the resource. Pollutants are discharged into the environment as a result of:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Natural events</strong> — like a volcanic eruption<br>
+            • <strong>Human activities</strong> — like chemical industries, agriculture, transportation
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Three types of pollution</div>
+          <p>
+            Pollutants can be classified by the type of pollution they cause:<br>
+            <strong>1. Air pollution</strong><br>
+            <strong>2. Water pollution</strong><br>
+            <strong>3. Land pollution</strong>
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Pollution anywhere threatens everywhere</div>
+          <p>
+            Air pollution released over one country can fall as acid rain in another. Water pollution in a river can contaminate the ocean. Land pollution can leach into groundwater. <strong>Air pollution anywhere is a potential threat elsewhere.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="air">
+      <div class="section-header"><div class="section-icon">🌬️</div>
+        <div><div class="section-title-text">Air Pollution</div><div class="section-subtitle">MoE Textbook, p. 256</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition</div>
+          <p>
+            <strong>Air pollution</strong> is caused by the presence of contaminant gaseous substances in the air that affect the lives of plants and animals on Earth.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Composition of the atmosphere as a "solution"</div>
+          <p>
+            The atmosphere is considered a solution. Since N₂ is the molecule present in greatest amount, N₂ is the "solvent" — and O₂ is the solute present in largest amount.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Atmospheric Gases by Volume</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Gas</th><th>Percent by volume</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Nitrogen (N₂)</td><td>78%</td></tr>
+            <tr><td>Oxygen (O₂)</td><td>20.95%</td></tr>
+            <tr><td>Argon (Ar)</td><td>0.93%</td></tr>
+            <tr><td>Gaseous water (H₂O vapor)</td><td>0.08%</td></tr>
+            <tr><td>Carbon dioxide (CO₂)</td><td>0.04% and increasing</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why CO₂ is a worry</div>
+          <p>
+            CO₂ is only 0.04% of the atmosphere — but it's <strong>increasing</strong>. Because CO₂ is a greenhouse gas, that small percentage matters enormously for global climate.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="airpollutants">
+      <div class="section-header"><div class="section-icon">⚠️</div>
+        <div><div class="section-title-text">Major Air Pollutants in Detail</div><div class="section-subtitle">Sources, effects, chemistry</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="pollutant-grid">
+          <div class="pollutant-card">
+            <div class="pollutant-icon">🟡</div>
+            <div class="pollutant-name">Sulfur Dioxide</div>
+            <div class="pollutant-formula">SO₂</div>
+            <div class="pollutant-desc">From combustion of coal and petroleum, and metal extraction from sulfide ores. Causes coughing, chest pains, shortness of breath. Thought to cause bronchitis and lung diseases. Slowly oxidizes to SO₃ in air.</div>
+          </div>
+          <div class="pollutant-card">
+            <div class="pollutant-icon">🟠</div>
+            <div class="pollutant-name">Nitrogen Oxides</div>
+            <div class="pollutant-formula">NO and NO₂</div>
+            <div class="pollutant-desc">Formed by natural processes (thunderstorms) and by combustion of fossil fuels. NO catalyzes ozone decomposition. Contributes to acid rain and photochemical smog.</div>
+          </div>
+          <div class="pollutant-card">
+            <div class="pollutant-icon">⚫</div>
+            <div class="pollutant-name">Carbon Monoxide</div>
+            <div class="pollutant-formula">CO</div>
+            <div class="pollutant-desc">From incomplete combustion of fuel. Prolonged exposure impairs vision, produces headaches, strains the heart. <strong>Reduces oxygen-carrying capacity of blood</strong> by reacting with hemoglobin.</div>
+          </div>
+          <div class="pollutant-card">
+            <div class="pollutant-icon">💨</div>
+            <div class="pollutant-name">Hydrocarbons & Ozone</div>
+            <div class="pollutant-formula">CₓHᵧ, O₃</div>
+            <div class="pollutant-desc">Responsible for <strong>photochemical smog</strong> — a reddish-brown haze irritating to eyes, nose, and lungs. Causes extensive damage to vegetation.</div>
+          </div>
+          <div class="pollutant-card">
+            <div class="pollutant-icon">🌫️</div>
+            <div class="pollutant-name">Particulates</div>
+            <div class="pollutant-formula">Dust, ash, smoke</div>
+            <div class="pollutant-desc">From dust storms, forest fires, volcanic eruptions, mining, and burning coal/oil. Industrial areas contain particles of limestone, fertilizers, coal, cement, silica. <strong>Irritate the lungs</strong> and affect breathing.</div>
+          </div>
+          <div class="pollutant-card">
+            <div class="pollutant-icon">🧊</div>
+            <div class="pollutant-name">Chlorofluorocarbons</div>
+            <div class="pollutant-formula">CFCs</div>
+            <div class="pollutant-desc">Used as refrigerants, solvents, plastic foam-blowing agents. Release <strong>Cl· free radicals</strong> that destroy ozone. Depletion of ozone layer → allows dangerous UV radiation → skin cancer.</div>
+          </div>
+          <div class="pollutant-card">
+            <div class="pollutant-icon">🧴</div>
+            <div class="pollutant-name">Volatile Organic Compounds</div>
+            <div class="pollutant-formula">VOCs</div>
+            <div class="pollutant-desc">Released from burning gasoline, wood, natural gas, coal. Also from thinners, paints, cigarettes, solvents, air fresheners, cleaners, pesticides.</div>
+          </div>
+          <div class="pollutant-card">
+            <div class="pollutant-icon">⚡</div>
+            <div class="pollutant-name">PCBs</div>
+            <div class="pollutant-formula">Polychlorinated biphenyls</div>
+            <div class="pollutant-desc">Organic chlorine compounds once widely used as coolants, dielectric fluids in electrical equipment, heat transfer fluids. Persistent and toxic.</div>
+          </div>
+          <div class="pollutant-card">
+            <div class="pollutant-icon">🔥</div>
+            <div class="pollutant-name">Excess CO₂</div>
+            <div class="pollutant-formula">CO₂</div>
+            <div class="pollutant-desc">From burning coal and petroleum for electricity, vehicles, heating, industry. Releases about <strong>20 billion tonnes of CO₂ annually</strong>. Causes rise in global temperature via greenhouse effect.</div>
+          </div>
+          <div class="pollutant-card">
+            <div class="pollutant-icon">🧪</div>
+            <div class="pollutant-name">Heavy Metals (Lead)</div>
+            <div class="pollutant-formula">Pb</div>
+            <div class="pollutant-desc">From vehicle engines using fuels with tetraethyl lead, and from lead paints. High levels damage brain, kidneys, and liver.</div>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Atmospheric Reactions</h3>
+
+        <div class="reaction-block">
+          <span class="label">NO catalyzes ozone decomposition in upper atmosphere</span>
+          <div class="eq">NO + O₃ → O₂ + NO₂ (net: 2O₃ → 3O₂)</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">NO oxidized by O₂ in UV light</span>
+          <div class="eq">2NO(g) + O₂(g) —[UV]→ 2NO₂(g)</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">Acid rain formation</span>
+          <div class="eq">SO₂ + H₂O → H₂SO₃; SO₃ + H₂O → H₂SO₄; NO₂ + H₂O → HNO₃</div>
+        </div>
+
+        <div class="reaction-block">
+          <span class="label">CFC decomposition and ozone destruction</span>
+          <div class="eq">CF₂Cl₂ —[UV]→ CF₂Cl· + Cl· &nbsp;&nbsp;|&nbsp;&nbsp; Cl· + O₃ → ClO + O₂</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Effects of acid rain</div>
+          <p>
+            • Accelerates corrosion and deterioration of metals, buildings, statues<br>
+            • Causes tree defoliation (loss of leaves)<br>
+            • Releases heavy metal ions from soil into water courses<br>
+            • Causes drop in pH of rivers and lakes → kills fish
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="airreduce">
+      <div class="section-header"><div class="section-icon">🛡️</div>
+        <div><div class="section-title-text">Methods of Reducing Air Pollution</div><div class="section-subtitle">MoE Textbook, p. 259</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="reduction-grid">
+          <div class="reduction-card">
+            <div class="reduction-icon">🚌</div>
+            <p class="reduction-text">Use public transportation</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">💡</div>
+            <p class="reduction-text">Turn off lights when not in use</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">♻️</div>
+            <p class="reduction-text">Recycle and reuse</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">🚫</div>
+            <p class="reduction-text">Avoid plastic bags</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">🔥</div>
+            <p class="reduction-text">Reduce forest fires and smoking</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">🌬️</div>
+            <p class="reduction-text">Use fans instead of air conditioners</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">🏭</div>
+            <p class="reduction-text">Use filters on chimneys</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">🌳</div>
+            <p class="reduction-text">Implement afforestation (plant trees)</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">🧪</div>
+            <p class="reduction-text">Avoid products with chemicals</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">🎆</div>
+            <p class="reduction-text">Avoid crackers</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The logic behind these methods</div>
+          <p>
+            All these methods aim to either <strong>reduce emissions at the source</strong> (public transport, filters on chimneys, less electricity) or <strong>absorb existing pollutants</strong> (afforestation). Filters on chimneys capture particulates before they leave the factory.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="water">
+      <div class="section-header"><div class="section-icon">💧</div>
+        <div><div class="section-title-text">Water Pollution</div><div class="section-subtitle">MoE Textbook, p. 260</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition</div>
+          <p>
+            <strong>Water pollution</strong> is the degradation of the quality of water brought about by the discharge of <strong>untreated sewage, industrial and agricultural waste, and oil spillage</strong>. Water is polluted if it contains matter that affects the health of living things or causes damage to property.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Major water pollutants</div>
+          <p>
+            • Nitrate and phosphate fertilizers washed out of the soil<br>
+            • Phosphate detergents<br>
+            • Untreated sewage<br>
+            • Insecticides and herbicides<br>
+            • Heavy metal ions<br>
+            • Acidic and/or basic residues released by industrial processes
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Eutrophication Sequence</h3>
+
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Phosphate and nitrate fertilizers washed from soil and phosphate detergents from untreated water enter streams, rivers, lakes, and seas. These dissolved minerals are <strong>valuable nutrients for plants</strong> — and their discharge accelerates the growth of surface-water plants, such as algae.
+        </p>
+
+        <div class="visual-box">
+          <div class="visual-box-title">Eutrophication — A Chain of Events</div>
+          <svg viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Step 1 -->
+            <rect x="20" y="60" width="90" height="60" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="6"/>
+            <text x="65" y="85" font-size="10" fill="#92400E" text-anchor="middle" font-weight="bold">Fertilizers</text>
+            <text x="65" y="102" font-size="9" fill="#92400E" text-anchor="middle">+ detergents</text>
+            <text x="65" y="115" font-size="8" fill="#92400E" text-anchor="middle">washed into water</text>
+
+            <!-- Arrow -->
+            <line x1="115" y1="90" x2="135" y2="90" stroke="#DC2626" stroke-width="2.5" marker-end="url(#ea1)"/>
+            <defs>
+              <marker id="ea1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#DC2626"/></marker>
+            </defs>
+
+            <!-- Step 2 -->
+            <rect x="140" y="60" width="90" height="60" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="6"/>
+            <text x="185" y="85" font-size="10" fill="#92400E" text-anchor="middle" font-weight="bold">Algal bloom</text>
+            <text x="185" y="102" font-size="9" fill="#92400E" text-anchor="middle">Rapid growth of</text>
+            <text x="185" y="115" font-size="8" fill="#92400E" text-anchor="middle">algae</text>
+
+            <!-- Arrow -->
+            <line x1="235" y1="90" x2="255" y2="90" stroke="#DC2626" stroke-width="2.5" marker-end="url(#ea1)"/>
+
+            <!-- Step 3 -->
+            <rect x="260" y="60" width="90" height="60" fill="#FEF3C7" stroke="#92400E" stroke-width="2" rx="6"/>
+            <text x="305" y="85" font-size="10" fill="#92400E" text-anchor="middle" font-weight="bold">Algae die</text>
+            <text x="305" y="102" font-size="9" fill="#92400E" text-anchor="middle">Light blocked →</text>
+            <text x="305" y="115" font-size="8" fill="#92400E" text-anchor="middle">bottom plants die</text>
+
+            <!-- Arrow -->
+            <line x1="355" y1="90" x2="375" y2="90" stroke="#DC2626" stroke-width="2.5" marker-end="url(#ea1)"/>
+
+            <!-- Step 4 -->
+            <rect x="380" y="60" width="90" height="60" fill="#FEE2E2" stroke="#991B1B" stroke-width="2" rx="6"/>
+            <text x="425" y="85" font-size="10" fill="#991B1B" text-anchor="middle" font-weight="bold">Decomposition</text>
+            <text x="425" y="102" font-size="9" fill="#991B1B" text-anchor="middle">Bacteria consume</text>
+            <text x="425" y="115" font-size="8" fill="#991B1B" text-anchor="middle">dissolved oxygen</text>
+
+            <!-- Arrow -->
+            <line x1="475" y1="90" x2="495" y2="90" stroke="#DC2626" stroke-width="2.5" marker-end="url(#ea1)"/>
+
+            <!-- Step 5 -->
+            <rect x="495" y="60" width="40" height="60" fill="#991B1B" rx="6"/>
+            <text x="515" y="85" font-size="9" fill="#fff" text-anchor="middle" font-weight="bold">O₂</text>
+            <text x="515" y="100" font-size="9" fill="#fff" text-anchor="middle" font-weight="bold">drops</text>
+            <text x="515" y="115" font-size="8" fill="#fff" text-anchor="middle">fish die</text>
+          </svg>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Eutrophication</div>
+          <p>
+            This sequence of events — nutrient enrichment → algal bloom → decomposition → oxygen depletion → aquatic animal death — is called <strong>eutrophication</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Major Water Pollutants</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Pollutant</th><th>Effects</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Domestic sewage</strong></td><td>Major source of plant nutrients (nitrates and phosphates). Excess nutrients promote algae growth → oxygen decline during decomposition.</td></tr>
+            <tr><td><strong>Solid waste</strong></td><td>Garbage, rubbish, e-waste, trash, construction waste — from residential, commercial, institutional, and industrial activities.</td></tr>
+            <tr><td><strong>Fertilizers</strong></td><td>Excess nitrates and phosphates washed out from food and animal waste, and from inorganic fertilizers.</td></tr>
+            <tr><td><strong>Insecticides & herbicides</strong></td><td>Washed into lakes, rivers, streams, seas. Many do not decompose easily — persistent in the environment.</td></tr>
+            <tr><td><strong>Lead (Pb)</strong></td><td>Dissolves readily in water; upon uptake causes devastating health problems — brain, kidney, and liver damage.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="waterreduce">
+      <div class="section-header"><div class="section-icon">🛡️</div>
+        <div><div class="section-title-text">Methods of Reducing Water Pollution</div><div class="section-subtitle">MoE Textbook, p. 261</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="reduction-grid">
+          <div class="reduction-card">
+            <div class="reduction-icon">🏭</div>
+            <p class="reduction-text">Treat water before discharge into rivers and lakes</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">🌡️</div>
+            <p class="reduction-text">Avoid unnatural temperature changes — don't discharge heat-laden water</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">♻️</div>
+            <p class="reduction-text">Recycle industrial and agricultural wastes</p>
+          </div>
+          <div class="reduction-card">
+            <div class="reduction-icon">🌱</div>
+            <p class="reduction-text">Use moderate agricultural chemicals; increase organic fertilizers and biological pest control</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="land">
+      <div class="section-header"><div class="section-icon">🪨</div>
+        <div><div class="section-title-text">Land Pollution</div><div class="section-subtitle">MoE Textbook, p. 262</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Definition</div>
+          <p>
+            <strong>Land pollution</strong> is caused by things we put into it. It results from the spillage of oil, leaching of harmful chemicals and heavy metal ions, and dumping of non-biodegradable wastes such as plastics.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Causes of Land Pollution</h3>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Five major causes</div>
+          <p>
+            • <strong>Spillages of oil</strong> from leaking pipelines<br>
+            • <strong>Harmful heavy metal ions</strong> from buried waste leaching into water systems<br>
+            • <strong>Leaching of harmful chemicals</strong> from corroded metal drums buried underground<br>
+            • <strong>Dumping of non-biodegradable wastes</strong> (plastics) — remain unchanged in soil for decades or hundreds of years. Accumulation hinders air and water movement and affects plant growth.<br>
+            • <strong>Excessive use of synthetic fertilizers</strong> in agricultural activities
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Major Land Pollutants</h3>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Pollutant</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Garbage</strong></td><td>One of the most significant land pollution causes. Tons produced by households annually. When disposal falls short, garbage is dumped onto land — known as a <strong>landfill</strong>.</td></tr>
+            <tr><td><strong>Plastic</strong></td><td>One of the most common environmental pollutants and bears one of the greatest impacts. The abundance of plastics led to coining of the term "<strong>plastic pollution</strong>."</td></tr>
+            <tr><td><strong>Mercury</strong></td><td>Released into the environment due to mining activities and poor disposal of items made with mercury. <strong>Batteries are the main source of mercury</strong> — dispose of them carefully.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why non-biodegradable waste is the hardest problem</div>
+          <p>
+            <strong>Non-biodegradable wastes</strong> cannot be broken down by decomposers. Examples: glass, medical waste, plastic, man-made synthetic materials, electronic components, cans, nuclear waste, man-made polymers, artificial rubber. Because they persist for centuries, their disposal poses a major problem.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="landreduce">
+      <div class="section-header"><div class="section-icon">🛡️</div>
+        <div><div class="section-title-text">Methods of Reducing Land Pollution</div><div class="section-subtitle">Focusing on non-biodegradable waste</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          When we deal with methods of reducing land pollution, we deal especially with <strong>reducing non-biodegradable wastes</strong>. This is because non-biodegradable wastes cannot be broken down by decomposers — their disposal poses a big problem.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Why non-biodegradable waste matters</div>
+          <p>
+            Non-biodegradable waste is a <strong>major source of soil, air, and water pollution</strong>. It's cited as the primary cause of serious diseases such as cancer.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Examples of non-biodegradable waste</div>
+          <p>
+            Glass · Medical waste · Plastic · Man-made synthetic materials · Electronic components · Cans · Nuclear waste · Man-made polymers · Artificial rubber
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Project 5.1 (Textbook p. 264)</div>
+          <div class="activity-body">
+            Develop a <strong>waste water treatment plan</strong> for your school and submit it to your teacher. Consider: sources of waste water, treatment steps (screening, sedimentation, filtration, disinfection), and safe disposal or reuse.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formula">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Reference Card</div><div class="section-subtitle">Key concepts from Lesson 5.2</div></div>
+      </div>
+      <div class="formula-card">
+        <div class="formula-card-title">🏭 Lesson 5.2 — Environmental Pollution</div>
+        <div class="formula-grid">
+          <div class="formula-item"><div class="formula-name">Pollution</div><div class="formula-math">Unwanted changes to environment</div><div class="formula-note">Solid, liquid, gas, or radiation</div></div>
+          <div class="formula-item"><div class="formula-name">Air composition</div><div class="formula-math">78% N₂, 21% O₂, 0.04% CO₂</div><div class="formula-note">CO₂ increasing</div></div>
+          <div class="formula-item"><div class="formula-name">Acid rain reactions</div><div class="formula-math">SO₂ → H₂SO₃; SO₃ → H₂SO₄; NO₂ → HNO₃</div><div class="formula-note">Corrodes buildings, kills fish</div></div>
+          <div class="formula-item"><div class="formula-name">Ozone depletion</div><div class="formula-math">CF₂Cl₂ + UV → Cl·; Cl· + O₃ → ClO + O₂</div><div class="formula-note">CFCs destroy ozone layer</div></div>
+          <div class="formula-item"><div class="formula-name">Eutrophication</div><div class="formula-math">Nutrients → algae → decomposition → O₂ ↓</div><div class="formula-note">Kills aquatic life</div></div>
+          <div class="formula-item"><div class="formula-name">Major air pollutants</div><div class="formula-math">SO₂, NOₓ, CO, CFCs, particulates</div><div class="formula-note">Also VOCs, PCBs, Pb</div></div>
+          <div class="formula-item"><div class="formula-name">Major water pollutants</div><div class="formula-math">Sewage, fertilizers, pesticides, Pb</div><div class="formula-note">Nitrates + phosphates worst</div></div>
+          <div class="formula-item"><div class="formula-name">Major land pollutants</div><div class="formula-math">Garbage, plastic, mercury</div><div class="formula-note">Non-biodegradable hardest</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="examples">
+      <div class="section-header"><div class="section-icon">✏️</div>
+        <div><div class="section-title-text">Worked Examples</div><div class="section-subtitle">5 practice problems</div></div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 1</span><span class="example-title">Classify a Pollutant</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Classify each of the following as an air, water, or land pollutant: (a) SO₂, (b) nitrate fertilizers, (c) plastic bags, (d) CO, (e) mercury.</div>
+          <div class="example-step"><span class="step-badge">(a) SO₂</span><div class="step-text"><span class="math">Air pollutant</span> — from burning coal</div></div>
+          <div class="example-step"><span class="step-badge">(b) Nitrate fertilizers</span><div class="step-text"><span class="math">Water pollutant</span> — washes into streams, causes eutrophication</div></div>
+          <div class="example-step"><span class="step-badge">(c) Plastic bags</span><div class="step-text"><span class="math">Land pollutant</span> — non-biodegradable, persists for centuries</div></div>
+          <div class="example-step"><span class="step-badge">(d) CO</span><div class="step-text"><span class="math">Air pollutant</span> — from incomplete combustion</div></div>
+          <div class="example-step"><span class="step-badge">(e) Mercury</span><div class="step-text"><span class="math">Land pollutant</span> — from mining and batteries</div></div>
+          <div class="example-answer">✅ Air: SO₂, CO | Water: nitrate fertilizers | Land: plastics, mercury</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 2</span><span class="example-title">Why CO is Dangerous</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why carbon monoxide (CO) is dangerous to human health. Why is it more dangerous than CO₂?</div>
+          <div class="example-step"><span class="step-badge">Mechanism</span><div class="step-text">CO <span class="math">binds to hemoglobin in blood</span> — the same molecule that carries oxygen</div></div>
+          <div class="example-step"><span class="step-badge">Effect</span><div class="step-text">This reduces the <span class="math">oxygen-carrying capacity</span> of the blood → impairs vision, produces headaches, strains the heart</div></div>
+          <div class="example-step"><span class="step-badge">Why worse than CO₂</span><div class="step-text">CO₂ is a natural part of the carbon cycle at low levels. CO <span class="math">directly blocks oxygen transport</span> and is toxic at much lower concentrations</div></div>
+          <div class="example-answer">✅ CO binds hemoglobin and blocks O₂ transport — far more immediately toxic than CO₂</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 3</span><span class="example-title">Eutrophication Sequence</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> List the five steps of eutrophication in order, starting with fertilizer runoff.</div>
+          <div class="example-step"><span class="step-badge">Step 1</span><div class="step-text">Fertilizers (nitrates + phosphates) washed from soil into water bodies</div></div>
+          <div class="example-step"><span class="step-badge">Step 2</span><div class="step-text">Dissolved nutrients accelerate growth of surface-water plants (<span class="math">algal blooms</span>)</div></div>
+          <div class="example-step"><span class="step-badge">Step 3</span><div class="step-text">Less light reaches bottom plants → they die off</div></div>
+          <div class="example-step"><span class="step-badge">Step 4</span><div class="step-text">Dead plants rot; bacteria multiply and <span class="math">consume dissolved oxygen</span></div></div>
+          <div class="example-step"><span class="step-badge">Step 5</span><div class="step-text">Oxygen depletes → <span class="math">fish and aquatic animals die</span></div></div>
+          <div class="example-answer">✅ Fertilizers → Algal bloom → Plants die → Decomposition consumes O₂ → Fish die</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 4</span><span class="example-title">Why Non-Biodegradable Waste is Worst</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Explain why non-biodegradable waste is considered the most serious form of land pollution.</div>
+          <div class="example-step"><span class="step-badge">Definition</span><div class="step-text">Non-biodegradable = <span class="math">cannot be broken down by decomposers</span></div></div>
+          <div class="example-step"><span class="step-badge">Consequence</span><div class="step-text">Persists in soil for <span class="math">decades or hundreds of years</span></div></div>
+          <div class="example-step"><span class="step-badge">Physical effect</span><div class="step-text">Accumulation hinders <span class="math">air and water movement</span> in soil → affects plant growth</div></div>
+          <div class="example-step"><span class="step-badge">Multi-sphere effect</span><div class="step-text">Also causes <span class="math">soil, air, AND water pollution</span>. Cited as the primary cause of serious diseases like cancer.</div></div>
+          <div class="example-answer">✅ Non-biodegradable waste is the hardest because it never breaks down — it just accumulates</div>
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-header"><span class="example-num">Example 5</span><span class="example-title">How the Three Types Interconnect</span></div>
+        <div class="example-body">
+          <div class="example-problem"><strong>Problem:</strong> Give an example showing how air, water, and land pollution are interconnected.</div>
+          <div class="example-step"><span class="step-badge">Start — Air</span><div class="step-text">Coal power plant releases <span class="math">SO₂</span> into the air</div></div>
+          <div class="example-step"><span class="step-badge">To Water/Land</span><div class="step-text">SO₂ oxidizes to SO₃ → forms H₂SO₄ → falls as <span class="math">acid rain</span></div></div>
+          <div class="example-step"><span class="step-badge">Water effects</span><div class="step-text">Acid rain lowers pH of lakes/rivers → <span class="math">fish die</span></div></div>
+          <div class="example-step"><span class="step-badge">Land effects</span><div class="step-text">Acid rain dissolves limestone in buildings and statues; releases heavy metal ions from soil</div></div>
+          <div class="example-step"><span class="step-badge">Biological effects</span><div class="step-text">Trees defoliate; heavy metals enter food chain</div></div>
+          <div class="example-answer">✅ A single pollutant (SO₂) can affect all three spheres — air, water, and land</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Quiz</div><div class="section-subtitle">5 entrance-exam style questions</div></div>
+      </div>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-num">Question 1 of 5</div>
+        <div class="quiz-question">Which air pollutant reduces the oxygen-carrying capacity of blood by reacting with hemoglobin?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(1,'A','C')"><div class="option-letter">A</div> SO₂</div>
+          <div class="quiz-option" onclick="answer(1,'B','C')"><div class="option-letter">B</div> NO₂</div>
+          <div class="quiz-option" onclick="answer(1,'C','C')"><div class="option-letter">C</div> CO (carbon monoxide)</div>
+          <div class="quiz-option" onclick="answer(1,'D','C')"><div class="option-letter">D</div> O₃</div>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-num">Question 2 of 5</div>
+        <div class="quiz-question">Eutrophication of a lake is primarily caused by:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(2,'A','C')"><div class="option-letter">A</div> Oil spillage</div>
+          <div class="quiz-option" onclick="answer(2,'B','C')"><div class="option-letter">B</div> Excess nitrates and phosphates washed into water</div>
+          <div class="quiz-option" onclick="answer(2,'C','C')"><div class="option-letter">C</div> Acid rain</div>
+          <div class="quiz-option" onclick="answer(2,'D','C')"><div class="option-letter">D</div> Heavy metal contamination</div>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-num">Question 3 of 5</div>
+        <div class="quiz-question">CFCs contribute to ozone depletion by releasing:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(3,'A','C')"><div class="option-letter">A</div> SO₂</div>
+          <div class="quiz-option" onclick="answer(3,'B','C')"><div class="option-letter">B</div> Free chlorine radicals (Cl·)</div>
+          <div class="quiz-option" onclick="answer(3,'C','C')"><div class="option-letter">C</div> CO</div>
+          <div class="quiz-option" onclick="answer(3,'D','C')"><div class="option-letter">D</div> NO₂</div>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-num">Question 4 of 5</div>
+        <div class="quiz-question">Which of the following is a major source of mercury as a land pollutant?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(4,'A','C')"><div class="option-letter">A</div> Plastic bags</div>
+          <div class="quiz-option" onclick="answer(4,'B','C')"><div class="option-letter">B</div> Batteries</div>
+          <div class="quiz-option" onclick="answer(4,'C','C')"><div class="option-letter">C</div> Glass bottles</div>
+          <div class="quiz-option" onclick="answer(4,'D','C')"><div class="option-letter">D</div> Food waste</div>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-num">Question 5 of 5</div>
+        <div class="quiz-question">Acid rain forms when SO₂, SO₃, and NO₂ react with:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="answer(5,'A','C')"><div class="option-letter">A</div> Ocean water</div>
+          <div class="quiz-option" onclick="answer(5,'B','C')"><div class="option-letter">B</div> Rainwater in the atmosphere</div>
+          <div class="quiz-option" onclick="answer(5,'C','C')"><div class="option-letter">C</div> Soil minerals</div>
+          <div class="quiz-option" onclick="answer(5,'D','C')"><div class="option-letter">D</div> Groundwater</div>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="score-bar">
+        <div class="score-num" id="score-num">0/5</div>
+        <div class="score-label" id="score-label"></div>
+        <div style="margin-top:1rem">
+          <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+          <a href="lesson-5-3.html" class="btn btn-outline" style="margin-left:.75rem">Next Lesson →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Recommended videos</div></div>
+      </div>
+      <div class="content-box">
+        <a href="https://www.youtube.com/results?search_query=air+pollution+types+sources+effects" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Air Pollution — Types, Sources, Effects</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=water+pollution+eutrophication+explained" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Water Pollution & Eutrophication — Explained</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=land+pollution+plastic+waste+mercury" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Land Pollution — Plastic, Mercury, Garbage</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+        <a href="https://www.youtube.com/results?search_query=acid+rain+formation+effects" target="_blank" class="resource-card">
+          <div class="resource-yt-icon">▶</div>
+          <div><div class="resource-title">Acid Rain — Formation and Effects</div><div class="resource-channel">Educational · YouTube</div></div>
+          <div class="resource-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Summary</div><div class="section-subtitle">Everything you learned in Lesson 5.2</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">✅ Key Points — Environmental Pollution</div>
+        <ul class="summary-list">
+          <li><strong>Pollution</strong> = discharge of solid, liquid, gaseous substance or radiation causing unwanted changes</li>
+          <li><strong>Pollutants</strong> come from natural events (volcanoes) or human activities (industry, agriculture, transport)</li>
+          <li>Three types of pollution: <strong>air, water, and land</strong></li>
+          <li><strong>Atmosphere composition:</strong> 78% N₂, 20.95% O₂, 0.93% Ar, 0.04% CO₂ (and increasing)</li>
+          <li><strong>Air pollutants:</strong> SO₂ (bronchitis, lung disease), NOₓ (ozone destruction, smog), CO (binds hemoglobin, reduces O₂ transport), hydrocarbons + O₃ (photochemical smog), particulates (lung irritation), CFCs (ozone depletion), VOCs, PCBs, excess CO₂ (global warming), lead (brain, kidney, liver damage)</li>
+          <li><strong>Acid rain:</strong> SO₂ → H₂SO₃; SO₃ → H₂SO₄; NO₂ → HNO₃. Corrodes buildings, defoliates trees, kills fish.</li>
+          <li><strong>Reducing air pollution:</strong> public transport, turn off lights, recycle, avoid plastic bags, filters on chimneys, afforestation, use fans not AC</li>
+          <li><strong>Water pollutants:</strong> nitrates + phosphates (fertilizers), detergents, sewage, pesticides, heavy metals, industrial residues</li>
+          <li><strong>Eutrophication sequence:</strong> nutrients → algal bloom → plants die → decomposition consumes O₂ → fish die</li>
+          <li><strong>Reducing water pollution:</strong> treat water before discharge, avoid thermal pollution, recycle wastes, use moderate chemicals</li>
+          <li><strong>Land pollutants:</strong> garbage (landfills), plastics (plastic pollution), mercury (batteries)</li>
+          <li><strong>Non-biodegradable waste</strong> is the hardest problem — never decomposes, causes soil/air/water pollution</li>
+          <li>Reference: MoE Chemistry Grade 12 Student Textbook, §5.2 (pp. 255–264)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-5-1.html" class="btn btn-ghost">← Lesson 5.1: Introduction</a>
+      <div style="text-align:center;font-size:.82rem;color:var(--text-muted)">Unit 5 · Lesson 2 of 4</div>
+      <a href="lesson-5-3.html" class="btn btn-primary">Next: Global Warming →</a>
+    </div>
+  </main>
+</div>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const answers={};const correct={1:'C',2:'B',3:'B',4:'B',5:'B'};
+  const feedbacks={
+    1:{C:'✓ Correct! CO binds hemoglobin and reduces the oxygen-carrying capacity of blood.',wrong:'✗ CO (carbon monoxide) blocks hemoglobin — reduces O₂ transport.'},
+    2:{B:'✓ Correct! Eutrophication is caused by excess nitrates and phosphates washed into water.',wrong:'✗ Excess nitrates and phosphates → eutrophication.'},
+    3:{B:'✓ Correct! CFCs release free chlorine radicals (Cl·) that destroy ozone.',wrong:'✗ CFCs → Cl· free radicals → destroy ozone.'},
+    4:{B:'✓ Correct! Batteries are the main source of mercury as a land pollutant.',wrong:'✗ Batteries are the main source of mercury.'},
+    5:{B:'✓ Correct! SO₂, SO₃, and NO₂ react with rainwater in the atmosphere to form acid rain.',wrong:'✗ Acid rain forms from reactions with atmospheric rainwater.'}
+  };
+  let answered=0;
+  function answer(qNum,chosen,correctAns){
+    if(answers[qNum])return;answers[qNum]=chosen;answered++;
+    const card=document.getElementById('q'+qNum);
+    const opts=card.querySelectorAll('.quiz-option');
+    const fb=document.getElementById('q'+qNum+'-feedback');
+    const letters=['A','B','C','D'];
+    opts.forEach((o,i)=>{o.classList.add('disabled');if(letters[i]===correctAns)o.classList.add('correct');else if(letters[i]===chosen&&chosen!==correctAns)o.classList.add('wrong');});
+    const ok=chosen===correctAns;
+    fb.textContent=ok?feedbacks[qNum][correctAns]:feedbacks[qNum].wrong;
+    fb.className='quiz-feedback show '+(ok?'correct':'wrong');
+    updateProgress();if(answered===5)showScore();
+  }
+  function showScore(){const score=Object.keys(answers).filter(q=>answers[q]===correct[q]).length;
+    document.getElementById('score-bar').classList.add('show');
+    document.getElementById('score-num').textContent=score+'/5';
+    const labels=['📖 Review and try again.','📖 Review and try again.','📖 Review and try again.','👍 Good! Check your mistakes.','👍 Almost perfect!','🎉 Perfect score!'];
+    document.getElementById('score-label').textContent=labels[score];}
+  function retakeQuiz(){Object.keys(answers).forEach(k=>delete answers[k]);answered=0;
+    for(let i=1;i<=5;i++){document.getElementById('q'+i).querySelectorAll('.quiz-option').forEach(o=>{o.className='quiz-option';});
+      document.getElementById('q'+i+'-feedback').className='quiz-feedback';}
+    document.getElementById('score-bar').classList.remove('show');updateProgress();
+    document.getElementById('quiz').scrollIntoView({behavior:'smooth'});}
+  function updateProgress(){document.getElementById('progress-fill').style.width=(answered/5*100)+'%';}
+  function scrollTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});event.currentTarget.classList.add('active');}
+  const sections=['intro','overview','air','airpollutants','airreduce','water','waterreduce','land','landreduce','examples','quiz','resources','summary'];
+  window.addEventListener('scroll',()=>{let current='intro';
+    sections.forEach(id=>{const el=document.getElementById(id);if(el&&window.scrollY>=el.offsetTop-120)current=id;});
+    document.querySelectorAll('.sidebar-link[onclick]').forEach(l=>{const t=l.getAttribute('onclick').match(/'([^']+)'/)?.[1];l.classList.toggle('active',t===current);});});
+</script>
+</body>
+</html>
