@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4.5: Natural Selection in Action | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .selection-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .selection-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .selection-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .selection-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .selection-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .selection-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 4</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 4 · Lesson 5</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('types')"><div class="sidebar-dot"></div> Three Types of Selection</button>
+      <button class="sidebar-link" onclick="scrollToId('speciation')"><div class="sidebar-dot"></div> Speciation</button>
+      <button class="sidebar-link" onclick="scrollToId('allopatric')"><div class="sidebar-dot"></div> Allopatric Speciation</button>
+      <button class="sidebar-link" onclick="scrollToId('sympatric')"><div class="sidebar-dot"></div> Sympatric Speciation</button>
+      <button class="sidebar-link" onclick="scrollToId('polyploidy')"><div class="sidebar-dot"></div> Polyploidy</button>
+      <button class="sidebar-link" onclick="scrollToId('evolution-types')"><div class="sidebar-dot"></div> Divergent, Convergent, Parallel</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Origin of Life</a>
+      <a href="lesson-4-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Lamarckism</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Darwinism</a>
+      <a href="lesson-4-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Evidence</a>
+      <a href="lesson-4-5.html" class="sidebar-link active"><div class="sidebar-dot"></div> L5: Natural Selection</a>
+      <a href="lesson-4-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Human Evolution</a>
+      <a href="lesson-4-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Mutations</a>
+      <a href="lesson-4-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Genetic Drift</a>
+      <a href="lesson-4-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Extinction</a>
+      <a href="lesson-4-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Unit Review</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 4</a> ›
+      Lesson 4.5
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Evolution · MoE Textbook §4.4.1.4</div>
+      <h1>⚖️ Natural Selection in Action</h1>
+      <p>Natural selection doesn't always work the same way. Depending on the environment, it can favour one extreme, the middle, or both extremes — and these different "modes" can lead to new species. This lesson explores the three types of natural selection and how new species form.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Natural selection is the driving force behind evolution. It brings about changes over time in populations that can, eventually, lead to different populations of the same species becoming <strong>different species</strong>. But natural selection doesn't always work in the same way. Depending on the selection pressure, it can push a population in different directions.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe <strong>three types of natural selection</strong> — directional, stabilising, and disruptive</li>
+          <li>Explain what a <strong>species</strong> is and why the definition matters</li>
+          <li>Describe <strong>allopatric speciation</strong> (geographic isolation)</li>
+          <li>Describe <strong>sympatric speciation</strong> (reproductive isolation)</li>
+          <li>Explain the role of <strong>polyploidy</strong> in plant evolution</li>
+          <li>Distinguish between <strong>divergent, convergent, and parallel evolution</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="types">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">Three Types of Natural Selection</div><div class="section-subtitle">Different ways selection changes a population</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          All types of natural selection work in the same manner — but their <strong>influence on a population</strong> is different. There are three main types:
+        </p>
+
+        <div class="selection-grid">
+          <div class="selection-card">
+            <div class="selection-icon">➡️</div>
+            <div class="selection-title">Directional Selection</div>
+            <p class="selection-desc">One extreme of a range of values has a survival advantage. The range of values for the population <strong>shifts towards the extreme</strong> with the selective advantage.</p>
+          </div>
+          <div class="selection-card">
+            <div class="selection-icon">🎯</div>
+            <div class="selection-title">Stabilising Selection</div>
+            <p class="selection-desc">The <strong>two extremes</strong> are at a selective disadvantage compared to those showing the <strong>mean values</strong> for a particular feature. The range is <strong>compressed around the mean</strong>.</p>
+          </div>
+          <div class="selection-card">
+            <div class="selection-icon">↔️</div>
+            <div class="selection-title">Disruptive Selection</div>
+            <p class="selection-desc"><strong>Both extremes</strong> have a selective advantage compared with the mean. <strong>Two distinct types</strong> begin to emerge showing the extreme values of the original population.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Real-World Examples</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Example</th><th>Result</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Directional</strong></td>
+              <td>Antibiotic resistance in bacteria — the antibiotic selects for resistant bacteria</td>
+              <td>Population shifts towards resistance</td>
+            </tr>
+            <tr>
+              <td><strong>Stabilising</strong></td>
+              <td>Human birth weight — babies born too small or too large have higher mortality</td>
+              <td>Average birth weight remains stable</td>
+            </tr>
+            <tr>
+              <td><strong>Disruptive</strong></td>
+              <td>Finches with either very large or very small beaks survive, but medium beaks don't</td>
+              <td>Two distinct beak sizes emerge</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Which type leads to new species?</div>
+          <p>
+            <strong>Disruptive selection</strong> is most likely to lead to speciation because it creates two distinct groups within a population. If these groups become reproductively isolated, they can evolve into two separate species.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="speciation">
+      <div class="section-header"><div class="section-icon">🆕</div>
+        <div><div class="section-title-text">Speciation</div><div class="section-subtitle">How new species form</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Species (MoE Textbook, p. 180)</div>
+          <p>
+            A <strong>species</strong> is a group of similar organisms with a similar biochemistry, physiology, and evolutionary history that <strong>can interbreed to produce fertile offspring</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Speciation</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          <strong>Speciation</strong> is the formation of new species. Natural selection provides a mechanism by which new populations of a species can arise. But at what point can these populations be considered as distinct species?
+        </p>
+        <ul class="key-points">
+          <li>If two populations become so different that individuals from these different populations <strong>cannot interbreed to produce fertile offspring</strong>, then we must think of them as different species</li>
+          <li>As long as two populations <strong>are able to interbreed</strong>, they are unlikely to evolve into distinct species</li>
+          <li>They must go through a period when they are <strong>prevented from interbreeding</strong></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Two Main Ways</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          There are two main ways in which speciation can occur — <strong>allopatric</strong> and <strong>sympatric</strong>. Both involve <strong>isolating mechanisms</strong> that prevent different populations from interbreeding for a period of time.
+        </p>
+        <ul class="key-points">
+          <li>During this period, <strong>mutations that arise in one population cannot be passed to the other</strong></li>
+          <li>As a result, and because of <strong>different selection pressures</strong> in different environments, genetic differences between the two populations increase</li>
+          <li>Eventually, the two populations become so different that they are <strong>unable to interbreed</strong> — they are <strong>reproductively isolated</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="allopatric">
+      <div class="section-header"><div class="section-icon">🌄</div>
+        <div><div class="section-title-text">Allopatric Speciation</div><div class="section-subtitle">Geographic isolation first</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Allopatric Speciation</div>
+          <p>
+            <strong>Allopatric speciation</strong> occurs when a population from an existing species becomes <strong>geographically isolated</strong> and the isolated population develops into a new species.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How It Works</h3>
+        <ul class="key-points">
+          <li>A <strong>physical barrier</strong> (mountain range, river, ocean, desert) separates a population into two groups</li>
+          <li>The two groups can no longer interbreed</li>
+          <li>They experience <strong>different selection pressures</strong> in their different environments</li>
+          <li>Mutations and genetic drift accumulate independently in each group</li>
+          <li>Over many generations, the two groups become so different that they can no longer interbreed — <strong>new species form</strong></li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Example</div>
+          <p>
+            The Galapagos finches are a classic example of allopatric speciation — an ancestral finch colonised one island, then individuals occasionally flew to other islands. Each island population adapted to local conditions and, over time, evolved into a distinct species.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="sympatric">
+      <div class="section-header"><div class="section-icon">🏝️</div>
+        <div><div class="section-title-text">Sympatric Speciation</div><div class="section-subtitle">Reproductive isolation first</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Sympatric Speciation</div>
+          <p>
+            <strong>Sympatric speciation</strong> occurs when a population from an existing species develops into a new species <strong>without becoming geographically isolated</strong> from other members of the original species.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How It Works</h3>
+        <ul class="key-points">
+          <li>Populations remain in the <strong>same geographic area</strong></li>
+          <li>They become reproductively isolated by other mechanisms:
+            <ul style="margin-left:1rem;margin-top:.25rem">
+              <li><strong>Different breeding times</strong> (e.g. flowering at different times)</li>
+              <li><strong>Different courtship behaviours</strong></li>
+              <li><strong>Different habitats</strong> within the same area</li>
+              <li><strong>Polyploidy</strong> — a change in chromosome number that instantly creates reproductive isolation</li>
+            </ul>
+          </li>
+          <li>Over time, the two groups diverge genetically and become separate species</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Allopatric vs Sympatric</div>
+          <p>
+            • <strong>Allopatric</strong> = geographic isolation first, then reproductive isolation<br>
+            • <strong>Sympatric</strong> = reproductive isolation first, without geographic isolation
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="polyploidy">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Polyploidy</div><div class="section-subtitle">A special case in plant evolution</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Polyploidy</div>
+          <p>
+            <strong>Polyploidy</strong> occurs when an organism has <strong>more than two sets of homologous chromosomes</strong>. <em>Poly</em> means many. Polyploid cells have many sets of chromosomes per cell — sometimes four sets, sometimes eight or more.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why It Matters</h3>
+        <ul class="key-points">
+          <li>Polyploidy has been <strong>important in plant evolution</strong> because it has allowed infertile hybrids to become fertile</li>
+          <li>When different species form hybrids, very often the hybrid cannot produce offspring because <strong>all the chromosomes cannot form bivalents (homologous pairs) in meiosis</strong></li>
+          <li>So they cannot form sex cells and cannot reproduce</li>
+          <li>But if the <strong>chromosome number were to double</strong>, then all chromosomes would be able to form homologous pairs</li>
+          <li>Meiosis and sex-cell formation can take place — and the hybrid is now <strong>fertile</strong></li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key terms</div>
+          <p>
+            • <strong>Polyploid</strong> — having more than two sets of homologous chromosomes<br>
+            • <strong>Tetraploid</strong> — having exactly four sets of homologous chromosomes (e.g. some human liver cells have 92 chromosomes — they are tetraploid)
+          </p>
+          <p style="margin-top:.5rem">
+            Polyploidy is <strong>common in plants</strong> (many crop plants like wheat, potatoes, and bananas are polyploid) but rare in animals.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="evolution-types">
+      <div class="section-header"><div class="section-icon">🔀</div>
+        <div><div class="section-title-text">Divergent, Convergent &amp; Parallel Evolution</div><div class="section-subtitle">Three patterns of evolution</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Evolution over time can follow several different patterns. Factors such as environment and predation pressures can have different effects on the ways in which species evolve. There are three main patterns:
+        </p>
+
+        <div class="selection-grid">
+          <div class="selection-card">
+            <div class="selection-icon">↗️↘️</div>
+            <div class="selection-title">Divergent Evolution</div>
+            <p class="selection-desc">Two species gradually become <strong>increasingly different</strong>. Often occurs when closely related species diversify to new habitats. Responsible for the diversity of life on Earth.</p>
+          </div>
+          <div class="selection-card">
+            <div class="selection-icon">↘️↗️</div>
+            <div class="selection-title">Convergent Evolution</div>
+            <p class="selection-desc">Species of <strong>different ancestry</strong> begin to share <strong>analogous traits</strong> because of a shared environment or other selection pressure. Example: whales and fish both evolved to move through water.</p>
+          </div>
+          <div class="selection-card">
+            <div class="selection-icon">➡️➡️</div>
+            <div class="selection-title">Parallel Evolution</div>
+            <p class="selection-desc">Two species evolve independently of each other, <strong>maintaining the same level of similarity</strong>. Usually occurs between unrelated species that do not occupy the same niche.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Divergent vs Convergent — Key Difference</div>
+          <p>
+            • <strong>Divergent:</strong> one ancestor → many different descendants (homologous structures)<br>
+            • <strong>Convergent:</strong> many different ancestors → similar features (analogous structures)
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 4.14–4.16 — Group work</div>
+          <div class="activity-body">
+            In small groups, discuss the following:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>Describe <strong>directional selection</strong> with an example</li>
+              <li>Describe <strong>stabilising selection</strong> with an example</li>
+              <li>Describe <strong>disruptive selection</strong> with an example</li>
+              <li>Search from books or other sources about <strong>allopatric and sympatric speciation</strong>. Write a report and present to the class.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is natural selection? What is it the driving force behind?<br>
+            B. Describe the three types of natural selection with examples.<br>
+            C. What is a species? Why is the definition important for understanding evolution?<br>
+            D. What is speciation? What role do isolating mechanisms play?<br>
+            E. What is the difference between allopatric and sympatric speciation?<br>
+            F. What is polyploidy? Why is it important in plant evolution?<br>
+            G. Compare divergent and convergent evolution.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">In which type of natural selection are <strong>both extremes favoured</strong> over the mean?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Directional selection</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Stabilising selection</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Disruptive selection</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Artificial selection</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is the best definition of a <strong>species</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Any group of organisms that looks similar</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> A group of similar organisms that can interbreed to produce fertile offspring</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Organisms that live in the same environment</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Any group of organisms with the same number of chromosomes</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">What is the key feature of <strong>allopatric speciation</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Reproductive isolation occurs first, without geographic separation</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Geographic isolation occurs first, then reproductive isolation follows</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Both populations continue to interbreed</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> It only occurs in plants</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Why is <strong>polyploidy</strong> important in plant evolution?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> It makes plants produce fewer seeds</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> It allows infertile hybrids to become fertile by enabling all chromosomes to form homologous pairs in meiosis</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> It reduces genetic diversity</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> It only affects animal evolution</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Whales and fish have similar body shapes because both had to evolve to move through water. This is an example of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Divergent evolution</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Convergent evolution</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Parallel evolution</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Allopatric speciation</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=directional+stabilizing+disruptive+selection" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Directional, Stabilising &amp; Disruptive Selection</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=allopatric+sympatric+speciation+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Allopatric vs Sympatric Speciation</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=polyploidy+plant+evolution" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Polyploidy in Plant Evolution</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=divergent+convergent+parallel+evolution" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Divergent, Convergent &amp; Parallel Evolution</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 4.5</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Natural selection</strong> is the driving force of evolution</li>
+          <li>Three types: <strong>directional</strong> (favours one extreme), <strong>stabilising</strong> (favours the mean), <strong>disruptive</strong> (favours both extremes)</li>
+          <li>A <strong>species</strong> = group of organisms that can interbreed to produce fertile offspring</li>
+          <li><strong>Speciation</strong> = the formation of new species; requires reproductive isolation</li>
+          <li><strong>Allopatric speciation</strong> = geographic isolation first, then reproductive isolation</li>
+          <li><strong>Sympatric speciation</strong> = reproductive isolation first, without geographic separation</li>
+          <li><strong>Polyploidy</strong> = having more than two sets of chromosomes; important in plant evolution because it can make sterile hybrids fertile</li>
+          <li><strong>Divergent evolution</strong> = one ancestor → many different species (homologous structures)</li>
+          <li><strong>Convergent evolution</strong> = different ancestors → similar features (analogous structures)</li>
+          <li><strong>Parallel evolution</strong> = unrelated species maintain similar features independently</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-4-4.html" class="btn btn-outline">← Lesson 4.4</a>
+      <a href="lesson-4-6.html" class="btn btn-primary">Next: Lesson 4.6 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 4 · Lesson 4.5 · Natural Selection in Action</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'C', 2:'B', 3:'B', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Disruptive selection favours both extremes over the mean, potentially leading to two distinct groups.',wrong:'✗ Disruptive selection favours both extremes.'},
+    2:{correct:'✓ Correct! A species is a group of similar organisms that can interbreed to produce fertile offspring.',wrong:'✗ Species = can interbreed to produce fertile offspring.'},
+    3:{correct:'✓ Correct! Allopatric speciation begins with geographic isolation — a physical barrier separates the population.',wrong:'✗ Allopatric = geographic isolation first.'},
+    4:{correct:'✓ Correct! Polyploidy allows infertile hybrids to become fertile by doubling chromosome number so homologous pairs can form.',wrong:'✗ Polyploidy makes hybrids fertile.'},
+    5:{correct:'✓ Correct! Similar features in unrelated species due to shared selection pressures = convergent evolution.',wrong:'✗ Convergent evolution — different ancestors, similar features.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 4.5.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
