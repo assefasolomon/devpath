@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4.7: Mutations | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .mutation-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .mutation-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .mutation-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .mutation-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .mutation-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .mutation-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    .sequence-box{background:#0F172A;color:#4ADE80;font-family:'Courier New',monospace;font-size:.82rem;padding:1rem 1.25rem;border-radius:var(--radius);line-height:1.9;margin:.875rem 0;letter-spacing:.05em;overflow-x:auto}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 4</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 4 · Lesson 7</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What is a Mutation?</button>
+      <button class="sidebar-link" onclick="scrollToId('point')"><div class="sidebar-dot"></div> Point Mutations</button>
+      <button class="sidebar-link" onclick="scrollToId('substitution')"><div class="sidebar-dot"></div> Substitution</button>
+      <button class="sidebar-link" onclick="scrollToId('frameshift')"><div class="sidebar-dot"></div> Addition &amp; Deletion</button>
+      <button class="sidebar-link" onclick="scrollToId('sickle')"><div class="sidebar-dot"></div> Sickle-Cell Anaemia</button>
+      <button class="sidebar-link" onclick="scrollToId('chromosomal')"><div class="sidebar-dot"></div> Chromosomal Mutations</button>
+      <button class="sidebar-link" onclick="scrollToId('causes')"><div class="sidebar-dot"></div> Causes of Mutation</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Origin of Life</a>
+      <a href="lesson-4-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Lamarckism</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Darwinism</a>
+      <a href="lesson-4-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Evidence</a>
+      <a href="lesson-4-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Natural Selection</a>
+      <a href="lesson-4-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Human Evolution</a>
+      <a href="lesson-4-7.html" class="sidebar-link active"><div class="sidebar-dot"></div> L7: Mutations</a>
+      <a href="lesson-4-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Genetic Drift</a>
+      <a href="lesson-4-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Extinction</a>
+      <a href="lesson-4-10.html" class="sidebar-link"><div class="sidebar-dot"></div> Unit Review</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 4</a> ›
+      Lesson 4.7
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Evolution · MoE Textbook §4.1.6</div>
+      <h1>🔬 Mutations</h1>
+      <p>Mutations are the ultimate source of all genetic variation. Without mutations, evolution would have no raw material to work with. This lesson explores the types of mutations, how they change DNA, and their consequences — from harmless to deadly.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Mutations are <strong>random changes in the genetic material</strong> of an organism. They are the ultimate source of all genetic variation — the raw material on which natural selection acts. Without mutations, evolution would be impossible. But most mutations are either harmless or harmful; only a small fraction are beneficial.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> mutation and classify its types</li>
+          <li>Explain <strong>point mutations</strong> (substitution, addition, deletion)</li>
+          <li>Describe the difference between a <strong>substitution</strong> and a <strong>frameshift</strong> mutation</li>
+          <li>Explain how <strong>sickle-cell anaemia</strong> results from a substitution</li>
+          <li>Describe <strong>chromosomal mutations</strong></li>
+          <li>Identify the <strong>causes</strong> of mutation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is a Mutation?</div><div class="section-subtitle">MoE Textbook §4.1.6, p. 196</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Mutation (MoE Textbook, p. 196)</div>
+          <p>
+            A <strong>mutation</strong> is any <strong>spontaneous change in the genetic material</strong> of an organism. Mutations are <strong>random</strong> — they are not directed by the environment or by the needs of the organism.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Broad Categories</h3>
+        <ul class="key-points">
+          <li><strong>Large structural changes</strong> — involving whole chromosomes or parts of chromosomes (chromosomal mutations)</li>
+          <li><strong>Small changes</strong> — involving only a single base (point mutations)</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why Mutations Matter</h3>
+        <ul class="key-points">
+          <li>They are the <strong>ultimate source of all genetic variation</strong></li>
+          <li>Without mutation, natural selection would have no raw material — evolution would be impossible</li>
+          <li>Most mutations are <strong>neutral or harmful</strong>; only a small fraction are beneficial</li>
+          <li>Beneficial mutations increase in frequency through natural selection</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="point">
+      <div class="section-header"><div class="section-icon">🔹</div>
+        <div><div class="section-title-text">Point Mutations</div><div class="section-subtitle">Changes at a single base</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Point Mutation</div>
+          <p>
+            A <strong>point mutation</strong> is a mutation in which <strong>one of the bases in the DNA sequence of a gene is altered</strong>, usually by being copied wrongly when the DNA replicates. Each point mutation involves a change to just one base — but the change to the gene can be dramatic.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Three Types of Point Mutation</h3>
+        <div class="mutation-grid">
+          <div class="mutation-card">
+            <div class="mutation-icon">🔄</div>
+            <div class="mutation-title">Substitution</div>
+            <p class="mutation-desc">One base is replaced by a different base. Only the codon containing the mutation is changed.</p>
+          </div>
+          <div class="mutation-card">
+            <div class="mutation-icon">➕</div>
+            <div class="mutation-title">Addition</div>
+            <p class="mutation-desc">An extra base is inserted into the DNA sequence. This is a <strong>frameshift</strong> mutation — all codons after the insertion are altered.</p>
+          </div>
+          <div class="mutation-card">
+            <div class="mutation-icon">➖</div>
+            <div class="mutation-title">Deletion</div>
+            <p class="mutation-desc">A base is "missed out" during replication. This is also a <strong>frameshift</strong> mutation.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Consequences</div>
+          <p>
+            These mutations occur quite randomly when DNA is replicating. The result can be that the protein the gene should code for is:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Not made at all</strong>, or<br>
+            • <strong>A different protein is made</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="substitution">
+      <div class="section-header"><div class="section-icon">🔤</div>
+        <div><div class="section-title-text">Substitution</div><div class="section-subtitle">Replacing one base with another</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          In a <strong>substitution</strong>, one base is replaced by another base. Only the codon containing the mutation is affected — the reading frame stays the same.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Example: A Single Base Change</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          In this example, guanine (G) replaces thymine (T) in a substitution:
+        </p>
+
+        <div class="sequence-box">
+Original:    GAC  GGG  <span style="color:#F87171;font-weight:700">ATT</span>  GAG  GAG
+             Asp  Gly  <span style="color:#F87171;font-weight:700">Ile</span>  Glu  Glu
+
+Mutated:     GAC  GGG  <span style="color:#F87171;font-weight:700">ATG</span>  GAG  GAG
+             Asp  Gly  <span style="color:#F87171;font-weight:700">Met</span>  Glu  Glu
+        </div>
+
+        <ul class="key-points">
+          <li>The original triplet <strong>ATT</strong> coded for the amino acid <strong>isoleucine</strong></li>
+          <li>The new triplet <strong>ATG</strong> codes for <strong>methionine</strong></li>
+          <li>A <strong>different protein</strong> will be synthesised</li>
+          <li>One different amino acid in a protein <strong>does not always make a functional change</strong> — some substitutions are neutral</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="frameshift">
+      <div class="section-header"><div class="section-icon">🔀</div>
+        <div><div class="section-title-text">Addition and Deletion</div><div class="section-subtitle">Frameshift mutations</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          In a <strong>deletion mutation</strong>, a base is "missed out" during replication. In an <strong>addition mutation</strong>, an extra base is added. Both are more <strong>significant</strong> than substitutions.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Frameshift Mutation</div>
+          <p>
+            <strong>Frameshift mutations</strong> are mutations caused by the addition or deletion of a base, which changes the <strong>reading frame</strong> of the entire sequence after the point of the mutation.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why They Are More Serious</h3>
+        <ul class="key-points">
+          <li>They do not just alter the triplet in which the mutation occurs</li>
+          <li>Because there is <strong>one fewer or one extra base</strong>, the entire sequence after the point of mutation is altered</li>
+          <li>A <strong>totally different mRNA</strong> is produced (if one is produced at all)</li>
+          <li>Result: a <strong>non-functional protein or no protein at all</strong></li>
+          <li>Sometimes a whole triplet is missed out or inserted — this leads to one extra or one fewer amino acid in the polypeptide chain</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Reading Frame Analogy</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          A helpful way to think about frameshifts — using letters to represent bases:
+        </p>
+
+        <div class="sequence-box">
+Original:  THE MAN WAS HOT AND RAN FOR HIS HAT
+
+Delete S:  THE MAN <span style="color:#F87171;font-weight:700">WAH OTA NDR ANF ORH ISH AT</span>  ← no longer makes sense
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Mis-sense coding</div>
+          <p>
+            In genetic terms, the "gibberish" sequence after a frameshift is called <strong>mis-sense coding</strong>. The protein made from this sequence will be completely wrong — and usually non-functional.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="sickle">
+      <div class="section-header"><div class="section-icon">🩸</div>
+        <div><div class="section-title-text">Sickle-Cell Anaemia</div><div class="section-subtitle">A real-world example of a substitution</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          <strong>Sickle-cell anaemia</strong> is one of the best-known examples of a substitution mutation causing a genetic disease. It affects the haemoglobin molecule in red blood cells.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Mutation</h3>
+        <ul class="key-points">
+          <li>A substitution of just <strong>one base</strong> in the sixth triplet of the gene coding for one of the four polypeptides in haemoglobin</li>
+          <li>The triplet changes from <strong>GAG</strong> to <strong>GTG</strong></li>
+          <li>This results in the amino acid <strong>valine replacing glutamate</strong> in the polypeptide chain</li>
+          <li>The different haemoglobin molecule formed causes the condition known as <strong>sickle-cell anaemia</strong></li>
+        </ul>
+
+        <div class="sequence-box">
+Normal:  Val  His  Leu  Thr  Pro  <span style="color:#4ADE80;font-weight:700">Glu</span>  Glu
+         GTG  CAC  CTC  ACT  CCA  <span style="color:#4ADE80;font-weight:700">GAG</span>  GAG
+
+Sickle:  Val  His  Leu  Thr  Pro  <span style="color:#F87171;font-weight:700">Val</span>  Glu
+         GTG  CAC  CTC  ACT  CCA  <span style="color:#F87171;font-weight:700">GTG</span>  GAG
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Consequences</h3>
+        <ul class="key-points">
+          <li>The abnormal haemoglobin (HbS) causes red blood cells to become <strong>crescent (sickle) shaped</strong> when oxygen levels are low</li>
+          <li>Sickle-shaped cells are <strong>rigid and sticky</strong>, blocking blood vessels</li>
+          <li>This causes <strong>pain, organ damage, and anaemia</strong></li>
+          <li>Sickle-cell trait provides <strong>resistance to malaria</strong> — which is why the allele is common in malaria-endemic regions like parts of Africa</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 A single base matters</div>
+          <p>
+            Sickle-cell anaemia is a powerful demonstration of how a <strong>single base change</strong> in DNA can have <strong>life-altering consequences</strong>. One letter changed from A to T — and the whole shape of the haemoglobin molecule changes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="chromosomal">
+      <div class="section-header"><div class="section-icon">🧬</div>
+        <div><div class="section-title-text">Chromosomal Mutations</div><div class="section-subtitle">Larger-scale changes</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Chromosomal Mutation</div>
+          <p>
+            <strong>Chromosomal mutations</strong> occur when there is any <strong>change in the arrangement or structure of the chromosomes</strong>. They occur most often during <strong>meiosis at crossing over in prophase I</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Types of Chromosomal Mutation</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>What happens</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Duplication</strong></td><td>A section of a chromosome is duplicated, so it appears twice</td></tr>
+            <tr><td><strong>Deletion</strong></td><td>A section of a chromosome is lost</td></tr>
+            <tr><td><strong>Inversion</strong></td><td>A section of a chromosome is reversed end-to-end</td></tr>
+            <tr><td><strong>Translocation</strong></td><td>A section of one chromosome breaks off and attaches to another chromosome</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Consequences</h3>
+        <ul class="key-points">
+          <li>They are <strong>much bigger events</strong> than point mutations</li>
+          <li>They usually result in the <strong>death of a cell</strong></li>
+          <li>They may also affect the <strong>whole organism</strong></li>
+          <li>If <strong>essential parts of the DNA</strong> are affected, a foetus may be aborted</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="causes">
+      <div class="section-header"><div class="section-icon">⚠️</div>
+        <div><div class="section-title-text">Causes of Mutation</div><div class="section-subtitle">What triggers DNA changes</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Mutations can occur spontaneously, or they can be caused by external factors called <strong>mutagens</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Spontaneous Causes</h3>
+        <ul class="key-points">
+          <li><strong>Errors during DNA replication</strong> — rare mistakes by DNA polymerase</li>
+          <li><strong>Errors during meiosis</strong> — especially during crossing over in prophase I</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Induced Causes (Mutagens)</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Type of mutagen</th><th>Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Physical mutagens</strong></td><td>UV radiation, X-rays, gamma rays, radioactivity</td></tr>
+            <tr><td><strong>Chemical mutagens</strong></td><td>Tobacco smoke, certain industrial chemicals, some pesticides</td></tr>
+            <tr><td><strong>Biological mutagens</strong></td><td>Some viruses and transposons ("jumping genes")</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Most mutations are silent</div>
+          <p>
+            Most mutations are <strong>neutral</strong> — they occur in non-coding DNA or don't change the amino acid sequence of the protein. Only a small fraction have a <strong>phenotypic effect</strong>, and of those, most are harmful. Beneficial mutations are rare — but they are the ones that drive evolution.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 4.24–4.26 — Group work</div>
+          <div class="activity-body">
+            In small groups, use the internet, books, and other relevant sources to:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>Describe the <strong>causes</strong> and <strong>effects</strong> of mutation on living things</li>
+              <li>Describe the different types of <strong>chromosomal mutations</strong> (inversion, deletion, insertion, duplication, etc.)</li>
+              <li>Explain what happens if a <strong>substitution</strong> occurs in the DNA of an organism</li>
+              <li>Explain how <strong>sickle-cell anaemia</strong> occurs</li>
+            </ul>
+            Prepare a report and present to the class.
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is a mutation? Why is it important for evolution?<br>
+            B. What is a point mutation? Name the three types.<br>
+            C. What is the difference between a substitution and a frameshift mutation?<br>
+            D. Why are frameshift mutations more serious than substitutions?<br>
+            E. Describe how sickle-cell anaemia occurs. What codon change causes it?<br>
+            F. What are chromosomal mutations? Name four types.<br>
+            G. What are the causes of mutations? Give examples of mutagens.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is a <strong>mutation</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> A deliberate change made by an organism to adapt to its environment</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> A random spontaneous change in the genetic material of an organism</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> A change that always improves an organism's fitness</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> The same as natural selection</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Which type of point mutation changes the <strong>reading frame</strong> of the entire sequence after the mutation?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Substitution</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Addition or deletion</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Inversion</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Translocation</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">What change in the haemoglobin gene causes <strong>sickle-cell anaemia</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> A deletion of an entire chromosome</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> A substitution changing the triplet GAG to GTG, causing valine to replace glutamate</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> A frameshift mutation that shortens haemoglobin</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> A chromosomal inversion</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Why are <strong>frameshift mutations</strong> more serious than substitutions?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> They only affect one codon</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> They alter every codon after the point of mutation, producing a completely different (usually non-functional) protein</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> They always cause cancer</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> They do not affect protein structure</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which of the following is a type of <strong>chromosomal mutation</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Substitution</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Addition</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Translocation</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Deletion of a single base</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=mutations+point+substitution+addition+deletion" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Mutations — Substitution, Addition, Deletion</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=frameshift+mutation+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Frameshift Mutations — Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=sickle+cell+anaemia+mutation+glutamate+valine" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Sickle-Cell Anaemia — A Single Base Change</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=chromosomal+mutations+duplication+deletion+inversion+translocation" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Chromosomal Mutations — Types</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 4.7</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li>A <strong>mutation</strong> is any spontaneous change in the genetic material of an organism</li>
+          <li>Mutations are the <strong>ultimate source of all genetic variation</strong></li>
+          <li>Two categories: <strong>point mutations</strong> (single base) and <strong>chromosomal mutations</strong> (larger-scale changes)</li>
+          <li>Three types of point mutation: <strong>substitution</strong> (one base replaced), <strong>addition</strong> (extra base), <strong>deletion</strong> (missing base)</li>
+          <li>Substitutions alter <strong>only one codon</strong>; additions and deletions cause <strong>frameshifts</strong> that alter everything after the mutation</li>
+          <li><strong>Sickle-cell anaemia</strong> is caused by a substitution changing GAG → GTG, causing valine to replace glutamate in haemoglobin</li>
+          <li>Chromosomal mutations include <strong>duplication, deletion, inversion, and translocation</strong></li>
+          <li>Causes: <strong>spontaneous errors</strong> in DNA replication/meiosis, or <strong>mutagens</strong> like UV radiation, X-rays, and certain chemicals</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-4-6.html" class="btn btn-outline">← Lesson 4.6</a>
+      <a href="lesson-4-8.html" class="btn btn-primary">Next: Lesson 4.8 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 4 · Lesson 4.7 · Mutations</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'B', 4:'B', 5:'C'};
+  const feedback = {
+    1:{correct:'✓ Correct! A mutation is a random, spontaneous change in genetic material — not directed by the environment.',wrong:'✗ Mutation = random change in genetic material.'},
+    2:{correct:'✓ Correct! Addition and deletion cause frameshifts — they alter the reading frame of the entire sequence after the mutation.',wrong:'✗ Additions and deletions cause frameshifts.'},
+    3:{correct:'✓ Correct! A single substitution changes GAG to GTG, causing valine to replace glutamate in haemoglobin — leading to sickle-cell anaemia.',wrong:'✗ Substitution GAG → GTG causes sickle-cell anaemia.'},
+    4:{correct:'✓ Correct! Frameshifts alter every codon after the mutation point, producing a totally different protein.',wrong:'✗ Frameshifts alter everything after the mutation.'},
+    5:{correct:'✓ Correct! Translocation is a chromosomal mutation — a section of one chromosome breaks off and attaches to another.',wrong:'✗ Translocation is a chromosomal mutation.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 4.7.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
