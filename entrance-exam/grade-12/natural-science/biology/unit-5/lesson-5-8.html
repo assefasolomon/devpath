@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5.8: Homeostasis | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .homeo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .homeo-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .homeo-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .homeo-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .homeo-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .homeo-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 5</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 5 · Lesson 8</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What is Homeostasis?</button>
+      <button class="sidebar-link" onclick="scrollToId('kidney')"><div class="sidebar-dot"></div> The Kidney</button>
+      <button class="sidebar-link" onclick="scrollToId('nephron')"><div class="sidebar-dot"></div> The Nephron</button>
+      <button class="sidebar-link" onclick="scrollToId('adh')"><div class="sidebar-dot"></div> ADH &amp; Water Balance</button>
+      <button class="sidebar-link" onclick="scrollToId('thermo')"><div class="sidebar-dot"></div> Thermoregulation</button>
+      <button class="sidebar-link" onclick="scrollToId('osmo')"><div class="sidebar-dot"></div> Osmoregulation</button>
+      <button class="sidebar-link" onclick="scrollToId('chemical')"><div class="sidebar-dot"></div> Chemical Regulation</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="lesson-5-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Nervous System</a>
+      <a href="lesson-5-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Brain &amp; Spinal Cord</a>
+      <a href="lesson-5-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: PNS &amp; Neurons</a>
+      <a href="lesson-5-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Drug Abuse</a>
+      <a href="lesson-5-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Sense Organs</a>
+      <a href="lesson-5-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Endocrine System</a>
+      <a href="lesson-5-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Exocrine Glands</a>
+      <a href="lesson-5-8.html" class="sidebar-link active"><div class="sidebar-dot"></div> L8: Homeostasis</a>
+      <a href="lesson-5-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Drug Side Effects</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 5</a> ›
+      Lesson 5.8
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Human Body System · MoE Textbook §5.8</div>
+      <h1>🏠 Homeostasis</h1>
+      <p>The human body works best when its internal conditions stay within narrow limits — temperature around 37 °C, blood pH around 7.4, blood glucose within a tight range. This constant state of balance is called <strong>homeostasis</strong>. This lesson explores how the body maintains it.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Homeostasis is the body's ability to maintain a stable internal environment despite changes in the external environment. It's controlled mainly by the <strong>nervous and endocrine systems</strong>, and it's essential for life — even small deviations from normal can be dangerous.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> homeostasis</li>
+          <li>Describe the structure and function of the <strong>human kidney</strong></li>
+          <li>Explain the role of the <strong>nephron</strong> in urine production</li>
+          <li>Describe <strong>thermoregulation</strong> (body temperature control)</li>
+          <li>Describe <strong>osmoregulation</strong> (water and salt balance)</li>
+          <li>Explain <strong>chemical regulation</strong> (blood glucose, pH, and CO₂)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is Homeostasis?</div><div class="section-subtitle">MoE Textbook §5.8</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Homeostasis</div>
+          <p>
+            <strong>Homeostasis</strong> is the maintenance of a <strong>stable internal environment</strong> in the body despite changes in the external environment. It involves keeping variables like body temperature, blood glucose, water content, and pH within narrow limits.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Mechanisms</h3>
+        <ul class="key-points">
+          <li>Controlled mainly by the <strong>nervous and endocrine systems</strong></li>
+          <li>Uses <strong>negative feedback</strong> — the body detects a change and reverses it</li>
+          <li>Involves multiple organs: <strong>kidney, liver, skin, lungs, brain</strong></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Four Key Types of Homeostasis</h3>
+        <div class="homeo-grid">
+          <div class="homeo-card">
+            <div class="homeo-icon">🌡️</div>
+            <div class="homeo-title">Thermoregulation</div>
+            <p class="homeo-desc">Maintaining a constant body temperature around <strong>37 °C</strong>. Human beings are homeotherms.</p>
+          </div>
+          <div class="homeo-card">
+            <div class="homeo-icon">💧</div>
+            <div class="homeo-title">Osmoregulation</div>
+            <p class="homeo-desc">Balancing water and salt content in the body. Controlled mainly by the kidneys and ADH.</p>
+          </div>
+          <div class="homeo-card">
+            <div class="homeo-icon">🍬</div>
+            <div class="homeo-title">Chemical Regulation</div>
+            <p class="homeo-desc">Maintaining blood glucose, pH, and CO₂ levels. Involves the liver, pancreas, and lungs.</p>
+          </div>
+          <div class="homeo-card">
+            <div class="homeo-icon">🚰</div>
+            <div class="homeo-title">Excretion</div>
+            <p class="homeo-desc">Removing waste products like urea and excess salts. Primarily done by the kidneys.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="kidney">
+      <div class="section-header"><div class="section-icon">🫘</div>
+        <div><div class="section-title-text">The Kidney</div><div class="section-subtitle">MoE Textbook §5.8.1</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The Kidneys</div>
+          <p>
+            The <strong>kidneys</strong> are a pair of <strong>bean-shaped organs</strong> just above the waist. They are important organs with many functions in your body, including producing hormones, absorbing minerals, and <strong>filtering blood and producing urine</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Internal Structure — Three Regions</h3>
+        <ul class="key-points">
+          <li><strong>Renal cortex</strong> — the outer region. Contains the <strong>nephrons</strong>, which are the functional units of the kidney.</li>
+          <li><strong>Renal medulla</strong> — the middle region</li>
+          <li><strong>Renal pelvis</strong> — the expanded end of the ureter; collects urine and leads to the ureter</li>
+          <li><strong>Ureters</strong> — urine-bearing tubes that exit the kidney and empty into the urinary bladder</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How the Kidney Works</h3>
+        <ul class="key-points">
+          <li>Blood flows into the kidney along the <strong>renal artery</strong></li>
+          <li>The blood is filtered — fluid containing water, salt, urea, glucose, and many other substances is forced out into the kidney tubules</li>
+          <li>Everything the body needs is <strong>reabsorbed</strong> — including all of the sugar and the mineral ions needed by the body</li>
+          <li>The amount of <strong>water reabsorbed</strong> depends on the needs of the body</li>
+          <li>The waste product urea, excess ions, and unwanted water are released as <strong>urine</strong></li>
+          <li>Each kidney has a very rich blood supply and is made up of <strong>millions of tiny microscopic tubules (nephrons)</strong> where all the filtering and reabsorption takes place</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The kidneys do more than filter</div>
+          <p>
+            Beyond filtering blood, the kidneys also:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Produce hormones</strong> (e.g. erythropoietin, which stimulates red blood cell production)<br>
+            • <strong>Regulate blood pressure</strong><br>
+            • <strong>Maintain blood pH</strong><br>
+            • <strong>Balance electrolytes</strong> (sodium, potassium, calcium)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="nephron">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">The Nephron</div><div class="section-subtitle">The functional unit of the kidney</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Each kidney contains about a million <strong>nephrons</strong>. Each nephron is a microscopic tubule with several regions, each playing a role in the production of urine.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Part of nephron</th><th>Function</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Bowman's capsule</strong></td><td>The site of <strong>ultrafiltration</strong> of the blood. The blood vessel feeding into the capsule is wider than the vessel leaving, which means the blood in the capillaries is under a lot of pressure. Several layers of cells act as a filter, so blood cells and large blood proteins cannot leave the blood vessels. However, water, salt, glucose, urea, and many other substances are forced out into the start of the tubule.</td></tr>
+            <tr><td><strong>Glomerulus</strong></td><td>The knot of blood vessels in the Bowman's capsule where the pressure builds up so that ultrafiltration occurs. The volume of the blood leaving the glomerulus is about 15% less than the blood coming in — a measure of the liquid which has moved into the capsule as a result of ultrafiltration.</td></tr>
+            <tr><td><strong>First coiled (convoluted) tubule</strong></td><td>Liquid entering this tubule is known as the <strong>glomerular filtrate</strong>. This is where much of the reabsorption takes place. All of the glucose is actively taken back into the blood along with around 67% of the sodium ions and around 80% of the water. It has many microvilli to increase the surface area for absorption.</td></tr>
+            <tr><td><strong>Loop of Henlé</strong></td><td>The part of a kidney where the <strong>urine is concentrated</strong> and more water is conserved.</td></tr>
+            <tr><td><strong>Second coiled (convoluted) tubule</strong></td><td>Where the main <strong>water balancing</strong> is done. If the body is short of water, more is reabsorbed into the blood in this tubule under the influence of <strong>anti-diuretic hormone (ADH)</strong>. Ammonium ions and some drugs are also secreted from the blood into this tubule to get rid of them.</td></tr>
+            <tr><td><strong>Collecting duct</strong></td><td>Where the liquid (essentially urine) is collected. It contains about <strong>1% of the original water</strong>, with no glucose at all. The level of salt in the urine will depend on the amount of salt in your diet and the water content of the urine. There is also a much higher concentration of urea (about <strong>60 times more</strong>) in the urine than in the blood.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Ultrafiltration</div>
+          <p>
+            <strong>Ultrafiltration</strong> is filtration on a very small scale — the process that occurs in the Bowman's capsule. Because the blood vessel feeding the glomerulus is wider than the one leaving it, pressure builds up and forces small molecules (water, glucose, salts, urea) out of the blood and into the capsule.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Bladder</h3>
+        <ul class="key-points">
+          <li>Urine is formed constantly in the kidneys as it drips down to collect in the bladder</li>
+          <li>The bladder is a muscular sac which can hold between <strong>600 and 800 cm³</strong> of urine</li>
+          <li>However, we usually empty it when it contains only about <strong>150–300 cm³</strong></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Astonishing numbers</h3>
+        <ul class="key-points">
+          <li>On an average day, the kidneys produce around <strong>180 litres</strong> of liquid filtered out of the blood in the glomerulus (glomerular filtrate)</li>
+          <li>But only about <strong>1.5 litres</strong> of urine is produced</li>
+          <li>So <strong>more than 99%</strong> of the liquid filtered out of the blood is eventually returned to it</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="adh">
+      <div class="section-header"><div class="section-icon">💧</div>
+        <div><div class="section-title-text">ADH &amp; Water Balance</div><div class="section-subtitle">The feedback mechanism</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The amount of water lost from the kidney in the urine is controlled by a <strong>sensitive feedback mechanism</strong> involving the hormone <strong>anti-diuretic hormone (ADH)</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">When the Body Is Short of Water</h3>
+        <div style="background:#F0FDF4;border-left:4px solid #16A34A;border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0">
+          <p style="font-size:.85rem;line-height:1.9;color:var(--heading);margin:0">
+            <strong>1.</strong> The water content of the blood is too low (so the salt concentration of blood increases).<br>
+            <strong>2.</strong> Special sense organs known as <strong>osmoreceptors</strong> in the brain detect this.<br>
+            <strong>3.</strong> They stimulate the <strong>pituitary gland</strong> in the brain to release <strong>ADH</strong> into the blood.<br>
+            <strong>4.</strong> This hormone affects the <strong>second coiled tubules</strong> of the kidneys, making them more permeable — so more water is reabsorbed back into the blood.<br>
+            <strong>5.</strong> This means <strong>less water is left in the kidney tubules</strong> and so a <strong>more concentrated urine</strong> is formed.<br>
+            <strong>6.</strong> At the same time, the amount of water in the blood increases so the concentration of salts in the blood returns to normal.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">When the Body Has Too Much Water</h3>
+        <ul class="key-points">
+          <li>If the water content of the blood is too high, the pituitary gland releases much <strong>less ADH</strong> into the blood</li>
+          <li>The kidney then reabsorbs <strong>less water</strong> back into the blood</li>
+          <li>This produces a <strong>large volume of dilute urine</strong></li>
+          <li>Water is effectively lost from the blood, and the concentration of salts returns to normal</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Negative feedback</div>
+          <p>
+            This system of <strong>osmoregulation</strong> is an example of <strong>negative feedback</strong>:
+          </p>
+          <p style="margin-top:.5rem">
+            • As the water concentration of the blood <strong>falls</strong>, the level of ADH produced <strong>rises</strong><br>
+            • As the water concentration of the blood <strong>rises</strong>, the level of ADH released <strong>falls</strong>
+          </p>
+          <p style="margin-top:.5rem">
+            The response always counteracts the change — keeping the system stable.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="thermo">
+      <div class="section-header"><div class="section-icon">🌡️</div>
+        <div><div class="section-title-text">Thermoregulation</div><div class="section-subtitle">MoE Textbook §5.8.2</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          It is vitally important that wherever we go and whatever we do, our body temperature is maintained at around <strong>37 °C</strong> — the temperature at which our enzymes work best.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Homeotherms</div>
+          <p>
+            <strong>Homeotherms</strong> are organisms that maintain a <strong>constant internal body temperature</strong> regardless of their environment. Human beings are good examples. The temperature deep inside the body — the <strong>internal or core body temperature</strong> — must be kept stable. (Skin temperature can vary enormously without causing harm.)
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How the Body Regulates Temperature</h3>
+        <ul class="key-points">
+          <li><strong>Sweating</strong> — when the body gets too hot, sweat glands secrete sweat. As it evaporates, it cools the body.</li>
+          <li><strong>Shivering</strong> — when the body gets too cold, muscles contract and relax rapidly, generating heat.</li>
+          <li><strong>Vasodilation</strong> — blood vessels near the skin widen when hot, bringing more blood to the surface to release heat.</li>
+          <li><strong>Vasoconstriction</strong> — blood vessels narrow when cold, keeping blood away from the surface to conserve heat.</li>
+          <li><strong>Hair and adipose tissue</strong> — insulation to reduce heat loss</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The role of the liver</div>
+          <p>
+            Around 500 different reactions take place in the liver at any time. For many years, it has been believed that as a result of all these reactions the liver <strong>generates a lot of heat</strong>, which is then spread around the body by the bloodstream. This is another way the body maintains its core temperature.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="osmo">
+      <div class="section-header"><div class="section-icon">💦</div>
+        <div><div class="section-title-text">Osmoregulation</div><div class="section-subtitle">MoE Textbook §5.8.3</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          <strong>Osmoregulation</strong> is the maintenance of the balance of water and salts in the body. If the concentration of the body fluids changes, water will move into or out of the cells by <strong>osmosis</strong> and they could be damaged or destroyed.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How We Gain and Lose Water</h3>
+        <ul class="key-points">
+          <li><strong>Gain water:</strong> when we drink and eat</li>
+          <li><strong>Lose water:</strong> constantly from the lungs when we breathe out (water evaporates into the air in the lungs and is breathed out)</li>
+          <li><strong>Lose water:</strong> whenever we exercise or get hot, we sweat and lose more water</li>
+          <li><strong>Balance maintained by:</strong> the kidneys, which remove any excess water as urine</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Kidney's Role in Osmoregulation</h3>
+        <ul class="key-points">
+          <li>If we are short of water, we produce <strong>very little urine</strong> and most water is saved for use in the body</li>
+          <li>If we have too much water, our kidneys produce <strong>lots of urine</strong> to get rid of the excess</li>
+          <li>The ion concentration of the body (particularly ordinary salt) is also important</li>
+          <li>Some ions are lost via our skin when we sweat</li>
+          <li><strong>Excess mineral ions are removed by the kidneys</strong> and lost in the urine</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why the balance matters</div>
+          <p>
+            The balance of water and salts in the body is very important because of the <strong>osmotic impact on the cells</strong>. If the balance is wrong, water will move into or out of cells, causing them to swell or shrink. The kidneys are vitally important in two aspects of homeostasis — both in <strong>excretion</strong> and in <strong>osmoregulation</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="chemical">
+      <div class="section-header"><div class="section-icon">⚗️</div>
+        <div><div class="section-title-text">Chemical Regulation</div><div class="section-subtitle">MoE Textbook §5.8.4</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">The Role of the Liver</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The <strong>liver</strong> plays a vital role in maintaining a constant internal environment. It is the largest individual organ in the body, making up around <strong>5% of body mass</strong>. The liver cells are very active in carrying out a wide range of functions, many of which help to maintain a constant internal environment.
+        </p>
+
+        <ul class="key-points">
+          <li>It controls the <strong>sugar levels</strong> in the body (through stored glycogen in the liver itself)</li>
+          <li>It controls and balances the <strong>fats</strong> you eat and the cholesterol levels in the blood</li>
+          <li>It is an important organ where <strong>protein metabolism</strong> takes place</li>
+          <li>It breaks down excess amino acids and forms <strong>urea</strong> (through a process called <strong>deamination</strong>)</li>
+          <li>It carries out the breakdown of <strong>worn-out red blood cells</strong> — especially the red pigment haemoglobin</li>
+          <li>It is vital for the formation of <strong>bile</strong>, made in the liver and stored in the gallbladder</li>
+          <li>It controls <strong>toxins</strong> — the liver breaks down most of the poisons you take into the body, including alcohol</li>
+          <li>It is used to <strong>control temperature</strong> — the many reactions in the liver generate a lot of heat</li>
+        </ul>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Deamination</div>
+          <p>
+            <strong>Deamination</strong> is the process of removing the amino group from excess amino acids. If you eat too much protein, your body cannot store the excess amino acids or simply convert protein to fat. Instead, the amino acids are broken down in the liver. The amino (nitrogen-containing) part of the amino acid molecule is removed and converted into ammonia and then urea in the liver. The rest of the amino acid can be used in cellular respiration or converted to fat for storage.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Role of the Respiratory System</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The <strong>regulation of tissue oxygenation</strong> is another example of chemical regulation in the body. The <strong>respiratory chemoreceptors</strong> work by sensing the pH levels of their environment through the concentration of hydrogen ions.
+        </p>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Because most carbon dioxide is converted to carbonic acid (and bicarbonate) in the bloodstream, chemoreceptors are able to use <strong>blood pH as a way to measure the carbon dioxide levels</strong> of the bloodstream.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Types of Chemoreceptors</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Location and function</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Central chemoreceptors</strong></td><td>Located on the ventrolateral surface of the <strong>medulla oblongata</strong>. Detect changes in the pH of spinal fluid. Can be desensitized over time from chronic hypoxia (oxygen deficiency) and increased carbon dioxide.</td></tr>
+            <tr><td><strong>Peripheral chemoreceptors</strong></td><td>Include the <strong>aortic body</strong> (which detects changes in blood oxygen and carbon dioxide, but not pH) and the <strong>carotid body</strong> (which detects all three). They do not desensitize, but have less impact on the respiratory rate compared to the central chemoreceptors.</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 The body's need for balance</div>
+          <p>
+            The respiratory system must try to maintain constant levels of <strong>O₂, CO₂, and H⁺</strong> in the arterial blood, which then ensures relatively constant levels of these important substances in the interstitial fluid.
+          </p>
+          <p style="margin-top:.5rem">
+            • For O₂, one needs an adequate supply to meet cellular metabolic requirements<br>
+            • For CO₂ and H⁺, one needs to maintain the <strong>acid–base status</strong> of the body's cells
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 5.40–5.44 — Practical &amp; discussion</div>
+          <div class="activity-body">
+            In small groups:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li><strong>Kidney dissection:</strong> dissect a fresh kidney (lamb or sheep), observe its structure, and identify the cortex, medulla, and pelvis</li>
+              <li><strong>Discuss urine concentration:</strong> what type of urine is produced when someone drinks a lot of water vs. a small volume of water?</li>
+              <li><strong>Traditional homeostasis:</strong> are there traditional mechanisms in your locality used to regulate body homeostasis?</li>
+              <li><strong>Temperature regulation:</strong> research the different physiological and behavioral methods of temperature regulation in the human body</li>
+              <li><strong>Other chemical regulation:</strong> find other types of chemical regulation in the human body</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. Define homeostasis. Why is it important?<br>
+            B. Describe the structure of the human kidney. What are the three regions?<br>
+            C. What is the nephron? Describe the function of each of its parts.<br>
+            D. What is ultrafiltration? Where does it occur?<br>
+            E. What is the role of ADH in osmoregulation?<br>
+            F. How does the body regulate its temperature? Name four mechanisms.<br>
+            G. Why is water balance so important for cells?<br>
+            H. What is deamination? Where does it happen and why?<br>
+            I. What are the two types of chemoreceptors involved in respiratory regulation?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is <strong>homeostasis</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> The process of digesting food</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> The maintenance of a stable internal environment in the body</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> The formation of new species</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> The movement of muscles</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is the functional unit of the kidney?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Neuron</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Nephron</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Alveolus</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Villus</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Where does <strong>ultrafiltration</strong> occur in the nephron?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> In the loop of Henlé</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> In the Bowman's capsule (glomerulus)</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> In the collecting duct</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> In the renal pelvis</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">What is the role of <strong>ADH</strong> (anti-diuretic hormone)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> It increases blood glucose levels</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> It makes the kidney tubules more permeable so more water is reabsorbed into the blood</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> It increases heart rate</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> It lowers body temperature</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">What is <strong>deamination</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> The formation of new amino acids</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> The removal of the amino group from excess amino acids, forming urea in the liver</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> The breakdown of fat in the liver</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> The production of bile</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=homeostasis+overview+negative+feedback" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Homeostasis — Overview &amp; Negative Feedback</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=kidney+nephron+structure+function" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Kidney &amp; Nephron — Structure &amp; Function</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=ADH+osmoregulation+water+balance" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">ADH &amp; Osmoregulation</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=thermoregulation+body+temperature+control" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Thermoregulation — Body Temperature Control</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 5.8</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Homeostasis</strong> = maintenance of a stable internal environment despite external changes</li>
+          <li>Controlled mainly by the <strong>nervous and endocrine systems</strong> using <strong>negative feedback</strong></li>
+          <li>The <strong>kidney</strong> has three regions: cortex, medulla, and pelvis; each contains millions of <strong>nephrons</strong></li>
+          <li>The nephron includes: <strong>Bowman's capsule, glomerulus, first coiled tubule, loop of Henlé, second coiled tubule, collecting duct</strong></li>
+          <li><strong>Ultrafiltration</strong> occurs in the Bowman's capsule — small molecules are forced out of blood under pressure</li>
+          <li><strong>Reabsorption</strong> occurs mainly in the first coiled tubule — all glucose, ~80% water, ~67% sodium ions are reabsorbed</li>
+          <li><strong>ADH</strong> controls water reabsorption in the second coiled tubule — more ADH = more water reabsorbed (concentrated urine)</li>
+          <li><strong>Thermoregulation</strong> maintains body temperature around 37 °C via sweating, shivering, vasodilation, and vasoconstriction</li>
+          <li><strong>Osmoregulation</strong> balances water and salts; controlled by kidneys and ADH</li>
+          <li><strong>Chemical regulation</strong> — the liver controls glucose, fats, proteins (via deamination), and toxins; chemoreceptors detect pH and CO₂ levels</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-5-7.html" class="btn btn-outline">← Lesson 5.7</a>
+      <a href="lesson-5-9.html" class="btn btn-primary">Next: Lesson 5.9 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 5 · Lesson 5.8 · Homeostasis</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'B', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Homeostasis is the maintenance of a stable internal environment in the body.',wrong:'✗ Homeostasis = stable internal environment.'},
+    2:{correct:'✓ Correct! The nephron is the functional unit of the kidney — about a million are in each kidney.',wrong:'✗ Nephron = functional unit of kidney.'},
+    3:{correct:'✓ Correct! Ultrafiltration occurs in the Bowman\'s capsule (glomerulus), where pressure forces small molecules out of the blood.',wrong:'✗ Ultrafiltration occurs in the Bowman\'s capsule.'},
+    4:{correct:'✓ Correct! ADH makes the second coiled tubules of the kidneys more permeable, so more water is reabsorbed back into the blood.',wrong:'✗ ADH increases water reabsorption.'},
+    5:{correct:'✓ Correct! Deamination is the removal of the amino group from excess amino acids, forming ammonia and then urea in the liver.',wrong:'✗ Deamination = removal of amino group.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 5.8.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
