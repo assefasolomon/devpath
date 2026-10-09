@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.8: Unit 3 Review — Energy Transformation | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    .formula-banner{background:linear-gradient(135deg,#0F172A,#14532D);border-radius:var(--radius-xl);padding:1.75rem;color:#fff;margin:1.25rem 0}
+    .formula-banner-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86EFAC;margin-bottom:1rem}
+    .formula-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .formula-item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:1rem}
+    .formula-name{font-size:.72rem;color:rgba(255,255,255,.55);margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.06em}
+    .formula-math{font-size:.9rem;font-weight:700;color:#4ADE80;font-family:'Georgia',serif;line-height:1.5}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 3</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 8</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('overview')"><div class="sidebar-dot"></div> Unit Overview</button>
+      <button class="sidebar-link" onclick="scrollToId('formulas')"><div class="sidebar-dot"></div> Key Equations</button>
+      <button class="sidebar-link" onclick="scrollToId('carbohydrates')"><div class="sidebar-dot"></div> Carbohydrates</button>
+      <button class="sidebar-link" onclick="scrollToId('lipids')"><div class="sidebar-dot"></div> Lipids</button>
+      <button class="sidebar-link" onclick="scrollToId('photosynthesis')"><div class="sidebar-dot"></div> Photosynthesis</button>
+      <button class="sidebar-link" onclick="scrollToId('respiration')"><div class="sidebar-dot"></div> Cellular Respiration</button>
+      <button class="sidebar-link" onclick="scrollToId('fermentation')"><div class="sidebar-dot"></div> Fermentation</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Review Quiz (5 Qs)</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Energy &amp; Metabolism</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Carbohydrates</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Lipids</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Cellular Metabolism</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Photosynthesis</a>
+      <a href="lesson-3-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Cellular Respiration</a>
+      <a href="lesson-3-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Fermentation</a>
+      <a href="lesson-3-8.html" class="sidebar-link active"><div class="sidebar-dot"></div> L8: Unit Review</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 3</a> ›
+      Lesson 3.8
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Energy Transformation · Unit Review</div>
+      <h1>📝 Unit 3 Review — Energy Transformation</h1>
+      <p>You've completed Unit 3! This review consolidates the key concepts, formulas, and comparisons from all 7 lessons. Use it for revision before the EUEE exam and as a quick reference for the entire unit.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 review questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 review resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="overview">
+      <div class="section-header"><div class="section-icon">📖</div>
+        <div><div class="section-title-text">Unit Overview</div><div class="section-subtitle">What you learned</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Unit 3 explored how living things capture, store, transform, and use energy. You learned about the molecules that store energy (carbohydrates and lipids), the laws that govern energy transformations (thermodynamics), and the two great pathways that power life on Earth: <strong>photosynthesis</strong> and <strong>cellular respiration</strong>.
+        </p>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">⚡</div>
+            <div class="concept-title">L1: Energy &amp; Metabolism</div>
+            <p class="concept-desc">Energy forms, laws of thermodynamics, exergonic vs endergonic reactions, anabolism vs catabolism.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🍞</div>
+            <div class="concept-title">L2: Carbohydrates</div>
+            <p class="concept-desc">Mono-, di-, and polysaccharides, α vs β glycosidic bonds, starch vs cellulose.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🧈</div>
+            <div class="concept-title">L3: Lipids</div>
+            <p class="concept-desc">Simple, compound, derived lipids, saturated vs unsaturated fats, phospholipids, sterols.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🔄</div>
+            <div class="concept-title">L4: Cellular Metabolism</div>
+            <p class="concept-desc">Metabolic pathways, enzymes, feedback inhibition, anabolism vs catabolism.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">☀️</div>
+            <div class="concept-title">L5: Photosynthesis</div>
+            <p class="concept-desc">Chloroplast structure, pigments, light reactions, Calvin cycle, C3/C4/CAM plants.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🔥</div>
+            <div class="concept-title">L6: Cellular Respiration</div>
+            <p class="concept-desc">Glycolysis, pyruvate oxidation, Krebs cycle, ETC, ATP yield, respirometers.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🍺</div>
+            <div class="concept-title">L7: Fermentation</div>
+            <p class="concept-desc">Anaerobic pathway, alcohol fermentation, lactic acid fermentation, applications.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="formulas">
+      <div class="section-header"><div class="section-icon">📐</div>
+        <div><div class="section-title-text">Key Equations</div><div class="section-subtitle">Must-know formulas</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="formula-banner">
+          <div class="formula-banner-title">🔬 Unit 3 — Essential Equations</div>
+          <div class="formula-row">
+            <div class="formula-item">
+              <div class="formula-name">Photosynthesis</div>
+              <div class="formula-math">6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂</div>
+            </div>
+            <div class="formula-item">
+              <div class="formula-name">Aerobic Respiration</div>
+              <div class="formula-math">C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ~36 ATP</div>
+            </div>
+            <div class="formula-item">
+              <div class="formula-name">Glycolysis</div>
+              <div class="formula-math">Glucose + 2 ADP + 2 NAD⁺ → 2 Pyruvate + 2 ATP + 2 NADH</div>
+            </div>
+            <div class="formula-item">
+              <div class="formula-name">Alcohol Fermentation</div>
+              <div class="formula-math">Glucose → 2 Ethanol + 2 CO₂ + 2 ATP</div>
+            </div>
+            <div class="formula-item">
+              <div class="formula-name">Lactic Acid Fermentation</div>
+              <div class="formula-math">Glucose → 2 Lactate + 2 ATP</div>
+            </div>
+            <div class="formula-item">
+              <div class="formula-name">First Law of Thermodynamics</div>
+              <div class="formula-math">Energy is conserved (ΔU = Q − W)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="carbohydrates">
+      <div class="section-header"><div class="section-icon">🍞</div>
+        <div><div class="section-title-text">Carbohydrates — Quick Review</div><div class="section-subtitle">From Lesson 3.2</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Structure</th><th>Examples</th><th>Function</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Monosaccharides</strong></td><td>Single sugar unit (3–7 carbons)</td><td>Glucose, fructose, galactose, ribose</td><td>Immediate energy; building blocks</td></tr>
+            <tr><td><strong>Disaccharides</strong></td><td>Two sugar units</td><td>Sucrose, lactose, maltose</td><td>Transport sugars</td></tr>
+            <tr><td><strong>Polysaccharides</strong></td><td>Many sugar units</td><td>Starch, glycogen, cellulose, chitin</td><td>Energy storage; structure</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Critical distinction</div>
+          <p>
+            <strong>α-1,4 bonds</strong> (α-glucose) form starch and glycogen → <strong>digestible by humans</strong><br>
+            <strong>β-1,4 bonds</strong> (β-glucose) form cellulose and chitin → <strong>NOT digestible by humans</strong> (we lack cellulase)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="lipids">
+      <div class="section-header"><div class="section-icon">🧈</div>
+        <div><div class="section-title-text">Lipids — Quick Review</div><div class="section-subtitle">From Lesson 3.3</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr><th>Category</th><th>Structure</th><th>Examples</th><th>Function</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Simple lipids</strong></td><td>Glycerol + 3 fatty acids</td><td>Triglycerides, waxes</td><td>Energy storage; waterproofing</td></tr>
+            <tr><td><strong>Compound lipids</strong></td><td>Lipid + phosphate or carbohydrate</td><td>Phospholipids, glycolipids</td><td>Cell membranes; cell recognition</td></tr>
+            <tr><td><strong>Derived lipids</strong></td><td>Hydrolysis products of lipids</td><td>Cholesterol, steroids, vitamin D</td><td>Hormones; membrane structure</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Saturated vs unsaturated</div>
+          <p>
+            <strong>Saturated fats</strong> — no double bonds; solid at room temperature; linked to heart disease<br>
+            <strong>Unsaturated fats</strong> — at least one double bond; liquid at room temperature; generally healthier
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="photosynthesis">
+      <div class="section-header"><div class="section-icon">☀️</div>
+        <div><div class="section-title-text">Photosynthesis — Quick Review</div><div class="section-subtitle">From Lesson 3.5</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr><th>Stage</th><th>Location</th><th>Inputs</th><th>Outputs</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Light-dependent reactions</strong></td>
+              <td>Thylakoid membranes</td>
+              <td>Light, H₂O, ADP, NADP⁺</td>
+              <td>ATP, NADPH, O₂</td>
+            </tr>
+            <tr>
+              <td><strong>Calvin cycle (light-independent)</strong></td>
+              <td>Stroma</td>
+              <td>CO₂, ATP, NADPH</td>
+              <td>G3P → Glucose</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Three Stages of the Calvin Cycle</h3>
+        <ul class="key-points">
+          <li><strong>Carbon fixation</strong> — CO₂ + RuBP → 3-PGA (enzyme: rubisco)</li>
+          <li><strong>Reduction</strong> — 3-PGA → G3P (using ATP and NADPH)</li>
+          <li><strong>Regeneration</strong> — RuBP is regenerated</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 C3 vs C4 vs CAM</div>
+          <p>
+            <strong>C3 plants</strong> (95%) — fix carbon directly (e.g. rice, wheat, teff)<br>
+            <strong>C4 plants</strong> (~1%) — use bundle-sheath cells (e.g. corn, sugarcane)<br>
+            <strong>CAM plants</strong> (3–4%) — open stomata at night (e.g. cacti, pineapple)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="respiration">
+      <div class="section-header"><div class="section-icon">🔥</div>
+        <div><div class="section-title-text">Cellular Respiration — Quick Review</div><div class="section-subtitle">From Lesson 3.6</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr><th>Stage</th><th>Location</th><th>Products per glucose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Glycolysis</strong></td><td>Cytosol</td><td>2 Pyruvate + 2 ATP (net) + 2 NADH</td></tr>
+            <tr><td><strong>Pyruvate oxidation</strong></td><td>Mitochondrial matrix</td><td>2 Acetyl-CoA + 2 NADH + 2 CO₂</td></tr>
+            <tr><td><strong>Krebs cycle</strong></td><td>Mitochondrial matrix</td><td>6 NADH + 2 FADH₂ + 2 GTP + 4 CO₂</td></tr>
+            <tr><td><strong>Electron transport chain</strong></td><td>Inner mitochondrial membrane</td><td>~32–34 ATP + H₂O</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">ATP Yield Summary</h3>
+        <ul class="key-points">
+          <li><strong>1 NADH</strong> → ~3 ATP</li>
+          <li><strong>1 FADH₂</strong> → ~2 ATP</li>
+          <li><strong>1 GTP</strong> → 1 ATP</li>
+          <li><strong>Total per glucose</strong> ≈ 36–38 ATP (older textbooks); modern estimates ~30–32</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The role of oxygen</div>
+          <p>
+            Oxygen is the <strong>terminal electron acceptor</strong> at the end of the electron transport chain. It combines with electrons and H⁺ to form water. Without O₂, the ETC stops — and the cell must switch to fermentation.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="fermentation">
+      <div class="section-header"><div class="section-icon">🍺</div>
+        <div><div class="section-title-text">Fermentation — Quick Review</div><div class="section-subtitle">From Lesson 3.7</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr><th>Feature</th><th>Alcohol Fermentation</th><th>Lactic Acid Fermentation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Organism</strong></td><td>Yeast</td><td>Some bacteria; muscle cells</td></tr>
+            <tr><td><strong>End product</strong></td><td>Ethanol + CO₂</td><td>Lactate</td></tr>
+            <tr><td><strong>ATP yield</strong></td><td>2 ATP per glucose</td><td>2 ATP per glucose</td></tr>
+            <tr><td><strong>Applications</strong></td><td>Bread, beer, wine, bioethanol</td><td>Yoghurt, cheese, ergo</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why fermentation matters</div>
+          <p>
+            Fermentation <strong>regenerates NAD⁺</strong> so glycolysis can continue. Without it, cells would run out of NAD⁺ within seconds and could not produce any ATP anaerobically.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Unit 3 Review Quiz</div><div class="section-subtitle">Test your overall understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">Which of the following is a <strong>polysaccharide</strong> that <strong>cannot</strong> be digested by humans?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Starch</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Glycogen</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Cellulose</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Sucrose</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Which of the following is <strong>amphipathic</strong> and forms the basis of cell membranes?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Triglycerides</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Phospholipids</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Waxes</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Steroids</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Where do the <strong>light-dependent reactions</strong> of photosynthesis occur?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> In the stroma</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> In the thylakoid membranes</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> In the cytoplasm</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> In the mitochondria</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Which stage of <strong>cellular respiration</strong> occurs in the cytosol and does <strong>not</strong> require oxygen?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Glycolysis</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Krebs cycle</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Electron transport chain</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Pyruvate oxidation</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Why is <strong>fermentation</strong> necessary when oxygen is unavailable?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> It produces more ATP than aerobic respiration</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> It regenerates NAD⁺ so glycolysis can continue</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> It produces oxygen for the cell</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> It stops glycolysis from happening</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Unit 3 Complete!</div><div class="section-subtitle">Key takeaways</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember from Unit 3</div>
+        <ul class="summary-list">
+          <li><strong>Energy</strong> is the capacity to do work; it exists as potential (stored) or kinetic (motion)</li>
+          <li><strong>First Law of Thermodynamics:</strong> energy cannot be created or destroyed, only transformed</li>
+          <li><strong>Second Law:</strong> energy transformations increase entropy (disorder)</li>
+          <li><strong>Carbohydrates:</strong> monosaccharides, disaccharides, polysaccharides; α-1,4 bonds are digestible, β-1,4 bonds are not</li>
+          <li><strong>Lipids:</strong> simple, compound, and derived; saturated fats are solid, unsaturated fats are liquid</li>
+          <li><strong>Metabolism:</strong> all chemical reactions in a cell; anabolism builds up, catabolism breaks down</li>
+          <li><strong>Photosynthesis:</strong> uses light to convert CO₂ + H₂O → glucose + O₂</li>
+          <li><strong>Cellular respiration:</strong> breaks down glucose to release ATP (glycolysis → pyruvate oxidation → Krebs → ETC)</li>
+          <li><strong>Fermentation:</strong> anaerobic pathway that regenerates NAD⁺; produces only 2 ATP per glucose</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-7.html" class="btn btn-outline">← Lesson 3.7</a>
+      <a href="../index.html" class="btn btn-primary">Unit 3 Complete ✓</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 3 · Lesson 3.8 · Unit Review</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'C', 2:'B', 3:'B', 4:'A', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Cellulose is made of β-1,4 bonds, which humans cannot digest because we lack the enzyme cellulase.',wrong:'✗ Cellulose has β-1,4 bonds — not digestible by humans.'},
+    2:{correct:'✓ Correct! Phospholipids are amphipathic — they have a hydrophilic head and hydrophobic tails — and they form the basis of cell membranes.',wrong:'✗ Phospholipids form the cell membrane bilayer.'},
+    3:{correct:'✓ Correct! The light-dependent reactions occur in the thylakoid membranes.',wrong:'✗ Light reactions occur in thylakoid membranes.'},
+    4:{correct:'✓ Correct! Glycolysis occurs in the cytosol and does not require oxygen.',wrong:'✗ Glycolysis occurs in the cytosol, no oxygen needed.'},
+    5:{correct:'✓ Correct! Fermentation regenerates NAD⁺ so glycolysis can continue producing ATP.',wrong:'✗ Fermentation regenerates NAD⁺.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You are ready to move on to Unit 4.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the units where you missed questions.';
+      else msg = '💪 Keep going — read through the unit notes again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
