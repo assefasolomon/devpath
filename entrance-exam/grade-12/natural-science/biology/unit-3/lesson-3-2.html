@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.2: Chemical Structure of Carbohydrates | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .sugar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+    .sugar-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition);text-align:center}
+    .sugar-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .sugar-icon{font-size:2rem;margin-bottom:.5rem}
+    .sugar-title{font-size:.92rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .sugar-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 3</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What are Carbohydrates?</button>
+      <button class="sidebar-link" onclick="scrollToId('monosaccharides')"><div class="sidebar-dot"></div> Monosaccharides</button>
+      <button class="sidebar-link" onclick="scrollToId('aldoses')"><div class="sidebar-dot"></div> Aldoses vs Ketoses</button>
+      <button class="sidebar-link" onclick="scrollToId('disaccharides')"><div class="sidebar-dot"></div> Disaccharides</button>
+      <button class="sidebar-link" onclick="scrollToId('polysaccharides')"><div class="sidebar-dot"></div> Polysaccharides</button>
+      <button class="sidebar-link" onclick="scrollToId('bonds')"><div class="sidebar-dot"></div> Alpha vs Beta Bonds</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Energy &amp; Metabolism</a>
+      <a href="lesson-3-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Carbohydrates</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Lipids</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Cellular Metabolism</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Photosynthesis</a>
+      <a href="lesson-3-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Cellular Respiration</a>
+      <a href="lesson-3-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Fermentation</a>
+      <a href="lesson-3-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Unit Review</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 3</a> ›
+      Lesson 3.2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Energy Transformation · MoE Textbook §3.1</div>
+      <h1>🍞 Chemical Structure of Carbohydrates</h1>
+      <p>Carbohydrates are the most abundant organic molecules on Earth — and the main source of energy for most living things. From the sugar in your tea to the starch in teff, from the cellulose in plant cell walls to the glycogen in your muscles, carbohydrates are everywhere. This lesson explores their structure and classification.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Carbohydrates are the most abundant biological molecules in the world. They're made of just three elements — <strong>carbon, hydrogen, and oxygen</strong> — but they form an astonishing variety of structures. They fuel our cells, build plant cell walls, and store energy in our liver and muscles.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> carbohydrates and explain their general formula</li>
+          <li>Distinguish between <strong>monosaccharides, oligosaccharides, and polysaccharides</strong></li>
+          <li>Compare <strong>aldoses and ketoses</strong></li>
+          <li>Identify the common <strong>disaccharides</strong> — sucrose, lactose, maltose</li>
+          <li>Describe the structure and function of the main <strong>polysaccharides</strong></li>
+          <li>Distinguish between <strong>α-1,4 and β-1,4 glycosidic bonds</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What are Carbohydrates?</div><div class="section-subtitle">MoE Textbook §3.1, p. 90</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Carbohydrates</div>
+          <p>
+            <strong>Carbohydrates</strong> are organic compounds made of <strong>carbon, hydrogen, and oxygen</strong>, usually with hydrogen and oxygen in the ratio 2:1 (as in water). They are generally classified into three groups: <strong>monosaccharides, oligosaccharides, and polysaccharides</strong>.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The general formula</div>
+          <p>
+            Simple sugars (monosaccharides) have the formula <strong>[C(H₂O)]ₙ</strong>, where <strong>n = 3–7</strong>. For example, glucose (n = 6) has the formula <strong>C₆H₁₂O₆</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why Carbohydrates Matter</h3>
+        <ul class="key-points">
+          <li>They are the <strong>main source of energy</strong> for most living things</li>
+          <li>They are essential to mankind as food and fuel</li>
+          <li>They provide structural support (cellulose in plants, chitin in insects and fungi)</li>
+          <li>They store energy (starch in plants, glycogen in animals)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="monosaccharides">
+      <div class="section-header"><div class="section-icon">🍬</div>
+        <div><div class="section-title-text">Monosaccharides</div><div class="section-subtitle">The simplest sugars</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Monosaccharides</div>
+          <p>
+            <strong>Monosaccharides</strong> are carbohydrate molecules that <strong>cannot be broken down into simpler carbohydrate molecules</strong> by hydrolysis. They are the simplest (smallest) carbohydrates and are also called "simple sugars."
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Classification by Number of Carbons</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Carbons</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Triose</strong></td><td>3</td><td>Glyceraldehyde, Dihydroxyacetone</td></tr>
+            <tr><td><strong>Tetrose</strong></td><td>4</td><td>Erythrose</td></tr>
+            <tr><td><strong>Pentose</strong></td><td>5</td><td>Ribose, Ribulose</td></tr>
+            <tr><td><strong>Hexose</strong></td><td>6</td><td>Glucose, Galactose, Fructose</td></tr>
+            <tr><td><strong>Heptose</strong></td><td>7</td><td>Sedoheptulose</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Two Families of Monosaccharides</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          All carbohydrates have a carbonyl functional group (C=O) and multiple hydroxyl groups (C–OH). Based on the <strong>location of the carbonyl group</strong>, monosaccharides are classified as <strong>aldoses</strong> or <strong>ketoses</strong>.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Family</th><th>Carbonyl position</th><th>Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Aldoses</strong> (aldehyde sugars)</td><td>At the <strong>end</strong> of the carbon chain</td><td>Glucose, Ribose, Galactose, Glyceraldehyde</td></tr>
+            <tr><td><strong>Ketoses</strong> (ketone sugars)</td><td>At <strong>any other position</strong> (usually carbon 2)</td><td>Fructose, Ribulose, Dihydroxyacetone</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Glucose — the most common monosaccharide</div>
+          <p>
+            <strong>Glucose (C₆H₁₂O₆)</strong> is the most common monosaccharide in living things. It's an <strong>aldose</strong> and is the primary fuel for cellular respiration. Every cell in your body uses glucose for energy.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="aldoses">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Aldoses vs Ketoses</div><div class="section-subtitle">Two families of simple sugars</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Aldoses (Aldehyde Sugars)</h3>
+        <ul class="key-points">
+          <li>Have the carbonyl group (C=O) at the <strong>end</strong> of the molecule</li>
+          <li>Carbon atoms are numbered starting at the aldehyde functional group</li>
+          <li>Common examples: <strong>glyceraldehyde</strong> (triose), <strong>ribose</strong> (pentose), <strong>glucose and galactose</strong> (hexoses)</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Ketoses (Ketone Sugars)</h3>
+        <ul class="key-points">
+          <li>Have the carbonyl group <strong>not at the end</strong> of the molecule</li>
+          <li>Common examples: <strong>dihydroxyacetone</strong> (triose), <strong>ribulose</strong> (pentose), <strong>fructose</strong> (hexose)</li>
+          <li>Fructose is one of the most common monosaccharide ketone sugars</li>
+        </ul>
+
+        <div class="sugar-grid">
+          <div class="sugar-card">
+            <div class="sugar-icon">⚪</div>
+            <div class="sugar-title">Triose Sugars</div>
+            <p class="sugar-desc"><strong>C₃H₆O₃</strong><br>Glyceraldehyde (aldose)<br>Dihydroxyacetone (ketose)</p>
+          </div>
+          <div class="sugar-card">
+            <div class="sugar-icon">🟡</div>
+            <div class="sugar-title">Pentose Sugars</div>
+            <p class="sugar-desc"><strong>C₅H₁₀O₅</strong><br>Ribose (aldose)<br>Ribulose (ketose)</p>
+          </div>
+          <div class="sugar-card">
+            <div class="sugar-icon">🟠</div>
+            <div class="sugar-title">Hexose Sugars</div>
+            <p class="sugar-desc"><strong>C₆H₁₂O₆</strong><br>Glucose, Galactose (aldoses)<br>Fructose (ketose)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="disaccharides">
+      <div class="section-header"><div class="section-icon">🔗</div>
+        <div><div class="section-title-text">Disaccharides</div><div class="section-subtitle">Two sugars joined together</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Disaccharides</div>
+          <p>
+            <strong>Disaccharides</strong> (two sugars) consist of <strong>two monosaccharide units</strong> joined by a <strong>glycosidic linkage</strong> — a central oxygen covalently bonded to two carbons, one in each ring. They have 12 carbon atoms with the general formula <strong>C₁₂H₂₂O₁₁</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Three Common Disaccharides</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Disaccharide</th><th>Made of</th><th>Found in</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Maltose</strong> (malt sugar)</td><td>Two α-glucose units</td><td>Germinating seeds, malted barley</td></tr>
+            <tr><td><strong>Lactose</strong> (milk sugar)</td><td>Glucose + Galactose</td><td>Milk and dairy products</td></tr>
+            <tr><td><strong>Sucrose</strong> (table sugar)</td><td>Glucose + Fructose</td><td>Sugarcane, sugar beet, plants</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Formation &amp; Breakdown</h3>
+        <ul class="key-points">
+          <li><strong>Dehydration synthesis (condensation reaction):</strong> Two monosaccharides join with the <strong>release of a water molecule (H₂O)</strong> to form a disaccharide</li>
+          <li><strong>Hydrolysis ("breaking with water"):</strong> A disaccharide + water react to form <strong>two monosaccharides</strong></li>
+          <li>Example: Sucrose + H₂O → Glucose + Fructose</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Reducing sugars</div>
+          <p>
+            A <strong>reducing sugar</strong> is a sugar that can donate electrons to another compound (i.e., reduce it). All monosaccharides are reducing sugars; most disaccharides are reducing sugars <em>except sucrose</em>. This is why sucrose doesn't react with Benedict's solution — the test for reducing sugars.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="polysaccharides">
+      <div class="section-header"><div class="section-icon">🧱</div>
+        <div><div class="section-title-text">Polysaccharides</div><div class="section-subtitle">Complex carbohydrates</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Polysaccharides</div>
+          <p>
+            <strong>Polysaccharides</strong> ("many sugars") are <strong>long polymers of monosaccharides</strong> linked by dehydration synthesis. They may be linear or branched polymers and may contain hundreds or even thousands of monosaccharide units. They are also called <strong>complex carbohydrates</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Four Key Polysaccharides</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Polysaccharide</th><th>Monomer</th><th>Function</th><th>Found in</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Starch</strong></td><td>Glucose (α-1,4)</td><td>Energy storage in plants</td><td>Seeds, bulbs, tubers (potato, teff)</td></tr>
+            <tr><td><strong>Glycogen</strong></td><td>Glucose (α-1,4 + α-1,6 branches)</td><td>Energy storage in animals</td><td>Liver and muscles</td></tr>
+            <tr><td><strong>Cellulose</strong></td><td>Glucose (β-1,4)</td><td>Structural support</td><td>Plant cell walls (wood)</td></tr>
+            <tr><td><strong>Chitin</strong></td><td>Modified glucose (β-1,4)</td><td>Structural support</td><td>Exoskeletons of insects, fungal cell walls</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Starch — The Plant Energy Store</h3>
+        <ul class="key-points">
+          <li>Made of two components: <strong>amylose (10–30%)</strong> — linear, and <strong>amylopectin (70–90%)</strong> — branched</li>
+          <li>Found especially in <strong>seeds, bulbs, and tubers</strong></li>
+          <li>Stored in plants for later use as energy</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Glycogen — The Animal Energy Store</h3>
+        <ul class="key-points">
+          <li>A <strong>highly branched polymer</strong> of glucose</li>
+          <li>Most glucose residues are linked by <strong>α-1,4 glycosidic bonds</strong></li>
+          <li>Branches (about every tenth residue) are created by <strong>α-1,6 glycosidic bonds</strong></li>
+          <li>Readily mobilized — broken down to release glucose when energy is needed</li>
+          <li>Stored in the <strong>liver and muscles</strong></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Cellulose &amp; Chitin — The Structural Polysaccharides</h3>
+        <ul class="key-points">
+          <li><strong>Cellulose</strong> — forms wood and parts of plant cell walls; long chains of glucose connected by <strong>β-acetal linkages</strong>; one of the most common organic compounds in nature</li>
+          <li><strong>Chitin</strong> — found in the exoskeletons of insects, the cell walls of fungi, and certain hard structures in invertebrates and fish; made from chains of modified glucose; the second most common organic compound in nature</li>
+          <li><strong>Pectin</strong> — a polysaccharide found in the cell walls of fruits and vegetables</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="bonds">
+      <div class="section-header"><div class="section-icon">🔗</div>
+        <div><div class="section-title-text">Alpha vs Beta Glycosidic Bonds</div><div class="section-subtitle">Why starch and cellulose are so different</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The D-glucose that can be used by cells is biologically active. It can exist in two forms — <strong>α-D-glucose</strong> and <strong>β-D-glucose</strong> — which differ only in the direction that the –H and –OH groups point on carbon 1.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Key Difference</h3>
+        <ul class="key-points">
+          <li>When <strong>α-glucose</strong> molecules are joined, they form <strong>starch and glycogen</strong></li>
+          <li>When <strong>β-glucose</strong> molecules are joined, they form <strong>cellulose and chitin</strong></li>
+          <li>1,4 glycosidic bonds form between carbon-1 of one monosaccharide and carbon-4 of the other</li>
+          <li><strong>α-1,4 bond:</strong> The OH on carbon-1 is <strong>below</strong> the glucose ring</li>
+          <li><strong>β-1,4 bond:</strong> The OH on carbon-1 is <strong>above</strong> the plane</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why this matters</div>
+          <p>
+            This tiny difference in bond orientation has enormous consequences:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Starch and glycogen</strong> (α-bonds) — easy for animals to digest, provide quick energy<br>
+            • <strong>Cellulose and chitin</strong> (β-bonds) — very difficult for animals to digest, provide structural strength<br>
+            • Humans can digest starch but <strong>cannot digest cellulose</strong> — because we don't produce the enzyme (cellulase) needed to break β-1,4 bonds. That's why fibre (cellulose) passes through our digestive system undigested.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 3.3 — Dehydration vs Hydrolysis</div>
+          <div class="activity-body">
+            In a group of 5–10 students, discuss and distinguish between:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li><strong>Dehydration synthesis (condensation)</strong> — forming a bond by removing water</li>
+              <li><strong>Hydrolysis</strong> — breaking a bond by adding water</li>
+            </ul>
+            Draw diagrams to illustrate both processes.
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What are carbohydrates? What is their general chemical formula?<br>
+            B. Classify carbohydrates into their three main groups.<br>
+            C. What is the difference between aldoses and ketoses?<br>
+            D. Name the three common disaccharides and the monosaccharides they're made of.<br>
+            E. Compare the structure and function of starch, glycogen, cellulose, and chitin.<br>
+            F. What is the difference between α-1,4 and β-1,4 glycosidic bonds?<br>
+            G. Why can humans digest starch but not cellulose?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">Which of the following is the <strong>general formula</strong> for a simple sugar with 6 carbons?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> C₆H₁₀O₅</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> C₆H₁₂O₆</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> C₁₂H₂₂O₁₁</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> C₅H₁₀O₅</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is the difference between an <strong>aldose and a ketose</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Aldoses are monosaccharides; ketoses are disaccharides</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Aldoses have a carbonyl group at the end of the chain; ketoses have it at another position</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Aldoses contain nitrogen; ketoses do not</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> They are the same thing</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Which disaccharide is made of <strong>glucose + fructose</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Maltose</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Lactose</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Sucrose</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Cellulose</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Which polysaccharide is the <strong>main energy storage</strong> molecule in animals?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Starch</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Glycogen</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Cellulose</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Chitin</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Why can humans digest <strong>starch</strong> but <strong>not cellulose</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Cellulose is too large to be digested</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Starch is made of α-glucose (α-1,4 bonds), while cellulose is made of β-glucose (β-1,4 bonds). Humans lack the enzyme to break β-1,4 bonds.</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Cellulose contains no glucose</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Cellulose is a protein, not a carbohydrate</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=carbohydrates+structure+and+function" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Carbohydrates — Structure &amp; Function</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=monosaccharides+disaccharides+polysaccharides" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Mono-, Di-, and Polysaccharides Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=starch+glycogen+cellulose+differences" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Starch, Glycogen, and Cellulose — Differences</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=alpha+beta+glycosidic+bonds" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Alpha vs Beta Glycosidic Bonds</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 3.2</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Carbohydrates</strong> contain C, H, and O; simple sugars have the formula [C(H₂O)]ₙ where n = 3–7</li>
+          <li>Three main groups: <strong>monosaccharides, oligosaccharides, polysaccharides</strong></li>
+          <li><strong>Monosaccharides</strong> — simplest sugars; classified by carbon number and by whether they are <strong>aldoses</strong> or <strong>ketoses</strong></li>
+          <li><strong>Disaccharides</strong> — two monosaccharides joined by a glycosidic linkage; common ones are maltose, lactose, and sucrose</li>
+          <li><strong>Polysaccharides</strong> — long polymers of monosaccharides; the four key ones are <strong>starch, glycogen, cellulose, chitin</strong></li>
+          <li><strong>α-1,4 bonds</strong> (α-glucose) form starch and glycogen; <strong>β-1,4 bonds</strong> (β-glucose) form cellulose and chitin</li>
+          <li>Humans can digest <strong>starch</strong> but not <strong>cellulose</strong> because we lack the enzyme to break β-1,4 bonds</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-1.html" class="btn btn-outline">← Lesson 3.1</a>
+      <a href="lesson-3-3.html" class="btn btn-primary">Next: Lesson 3.3 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 3 · Lesson 3.2 · Chemical Structure of Carbohydrates</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'C', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! C₆H₁₂O₆ is the formula for a hexose (6-carbon) monosaccharide like glucose.',wrong:'✗ Hexose sugars have the formula C₆H₁₂O₆.'},
+    2:{correct:'✓ Correct! Aldoses have the carbonyl group at the end; ketoses have it at another position.',wrong:'✗ Aldose = carbonyl at end; ketose = carbonyl elsewhere.'},
+    3:{correct:'✓ Correct! Sucrose = glucose + fructose. Maltose = glucose + glucose; lactose = glucose + galactose.',wrong:'✗ Sucrose = glucose + fructose.'},
+    4:{correct:'✓ Correct! Glycogen is the main energy storage polysaccharide in animals, stored in liver and muscles.',wrong:'✗ Glycogen is animal energy storage.'},
+    5:{correct:'✓ Correct! Starch has α-1,4 bonds (digestible); cellulose has β-1,4 bonds (not digestible by humans).',wrong:'✗ The difference is α vs β glycosidic bonds.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 3.2.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
