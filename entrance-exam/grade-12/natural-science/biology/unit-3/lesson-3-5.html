@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.5: Photosynthesis | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .pigment-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+    .pigment-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition);text-align:center}
+    .pigment-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .pigment-icon{font-size:2rem;margin-bottom:.5rem}
+    .pigment-title{font-size:.92rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .pigment-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .step-flow{display:flex;flex-direction:column;gap:.5rem;margin:1rem 0}
+    .step-item{background:#F0FDF4;border-left:4px solid #16A34A;border-radius:var(--radius);padding:.75rem 1rem;font-size:.85rem;color:var(--heading);line-height:1.6}
+    .step-item strong{color:#166534}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 3</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 5</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What is Photosynthesis?</button>
+      <button class="sidebar-link" onclick="scrollToId('leaf')"><div class="sidebar-dot"></div> Leaf &amp; Chloroplast Structure</button>
+      <button class="sidebar-link" onclick="scrollToId('pigments')"><div class="sidebar-dot"></div> Photosynthetic Pigments</button>
+      <button class="sidebar-link" onclick="scrollToId('light')"><div class="sidebar-dot"></div> Light-Dependent Reactions</button>
+      <button class="sidebar-link" onclick="scrollToId('calvin')"><div class="sidebar-dot"></div> Calvin Cycle (Light-Independent)</button>
+      <button class="sidebar-link" onclick="scrollToId('c3c4cam')"><div class="sidebar-dot"></div> C3, C4, and CAM Plants</button>
+      <button class="sidebar-link" onclick="scrollToId('importance')"><div class="sidebar-dot"></div> Importance of Photosynthesis</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Energy &amp; Metabolism</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Carbohydrates</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Lipids</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Cellular Metabolism</a>
+      <a href="lesson-3-5.html" class="sidebar-link active"><div class="sidebar-dot"></div> L5: Photosynthesis</a>
+      <a href="lesson-3-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Cellular Respiration</a>
+      <a href="lesson-3-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Fermentation</a>
+      <a href="lesson-3-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Unit Review</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 3</a> ›
+      Lesson 3.5
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Energy Transformation · MoE Textbook §3.4</div>
+      <h1>☀️ Photosynthesis</h1>
+      <p>Photosynthesis is the most important metabolic pathway on Earth. It captures sunlight and converts it into chemical energy — feeding nearly every living thing and producing the oxygen we breathe. Without photosynthesis, life as we know it would not exist.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~30 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          If biologists were asked to designate the most important metabolic pathway, most would not hesitate to say <strong>photosynthesis</strong>. It is the process by which plants, algae, and some microbes harness solar energy and convert it into chemical energy. It feeds every ecosystem on Earth, produces the oxygen in our atmosphere, and removes carbon dioxide — regulating our climate.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> photosynthesis and write its overall equation</li>
+          <li>Describe the structure of a <strong>leaf and chloroplast</strong></li>
+          <li>Identify the main <strong>photosynthetic pigments</strong></li>
+          <li>Explain the <strong>light-dependent reactions</strong></li>
+          <li>Explain the <strong>Calvin cycle</strong> (light-independent reactions)</li>
+          <li>Compare <strong>C3, C4, and CAM</strong> plants</li>
+          <li>Describe the <strong>importance</strong> of photosynthesis for life on Earth</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is Photosynthesis?</div><div class="section-subtitle">MoE Textbook §3.4, p. 107</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Photosynthesis (MoE Textbook, p. 107)</div>
+          <p>
+            <strong>Photosynthesis</strong> is a series of chemical reactions that uses <strong>light energy to assemble CO₂ into glucose (C₆H₁₂O₆)</strong> and other carbohydrates. The plant uses water in the process and releases <strong>oxygen gas (O₂)</strong> as a by-product.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Overall Equation</h3>
+        <div style="background:#F0FDF4;border-left:4px solid #16A34A;border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0;text-align:center">
+          <p style="font-size:1rem;font-weight:700;color:#166534;font-family:'Georgia',serif;margin:0">
+            6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Autotrophs vs Heterotrophs</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Feature</th><th>Autotrophs</th><th>Heterotrophs</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Meaning</strong></td><td>"Self-feeders" — produce their own food</td><td>"Other-feeders" — obtain carbon by consuming organic molecules</td></tr>
+            <tr><td><strong>Energy source</strong></td><td>Sunlight (photoautotrophs) or chemicals (chemoautotrophs)</td><td>Organic compounds from other organisms</td></tr>
+            <tr><td><strong>Examples</strong></td><td>Plants, algae, cyanobacteria</td><td>Animals, fungi, most bacteria</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 We are heterotrophs</div>
+          <p>
+            Human beings are heterotrophs. So are all other animals, all fungi, and many microbes. We depend entirely on autotrophs (especially plants) for the food we eat and the oxygen we breathe.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="leaf">
+      <div class="section-header"><div class="section-icon">🍃</div>
+        <div><div class="section-title-text">Leaf &amp; Chloroplast Structure</div><div class="section-subtitle">Where photosynthesis happens</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">External Leaf Structure</h3>
+        <ul class="key-points">
+          <li><strong>Epidermis</strong> — the outer leaf layer; secretes a waxy coating called the <strong>cuticle</strong> that helps the plant retain water</li>
+          <li><strong>Guard cells</strong> — special cells in the epidermis that regulate gas exchange</li>
+          <li>The leaf has three main parts: <strong>leaf base, leaf lamina, and petiole</strong></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Internal Leaf Structure</h3>
+        <ul class="key-points">
+          <li><strong>Epidermis with stomata</strong> — microscopic pores (singular: stoma) that allow CO₂ to enter and O₂ to exit</li>
+          <li><strong>Mesophyll cells</strong> — the main photosynthetic tissue in the interior of the leaf; contain the chloroplasts</li>
+          <li><strong>Vascular system</strong> — xylem vessels (bring water) and phloem (carry sugar out)</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Chloroplast</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The chloroplast is the organelle where photosynthesis occurs. There are about <strong>half a million chloroplasts in a chunk of leaf with a top surface area of 1 mm²</strong>. A typical mesophyll cell has about <strong>30–40 chloroplasts</strong>, each measuring about 2–4 μm by 4–7 μm.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Part</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Outer membrane</strong></td><td>Faces the cytoplasm of the plant cell</td></tr>
+            <tr><td><strong>Inner membrane</strong></td><td>Separates the intermembrane space from the stroma</td></tr>
+            <tr><td><strong>Stroma</strong></td><td>The dense fluid inside the chloroplast; site of the Calvin cycle</td></tr>
+            <tr><td><strong>Thylakoids</strong></td><td>Sacs made of a third membrane system; site of the light-dependent reactions</td></tr>
+            <tr><td><strong>Grana</strong></td><td>Stacks of thylakoid sacs (singular: granum)</td></tr>
+            <tr><td><strong>Chlorophyll</strong></td><td>The green pigment that gives leaves their color; resides in the thylakoid membranes</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Two sites, two reactions</div>
+          <p>
+            Photosynthesis happens in two places inside the chloroplast:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Thylakoid membranes</strong> — where the <strong>light-dependent reactions</strong> occur<br>
+            • <strong>Stroma</strong> — where the <strong>Calvin cycle (light-independent reactions)</strong> occurs
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="pigments">
+      <div class="section-header"><div class="section-icon">🎨</div>
+        <div><div class="section-title-text">Photosynthetic Pigments</div><div class="section-subtitle">Capturing the light</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Photosynthetic Pigments</div>
+          <p>
+            Photosynthetic cells contain special <strong>pigments</strong> that absorb light energy. Different pigments respond to different wavelengths of visible light. There are three basic classes of pigments: <strong>chlorophylls, carotenoids, and phycobilins</strong>.
+          </p>
+        </div>
+
+        <div class="pigment-grid">
+          <div class="pigment-card">
+            <div class="pigment-icon">🟢</div>
+            <div class="pigment-title">Chlorophylls</div>
+            <p class="pigment-desc"><strong>Greenish pigments</strong> containing a porphyrin ring. Most important is <strong>chlorophyll a</strong> (all plants, algae, cyanobacteria). <strong>Chlorophyll b</strong> occurs in green algae and plants. <strong>Chlorophyll c</strong> in Chromista and dinoflagellates.</p>
+          </div>
+          <div class="pigment-card">
+            <div class="pigment-icon">🟠</div>
+            <div class="pigment-title">Carotenoids</div>
+            <p class="pigment-desc"><strong>Red, orange, or yellow pigments</strong> — include carotene (gives carrots their color). They are <strong>accessory pigments</strong> that pass absorbed energy to chlorophyll. Example: fucoxanthin (brown pigment in algae).</p>
+          </div>
+          <div class="pigment-card">
+            <div class="pigment-icon">🔵</div>
+            <div class="pigment-title">Phycobilins</div>
+            <p class="pigment-desc"><strong>Water-soluble pigments</strong> found in the cytoplasm or in the stroma of the chloroplast. They occur only in <strong>Cyanobacteria and Rhodophyta</strong> (red algae).</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Absorption Spectra</h3>
+        <ul class="key-points">
+          <li><strong>Chlorophyll a</strong> absorbs violet-blue and reddish orange-red wavelengths</li>
+          <li><strong>Chlorophyll b</strong> absorbs mostly blue and yellow light</li>
+          <li><strong>Carotenoids</strong> absorb in the blue-green region</li>
+          <li>None of them absorbs green — that's why leaves look green (green light is reflected to our eyes)</li>
+          <li><strong>Only absorbed light</strong> (largely blue and red) is useful for photosynthesis</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why plants have multiple pigments</div>
+          <p>
+            Since each pigment absorbs only a narrow range of the spectrum, plants produce several kinds of pigments — each of a different color — to capture more solar energy. Together, they cover a wider range of wavelengths.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="light">
+      <div class="section-header"><div class="section-icon">💡</div>
+        <div><div class="section-title-text">Light-Dependent Reactions</div><div class="section-subtitle">The first stage of photosynthesis</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The <strong>light reactions</strong> are the steps of photosynthesis that <strong>convert solar energy into chemical energy</strong>. They occur in the <strong>thylakoid membranes</strong> of the chloroplast.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">What Happens in the Light Reactions</h3>
+        <ul class="key-points">
+          <li><strong>Water is split</strong> — providing electrons and protons (H⁺) and giving off <strong>O₂ as a by-product</strong></li>
+          <li><strong>Light absorbed by chlorophyll</strong> drives a transfer of electrons and H⁺ from water to an acceptor called <strong>NADP⁺</strong> (nicotinamide adenine dinucleotide phosphate)</li>
+          <li>NADP⁺ is reduced to <strong>NADPH</strong> by adding a pair of electrons along with an H⁺</li>
+          <li>The light reactions also generate <strong>ATP</strong> using <strong>chemiosmosis</strong> to power the addition of a phosphate group to ADP — a process called <strong>photophosphorylation</strong></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Products of the Light Reactions</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Product</th><th>Role</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>ATP</strong></td><td>The "energy currency" — powers the Calvin cycle</td></tr>
+            <tr><td><strong>NADPH</strong></td><td>"Reducing power" — carries electrons to the Calvin cycle</td></tr>
+            <tr><td><strong>O₂</strong></td><td>By-product — released into the atmosphere</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 No sugar yet</div>
+          <p>
+            The light reactions produce <strong>no sugar</strong>. They only produce ATP and NADPH (plus O₂ as a by-product). Sugar is made in the second stage — the Calvin cycle.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Photosystems I and II</h3>
+        <div class="step-flow">
+          <div class="step-item"><strong>1.</strong> Electrons (e⁻) in chlorophyll molecules in <strong>photosystem II</strong> are excited by photons of light and escape to a primary electron acceptor.</div>
+          <div class="step-item"><strong>2.</strong> The conditions in the chloroplast cause water to split: <strong>2H₂O → O₂ + 4H⁺ + 4e⁻</strong>. This light-dependent splitting of water is called <strong>photolysis</strong>. The electrons replace those lost from chlorophyll.</div>
+          <div class="step-item"><strong>3.</strong> The primary electron acceptor passes electrons to the next molecule in an electron transport chain (<strong>plastoquinone or Pq</strong>), then through a series of cytochromes, finally to <strong>plastocyanin (Pc)</strong>.</div>
+          <div class="step-item"><strong>4.</strong> One molecule in the cytochrome complex is a <strong>proton pump</strong>. As electrons pass through, the energy they lose powers the pump, moving protons from the stroma into the thylakoid space. This drives the <strong>chemiosmotic synthesis of ATP</strong>.</div>
+          <div class="step-item"><strong>5.</strong> Electrons in chlorophyll molecules in <strong>photosystem I</strong> are excited and escape. They are replaced by electrons that passed down the electron transport chain from photosystem II.</div>
+          <div class="step-item"><strong>6.</strong> The electrons pass along a second electron transport chain involving <strong>ferredoxin (Fd)</strong> and <strong>NADP reductase</strong>. At the end, they react with H⁺ and NADP⁺ in the stroma to form <strong>NADPH</strong>.</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Summary of the light reactions</div>
+          <p>
+            Light energy is used to excite electrons. The light-dependent reactions:
+          </p>
+          <p style="margin-top:.5rem">
+            • Produce <strong>oxygen gas</strong><br>
+            • Convert <strong>ADP → ATP</strong> and <strong>NADP⁺ → NADPH</strong><br>
+            • Provide the energy and reducing power needed for the Calvin cycle
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="calvin">
+      <div class="section-header"><div class="section-icon">🔄</div>
+        <div><div class="section-title-text">Calvin Cycle</div><div class="section-subtitle">The light-independent reactions</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          In the <strong>Calvin cycle</strong> (also called the <strong>light-independent reactions</strong>), the energized electrons from the light reactions provide energy to form <strong>carbohydrates from carbon dioxide molecules</strong>. It is sometimes called the Calvin cycle because of its cyclical nature.
+        </p>
+
+        <div class="note-box">
+          <div class="note-label">📝 "Light-independent" ≠ "dark reactions"</div>
+          <p>
+            Although the Calvin cycle doesn't use light directly as a reactant (and can take place at day or night), it <strong>depends on the products of the light reactions</strong> (ATP and NADPH) to function. That's why we call it "light-independent" rather than "dark" reactions.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Where It Happens</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The Calvin cycle takes place in the <strong>stroma of the chloroplast</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Three Stages</h3>
+        <div class="step-flow">
+          <div class="step-item"><strong>1. Carbon fixation:</strong> A CO₂ molecule combines with a five-carbon acceptor molecule, <strong>ribulose-1,5-bisphosphate (RuBP)</strong>. This makes a six-carbon compound that splits into two molecules of a three-carbon compound, <strong>3-phosphoglyceric acid (3-PGA)</strong>. This reaction is catalyzed by the enzyme <strong>RuBP carboxylase/oxygenase (rubisco)</strong>.</div>
+          <div class="step-item"><strong>2. Reduction:</strong> ATP and NADPH are used to convert the 3-PGA molecules into molecules of a three-carbon sugar, <strong>glyceraldehyde-3-phosphate (G3P)</strong>. This stage gets its name because NADPH donates electrons (reduces) a three-carbon intermediate to make G3P.</div>
+          <div class="step-item"><strong>3. Regeneration:</strong> Some G3P molecules go to make glucose, while others are recycled to regenerate the <strong>RuBP acceptor</strong>. Regeneration requires ATP.</div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Summary — Three Turns of the Calvin Cycle</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Input</th><th>Output</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Carbon:</strong> 3 CO₂ + 3 RuBP</td><td>6 G3P (1 exits to make glucose, 5 recycled to regenerate 3 RuBP)</td></tr>
+            <tr><td><strong>ATP:</strong> 9 ATP → 9 ADP</td><td>(6 during fixation, 3 during regeneration)</td></tr>
+            <tr><td><strong>NADPH:</strong> 6 NADPH → 6 NADP⁺</td><td>(during the reduction step)</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 To make one glucose</div>
+          <p>
+            A G3P molecule contains <strong>three fixed carbon atoms</strong>, so it takes <strong>two G3Ps to build a six-carbon glucose</strong> molecule. It would take <strong>six turns</strong> of the cycle — 6 CO₂, 18 ATP, and 12 NADPH — to produce one molecule of glucose.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="c3c4cam">
+      <div class="section-header"><div class="section-icon">🌵</div>
+        <div><div class="section-title-text">C3, C4, and CAM Plants</div><div class="section-subtitle">Different strategies for fixing carbon</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The Calvin cycle is also known as the <strong>C3 pathway</strong> because a three-carbon molecule (3-PGA) is the first stable compound. Although all plants use the Calvin cycle, some plants have evolved additional adaptations.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Problem — Photorespiration</h3>
+        <ul class="key-points">
+          <li>Photosynthesis has a theoretical efficiency of about <strong>30%</strong> in ideal conditions</li>
+          <li>But a plant's efficiency in nature is typically only <strong>0.1% to 3%</strong></li>
+          <li>One reason is <strong>photorespiration</strong> — a wasteful process that begins when rubisco adds O₂ instead of CO₂ to RuBP</li>
+          <li>This wastes ATP and NADPH — the plant loses CO₂ it fixed in previous turns</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Two Adaptations</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Feature</th><th>C3 Plants</th><th>C4 Plants</th><th>CAM Plants</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Pathway</strong></td><td>Calvin cycle only</td><td>C4 + Calvin cycle</td><td>CAM + Calvin cycle</td></tr>
+            <tr><td><strong>Carbon fixation</strong></td><td>Directly in mesophyll cells</td><td>First in mesophyll → then in bundle-sheath cells</td><td>At night — CO₂ stored in vacuoles</td></tr>
+            <tr><td><strong>Stomata open</strong></td><td>During the day</td><td>During the day</td><td><strong>At night</strong></td></tr>
+            <tr><td><strong>Photorespiration</strong></td><td>High — inefficiency</td><td>Reduced — high CO₂ inside bundle-sheath</td><td>Reduced — CO₂ accumulated at night</td></tr>
+            <tr><td><strong>Habitat</strong></td><td>Cool, moist (most plants — 95%)</td><td>Hot, sunny (sugarcane, corn, crabgrass — 1%)</td><td>Dry (cacti, pineapple — 3–4%)</td></tr>
+            <tr><td><strong>Examples</strong></td><td>Rice, wheat, soybeans, trees, teff</td><td>Sugarcane, corn, crabgrass</td><td>Cacti, pineapple, succulents</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why C4 and CAM matter</div>
+          <p>
+            In hot, dry climates, plants that minimize photorespiration have a significant competitive advantage. <strong>C4 plants</strong> physically separate the Calvin cycle from oxygen-rich air spaces in the leaf (using bundle-sheath cells). <strong>CAM plants</strong> open their stomata only at night — saving water. Both adaptations allow plants to thrive in conditions where C3 plants struggle.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="importance">
+      <div class="section-header"><div class="section-icon">🌍</div>
+        <div><div class="section-title-text">Importance of Photosynthesis</div><div class="section-subtitle">Why it matters for all life</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The MoE Textbook emphasises that photosynthesis is critical for many reasons. Here's a summary of its importance:
+        </p>
+
+        <div style="background:#F0FDF4;border-left:4px solid #16A34A;border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0">
+          <p style="font-size:.85rem;line-height:1.8;color:var(--heading);margin:0">
+            <strong>1. Source of oxygen:</strong> The oxygen in the air comes from photosynthesis. Plants continuously replenish oxygen in the air.<br>
+            <strong>2. Source of food:</strong> All of our food comes directly or indirectly from photosynthesis.<br>
+            <strong>3. Carbon cycle:</strong> Photosynthesis removes carbon dioxide from the atmosphere (inhibiting global warming).<br>
+            <strong>4. Fossil fuels:</strong> Ancient photosynthesis created the fossil fuels (coal, petroleum, natural gas) we use today.<br>
+            <strong>5. Foundation of food chains:</strong> Plants are the primary producers at the base of nearly every food chain.<br>
+            <strong>6. Oxygen balance:</strong> Photosynthesis balances respiration, maintaining atmospheric O₂ and CO₂ levels.<br>
+            <strong>7. Symbiotic relationships:</strong> Photosynthesis supports the symbiotic relationships among plants, humans, and animals.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 3.7 — Group discussion</div>
+          <div class="activity-body">
+            Discuss in a group and write your answer:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>If you could expose plants to just one wavelength of light at a time, would a wavelength of 350 nm, 450 nm, or 600 nm produce the highest photosynthetic rate? Explain your reasoning.</li>
+              <li>Draw and label the structure of a chloroplast, showing where the light-dependent and light-independent reactions take place.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. How is an autotroph different from a heterotroph?<br>
+            B. Describe photosynthesis in words and write its overall chemical equation.<br>
+            C. Where in the chloroplast do the light-dependent reactions occur? Where does the Calvin cycle occur?<br>
+            D. Name and describe the three classes of photosynthetic pigments.<br>
+            E. What are the products of the light-dependent reactions?<br>
+            F. What are the three stages of the Calvin cycle?<br>
+            G. How is the Calvin cycle like C4 metabolism? How is it different?<br>
+            H. Why is photosynthesis important for the continuity of life?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is the overall chemical equation for <strong>photosynthesis</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energy</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> 6CO₂ + 6O₂ → C₆H₁₂O₆ + 6H₂O</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> C₆H₁₂O₆ + 6H₂O → 6CO₂ + 6O₂</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Where in the chloroplast do the <strong>light-dependent reactions</strong> occur?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> In the stroma</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> In the thylakoid membranes</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> In the outer membrane</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> In the cytoplasm</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">What are the <strong>products</strong> of the light-dependent reactions?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Glucose and O₂</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> ATP, NADPH, and O₂</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> CO₂ and water</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Glucose and CO₂</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">What are the three stages of the <strong>Calvin cycle</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Glycolysis, Krebs cycle, electron transport</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Carbon fixation, reduction, regeneration</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Photolysis, chemiosmosis, reduction</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Attachment, penetration, release</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which of the following describes a <strong>CAM plant</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> It opens its stomata during the day</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> It opens its stomata only at night, storing CO₂ in vacuoles</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> It uses only the Calvin cycle</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> It grows only in cold, moist climates</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=photosynthesis+overview+light+dependent+calvin+cycle" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Photosynthesis — Overview</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=light+dependent+reactions+photosynthesis+animation" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Light-Dependent Reactions — Animation</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=calvin+cycle+carbon+fixation+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The Calvin Cycle — Carbon Fixation</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=C3+C4+CAM+plants+difference+photosynthesis" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">C3, C4, and CAM Plants</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 3.5</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Photosynthesis</strong> = using light energy to convert CO₂ and H₂O into glucose and O₂</li>
+          <li>Equation: <strong>6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂</strong></li>
+          <li>It occurs in the <strong>chloroplast</strong> — light reactions in the <strong>thylakoid membranes</strong>, Calvin cycle in the <strong>stroma</strong></li>
+          <li>Three classes of pigments: <strong>chlorophylls, carotenoids, phycobilins</strong></li>
+          <li><strong>Light-dependent reactions</strong> produce ATP, NADPH, and O₂; water is split (photolysis)</li>
+          <li><strong>Calvin cycle</strong> has three stages: <strong>carbon fixation, reduction, regeneration</strong> — catalyzed by rubisco</li>
+          <li>It takes <strong>six turns</strong> of the Calvin cycle to make one glucose molecule</li>
+          <li><strong>C3 plants</strong> (most plants) fix carbon directly; <strong>C4 plants</strong> (corn, sugarcane) separate steps; <strong>CAM plants</strong> (cacti) open stomata only at night</li>
+          <li>Photosynthesis is vital because it produces <strong>oxygen, food, fossil fuels</strong> and <strong>removes CO₂</strong> from the atmosphere</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-4.html" class="btn btn-outline">← Lesson 3.4</a>
+      <a href="lesson-3-6.html" class="btn btn-primary">Next: Lesson 3.6 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 3 · Lesson 3.5 · Photosynthesis</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'B', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂ is the overall equation for photosynthesis.',wrong:'✗ Photosynthesis: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂.'},
+    2:{correct:'✓ Correct! The light-dependent reactions occur in the thylakoid membranes.',wrong:'✗ Light reactions happen in the thylakoid membranes.'},
+    3:{correct:'✓ Correct! The light reactions produce ATP, NADPH, and O₂. Glucose is made later, in the Calvin cycle.',wrong:'✗ Products: ATP, NADPH, and O₂.'},
+    4:{correct:'✓ Correct! The three stages are carbon fixation, reduction, and regeneration.',wrong:'✗ Calvin cycle stages: carbon fixation, reduction, regeneration.'},
+    5:{correct:'✓ Correct! CAM plants open their stomata only at night, storing CO₂ in vacuoles for use during the day.',wrong:'✗ CAM plants open stomata at night.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 3.5.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
