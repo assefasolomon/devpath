@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.4: Fungi | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .fungi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+    .fungi-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .fungi-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .fungi-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .fungi-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .fungi-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 2</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What are Fungi?</button>
+      <button class="sidebar-link" onclick="scrollToId('forms')"><div class="sidebar-dot"></div> Forms of Fungi</button>
+      <button class="sidebar-link" onclick="scrollToId('structure')"><div class="sidebar-dot"></div> Structure &amp; Growth</button>
+      <button class="sidebar-link" onclick="scrollToId('reproduction')"><div class="sidebar-dot"></div> Reproduction</button>
+      <button class="sidebar-link" onclick="scrollToId('ecology')"><div class="sidebar-dot"></div> Ecological Importance</button>
+      <button class="sidebar-link" onclick="scrollToId('ethiopia')"><div class="sidebar-dot"></div> Ethiopian Fermented Foods</button>
+      <button class="sidebar-link" onclick="scrollToId('diseases')"><div class="sidebar-dot"></div> Harmful Fungi</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: What are Microorganisms?</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Eubacteria</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Archaea</a>
+      <a href="lesson-2-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Fungi</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Protozoa</a>
+      <a href="lesson-2-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Viruses</a>
+      <a href="lesson-2-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Economic Importance</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 2</a> ›
+      Lesson 2.4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Microorganisms · MoE Textbook §2.2.3</div>
+      <h1>🍄 Fungi — Decomposers &amp; Fermenters</h1>
+      <p>Fungi are the recyclers of the living world. They decompose dead matter, ferment our food, produce life-saving antibiotics, and cause diseases. From the yeast in bread to the mold on old fruit to the mushrooms in your kitchen — fungi are everywhere, and essential to life on Earth.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Fungi are a kingdom of their own — neither plants nor animals. They can't photosynthesize like plants, but they're not animals either. Instead, they <strong>absorb nutrients from their environment</strong>, often breaking down dead matter as <strong>decomposers</strong>. This makes them essential recyclers in every ecosystem. And it makes them incredibly useful to humans — for food, medicine, and industry.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> fungi and describe their general characteristics</li>
+          <li>Identify the different <strong>forms</strong> of fungi (yeasts, molds, mushrooms)</li>
+          <li>Describe <strong>hyphal structure</strong> and how fungi grow</li>
+          <li>Explain how fungi <strong>reproduce</strong></li>
+          <li>Discuss the <strong>ecological importance</strong> of fungi</li>
+          <li>Explain the role of fungi in <strong>Ethiopian fermented foods</strong></li>
+          <li>Identify <strong>harmful fungi</strong> and the diseases they cause</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What are Fungi?</div><div class="section-subtitle">MoE Textbook §2.2.3, p. 45</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Fungi (MoE Textbook, p. 45)</div>
+          <p>
+            <strong>Fungi</strong> (singular: <em>fungus</em>) are <strong>eukaryotic</strong> organisms whose cells have a distinct nucleus containing the cell's genetic material (DNA), surrounded by a special envelope called the nuclear membrane. They may be <strong>unicellular or multicellular</strong>.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Key characteristics</div>
+          <p>
+            • <strong>Eukaryotic</strong> — have a true nucleus<br>
+            • <strong>Cannot photosynthesize</strong> — unlike plants<br>
+            • <strong>Cell walls made of chitin</strong> — not cellulose like plants<br>
+            • <strong>Absorb nutrients</strong> from their environment<br>
+            • <strong>Reproduce</strong> sexually or asexually<br>
+            • Can be <strong>unicellular</strong> (yeasts) or <strong>multicellular</strong> (molds, mushrooms)
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Fungi are NOT plants</div>
+          <p>
+            Although large multicellular fungi like mushrooms may <em>look</em> somewhat like plants, they are fundamentally different:
+          </p>
+          <p style="margin-top:.5rem">
+            • Fungi <strong>cannot carry out photosynthesis</strong> — they don't have chlorophyll<br>
+            • Fungi have cell walls made of <strong>chitin</strong>, while plants have cellulose<br>
+            • Fungi are <strong>heterotrophs</strong> — they must absorb their food from other organisms
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="forms">
+      <div class="section-header"><div class="section-icon">🍄</div>
+        <div><div class="section-title-text">Forms of Fungi</div><div class="section-subtitle">Three main forms</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Fungi come in many different forms. The most common are yeasts, molds, and mushrooms.
+        </p>
+
+        <div class="fungi-grid">
+          <div class="fungi-card">
+            <div class="fungi-icon">🟡</div>
+            <div class="fungi-title">Yeasts</div>
+            <p class="fungi-desc"><strong>Unicellular</strong> fungi. Oval microorganisms that are larger than bacteria. Reproduce by <strong>budding</strong>. Example: <em>Saccharomyces cerevisiae</em> (baker's yeast).</p>
+          </div>
+          <div class="fungi-card">
+            <div class="fungi-icon">🟢</div>
+            <div class="fungi-title">Molds</div>
+            <p class="fungi-desc"><strong>Multicellular</strong> fungi. Form visible masses called <strong>mycelia</strong>, composed of long filaments (<strong>hyphae</strong>) that branch and intertwine. Example: <em>Rhizopus</em> (bread mold).</p>
+          </div>
+          <div class="fungi-card">
+            <div class="fungi-icon">🍄</div>
+            <div class="fungi-title">Mushrooms</div>
+            <p class="fungi-desc"><strong>Multicellular</strong> fungi with a visible fruiting body. Often edible (though some are poisonous). Example: <em>Agaricus bisporus</em> (button mushroom).</p>
+          </div>
+          <div class="fungi-card">
+            <div class="fungi-icon">🟤</div>
+            <div class="fungi-title">Slime Molds</div>
+            <p class="fungi-desc">Amoeba-like fungi that grow on decayed plant matter and in wet areas. They are now usually classified as protists, but traditionally grouped with fungi.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The classic example — bread mold</div>
+          <p>
+            The cottony growths sometimes found on bread and fruit are <strong>mold mycelia</strong>. If you look closely at bread mold under a microscope, you'll see:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Hyphae</strong> — the branching filaments that form the body of the mold<br>
+            • <strong>Mycelium</strong> — the whole mass of hyphae<br>
+            • <strong>Sporangiophores</strong> — the stalks that bear spore cases<br>
+            • <strong>Sporangia</strong> — the round structures at the tips containing spores
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="structure">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Structure &amp; Growth</div><div class="section-subtitle">Hyphae and mycelium</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Hyphae &amp; Mycelium</div>
+          <p>
+            The body of a multicellular fungus is made of <strong>hyphae</strong> (singular: hypha) — long, branching filaments. A mass of hyphae is called a <strong>mycelium</strong> (plural: mycelia).
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How Fungi Grow &amp; Feed</h3>
+        <ul class="key-points">
+          <li><strong>Hyphae grow</strong> at their tips, extending into new areas</li>
+          <li>They secrete <strong>digestive enzymes</strong> into their surroundings</li>
+          <li>The enzymes break down complex organic molecules into simpler ones</li>
+          <li>The fungus <strong>absorbs</strong> the simpler nutrients through its cell walls</li>
+          <li>This mode of feeding is called <strong>absorptive heterotrophy</strong></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Where Fungi Live</h3>
+        <ul class="key-points">
+          <li>They colonize most habitats on Earth, <strong>preferring dark, moist conditions</strong></li>
+          <li>They live in <strong>soil, seawater, freshwater</strong>, or on an <strong>animal or plant host</strong></li>
+          <li>They obtain nourishment by absorbing organic materials from their environment</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Chitin — the fungal cell wall</div>
+          <p>
+            True fungi have cell walls composed primarily of a substance called <strong>chitin</strong>. Chitin is the same tough material found in the <strong>exoskeletons of insects</strong> — not the cellulose found in plants. This is one of the key features that distinguishes fungi from plants.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="reproduction">
+      <div class="section-header"><div class="section-icon">🔄</div>
+        <div><div class="section-title-text">Reproduction</div><div class="section-subtitle">Sexual and asexual</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Fungi can reproduce both <strong>sexually and asexually</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Asexual Reproduction</h3>
+        <ul class="key-points">
+          <li><strong>Budding</strong> — a small daughter cell grows out from the parent cell (yeasts)</li>
+          <li><strong>Fragmentation</strong> — pieces of hyphae break off and grow into new individuals</li>
+          <li><strong>Spore formation</strong> — specialized cells called spores are produced in large numbers</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Sexual Reproduction</h3>
+        <ul class="key-points">
+          <li>Two hyphae of different mating types fuse</li>
+          <li>Their nuclei combine to form a diploid zygote</li>
+          <li>The zygote undergoes meiosis to produce <strong>sexual spores</strong></li>
+          <li>Spores are then released and grow into new individuals</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why spores matter</div>
+          <p>
+            Fungal spores are tiny, lightweight, and produced in enormous numbers. They can travel long distances through air or water, allowing fungi to colonize new habitats quickly. Some spores can survive extreme conditions for years, waiting for the right conditions to germinate.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ecology">
+      <div class="section-header"><div class="section-icon">🌍</div>
+        <div><div class="section-title-text">Ecological Importance</div><div class="section-subtitle">Fungi in the ecosystem</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Fungi play a <strong>crucial role in the balance of ecosystems</strong>. They are essential to life on Earth.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Fungi as Decomposers</h3>
+        <ul class="key-points">
+          <li><strong>Break down dead organic matter</strong> — wood, leaves, dead animals</li>
+          <li><strong>Release nutrients</strong> back into the soil for plants to use</li>
+          <li>Without decomposers like fungi, <strong>nutrients would be locked up</strong> in dead matter</li>
+          <li>The food web would be incomplete without organisms that decompose organic matter</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Fungi as Symbionts</h3>
+        <ul class="key-points">
+          <li><strong>Mycorrhizae</strong> — fungi that live in symbiosis with plant roots, helping plants absorb water and minerals</li>
+          <li><strong>Lichens</strong> — fungi living with algae or cyanobacteria; help colonize bare rock</li>
+          <li>These partnerships are vital for many plants — including crops</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Fungi as Parasites</h3>
+        <ul class="key-points">
+          <li>Some fungi are <strong>pathogens</strong> of plants and animals</li>
+          <li>They cause <strong>heavy crop losses</strong> (e.g., rice blast, wheat rust)</li>
+          <li>They cause <strong>diseases in humans and domestic animals</strong> (e.g., athlete's foot, ringworm, candidiasis)</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Fungi are indispensable</div>
+          <p>
+            Without fungi as decomposers, dead plants and animals would pile up, and nutrients would not be recycled. Life as we know it would eventually stop. Fungi are not just useful — they are <strong>essential</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ethiopia">
+      <div class="section-header"><div class="section-icon">🇪🇹</div>
+        <div><div class="section-title-text">Ethiopian Fermented Foods</div><div class="section-subtitle">Fungi in our daily life</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Fungi have been used in Ethiopia for thousands of years to make traditional fermented foods and beverages. They are central to our cuisine.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 From the MoE Textbook, p. 54</div>
+          <p>
+            "The beneficial activities of yeasts and other fungi... have long been exploited as food, as a component in the processing of food, and as biological mechanisms in the process of alcohol production and traditional fermentation."
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Common Ethiopian Fermented Foods &amp; Beverages</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Product</th><th>Type</th><th>Role of Fungi</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Injera</strong></td><td>Staple food</td><td>Yeasts ferment teff dough, giving it its spongy texture</td></tr>
+            <tr><td><strong>Kocho</strong></td><td>Staple food</td><td>Fungi ferment enset (false banana) pulp</td></tr>
+            <tr><td><strong>Bulla</strong></td><td>Staple food</td><td>Fermentation of enset</td></tr>
+            <tr><td><strong>Tej</strong></td><td>Beverage (honey wine)</td><td>Yeasts ferment honey to produce alcohol</td></tr>
+            <tr><td><strong>Tella</strong></td><td>Beverage (beer)</td><td>Yeasts and bacteria ferment barley</td></tr>
+            <tr><td><strong>Keribo</strong></td><td>Beverage</td><td>Fermented from barley or other grains</td></tr>
+            <tr><td><strong>Shameta</strong></td><td>Beverage</td><td>Fermented from grains</td></tr>
+            <tr><td><strong>Siljo</strong></td><td>Condiment</td><td>Fermented from various plants</td></tr>
+            <tr><td><strong>Awaze</strong></td><td>Condiment</td><td>Fermented from chili peppers and spices</td></tr>
+            <tr><td><strong>Datta</strong></td><td>Condiment</td><td>Fermented from chili peppers</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Starter cultures and back-slopping</div>
+          <p>
+            In traditional fermentation, a small amount of the previous batch is often saved and added to the new batch. This is called <strong>back-slopping</strong>. It keeps the same beneficial microorganisms alive across generations and ensures consistent flavour.
+          </p>
+          <p style="margin-top:.5rem">
+            A <strong>starter culture</strong> is a preparation of microorganisms deliberately added to start fermentation. In traditional Ethiopian fermentation, back-slopping serves as the starter culture.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="diseases">
+      <div class="section-header"><div class="section-icon">⚠️</div>
+        <div><div class="section-title-text">Harmful Fungi</div><div class="section-subtitle">When fungi cause problems</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          While fungi provide huge benefits, some fungi cause serious problems. Their harmful activities as <strong>saprotrophs</strong> include damage to timber, fuel, food, and manufactured goods. As <strong>parasites</strong>, they cause heavy crop losses and diseases of humans and domestic animals.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Fungal Diseases of Humans</h3>
+        <ul class="key-points">
+          <li><strong>Athlete's foot</strong> — caused by <em>Trichophyton</em> species; itchy skin between the toes</li>
+          <li><strong>Ringworm</strong> — caused by various dermatophyte fungi; circular rash on skin or scalp</li>
+          <li><strong>Candidiasis (thrush)</strong> — caused by <em>Candida albicans</em>; affects mouth, throat, and other mucous membranes</li>
+          <li><strong>Yeast infections</strong> — caused by overgrowth of <em>Candida</em></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Fungal Diseases of Plants &amp; Animals</h3>
+        <ul class="key-points">
+          <li><strong>Rice blast</strong> — devastating fungal disease of rice crops</li>
+          <li><strong>Wheat rust</strong> — reduces wheat yields significantly</li>
+          <li><strong>Corn smut</strong> — fungal infection of maize</li>
+          <li><strong>Foot rot in livestock</strong> — fungal infection causing lameness in sheep and cattle</li>
+          <li><strong>Ringworm in animals</strong> — common skin infection in pets and livestock</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Fungi in Food Spoilage</h3>
+        <ul class="key-points">
+          <li>Molds spoil bread, fruit, and vegetables</li>
+          <li>Some produce <strong>mycotoxins</strong> — toxic compounds that can cause serious illness</li>
+          <li><strong>Aflatoxin</strong> — produced by <em>Aspergillus</em> molds on peanuts and grains; a known carcinogen</li>
+        </ul>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 2.5b — Ethiopian traditional fermented foods</div>
+          <div class="activity-body">
+            In a group of 5–10, search on Google and discuss the fungal species that are common to the Ethiopian traditional fermented products:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>Enjera (teff fermented flatbread)</li>
+              <li>Kocho (fermented enset)</li>
+              <li>Bulla (processed enset)</li>
+              <li>Tej (honey wine)</li>
+              <li>Shameta (grain beverage)</li>
+              <li>Different condiments (Awaze, Datta, Siljo)</li>
+            </ul>
+            Prepare a report and present it to your class.
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What are fungi? How do they differ from plants?<br>
+            B. Name the three main forms of fungi and give an example of each.<br>
+            C. What are hyphae and mycelium?<br>
+            D. How do fungi reproduce asexually and sexually?<br>
+            E. Describe the ecological importance of fungi.<br>
+            F. Name five Ethiopian traditional fermented foods that use fungi.<br>
+            G. List three harmful fungi and the diseases they cause.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">Which statement about fungi is <strong>TRUE</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> They are prokaryotes</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> They carry out photosynthesis</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> They are eukaryotic and have cell walls made of chitin</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> They have cell walls made of cellulose</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is the name for the long, branching filaments that make up the body of a multicellular fungus?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Mycelia</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Hyphae</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Sporangia</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Flagella</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">What is the main ecological role of fungi in ecosystems?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Primary producers through photosynthesis</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Decomposers that break down dead organic matter and recycle nutrients</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Top predators in food chains</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Pollinators of flowering plants</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Which of the following is a <strong>fungal disease of humans</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Malaria</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Tuberculosis</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Athlete's foot</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Cholera</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which Ethiopian fermented beverage is produced using yeasts?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Tej</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Awaze</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Siljo</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Datta</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=fungi+kingdom+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The Kingdom Fungi — Introduction</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=hyphae+mycelium+fungal+structure" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Hyphae &amp; Mycelium — Fungal Structure</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=ethiopian+fermented+foods+injera+tej" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Ethiopian Fermented Foods — Injera &amp; Tej</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=fungal+diseases+humans+ringworm+candidiasis" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Fungal Diseases in Humans</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 2.4</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Fungi</strong> are eukaryotic organisms with chitin cell walls; they cannot photosynthesize and absorb nutrients from their environment</li>
+          <li>The three main forms are <strong>yeasts</strong> (unicellular), <strong>molds</strong> (multicellular filaments), and <strong>mushrooms</strong> (multicellular fruiting bodies)</li>
+          <li>The body of a multicellular fungus is made of <strong>hyphae</strong>; a mass of hyphae is a <strong>mycelium</strong></li>
+          <li>Fungi reproduce <strong>sexually and asexually</strong> (budding, fragmentation, spores)</li>
+          <li>Ecologically, fungi are the <strong>main decomposers</strong> in most ecosystems — they recycle nutrients</li>
+          <li>Fungi are used in <strong>Ethiopian fermented foods</strong>: injera, kocho, tej, tella, and more</li>
+          <li>Some fungi cause disease — <strong>athlete's foot, ringworm, candidiasis</strong> — and crop losses</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-3.html" class="btn btn-outline">← Lesson 2.3</a>
+      <a href="lesson-2-5.html" class="btn btn-primary">Next: Lesson 2.5 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 2 · Lesson 2.4 · Fungi</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'C', 2:'B', 3:'B', 4:'C', 5:'A'};
+  const feedback = {
+    1:{correct:'✓ Correct! Fungi are eukaryotic and their cell walls are made of chitin (not cellulose like plants).',wrong:'✗ Fungi are eukaryotic with chitin cell walls.'},
+    2:{correct:'✓ Correct! Hyphae are the branching filaments; a mass of hyphae is called a mycelium.',wrong:'✗ Hyphae are the individual filaments; mycelium is the mass.'},
+    3:{correct:'✓ Correct! Fungi are the main decomposers in most ecosystems — they break down dead matter and recycle nutrients.',wrong:'✗ Fungi act as decomposers, recycling nutrients.'},
+    4:{correct:'✓ Correct! Athlete\'s foot is a common fungal infection caused by Trichophyton species.',wrong:'✗ Athlete\'s foot is a fungal disease.'},
+    5:{correct:'✓ Correct! Tej (honey wine) is fermented using yeasts, which convert honey sugars to alcohol.',wrong:'✗ Tej is fermented with yeasts.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 2.4.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
