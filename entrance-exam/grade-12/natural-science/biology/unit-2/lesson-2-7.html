@@ -1,64 +1,722 @@
-  <div class="lesson-list">
-    <a href="lesson-2-1.html" class="lesson-card live">
-      <div class="lesson-icon">🔬</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.1 — What are Microorganisms? <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Definition · Microbiology · Diversity · Beneficial roles · Normal microbiota</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.7: Economic Importance &amp; Disease-Causing Microorganisms | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .app-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .app-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .app-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .app-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .app-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
 
-    <a href="lesson-2-2.html" class="lesson-card live">
-      <div class="lesson-icon">🦠</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.2 — Eubacteria <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Prokaryotes · Bacterial shapes · Gram staining · Cell wall structure</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-3.html" class="lesson-card live">
-      <div class="lesson-icon">♨️</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.3 — Archaea <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Extremophiles · Thermophiles · Halophiles · Ethiopian hot springs · Applications</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-4.html" class="lesson-card live">
-      <div class="lesson-icon">🍄</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.4 — Fungi <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Yeasts · Molds · Mushrooms · Ethiopian fermented foods · Fungal diseases</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-5.html" class="lesson-card live">
-      <div class="lesson-icon">🦠</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.5 — Protozoa <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Amoeba · Euglena · Paramecium · Malaria · Trypanosomiasis · Leishmaniasis</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-6.html" class="lesson-card live">
-      <div class="lesson-icon">🧬</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.6 — Viruses <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Structure · DNA vs RNA viruses · HIV/AIDS · Viral diseases in Ethiopia</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-2-7.html" class="lesson-card live">
-      <div class="lesson-icon">🌍</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 2.7 — Economic Importance &amp; Disease-Causing Microorganisms <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Nutrient recycling · Sewage treatment · Bioremediation · Disease transmission</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 2</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
   </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 7</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('agriculture')"><div class="sidebar-dot"></div> Agriculture</button>
+      <button class="sidebar-link" onclick="scrollToId('sewage')"><div class="sidebar-dot"></div> Sewage &amp; Bioremediation</button>
+      <button class="sidebar-link" onclick="scrollToId('food')"><div class="sidebar-dot"></div> Food Production</button>
+      <button class="sidebar-link" onclick="scrollToId('medicine')"><div class="sidebar-dot"></div> Medicine &amp; Health</button>
+      <button class="sidebar-link" onclick="scrollToId('minerals')"><div class="sidebar-dot"></div> Mineral Recycling Cycles</button>
+      <button class="sidebar-link" onclick="scrollToId('diseases')"><div class="sidebar-dot"></div> Disease-Causing Microorganisms</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: What are Microorganisms?</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Eubacteria</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Archaea</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Fungi</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Protozoa</a>
+      <a href="lesson-2-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Viruses</a>
+      <a href="lesson-2-7.html" class="sidebar-link active"><div class="sidebar-dot"></div> L7: Economic Importance</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 2</a> ›
+      Lesson 2.7
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Microorganisms · MoE Textbook §2.4–2.5.1</div>
+      <h1>🌍 Economic Importance &amp; Disease-Causing Microorganisms</h1>
+      <p>Microorganisms are essential to life on Earth — they recycle nutrients, produce our food, clean our environment, and provide life-saving medicines. But a small minority cause devastating diseases. This final lesson of Unit 2 explores both sides of the microbial world.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Throughout this unit, you've learned about the different groups of microorganisms. Now it's time to see the big picture: <strong>what do microorganisms do for us — and what do some of them do to us?</strong> From agriculture to medicine to environmental cleanup, microbes are indispensable partners in human life. But they also include some of our deadliest enemies.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe the role of microbes in <strong>agriculture</strong> (nutrient cycling, bio-fertilizers)</li>
+          <li>Explain how microbes are used in <strong>sewage treatment</strong> and <strong>bioremediation</strong></li>
+          <li>Describe the role of microbes in <strong>food production</strong> and <strong>medicine</strong></li>
+          <li>Explain the <strong>carbon, nitrogen, sulfur, and phosphorus cycles</strong></li>
+          <li>Describe how <strong>pathogens cause disease</strong></li>
+          <li>Identify the <strong>major routes of disease transmission</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="agriculture">
+      <div class="section-header"><div class="section-icon">🌾</div>
+        <div><div class="section-title-text">Microorganisms in Agriculture</div><div class="section-subtitle">MoE Textbook §2.4, pp. 68–75</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Microorganisms play an <strong>indispensable role in agriculture</strong>. They help in organic matter decomposition, humus formation, and nutrient cycling. Their most important roles include:
+        </p>
+
+        <div class="app-grid">
+          <div class="app-card">
+            <div class="app-icon">🌱</div>
+            <div class="app-title">Nitrogen Fixation</div>
+            <p class="app-desc">Bacteria (like <em>Rhizobium</em>) convert atmospheric N₂ into forms plants can use.</p>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">💧</div>
+            <div class="app-title">Phosphate Solubilization</div>
+            <p class="app-desc">Microbes release phosphorus from insoluble minerals, making it available to plants.</p>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">⛏️</div>
+            <div class="app-title">Potassium Mobilization</div>
+            <p class="app-desc">Microbes break down minerals to release potassium for plant nutrition.</p>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🛡️</div>
+            <div class="app-title">Biological Control</div>
+            <p class="app-desc">Microbes fight plant pathogens and pests — reducing chemical pesticide use.</p>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🌿</div>
+            <div class="app-title">Organic Matter Decomposition</div>
+            <p class="app-desc">Bacteria and fungi break down dead plants, releasing nutrients for new growth.</p>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🪨</div>
+            <div class="app-title">Biofertilizers</div>
+            <p class="app-desc">Beneficial microbes are used as natural fertilizers, enriching soil sustainably.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Microbes and the elements of life</div>
+          <p>
+            The chemical elements <strong>carbon, nitrogen, oxygen, sulfur, and phosphorus</strong> are essential for life and abundant — but not necessarily in forms that organisms can use. <strong>Microorganisms are primarily responsible for converting these elements into usable forms</strong>. Without them, life would grind to a halt.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="sewage">
+      <div class="section-header"><div class="section-icon">♻️</div>
+        <div><div class="section-title-text">Sewage Treatment &amp; Bioremediation</div><div class="section-subtitle">Microbes clean the environment</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Sewage Treatment</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          <strong>Anaerobic bacteria</strong> are used in wastewater treatment on a regular basis. The main role of these bacteria in sewage treatment is to <strong>reduce the volume of sludge</strong> and produce <strong>methane gas</strong> from it.
+        </p>
+        <ul class="key-points">
+          <li>Anaerobic bacteria get enough oxygen from their food source — no need to add oxygen</li>
+          <li>The methane gas produced can be used as an alternative <strong>energy source</strong></li>
+          <li>Also helps in <strong>phosphorus removal</strong> from wastewater</li>
+          <li>Reduces the volume of sludge, making disposal easier and cheaper</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Bioremediation</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Bioremediation</div>
+          <p>
+            <strong>Bioremediation</strong> is a natural process that relies on <strong>microorganisms and plants (or their derivatives)</strong> to degrade or alter environmental contaminants as these organisms carry out their normal life functions.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">What Can Be Bioremediated?</h3>
+        <ul class="key-points">
+          <li><strong>Hydrocarbons</strong> — including oil spills</li>
+          <li><strong>Polychlorinated biphenyls (PCBs)</strong> — industrial chemicals</li>
+          <li><strong>Polyaromatic hydrocarbons (PAHs)</strong> — from fossil fuels</li>
+          <li><strong>Radionuclides</strong> — radioactive contaminants</li>
+          <li><strong>Heavy metals</strong> — mercury, lead, etc.</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why bioremediation works</div>
+          <p>
+            Microorganisms are everywhere, so pollutants in the environment always come into contact with them. Microbes break down or transform pollutants using their inherent metabolic processes. When the contaminant is present, the microbial population grows. When the contaminant is degraded, the population declines. The residues are usually <strong>harmless products — water, carbon dioxide, and cell biomass</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="food">
+      <div class="section-header"><div class="section-icon">🍞</div>
+        <div><div class="section-title-text">Microorganisms in Food Production</div><div class="section-subtitle">The original biotechnology</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The production of many foods is possible with the help of microorganisms. This is one of the oldest and most important uses of microbes.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Food</th><th>Microorganism</th><th>Process</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Bread</strong></td><td>Yeast (<em>Saccharomyces cerevisiae</em>)</td><td>Fermentation produces CO₂, which makes dough rise</td></tr>
+            <tr><td><strong>Beer</strong></td><td>Yeast</td><td>Ferments sugars to alcohol</td></tr>
+            <tr><td><strong>Cheese</strong></td><td>Bacteria + molds</td><td>Fermentation + ripening</td></tr>
+            <tr><td><strong>Butter</strong></td><td>Lactic acid bacteria</td><td>Ferments cream into sour cream, then churned</td></tr>
+            <tr><td><strong>Yoghurt / Ergo</strong></td><td>Lactic acid bacteria</td><td>Ferments milk</td></tr>
+            <tr><td><strong>Injera</strong></td><td>Yeasts + bacteria</td><td>Ferments teff dough</td></tr>
+            <tr><td><strong>Tej</strong></td><td>Yeasts</td><td>Ferments honey</td></tr>
+            <tr><td><strong>Tella</strong></td><td>Yeasts + bacteria</td><td>Ferments barley</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 The butter production pathway</div>
+          <p>
+            Fresh milk → separation → cream + skimmed milk<br>
+            Cream + bacteria → fermentation → sour cream<br>
+            Sour cream + churning → butter + buttermilk<br>
+            Skimmed milk → cheese
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="medicine">
+      <div class="section-header"><div class="section-icon">💊</div>
+        <div><div class="section-title-text">Microorganisms in Medicine</div><div class="section-subtitle">Life-saving applications</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Microorganisms have made it possible to produce many life-saving medicines. They can be used as "factories" to make human proteins at scale.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Human Insulin — A Classic Example</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          <strong>Insulin</strong> is a medicine prescribed for diabetic patients. Before the 1980s, insulin was extracted from the pancreas of cows and pigs. Now it is produced by <strong>genetically engineered bacteria and yeast</strong>.
+        </p>
+
+        <div style="background:#F0FDF4;border-left:4px solid #16A34A;border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0">
+          <p style="font-size:.85rem;line-height:1.8;color:var(--heading);margin:0">
+            <strong>Step 1:</strong> The human insulin gene is identified and extracted.<br>
+            <strong>Step 2:</strong> The gene is inserted into a plasmid (recombinant DNA).<br>
+            <strong>Step 3:</strong> The plasmid is inserted into a bacterium (like <em>E. coli</em>), creating a transgenic bacterium.<br>
+            <strong>Step 4:</strong> The bacteria are grown in large culture tanks.<br>
+            <strong>Step 5:</strong> The bacteria produce human insulin, which is harvested and purified.<br>
+            <strong>Step 6:</strong> The insulin is packaged for use by diabetic patients.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Other Medical Applications</h3>
+        <ul class="key-points">
+          <li><strong>Antibiotics</strong> — many are produced by fungi and bacteria (e.g., penicillin from <em>Penicillium</em>)</li>
+          <li><strong>Vaccines</strong> — viruses and bacteria are used to produce vaccines</li>
+          <li><strong>Growth hormones</strong> — human growth hormone is made by recombinant bacteria</li>
+          <li><strong>Gene therapy</strong> — viruses are used as vectors to deliver healthy genes to cells</li>
+          <li><strong>Drug delivery</strong> — microorganisms are used as vectors and plasmids to carry medicines</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="health">
+      <div class="section-header"><div class="section-icon">🧑</div>
+        <div><div class="section-title-text">Microorganisms in Health</div><div class="section-subtitle">The gut microbiome</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Our bodies contain <strong>ten times more microorganisms than body cells</strong>. These microorganisms perform various useful functions.
+        </p>
+
+        <ul class="key-points">
+          <li><strong>Digestion</strong> — <em>E. coli</em> and other bacteria in the intestine help digest food</li>
+          <li><strong>Vitamin synthesis</strong> — gut bacteria produce <strong>vitamin K, biotin, and folic acid</strong></li>
+          <li><strong>Protection against pathogens</strong> — beneficial bacteria prevent harmful bacteria from growing</li>
+          <li><strong>Immune system regulation</strong> — microbiota train and regulate the immune system</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The balance</div>
+          <p>
+            While microorganisms take nutrients from the body, they give back far more in return. A healthy gut microbiome is essential for digestion, immunity, and overall health. This is why antibiotics are prescribed carefully — they can disrupt the beneficial microbiome.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="minerals">
+      <div class="section-header"><div class="section-icon">🔄</div>
+        <div><div class="section-title-text">The Role of Bacteria in Recycling Minerals</div><div class="section-subtitle">MoE Textbook §2.5</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Many bacteria are <strong>decomposers</strong>. When organisms die, these bacteria break down the complex molecules in their bodies into much simpler molecules. The bacteria use some of these for their own metabolism, but in the process release minerals back into the environment. <strong>About 90% of all living organisms are made up of C, O, N, and H</strong> — and these substances are limited in their availability. For life to continue, they must be recycled.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Carbon Cycle</h3>
+        <ul class="key-points">
+          <li><strong>Photosynthesis</strong> — plants remove CO₂ from the atmosphere</li>
+          <li><strong>Respiration</strong> — animals and plants release CO₂</li>
+          <li><strong>Decomposition</strong> — microbes break down dead matter, releasing CO₂</li>
+          <li><strong>Combustion</strong> — burning fossil fuels releases CO₂</li>
+          <li><strong>Ocean uptake</strong> — oceans absorb large amounts of CO₂</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Nitrogen Cycle</h3>
+        <ul class="key-points">
+          <li><strong>Nitrogen fixation</strong> — bacteria convert atmospheric N₂ into ammonia (NH₃)</li>
+          <li><strong>Rhizobium</strong> — lives in root nodules of legumes (peas, beans, clover) and fixes nitrogen</li>
+          <li><strong>Nitrification</strong> — <em>Nitrosomonas</em> converts NH₄⁺ to NO₂⁻; <em>Nitrobacter</em> converts NO₂⁻ to NO₃⁻</li>
+          <li><strong>Assimilation</strong> — plants absorb nitrates to make proteins</li>
+          <li><strong>Denitrification</strong> — denitrifying bacteria convert NO₃⁻ back to N₂ gas</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Sulfur Cycle</h3>
+        <ul class="key-points">
+          <li>Sulfur is found in fewer types of organic molecules than nitrogen, but it is found in many <strong>proteins</strong></li>
+          <li>Bacteria play key roles in converting between sulfate, sulfide, and organic sulfur compounds</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Phosphorus Cycle</h3>
+        <ul class="key-points">
+          <li>Phosphorus occurs in soils as both <strong>organic and inorganic</strong> forms</li>
+          <li><strong>Organic P</strong> — mostly of microbial origin; held tightly until decomposed</li>
+          <li><strong>Inorganic P</strong> — mainly as aluminum, iron, or calcium compounds</li>
+          <li>Microbes carry out <strong>mineralization</strong> — releasing phosphorus from organic matter</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Bacteria are the only organisms that can fix nitrogen</div>
+          <p>
+            Nitrogen is abundant in the atmosphere but in a form not usable by plants and animals. <strong>Only bacteria can naturally convert atmospheric nitrogen to a form available to plants and animals (nitrate)</strong>. Without nitrogen-fixing bacteria, life as we know it would be impossible.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="diseases">
+      <div class="section-header"><div class="section-icon">⚠️</div>
+        <div><div class="section-title-text">Disease-Causing Microorganisms</div><div class="section-subtitle">MoE Textbook §2.5.1</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Germ Theory of Disease</div>
+          <p>
+            The theory that <strong>disease can be caused by microorganisms</strong> is called the <strong>germ theory</strong>. Organisms that cause disease are called <strong>pathogens</strong>. A disease caused by a microorganism infecting the body is an <strong>infectious disease</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Terms</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Term</th><th>Definition</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Germ theory</strong></td><td>Microorganisms cause infectious diseases</td></tr>
+            <tr><td><strong>Pathogen</strong></td><td>Any organism that causes a disease</td></tr>
+            <tr><td><strong>Infectious disease</strong></td><td>A disease caused by a microorganism infecting the body; sometimes called communicable diseases because they can be transmitted from one person to another</td></tr>
+            <tr><td><strong>Normal microbiota (flora)</strong></td><td>Microorganisms that live on or inside another organism without causing disease</td></tr>
+            <tr><td><strong>Immune system</strong></td><td>A complex network of cells, tissues, organs, and substances that helps the body fight infections</td></tr>
+            <tr><td><strong>Inflammatory response</strong></td><td>A complex biological reaction of the body when tissues are wounded or invaded by pathogens</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Major Pathogen Groups</h3>
+        <ul class="key-points">
+          <li><strong>Viruses</strong> — HIV/AIDS, hepatitis, measles, mumps, rubella, influenza, rabies, yellow fever, polio</li>
+          <li><strong>Bacteria</strong> — tuberculosis, anthrax, staphylococcal infections, <em>E. coli</em>, salmonella, cholera, typhoid</li>
+          <li><strong>Fungi</strong> — ringworm, candidiasis, athlete's foot</li>
+          <li><strong>Protozoa</strong> — malaria, Chagas disease, giardiasis, amoebiasis, leishmaniasis, trypanosomiasis</li>
+          <li><strong>Parasitic worms (helminths)</strong> — round worm, tape worm, trichinosis</li>
+          <li><strong>Prions</strong> — mad cow disease, vCJD</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Routes of Disease Transmission</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Route</th><th>How it works</th><th>Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Droplet infection</strong></td><td>Respiratory diseases spread by coughing, sneezing; inhaled by others</td><td>Common cold, flu, pneumonia</td></tr>
+            <tr><td><strong>Contaminated water</strong></td><td>Microbes in water colonize the gut when drunk</td><td>Cholera, typhoid fever</td></tr>
+            <tr><td><strong>Contaminated food</strong></td><td>Food poisoning by eating infected food</td><td>Salmonellosis, botulism</td></tr>
+            <tr><td><strong>Direct contact</strong></td><td>Skin infections spread by touching</td><td>Athlete's foot, ringworm</td></tr>
+            <tr><td><strong>Sexual intercourse</strong></td><td>Organisms infecting sex organs pass between partners</td><td>HIV/AIDS, syphilis, gonorrhoea, candidiasis</td></tr>
+            <tr><td><strong>Blood-to-blood contact</strong></td><td>Sharing infected needles, transfusions</td><td>HIV/AIDS, hepatitis B</td></tr>
+            <tr><td><strong>Animal vectors</strong></td><td>Diseases spread through insect bites</td><td>Malaria (mosquito), sleeping sickness (tsetse fly)</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Not all infections are deadly</div>
+          <p>
+            Of the thousands of species of viruses, bacteria, fungi, and parasites, <strong>only a tiny portion cause disease</strong>. Most microorganisms are harmless or beneficial. The germs we fear — the pathogens — are a small minority.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 2.11 — Identifying sources of infection</div>
+          <div class="activity-body">
+            For each method of transmission in the table above, identify the <strong>reservoir of infection</strong>:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>Where does the pathogen normally live?</li>
+              <li>How does it get from the reservoir to the new host?</li>
+              <li>What can be done to break the chain of transmission?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is the role of bacteria in the carbon, nitrogen, sulfur, and phosphorus cycles?<br>
+            B. How are microorganisms used in sewage treatment and bioremediation?<br>
+            C. Describe the role of microbes in food production. Give five examples.<br>
+            D. How is human insulin produced using bacteria?<br>
+            E. What is the germ theory of disease?<br>
+            F. What are the main routes of disease transmission?<br>
+            G. Name three diseases caused by each type of pathogen.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is the role of <strong>Rhizobium</strong> bacteria in the nitrogen cycle?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Break down nitrates into nitrogen gas</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Convert atmospheric nitrogen into ammonia in root nodules of legumes</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Convert ammonia into nitrites</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Convert nitrates into plant proteins</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is <strong>bioremediation</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Using chemicals to clean up pollution</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Using microorganisms to degrade or remove environmental contaminants</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> A medical treatment for infections</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Producing food using bacteria</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Which of the following is <strong>NOT</strong> produced with the help of microorganisms?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Bread</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Cheese</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Plastic bottles</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Yoghurt</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Which disease is transmitted by <strong>animal vectors</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Cholera</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Malaria (mosquito) and sleeping sickness (tsetse fly)</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Athlete's foot</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Common cold</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">According to the <strong>germ theory</strong>, what causes infectious diseases?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Bad air</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Microorganisms</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Genetic mutations only</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Diet and lifestyle</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=nitrogen+cycle+bacteria+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The Nitrogen Cycle — Role of Bacteria</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=bioremediation+microorganisms+oil+spills" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Bioremediation — Cleaning Up with Microbes</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=insulin+production+recombinant+DNA+bacteria" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Human Insulin Production Using Bacteria</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=germ+theory+of+disease+history" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The Germ Theory of Disease</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 2.7</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Agriculture:</strong> microbes fix nitrogen, solubilize phosphate, mobilize potassium, decompose organic matter, and act as biological control agents</li>
+          <li><strong>Sewage treatment:</strong> anaerobic bacteria reduce sludge volume and produce methane as a renewable energy source</li>
+          <li><strong>Bioremediation:</strong> microbes degrade environmental contaminants (oil, PCBs, PAHs, radionuclides, heavy metals)</li>
+          <li><strong>Food production:</strong> microbes make bread, beer, cheese, butter, yoghurt, injera, tej, tella</li>
+          <li><strong>Medicine:</strong> bacteria produce human insulin and other medicines through genetic engineering</li>
+          <li><strong>Health:</strong> gut microbiota aid digestion, produce vitamins (K, biotin, folic acid), and protect against pathogens</li>
+          <li><strong>Mineral cycles:</strong> bacteria are essential in the carbon, nitrogen, sulfur, and phosphorus cycles</li>
+          <li><strong>Germ theory:</strong> pathogens cause infectious diseases; they spread by droplet, water, food, contact, sexual, blood, and vector routes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-6.html" class="btn btn-outline">← Lesson 2.6</a>
+      <a href="../index.html" class="btn btn-primary">Unit 2 Complete ✓</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 2 · Lesson 2.7 · Economic Importance &amp; Disease-Causing Microorganisms</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'C', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Rhizobium lives in root nodules of legumes and fixes atmospheric nitrogen into ammonia.',wrong:'✗ Rhizobium fixes nitrogen in legume root nodules.'},
+    2:{correct:'✓ Correct! Bioremediation uses microorganisms to degrade or remove environmental contaminants.',wrong:'✗ Bioremediation uses microbes to clean pollution.'},
+    3:{correct:'✓ Correct! Plastic bottles are not made with microorganisms — they are made from petroleum-based chemicals.',wrong:'✗ Plastic bottles are not produced by microbes.'},
+    4:{correct:'✓ Correct! Malaria is transmitted by mosquitoes and sleeping sickness by tsetse flies — both are animal vectors.',wrong:'✗ Malaria (mosquito) and sleeping sickness (tsetse fly) are vector-borne.'},
+    5:{correct:'✓ Correct! The germ theory states that microorganisms cause infectious diseases.',wrong:'✗ The germ theory says microbes cause disease.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 2.7.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
