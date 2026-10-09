@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.9: Biotechnology — Applications | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .app-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .app-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .app-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .app-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .app-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 1</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 9</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('agriculture')"><div class="sidebar-dot"></div> Agriculture</button>
+      <button class="sidebar-link" onclick="scrollToId('industry')"><div class="sidebar-dot"></div> Food &amp; Industry</button>
+      <button class="sidebar-link" onclick="scrollToId('scp')"><div class="sidebar-dot"></div> Single-Cell Protein</button>
+      <button class="sidebar-link" onclick="scrollToId('forensic')"><div class="sidebar-dot"></div> Forensic Science</button>
+      <button class="sidebar-link" onclick="scrollToId('warfare')"><div class="sidebar-dot"></div> Biological Warfare</button>
+      <button class="sidebar-link" onclick="scrollToId('bioengineering')"><div class="sidebar-dot"></div> Bioengineering</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Appreciation of Nature</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Conservation</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Food Security</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Conscious Citizens</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Career Development</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Medicine</a>
+      <a href="lesson-1-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Waste Treatment</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Biotechnology (1)</a>
+      <a href="lesson-1-9.html" class="sidebar-link active"><div class="sidebar-dot"></div> L9: Biotechnology (2)</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Promises to Society</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 1</a> ›
+      Lesson 1.9
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Applications of Biology · MoE Textbook §1.8 (Part 2)</div>
+      <h1>🧬 Biotechnology — Applications</h1>
+      <p>Biotechnology isn't just theory — it's transforming how we grow food, produce medicine, solve crimes, and clean up pollution. This lesson explores the major applications of biotechnology, from soil fertility to DNA forensics to bioengineering.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~22 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In Lesson 1.8 you learned the <strong>what</strong> and <strong>how</strong> of biotechnology — its definition, tools, and gene-transfer methods. In this lesson, you'll see the <strong>where</strong> and <strong>why</strong> — the major real-world applications transforming agriculture, industry, medicine, and society.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe how biotechnology improves <strong>agriculture</strong> (soil, tissue culture, animal breeding)</li>
+          <li>Explain the role of biotechnology in <strong>food, beverages, and pharmaceuticals</strong></li>
+          <li>Define <strong>single-cell protein</strong> and its role in food security</li>
+          <li>Explain how DNA analysis is used in <strong>forensic science</strong></li>
+          <li>Discuss <strong>biological warfare</strong> and its ethical issues</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="agriculture">
+      <div class="section-header"><div class="section-icon">🌾</div>
+        <div><div class="section-title-text">Biotechnology in Agriculture</div><div class="section-subtitle">MoE Textbook §1.8, pp. 18–22</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Food supply for a fast-growing population is threatened by loss of soil fertility and by crop and animal diseases. Biotechnology provides several powerful tools to address these.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">1. Soil Fertility &amp; Bio-fertilizers</h3>
+        <ul class="key-points">
+          <li><strong>Organic fertilizers (bio-fertilizers)</strong> — use beneficial microorganisms to enrich soil naturally</li>
+          <li><strong>Vermicomposting</strong> — earthworms break down organic waste into nutrient-rich compost</li>
+          <li><strong>Crop rotation with legumes</strong> — legume plants (beans, peas) host nitrogen-fixing bacteria in root nodules, restoring soil nitrogen</li>
+          <li><strong>Improved germplasm</strong> — better seeds adapted to local conditions</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">2. Tissue Culture</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          <strong>Tissue culture</strong> is a technique that grows new plants from small pieces of plant tissue in a sterile, nutrient-rich medium. It allows <strong>rapid, large-scale propagation</strong> of identical plants.
+        </p>
+        <ul class="key-points">
+          <li>Used for <strong>palm trees, orchids, bananas, and carrots</strong></li>
+          <li>Produces <strong>large quantities of food in a small area</strong></li>
+          <li>Enables <strong>seedless fruits</strong> (watermelon, papaya, orange, grape) through genetic engineering</li>
+          <li>Significantly reduces crop cycle time</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">3. Animal Breeding &amp; Transgenic Animals</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          <strong>Animal breeding</strong> selects animals with superior traits — faster growth, more meat, milk, or eggs, or better disease resistance. <strong>Transgenic animals</strong> contain genes from another species.
+        </p>
+        <ul class="key-points">
+          <li><strong>Enhanced growth rate</strong> and feed utilization</li>
+          <li><strong>Improved carcass composition</strong> (more meat, less fat)</li>
+          <li><strong>Better milk production</strong> or composition</li>
+          <li><strong>Improved disease resistance</strong></li>
+          <li><strong>Modified hair or fiber</strong> (e.g. wool quality)</li>
+          <li>Example: <strong>Borana Bull</strong> — an Ethiopian improved cattle breed</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Model organisms in research</div>
+          <p>
+            A <strong>model organism</strong> is an organism well-suited for studying a particular trait or disease due to its short generation time, well-characterized genome, or similarity to humans. Examples: fruit fly (<em>Drosophila</em>), zebrafish, mouse, rat, and the bacterium <em>E. coli</em>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="industry">
+      <div class="section-header"><div class="section-icon">🏭</div>
+        <div><div class="section-title-text">Food, Industry &amp; Pharmaceuticals</div><div class="section-subtitle">Industrial (white) biotechnology</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Industrial Biotechnology (White Biotechnology)</div>
+          <p>
+            The modern use and application of biotechnology for the <strong>sustainable production of bio-products</strong> — food, chemicals, biomaterials, and fuels — from renewable sources using living cells and/or their enzymes.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Major Industrial Products</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Product category</th><th>Examples</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Food supplements</strong></td><td>Vitamin B2, vitamin K, amino acids</td></tr>
+            <tr><td><strong>Pharmaceuticals</strong></td><td>Antibiotics, vaccines, insulin, hormones</td></tr>
+            <tr><td><strong>Bioplastics</strong></td><td>Polylactic acid (PLA)</td></tr>
+            <tr><td><strong>Energy carriers</strong></td><td>Biogas, bioethanol, hydrogen</td></tr>
+            <tr><td><strong>Detergents</strong></td><td>Enzyme-based biological washing powders</td></tr>
+            <tr><td><strong>Pulp &amp; paper</strong></td><td>Enzymatic processing</td></tr>
+            <tr><td><strong>Textiles</strong></td><td>Bio-processing for quality fabrics</td></tr>
+            <tr><td><strong>Ethanol production</strong></td><td>From sugarcane, corn, lignocellulose</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Food Preservation</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text)">
+          Industrial biotechnology uses <strong>cultures of harmless microorganisms</strong> to prevent food spoilage. These cultures inhibit the growth of undesirable decomposing microorganisms — extending shelf life without harsh chemicals.
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block" id="scp">
+      <div class="section-header"><div class="section-icon">🍄</div>
+        <div><div class="section-title-text">Single-Cell Protein (SCP)</div><div class="section-subtitle">A promising food of the future</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Single-Cell Protein (SCP)</div>
+          <p>
+            <strong>Single-cell proteins (SCP)</strong> — also called microbial proteins — are <strong>edible unicellular microorganisms</strong>. The biomass or protein extract from pure or mixed cultures of algae, yeasts, fungi, or bacteria may be used as an ingredient or substitute for protein-rich foods, suitable for human consumption or as animal feed.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Common SCP Sources</h3>
+        <div class="app-grid">
+          <div class="app-card">
+            <div class="app-icon">🍄</div>
+            <div class="app-title">Mushrooms</div>
+            <p class="app-desc">Fungal fruiting bodies — already widely eaten, rich in protein and B vitamins.</p>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🟢</div>
+            <div class="app-title">Spirulina</div>
+            <p class="app-desc">Blue-green algae — high in protein, vitamins, and minerals.</p>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🍞</div>
+            <div class="app-title">Yeast</div>
+            <p class="app-desc">Fungi grown in culture — used as food supplement and protein source.</p>
+          </div>
+          <div class="app-card">
+            <div class="app-icon">🌿</div>
+            <div class="app-title">Green Algae</div>
+            <p class="app-desc">Photosynthetic microorganisms — grow on light, produce protein efficiently.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why SCP matters for food security</div>
+          <p>
+            SCP can be produced quickly on cheap substrates (waste materials, industrial byproducts), doesn't require farmland, and can be produced year-round. It's a promising tool for feeding a growing global population — especially in countries like Ethiopia where food security is a priority.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="forensic">
+      <div class="section-header"><div class="section-icon">🔍</div>
+        <div><div class="section-title-text">Forensic Science</div><div class="section-subtitle">Using DNA to solve crimes</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          <strong>Forensic biology</strong> uses biological evidence — blood, saliva, hair, and other tissues — to solve crimes and determine paternity. The technique relies on the fact that <strong>each individual has unique DNA fingerprints</strong> (except identical twins).
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How DNA Forensics Works</h3>
+        <ul class="key-points">
+          <li><strong>Collect</strong> biological samples from the crime scene (blood, hair, saliva)</li>
+          <li><strong>Extract</strong> DNA from the samples</li>
+          <li><strong>Amplify</strong> specific DNA regions using PCR</li>
+          <li><strong>Analyse</strong> the DNA using gel electrophoresis</li>
+          <li><strong>Compare</strong> the pattern to suspects or other samples</li>
+          <li><strong>Report</strong> findings in court as expert testimony</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">VNTR Analysis</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text)">
+          Forensic scientists examine <strong>5–10 different Variable Number of Tandem Repeat (VNTR) loci</strong>. The probability that two random individuals share the same genetic pattern at all these loci is approximately <strong>1 in 10 billion</strong> — making DNA evidence extremely powerful.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Fingerprints</h3>
+        <ul class="key-points">
+          <li>Each individual has <strong>unique fingerprints</strong> that don't change throughout life</li>
+          <li>Used to investigate crime scenes and determine paternity</li>
+          <li>Bioinformatics tools now make fingerprint and DNA analysis faster and more reliable</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="warfare">
+      <div class="section-header"><div class="section-icon">⚠️</div>
+        <div><div class="section-title-text">Biological Warfare</div><div class="section-subtitle">The dark side of biotechnology</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Biological Warfare (Germ Warfare)</div>
+          <p>
+            The use of <strong>biological toxins or infectious agents</strong> — bacteria, viruses, fungi, or their toxins — with the intent to kill or incapacitate humans, animals, or plants as an act of war.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Types of Biological Weapons</h3>
+        <ul class="key-points">
+          <li><strong>Bacteria</strong> — e.g. anthrax, plague, cholera</li>
+          <li><strong>Viruses</strong> — e.g. smallpox, Ebola</li>
+          <li><strong>Fungi</strong> — e.g. rice blast (crop destruction)</li>
+          <li><strong>Toxins</strong> — poisonous compounds produced by microorganisms (e.g. botulinum toxin)</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why biological warfare is prohibited</div>
+          <p>
+            The <strong>Biological Weapons Convention (1972)</strong> bans the development, production, and stockpiling of biological weapons. However, concerns remain that some nations or terrorist groups may seek these agents. Ethical issues around biotechnology — including bioweapons, GMOs, and gene editing — are a critical part of modern biology education.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="bioengineering">
+      <div class="section-header"><div class="section-icon">⚙️</div>
+        <div><div class="section-title-text">Bioengineering</div><div class="section-subtitle">Where biology meets engineering</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Bioengineering (Biological Engineering)</div>
+          <p>
+            The application of principles of biology and the tools of engineering to create <strong>usable, tangible, economically viable products</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Concepts</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Term</th><th>Definition</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Bio-process engineering</strong></td><td>Planning, construction, execution, and revision of biological and mechanical processes to create new products</td></tr>
+            <tr><td><strong>Bioinformatics</strong></td><td>Sub-discipline of biology and computer science for acquisition, storage, analysis, and dissemination of biological data (DNA, protein sequences)</td></tr>
+            <tr><td><strong>Bio-catalysis</strong></td><td>Using isolated enzymes (or enzymes inside living cells) to perform chemical conversions of organic compounds</td></tr>
+            <tr><td><strong>Bioreactor</strong></td><td>A manufactured device or system that supports a biologically active environment</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why Bioreactors Matter</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text)">
+          A <strong>bioreactor</strong> provides the controlled conditions — temperature, pH, oxygen, nutrients — that let microorganisms or cells perform their desired function with <strong>limited production of impurities</strong>. This makes industrial-scale bioproduction (insulin, vaccines, enzymes, etc.) possible.
+        </p>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. Name three ways biotechnology improves soil fertility.<br>
+            B. What is tissue culture? Give three examples of plants propagated this way.<br>
+            C. What is single-cell protein (SCP)? Give four examples of SCP sources.<br>
+            D. Describe how DNA forensics can identify a criminal.<br>
+            E. What is biological warfare? Why is it prohibited?<br>
+            F. What is a bioreactor and why is it important?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">Which of the following is a method of improving soil fertility using biotechnology?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Adding synthetic pesticides</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Vermicomposting and bio-fertilizers</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Burning crop residue</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Flooding the field with salt water</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is <strong>tissue culture</strong> used for?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Preserving meat</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Rapidly producing many identical plants from small tissue samples</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Diagnosing diabetes</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Extracting metals from ore</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">What is <strong>single-cell protein (SCP)</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Protein from a single animal</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Edible unicellular microorganisms used as a protein source</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Protein produced by a single gene</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> A type of vitamin supplement</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">In forensic science, what technique is used to <strong>amplify DNA</strong> from a crime scene sample?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Gel electrophoresis</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> PCR (Polymerase Chain Reaction)</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Microscopy</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Centrifugation</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">What is a <strong>bioreactor</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> A nuclear power plant</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> A manufactured device that supports a biologically active environment</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> A type of greenhouse</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> A machine for reading DNA</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=biotechnology+in+agriculture+applications" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Biotechnology in Agriculture</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=single+cell+protein+SCP+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Single-Cell Protein (SCP) Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=DNA+fingerprinting+forensic+science" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">DNA Fingerprinting in Forensic Science</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=bioreactor+industrial+biotechnology" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Bioreactors in Industrial Biotechnology</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 1.9</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Agriculture:</strong> bio-fertilizers, vermicomposting, crop rotation, tissue culture, animal breeding, transgenic animals</li>
+          <li><strong>Industrial biotech</strong> produces food supplements, pharmaceuticals, bioplastics, biofuels, detergents, and enzymes</li>
+          <li><strong>Single-Cell Protein (SCP)</strong> = edible unicellular microorganisms (mushrooms, spirulina, yeast, algae) — promising for food security</li>
+          <li><strong>Forensic biology</strong> uses DNA analysis (via PCR, VNTR, gel electrophoresis) and fingerprints to solve crimes</li>
+          <li><strong>Biological warfare</strong> uses pathogens or toxins as weapons — banned by the Biological Weapons Convention (1972)</li>
+          <li><strong>Bioengineering</strong> applies engineering to biology — key concepts include bio-process engineering, bioinformatics, bio-catalysis, and bioreactors</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-8.html" class="btn btn-outline">← Lesson 1.8</a>
+      <a href="lesson-1-10.html" class="btn btn-primary">Next: Lesson 1.10 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 1 · Lesson 1.9 · Biotechnology (Part 2)</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'B', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Vermicomposting (using earthworms) and bio-fertilizers are biological methods of improving soil fertility.',wrong:'✗ Bio-fertilizers and vermicomposting improve soil fertility biologically.'},
+    2:{correct:'✓ Correct! Tissue culture grows many identical plants from small tissue samples — used for palms, orchids, bananas, and carrots.',wrong:'✗ Tissue culture is rapid, large-scale propagation of plants from small tissue samples.'},
+    3:{correct:'✓ Correct! Single-cell protein (SCP) = edible unicellular microorganisms used as a protein source (mushrooms, spirulina, yeast, algae).',wrong:'✗ SCP = edible unicellular microorganisms used as protein.'},
+    4:{correct:'✓ Correct! PCR (Polymerase Chain Reaction) amplifies DNA millions of times so it can be analysed.',wrong:'✗ PCR amplifies DNA in forensic science.'},
+    5:{correct:'✓ Correct! A bioreactor is a manufactured device that supports a biologically active environment (temperature, pH, oxygen controlled).',wrong:'✗ A bioreactor supports a biologically active environment.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 1.9.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
