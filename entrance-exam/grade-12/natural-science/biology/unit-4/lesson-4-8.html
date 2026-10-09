@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4.8: Genetic Drift &amp; Gene Flow | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .drift-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .drift-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .drift-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .drift-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .drift-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .drift-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 4</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 4 · Lesson 8</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('drift')"><div class="sidebar-dot"></div> Genetic Drift</button>
+      <button class="sidebar-link" onclick="scrollToId('bottleneck')"><div class="sidebar-dot"></div> Bottleneck Effect</button>
+      <button class="sidebar-link" onclick="scrollToId('founder')"><div class="sidebar-dot"></div> Founder Effect</button>
+      <button class="sidebar-link" onclick="scrollToId('flow')"><div class="sidebar-dot"></div> Gene Flow</button>
+      <button class="sidebar-link" onclick="scrollToId('mechanisms')"><div class="sidebar-dot"></div> All Mechanisms Compared</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Origin of Life</a>
+      <a href="lesson-4-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Lamarckism</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Darwinism</a>
+      <a href="lesson-4-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Evidence</a>
+      <a href="lesson-4-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Natural Selection</a>
+      <a href="lesson-4-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Human Evolution</a>
+      <a href="lesson-4-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Mutations</a>
+      <a href="lesson-4-8.html" class="sidebar-link active"><div class="sidebar-dot"></div> L8: Genetic Drift</a>
+      <a href="lesson-4-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Extinction</a>
+      <a href="lesson-4-10.html" class="sidebar-link"><div class="sidebar-dot"></div> Unit Review</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 4</a> ›
+      Lesson 4.8
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Evolution · MoE Textbook §4.1.7–4.1.8</div>
+      <h1>🎲 Genetic Drift &amp; Gene Flow</h1>
+      <p>Natural selection isn't the only force that changes populations. Evolution can also happen by <strong>chance</strong> (genetic drift) and by <strong>migration</strong> (gene flow). This lesson explores how random events and movement of individuals shape the genetic makeup of populations.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Allele frequencies in a population can change due to <strong>natural selection</strong> (because some alleles are advantageous) — but they can also change due to <strong>chance alone</strong> (genetic drift), or because individuals <strong>move between populations</strong> (gene flow). These are all mechanisms of evolution.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> genetic drift and explain how it changes allele frequencies by chance</li>
+          <li>Describe the <strong>bottleneck effect</strong> and the <strong>founder effect</strong></li>
+          <li><strong>Define</strong> gene flow and explain the roles of immigration and emigration</li>
+          <li>Explain why <strong>small populations</strong> are more affected by genetic drift</li>
+          <li>Compare <strong>all four mechanisms</strong> of evolution: mutation, natural selection, genetic drift, gene flow</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="drift">
+      <div class="section-header"><div class="section-icon">🎲</div>
+        <div><div class="section-title-text">Genetic Drift</div><div class="section-subtitle">MoE Textbook §4.1.7, p. 200</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Genetic Drift (MoE Textbook, p. 200)</div>
+          <p>
+            <strong>Genetic drift</strong> is a mechanism of evolution in which <strong>allele frequencies of a population change over generations due to chance events</strong>. It's change due to "sampling error" in selecting the alleles for the next generation from the gene pool of the current generation.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How Genetic Drift Works</h3>
+        <ul class="key-points">
+          <li>Allele frequencies can change due to <strong>chance alone</strong> — not because of any advantage</li>
+          <li>The alleles that form the next generation's gene pool are a <strong>sample</strong> of the alleles from the current generation</li>
+          <li>When sampled from a population, the frequency of alleles differs slightly <strong>due to chance alone</strong></li>
+          <li>Alleles can increase or decrease in frequency due to drift</li>
+          <li>The average expected change in allele frequency is <strong>zero</strong> — since increasing or decreasing is equally probable</li>
+          <li>A small percentage of alleles may <strong>continually change frequency in a single direction</strong> for several generations</li>
+          <li>A very few new mutant alleles can <strong>drift to fixation</strong> in this manner</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The coin-flip analogy</div>
+          <p>
+            Just as flipping a fair coin can occasionally give a string of heads or tails, allele frequencies can drift in one direction for several generations purely by chance.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Small vs Large Populations</h3>
+        <ul class="key-points">
+          <li>The <strong>variance</strong> in the rate of change of allele frequencies is <strong>greater in small populations</strong> than in large populations</li>
+          <li>The overall rate of genetic drift (measured in substitutions per generation) is <strong>independent of population size</strong></li>
+          <li>If the mutation rate is constant, large and small populations lose alleles to drift at the same rate</li>
+          <li>But large populations have <strong>more alleles in the gene pool</strong> — they lose them more slowly</li>
+          <li>Smaller populations have <strong>fewer alleles</strong>, but these are lost more quickly</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Rabbit Example (from the textbook)</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          Imagine a small rabbit population with 8 brown individuals (genotype BB or Bb) and 2 white individuals (genotype bb). Initially, the frequencies of the B and b alleles are equal.
+        </p>
+        <ul class="key-points">
+          <li>Suppose <strong>only 5 rabbits reproduce</strong> — purely by chance (the others die for reasons unrelated to coat colour)</li>
+          <li>In the surviving group, the frequency of the B allele is <strong>0.7</strong> and the frequency of the b allele is <strong>0.3</strong></li>
+          <li>Because the 5-rabbit sample had different allele frequencies than the population as a whole, the frequencies of B and b in the population have <strong>shifted</strong></li>
+          <li>What if only 2 of the BB offspring survive and reproduce? By the third generation, the b allele could be <strong>completely lost</strong> from the population</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why genetic drift matters</div>
+          <p>
+            Genetic drift can cause <strong>random loss of alleles</strong> — including potentially beneficial ones. This is especially important in <strong>small, endangered populations</strong>, where random events can eliminate genetic diversity.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="bottleneck">
+      <div class="section-header"><div class="section-icon">🍾</div>
+        <div><div class="section-title-text">The Bottleneck Effect</div><div class="section-subtitle">An extreme form of genetic drift</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Bottleneck Effect</div>
+          <p>
+            The <strong>bottleneck effect</strong> is an extreme example of genetic drift that happens when the <strong>size of a population is severely reduced</strong>. Events like natural disasters (earthquakes, floods, fires) can decimate a population — killing most individuals and leaving behind a <strong>small, random assortment of survivors</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How It Works</h3>
+        <ul class="key-points">
+          <li>The <strong>allele frequencies prior to the disaster</strong> may be very different from those of the population after the event</li>
+          <li>Some alleles may be <strong>missing entirely</strong></li>
+          <li>The smaller population is more susceptible to the effects of genetic drift for generations (until its numbers return to normal)</li>
+          <li>This can cause <strong>even more alleles to be lost</strong></li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The marble analogy (from the textbook)</div>
+          <p>
+            Imagine a bottle filled with marbles, representing individuals in a population. If a bottleneck event occurs, a small, random assortment of individuals survive the event and pass through the bottleneck, while the vast majority of the population is killed off.
+          </p>
+          <p style="margin-top:.5rem">
+            The genetic composition of the random survivors is now the genetic composition of the entire population. A population bottleneck yields a <strong>limited and random assortment</strong> of individuals.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Consequences</h3>
+        <ul class="key-points">
+          <li><strong>Reduced genetic diversity</strong> — many alleles are lost</li>
+          <li>The population may be <strong>less able to adapt</strong> to new environmental challenges</li>
+          <li>Harmful recessive alleles can become more common by chance</li>
+          <li>Recovery of genetic diversity can take <strong>many generations</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="founder">
+      <div class="section-header"><div class="section-icon">🏝️</div>
+        <div><div class="section-title-text">The Founder Effect</div><div class="section-subtitle">Another extreme form of genetic drift</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Founder Effect</div>
+          <p>
+            The <strong>founder effect</strong> occurs when a <strong>small group of individuals breaks off from a larger population to establish a colony</strong>. The new colony is isolated from the original population, and the founding individuals may not represent the full genetic diversity of the original population.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Features</h3>
+        <ul class="key-points">
+          <li>Alleles in the founding population may be present at <strong>different frequencies</strong> than in the original population</li>
+          <li>Some alleles may be <strong>missing entirely</strong></li>
+          <li>The small size of the new colony means it will experience <strong>strong genetic drift for generations</strong></li>
+          <li>The founder effect is similar in concept to the bottleneck effect, but it occurs via a <strong>different mechanism</strong> (colonisation rather than catastrophe)</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Bottleneck vs Founder Effect</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Feature</th><th>Bottleneck Effect</th><th>Founder Effect</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Trigger</strong></td><td>A catastrophe that kills most of the population</td><td>A small group breaking off to establish a new colony</td></tr>
+            <tr><td><strong>Direction</strong></td><td>The population shrinks</td><td>The population moves to a new area</td></tr>
+            <tr><td><strong>Result</strong></td><td>Random survivors determine the gene pool</td><td>The founders determine the gene pool</td></tr>
+            <tr><td><strong>Similarity</strong></td><td colspan="2">Both reduce genetic diversity; both cause genetic drift for generations</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Example: Ellis-Van Creveld syndrome</div>
+          <p>
+            The Ellis-Van Creveld syndrome is a form of dwarfism with extra fingers (polydactyly) that is unusually common in the Old Order Amish community of Pennsylvania. The condition traces back to a <strong>single founder</strong> who immigrated to the community in the 1700s. Because the community was small and isolated, the allele for the syndrome became more common than it would have been in a larger population — a classic example of the founder effect.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="flow">
+      <div class="section-header"><div class="section-icon">🔄</div>
+        <div><div class="section-title-text">Gene Flow</div><div class="section-subtitle">MoE Textbook §4.1.8, p. 204</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Gene Flow (MoE Textbook, p. 204)</div>
+          <p>
+            <strong>Gene flow</strong> — also called <strong>migration</strong> — is any <strong>movement of individuals, and/or the genetic material they carry, from one population to another</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How Gene Flow Works</h3>
+        <ul class="key-points">
+          <li>Gene flow includes many different kinds of events — pollen being blown to a new destination, or people moving to new cities or countries</li>
+          <li>If gene versions are carried to a population where those gene versions previously did not exist, gene flow can be a <strong>very important source of genetic variation</strong></li>
+          <li>Gene flow <strong>tends to reduce differences</strong> between populations (because alleles move between them)</li>
+          <li><strong>Gene transfer</strong> is the flow of alleles from one species to another — especially common in bacteria</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Immigration vs Emigration</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Term</th><th>Meaning</th><th>Effect on population</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Immigration</strong></td>
+              <td>New organisms <strong>join</strong> a population</td>
+              <td>Adds new alleles; changes allele frequencies</td>
+            </tr>
+            <tr>
+              <td><strong>Emigration</strong></td>
+              <td>Members of a population <strong>leave</strong>, taking their genes with them</td>
+              <td>Removes alleles; changes allele frequencies</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Gene flow vs genetic drift</div>
+          <p>
+            • <strong>Gene flow</strong> tends to <strong>make populations more similar</strong> to each other (alleles spread between them)<br>
+            • <strong>Genetic drift</strong> tends to make populations <strong>more different</strong> from each other (random changes happen independently in each population)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="mechanisms">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">All Mechanisms of Evolution</div><div class="section-subtitle">Putting it all together</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Evolution can be driven by <strong>four main mechanisms</strong>. Each changes allele frequencies in a population, but in different ways.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Mechanism</th><th>What it does</th><th>Result</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mutation</strong></td>
+              <td>Introduces new alleles into the gene pool</td>
+              <td>Source of all genetic variation</td>
+            </tr>
+            <tr>
+              <td><strong>Natural selection</strong></td>
+              <td>Favours alleles that increase survival and reproduction</td>
+              <td>Adaptive evolution — populations become better suited to their environment</td>
+            </tr>
+            <tr>
+              <td><strong>Genetic drift</strong></td>
+              <td>Random changes in allele frequencies</td>
+              <td>Random evolution — no adaptation; stronger in small populations</td>
+            </tr>
+            <tr>
+              <td><strong>Gene flow</strong></td>
+              <td>Movement of alleles between populations</td>
+              <td>Reduces differences between populations</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 4.27–4.30 — Group work</div>
+          <div class="activity-body">
+            Discuss in small groups and reflect your opinion to the class:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>How can a bottleneck event reduce genetic diversity?</li>
+              <li>Search from different sources about <strong>Ellis-Van Creveld syndrome</strong> (whose symptoms include polydactyly, or extra fingers). How is it an example of the founder effect?</li>
+              <li>Describe gene flow. Explain the roles of immigration and emigration.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is genetic drift? How does it differ from natural selection?<br>
+            B. Why is genetic drift more significant in small populations?<br>
+            C. What is the bottleneck effect? Give an example.<br>
+            D. What is the founder effect? How does it differ from the bottleneck effect?<br>
+            E. What is gene flow? What role do immigration and emigration play?<br>
+            F. How does gene flow differ from genetic drift in its effect on populations?<br>
+            G. List the four mechanisms of evolution and describe each briefly.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is <strong>genetic drift</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> The movement of alleles between populations</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> The change in allele frequencies due to chance events</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Natural selection favouring advantageous alleles</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> The formation of new species</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is the <strong>bottleneck effect</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> When a small group breaks off to establish a new colony</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> When a population is severely reduced by a catastrophe, leaving a random assortment of survivors</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> When individuals migrate to a new area</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> When mutations introduce new alleles</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">What is the <strong>founder effect</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> When a large population becomes larger</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> When a small group of individuals breaks off from a larger population to establish a colony — the founders may not represent the full genetic diversity of the original population</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> When a catastrophe kills most of a population</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> When natural selection favours new alleles</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">What is <strong>gene flow</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Random changes in allele frequencies in a population</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Movement of individuals (and their genetic material) from one population to another</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> The formation of new alleles by mutation</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Natural selection acting on a population</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">How does <strong>gene flow</strong> differ from <strong>genetic drift</strong> in its effect on populations?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Gene flow makes populations more different; genetic drift makes them more similar</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Gene flow makes populations more similar; genetic drift makes them more different</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Both make populations more similar</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Both make populations more different</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=genetic+drift+explained+bottleneck+founder+effect" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Genetic Drift — Bottleneck &amp; Founder Effects</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=bottleneck+effect+population+genetics" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The Bottleneck Effect</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=founder+effect+ellis+van+creveld+amish" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The Founder Effect — Ellis-Van Creveld Syndrome</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=gene+flow+migration+allele+frequencies" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Gene Flow — How Migration Changes Populations</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 4.8</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Genetic drift</strong> = changes in allele frequencies due to <strong>chance events</strong>, not natural selection</li>
+          <li>Genetic drift is stronger in <strong>small populations</strong> — random events can eliminate alleles completely</li>
+          <li><strong>Bottleneck effect</strong> = a catastrophe kills most of the population, leaving a random assortment of survivors</li>
+          <li><strong>Founder effect</strong> = a small group breaks off to establish a new colony; the founders don't represent the full genetic diversity of the original population</li>
+          <li>Both bottleneck and founder effects <strong>reduce genetic diversity</strong> and cause genetic drift for generations</li>
+          <li><strong>Gene flow</strong> = movement of individuals (and their genes) between populations</li>
+          <li><strong>Immigration</strong> = new organisms join a population; <strong>emigration</strong> = members leave a population</li>
+          <li>Gene flow tends to make populations <strong>more similar</strong>; genetic drift makes them <strong>more different</strong></li>
+          <li>The four mechanisms of evolution: <strong>mutation, natural selection, genetic drift, gene flow</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-4-7.html" class="btn btn-outline">← Lesson 4.7</a>
+      <a href="lesson-4-9.html" class="btn btn-primary">Next: Lesson 4.9 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 4 · Lesson 4.8 · Genetic Drift &amp; Gene Flow</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'B', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Genetic drift = changes in allele frequencies due to chance events, not natural selection.',wrong:'✗ Genetic drift = random changes in allele frequencies.'},
+    2:{correct:'✓ Correct! The bottleneck effect occurs when a catastrophe severely reduces a population, leaving a random assortment of survivors.',wrong:'✗ Bottleneck = catastrophe reduces population to random survivors.'},
+    3:{correct:'✓ Correct! The founder effect occurs when a small group breaks off to establish a new colony — the founders may not represent the full genetic diversity.',wrong:'✗ Founder effect = small group colonizes new area.'},
+    4:{correct:'✓ Correct! Gene flow = movement of individuals (and their genes) between populations — also called migration.',wrong:'✗ Gene flow = movement between populations.'},
+    5:{correct:'✓ Correct! Gene flow makes populations more similar; genetic drift makes them more different.',wrong:'✗ Gene flow → more similar; genetic drift → more different.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 4.8.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
