@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 6.3: Safety Rules During Natural Disasters | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#0E7490;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#0E7490}
+    .sidebar-link.active{background:#CFFAFE;color:#155E75;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#0E7490;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#0F172A,#0E7490);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #CFFAFE}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#0E7490;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#ECFEFF;border:1.5px solid #A5F3FC;border-left:5px solid #0E7490;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#155E75;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#0E7490;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#0E7490;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #CFFAFE;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#0E7490;box-shadow:0 4px 12px rgba(14,116,144,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#155E75;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .disaster-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:var(--radius-xl);padding:1.5rem 1.75rem;margin-bottom:1.25rem}
+    .disaster-title{font-size:1.05rem;font-weight:800;color:#0F172A;margin-bottom:.75rem;display:flex;align-items:center;gap:10px}
+    .disaster-title .icon-box{width:36px;height:36px;border-radius:var(--radius);background:linear-gradient(135deg,#0E7490,#155E75);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+    .disaster-sub{font-size:.82rem;color:#64748b;font-style:italic;margin-bottom:.75rem;line-height:1.6}
+    .safety-list{list-style:none;padding:0;margin:.5rem 0}
+    .safety-list li{display:flex;align-items:flex-start;gap:.6rem;padding:.5rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .safety-list li:last-child{border-bottom:none}
+    .safety-list li::before{content:'✓';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0E7490;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#0E7490;background:#ECFEFF}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #0E7490;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#0E7490}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#ECFEFF,#CFFAFE);border:1.5px solid #A5F3FC;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#155E75;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(14,116,144,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#0E7490;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#0E7490;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 6</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 6 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('management')"><div class="sidebar-dot"></div> Disaster Risk Management</button>
+      <button class="sidebar-link" onclick="scrollToId('earthquakes')"><div class="sidebar-dot"></div> Earthquakes</button>
+      <button class="sidebar-link" onclick="scrollToId('tsunamis')"><div class="sidebar-dot"></div> Tsunamis</button>
+      <button class="sidebar-link" onclick="scrollToId('cyclones')"><div class="sidebar-dot"></div> Cyclones</button>
+      <button class="sidebar-link" onclick="scrollToId('floods')"><div class="sidebar-dot"></div> Floods</button>
+      <button class="sidebar-link" onclick="scrollToId('mitigation')"><div class="sidebar-dot"></div> Mitigation Measures</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 6 Lessons</div>
+      <a href="lesson-6-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Causes &amp; GHGs</a>
+      <a href="lesson-6-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Effects &amp; Disasters</a>
+      <a href="lesson-6-3.html" class="sidebar-link active"><div class="sidebar-dot"></div> L3: Safety Rules</a>
+      <a href="lesson-6-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Conventions</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 6</a> ›
+      Lesson 6.3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 6 · Climate Change · MoE Textbook §6.3</div>
+      <h1>🛟 Safety Rules / Precautions During Natural Disasters</h1>
+      <p>Natural disasters can strike without warning — but knowing what to do can save lives. This lesson covers the safety rules and precautions for earthquakes, tsunamis, cyclones, and floods, and explores how disaster risk management and mitigation measures can reduce the damage.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Natural disasters are <strong>catastrophic events that often occur without warning</strong> and disrupt the ecosystem, causing damage to personal lives, property, transportation, and livelihood. While it is <strong>never possible to prevent a disaster</strong>, the damage can be minimized through <strong>timely preparation</strong>. Every natural disaster has its own set of precautions to be taken — which must be followed to save precious lives.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>disaster risk management</strong></li>
+          <li>List safety rules for <strong>earthquakes</strong> (indoor and outdoor)</li>
+          <li>Describe precautions during <strong>tsunamis</strong></li>
+          <li>Describe precautions during <strong>cyclones</strong> and <strong>floods</strong></li>
+          <li>Explain the three main <strong>climate change mitigation approaches</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="management">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">Disaster Risk Management</div><div class="section-subtitle">MoE Textbook §6.3, p. 317</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Disaster Risk Management</div>
+          <p>
+            <strong>Disaster risk management</strong> is a comprehensive approach involving the <strong>identification of threats</strong> through implementation of the proposed <strong>mitigation measures</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Facts</h3>
+        <ul class="key-points">
+          <li>Natural disasters are catastrophic events that often occur <strong>without warning</strong></li>
+          <li>They disrupt the ecosystem, causing damage to personal lives, property, transportation, and livelihood</li>
+          <li>It is <strong>never possible to prevent a disaster</strong> — but damage can be minimized through timely preparation</li>
+          <li>Every natural disaster has its <strong>own set of precautions</strong> to be taken</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Elements of Comprehensive Risk Management</div>
+          <p>
+            Risk management involves a cycle of activities: <strong>prevention → mitigation → preparedness → response → recovery</strong>. Each stage reduces the impact of future disasters.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="earthquakes">
+      <div class="section-header"><div class="section-icon">🏚️</div>
+        <div><div class="section-title-text">Earthquakes</div><div class="section-subtitle">Safety rules during seismic activity</div></div>
+      </div>
+
+      <div class="disaster-card">
+        <div class="disaster-title"><div class="icon-box">🌍</div> What Causes Earthquakes?</div>
+        <div class="disaster-sub">The shifting of tectonic plates under the earth's crust causes earthquakes, which are responsible for mass destruction.</div>
+
+        <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1rem 0 .5rem">🏠 If You Are Indoors</h3>
+        <ul class="safety-list">
+          <li><strong>Take cover under a sturdy table</strong> or other piece of furniture, and hold on until the shaking stops</li>
+          <li><strong>Stay away from glass, windows, outside doors and walls</strong>, and anything that could fall, such as lighting fixtures or furniture</li>
+          <li><strong>Stay inside until the shaking stops</strong> and it is safe to go outside — most injuries occur to people trying to move to a different location inside or trying to leave</li>
+          <li><strong>Do not use elevators</strong></li>
+        </ul>
+
+        <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1.25rem 0 .5rem">🌳 If You Are Outdoors</h3>
+        <ul class="safety-list">
+          <li><strong>Stay away from buildings, streetlights, and utility wires</strong></li>
+          <li><strong>Stand in open ground</strong> until the shaking stops — it's dangerous to stay directly outside buildings, at exits, and alongside exterior walls</li>
+        </ul>
+
+        <div class="note-box" style="margin-top:1rem">
+          <div class="note-label">📝 Important Facts</div>
+          <p>
+            Ground movement during an earthquake is <strong>seldom the direct cause of death or injury</strong>. Most earthquake-related casualties result from <strong>collapsing walls, flying glass, and falling objects</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="tsunamis">
+      <div class="section-header"><div class="section-icon">🌊</div>
+        <div><div class="section-title-text">Tsunamis</div><div class="section-subtitle">Enormous ocean waves</div></div>
+      </div>
+
+      <div class="disaster-card">
+        <div class="disaster-title"><div class="icon-box">🌊</div> What Are Tsunamis?</div>
+        <div class="disaster-sub">Tsunamis are a series of enormous ocean waves caused by earthquakes, underwater landslides, or volcanic eruptions. Tsunami waves range from tens to hundreds of feet tall and can travel twenty to thirty miles per hour.</div>
+
+        <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1rem 0 .5rem">✅ Safety Rules During a Tsunami</h3>
+        <ul class="safety-list">
+          <li><strong>Turn on your radio/TV</strong> to learn and follow precautionary instructions during a tsunami warning — especially if you live near a coastal area</li>
+          <li><strong>Move inland to higher ground immediately</strong> and stay there</li>
+          <li><strong>Check for a noticeable recession in water</strong> away from the shoreline — this is nature's tsunami warning and should be heeded</li>
+          <li><strong>Stay away from flooded and damaged areas</strong> until officials say it is safe to return</li>
+          <li><strong>Keep away from debris in the water</strong> — it may pose a safety hazard to boats and people</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="cyclones">
+      <div class="section-header"><div class="section-icon">🌀</div>
+        <div><div class="section-title-text">Cyclones</div><div class="section-subtitle">Tropical storms</div></div>
+      </div>
+
+      <div class="disaster-card">
+        <div class="disaster-title"><div class="icon-box">🌀</div> What Are Cyclones?</div>
+        <div class="disaster-sub">Cyclones are tropical storms caused by atmospheric disturbances around a low-pressure area. They are accompanied by strong winds, moving at a speed of sixty-two kmph or more.</div>
+
+        <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1rem 0 .5rem">✅ Safety Rules During a Cyclone</h3>
+        <ul class="safety-list">
+          <li><strong>Be alert to the changing weather conditions</strong></li>
+          <li><strong>Listen to radio/TV</strong> for the latest information</li>
+          <li><strong>Look for approaching storms</strong></li>
+          <li>Watch for <strong>warning signs</strong>: a dark, often greenish sky; large hailstones; a large, dark, low-lying cloud (particularly if rotating); and roars similar to a freight train</li>
+          <li>If you see approaching storms or any of the danger signs, <strong>be prepared to take shelter immediately</strong></li>
+          <li>If you are under a tornado warning, <strong>seek shelter immediately</strong></li>
+          <li>In places with designated <strong>cyclone shelters</strong>, take refuge there</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="floods">
+      <div class="section-header"><div class="section-icon">💧</div>
+        <div><div class="section-title-text">Floods</div><div class="section-subtitle">Among Earth's most common natural hazards</div></div>
+      </div>
+
+      <div class="disaster-card">
+        <div class="disaster-title"><div class="icon-box">💧</div> What Are Floods?</div>
+        <div class="disaster-sub">Floods are among the Earth's most common and dangerous natural hazards, formed due to a flow of water on areas of land that are usually dry. Excessive rains can damage nearby dams.</div>
+
+        <h3 style="font-size:.95rem;font-weight:700;color:var(--heading);margin:1rem 0 .5rem">✅ Safety Rules During a Flood</h3>
+        <ul class="safety-list">
+          <li><strong>Do NOT attempt to walk, swim, or drive through floods</strong> — floodwater contains debris and contamination and can be deadly due to fallen electrical lines</li>
+          <li><strong>Stay clear of bridges</strong> over fast-moving water</li>
+          <li><strong>Keep an eye out for evacuation alerts</strong></li>
+          <li><strong>Move to higher ground</strong></li>
+          <li>If your vehicle is trapped in flood water and water starts filling inside the car, <strong>seek refuge on the roof</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="mitigation">
+      <div class="section-header"><div class="section-icon">🌱</div>
+        <div><div class="section-title-text">Mitigation Measures</div><div class="section-subtitle">Three main climate change mitigation approaches</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Beyond personal safety during disasters, there are three main <strong>climate change mitigation approaches</strong> that address the root cause of the problem.
+        </p>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">⚡</div>
+            <div class="concept-title">1. Decarbonization</div>
+            <p class="concept-desc">Reduce CO₂ emissions through renewable energy, fuel switching, efficiency gains, nuclear power, and carbon capture storage and utilization.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🌳</div>
+            <div class="concept-title">2. Carbon Sequestration</div>
+            <p class="concept-desc">Capture CO₂ from the atmosphere through ocean fertilization, ocean alkalinity enhancement, soil carbon sequestration, afforestation and reforestation, and wetland construction.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">☀️</div>
+            <div class="concept-title">3. Radiation Balance</div>
+            <p class="concept-desc">Alter the Earth's radiation balance through the management of solar and terrestrial radiation.</p>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What should you do if you are indoors during an earthquake?<br>
+            B. What is nature's warning sign of an approaching tsunami?<br>
+            C. List three danger signs of an approaching cyclone.<br>
+            D. Why should you not drive through floodwater?<br>
+            E. Describe the three main climate change mitigation approaches.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">During an <strong>earthquake</strong>, what should you do if you are <strong>indoors</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Run outside immediately</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Use the elevator to reach the ground floor quickly</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Take cover under a sturdy table and hold on until the shaking stops</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Stand near a window to see what's happening</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is <strong>nature's tsunami warning</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> A sudden rise in water level</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> A noticeable recession in water away from the shoreline</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Greenish clouds in the sky</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> A sudden drop in air temperature</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Which of the following is <strong>NOT</strong> a warning sign of an approaching cyclone?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> A dark, often greenish sky</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Large hailstones</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> A clear, blue sky</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Roars similar to a freight train</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Why should you <strong>NOT</strong> walk, swim, or drive through floodwater?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> It is usually too cold</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> It contains debris and contamination and may hide fallen electrical lines</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> It is illegal to drive through floodwater</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Floodwater always contains dangerous fish</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which of these is part of the <strong>carbon sequestration</strong> approach to climate mitigation?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Switching to renewable energy</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Afforestation and reforestation</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Using nuclear power</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Managing solar radiation</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=earthquake+safety+what+to+do+indoors+outdoors" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Earthquake Safety — What To Do</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=tsunami+safety+rules+precautions" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Tsunami Safety Rules &amp; Precautions</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=cyclone+tornado+safety+precautions" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Cyclone &amp; Tornado Safety Precautions</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=flood+safety+what+to+do+during+flood" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Flood Safety — What To Do</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 6.3</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Disaster risk management</strong> = comprehensive approach to identifying threats and implementing mitigation measures</li>
+          <li><strong>Earthquakes:</strong> Indoors — take cover under sturdy table, stay away from glass, don't use elevators. Outdoors — stay away from buildings and wires, stand in open ground</li>
+          <li><strong>Tsunamis:</strong> Move inland to higher ground, watch for water recession (nature's warning), follow official warnings</li>
+          <li><strong>Cyclones:</strong> Watch for warning signs (dark greenish sky, hailstones, low rotating cloud, train-like roar), take shelter immediately</li>
+          <li><strong>Floods:</strong> Never walk, swim, or drive through floodwater — it contains debris, contamination, and hidden electrical lines</li>
+          <li><strong>Mitigation approaches:</strong> (1) Decarbonization, (2) Carbon sequestration, (3) Managing Earth's radiation balance</li>
+          <li><strong>Key principle:</strong> Disasters cannot be prevented, but damage can be minimized through timely preparation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-6-2.html" class="btn btn-outline">← Lesson 6.2</a>
+      <a href="lesson-6-4.html" class="btn btn-primary">Next: Lesson 6.4 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 6 · Lesson 6.3 · Safety Rules During Natural Disasters</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'C', 2:'B', 3:'C', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Take cover under a sturdy table and hold on until the shaking stops.',wrong:'✗ Take cover under a sturdy table and hold on.'},
+    2:{correct:'✓ Correct! A noticeable recession in water away from the shoreline is nature\'s tsunami warning.',wrong:'✗ Water receding from the shoreline signals a tsunami.'},
+    3:{correct:'✓ Correct! A clear blue sky is NOT a cyclone warning sign — cyclones come with dark, greenish skies.',wrong:'✗ A clear blue sky is not a cyclone warning sign.'},
+    4:{correct:'✓ Correct! Floodwater contains debris, contamination, and possibly fallen electrical lines.',wrong:'✗ Floodwater contains debris and dangerous electrical lines.'},
+    5:{correct:'✓ Correct! Afforestation and reforestation are part of carbon sequestration.',wrong:'✗ Afforestation/reforestation is carbon sequestration.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 6.3.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
