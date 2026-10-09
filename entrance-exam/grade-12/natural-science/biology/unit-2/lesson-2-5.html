@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.5: Protozoa | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .protozoa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .protozoa-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .protozoa-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .protozoa-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .protozoa-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .protozoa-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 2</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 5</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What are Protozoa?</button>
+      <button class="sidebar-link" onclick="scrollToId('groups')"><div class="sidebar-dot"></div> Four Main Groups</button>
+      <button class="sidebar-link" onclick="scrollToId('diseases')"><div class="sidebar-dot"></div> Protozoal Diseases</button>
+      <button class="sidebar-link" onclick="scrollToId('malaria')"><div class="sidebar-dot"></div> Malaria in Detail</button>
+      <button class="sidebar-link" onclick="scrollToId('ethiopia')"><div class="sidebar-dot"></div> Protozoa in Ethiopia</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: What are Microorganisms?</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Eubacteria</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Archaea</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Fungi</a>
+      <a href="lesson-2-5.html" class="sidebar-link active"><div class="sidebar-dot"></div> L5: Protozoa</a>
+      <a href="lesson-2-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Viruses</a>
+      <a href="lesson-2-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Economic Importance</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 2</a> ›
+      Lesson 2.5
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Microorganisms · MoE Textbook §2.2.4</div>
+      <h1>🦠 Protozoa — The Animal-Like Microbes</h1>
+      <p>Protozoa are single-celled organisms that behave like tiny animals — they move, hunt, and consume organic matter. Most are harmless and essential to ecosystems, but a few cause some of the world's most devastating diseases. This lesson explores their diversity, biology, and health impact.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Protozoa are the "animal-like" protists — single-celled organisms that move and hunt like tiny animals. They live in water, soil, and inside other organisms. Most are harmless and help make the environment more productive. But a small number — like the malaria parasite — cause some of the deadliest diseases in human history.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> protozoa and describe their characteristics</li>
+          <li>Identify the <strong>four main groups</strong> of protozoa</li>
+          <li>Describe major <strong>protozoal diseases</strong> — malaria, trypanosomiasis, leishmaniasis, amoebiasis, giardiasis</li>
+          <li>Explain the <strong>life cycle of <em>Plasmodium</em></strong> (malaria parasite)</li>
+          <li>Discuss the impact of protozoa on <strong>health in Ethiopia</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What are Protozoa?</div><div class="section-subtitle">MoE Textbook §2.2.4, p. 49</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Protozoa (MoE Textbook, p. 49)</div>
+          <p>
+            <strong>Protozoa</strong> (singular: protozoan) are <strong>unicellular eukaryotic microscopic animals</strong>. They may be <strong>free-living or parasitic</strong>, and/or get their energy from organic carbon. All protozoa contain a <strong>true, membrane-bound nucleus</strong> and membrane-bounded organelles within their cytoplasm.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Characteristics</h3>
+        <ul class="key-points">
+          <li><strong>Unicellular</strong> — made of a single cell</li>
+          <li><strong>Eukaryotic</strong> — have a true membrane-bound nucleus</li>
+          <li><strong>Motile</strong> — move using flagella, cilia, or pseudopodia</li>
+          <li><strong>Free-living or parasitic</strong> — some live independently; others need a host</li>
+          <li><strong>Heterotrophic</strong> — absorb or ingest organic compounds from their environment</li>
+          <li>Some (like <em>Euglena</em>) are <strong>photosynthetic</strong> — they use light as an energy source</li>
+          <li><strong>Reproduce</strong> sexually or asexually</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Three Modes of Movement</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Mode</th><th>Description</th><th>Example</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Pseudopodia</strong></td><td>Extensions of cytoplasm — "false feet"</td><td><em>Amoeba</em></td></tr>
+            <tr><td><strong>Flagella</strong></td><td>Long, whip-like appendages</td><td><em>Euglena</em>, <em>Trypanosoma</em>, <em>Giardia</em></td></tr>
+            <tr><td><strong>Cilia</strong></td><td>Numerous short, hair-like appendages</td><td><em>Paramecium</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="groups">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Four Main Groups</div><div class="section-subtitle">Classification of protozoa</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Protozoa are traditionally classified into four main groups based on their mode of locomotion:
+        </p>
+
+        <div class="protozoa-grid">
+          <div class="protozoa-card">
+            <div class="protozoa-icon">🦠</div>
+            <div class="protozoa-title">Rhizopoda (Amoebae)</div>
+            <p class="protozoa-desc">Move by <strong>pseudopodia</strong> (false feet). Examples: <em>Amoeba</em>, <em>Entamoeba histolytica</em> (causes amoebiasis).</p>
+          </div>
+          <div class="protozoa-card">
+            <div class="protozoa-icon">🌿</div>
+            <div class="protozoa-title">Mastigophora (Flagellates)</div>
+            <p class="protozoa-desc">Move by <strong>flagella</strong>. Examples: <em>Euglena</em> (photosynthetic), <em>Trypanosoma</em> (sleeping sickness), <em>Giardia</em> (diarrhoeal disease).</p>
+          </div>
+          <div class="protozoa-card">
+            <div class="protozoa-icon">👁️</div>
+            <div class="protozoa-title">Ciliata (Ciliates)</div>
+            <p class="protozoa-desc">Move by <strong>cilia</strong>. Example: <em>Paramecium</em> — a classic example of a ciliated protozoan.</p>
+          </div>
+          <div class="protozoa-card">
+            <div class="protozoa-icon">🩸</div>
+            <div class="protozoa-title">Sporozoa (Apicomplexa)</div>
+            <p class="protozoa-desc">No movement organelles in adult stage; all are <strong>parasitic</strong>. Example: <em>Plasmodium</em> — causes malaria.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The classic examples</div>
+          <p>
+            The three most studied protozoa in school biology are:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Amoeba</strong> — moves by pseudopodia; helps us understand cell structure<br>
+            • <strong>Euglena</strong> — has both plant (chloroplast) and animal (flagellum) features<br>
+            • <strong>Paramecium</strong> — moves by cilia; a classic model for studying single-celled life
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="diseases">
+      <div class="section-header"><div class="section-icon">⚠️</div>
+        <div><div class="section-title-text">Protozoal Diseases</div><div class="section-subtitle">Major human and animal infections</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Most protozoa are harmless, but several cause serious diseases in humans and domestic animals. Here are the most important ones:
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Disease</th><th>Causative agent</th><th>Vector/Route</th><th>Symptoms</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Malaria</strong></td>
+              <td><em>Plasmodium falciparum</em>, <em>P. vivax</em>, <em>P. ovale</em>, <em>P. malariae</em></td>
+              <td>Bite of female <em>Anopheles</em> mosquito</td>
+              <td>Fever, shivering, cough, headache, vomiting, severe anemia</td>
+            </tr>
+            <tr>
+              <td><strong>African trypanosomiasis</strong> (sleeping sickness)</td>
+              <td><em>Trypanosoma brucei</em></td>
+              <td>Tsetse fly bite</td>
+              <td>Fever, joint pains, neurological disorder, somnolence (sleeping)</td>
+            </tr>
+            <tr>
+              <td><strong>Chagas disease</strong></td>
+              <td><em>Trypanosoma cruzi</em></td>
+              <td>Triatomine bug bite</td>
+              <td>Acute: fever, splenomegaly; Chronic: heart and digestive damage</td>
+            </tr>
+            <tr>
+              <td><strong>Leishmaniasis</strong></td>
+              <td><em>Leishmania donovani</em>, <em>L. major</em>, etc.</td>
+              <td>Sand fly bite</td>
+              <td>Skin ulcers, mucocutaneous complications, visceral disease</td>
+            </tr>
+            <tr>
+              <td><strong>Amoebiasis</strong> (amoebic dysentery)</td>
+              <td><em>Entamoeba histolytica</em></td>
+              <td>Contaminated water or food</td>
+              <td>Diarrhoea, dysentery, abdominal pain</td>
+            </tr>
+            <tr>
+              <td><strong>Giardiasis</strong></td>
+              <td><em>Giardia lamblia</em></td>
+              <td>Contaminated water</td>
+              <td>Diarrhoea, cramps, bloating</td>
+            </tr>
+            <tr>
+              <td><strong>Trichomoniasis</strong></td>
+              <td><em>Trichomonas vaginalis</em></td>
+              <td>Sexual contact</td>
+              <td>Vaginal discharge, odor, edema</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Diseases in Livestock</h3>
+        <ul class="key-points">
+          <li><strong>Nagana (Gandii in Afaan Oromo, Gendi in Amharic)</strong> — cattle trypanosomiasis; caused by <em>Trypanosoma</em> species; transmitted by tsetse flies; major constraint on livestock production in Ethiopia</li>
+          <li><strong>Coccidiosis</strong> — intestinal disease of poultry and other animals caused by <em>Eimeria</em> species</li>
+          <li><strong>Babesiosis</strong> — cattle disease caused by <em>Babesia</em> species; transmitted by ticks</li>
+          <li><strong>Theileriosis</strong> — East Coast fever in cattle; caused by <em>Theileria</em> species</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="malaria">
+      <div class="section-header"><div class="section-icon">🦟</div>
+        <div><div class="section-title-text">Malaria in Detail</div><div class="section-subtitle">The deadliest protozoal disease</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          <strong>Malaria</strong> is a serious and sometimes fatal disease caused by a parasite that commonly infects a certain type of mosquito which feeds on humans. It is caused by <strong>four species of <em>Plasmodium</em></strong>:
+        </p>
+        <ul class="key-points">
+          <li><em>Plasmodium falciparum</em> — the most dangerous, can be fatal</li>
+          <li><em>Plasmodium vivax</em> — most widespread</li>
+          <li><em>Plasmodium ovale</em> — less common</li>
+          <li><em>Plasmodium malariae</em> — least common</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Malaria Life Cycle</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The malaria parasite life cycle involves <strong>two hosts</strong> — a mosquito and a human:
+        </p>
+        <div style="background:#F0FDF4;border-left:4px solid #16A34A;border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0">
+          <p style="font-size:.85rem;line-height:1.8;color:var(--heading);margin:0">
+            <strong>1.</strong> An infected female <em>Anopheles</em> mosquito bites a human and injects <strong>sporozoites</strong> into the bloodstream.<br>
+            <strong>2.</strong> Sporozoites travel to the liver and infect liver cells, where they mature into <strong>schizonts</strong>.<br>
+            <strong>3.</strong> Schizonts rupture and release <strong>merozoites</strong> into the bloodstream.<br>
+            <strong>4.</strong> Merozoites infect red blood cells, multiply, and cause the red blood cells to burst — this causes the fever and chills of malaria.<br>
+            <strong>5.</strong> Some parasites develop into <strong>gametocytes</strong> — sexual forms that can be picked up by another mosquito when it bites the infected human.<br>
+            <strong>6.</strong> Inside the mosquito, gametocytes fuse to form a zygote, which develops into new sporozoites — ready to infect another human.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Symptoms of Malaria</h3>
+        <ul class="key-points">
+          <li><strong>High fever</strong> with shaking chills</li>
+          <li><strong>Flu-like illness</strong> — headache, muscle pain, fatigue</li>
+          <li><strong>Nausea and vomiting</strong></li>
+          <li><strong>Severe anemia</strong> — from destruction of red blood cells</li>
+          <li><strong>Respiratory distress</strong> in severe cases</li>
+          <li><strong>Convulsions</strong> and organ failure in cerebral malaria</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Prevention &amp; Control</h3>
+        <ul class="key-points">
+          <li><strong>Insecticide-treated bed nets</strong> — prevent mosquito bites at night</li>
+          <li><strong>Indoor residual spraying</strong> — kills mosquitoes resting indoors</li>
+          <li><strong>Draining standing water</strong> — eliminates mosquito breeding sites</li>
+          <li><strong>Antimalarial drugs</strong> — for prevention (prophylaxis) and treatment</li>
+          <li><strong>Rapid diagnostic tests</strong> — detect the parasite early</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Malaria in Ethiopia</div>
+          <p>
+            Malaria is a major public health problem in Ethiopia. It is endemic in many parts of the country, especially below 2,000 meters altitude. The most common species in Ethiopia are <strong><em>P. falciparum</em></strong> (causing the most severe cases) and <strong><em>P. vivax</em></strong>. Control efforts include distribution of bed nets, indoor spraying, and community education.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ethiopia">
+      <div class="section-header"><div class="section-icon">🇪🇹</div>
+        <div><div class="section-title-text">Protozoa in Ethiopia</div><div class="section-subtitle">Local impact</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Protozoal diseases have a significant impact on health and agriculture in Ethiopia:
+        </p>
+
+        <ul class="key-points">
+          <li><strong>Malaria</strong> — affects millions each year; leading cause of illness and death, especially in children under 5</li>
+          <li><strong>Leishmaniasis</strong> — known locally as <em>Kunchir</em> (Amharic) or <em>Sinbira halkanii</em> (Afaan Oromo) for the cutaneous form; endemic in many regions</li>
+          <li><strong>Nagana (Gandii/Gendi)</strong> — cattle trypanosomiasis; major constraint on livestock production in tsetse-infested areas</li>
+          <li><strong>Amoebiasis and giardiasis</strong> — common waterborne infections, especially where clean water is scarce</li>
+        </ul>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 2.6 — Protozoa discussion</div>
+          <div class="activity-body">
+            Be in a group of 5 students. Select one group leader and read your textbook, then discuss:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>The characteristics and economic importance of some common protozoa</li>
+              <li>How protozoal diseases affect Ethiopian communities</li>
+              <li>What can be done to reduce protozoal disease burden in Ethiopia</li>
+            </ul>
+            Present your findings to the class.
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What are protozoa? Describe their general characteristics.<br>
+            B. Name the four main groups of protozoa and describe their mode of movement.<br>
+            C. What is Babesia and Theileria?<br>
+            D. State the common species of <em>Plasmodium</em> in Ethiopia.<br>
+            E. Explain the causative agent and vector of Nagana (Gandii/Gendi).<br>
+            F. Describe the life cycle of <em>Plasmodium</em> species.<br>
+            G. Describe the routes of transmission of <em>Giardia</em> and <em>Amoeba</em>.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What type of organism is a <strong>protozoan</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> A prokaryotic organism</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> A unicellular eukaryotic microscopic animal</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> A multicellular animal</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> A type of virus</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Which protozoan moves using <strong>pseudopodia</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> <em>Paramecium</em></div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> <em>Euglena</em></div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> <em>Amoeba</em></div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> <em>Plasmodium</em></div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Which protozoan causes <strong>malaria</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> <em>Trypanosoma</em></div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> <em>Giardia</em></div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> <em>Plasmodium</em></div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> <em>Entamoeba</em></div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">How is <strong>malaria transmitted</strong> to humans?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Through contaminated water</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> By the bite of an infected female <em>Anopheles</em> mosquito</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> By direct contact with an infected person</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> By eating contaminated food</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">What is <strong>Nagana</strong> (Gandii/Gendi)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> A human disease caused by <em>Plasmodium</em></div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Cattle trypanosomiasis caused by <em>Trypanosoma</em> and transmitted by tsetse flies</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> A type of fungal infection</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> A bacterial disease of poultry</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=protozoa+amoeba+paramecium+euglena" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Protozoa — Amoeba, Paramecium, Euglena</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=malaria+life+cycle+plasmodium" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Malaria Life Cycle — Plasmodium</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=trypanosomiasis+sleeping+sickness+tsetse+fly" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Trypanosomiasis — Sleeping Sickness &amp; Tsetse Fly</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=leishmaniasis+leishmania+sand+fly" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Leishmaniasis — Leishmania &amp; Sand Fly</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 2.5</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Protozoa</strong> are unicellular eukaryotic microscopic animals — free-living or parasitic</li>
+          <li>They move by <strong>pseudopodia</strong> (Amoeba), <strong>flagella</strong> (Euglena, Trypanosoma), or <strong>cilia</strong> (Paramecium)</li>
+          <li>The four main groups: <strong>Rhizopoda, Mastigophora, Ciliata, Sporozoa</strong></li>
+          <li>Major protozoal diseases: <strong>malaria, African trypanosomiasis (sleeping sickness), Chagas disease, leishmaniasis, amoebiasis, giardiasis</strong></li>
+          <li><strong>Malaria</strong> is caused by <em>Plasmodium</em> and transmitted by female <em>Anopheles</em> mosquitoes; its life cycle involves two hosts</li>
+          <li>In Ethiopia, protozoal diseases include <strong>malaria, leishmaniasis (Kunchir/Sinbira halkanii), Nagana (Gandii/Gendi) in cattle</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-4.html" class="btn btn-outline">← Lesson 2.4</a>
+      <a href="lesson-2-6.html" class="btn btn-primary">Next: Lesson 2.6 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 2 · Lesson 2.5 · Protozoa</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'C', 3:'C', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Protozoa are unicellular eukaryotic microscopic animals — they have a true nucleus.',wrong:'✗ Protozoa are unicellular eukaryotic microscopic animals.'},
+    2:{correct:'✓ Correct! Amoeba moves by pseudopodia — extensions of cytoplasm ("false feet").',wrong:'✗ Amoeba moves by pseudopodia.'},
+    3:{correct:'✓ Correct! Malaria is caused by Plasmodium species — P. falciparum, P. vivax, P. ovale, P. malariae.',wrong:'✗ Plasmodium causes malaria.'},
+    4:{correct:'✓ Correct! Malaria is transmitted by the bite of an infected female Anopheles mosquito.',wrong:'✗ Female Anopheles mosquitoes transmit malaria.'},
+    5:{correct:'✓ Correct! Nagana (Gandii/Gendi) is cattle trypanosomiasis caused by Trypanosoma and transmitted by tsetse flies.',wrong:'✗ Nagana is cattle trypanosomiasis caused by Trypanosoma.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 2.5.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
