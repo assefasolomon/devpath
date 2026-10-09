@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.7: Waste Treatment | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .waste-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .waste-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .waste-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .waste-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .waste-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .waste-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 1</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 7</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('types')"><div class="sidebar-dot"></div> Types of Waste</button>
+      <button class="sidebar-link" onclick="scrollToId('wastewater')"><div class="sidebar-dot"></div> Wastewater Treatment</button>
+      <button class="sidebar-link" onclick="scrollToId('activated')"><div class="sidebar-dot"></div> Activated Sludge</button>
+      <button class="sidebar-link" onclick="scrollToId('biogas')"><div class="sidebar-dot"></div> Biogas</button>
+      <button class="sidebar-link" onclick="scrollToId('biomining')"><div class="sidebar-dot"></div> Bio-mining</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Appreciation of Nature</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Conservation</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Food Security</a>
+      <a href="lesson-1-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Conscious Citizens</a>
+      <a href="lesson-1-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Career Development</a>
+      <a href="lesson-1-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Medicine</a>
+      <a href="lesson-1-7.html" class="sidebar-link active"><div class="sidebar-dot"></div> L7: Waste Treatment</a>
+      <a href="lesson-1-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Biotechnology (1)</a>
+      <a href="lesson-1-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Biotechnology (2)</a>
+      <a href="lesson-1-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Promises to Society</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 1</a> ›
+      Lesson 1.7
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Applications of Biology · MoE Textbook §1.7</div>
+      <h1>♻️ Waste Treatment</h1>
+      <p>Every day, humans produce enormous amounts of waste — from household sewage to industrial byproducts. Biology provides powerful tools for treating this waste, turning pollution into resources through natural biological processes.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~15 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Waste treatment is the process of removing contaminants from waste materials before they are released back into the environment. Without treatment, sewage and industrial waste pollute rivers, kill aquatic life, and spread disease. Biology gives us the tools to clean up waste <strong>naturally and sustainably</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Identify <strong>types of waste</strong> and their environmental impacts</li>
+          <li>Describe the stages of <strong>wastewater treatment</strong></li>
+          <li>Explain the role of <strong>activated sludge</strong> and microorganisms</li>
+          <li>Understand <strong>biogas production</strong> from organic waste</li>
+          <li>Describe <strong>bio-mining</strong> and its applications</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="types">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">Types of Waste</div><div class="section-subtitle">Understanding what we produce</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Waste</div>
+          <p>
+            <strong>Waste</strong> is any material that is discarded because it is no longer useful. It can be solid, liquid, or gaseous, and comes from households, industries, agriculture, and hospitals.
+          </p>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Examples</th><th>Environmental impact</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Domestic waste</strong></td><td>Food scraps, paper, plastics, glass, metals</td><td>Landfill overflow, plastic pollution</td></tr>
+            <tr><td><strong>Sewage</strong></td><td>Human waste, soap, food residue from homes</td><td>Water pollution, disease spread</td></tr>
+            <tr><td><strong>Industrial waste</strong></td><td>Chemicals, heavy metals, solvents</td><td>Toxic water and soil contamination</td></tr>
+            <tr><td><strong>Agricultural waste</strong></td><td>Manure, crop residue, pesticides</td><td>Eutrophication of waterways</td></tr>
+            <tr><td><strong>Medical waste</strong></td><td>Used needles, bandages, biological samples</td><td>Infectious disease risk</td></tr>
+            <tr><td><strong>Radioactive waste</strong></td><td>Spent nuclear fuel, medical isotopes</td><td>Long-term radiation hazards</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="wastewater">
+      <div class="section-header"><div class="section-icon">💧</div>
+        <div><div class="section-title-text">Wastewater Treatment</div><div class="section-subtitle">Stages of biological cleaning</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          <strong>Wastewater treatment</strong> is a multi-stage process that removes contaminants from sewage and industrial water before it's released back into the environment.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Stage</th><th>What happens</th><th>Biology involved</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>1. Preliminary</strong></td><td>Screening removes large objects (rags, sticks, plastics)</td><td>None — physical process</td></tr>
+            <tr><td><strong>2. Primary</strong></td><td>Sedimentation tanks let solids settle as sludge</td><td>None — physical process</td></tr>
+            <tr><td><strong>3. Secondary</strong></td><td>Biological treatment — microorganisms break down dissolved organic matter</td><td><strong>Aerobic bacteria</strong> consume organic matter</td></tr>
+            <tr><td><strong>4. Tertiary</strong></td><td>Nutrient removal — nitrogen and phosphorus removed</td><td><strong>Denitrifying bacteria</strong> convert nitrates to N₂ gas</td></tr>
+            <tr><td><strong>5. Disinfection</strong></td><td>Chlorination or UV kills remaining pathogens</td><td>Kills harmful microorganisms</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 The key role of biology</div>
+          <p>
+            The <strong>secondary stage</strong> is where biology does the heavy lifting. Microorganisms — mostly bacteria — consume the dissolved organic matter in wastewater, converting it into carbon dioxide, water, and new cell mass. Without these microbes, wastewater treatment would be impossible at scale.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="activated">
+      <div class="section-header"><div class="section-icon">🧫</div>
+        <div><div class="section-title-text">Activated Sludge Process</div><div class="section-subtitle">Microbes at work</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Activated Sludge</div>
+          <p>
+            <strong>Activated sludge</strong> is a process for treating sewage in which <strong>air or oxygen is pumped into a mixture of sewage and bacteria</strong>. The bacteria consume organic matter, multiply, and form a "sludge" that can be separated from the clean water.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How It Works</h3>
+        <ul class="key-points">
+          <li><strong>Aeration tank:</strong> Wastewater is mixed with a bacterial culture and air is bubbled through</li>
+          <li><strong>Bacterial action:</strong> Aerobic bacteria consume organic matter, converting it to CO₂, water, and more bacteria</li>
+          <li><strong>Settling tank:</strong> The mixture is allowed to settle — bacteria and organic matter form sludge at the bottom</li>
+          <li><strong>Sludge return:</strong> Some sludge is returned to the aeration tank to keep the bacterial population active</li>
+          <li><strong>Sludge disposal:</strong> Excess sludge is digested (anaerobically) to produce biogas or dried and used as fertilizer</li>
+          <li><strong>Clean water:</strong> The treated water at the top is disinfected and released</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why This Matters</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text)">
+          The activated sludge process is used in virtually every modern wastewater treatment plant. It's efficient, relatively low-cost, and uses <strong>naturally occurring microbes</strong> instead of harsh chemicals. Ethiopia is expanding its wastewater treatment capacity, with plants like the Kaliti Wastewater Treatment Plant in Addis Ababa.
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block" id="biogas">
+      <div class="section-header"><div class="section-icon">🔥</div>
+        <div><div class="section-title-text">Biogas Production</div><div class="section-subtitle">Turning waste into energy</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Biogas</div>
+          <p>
+            <strong>Biogas</strong> is a renewable fuel produced by the <strong>anaerobic digestion</strong> of organic waste — manure, food scraps, sewage sludge, and crop residues. It is mainly composed of <strong>methane (CH₄)</strong> and <strong>carbon dioxide (CO₂)</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How Biogas is Made</h3>
+        <ul class="key-points">
+          <li><strong>Feedstock:</strong> Organic waste (manure, food scraps, crop residues) is collected</li>
+          <li><strong>Anaerobic digester:</strong> Waste is placed in an oxygen-free tank</li>
+          <li><strong>Microbial breakdown:</strong> Anaerobic bacteria (methanogens) break down organic matter</li>
+          <li><strong>Biogas production:</strong> Methane-rich gas is produced and collected</li>
+          <li><strong>Use:</strong> The gas is burned for cooking, heating, or electricity</li>
+          <li><strong>Byproduct:</strong> The digested material (bio-slurry) is an excellent fertilizer</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Biogas in Ethiopia</div>
+          <p>
+            Ethiopia has been promoting household biogas systems, especially in rural areas. A family with just a few cows can produce enough biogas for daily cooking — replacing firewood, reducing deforestation, and improving indoor air quality. The bio-slurry byproduct enriches farm soil.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Advantages of Biogas</h3>
+        <ul class="key-points">
+          <li><strong>Renewable</strong> — organic waste is constantly produced</li>
+          <li><strong>Clean</strong> — burns without smoke, unlike firewood</li>
+          <li><strong>Reduces waste</strong> — treats organic waste and prevents pollution</li>
+          <li><strong>Produces fertilizer</strong> — bio-slurry is nutrient-rich</li>
+          <li><strong>Reduces deforestation</strong> — replaces firewood for cooking</li>
+          <li><strong>Reduces greenhouse gases</strong> — captures methane that would otherwise escape</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="biomining">
+      <div class="section-header"><div class="section-icon">⛏️</div>
+        <div><div class="section-title-text">Bio-mining</div><div class="section-subtitle">Using microbes to extract metals</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Bio-mining (Bioleaching)</div>
+          <p>
+            <strong>Bio-mining</strong> (or <strong>bioleaching</strong>) is the extraction of metals from ores using <strong>microorganisms</strong>. Certain bacteria can dissolve metals from rocks, allowing them to be recovered from low-grade ores or mining waste.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How Bio-mining Works</h3>
+        <ul class="key-points">
+          <li>Certain bacteria (e.g. <em>Thiobacillus ferrooxidans</em>) are added to crushed ore</li>
+          <li>The bacteria oxidize sulfur and iron compounds in the ore</li>
+          <li>This produces acid and other chemicals that dissolve the metals</li>
+          <li>The metal-rich solution is collected and processed to extract the metal</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Applications</h3>
+        <ul class="key-points">
+          <li><strong>Copper extraction</strong> — bioleaching is used worldwide to recover copper from low-grade ores</li>
+          <li><strong>Gold extraction</strong> — bio-oxidation of refractory gold ores</li>
+          <li><strong>Uranium extraction</strong> — bioleaching can recover uranium from low-grade deposits</li>
+          <li><strong>Mine waste cleanup</strong> — using microbes to treat acid mine drainage</li>
+          <li><strong>Electronic waste recycling</strong> — recovering metals from old electronics</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Advantages of Bio-mining</h3>
+        <ul class="key-points">
+          <li><strong>Environmentally friendly</strong> — much less energy and pollution than traditional smelting</li>
+          <li><strong>Low cost</strong> — can extract metals from ores that would be uneconomical with traditional methods</li>
+          <li><strong>Sustainable</strong> — uses naturally occurring microbes</li>
+          <li><strong>Recovers metals from waste</strong> — e-waste and mine tailings can be reprocessed</li>
+        </ul>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What are the five stages of wastewater treatment, and which is the biological stage?<br>
+            B. What is activated sludge, and why is it important in sewage treatment?<br>
+            C. How is biogas produced, and what are its main uses?<br>
+            D. What is bio-mining? Give two applications.<br>
+            E. How can biology help Ethiopia manage its waste more sustainably?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">In wastewater treatment, which stage involves <strong>microorganisms</strong> breaking down dissolved organic matter?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Preliminary</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Primary</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Secondary</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Disinfection</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is <strong>activated sludge</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> A chemical added to wastewater</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> A mixture of sewage and bacteria, with air pumped through to break down organic matter</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> A type of filter</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> A kind of radioactive waste</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question"><strong>Biogas</strong> is mainly composed of which gas?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Oxygen</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Nitrogen</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Methane</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Hydrogen</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">What is <strong>bio-mining</strong> (bioleaching)?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Mining with explosives</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Using microorganisms to extract metals from ores</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Growing plants on mine sites</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Building mines underground</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Why is biogas considered a sustainable energy source?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> It is made from organic waste that is constantly produced</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> It comes from underground oil reserves</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> It requires mining</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> It pollutes water</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=wastewater+treatment+process+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Wastewater Treatment Process Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=activated+sludge+process+animation" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Activated Sludge Process Animation</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=biogas+production+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">How Biogas is Produced</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=biomining+bioleaching+bacteria+metals" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Bio-mining — Bacteria Extracting Metals</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 1.7</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Waste</strong> comes in many forms — domestic, sewage, industrial, agricultural, medical, and radioactive</li>
+          <li><strong>Wastewater treatment</strong> has five stages: preliminary, primary, secondary, tertiary, disinfection</li>
+          <li>The <strong>secondary stage</strong> uses aerobic bacteria to consume organic matter</li>
+          <li><strong>Activated sludge</strong> = sewage + bacteria + air — a key biological treatment method</li>
+          <li><strong>Biogas</strong> = methane-rich fuel from anaerobic digestion of organic waste — renewable, clean, and produces fertilizer</li>
+          <li><strong>Bio-mining (bioleaching)</strong> uses microorganisms to extract metals from ores — sustainable and low-cost</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-6.html" class="btn btn-outline">← Lesson 1.6</a>
+      <a href="lesson-1-8.html" class="btn btn-primary">Next: Lesson 1.8 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 1 · Lesson 1.7 · Waste Treatment</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'C', 2:'B', 3:'C', 4:'B', 5:'A'};
+  const feedback = {
+    1:{correct:'✓ Correct! The secondary stage uses microorganisms — mostly aerobic bacteria — to break down dissolved organic matter.',wrong:'✗ The secondary stage is biological.'},
+    2:{correct:'✓ Correct! Activated sludge = sewage mixed with bacteria, with air pumped through to break down organic matter.',wrong:'✗ Activated sludge = sewage + bacteria + air.'},
+    3:{correct:'✓ Correct! Biogas is mainly methane (CH₄), with some carbon dioxide (CO₂).',wrong:'✗ Biogas is mainly methane.'},
+    4:{correct:'✓ Correct! Bio-mining (bioleaching) uses microorganisms to extract metals from ores.',wrong:'✗ Bio-mining uses microbes to extract metals.'},
+    5:{correct:'✓ Correct! Biogas is renewable because it comes from organic waste that is continuously produced.',wrong:'✗ Biogas is renewable — from constantly produced organic waste.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 1.7.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>

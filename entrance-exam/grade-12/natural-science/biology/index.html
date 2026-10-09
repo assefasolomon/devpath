@@ -26,9 +26,10 @@
     .progress-summary{font-size:.8rem;font-weight:600;color:#166534;background:#F0FDF4;border:1px solid #BBF7D0;padding:4px 12px;border-radius:999px}
     .unit-list{display:flex;flex-direction:column;gap:.875rem}
     .unit-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:1.25rem 1.5rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1.25rem;transition:all .2s ease;position:relative;overflow:hidden}
-    .unit-card:hover{border-color:#16A34A;transform:translateX(4px);box-shadow:0 8px 24px rgba(22,163,74,.14)}
-    .unit-card.current{border-color:#86EFAC;background:linear-gradient(90deg,#fff 0%,#F0FDF4 100%)}
-    .unit-card.upcoming{border-color:#e2e8f0;background:#fff}
+    .unit-card.live:hover{border-color:#16A34A;transform:translateX(4px);box-shadow:0 8px 24px rgba(22,163,74,.14)}
+    .unit-card.building{border-color:#86EFAC;background:linear-gradient(90deg,#fff 0%,#F0FDF4 100%)}
+    .unit-card.building:hover{border-color:#16A34A;transform:translateX(4px);box-shadow:0 8px 24px rgba(22,163,74,.16)}
+    .unit-card.upcoming{border-color:#e2e8f0;background:#fff;opacity:.75;cursor:not-allowed}
     .unit-num-badge{width:56px;height:56px;background:linear-gradient(135deg,#14532D,#16A34A);color:#fff;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-weight:900}
     .unit-card.upcoming .unit-num-badge{background:linear-gradient(135deg,#94a3b8,#64748b)}
     .unit-num-badge .unit-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;opacity:.75;line-height:1}
@@ -37,7 +38,8 @@
     .unit-title{font-size:1.05rem;font-weight:800;color:#0f172a;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
     .unit-badge{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.03em}
     .unit-badge.live{color:#166534;background:#DCFCE7}
-    .unit-badge.pending{color:#64748b;background:#F1F5F9}
+    .unit-badge.building{color:#166534;background:#DCFCE7}
+    .unit-badge.soon{color:#64748b;background:#F1F5F9}
     .unit-meta{font-size:.82rem;color:#64748b;line-height:1.5}
     .unit-lessons-count{font-size:.72rem;color:#94a3b8;font-weight:600;margin-top:.3rem;text-transform:uppercase;letter-spacing:.05em}
     .unit-arrow{color:#16A34A;font-weight:900;font-size:1.3rem;flex-shrink:0}
@@ -78,12 +80,12 @@
   <div class="bio-hero-inner">
     <div class="tag">🧬 Biology · Grade 12 · MoE 2023 Curriculum</div>
     <h1>Biology Grade 12</h1>
-    <p>All six MoE curriculum units in one place — applications of biology, microorganisms, energy transformation, evolution, human body systems, and climate change. Complete with full lessons, quizzes, and a comprehensive EUEE-style review.</p>
+    <p>All six MoE curriculum units in one place — applications of biology, microorganisms, energy transformation, evolution, human body system, and climate change. Complete with full lessons, quizzes, and a comprehensive EUEE review.</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num">6</div><div class="label">Units</div></div>
-      <div class="hero-stat"><div class="num">In Progress</div><div class="label">Building</div></div>
-      <div class="hero-stat"><div class="num">6</div><div class="label">Subjects</div></div>
-      <div class="hero-stat"><div class="num">🚀</div><div class="label">Now Live</div></div>
+      <div class="hero-stat"><div class="num">23</div><div class="label">Lessons Live</div></div>
+      <div class="hero-stat"><div class="num">115+</div><div class="label">Quiz Questions</div></div>
+      <div class="hero-stat"><div class="num">🚀</div><div class="label">Building Unit 3</div></div>
     </div>
   </div>
 </div>
@@ -99,19 +101,45 @@
 
   <div class="section-title">
     <span>All Units</span>
-    <span class="progress-summary">🚧 Unit 1 In Progress</span>
+    <span class="progress-summary">✓ 2 Complete · 1 Building · 3 Coming Soon</span>
   </div>
 
   <div class="unit-list">
-    <a href="unit-1/index.html" class="unit-card current">
+    <a href="unit-1/index.html" class="unit-card live">
       <div class="unit-num-badge">
         <span class="unit-label">Unit</span>
         <span class="unit-num">1</span>
       </div>
       <div class="unit-info">
-        <div class="unit-title">Applications of Biology in Day to Day Life <span class="unit-badge live">🚀 Building</span></div>
-        <div class="unit-meta">Appreciation of nature · Conservation of natural resources · Food security · Conscious citizens & sustainable development · Career development · Medicine · Waste treatment · Biotechnology · Promises of biology to society</div>
+        <div class="unit-title">Applications of Biology in Day to Day Life <span class="unit-badge live">✓ Live</span></div>
+        <div class="unit-meta">Appreciation of nature · Conservation · Food security · Conscious citizens &amp; sustainable development · Career development · Medicine · Waste treatment · Biotechnology · Promises of biology to society</div>
         <div class="unit-lessons-count">10 Lessons</div>
+      </div>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a href="unit-2/index.html" class="unit-card live">
+      <div class="unit-num-badge">
+        <span class="unit-label">Unit</span>
+        <span class="unit-num">2</span>
+      </div>
+      <div class="unit-info">
+        <div class="unit-title">Microorganisms <span class="unit-badge live">✓ Live</span></div>
+        <div class="unit-meta">What are microorganisms · Eubacteria · Archaea · Fungi · Protozoa · Viruses · Economic importance · Role of bacteria in recycling minerals · Disease-causing microorganisms</div>
+        <div class="unit-lessons-count">7 Lessons</div>
+      </div>
+      <span class="unit-arrow">→</span>
+    </a>
+
+    <a href="unit-3/index.html" class="unit-card building">
+      <div class="unit-num-badge">
+        <span class="unit-label">Unit</span>
+        <span class="unit-num">3</span>
+      </div>
+      <div class="unit-info">
+        <div class="unit-title">Energy Transformation <span class="unit-badge building">🚀 Building</span></div>
+        <div class="unit-meta">Energy &amp; metabolism · Carbohydrates · Lipids · Cellular metabolism · Photosynthesis · Cellular respiration · Fermentation · Unit review</div>
+        <div class="unit-lessons-count">5 of 8 Lessons Live</div>
       </div>
       <span class="unit-arrow">→</span>
     </a>
@@ -119,38 +147,12 @@
     <div class="unit-card upcoming">
       <div class="unit-num-badge">
         <span class="unit-label">Unit</span>
-        <span class="unit-num">2</span>
-      </div>
-      <div class="unit-info">
-        <div class="unit-title">Microorganisms <span class="unit-badge pending">Pending</span></div>
-        <div class="unit-meta">What are microorganisms · Eubacteria · Archaea · Fungi · Protozoa · Viruses · Economic importance of microorganisms · Role of bacteria in recycling minerals · Common disease-causing microorganisms</div>
-        <div class="unit-lessons-count">7 Lessons</div>
-      </div>
-      <span class="unit-arrow">→</span>
-    </div>
-
-    <div class="unit-card upcoming">
-      <div class="unit-num-badge">
-        <span class="unit-label">Unit</span>
-        <span class="unit-num">3</span>
-      </div>
-      <div class="unit-info">
-        <div class="unit-title">Energy Transformation <span class="unit-badge pending">Pending</span></div>
-        <div class="unit-meta">Energy · Chemical structure of carbohydrates & lipids · Cellular metabolism · Photosynthesis · Light-dependent & independent reactions · Cellular respiration · Fermentation</div>
-        <div class="unit-lessons-count">8 Lessons</div>
-      </div>
-      <span class="unit-arrow">→</span>
-    </div>
-
-    <div class="unit-card upcoming">
-      <div class="unit-num-badge">
-        <span class="unit-label">Unit</span>
         <span class="unit-num">4</span>
       </div>
       <div class="unit-info">
-        <div class="unit-title">Evolution <span class="unit-badge pending">Pending</span></div>
+        <div class="unit-title">Evolution <span class="unit-badge soon">Coming Soon</span></div>
         <div class="unit-meta">Theories of origin of life · Lamarckism · Darwinism · Neo-Darwinism · Evidence for evolution · Natural selection · Speciation · Human evolution · Mutations · Genetic drift · Gene flow · Species extinction</div>
-        <div class="unit-lessons-count">10+ Lessons</div>
+        <div class="unit-lessons-count">10+ Lessons Planned</div>
       </div>
       <span class="unit-arrow">→</span>
     </div>
@@ -161,9 +163,9 @@
         <span class="unit-num">5</span>
       </div>
       <div class="unit-info">
-        <div class="unit-title">Human Body System <span class="unit-badge pending">Pending</span></div>
-        <div class="unit-meta">Nervous system · Brain & spinal cord · Peripheral nervous system · Neurons & nerve impulse · Drug abuse · Sense organs · Endocrine system · Exocrine glands · Homeostasis · Drug side effects</div>
-        <div class="unit-lessons-count">9 Lessons</div>
+        <div class="unit-title">Human Body System <span class="unit-badge soon">Coming Soon</span></div>
+        <div class="unit-meta">Nervous system · Brain &amp; spinal cord · Peripheral nervous system · Neurons &amp; nerve impulse · Drug abuse · Sense organs · Endocrine system · Exocrine glands · Homeostasis</div>
+        <div class="unit-lessons-count">9 Lessons Planned</div>
       </div>
       <span class="unit-arrow">→</span>
     </div>
@@ -174,9 +176,9 @@
         <span class="unit-num">6</span>
       </div>
       <div class="unit-info">
-        <div class="unit-title">Climate Change <span class="unit-badge pending">Pending</span></div>
-        <div class="unit-meta">Climate change causes & effects · Greenhouse gases · Climate change & natural disasters · Safety rules for disasters · International conventions · UNFCCC · Kyoto Protocol</div>
-        <div class="unit-lessons-count">4 Lessons</div>
+        <div class="unit-title">Climate Change <span class="unit-badge soon">Coming Soon</span></div>
+        <div class="unit-meta">Climate change causes &amp; effects · Greenhouse gases · Climate change &amp; natural disasters · Safety rules for disasters · International conventions · UNFCCC · Kyoto Protocol</div>
+        <div class="unit-lessons-count">4 Lessons Planned</div>
       </div>
       <span class="unit-arrow">→</span>
     </div>
@@ -187,7 +189,7 @@
   <div class="fsh-footer-inner">
     <div class="fsh-footer-bottom">
       <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
-      <p>6 Units · Building in progress</p>
+      <p>6 Units · Unit 1 &amp; 2 Complete · Unit 3 Building</p>
     </div>
   </div>
 </footer>
