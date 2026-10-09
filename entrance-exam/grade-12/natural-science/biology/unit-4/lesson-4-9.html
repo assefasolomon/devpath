@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4.9: Causes of Species Extinction | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .threat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .threat-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .threat-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .threat-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .threat-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .threat-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 4</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 4 · Lesson 9</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What is Extinction?</button>
+      <button class="sidebar-link" onclick="scrollToId('anthropogenic')"><div class="sidebar-dot"></div> Anthropogenic Causes</button>
+      <button class="sidebar-link" onclick="scrollToId('natural')"><div class="sidebar-dot"></div> Natural Causes</button>
+      <button class="sidebar-link" onclick="scrollToId('ethiopia')"><div class="sidebar-dot"></div> Ethiopia's Threatened Species</button>
+      <button class="sidebar-link" onclick="scrollToId('conservation')"><div class="sidebar-dot"></div> Conservation Solutions</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Origin of Life</a>
+      <a href="lesson-4-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Lamarckism</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Darwinism</a>
+      <a href="lesson-4-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Evidence</a>
+      <a href="lesson-4-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Natural Selection</a>
+      <a href="lesson-4-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Human Evolution</a>
+      <a href="lesson-4-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Mutations</a>
+      <a href="lesson-4-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Genetic Drift</a>
+      <a href="lesson-4-9.html" class="sidebar-link active"><div class="sidebar-dot"></div> L9: Extinction</a>
+      <a href="lesson-4-10.html" class="sidebar-link"><div class="sidebar-dot"></div> Unit Review</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 4</a> ›
+      Lesson 4.9
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Evolution · MoE Textbook §4.1.9</div>
+      <h1>⚠️ Causes of Species Extinction</h1>
+      <p>Extinction is a natural part of evolution — but today, species are disappearing at a rate far faster than at any time in recent history. This lesson explores the causes of extinction, both natural and human-driven, and what can be done to protect the species we have left.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~18 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Extinction is the permanent loss of a species. Throughout Earth's history, species have gone extinct naturally — sometimes at a slow, steady rate, and sometimes in mass extinction events. But today, human activities are driving extinction at an unprecedented rate. Evidence suggests that both <strong>anthropogenic (human) effects</strong> and <strong>natural disasters</strong> play a significant role in the direct and indirect causes of species extinction.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> extinction and explain why it happens</li>
+          <li>Describe the <strong>anthropogenic causes</strong> of species extinction</li>
+          <li>Describe the <strong>natural causes</strong> of extinction</li>
+          <li>Identify <strong>threatened species in Ethiopia</strong></li>
+          <li>Describe <strong>conservation solutions</strong> for protecting species</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is Extinction?</div><div class="section-subtitle">MoE Textbook §4.1.9, p. 206</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Extinction</div>
+          <p>
+            <strong>Extinction</strong> is the <strong>permanent loss of a species from Earth</strong>. It occurs when the last individual of a species dies, or when the remaining population becomes too small (or too genetically uniform) to survive and reproduce.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Background vs Mass Extinction</h3>
+        <ul class="key-points">
+          <li><strong>Background extinction</strong> — the normal, slow rate at which species disappear over geological time</li>
+          <li><strong>Mass extinction</strong> — a rapid, large-scale loss of many species in a short period (e.g. the extinction of dinosaurs ~66 million years ago)</li>
+          <li>Scientists believe we may be entering a <strong>sixth mass extinction</strong> — this time driven by human activity</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why extinction matters</div>
+          <p>
+            Every species plays a role in its ecosystem — as a predator, prey, pollinator, decomposer, or competitor. When a species goes extinct, it can have <strong>cascading effects</strong> on other species and on the ecosystem as a whole. Extinction also means the loss of unique genetic material — forever.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="anthropogenic">
+      <div class="section-header"><div class="section-icon">🏭</div>
+        <div><div class="section-title-text">Anthropogenic Causes</div><div class="section-subtitle">Human-driven extinction</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Human activities are the dominant driver of modern extinction. The main anthropogenic causes are:
+        </p>
+
+        <div class="threat-grid">
+          <div class="threat-card">
+            <div class="threat-icon">🌳</div>
+            <div class="threat-title">Habitat Loss</div>
+            <p class="threat-desc">The single biggest cause. Deforestation, urbanisation, agriculture, and mining destroy the places where species live.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">🏭</div>
+            <div class="threat-title">Pollution</div>
+            <p class="threat-desc">Air pollution, water pollution, plastic waste, and toxic chemicals poison ecosystems.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">🌡️</div>
+            <div class="threat-title">Climate Change</div>
+            <p class="threat-desc">Rising temperatures, changing rainfall patterns, and extreme weather push species beyond their tolerance limits.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">🎯</div>
+            <div class="threat-title">Overexploitation</div>
+            <p class="threat-desc">Overhunting, overfishing, and illegal wildlife trade — including poaching for ivory, skins, and exotic pets.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">🐟</div>
+            <div class="threat-title">Invasive Species</div>
+            <p class="threat-desc">Species introduced from other regions can outcompete, prey on, or introduce diseases to native species.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">👥</div>
+            <div class="threat-title">Human Population Growth</div>
+            <p class="threat-desc">More people means more land needed for housing, food, and resources — putting pressure on natural habitats.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 How they interact</div>
+          <p>
+            These threats <strong>don't act alone</strong> — they reinforce each other. For example:
+          </p>
+          <p style="margin-top:.5rem">
+            • Climate change causes droughts → crops fail → people clear more forest → habitat loss increases<br>
+            • Habitat loss fragments populations → genetic diversity drops → species more vulnerable to disease
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="natural">
+      <div class="section-header"><div class="section-icon">🌋</div>
+        <div><div class="section-title-text">Natural Causes</div><div class="section-subtitle">Extinction without humans</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Extinction also happens naturally — and always has. The main natural causes are:
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Catastrophic Events</h3>
+        <ul class="key-points">
+          <li><strong>Meteorite impacts</strong> — like the asteroid that killed the dinosaurs 66 million years ago</li>
+          <li><strong>Massive volcanic eruptions</strong> — which can block sunlight, cool the planet, and disrupt food chains</li>
+          <li><strong>Tsunamis and earthquakes</strong> — localised destruction of habitats</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Climate Shifts</h3>
+        <ul class="key-points">
+          <li><strong>Ice ages</strong> — cooling climates push species towards the equator or into extinction</li>
+          <li><strong>Sea level changes</strong> — flooding or draining of habitats</li>
+          <li><strong>Long-term climate cycles</strong> — natural shifts that species may not adapt to</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Biological Factors</h3>
+        <ul class="key-points">
+          <li><strong>Competition</strong> — a better-adapted species can outcompete another</li>
+          <li><strong>Predation</strong> — a new predator can decimate a prey population</li>
+          <li><strong>Disease</strong> — outbreaks can wipe out vulnerable populations</li>
+          <li><strong>Genetic drift</strong> — especially in small populations; harmful alleles can accumulate</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Background vs mass extinction</div>
+          <p>
+            <strong>Background extinction</strong> is the natural, slow loss of species that occurs continuously. <strong>Mass extinctions</strong> are rare events where a large fraction of species disappear in a short geological time. There have been five mass extinctions in Earth's history — and many scientists believe we are now in the beginning of a sixth.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ethiopia">
+      <div class="section-header"><div class="section-icon">🇪🇹</div>
+        <div><div class="section-title-text">Ethiopia's Threatened Species</div><div class="section-subtitle">Local extinction risks</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Ethiopia has many <strong>endemic species</strong> — species found nowhere else in the world. Many are under threat.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Species</th><th>Status</th><th>Threats</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ethiopian wolf</strong> (<em>Canis simensis</em>)</td>
+              <td>Endangered (fewer than 500 remain)</td>
+              <td>Habitat loss, disease (rabies from domestic dogs), human encroachment</td>
+            </tr>
+            <tr>
+              <td><strong>Walia ibex</strong> (<em>Capra walie</em>)</td>
+              <td>Endangered</td>
+              <td>Habitat loss, poaching, restricted to Simien Mountains</td>
+            </tr>
+            <tr>
+              <td><strong>Mountain nyala</strong> (<em>Tragelaphus buxtoni</em>)</td>
+              <td>Endangered</td>
+              <td>Habitat loss, hunting, restricted range</td>
+            </tr>
+            <tr>
+              <td><strong>Gelada baboon</strong> (<em>Theropithecus gelada</em>)</td>
+              <td>Least concern (but declining)</td>
+              <td>Habitat loss, human settlement</td>
+            </tr>
+            <tr>
+              <td><strong>Ethiopian bush crow</strong> (<em>Zavattariornis stresemanni</em>)</td>
+              <td>Endangered</td>
+              <td>Habitat loss, restricted to southern Ethiopia</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why Ethiopia matters</div>
+          <p>
+            Ethiopia is one of the world's <strong>biodiversity hotspots</strong> — a region with high species diversity and high threat levels. Protecting Ethiopia's unique species is a <strong>global priority</strong>, not just a national one. Because these species are <strong>endemic</strong> (found nowhere else), their extinction would mean <strong>permanent global loss</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="conservation">
+      <div class="section-header"><div class="section-icon">🌿</div>
+        <div><div class="section-title-text">Conservation Solutions</div><div class="section-subtitle">What we can do</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          While extinction is serious, it's not inevitable. There are many conservation actions that can help protect threatened species:
+        </p>
+
+        <div class="threat-grid">
+          <div class="threat-card">
+            <div class="threat-icon">🌳</div>
+            <div class="threat-title">Habitat Protection</div>
+            <p class="threat-desc">Establishing national parks, forest reserves, and wildlife sanctuaries. In Ethiopia: Simien Mountains, Bale Mountains, Awash, Omo, Gambella.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">🚫</div>
+            <div class="threat-title">Anti-Poaching</div>
+            <p class="threat-desc">Enforcing laws against illegal hunting and wildlife trade. Training and equipping rangers.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">🌱</div>
+            <div class="threat-title">Reforestation</div>
+            <p class="threat-desc">Planting native trees and restoring damaged habitats. Ethiopia's Green Legacy Initiative is a leading example.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">🧬</div>
+            <div class="threat-title">Captive Breeding</div>
+            <p class="threat-desc">Breeding endangered species in zoos and reserves to increase their numbers, then releasing them back into the wild.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">👥</div>
+            <div class="threat-title">Community-Based Conservation</div>
+            <p class="threat-desc">Involving local communities in conservation, ensuring they benefit from protecting wildlife.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">📚</div>
+            <div class="threat-title">Education &amp; Awareness</div>
+            <p class="threat-desc">Teaching people about the value of biodiversity and how to protect it.</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">🌍</div>
+            <div class="threat-title">International Cooperation</div>
+            <p class="threat-desc">Conventions like CITES (wildlife trade), CBD (biodiversity), and the Paris Agreement (climate).</p>
+          </div>
+          <div class="threat-card">
+            <div class="threat-icon">🔬</div>
+            <div class="threat-title">Scientific Research</div>
+            <p class="threat-desc">Monitoring populations, understanding threats, and developing effective conservation strategies.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 What you can do</div>
+          <p>
+            Even as a student, you can help:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Plant trees</strong> and support reforestation<br>
+            • <strong>Reduce, reuse, and recycle</strong> to limit waste<br>
+            • <strong>Learn about local species</strong> and share your knowledge<br>
+            • <strong>Support conservation organisations</strong><br>
+            • <strong>Make environmentally responsible choices</strong> in daily life
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 4.29–4.31 — Group work</div>
+          <div class="activity-body">
+            In a small team, explore drivers of extinction like climate change, human activities, greenhouse gases, and natural disasters from various sources (books, internet). You are expected to seek solutions to mitigate habitat loss and prevent extinction.
+            <br><br>
+            <strong>Prepare a report and discuss your findings with the class.</strong>
+            <br><br>
+            <strong>Discussion questions:</strong>
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>What are the main drivers of extinction in Ethiopia?</li>
+              <li>How can we balance human development with species protection?</li>
+              <li>What role can individuals, communities, and governments play?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is extinction? How is background extinction different from mass extinction?<br>
+            B. What are the main anthropogenic causes of extinction?<br>
+            C. What are the main natural causes of extinction?<br>
+            D. Name three threatened endemic species in Ethiopia and describe the threats they face.<br>
+            E. Why is Ethiopia considered a biodiversity hotspot?<br>
+            F. What conservation strategies can help protect endangered species?<br>
+            G. What can you personally do to help prevent extinction?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is the <strong>biggest cause</strong> of modern species extinction?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Meteorite impacts</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Habitat loss caused by human activities</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Natural predation</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Disease outbreaks</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Which of the following is <strong>NOT</strong> an anthropogenic cause of extinction?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Pollution</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Climate change</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Volcanic eruptions</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Overhunting</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Why are <strong>endemic species</strong> in Ethiopia especially vulnerable to extinction?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> They are very large</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> They are found nowhere else in the world, so their extinction means permanent global loss</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> They reproduce very quickly</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> They are not threatened at all</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Which of the following is a <strong>conservation strategy</strong> to protect endangered species?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Increasing hunting quotas</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Destroying habitats for development</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Establishing national parks and wildlife sanctuaries</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Introducing more invasive species</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Why is Ethiopia important for global biodiversity conservation?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> It has no unique species</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> It has many endemic species found nowhere else — making it a biodiversity hotspot of global significance</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> It has no threatened species</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> It has the highest extinction rate in the world</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=causes+of+species+extinction+habitat+loss" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Causes of Species Extinction</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=sixth+mass+extinction+human+impact" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The Sixth Mass Extinction</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=ethiopian+wolf+walia+ibex+endangered" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Ethiopia's Endangered Species</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=conservation+strategies+endangered+species" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Conservation Strategies for Endangered Species</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 4.9</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Extinction</strong> = the permanent loss of a species from Earth</li>
+          <li><strong>Background extinction</strong> happens slowly; <strong>mass extinctions</strong> are rapid, large-scale events</li>
+          <li><strong>Anthropogenic causes</strong> of extinction: <strong>habitat loss, pollution, climate change, overexploitation, invasive species, human population growth</strong></li>
+          <li><strong>Natural causes</strong> of extinction: catastrophic events (meteorites, volcanoes), climate shifts, and biological factors (competition, disease)</li>
+          <li>The biggest cause of modern extinction is <strong>habitat loss</strong> due to human activity</li>
+          <li>Ethiopia has many <strong>endemic species</strong> at risk — Ethiopian wolf, walia ibex, mountain nyala, Ethiopian bush crow</li>
+          <li>Because these species are endemic, their extinction would mean <strong>permanent global loss</strong></li>
+          <li><strong>Conservation strategies:</strong> habitat protection, anti-poaching, reforestation, captive breeding, community-based conservation, education, international cooperation</li>
+          <li>Everyone can help — by planting trees, reducing waste, learning, and making environmentally responsible choices</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-4-8.html" class="btn btn-outline">← Lesson 4.8</a>
+      <a href="lesson-4-10.html" class="btn btn-primary">Next: Lesson 4.10 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 4 · Lesson 4.9 · Causes of Species Extinction</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'C', 3:'B', 4:'C', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Habitat loss caused by human activities is the biggest cause of modern species extinction.',wrong:'✗ Habitat loss is the biggest cause.'},
+    2:{correct:'✓ Correct! Volcanic eruptions are a natural cause — the others (pollution, climate change, overhunting) are human-driven.',wrong:'✗ Volcanic eruptions are natural, not anthropogenic.'},
+    3:{correct:'✓ Correct! Endemic species are found nowhere else in the world — their extinction means permanent global loss.',wrong:'✗ Endemic species → their loss is permanent and global.'},
+    4:{correct:'✓ Correct! Establishing national parks and sanctuaries is a key conservation strategy.',wrong:'✗ National parks and sanctuaries protect species.'},
+    5:{correct:'✓ Correct! Ethiopia has many endemic species — making it a biodiversity hotspot of global importance.',wrong:'✗ Ethiopia has many endemic species of global significance.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 4.9.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
