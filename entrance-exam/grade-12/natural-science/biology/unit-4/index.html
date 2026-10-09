@@ -3,97 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson 4.1: Definition &amp; Theories of the Origin of Life | Biology Grade 12</title>
+  <title>Unit 4: Evolution | Biology Grade 12</title>
   <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
     body{background:#F8FAFC}
-    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
-    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
-    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
-    .sidebar-section{margin-bottom:1.25rem}
-    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
-    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
-    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
-    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
-    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
-    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
-    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .unit-hero{background:linear-gradient(135deg,#0F172A 0%,#14532D 100%);padding:3rem 2rem;color:#fff}
+    .unit-hero-inner{max-width:900px;margin:0 auto}
+    .unit-tag{display:inline-flex;gap:6px;background:rgba(22,163,74,.15);border:1px solid rgba(22,163,74,.3);color:#86EFAC;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:999px;margin-bottom:1rem}
+    .unit-hero h1{font-size:2rem;font-weight:900;color:#fff;margin-bottom:.5rem}
+    .unit-hero p{color:rgba(255,255,255,.72);font-size:.95rem;line-height:1.7;max-width:640px}
+    .wrap{max-width:900px;margin:0 auto;padding:3rem 2rem}
+    .breadcrumb{display:flex;gap:6px;font-size:.82rem;color:var(--text-muted,#64748b);margin-bottom:2rem;flex-wrap:wrap}
     .breadcrumb a{color:#16A34A;text-decoration:none}
-    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
-    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
-    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
-    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
-    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
-    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
-    .lesson-meta-item strong{color:#fff}
-    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
-    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
-    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
-    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
-    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
-    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
-    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
-    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
-    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
-    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
-    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
-    .key-points{list-style:none;padding:0;margin:.5rem 0}
-    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
-    .key-points li:last-child{border-bottom:none}
-    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
-    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
-    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
-    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
-    .data-table tr:nth-child(even) td{background:var(--surface-2)}
-    .theory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
-    .theory-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
-    .theory-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
-    .theory-icon{font-size:1.75rem;margin-bottom:.4rem}
-    .theory-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
-    .theory-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
-    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
-    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
-    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
-    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
-    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
-    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
-    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
-    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
-    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
-    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
-    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
-    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
-    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
-    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
-    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
-    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
-    .quiz-feedback.show{display:block}
-    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
-    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
-    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
-    .quiz-score-bar.show{display:block}
-    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
-    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
-    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
-    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
-    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
-    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
-    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
-    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
-    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
-    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
-    .summary-list{list-style:none}
-    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
-    .summary-list li:last-child{border-bottom:none}
-    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
-    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
-    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
-    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
-    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
-    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
-    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+    .breadcrumb a:hover{text-decoration:underline}
+    .section-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#16A34A;margin-bottom:.75rem}
+    .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem}
+    .lesson-list{display:flex;flex-direction:column;gap:.75rem}
+    .lesson-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:14px;padding:1rem 1.25rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1rem;transition:all .2s ease}
+    .lesson-card.live:hover{border-color:#16A34A;transform:translateX(4px);box-shadow:0 6px 16px rgba(22,163,74,.12)}
+    .lesson-card.current{border-color:#86EFAC;background:linear-gradient(90deg,#fff 0%,#F0FDF4 100%)}
+    .lesson-icon{font-size:1.5rem;flex-shrink:0}
+    .lesson-info{flex:1;min-width:0}
+    .lesson-title{font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.15rem}
+    .lesson-meta{font-size:.75rem;color:#64748b}
+    .lesson-badge{display:inline-flex;align-items:center;gap:3px;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:.4rem}
+    .lesson-badge.live{color:#166534;background:#DCFCE7}
+    .lesson-arrow{color:#16A34A;font-weight:900;font-size:1.1rem;flex-shrink:0}
+    @media (max-width:640px){
+      .unit-hero{padding:2.25rem 1rem}
+      .unit-hero h1{font-size:1.5rem}
+      .wrap{padding:2rem 1rem}
+      .lesson-card{padding:.875rem 1rem}
+    }
   </style>
 </head>
 <body>
@@ -104,483 +46,130 @@
     <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
   </a>
   <div class="fsh-nav-actions">
-    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 4</a>
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Biology Units</a>
     <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
   </div>
 </nav>
 
-<div class="lesson-layout">
-  <aside class="sidebar">
-    <div class="sidebar-title">Unit 4 · Lesson 1</div>
-    <div class="progress-tracker">
-      <div class="progress-label">Lesson Progress</div>
-      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-title">In this lesson</div>
-      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
-      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What is Evolution?</button>
-      <button class="sidebar-link" onclick="scrollToId('creationism')"><div class="sidebar-dot"></div> Special Creationism</button>
-      <button class="sidebar-link" onclick="scrollToId('spontaneous')"><div class="sidebar-dot"></div> Spontaneous Generation</button>
-      <button class="sidebar-link" onclick="scrollToId('eternity')"><div class="sidebar-dot"></div> Eternity of Life</button>
-      <button class="sidebar-link" onclick="scrollToId('cosmozoan')"><div class="sidebar-dot"></div> Cosmozoan Theory</button>
-      <button class="sidebar-link" onclick="scrollToId('biochemical')"><div class="sidebar-dot"></div> Biochemical Origin</button>
-      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
-      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
-      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-title">Unit 4 Lessons</div>
-      <a href="lesson-4-1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Origin of Life</a>
-      <a href="lesson-4-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Lamarckism</a>
-      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Darwinism</a>
-      <a href="lesson-4-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Evidence</a>
-      <a href="lesson-4-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Natural Selection</a>
-      <a href="lesson-4-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Human Evolution</a>
-      <a href="lesson-4-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Mutations</a>
-      <a href="lesson-4-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Genetic Drift</a>
-      <a href="lesson-4-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Extinction</a>
-      <a href="lesson-4-10.html" class="sidebar-link"><div class="sidebar-dot"></div> L10: Unit Review</a>
-    </div>
-  </aside>
+<div class="unit-hero">
+  <div class="unit-hero-inner">
+    <div class="unit-tag">✓ Unit 4 · MoE 2023 Curriculum · Complete</div>
+    <h1>Evolution</h1>
+    <p>How did life on Earth begin? How did species change over time? Explore the theories of the origin of life, the mechanisms of evolution, evidence from fossils and biochemistry, and Ethiopia's unique role in the story of human evolution.</p>
+  </div>
+</div>
 
-  <main class="lesson-main">
-    <div class="breadcrumb">
-      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
-      <a href="../../../../index.html">Grade 12</a> ›
-      <a href="../../../index.html">Natural Science</a> ›
-      <a href="../../index.html">Biology</a> ›
-      <a href="../index.html">Unit 4</a> ›
-      Lesson 4.1
-    </div>
+<div class="wrap">
+  <div class="breadcrumb">
+    <a href="../../../../../index.html">Home</a> ›
+    <a href="../../../../index.html">Entrance Exam</a> ›
+    <a href="../../../index.html">Grade 12</a> ›
+    <a href="../../index.html">Natural Science</a> ›
+    <a href="../index.html">Biology</a> ›
+    <span>Unit 4</span>
+  </div>
 
-    <div class="lesson-header">
-      <div class="lesson-unit-tag">Unit 4 · Evolution · MoE Textbook §4.1–4.2.5</div>
-      <h1>🌍 Definition &amp; Theories of the Origin of Life</h1>
-      <p>How did life on Earth begin? This question has fascinated humans for thousands of years. In this lesson, we define evolution and explore the major theories proposed to explain the origin of life — from divine creation to biochemical reactions in the primordial oceans.</p>
-      <div class="lesson-meta">
-        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
-        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
-        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+  <div class="section-label">Lessons</div>
+  <div class="section-title">10 Lessons in this Unit · All Live</div>
+
+  <div class="lesson-list">
+    <a href="lesson-4-1.html" class="lesson-card live">
+      <div class="lesson-icon">🌍</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.1 — Definition &amp; Theories of the Origin of Life <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Special creationism · Spontaneous generation · Eternity of life · Cosmozoan theory · Biochemical origin</div>
       </div>
-    </div>
+      <span class="lesson-arrow">→</span>
+    </a>
 
-    <div class="section-block" id="intro">
-      <div class="section-header"><div class="section-icon">🎯</div>
-        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+    <a href="lesson-4-2.html" class="lesson-card live">
+      <div class="lesson-icon">🦒</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.2 — Lamarckism <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Inheritance of acquired characters · Use and disuse · The giraffe example · Significance &amp; criticisms</div>
       </div>
-      <div class="content-box">
-        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
-          The origin of life is one of the most complex and controversial subjects in science. For centuries, humans have proposed different theories — some based on religion, some on observation, and some on scientific experimentation. In this lesson, you'll learn about the major theories and the evidence for and against each.
-        </p>
-        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
-        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
-          <li><strong>Define</strong> evolution</li>
-          <li>Explain the theory of <strong>special creationism</strong></li>
-          <li>Describe the theory of <strong>spontaneous generation</strong> and how it was disproved</li>
-          <li>Explain the <strong>eternity of life</strong> theory</li>
-          <li>Describe the <strong>cosmozoan (panspermia)</strong> theory</li>
-          <li>Explain the <strong>biochemical origin</strong> (abiogenesis) theory and Miller's experiment</li>
-        </ul>
+      <span class="lesson-arrow">→</span>
+    </a>
+
+    <a href="lesson-4-3.html" class="lesson-card live">
+      <div class="lesson-icon">🐦</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.3 — Darwinism &amp; Neo-Darwinism <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Natural selection · Survival of the fittest · Galapagos finches · Gene pool · Reproductive isolation</div>
       </div>
-    </div>
+      <span class="lesson-arrow">→</span>
+    </a>
 
-    <div class="section-block" id="definition">
-      <div class="section-header"><div class="section-icon">📌</div>
-        <div><div class="section-title-text">What is Evolution?</div><div class="section-subtitle">MoE Textbook §4.1, p. 150</div></div>
+    <a href="lesson-4-4.html" class="lesson-card live">
+      <div class="lesson-icon">🦴</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.4 — Evidence for Evolution <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Comparative anatomy · Embryology · Palaeontology · Biochemistry · DNA hybridisation</div>
       </div>
+      <span class="lesson-arrow">→</span>
+    </a>
 
-      <div class="content-box">
-        <div class="definition-box">
-          <div class="def-label">📌 Evolution (MoE Textbook, p. 150)</div>
-          <p>
-            <strong>Evolution</strong> is the <strong>gradual change in the genetic composition of a population over successive generations</strong>, which may be caused by meiosis, hybridisation, natural selection, or mutation. This leads to a sequence of events by which the population diverges from other populations of the same species and may lead to the origin of a new species.
-          </p>
-        </div>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Points About Evolution</h3>
-        <ul class="key-points">
-          <li>Evolution is a <strong>gradual change</strong> — it happens over many generations</li>
-          <li>It involves changes in the <strong>genetic composition</strong> of a population</li>
-          <li>It can be driven by several mechanisms: <strong>mutation, natural selection, genetic drift, gene flow, meiosis, and hybridisation</strong></li>
-          <li>Populations evolve — <strong>not individuals</strong></li>
-          <li>Over time, evolution can lead to the origin of <strong>new species</strong></li>
-        </ul>
-
-        <div class="note-box">
-          <div class="note-label">📝 Evolution vs the origin of life</div>
-          <p>
-            These are related but <strong>different</strong> questions:
-          </p>
-          <p style="margin-top:.5rem">
-            • <strong>Origin of life</strong> — How did the first living things come into existence? (This lesson)<br>
-            • <strong>Evolution</strong> — How did life diversify after it began? (Lessons 4.2–4.9)
-          </p>
-        </div>
+    <a href="lesson-4-5.html" class="lesson-card live">
+      <div class="lesson-icon">⚖️</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.5 — Natural Selection in Action <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Directional · Stabilising · Disruptive selection · Allopatric &amp; sympatric speciation · Polyploidy</div>
       </div>
-    </div>
+      <span class="lesson-arrow">→</span>
+    </a>
 
-    <div class="section-block" id="creationism">
-      <div class="section-header"><div class="section-icon">✝️</div>
-        <div><div class="section-title-text">Special Creationism</div><div class="section-subtitle">MoE Textbook §4.2.1</div></div>
+    <a href="lesson-4-6.html" class="lesson-card live">
+      <div class="lesson-icon">🧑</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.6 — Human Evolution <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Primate tree · Bipedalism · Lucy, Ardi, Selam · Brain evolution · Out of Africa migration</div>
       </div>
+      <span class="lesson-arrow">→</span>
+    </a>
 
-      <div class="content-box">
-        <div class="definition-box">
-          <div class="def-label">📌 Creationism (or Special Creationism)</div>
-          <p>
-            <strong>Creationism</strong> is a theory claiming that the different forms of life on Earth were <strong>created by a supreme being</strong>. It explains that the formation of life on Earth may have taken place due to <strong>supernatural or divine forces</strong>.
-          </p>
-        </div>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Features</h3>
-        <ul class="key-points">
-          <li>States that at some stage, some <strong>supreme being created life on Earth</strong></li>
-          <li>There are many different versions of special creation, linked with different religions</li>
-          <li>There is considerable variation in how rigidly the theory is interpreted within a religion</li>
-          <li><strong>Not linked to scientific thinking</strong> — it relies on faith and divine revelation rather than observation and experimentation</li>
-          <li>Fundamental differences exist between special creationism and scientific thinking</li>
-        </ul>
-
-        <div class="note-box">
-          <div class="note-label">📝 Science vs religion</div>
-          <p>
-            Science relies on <strong>observation, provable events, and empirical facts</strong>. Religion addresses <strong>morality, purpose, and meaning</strong>. The two are different kinds of inquiry — they answer different questions.
-          </p>
-        </div>
+    <a href="lesson-4-7.html" class="lesson-card live">
+      <div class="lesson-icon">🔬</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.7 — Mutations <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Point mutations · Substitution, addition, deletion · Frameshift · Chromosomal mutations · Sickle-cell anaemia</div>
       </div>
-    </div>
+      <span class="lesson-arrow">→</span>
+    </a>
 
-    <div class="section-block" id="spontaneous">
-      <div class="section-header"><div class="section-icon">🪱</div>
-        <div><div class="section-title-text">Spontaneous Generation</div><div class="section-subtitle">MoE Textbook §4.2.2</div></div>
+    <a href="lesson-4-8.html" class="lesson-card live">
+      <div class="lesson-icon">🎲</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.8 — Genetic Drift &amp; Gene Flow <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Bottleneck effect · Founder effect · Immigration · Emigration · Mechanisms of evolution</div>
       </div>
+      <span class="lesson-arrow">→</span>
+    </a>
 
-      <div class="content-box">
-        <div class="definition-box">
-          <div class="def-label">📌 Spontaneous Generation</div>
-          <p>
-            <strong>Spontaneous generation</strong> suggests that life can <strong>evolve spontaneously from non-living objects</strong>. It was once believed that life could come from nonliving things, such as mice from corn, flies from bovine manure, maggots from rotting meat, and fish from the mud of previously dry lakes.
-          </p>
-        </div>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Historical Background</h3>
-        <ul class="key-points">
-          <li><strong>Aristotle</strong> (384–322 BC) was one of the earliest scholars to articulate this theory</li>
-          <li><strong>Jan Baptista van Helmont</strong> (1580–1644) proposed that mice could arise from rags and wheat kernels left in an open container for 3 weeks</li>
-          <li>The theory persisted into the 17th century</li>
-        </ul>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How It Was Disproved</h3>
-
-        <div style="background:#F0FDF4;border-left:4px solid #16A34A;border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0">
-          <p style="font-size:.85rem;line-height:1.8;color:var(--heading);margin:0">
-            <strong>1. Francesco Redi (1668)</strong> — Italian scientist. Placed fresh meat in three jars: one open, one sealed, one covered with gauze. Days later, maggots appeared only in the open jar and on the gauze. He demonstrated that maggots came from <strong>fly eggs</strong> — not from the meat itself.
-            <br><br>
-            <strong>2. Louis Pasteur (1860s)</strong> — French scientist. Showed that broth only went sour if microorganisms were allowed to enter. Using swan-necked flasks, he demonstrated that no microorganisms appeared in sterilised broth unless they entered from outside.
-          </p>
-        </div>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Conclusion</h3>
-        <ul class="key-points">
-          <li>Both Redi (macro-organisms) and Pasteur (micro-organisms) showed that living things <strong>only arise from pre-existing organisms</strong></li>
-          <li>This disproved the theory of spontaneous generation</li>
-          <li>But what about the <strong>first ever cell</strong>? It couldn't come from a pre-existing cell — because it was the first</li>
-        </ul>
-
-        <div class="note-box">
-          <div class="note-label">📝 The remaining question</div>
-          <p>
-            If life only comes from life, how did the <strong>first life</strong> come to be? This is what the biochemical origin theory tries to answer.
-          </p>
-        </div>
+    <a href="lesson-4-9.html" class="lesson-card live">
+      <div class="lesson-icon">⚠️</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.9 — Causes of Species Extinction <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Anthropogenic causes · Natural causes · Ethiopia's threatened species · Conservation strategies</div>
       </div>
-    </div>
+      <span class="lesson-arrow">→</span>
+    </a>
 
-    <div class="section-block" id="eternity">
-      <div class="section-header"><div class="section-icon">♾️</div>
-        <div><div class="section-title-text">Eternity of Life</div><div class="section-subtitle">MoE Textbook §4.2.3</div></div>
+    <a href="lesson-4-10.html" class="lesson-card live">
+      <div class="lesson-icon">📝</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 4.10 — Unit Summary &amp; Review <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Key concepts · Review questions · EUEE practice</div>
       </div>
-
-      <div class="content-box">
-        <div class="definition-box">
-          <div class="def-label">📌 Eternity of Life Theory</div>
-          <p>
-            According to this theory, there is <strong>no beginning and no end to life on Earth</strong>. Life neither needs special creation nor does it need to be generated from non-living matter. Supporters believe life is an <strong>inherent property of the Universe</strong> and has always existed, as has the Universe.
-          </p>
-        </div>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Features</h3>
-        <ul class="key-points">
-          <li>Life has <strong>always existed</strong> — no origin required</li>
-          <li>The Universe itself has always existed</li>
-          <li>Life is an <strong>inherent property</strong> of the Universe</li>
-          <li>Avoids the question of how life began by saying it never began</li>
-        </ul>
-
-        <div class="note-box">
-          <div class="note-label">📝 Modern cosmology</div>
-          <p>
-            Modern cosmology supports the <strong>Big Bang theory</strong> — the idea that the Universe had a beginning about 13.8 billion years ago. This makes the "eternity of life" theory difficult to reconcile with current scientific understanding.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-block" id="cosmozoan">
-      <div class="section-header"><div class="section-icon">☄️</div>
-        <div><div class="section-title-text">Cosmozoan Theory</div><div class="section-subtitle">Panspermia or Spore Broth Theory</div></div>
-      </div>
-
-      <div class="content-box">
-        <div class="definition-box">
-          <div class="def-label">📌 Cosmozoan Theory (Panspermia)</div>
-          <p>
-            According to the <strong>cosmozoan theory</strong>, life has reached Earth from other cosmological structures — such as <strong>meteorites</strong> — in the form of <strong>highly resistant spores</strong>. The 'protoplasm' reached the Earth in the form of spores, germs, or other simple particles from some unknown part of the universe with cosmic dust, and subsequently evolved into various forms of life.
-          </p>
-        </div>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Features</h3>
-        <ul class="key-points">
-          <li>Proposed by <strong>Richter (1865)</strong></li>
-          <li>Supported by <strong>Helmholtz (1884)</strong> — speculated that 'protoplasm' reached Earth with falling meteorites</li>
-          <li>Life forms (or the organic molecules needed for life) came from <strong>elsewhere in the Universe</strong></li>
-          <li>Also called <strong>panspermia</strong> or the <strong>spore broth theory</strong></li>
-        </ul>
-
-        <div class="note-box">
-          <div class="note-label">📝 Evidence against cosmozoan theory</div>
-          <p>
-            Living matter cannot survive the <strong>extreme cold, dryness, and ultraviolet radiation</strong> of space. So the idea that spores could travel through space and reach Earth intact is considered unlikely by most scientists.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-block" id="biochemical">
-      <div class="section-header"><div class="section-icon">🧪</div>
-        <div><div class="section-title-text">Biochemical Origin</div><div class="section-subtitle">Abiogenesis — the current scientific view</div></div>
-      </div>
-
-      <div class="content-box">
-        <div class="definition-box">
-          <div class="def-label">📌 Biochemical Theory (Abiogenesis)</div>
-          <p>
-            The <strong>biochemical theory</strong> suggests that life on Earth originated as a result of a number of <strong>biochemical reactions producing organic molecules</strong>, which associated to form cells. This is sometimes called <strong>abiogenesis</strong> — life arising from non-living matter through natural chemical processes.
-          </p>
-        </div>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Oparin-Haldane Hypothesis (1920s)</h3>
-        <ul class="key-points">
-          <li><strong>Aleksandr Oparin</strong> (Russian biologist, 1924) and <strong>J.B.S. Haldane</strong> (English biologist, 1929) independently proposed similar ideas</li>
-          <li>They proposed that <strong>common gases in the early Earth atmosphere combined to form simple organic chemicals</strong></li>
-          <li>These chemicals then combined to form more <strong>complex molecules</strong></li>
-          <li>The complex molecules became separated from the surrounding medium and acquired some of the characteristics of living organisms</li>
-          <li>They became able to <strong>absorb nutrients, grow, divide (reproduce)</strong>, and so on</li>
-        </ul>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Miller's Spark-Discharge Experiment (1953)</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
-          <strong>Stanley Miller</strong> tested the Oparin-Haldane model in the laboratory by mixing basic gases (methane, ammonia, hydrogen, water vapour) and passing electrical sparks through them to simulate lightning. His experiment produced:
-        </p>
-        <ul class="key-points">
-          <li><strong>Simple organic compounds</strong> — amino acids, the building blocks of proteins</li>
-          <li><strong>Nucleic acid bases</strong> — the building blocks of DNA and RNA</li>
-          <li>This provided experimental support for the Oparin-Haldane model</li>
-        </ul>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The First Organisms</h3>
-        <ul class="key-points">
-          <li>The first organisms appeared about <strong>4 billion years ago</strong></li>
-          <li>They were <strong>prokaryotes</strong> — they had no true nucleus</li>
-          <li>They likely had <strong>RNA rather than DNA</strong> as their genetic material</li>
-          <li>They gave rise to three distinct lines of evolution:
-            <ul style="margin-left:1rem;margin-top:.25rem">
-              <li><strong>Archaeobacteria</strong> — thermophilic sulphobacteria, methanobacteria, halophilic bacteria</li>
-              <li><strong>Eubacteria</strong> — ordinary bacteria and cyanobacteria</li>
-              <li><strong>Eukaryotes</strong> — protists, fungi, plants, animals</li>
-            </ul>
-          </li>
-        </ul>
-
-        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Great Oxygenation Event</h3>
-        <ul class="key-points">
-          <li>One great change was the shift from a reducing atmosphere to an atmosphere containing oxygen</li>
-          <li>This took place about <strong>2.4 billion years ago</strong></li>
-          <li>The oxygen came from <strong>photosynthesis</strong> by cyanobacteria</li>
-          <li>This made <strong>aerobic respiration</strong> possible — releasing far more energy than anaerobic pathways</li>
-          <li>More active organisms — the animals — could now evolve, perhaps 600–700 million years ago</li>
-        </ul>
-
-        <div class="note-box">
-          <div class="note-label">📝 Photoautotrophs vs chemoautotrophs</div>
-          <p>
-            <strong>Photoautotrophs</strong> use light energy to make organic molecules (e.g. cyanobacteria, plants).<br>
-            <strong>Chemoautotrophs</strong> use energy from chemical reactions (often inorganic) to make organic molecules (e.g. sulphobacteria in deep-sea vents).
-          </p>
-        </div>
-
-        <div class="activity-card">
-          <div class="activity-title">📝 Self-Assessment Questions</div>
-          <div class="activity-body">
-            A. Define evolution.<br>
-            B. What is special creationism? Why is it not considered scientific?<br>
-            C. Describe the theory of spontaneous generation. How was it disproved by Redi and Pasteur?<br>
-            D. What is the eternity of life theory?<br>
-            E. Describe the cosmozoan (panspermia) theory.<br>
-            F. What is the biochemical theory of the origin of life? Describe the Oparin-Haldane hypothesis.<br>
-            G. How did Stanley Miller test the biochemical theory? What did he find?
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-block" id="quiz">
-      <div class="section-header"><div class="section-icon">📝</div>
-        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
-      </div>
-
-      <div class="quiz-card">
-        <div class="quiz-num">Question 1</div>
-        <div class="quiz-question">What is the best definition of <strong>evolution</strong>?</div>
-        <div class="quiz-options">
-          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> The sudden creation of new species by a divine being</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> The gradual change in the genetic composition of a population over successive generations</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> The spontaneous generation of life from non-living matter</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> The migration of organisms from one place to another</div>
-        </div>
-        <div class="quiz-feedback" id="qfb1"></div>
-      </div>
-
-      <div class="quiz-card">
-        <div class="quiz-num">Question 2</div>
-        <div class="quiz-question">What did <strong>Redi's</strong> experiment (1668) demonstrate?</div>
-        <div class="quiz-options">
-          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> That maggots arise spontaneously from rotting meat</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> That maggots come from fly eggs laid on the meat</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> That life came to Earth from space</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> That broth only spoils when microorganisms enter</div>
-        </div>
-        <div class="quiz-feedback" id="qfb2"></div>
-      </div>
-
-      <div class="quiz-card">
-        <div class="quiz-num">Question 3</div>
-        <div class="quiz-question">Which theory claims that life has <strong>always existed</strong> and needs neither creation nor generation?</div>
-        <div class="quiz-options">
-          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Spontaneous generation</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Eternity of life</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Cosmozoan theory</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Biochemical theory</div>
-        </div>
-        <div class="quiz-feedback" id="qfb3"></div>
-      </div>
-
-      <div class="quiz-card">
-        <div class="quiz-num">Question 4</div>
-        <div class="quiz-question">What did <strong>Stanley Miller's</strong> spark-discharge experiment demonstrate?</div>
-        <div class="quiz-options">
-          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> That life can arise spontaneously from broth</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> That simple organic compounds like amino acids could form under early Earth conditions</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> That species evolve by natural selection</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> That life came to Earth on meteorites</div>
-        </div>
-        <div class="quiz-feedback" id="qfb4"></div>
-      </div>
-
-      <div class="quiz-card">
-        <div class="quiz-num">Question 5</div>
-        <div class="quiz-question">What event, approximately <strong>2.4 billion years ago</strong>, changed the Earth's atmosphere and made aerobic respiration possible?</div>
-        <div class="quiz-options">
-          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> A meteorite brought life to Earth</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Photosynthesis by cyanobacteria added oxygen to the atmosphere</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Volcanic eruptions released oxygen</div>
-          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> The first animals appeared</div>
-        </div>
-        <div class="quiz-feedback" id="qfb5"></div>
-      </div>
-
-      <div class="quiz-score-bar" id="quiz-score">
-        <div class="score-num" id="score-num">0 / 5</div>
-        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
-      </div>
-    </div>
-
-    <div class="section-block" id="resources">
-      <div class="section-header"><div class="section-icon">🎥</div>
-        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
-      </div>
-
-      <a href="https://www.youtube.com/results?search_query=origin+of+life+on+earth+theories" target="_blank" rel="noopener" class="resource-card">
-        <div class="resource-yt-icon">▶</div>
-        <div>
-          <div class="resource-title">Theories of the Origin of Life</div>
-          <div class="resource-channel">YouTube Search</div>
-        </div>
-        <span class="resource-arrow">→</span>
-      </a>
-
-      <a href="https://www.youtube.com/results?search_query=spontaneous+generation+redi+pasteur" target="_blank" rel="noopener" class="resource-card">
-        <div class="resource-yt-icon">▶</div>
-        <div>
-          <div class="resource-title">Spontaneous Generation — Redi &amp; Pasteur</div>
-          <div class="resource-channel">YouTube Search</div>
-        </div>
-        <span class="resource-arrow">→</span>
-      </a>
-
-      <a href="https://www.youtube.com/results?search_query=miller+urey+experiment+abiogenesis" target="_blank" rel="noopener" class="resource-card">
-        <div class="resource-yt-icon">▶</div>
-        <div>
-          <div class="resource-title">Miller-Urey Experiment — Abiogenesis</div>
-          <div class="resource-channel">YouTube Search</div>
-        </div>
-        <span class="resource-arrow">→</span>
-      </a>
-
-      <a href="https://www.youtube.com/results?search_query=great+oxygenation+event+cyanobacteria" target="_blank" rel="noopener" class="resource-card">
-        <div class="resource-yt-icon">▶</div>
-        <div>
-          <div class="resource-title">The Great Oxygenation Event</div>
-          <div class="resource-channel">YouTube Search</div>
-        </div>
-        <span class="resource-arrow">→</span>
-      </a>
-    </div>
-
-    <div class="section-block" id="summary">
-      <div class="section-header"><div class="section-icon">✅</div>
-        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 4.1</div></div>
-      </div>
-
-      <div class="summary-card">
-        <div class="summary-title">What you should remember</div>
-        <ul class="summary-list">
-          <li><strong>Evolution</strong> = the gradual change in the genetic composition of a population over successive generations</li>
-          <li><strong>Special creationism</strong> — the belief that a supreme being created life; not scientific</li>
-          <li><strong>Spontaneous generation</strong> — the belief that life arises from non-living matter; disproved by <strong>Redi and Pasteur</strong></li>
-          <li><strong>Eternity of life</strong> — the belief that life has always existed and never began</li>
-          <li><strong>Cosmozoan theory (panspermia)</strong> — the belief that life came to Earth from space</li>
-          <li><strong>Biochemical theory (abiogenesis)</strong> — the current scientific view; life originated through natural chemical reactions</li>
-          <li><strong>Oparin-Haldane hypothesis</strong> — early Earth gases combined to form organic molecules</li>
-          <li><strong>Miller's experiment</strong> (1953) produced amino acids and nucleic acid bases, supporting the theory</li>
-          <li>The <strong>Great Oxygenation Event</strong> (~2.4 billion years ago) — cyanobacteria photosynthesis added oxygen, enabling aerobic respiration</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="lesson-nav">
-      <a href="../index.html" class="btn btn-outline">← Unit 4 Hub</a>
-      <a href="lesson-4-2.html" class="btn btn-primary">Next: Lesson 4.2 →</a>
-    </div>
-  </main>
+      <span class="lesson-arrow">→</span>
+    </a>
+  </div>
 </div>
 
 <footer class="fsh-footer">
   <div class="fsh-footer-inner">
     <div class="fsh-footer-bottom">
       <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
-      <p>Unit 4 · Lesson 4.1 · Definition &amp; Theories of the Origin of Life</p>
+      <p>Unit 4: Evolution · 10 lessons · Complete</p>
     </div>
   </div>
 </footer>
@@ -588,54 +177,6 @@
 <script>
   fetch('/api/auth/me',{credentials:'include'})
     .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
-
-  const correct = {1:'B', 2:'B', 3:'B', 4:'B', 5:'B'};
-  const feedback = {
-    1:{correct:'✓ Correct! Evolution is the gradual change in the genetic composition of a population over successive generations.',wrong:'✗ Evolution = gradual change in genetic composition of a population.'},
-    2:{correct:'✓ Correct! Redi demonstrated that maggots came from fly eggs laid on the meat — not from the meat itself.',wrong:'✗ Redi showed maggots come from fly eggs.'},
-    3:{correct:'✓ Correct! The eternity of life theory says life has always existed — it has no beginning and no end.',wrong:'✗ Eternity of life = life always existed.'},
-    4:{correct:'✓ Correct! Miller\'s experiment produced amino acids and nucleic acid bases from simple gases and electrical sparks.',wrong:'✗ Miller produced amino acids from basic gases.'},
-    5:{correct:'✓ Correct! Photosynthesis by cyanobacteria added oxygen to the atmosphere about 2.4 billion years ago.',wrong:'✗ Cyanobacteria photosynthesis oxygenated the atmosphere.'}
-  };
-
-  const answers = {};
-  let answered = 0;
-
-  function quizAnswer(el, choice, qNum){
-    if(answers[qNum]) return;
-    answers[qNum] = choice;
-    answered++;
-    const opts = el.parentElement.querySelectorAll('.quiz-option');
-    const correct_letter = correct[qNum];
-    const letters = ['A','B','C','D'];
-    opts.forEach((o,i)=>{
-      o.classList.add('disabled');
-      if(letters[i] === correct_letter) o.classList.add('correct');
-      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
-    });
-    const fb = document.getElementById('qfb'+qNum);
-    const ok = choice === correct_letter;
-    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
-    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
-    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
-    if(answered === 5){
-      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
-      const bar = document.getElementById('quiz-score');
-      bar.classList.add('show');
-      document.getElementById('score-num').textContent = score + ' / 5';
-      let msg = '';
-      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 4.1.';
-      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
-      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
-      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
-      document.getElementById('score-label').textContent = msg;
-      bar.scrollIntoView({behavior:'smooth', block:'center'});
-    }
-  }
-
-  function scrollToId(id){
-    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
-  }
 </script>
 </body>
 </html>
