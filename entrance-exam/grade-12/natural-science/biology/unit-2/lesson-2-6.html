@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.6: Viruses | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .shape-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
+    .shape-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition);text-align:center}
+    .shape-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .shape-icon{font-size:2.5rem;margin-bottom:.5rem}
+    .shape-title{font-size:.92rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .shape-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .step-flow{display:flex;flex-direction:column;gap:.5rem;margin:1rem 0}
+    .step-item{background:#F0FDF4;border-left:4px solid #16A34A;border-radius:var(--radius);padding:.75rem 1rem;font-size:.85rem;color:var(--heading);line-height:1.6}
+    .step-item strong{color:#166534}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 2</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What are Viruses?</button>
+      <button class="sidebar-link" onclick="scrollToId('structure')"><div class="sidebar-dot"></div> Structure of Viruses</button>
+      <button class="sidebar-link" onclick="scrollToId('shapes')"><div class="sidebar-dot"></div> Shapes &amp; Symmetry</button>
+      <button class="sidebar-link" onclick="scrollToId('dnavsrna')"><div class="sidebar-dot"></div> DNA vs RNA Viruses</button>
+      <button class="sidebar-link" onclick="scrollToId('reproduction')"><div class="sidebar-dot"></div> Viral Reproduction</button>
+      <button class="sidebar-link" onclick="scrollToId('hiv')"><div class="sidebar-dot"></div> HIV &amp; AIDS</button>
+      <button class="sidebar-link" onclick="scrollToId('ethiopia')"><div class="sidebar-dot"></div> Viral Diseases in Ethiopia</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: What are Microorganisms?</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Eubacteria</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Archaea</a>
+      <a href="lesson-2-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Fungi</a>
+      <a href="lesson-2-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Protozoa</a>
+      <a href="lesson-2-6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Viruses</a>
+      <a href="lesson-2-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Economic Importance</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 2</a> ›
+      Lesson 2.6
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · Microorganisms · MoE Textbook §2.3</div>
+      <h1>🧬 Viruses — The Edge of Life</h1>
+      <p>Viruses are the most mysterious of all microorganisms. They are not truly alive — they cannot reproduce on their own, cannot carry out metabolism, and can even be crystallized like a chemical. Yet they infect every form of life on Earth, from bacteria to humans, and cause some of the most devastating diseases in history.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Viruses are strange. They have genetic material (DNA or RNA) like living things, but they don't have cells, don't have a metabolism, and can't reproduce by themselves. They are <strong>obligate intracellular parasites</strong> — they must hijack a living cell's machinery to copy themselves. Because they occupy this strange boundary, scientists say viruses are <strong>"in between living and non-living."</strong>
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> viruses and describe their characteristics</li>
+          <li>Describe the <strong>structure</strong> of a virus</li>
+          <li>Identify different <strong>shapes and symmetry</strong> types</li>
+          <li>Compare <strong>DNA and RNA viruses</strong></li>
+          <li>Explain how viruses <strong>reproduce</strong></li>
+          <li>Describe <strong>HIV/AIDS</strong> and other major viral diseases</li>
+          <li>Identify <strong>common viral diseases in Ethiopia</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What are Viruses?</div><div class="section-subtitle">MoE Textbook §2.3, p. 55</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Virus (MoE Textbook, p. 55)</div>
+          <p>
+            A <strong>virus</strong> is a very small, <strong>non-cellular parasite of cells</strong>. Its genome — composed of either <strong>DNA or RNA</strong> — is enclosed in a protein coat.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 A virus cannot reproduce by itself</div>
+          <p>
+            A virus is a small parasite particle that <strong>cannot reproduce by itself</strong>. Once it infects a susceptible cell, however, a virus can <strong>direct the host cell machinery to produce more viruses</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Characteristics of Viruses</h3>
+        <ul class="key-points">
+          <li>Have an <strong>inner core of nucleic acid</strong> (DNA or RNA) surrounded by a protein coat known as the <strong>capsid</strong></li>
+          <li>Most viruses range in size from <strong>20–250 nm</strong> (nanometers)</li>
+          <li>Are <strong>inert outside their host cell</strong></li>
+          <li>Are <strong>obligate intracellular parasites</strong> and filterable agents</li>
+          <li>Occupy a space <strong>between living and non-living</strong> — they can be crystallized and are non-living outside a host</li>
+          <li>Depend fully on the host cell machinery — metabolically inefficient</li>
+          <li>Are responsible for a number of <strong>dreadful diseases</strong> in humans and plants</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Living or non-living?</div>
+          <p>
+            Viruses are often described as being <strong>"on the edge of life."</strong> They have genetic material like living things, but they:
+          </p>
+          <p style="margin-top:.5rem">
+            • Cannot reproduce by themselves<br>
+            • Do not carry out metabolism<br>
+            • Do not grow or respond to stimuli<br>
+            • Can be crystallized (a property of chemicals, not living things)
+          </p>
+          <p style="margin-top:.5rem">
+            So they are best thought of as <strong>biological particles</strong> that must infect a living cell to reproduce.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="structure">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Structure of Viruses</div><div class="section-subtitle">Simple, but effective</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          A virus is remarkably simple — it has just a few essential parts. The most basic structure is a <strong>nucleic acid core</strong> (either DNA or RNA, but not both) surrounded by a <strong>protein coat</strong> called the capsid.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Four Basic Components</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Component</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Genome</strong></td>
+              <td>Either DNA or RNA (not both). Can be linear or circular, single-stranded (ss) or double-stranded (ds).</td>
+            </tr>
+            <tr>
+              <td><strong>2. Capsid</strong></td>
+              <td>The outer protein coat — protects the genome and helps introduce it into the host cell. Made of subunits called <strong>capsomeres</strong>, each composed of <strong>protomers</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Envelope</strong></td>
+              <td>Some viruses have an outer lipid envelope (acquired from the host cell membrane during budding). Contains <strong>glycoprotein spikes (peplomers)</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Enzymes</strong></td>
+              <td>Some viruses carry enzymes to help with infection. Example: reverse transcriptase in retroviruses.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Enveloped vs Non-enveloped Viruses</h3>
+        <div class="shape-grid">
+          <div class="shape-card">
+            <div class="shape-icon">🔴</div>
+            <div class="shape-title">Enveloped Viruses</div>
+            <p class="shape-desc">Have an outer <strong>lipid envelope</strong> made of glycoprotein and phospholipid bilayer, surrounding the capsid. Envelope has <strong>spikes</strong> for host cell binding. Examples: <strong>HIV, influenza, coronaviruses</strong>.</p>
+          </div>
+          <div class="shape-card">
+            <div class="shape-icon">🟢</div>
+            <div class="shape-title">Non-enveloped Viruses</div>
+            <p class="shape-desc">Have only the <strong>capsid</strong> around the nucleic acid — no outer envelope. Called <strong>"naked viruses."</strong> Examples: <strong>adenovirus, poliovirus, papillomavirus</strong>.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Structural Terms</h3>
+        <ul class="key-points">
+          <li><strong>Capsomere</strong> — the morphological subunit of the capsid</li>
+          <li><strong>Protomer</strong> — the smaller subunit that composes a capsomere</li>
+          <li><strong>Nucleocapsid</strong> — the complete complex of nucleic acid + capsid</li>
+          <li><strong>Peplomer</strong> — the glycoprotein spike projecting from the envelope</li>
+          <li><strong>Hemagglutinin and Neuraminidase</strong> — specific peplomers involved in binding the virus to host cells (found on influenza virus)</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The envelope — a clever trick</div>
+          <p>
+            Enveloped viruses get their outer coat by <strong>budding</strong> out of the host cell — they steal a piece of the host's cell membrane and use it as their own protective layer. This helps them evade the immune system. But it also means enveloped viruses are often <strong>more fragile</strong> — they dry out easily, so they spread mainly through direct contact or droplets.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="shapes">
+      <div class="section-header"><div class="section-icon">🔷</div>
+        <div><div class="section-title-text">Shapes &amp; Symmetry</div><div class="section-subtitle">Different forms of viruses</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The protein subunits of the capsid can assemble into different patterns, giving viruses different shapes. There are three main types of symmetry:
+        </p>
+
+        <div class="shape-grid">
+          <div class="shape-card">
+            <div class="shape-icon">🌀</div>
+            <div class="shape-title">Helical Symmetry</div>
+            <p class="shape-desc">Protein subunits arrange in a <strong>helical structure</strong> around the genome. Forms a rigid, flexible rod. Example: <strong>Tobacco Mosaic Virus</strong>.</p>
+          </div>
+          <div class="shape-card">
+            <div class="shape-icon">💠</div>
+            <div class="shape-title">Icosahedral Symmetry</div>
+            <p class="shape-desc">A <strong>20-faced polyhedron</strong> with 12 vertices — rigid and protective. Examples: <strong>adenovirus, picornavirus, papovavirus</strong>.</p>
+          </div>
+          <div class="shape-card">
+            <div class="shape-icon">🔬</div>
+            <div class="shape-title">Complex Symmetry</div>
+            <p class="shape-desc">Complex structures with multiple components. Example: <strong>bacteriophages</strong> — have a head (with DNA), a tail sheath, and tail fibers.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Bacteriophages — virus "moon landers"</div>
+          <p>
+            <strong>Bacteriophages</strong> (viruses that infect bacteria) have the most complex structure. They look like tiny lunar landers with:
+          </p>
+          <p style="margin-top:.5rem">
+            • <strong>Head</strong> — icosahedral capsid containing DNA<br>
+            • <strong>Tail sheath</strong> — protein tube for injecting DNA<br>
+            • <strong>Tail fibers</strong> — for attaching to bacterial cells
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="dnavsrna">
+      <div class="section-header"><div class="section-icon">🧬</div>
+        <div><div class="section-title-text">DNA vs RNA Viruses</div><div class="section-subtitle">Two classes of viral genomes</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The genetic material of a virus can be either DNA or RNA</div>
+          <p>
+            Viruses that contain DNA as their genetic material are called <strong>DNA viruses</strong>. Those that contain RNA are called <strong>RNA viruses</strong>. Unlike other living cells, where ds DNA is always the genetic material, a viral genome may consist of linear or circular ds DNA, single-stranded DNA, ss linear RNA, or ds linear RNA.
+          </p>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Feature</th><th>DNA Viruses</th><th>RNA Viruses</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Genetic material</strong></td><td>DNA</td><td>RNA</td></tr>
+            <tr><td><strong>Strandedness</strong></td><td>Mostly double-stranded</td><td>Mostly single-stranded</td></tr>
+            <tr><td><strong>Replication site</strong></td><td>In the nucleus</td><td>In the cytoplasm</td></tr>
+            <tr><td><strong>Mutation rate</strong></td><td>Lower</td><td>Higher</td></tr>
+            <tr><td><strong>Stability</strong></td><td>Stable</td><td>Unstable</td></tr>
+            <tr><td><strong>Examples</strong></td><td>Parvovirus (ssDNA), Papovavirus (ds circular DNA)</td><td>Reovirus (dsRNA), Influenza, HIV (retrovirus)</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Retroviruses</h3>
+        <div class="definition-box">
+          <div class="def-label">📌 Retrovirus</div>
+          <p>
+            A <strong>retrovirus</strong> is an RNA virus that <strong>converts its genetic information from RNA into DNA</strong> after it has infected a host. It does this using an enzyme called <strong>reverse transcriptase</strong> (RNA-dependent DNA polymerase).
+          </p>
+        </div>
+
+        <ul class="key-points">
+          <li>Retroviruses carry <strong>reverse transcriptase</strong> in their capsid</li>
+          <li>After entering the host cell, the enzyme converts viral RNA into DNA</li>
+          <li>The new DNA integrates into the host's genome</li>
+          <li>The host cell then transcribes and translates this DNA to produce new viral components</li>
+          <li>The most famous retrovirus is <strong>HIV</strong> (Human Immunodeficiency Virus)</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why RNA viruses mutate faster</div>
+          <p>
+            RNA viruses have a <strong>higher mutation rate</strong> than DNA viruses because the enzymes that copy RNA (RNA polymerases) make more mistakes than those that copy DNA. This is why it's so hard to make a vaccine against RNA viruses like influenza and HIV — they change so quickly.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="reproduction">
+      <div class="section-header"><div class="section-icon">🔄</div>
+        <div><div class="section-title-text">Viral Reproduction</div><div class="section-subtitle">Six stages of infection</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          To replicate, viruses need to infect a host cell and hijack the host machinery to make many copies of the viral genome and lots of viral proteins — which are then assembled into new virus particles. There are <strong>six main stages</strong> in a typical virus replication cycle:
+        </p>
+
+        <div class="step-flow">
+          <div class="step-item"><strong>1. Attachment</strong> — The virus attaches to a specific receptor on the host cell surface.</div>
+          <div class="step-item"><strong>2. Penetration</strong> — The virus enters the host cell (through the cell membrane or by being engulfed).</div>
+          <div class="step-item"><strong>3. Uncoating</strong> — The viral genome is released from its capsid inside the host cell.</div>
+          <div class="step-item"><strong>4. Replication</strong> — The viral genome is copied, and viral proteins are produced using the host's machinery.</div>
+          <div class="step-item"><strong>5. Assembly</strong> — New viral components are assembled into complete virus particles.</div>
+          <div class="step-item"><strong>6. Release</strong> — New virus particles exit the host cell (often by budding or by lysing the cell) — ready to infect new cells.</div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Lytic vs Lysogenic Cycle (in Bacteriophages)</h3>
+        <ul class="key-points">
+          <li><strong>Lytic cycle:</strong> The virus immediately uses the host cell to produce new viruses, then bursts the cell open (lysis), releasing many new viral particles</li>
+          <li><strong>Lysogenic cycle:</strong> The viral DNA integrates into the host's chromosome and remains dormant, being copied along with the host DNA each time the cell divides — until stress triggers it to switch to the lytic cycle</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="hiv">
+      <div class="section-header"><div class="section-icon">🎗️</div>
+        <div><div class="section-title-text">HIV &amp; AIDS</div><div class="section-subtitle">The retrovirus that changed the world</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 HIV — Human Immunodeficiency Virus</div>
+          <p>
+            <strong>HIV</strong> is a virus that attacks the body's immune system. If HIV is not treated, it can lead to <strong>AIDS</strong> (Acquired Immunodeficiency Syndrome).
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How HIV Works</h3>
+        <div class="step-flow">
+          <div class="step-item"><strong>1.</strong> HIV binds to <strong>CD4 receptors</strong> on helper T-cells of the immune system.</div>
+          <div class="step-item"><strong>2.</strong> The virus enters the cell and <strong>uncoats</strong>, releasing its RNA genome.</div>
+          <div class="step-item"><strong>3.</strong> Using <strong>reverse transcriptase</strong>, HIV makes a DNA copy of its RNA genome.</div>
+          <div class="step-item"><strong>4.</strong> The DNA integrates into the host cell's chromosome.</div>
+          <div class="step-item"><strong>5.</strong> The host cell produces new viral components and eventually new virus particles.</div>
+          <div class="step-item"><strong>6.</strong> New viruses bud out and infect other cells — especially other T-cells.</div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">From HIV to AIDS</h3>
+        <ul class="key-points">
+          <li>HIV <strong>destroys CD4+ T-cells</strong> — critical to the immune system</li>
+          <li>As T-cells are destroyed, the body becomes <strong>immunodeficient</strong></li>
+          <li>When CD4 count drops below a threshold, the person is said to have <strong>AIDS</strong></li>
+          <li>The person becomes vulnerable to <strong>opportunistic infections</strong> — diseases that wouldn't normally cause illness in a healthy person</li>
+          <li>Death usually results from these secondary infections, not from HIV itself</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Transmission of HIV</h3>
+        <ul class="key-points">
+          <li><strong>Unprotected sexual contact</strong> — the most common route worldwide</li>
+          <li><strong>Blood-to-blood contact</strong> — sharing needles, contaminated blood transfusions</li>
+          <li><strong>Mother to child</strong> — during pregnancy, birth, or breastfeeding</li>
+          <li><strong>NOT transmitted by</strong> — hugging, shaking hands, sharing food, mosquito bites</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Treatment &amp; Prevention</h3>
+        <ul class="key-points">
+          <li><strong>Antiretroviral therapy (ART)</strong> — combination of drugs that suppress HIV, allowing the immune system to recover</li>
+          <li>ART does not cure HIV but allows people to live long, healthy lives</li>
+          <li><strong>Prevention:</strong> condom use, sterile needles, testing, education, and pre-exposure prophylaxis (PrEP)</li>
+          <li><strong>Prevention of mother-to-child transmission</strong> — ART for pregnant women</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 HIV in Ethiopia</div>
+          <p>
+            HIV/AIDS remains a significant public health issue in Ethiopia. According to serosurveys, Ethiopia has high prevalence of <strong>hepatitis B virus</strong>, and there are indications of high transmission for <strong>hepatitis C, hepatitis E, and HIV</strong>. National programs focus on testing, treatment, prevention, and education — especially for young people.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ethiopia">
+      <div class="section-header"><div class="section-icon">🇪🇹</div>
+        <div><div class="section-title-text">Viral Diseases in Ethiopia</div><div class="section-subtitle">Major viral threats</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Ethiopia is <strong>endemic for many viral diseases</strong>. Here are the most important ones:
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Disease</th><th>Virus</th><th>Transmission</th><th>Key facts</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Hepatitis B</strong></td><td>Hepatitis B virus (HBV)</td><td>Blood, sexual contact, mother-to-child</td><td>High prevalence in Ethiopia; vaccine preventable</td></tr>
+            <tr><td><strong>Hepatitis C</strong></td><td>Hepatitis C virus (HCV)</td><td>Blood-to-blood contact</td><td>Indications of high transmission; no vaccine yet</td></tr>
+            <tr><td><strong>Hepatitis E</strong></td><td>Hepatitis E virus (HEV)</td><td>Contaminated water</td><td>Outbreaks in areas with poor sanitation</td></tr>
+            <tr><td><strong>HIV/AIDS</strong></td><td>Human Immunodeficiency Virus</td><td>Sexual, blood, mother-to-child</td><td>Significant public health issue</td></tr>
+            <tr><td><strong>Poliomyelitis</strong></td><td>Poliovirus</td><td>Faecal-oral route</td><td>Population exposed early in life; vaccine preventable</td></tr>
+            <tr><td><strong>Measles</strong></td><td>Measles virus</td><td>Airborne droplets</td><td>Vaccine preventable; population exposed early</td></tr>
+            <tr><td><strong>Rubella</strong></td><td>Rubella virus</td><td>Airborne droplets</td><td>Dangerous in pregnancy; vaccine preventable</td></tr>
+            <tr><td><strong>Mumps</strong></td><td>Mumps virus</td><td>Airborne droplets</td><td>Vaccine preventable</td></tr>
+            <tr><td><strong>Rotaviral diarrhoea</strong></td><td>Rotavirus</td><td>Faecal-oral route</td><td>Important cause of infant morbidity and mortality</td></tr>
+            <tr><td><strong>Yellow fever</strong></td><td>Yellow fever virus</td><td>Mosquito bite</td><td>Endemic in vast areas of the country</td></tr>
+            <tr><td><strong>Rabies</strong></td><td>Rabies virus</td><td>Animal bites</td><td>Endemic in vast areas; nearly always fatal once symptoms appear</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why we study viruses</div>
+          <p>
+            Understanding viruses is essential for:
+          </p>
+          <p style="margin-top:.5rem">
+            • Developing <strong>vaccines</strong> and <strong>antiviral drugs</strong><br>
+            • Diagnosing infections quickly (using PCR and other molecular tools)<br>
+            • Tracking outbreaks and controlling spread<br>
+            • Understanding how viruses evolve and how they cause disease
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 2.7 — Group discussion</div>
+          <div class="activity-body">
+            In groups of 5–10, discuss and give an illustrated explanation on:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>The morphology and chemical structure of viruses</li>
+              <li>The multiplication of viruses (six stages)</li>
+              <li>How HIV reproduces and causes AIDS</li>
+              <li>The reproductive cycle of bacteriophages (lytic vs lysogenic)</li>
+            </ul>
+            Write an essay summarizing your discussion.
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What are viruses? Why are they described as "on the edge of life"?<br>
+            B. Describe the four basic structural components of a virus.<br>
+            C. What are the three main types of viral symmetry?<br>
+            D. Compare DNA and RNA viruses.<br>
+            E. What is a retrovirus? Give an example.<br>
+            F. Describe the six stages of viral reproduction.<br>
+            G. How does HIV cause AIDS?<br>
+            H. Name five viral diseases common in Ethiopia.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">Why are viruses described as being <strong>"on the edge of life"</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> They are too small to see</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> They have genetic material but cannot reproduce on their own or carry out metabolism</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> They are the smallest living things</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> They only live in extreme environments</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is the <strong>protein coat</strong> of a virus called?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Capsid</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Nucleocapsid</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Envelope</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Peplomer</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">What is a <strong>retrovirus</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> A DNA virus that infects bacteria</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> An RNA virus that converts its RNA into DNA after infecting a host</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> A virus that cannot infect humans</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> A virus without a capsid</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Which cell does <strong>HIV</strong> primarily attack?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Red blood cells</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Helper T-cells (CD4+ cells) of the immune system</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Nerve cells</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Muscle cells</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which of the following is <strong>NOT</strong> a route of HIV transmission?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Unprotected sexual contact</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Sharing needles</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Mosquito bites</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Mother to child during pregnancy</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=virus+structure+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Virus Structure Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=viral+replication+lytic+lysogenic+cycle" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Viral Replication — Lytic &amp; Lysogenic Cycles</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=HIV+AIDS+how+it+works+immune+system" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">HIV/AIDS — How It Works</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=DNA+vs+RNA+viruses+difference" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">DNA vs RNA Viruses — Differences</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 2.6</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Viruses</strong> are non-cellular parasites of cells — they have DNA or RNA enclosed in a protein coat (capsid)</li>
+          <li>They are <strong>"on the edge of life"</strong> — they cannot reproduce on their own or carry out metabolism</li>
+          <li>Four basic components: <strong>genome, capsid, envelope (some), enzymes (some)</strong></li>
+          <li>Three symmetry types: <strong>helical</strong> (TMV), <strong>icosahedral</strong> (adenovirus), <strong>complex</strong> (bacteriophages)</li>
+          <li><strong>DNA viruses</strong> replicate in the nucleus and are more stable; <strong>RNA viruses</strong> replicate in cytoplasm and mutate faster</li>
+          <li><strong>Retroviruses</strong> (like HIV) convert RNA → DNA using reverse transcriptase</li>
+          <li>Six stages of viral reproduction: <strong>attachment, penetration, uncoating, replication, assembly, release</strong></li>
+          <li><strong>HIV</strong> attacks CD4+ helper T-cells, leading to AIDS if untreated</li>
+          <li>Common viral diseases in Ethiopia: <strong>hepatitis B/C/E, HIV, polio, measles, rubella, mumps, rotavirus, yellow fever, rabies</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-5.html" class="btn btn-outline">← Lesson 2.5</a>
+      <a href="lesson-2-7.html" class="btn btn-primary">Next: Lesson 2.7 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 2 · Lesson 2.6 · Viruses</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'A', 3:'B', 4:'B', 5:'C'};
+  const feedback = {
+    1:{correct:'✓ Correct! Viruses have genetic material but cannot reproduce on their own or carry out metabolism — they are "on the edge of life."',wrong:'✗ Viruses are on the edge of life — they need a host to reproduce.'},
+    2:{correct:'✓ Correct! The capsid is the protein coat that surrounds the viral genome.',wrong:'✗ The capsid is the protein coat.'},
+    3:{correct:'✓ Correct! Retroviruses are RNA viruses that use reverse transcriptase to convert RNA into DNA after infection.',wrong:'✗ Retroviruses convert RNA → DNA using reverse transcriptase.'},
+    4:{correct:'✓ Correct! HIV attacks CD4+ helper T-cells of the immune system.',wrong:'✗ HIV attacks CD4+ helper T-cells.'},
+    5:{correct:'✓ Correct! HIV is NOT transmitted by mosquito bites. It spreads through sexual contact, blood, and mother-to-child.',wrong:'✗ Mosquitoes do not transmit HIV.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 2.6.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
