@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5.6: The Endocrine System | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .gland-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .gland-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .gland-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .gland-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .gland-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .gland-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 5</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 5 · Lesson 6</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> Glands &amp; Hormones</button>
+      <button class="sidebar-link" onclick="scrollToId('mechanisms')"><div class="sidebar-dot"></div> Hormone Mechanisms</button>
+      <button class="sidebar-link" onclick="scrollToId('hypothalamus')"><div class="sidebar-dot"></div> Hypothalamus</button>
+      <button class="sidebar-link" onclick="scrollToId('pituitary')"><div class="sidebar-dot"></div> Pituitary Gland</button>
+      <button class="sidebar-link" onclick="scrollToId('thyroid')"><div class="sidebar-dot"></div> Thyroid &amp; Parathyroid</button>
+      <button class="sidebar-link" onclick="scrollToId('adrenal')"><div class="sidebar-dot"></div> Adrenal Glands</button>
+      <button class="sidebar-link" onclick="scrollToId('pancreas')"><div class="sidebar-dot"></div> Pancreas</button>
+      <button class="sidebar-link" onclick="scrollToId('gonads')"><div class="sidebar-dot"></div> Gonads &amp; Pineal</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="lesson-5-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Nervous System</a>
+      <a href="lesson-5-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Brain &amp; Spinal Cord</a>
+      <a href="lesson-5-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: PNS &amp; Neurons</a>
+      <a href="lesson-5-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Drug Abuse</a>
+      <a href="lesson-5-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Sense Organs</a>
+      <a href="lesson-5-6.html" class="sidebar-link active"><div class="sidebar-dot"></div> L6: Endocrine System</a>
+      <a href="lesson-5-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Exocrine Glands</a>
+      <a href="lesson-5-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Homeostasis</a>
+      <a href="lesson-5-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Drug Side Effects</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 5</a> ›
+      Lesson 5.6
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Human Body System · MoE Textbook §5.6</div>
+      <h1>⚗️ The Endocrine System</h1>
+      <p>The endocrine system is the body's other control network — slower than the nervous system but with longer-lasting effects. It uses chemicals called hormones to control growth, metabolism, reproduction, and much more. This lesson explores the major endocrine glands and their hormones.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~28 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          The endocrine system interacts with the nervous system to <strong>coordinate and integrate body activities by means of hormones</strong>. While the nervous system uses electrical impulses for rapid responses, the endocrine system uses chemical messengers (hormones) that travel in the blood and act more slowly but with longer-lasting effects.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li><strong>Define</strong> glands and hormones</li>
+          <li>Explain the difference between <strong>endocrine and exocrine</strong> glands</li>
+          <li>Describe <strong>protein hormones and steroid hormones</strong> and how they act</li>
+          <li>Identify the <strong>location and function</strong> of major endocrine glands: hypothalamus, pituitary, thyroid, parathyroid, adrenal, pancreas, gonads, pineal</li>
+          <li>Describe the hormones each gland produces</li>
+          <li>Understand the effects of <strong>hypo- and hyper-secretion</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">Glands &amp; Hormones</div><div class="section-subtitle">MoE Textbook §5.6.1</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Glands</div>
+          <p>
+            <strong>Glands</strong> are structures which <strong>produce hormones and other useful substances</strong>. The endocrine glands that produce hormones <strong>have no ducts</strong>, so they are sometimes known as <strong>ductless glands</strong>. They secrete hormones directly into the blood.
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Hormones</div>
+          <p>
+            <strong>Hormones</strong> are chemicals produced in one part of an organism which produce <strong>specific effects on a different part</strong> of the organism. They are carried from glands to the body parts throughout the bloodstream.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Endocrine vs Exocrine Glands</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Feature</th><th>Endocrine Glands</th><th>Exocrine Glands</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Ducts</strong></td><td>No ducts (ductless)</td><td>Have ducts</td></tr>
+            <tr><td><strong>Secretion</strong></td><td>Directly into the blood</td><td>Onto an epithelial surface via ducts</td></tr>
+            <tr><td><strong>Products</strong></td><td>Hormones</td><td>Enzymes, sweat, saliva, milk, etc.</td></tr>
+            <tr><td><strong>Target</strong></td><td>Specific target cells with receptors</td><td>Direct site of action</td></tr>
+            <tr><td><strong>Examples</strong></td><td>Pituitary, thyroid, adrenal, pancreas (endocrine part)</td><td>Salivary, sweat, sebaceous, lacrimal, mammary</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Some glands are both!</div>
+          <p>
+            The <strong>liver and pancreas</strong> are both exocrine AND endocrine glands. They are exocrine because they secrete products (bile and pancreatic juice) into the gastrointestinal tract through ducts, and endocrine because they secrete other substances (like insulin and glucagon) directly into the bloodstream.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="mechanisms">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Hormone Mechanisms</div><div class="section-subtitle">How hormones work</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Hormones act in different ways depending on their chemical nature. There are two main types:
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Protein Hormones</h3>
+        <ul class="key-points">
+          <li>Transported in the blood or lymph <strong>without a transporter</strong></li>
+          <li>When the hormone arrives at the target cell, it binds with a <strong>specific receptor embedded in the cell membrane</strong> of the target cell</li>
+          <li>The binding activates a series of chemical reactions ("<strong>cascade reactions</strong>") in the cytoplasm</li>
+          <li>The product of these reactions is a substance known as the "<strong>secondary messenger</strong>" (usually cyclic adenosine monophosphate or cAMP)</li>
+          <li>The secondary messenger acts on behalf of the protein hormone, causing a potent effect in the target cell</li>
+          <li>Since protein hormones never diffuse to the DNA of target cells, <strong>no new proteins or enzymes are made</strong> at the end</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Steroid Hormones</h3>
+        <ul class="key-points">
+          <li>Bind to a <strong>protein transporter</strong> during transport in blood or lymph</li>
+          <li>When they arrive at the target cells, the protein transporter (being fat-insoluble) is repelled by the cell membrane</li>
+          <li>The steroid hormone (being fat-soluble) <strong>diffuses into the cytoplasm</strong> of target cell</li>
+          <li>Then diffuses across the nuclear envelope and <strong>enters the nucleus</strong> of target cell</li>
+          <li>Binds to a specific <strong>receptor located on a particular gene</strong> of the target cell's DNA</li>
+          <li>This binding alters the genetic information within that gene, resulting in a <strong>new messenger RNA (mRNA)</strong> being produced after transcription</li>
+          <li>The new mRNA is translated into a <strong>new protein or enzyme</strong> in the cytoplasm</li>
+          <li>The new protein or enzyme causes a specific effect to occur within the target cells</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key difference</div>
+          <p>
+            <strong>Protein hormones</strong> — act via secondary messengers; do NOT enter the nucleus; do NOT make new proteins<br>
+            <strong>Steroid hormones</strong> — enter the nucleus; DO make new proteins by altering gene expression
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="hypothalamus">
+      <div class="section-header"><div class="section-icon">🧠</div>
+        <div><div class="section-title-text">The Hypothalamus</div><div class="section-subtitle">The link between nervous and endocrine systems</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The <strong>hypothalamus</strong> connects the nervous system to the endocrine system. It receives and processes signals from other brain regions and pathways, where the hypothalamus translates them into hormones — the chemical messengers of the endocrine system.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Functions</h3>
+        <ul class="key-points">
+          <li>Hormones flow to the <strong>pituitary gland</strong> via the <strong>infundibulum</strong></li>
+          <li>Some hormones are <strong>stored in the pituitary</strong> for later release</li>
+          <li>Others spur the pituitary to secrete its own hormones</li>
+          <li>The hypothalamus <strong>controls the other endocrine glands</strong> and regulates all the major internal functions</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="pituitary">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">The Pituitary Gland</div><div class="section-subtitle">The master gland</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The Pituitary Gland</div>
+          <p>
+            The <strong>pituitary gland</strong>, found in the brain and about the <strong>size of a pea</strong>, is sometimes described as the <strong>controller of the endocrine orchestra</strong> (master gland). The hormones made in this tiny gland control the secretion of many other hormones. Because of its position in the brain, it is also involved in the co-ordination between the nervous and hormonal systems of control.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Lobes</h3>
+        <ul class="key-points">
+          <li><strong>Anterior lobe (adenohypophysis)</strong> — about 3 times larger than the posterior lobe. Under <strong>hormonal control</strong> by the hypothalamus (blood vessels transport "releasing hormones" to the anterior lobe). Contains 5 types of glandular cells that produce different types of hormones.</li>
+          <li><strong>Posterior lobe (neurohypophysis)</strong> — under <strong>nervous control</strong> by the hypothalamus (nerve fibers innervate the posterior lobe). Does NOT produce hormones — it only <strong>releases hormones made by the hypothalamus</strong>.</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Anterior vs posterior</div>
+          <p>
+            <strong>Anterior pituitary</strong> — produces its own hormones<br>
+            <strong>Posterior pituitary</strong> — stores and releases hormones made by the hypothalamus
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="thyroid">
+      <div class="section-header"><div class="section-icon">🦋</div>
+        <div><div class="section-title-text">Thyroid &amp; Parathyroid Glands</div><div class="section-subtitle">Metabolism and calcium regulation</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">The Thyroid Gland</h3>
+        <ul class="key-points">
+          <li>A small, <strong>butterfly-shaped gland</strong> located inferior to the larynx (voice box) and attached to the trachea</li>
+          <li>Divided into <strong>two lateral lobes</strong></li>
+          <li>Thyroid follicles utilize <strong>iodine</strong> and synthesize <strong>thyroglobulin (TGB)</strong> to be stored in the colloids</li>
+          <li>Upon stimulation of TSH, TGB is converted into two hormones:
+            <ul style="margin-left:1rem;margin-top:.25rem">
+              <li><strong>Triiodothyronine (T3)</strong></li>
+              <li><strong>Thyroxine (T4)</strong></li>
+            </ul>
+          </li>
+          <li>These hormones promote <strong>normal metabolism</strong></li>
+          <li>The thyroid also secretes <strong>calcitonin</strong> to lower blood calcium and phosphate levels</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Thyroid Disorders</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Condition</th><th>Cause</th><th>Effect</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Hypothyroidism</strong></td><td>Under-secretion of thyroid hormones</td><td>Goiter, cretinism, myxedema</td></tr>
+            <tr><td><strong>Hyperthyroidism</strong></td><td>Over-secretion of thyroid hormones</td><td>Graves' disease</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Parathyroid Glands</h3>
+        <ul class="key-points">
+          <li><strong>Four oval-shaped glands</strong> embedded in the posterior surface of the thyroid gland</li>
+          <li>Each is about the size of a <strong>grain of rice</strong> (about 3–5 mm in diameter and 30–60 mg in weight)</li>
+          <li>Release <strong>parathyroid hormone (PTH)</strong></li>
+          <li>PTH <strong>controls the calcium levels in the blood</strong></li>
+          <li>Bones, kidneys, and small intestine respond to PTH by <strong>increasing the calcium levels in the blood</strong></li>
+          <li>Calcium is very important for our bodies — especially for <strong>muscle and nerve function</strong></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Parathyroid Disorders</h3>
+        <ul class="key-points">
+          <li><strong>Hypo-secretion</strong> → tetany (muscle spasms)</li>
+          <li><strong>Hyper-secretion</strong> → osteitis fibrosa cystica (bone weakening)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="adrenal">
+      <div class="section-header"><div class="section-icon">⚡</div>
+        <div><div class="section-title-text">The Adrenal Glands</div><div class="section-subtitle">Fight-or-flight and metabolism</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          <strong>Adrenal glands</strong>, also known as <strong>suprarenal glands</strong>, are small, triangular-shaped glands located on the <strong>top of both kidneys</strong>. Adrenal glands are composed of two parts — the <strong>cortex</strong> and the <strong>medulla</strong> — which are responsible for the production of different hormones.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Adrenal Cortex</h3>
+        <ul class="key-points">
+          <li>The <strong>outer portion</strong> of the adrenal gland, attached to the superior surface of the kidney</li>
+          <li>Divided into <strong>3 regions</strong> (from outside to inside):
+            <ul style="margin-left:1rem;margin-top:.25rem">
+              <li><strong>Zona glomerulosa</strong></li>
+              <li><strong>Zona fasciculata</strong></li>
+              <li><strong>Zona reticularis</strong></li>
+            </ul>
+          </li>
+          <li>Secretes over <strong>30 steroid-based substances</strong> and several steroid hormones — all crucial for normal homeostasis</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Adrenal Medulla</h3>
+        <ul class="key-points">
+          <li>The <strong>inner portion</strong> of the adrenal gland</li>
+          <li>Made of modified nerve tissue that is under direct regulation of <strong>sympathetic nerves of the autonomic nervous system</strong></li>
+          <li>Contains glandular cells called <strong>chromaffin cells</strong></li>
+          <li>Secretes two closely related hormones:
+            <ul style="margin-left:1rem;margin-top:.25rem">
+              <li><strong>Epinephrine (adrenaline)</strong></li>
+              <li><strong>Norepinephrine (noradrenaline)</strong></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The hormone of "fight or flight"</div>
+          <p>
+            <strong>Adrenaline</strong> is a well-known hormone produced by your adrenal glands. It is the hormone of "<strong>fight or flight</strong>." If you are stressed, angry, excited, or frightened, your adrenal glands will secrete lots of adrenaline.
+          </p>
+          <p style="margin-top:.5rem">
+            Carried rapidly around in your blood, adrenaline affects many different organs — from the pupils of your eyes (it dilates them) to the beating of your heart (it speeds it up). Adrenaline basically prepares your body for action, so you can run fast to escape or fight successfully if you need to.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="pancreas">
+      <div class="section-header"><div class="section-icon">🍬</div>
+        <div><div class="section-title-text">The Pancreas</div><div class="section-subtitle">Blood glucose regulation</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          <strong>Pancreas</strong> is a small pink organ found below the stomach. It is both <strong>exocrine and endocrine</strong> in physiology.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Exocrine vs Endocrine Functions</h3>
+        <ul class="key-points">
+          <li><strong>Exocrine (99% of mass)</strong> — composed of cells called acini which secrete <strong>digestive enzymes and fluids</strong> into the small intestine through the pancreatic ducts</li>
+          <li><strong>Endocrine (1% of mass)</strong> — little groups of cells called <strong>islets of Langerhans</strong> (or pancreatic islets) that secrete hormones to regulate blood glucose level</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Hormones of the Pancreas</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Cell type</th><th>Hormone</th><th>Effect on blood glucose</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Alpha cells (α)</strong></td><td>Glucagon</td><td><strong>Raises</strong> blood glucose level</td></tr>
+            <tr><td><strong>Beta cells (β)</strong></td><td>Insulin</td><td><strong>Lowers</strong> blood glucose level</td></tr>
+            <tr><td><strong>Delta cells (δ)</strong></td><td>Somatostatin (GHIH)</td><td>Regulates carbohydrate metabolism by inhibiting secretion of glucagon</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Pancreatic Disorders</h3>
+        <ul class="key-points">
+          <li><strong>Hypo-secretion of insulin</strong> → <strong>diabetes mellitus</strong> (high blood glucose)</li>
+          <li><strong>Hyper-secretion of insulin</strong> → <strong>hyperinsulinism</strong> (low blood glucose)</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Diabetes — the two main types</div>
+          <p>
+            <strong>Type 1 diabetes</strong> — the body cannot produce insulin (autoimmune destruction of beta cells)<br>
+            <strong>Type 2 diabetes</strong> — the body produces insulin but cells don't respond to it properly (insulin resistance)<br>
+            Both lead to high blood glucose levels if untreated.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="gonads">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Gonads &amp; Pineal Gland</div><div class="section-subtitle">Reproductive hormones and daily rhythms</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">The Gonads</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.875rem">
+          The <strong>gonads</strong> are the endocrine glands that produce the sex hormones. These are the <strong>testes in boys</strong> and <strong>ovaries in girls</strong>, which become active at the time of <strong>puberty</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Ovaries (Female)</h3>
+        <ul class="key-points">
+          <li>Two <strong>walnut-sized organs</strong> found low in the abdomen on either side of the uterus</li>
+          <li>Produce <strong>eggs and hormones</strong></li>
+          <li>Girls often go into puberty slightly earlier than boys — between the ages of <strong>8 and 14</strong></li>
+          <li>Puberty in girls is controlled by hormones from the <strong>pituitary gland</strong> in the brain and from the ovaries themselves</li>
+          <li><strong>FSH</strong> from the brain stimulates the ovaries to become active and start producing <strong>oestrogen</strong></li>
+          <li>As oestrogen levels rise, all kinds of changes are triggered and the <strong>female secondary sexual characteristics</strong> develop</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Testes (Male)</h3>
+        <ul class="key-points">
+          <li>The testis is the <strong>male sex organ</strong> that also serves as an endocrine gland</li>
+          <li>Contains interstitial cells (<strong>Leydig's cells</strong>) that secrete <strong>testosterone</strong></li>
+          <li>Testosterone develops <strong>male secondary sexual characteristics</strong></li>
+          <li>Puberty in boys usually begins between the ages of <strong>9 and 15</strong></li>
+          <li>Pituitary gland increases production of <strong>FSH</strong>, which stimulates the testes to begin developing and producing testosterone</li>
+          <li>Rising levels of testosterone trigger the changes that affect the body during puberty</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Pineal Gland</h3>
+        <ul class="key-points">
+          <li><strong>Pine cone shaped</strong>, located deep in the cerebrum</li>
+          <li>Secretes <strong>melatonin</strong></li>
+          <li>Regulates <strong>circadian rhythms</strong> — necessary to keep track of day/night cycles, sleep/wake rhythm, and menstrual and ovarian cycles</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Thymus Gland</h3>
+        <ul class="key-points">
+          <li>A <strong>diminishing gland</strong> (over time) located between the lungs</li>
+          <li>Secretes a group of hormones such as <strong>thymosin</strong></li>
+          <li>Affects the <strong>production and maturation of lymphocytes</strong> in body defenses</li>
+        </ul>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 5.32–5.38 — Group work</div>
+          <div class="activity-body">
+            In small groups, discuss and research:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>How is hormone production regulated in the human body? What types of feedback are involved?</li>
+              <li>The different hormones produced by the anterior and posterior pituitary</li>
+              <li>Problems associated with these hormones</li>
+              <li>The function of thyroxine and the current situation of goiter in Ethiopia</li>
+              <li>Why women and children are more affected by iodine deficiency than men</li>
+              <li>The role of adrenaline</li>
+              <li>The basic differences between Type I and Type II diabetes</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What are hormones and glands?<br>
+            B. How are endocrine glands different from exocrine glands? Give examples of each.<br>
+            C. Compare protein and steroid hormone mechanisms.<br>
+            D. What is the role of the hypothalamus? Where is the pituitary gland located, and what is its function?<br>
+            E. What hormones does the thyroid gland produce? What are their functions? What disorders result from hypo- and hyper-secretion?<br>
+            F. What is the function of parathyroid hormone? What disorders result from its imbalance?<br>
+            G. What hormones do the adrenal cortex and adrenal medulla produce? What is adrenaline's role?<br>
+            H. What hormones does the pancreas produce? What is their role in blood glucose regulation?<br>
+            I. What hormones do the gonads produce?<br>
+            J. What is the function of the pineal gland?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is the difference between <strong>endocrine and exocrine glands</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Endocrine glands have ducts; exocrine glands don't</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Endocrine glands are ductless and secrete hormones into the blood; exocrine glands have ducts and secrete onto a surface</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Endocrine glands are only found in the brain</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Exocrine glands only produce hormones</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Which gland is known as the <strong>"master gland"</strong> because it controls the secretion of many other hormones?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Thyroid</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Pituitary</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Adrenal</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Pancreas</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Which hormone <strong>lowers blood glucose</strong> level?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Glucagon</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Insulin</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Adrenaline</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Thyroxine</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Which gland produces <strong>adrenaline</strong>, the "fight or flight" hormone?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Pituitary</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Adrenal medulla</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Thyroid</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Pancreas</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which hormone is produced by the <strong>pineal gland</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Insulin</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Melatonin</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Thyroxine</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Adrenaline</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=endocrine+system+glands+hormones+overview" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Endocrine System — Glands &amp; Hormones</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=pituitary+thyroid+adrenal+pancreas+glands" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Major Endocrine Glands — Functions</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=insulin+glucagon+blood+glucose+regulation" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Insulin &amp; Glucagon — Blood Glucose Regulation</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=protein+steroid+hormones+mechanism+action" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Protein &amp; Steroid Hormones — Mechanisms</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 5.6</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Hormones</strong> are chemicals produced in one part of the body that affect another part; <strong>glands</strong> produce them</li>
+          <li><strong>Endocrine glands</strong> are ductless and secrete hormones into the blood; <strong>exocrine glands</strong> have ducts</li>
+          <li><strong>Protein hormones</strong> act via secondary messengers; <strong>steroid hormones</strong> enter the nucleus and alter gene expression</li>
+          <li>The <strong>hypothalamus</strong> links the nervous and endocrine systems</li>
+          <li>The <strong>pituitary gland</strong> is the "master gland" — has anterior and posterior lobes</li>
+          <li><strong>Thyroid</strong> produces thyroxine (T4) and T3 (metabolism) and calcitonin (lowers blood calcium)</li>
+          <li><strong>Parathyroid</strong> produces PTH which raises blood calcium</li>
+          <li><strong>Adrenal cortex</strong> produces steroid hormones; <strong>adrenal medulla</strong> produces adrenaline (fight or flight)</li>
+          <li><strong>Pancreas</strong> produces insulin (lowers glucose) and glucagon (raises glucose)</li>
+          <li><strong>Gonads</strong> (ovaries and testes) produce sex hormones — oestrogen and testosterone</li>
+          <li><strong>Pineal gland</strong> produces melatonin, regulating circadian rhythms</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-5-5.html" class="btn btn-outline">← Lesson 5.5</a>
+      <a href="lesson-5-7.html" class="btn btn-primary">Next: Lesson 5.7 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 5 · Lesson 5.6 · The Endocrine System</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'B', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Endocrine glands are ductless and secrete hormones into the blood; exocrine glands have ducts and secrete onto surfaces.',wrong:'✗ Endocrine = ductless, secretes into blood.'},
+    2:{correct:'✓ Correct! The pituitary gland is called the "master gland" because its hormones control the secretion of many other hormones.',wrong:'✗ Pituitary = master gland.'},
+    3:{correct:'✓ Correct! Insulin, produced by the beta cells of the pancreas, lowers blood glucose level.',wrong:'✗ Insulin lowers blood glucose.'},
+    4:{correct:'✓ Correct! Adrenaline (epinephrine) is produced by the adrenal medulla and prepares the body for fight or flight.',wrong:'✗ Adrenal medulla produces adrenaline.'},
+    5:{correct:'✓ Correct! The pineal gland produces melatonin, which regulates circadian rhythms and sleep/wake cycles.',wrong:'✗ Pineal gland produces melatonin.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 5.6.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
