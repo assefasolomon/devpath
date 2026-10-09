@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5.3: Peripheral Nervous System &amp; Neurons | Biology Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#16A34A}
+    .sidebar-link.active{background:#DCFCE7;color:#166534;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#14532D,#16A34A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DCFCE7}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#16A34A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0FDF4;border:1.5px solid #BBF7D0;border-left:5px solid #16A34A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#166534;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#16A34A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#16A34A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #BBF7D0;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#16A34A;box-shadow:0 4px 12px rgba(22,163,74,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#166534;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#16A34A;background:#F0FDF4}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #16A34A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#16A34A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#F0FDF4,#DCFCE7);border:1.5px solid #BBF7D0;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#166534;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(22,163,74,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#16A34A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#16A34A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Biology Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 5</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 5 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('pns')"><div class="sidebar-dot"></div> The PNS</button>
+      <button class="sidebar-link" onclick="scrollToId('somatic')"><div class="sidebar-dot"></div> Somatic System</button>
+      <button class="sidebar-link" onclick="scrollToId('autonomic')"><div class="sidebar-dot"></div> Autonomic System</button>
+      <button class="sidebar-link" onclick="scrollToId('sympathetic')"><div class="sidebar-dot"></div> Sympathetic vs Parasympathetic</button>
+      <button class="sidebar-link" onclick="scrollToId('neurons')"><div class="sidebar-dot"></div> Neurons</button>
+      <button class="sidebar-link" onclick="scrollToId('types')"><div class="sidebar-dot"></div> Types of Neurons</button>
+      <button class="sidebar-link" onclick="scrollToId('synapse')"><div class="sidebar-dot"></div> Synapses</button>
+      <button class="sidebar-link" onclick="scrollToId('impulse')"><div class="sidebar-dot"></div> Nerve Impulse</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="lesson-5-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Nervous System</a>
+      <a href="lesson-5-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Brain &amp; Spinal Cord</a>
+      <a href="lesson-5-3.html" class="sidebar-link active"><div class="sidebar-dot"></div> L3: PNS &amp; Neurons</a>
+      <a href="lesson-5-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Drug Abuse</a>
+      <a href="lesson-5-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Sense Organs</a>
+      <a href="lesson-5-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Endocrine System</a>
+      <a href="lesson-5-7.html" class="sidebar-link"><div class="sidebar-dot"></div> L7: Exocrine Glands</a>
+      <a href="lesson-5-8.html" class="sidebar-link"><div class="sidebar-dot"></div> L8: Homeostasis</a>
+      <a href="lesson-5-9.html" class="sidebar-link"><div class="sidebar-dot"></div> L9: Drug Side Effects</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Natural Science</a> ›
+      <a href="../../index.html">Biology</a> ›
+      <a href="../index.html">Unit 5</a> ›
+      Lesson 5.3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Human Body System · MoE Textbook §5.3</div>
+      <h1>⚡ Peripheral Nervous System &amp; Neurons</h1>
+      <p>How does the brain communicate with the rest of the body? Through a vast network of neurons that extend from the CNS to every corner of your body. This lesson explores the PNS, the cells that carry its signals, and how those signals travel.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          The CNS (brain and spinal cord) is the body's control centre — but on its own, it can't do anything. It needs a network of <strong>nerves</strong> to carry information to and from every part of the body. That network is the <strong>Peripheral Nervous System (PNS)</strong>. This lesson explores its divisions, the nerve cells (neurons) that make it work, and how signals travel along them.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define the <strong>peripheral nervous system (PNS)</strong></li>
+          <li>Describe the <strong>somatic</strong> and <strong>autonomic</strong> nervous systems</li>
+          <li>Compare the <strong>sympathetic and parasympathetic</strong> divisions</li>
+          <li>Describe the structure of a <strong>neuron</strong></li>
+          <li>Identify the <strong>three types of neurons</strong></li>
+          <li>Explain how signals pass across a <strong>synapse</strong></li>
+          <li>Explain what a <strong>nerve impulse</strong> and <strong>action potential</strong> are</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="pns">
+      <div class="section-header"><div class="section-icon">🔌</div>
+        <div><div class="section-title-text">The Peripheral Nervous System</div><div class="section-subtitle">The wiring of the body</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Peripheral Nervous System (PNS)</div>
+          <p>
+            The <strong>Peripheral Nervous System (PNS)</strong> is the division of the nervous system that contains all the <strong>nerves that lie outside of the central nervous system</strong>. Its primary role is to <strong>connect the CNS to the organs, limbs, and skin</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">What the PNS Does</h3>
+        <ul class="key-points">
+          <li>Nerves extend from the CNS to the <strong>outermost areas of the body</strong></li>
+          <li>It allows the brain and spinal cord to <strong>receive and send information</strong> to other areas of the body</li>
+          <li>It allows you to <strong>react to stimuli</strong> in your environment</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Two Parts of the PNS</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🏃</div>
+            <div class="concept-title">Somatic Nervous System</div>
+            <p class="concept-desc">Responsible for carrying <strong>sensory and motor information</strong> to and from the CNS. Controls <strong>voluntary movement</strong>. Name comes from the Greek word <em>soma</em>, meaning "body."</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">❤️</div>
+            <div class="concept-title">Autonomic Nervous System</div>
+            <p class="concept-desc">Regulates <strong>involuntary body functions</strong> such as blood flow, heartbeat, digestion, and breathing. Controls aspects of the body that are <strong>usually not under voluntary control</strong>.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Involuntary = automatic</div>
+          <p>
+            You don't have to consciously think about your heartbeat, blood flow, digestion, or breathing — the <strong>autonomic nervous system</strong> handles all of that automatically. That's why it's called "autonomic" — like an autonomous (self-governing) system.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="somatic">
+      <div class="section-header"><div class="section-icon">🏃</div>
+        <div><div class="section-title-text">The Somatic Nervous System</div><div class="section-subtitle">Voluntary movement</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The <strong>somatic system</strong> is the part of the PNS that is responsible for carrying <strong>sensory and motor information to and from the central nervous system</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Features</h3>
+        <ul class="key-points">
+          <li>The name comes from the Greek word <strong>soma</strong>, which means <strong>"body"</strong></li>
+          <li>Responsible for transmitting <strong>sensory information</strong> to the CNS</li>
+          <li>Responsible for <strong>voluntary movement</strong> (skeletal muscles)</li>
+          <li>Controls movements you consciously decide to make</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Examples</h3>
+        <ul class="key-points">
+          <li>Waving your hand</li>
+          <li>Walking, running, or jumping</li>
+          <li>Writing, typing, or playing an instrument</li>
+          <li>Speaking and singing</li>
+          <li>Feeling touch, pressure, or temperature on your skin</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="autonomic">
+      <div class="section-header"><div class="section-icon">❤️</div>
+        <div><div class="section-title-text">The Autonomic Nervous System</div><div class="section-subtitle">Involuntary body functions</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The <strong>autonomic system</strong> is part of your PNS that is responsible for regulating <strong>involuntary body functions</strong>. It controls aspects of the body that are usually not under voluntary control, allowing these functions to take place without the need to consciously think about them.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Examples of Autonomic Functions</h3>
+        <ul class="key-points">
+          <li>Blood flow</li>
+          <li>Heartbeat</li>
+          <li>Digestion</li>
+          <li>Breathing</li>
+          <li>Sweating</li>
+          <li>Pupil dilation/constriction</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Branches of the Autonomic System</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text)">
+          The autonomic system is further divided into two branches — the <strong>sympathetic</strong> and <strong>parasympathetic</strong> systems. They work in opposition to keep the body balanced.
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block" id="sympathetic">
+      <div class="section-header"><div class="section-icon">⚡</div>
+        <div><div class="section-title-text">Sympathetic vs Parasympathetic</div><div class="section-subtitle">The "fight or flight" and "rest and digest" systems</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🔥</div>
+            <div class="concept-title">Sympathetic System</div>
+            <p class="concept-desc">Regulates the <strong>"fight-or-flight" response</strong>. Prepares the body to <strong>expend energy</strong> to respond to environmental threats. When action is needed, the sympathetic system triggers a response by accelerating heart rate, increasing breathing rate, boosting blood flow to muscles, activating sweat secretion, and dilating the pupils.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">😌</div>
+            <div class="concept-title">Parasympathetic System</div>
+            <p class="concept-desc">Helps <strong>maintain normal body functions and conserve physical resources</strong>. Once a threat is recognized, this system will slow the heart rate, slow breathing, reduce blood flow to muscles, and constrict the pupils. This allows us to return our bodies to a <strong>normal resting state</strong>.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Comparing the Two Branches</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Function</th><th>Sympathetic System</th><th>Parasympathetic System</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Purpose</strong></td><td>Fight-or-flight (prepare for action)</td><td>Rest-and-digest (recover and restore)</td></tr>
+            <tr><td><strong>Heart rate</strong></td><td>Increases</td><td>Decreases</td></tr>
+            <tr><td><strong>Breathing rate</strong></td><td>Increases</td><td>Decreases</td></tr>
+            <tr><td><strong>Blood flow to muscles</strong></td><td>Increases</td><td>Decreases</td></tr>
+            <tr><td><strong>Pupils</strong></td><td>Dilate (get bigger)</td><td>Constrict (get smaller)</td></tr>
+            <tr><td><strong>Sweating</strong></td><td>Increases</td><td>Normal</td></tr>
+            <tr><td><strong>Digestion</strong></td><td>Slows down</td><td>Speeds up</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 A real-life example</div>
+          <p>
+            Imagine you're walking down the street and see a snake. Your <strong>sympathetic system</strong> kicks in — your heart races, your pupils dilate, your breathing quickens, and you feel a rush of energy. You're ready to run or fight.
+          </p>
+          <p style="margin-top:.5rem">
+            The snake turns out to be a stick. Once the threat is gone, your <strong>parasympathetic system</strong> takes over — your heart slows down, your breathing returns to normal, and your body goes back to its resting state. This constant balance is essential to good health.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="neurons">
+      <div class="section-header"><div class="section-icon">🔬</div>
+        <div><div class="section-title-text">Neurons</div><div class="section-subtitle">The cells of the nervous system</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Neurons</div>
+          <p>
+            <strong>Neurons</strong> are <strong>nerve cells</strong> — the basic unit of communication in the nervous system. Neurons vary in size, shape, and structure depending on their role and location, but nearly all neurons have <strong>three essential parts</strong>: a cell body, an axon, and dendrites.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Parts of a Neuron</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🟢</div>
+            <div class="concept-title">Cell Body (Soma)</div>
+            <p class="concept-desc">The neuron's core. Contains the nucleus and specialized organelles. Carries genetic information, maintains the neuron's structure, and provides energy to drive activities. Enclosed by a membrane that protects it and allows it to interact with its surroundings.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🟡</div>
+            <div class="concept-title">Axon</div>
+            <p class="concept-desc">A <strong>long, tail-like structure</strong> that joins the cell body at a specialized junction called the <strong>axon hillock</strong>. Most neurons have one main axon. Carries nerve impulses <strong>away</strong> from the cell body. Many axons are insulated with <strong>myelin</strong>.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🟠</div>
+            <div class="concept-title">Dendrites</div>
+            <p class="concept-desc">Fibrous roots that branch out from the cell body. Like antennae, they <strong>receive and process signals</strong> from the axons of other neurons. Neurons can have more than one set of dendrites (dendritic trees).</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Terms</h3>
+        <ul class="key-points">
+          <li><strong>Dendrites</strong> — tree-like branches that <strong>receive signals</strong> from other nerve cells at synapses</li>
+          <li><strong>Axon</strong> — long process from nerve cell that <strong>carries the nerve impulse away</strong> from the cell body</li>
+          <li><strong>Cell body</strong> — the neuron's core, containing the nucleus</li>
+          <li><strong>Myelin sheath</strong> — fatty insulating sheath that grows around many nerves; makes the impulse travel as fast as possible</li>
+          <li><strong>Node of Ranvier</strong> — periodic gap in the myelin sheath on the axon; facilitates rapid conduction of nerve impulses</li>
+          <li><strong>Axon hillock</strong> — junction where the axon joins the cell body</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The discovery of the Node of Ranvier</div>
+          <p>
+            The interruptions in the myelin covering were first discovered in 1878 by French histologist and pathologist <strong>Louis-Antoine Ranvier</strong>, who described the nodes as constrictions. These gaps allow the nerve impulse to "jump" from node to node — a process called <strong>saltatory conduction</strong> — making the impulse travel much faster.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="types">
+      <div class="section-header"><div class="section-icon">🔀</div>
+        <div><div class="section-title-text">Types of Neurons</div><div class="section-subtitle">Sensory, motor, and interneurons</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          In terms of function, scientists classify neurons into <strong>three broad types</strong>:
+        </p>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">👁️</div>
+            <div class="concept-title">Sensory Neurons (Affector/Afferent)</div>
+            <p class="concept-desc">Help you <strong>taste, smell, hear, see, and feel</strong>. Triggered by physical and chemical inputs from your environment. Carry messages from <strong>sensory receptors to the CNS</strong>. Typically have a <strong>long dendrite and short axon</strong>.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">💪</div>
+            <div class="concept-title">Motor Neurons (Effector/Efferent)</div>
+            <p class="concept-desc">Play a role in <strong>movements</strong> — voluntary and involuntary. Allow the brain and spinal cord to communicate with <strong>muscles, organs, and glands</strong>. Have a <strong>long axon and short dendrites</strong>. Transmit messages from the CNS to the effectors.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🔗</div>
+            <div class="concept-title">Interneurons</div>
+            <p class="concept-desc">Neural intermediaries found in the <strong>brain and spinal cord</strong>. The <strong>most common type of neuron</strong>. They pass signals from sensory neurons and other interneurons to motor neurons and other interneurons. Often form complex circuits that help you react to external stimuli.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Signal Pathway</h3>
+        <div style="background:#F0FDF4;border-left:4px solid #16A34A;border-radius:var(--radius);padding:1rem 1.25rem;margin:1rem 0">
+          <p style="font-size:.85rem;line-height:1.9;color:var(--heading);margin:0">
+            <strong>Sense organ</strong> → <strong>afferent neuron</strong> (sensory) → <strong>central nervous system</strong> → <strong>efferent neuron</strong> (motor) → <strong>muscles/glands</strong> (effectors)
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Types of Nerves</h3>
+        <ul class="key-points">
+          <li><strong>Nerves</strong> are bundles of neurons</li>
+          <li><strong>Effector nerves</strong> — carry only effector neurons</li>
+          <li><strong>Affector nerves</strong> — carry only affector neurons</li>
+          <li><strong>Mixed nerves</strong> — carry a mixture of effector and affector neurons</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="synapse">
+      <div class="section-header"><div class="section-icon">🔗</div>
+        <div><div class="section-title-text">Synapses</div><div class="section-subtitle">Where neurons meet</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Synapse</div>
+          <p>
+            A <strong>synapse</strong> is the <strong>junction between two neurons</strong> (axon-to-dendrite) or between a neuron and a muscle. Whenever one neuron ends and another begins, there is a <strong>gap known as a synapse</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How Signals Cross the Synapse</h3>
+        <ul class="key-points">
+          <li>The electrical impulses that travel along neurons <strong>cannot leap the gap</strong></li>
+          <li>When an impulse arrives at the end of a neuron, <strong>chemicals are released</strong></li>
+          <li>These chemical transmitters (<strong>neurotransmitters</strong>) cross the synapse</li>
+          <li>They are picked up by special <strong>receptor cells</strong> at the end of the next neuron</li>
+          <li>This starts up an <strong>electrical impulse</strong>, which then travels along the next neuron</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Neurotransmitters</h3>
+        <ul class="key-points">
+          <li>Neurotransmitters are often referred to as the <strong>body's chemical messengers</strong></li>
+          <li>They are the molecules used by the nervous system to <strong>transmit messages</strong> between neurons, or from neurons to muscles</li>
+          <li><strong>Acetylcholine (ACh)</strong> is an abundant neurotransmitter in the human body, found in both the CNS and PNS</li>
+          <li>An <strong>excitatory transmitter</strong> promotes the generation of an action potential in the receiving neuron</li>
+          <li>An <strong>inhibitory transmitter</strong> decreases the likelihood that the neuron will generate an action potential</li>
+          <li><strong>Neuromodulators</strong> are not restricted to the synaptic cleft and can affect large numbers of neurons at once</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Neuromuscular Junctions</h3>
+        <ul class="key-points">
+          <li>The junction between an axon terminal of a motor neuron and a muscle fibre is called a <strong>neuromuscular junction</strong></li>
+          <li>When the impulse reaches this junction, the motor neuron releases <strong>acetylcholine</strong></li>
+          <li>This causes the muscle fibre to contract</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="impulse">
+      <div class="section-header"><div class="section-icon">⚡</div>
+        <div><div class="section-title-text">Nerve Impulse &amp; Action Potential</div><div class="section-subtitle">The electrical signal</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The nervous system relies on <strong>nerve impulses</strong> travelling along the neurons. Each nerve impulse is a <strong>minute electrical event</strong> that works as a result of charge differences across the membrane of the axon.
+        </p>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Action Potential</div>
+          <p>
+            An <strong>action potential</strong> is a <strong>short-term change in the electrical potential</strong> on the surface of a cell when it is stimulated. The wave of positive charge inside the axon when the neuron is stimulated is called the action potential.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How the Action Potential Works</h3>
+        <ul class="key-points">
+          <li>When a neuron is stimulated, the <strong>potential across the cell membrane changes</strong></li>
+          <li>When a neurotransmitter binds to its receptor, it can <strong>open channels</strong> that let particular ions go through the membrane</li>
+          <li>When a <strong>sodium (Na⁺) channel</strong> is open, Na⁺ ions flow through the membrane into the cell for two reasons:
+            <ul style="margin-left:1rem;margin-top:.25rem">
+              <li>The resting potential keeps the inside negatively charged, so positive ions are attracted in</li>
+              <li>There is an attracting concentration gradient for sodium</li>
+            </ul>
+          </li>
+          <li>The influx of positive ions makes the inside of the cell <strong>less negative</strong> — this is called <strong>depolarizing the cell</strong></li>
+          <li>If the cell is depolarized from its resting potential (about <strong>−70 mV</strong>) to its <strong>threshold potential</strong> (about <strong>−55 mV</strong>), an <strong>abrupt change occurs</strong> — an action potential</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Phases of an Action Potential</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Phase</th><th>What happens</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Resting potential</strong></td><td>About −70 mV; inside is negative relative to outside</td></tr>
+            <tr><td><strong>Threshold</strong></td><td>About −55 mV; if reached, an action potential fires</td></tr>
+            <tr><td><strong>Depolarization</strong></td><td>Na⁺ flows in; membrane potential becomes positive</td></tr>
+            <tr><td><strong>Repolarization</strong></td><td>K⁺ flows out; potential returns to negative</td></tr>
+            <tr><td><strong>Hyperpolarization</strong></td><td>Inside becomes even more negative than usual</td></tr>
+            <tr><td><strong>Refractory period</strong></td><td>Brief period when the neuron is hard to re-excite</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Terms</h3>
+        <ul class="key-points">
+          <li><strong>Resting potential</strong> — the potential difference across the membrane of a neuron at rest (about −70 mV)</li>
+          <li><strong>Threshold potential</strong> — the voltage at which depolarization of a cell leads to generation of an action potential (about −55 mV)</li>
+          <li><strong>Hyperpolarization</strong> — increasing neuronal membrane potential to more than its usual resting potential (making it harder to induce an action potential)</li>
+          <li><strong>Refractory period</strong> — a brief period following the generation of an action potential, during which a neuron is hard to re-excite</li>
+        </ul>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Activity 5.5 — Group work</div>
+          <div class="activity-body">
+            In a small group, search from different sources about synapses and special types of synapses, and answer the following questions:
+            <ul style="margin-top:.5rem;padding-left:1.25rem">
+              <li>Do we have special types of synapses?</li>
+              <li>What are neuromuscular junctions? What is their role? Where do we find them?</li>
+            </ul>
+            Reflect your findings to the class.
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is the PNS? What is its primary role?<br>
+            B. What is the difference between the somatic and autonomic nervous systems?<br>
+            C. Compare the sympathetic and parasympathetic systems.<br>
+            D. Draw and label a typical neuron. What are the functions of the dendrites, axon, and cell body?<br>
+            E. What are the three types of neurons? What does each do?<br>
+            F. What is a synapse? How do impulses cross the synaptic gap?<br>
+            G. What is an action potential? Describe the phases.<br>
+            H. What is the resting potential and threshold potential?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is the primary role of the <strong>peripheral nervous system (PNS)</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> To process information and make decisions</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> To connect the CNS to the organs, limbs, and skin</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> To store memories</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> To produce hormones</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Which part of the PNS controls <strong>involuntary</strong> body functions like heartbeat and digestion?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Somatic nervous system</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Autonomic nervous system</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Central nervous system</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Skeletal nervous system</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Which system prepares the body for <strong>"fight or flight"</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Parasympathetic</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Sympathetic</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Somatic</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Central</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">What is the function of <strong>dendrites</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Carry impulses away from the cell body</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Receive signals from other neurons</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Produce neurotransmitters</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Insulate the axon</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">How do nerve impulses cross the <strong>synapse</strong> between two neurons?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> The electrical impulse jumps the gap directly</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Chemicals (neurotransmitters) are released, cross the gap, and start a new impulse in the next neuron</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> The neurons fuse together</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> The impulse travels through the blood</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=peripheral+nervous+system+somatic+autonomic" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Peripheral Nervous System — Somatic &amp; Autonomic</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=sympathetic+parasympathetic+nervous+system" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Sympathetic vs Parasympathetic Nervous System</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=neuron+structure+function+animation" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Neuron Structure &amp; Function</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=action+potential+synapse+neurotransmitters" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Action Potential, Synapses &amp; Neurotransmitters</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 5.3</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li>The <strong>PNS</strong> consists of all nerves outside the CNS; its role is to connect the CNS to the organs, limbs, and skin</li>
+          <li>The PNS has two parts: <strong>somatic</strong> (voluntary) and <strong>autonomic</strong> (involuntary)</li>
+          <li>The autonomic system has two branches: <strong>sympathetic</strong> (fight or flight) and <strong>parasympathetic</strong> (rest and digest)</li>
+          <li>A <strong>neuron</strong> has three essential parts: <strong>cell body, axon, dendrites</strong></li>
+          <li><strong>Myelin sheath</strong> insulates axons and speeds up nerve impulses; <strong>nodes of Ranvier</strong> are gaps in the myelin</li>
+          <li>Three types of neurons: <strong>sensory (afferent), motor (efferent), interneurons</strong></li>
+          <li>Signal pathway: <strong>sense organ → afferent neuron → CNS → efferent neuron → effector (muscle or gland)</strong></li>
+          <li>At a <strong>synapse</strong>, chemicals called <strong>neurotransmitters</strong> cross the gap and start a new impulse in the next neuron</li>
+          <li>The <strong>resting potential</strong> is about −70 mV; the <strong>threshold potential</strong> is about −55 mV</li>
+          <li>An <strong>action potential</strong> is a short-term change in electrical potential that travels along the neuron</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-5-2.html" class="btn btn-outline">← Lesson 5.2</a>
+      <a href="lesson-5-4.html" class="btn btn-primary">Next: Lesson 5.4 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Biology Grade 12</p>
+      <p>Unit 5 · Lesson 5.3 · Peripheral Nervous System &amp; Neurons</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'B', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! The PNS connects the CNS to the organs, limbs, and skin.',wrong:'✗ PNS connects CNS to the body.'},
+    2:{correct:'✓ Correct! The autonomic nervous system controls involuntary functions like heartbeat, digestion, and breathing.',wrong:'✗ Autonomic = involuntary functions.'},
+    3:{correct:'✓ Correct! The sympathetic system prepares the body for fight-or-flight — increasing heart rate, breathing, and blood flow to muscles.',wrong:'✗ Sympathetic = fight or flight.'},
+    4:{correct:'✓ Correct! Dendrites receive and process signals from the axons of other neurons.',wrong:'✗ Dendrites receive signals.'},
+    5:{correct:'✓ Correct! Neurotransmitters are released at the synapse, cross the gap, and start a new impulse in the next neuron.',wrong:'✗ Neurotransmitters cross the synapse.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 5.3.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
