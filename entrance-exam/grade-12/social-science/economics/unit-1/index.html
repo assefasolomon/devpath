@@ -3,186 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Economics Grade 12 — All Units | Freelance Skills Hub</title>
-  <link rel="stylesheet" href="../../../../css/brand.css">
+  <title>Unit 1: The Fundamental Concepts of Macroeconomics | Economics Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
     body{background:#F8FAFC}
-    .eco-hero{background:linear-gradient(135deg,#0F172A 0%,#7C2D12 100%);padding:3rem 2rem 3.5rem;color:#fff;position:relative;overflow:hidden}
-    .eco-hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(234,88,12,.20),transparent 70%);border-radius:50%;pointer-events:none}
-    .eco-hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
-    .eco-hero .tag{display:inline-flex;gap:6px;background:rgba(234,88,12,.15);border:1px solid rgba(234,88,12,.35);color:#FDBA74;font-size:.75rem;font-weight:600;padding:4px 14px;border-radius:999px;margin-bottom:1rem}
-    .eco-hero h1{font-size:2.5rem;font-weight:900;color:#fff;margin-bottom:.5rem;letter-spacing:-.02em}
-    .eco-hero p{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.7;max-width:680px;margin-bottom:1.5rem}
-    .hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:1.5rem}
-    .hero-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.25rem}
-    .hero-stat .num{font-size:1.75rem;font-weight:900;color:#fff;line-height:1}
-    .hero-stat .label{font-size:.72rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;margin-top:.35rem}
-    .wrap{max-width:1000px;margin:0 auto;padding:3rem 2rem}
+    .unit-hero{background:linear-gradient(135deg,#0F172A 0%,#7C2D12 100%);padding:3rem 2rem;color:#fff}
+    .unit-hero-inner{max-width:900px;margin:0 auto}
+    .unit-tag{display:inline-flex;gap:6px;background:rgba(234,88,12,.15);border:1px solid rgba(234,88,12,.35);color:#FDBA74;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:999px;margin-bottom:1rem}
+    .unit-hero h1{font-size:2rem;font-weight:900;color:#fff;margin-bottom:.5rem}
+    .unit-hero p{color:rgba(255,255,255,.72);font-size:.95rem;line-height:1.7;max-width:640px}
+    .wrap{max-width:900px;margin:0 auto;padding:3rem 2rem}
     .breadcrumb{display:flex;gap:6px;font-size:.82rem;color:var(--text-muted,#64748b);margin-bottom:2rem;flex-wrap:wrap}
     .breadcrumb a{color:#EA580C;text-decoration:none}
     .breadcrumb a:hover{text-decoration:underline}
-    .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-    .progress-summary{font-size:.8rem;font-weight:600;color:#7C2D12;background:#FFF7ED;border:1px solid #FED7AA;padding:4px 12px;border-radius:999px}
-    .unit-list{display:flex;flex-direction:column;gap:.875rem}
-    .unit-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:1.25rem 1.5rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1.25rem;transition:all .2s ease;position:relative;overflow:hidden}
-    .unit-card.live:hover{border-color:#EA580C;transform:translateX(4px);box-shadow:0 8px 24px rgba(234,88,12,.14)}
-    .unit-card.live{border-color:#FED7AA;background:linear-gradient(90deg,#fff 0%,#FFF7ED 100%)}
-    .unit-card.upcoming{border-color:#e2e8f0;background:#fff;opacity:.72;cursor:not-allowed}
-    .unit-num-badge{width:56px;height:56px;background:linear-gradient(135deg,#7C2D12,#EA580C);color:#fff;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-weight:900}
-    .unit-card.upcoming .unit-num-badge{background:linear-gradient(135deg,#94a3b8,#64748b)}
-    .unit-num-badge .unit-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;opacity:.75;line-height:1}
-    .unit-num-badge .unit-num{font-size:1.5rem;line-height:1;margin-top:2px}
-    .unit-info{flex:1;min-width:0}
-    .unit-title{font-size:1.05rem;font-weight:800;color:#0f172a;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
-    .unit-badge{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.03em}
-    .unit-badge.live{color:#7C2D12;background:#FFEDD5}
-    .unit-badge.soon{color:#64748b;background:#F1F5F9}
-    .unit-meta{font-size:.82rem;color:#64748b;line-height:1.5}
-    .unit-lessons-count{font-size:.72rem;color:#94a3b8;font-weight:600;margin-top:.3rem;text-transform:uppercase;letter-spacing:.05em}
-    .unit-arrow{color:#EA580C;font-weight:900;font-size:1.3rem;flex-shrink:0}
-    .unit-card.upcoming .unit-arrow{color:#cbd5e1}
-    @media (max-width: 640px){
-      .eco-hero{padding:2.25rem 1rem 2.5rem}
-      .eco-hero h1{font-size:1.75rem}
+    .section-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#EA580C;margin-bottom:.75rem}
+    .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem}
+    .lesson-list{display:flex;flex-direction:column;gap:.75rem}
+    .lesson-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:14px;padding:1rem 1.25rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1rem;transition:all .2s ease}
+    .lesson-card.live:hover{border-color:#EA580C;transform:translateX(4px);box-shadow:0 6px 16px rgba(234,88,12,.12)}
+    .lesson-card.live{border-color:#FED7AA;background:linear-gradient(90deg,#fff 0%,#FFF7ED 100%)}
+    .lesson-icon{font-size:1.5rem;flex-shrink:0}
+    .lesson-info{flex:1;min-width:0}
+    .lesson-title{font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.15rem;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
+    .lesson-meta{font-size:.75rem;color:#64748b}
+    .lesson-badge{display:inline-flex;align-items:center;gap:3px;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:.2rem}
+    .lesson-badge.live{color:#7C2D12;background:#FFEDD5}
+    .lesson-arrow{color:#EA580C;font-weight:900;font-size:1.1rem;flex-shrink:0}
+    @media (max-width:640px){
+      .unit-hero{padding:2.25rem 1rem}
+      .unit-hero h1{font-size:1.5rem}
       .wrap{padding:2rem 1rem}
-      .unit-card{padding:1rem 1.125rem;gap:1rem}
-      .unit-num-badge{width:48px;height:48px}
-      .unit-num-badge .unit-num{font-size:1.25rem}
+      .lesson-card{padding:.875rem 1rem}
     }
   </style>
 </head>
 <body>
 
 <nav class="fsh-nav">
-  <a href="../../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon">
-      <svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
-      </svg>
-    </div>
-    <div class="fsh-logo-text">
-      <span class="fsh-logo-name">Freelance Skills Hub</span>
-      <span class="fsh-logo-tag">Economics Grade 12</span>
-    </div>
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
   </a>
   <div class="fsh-nav-actions">
-    <a href="../../../index.html" class="btn btn-ghost btn-sm">← Grade 12</a>
-    <a href="../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Economics Units</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
   </div>
 </nav>
 
-<div class="eco-hero">
-  <div class="eco-hero-inner">
-    <div class="tag">💹 Economics · Grade 12 · MoE 2023 Curriculum</div>
-    <h1>Economics Grade 12</h1>
-    <p>All eight MoE curriculum units — macroeconomics fundamentals, aggregate demand &amp; supply, market failure, macroeconomic policy, taxation, poverty &amp; inequality, Ethiopian economic reforms, and economy &amp; environment.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">8</div><div class="label">Units</div></div>
-      <div class="hero-stat"><div class="num">2</div><div class="label">Lessons Live</div></div>
-      <div class="hero-stat"><div class="num">🚧</div><div class="label">Building</div></div>
-    </div>
+<div class="unit-hero">
+  <div class="unit-hero-inner">
+    <div class="unit-tag">📘 Unit 1 · MoE 2023 Curriculum · Pages 1–23</div>
+    <h1>The Fundamental Concepts of Macroeconomics</h1>
+    <p>This unit revisits the definition and focus areas of macroeconomics, examines its key challenges (economic growth, inflation, unemployment, business cycles, and balance of trade), and explores the evolution of macroeconomics through the major schools of thought.</p>
   </div>
 </div>
 
 <div class="wrap">
   <div class="breadcrumb">
-    <a href="../../../../index.html">Home</a> ›
-    <a href="../../../index.html">Entrance Exam</a> ›
-    <a href="../../index.html">Grade 12</a> ›
-    <a href="../index.html">Social Science</a> ›
-    <span>Economics</span>
+    <a href="../../../../../index.html">Home</a> ›
+    <a href="../../../../index.html">Entrance Exam</a> ›
+    <a href="../../../index.html">Grade 12</a> ›
+    <a href="../../index.html">Social Science</a> ›
+    <a href="../index.html">Economics</a> ›
+    <span>Unit 1</span>
   </div>
 
-  <div class="section-title">
-    <span>All Units</span>
-    <span class="progress-summary">🚧 1 Unit Building · 7 Planned</span>
-  </div>
+  <div class="section-label">Lessons</div>
+  <div class="section-title">3 Lessons in this Unit · All Live</div>
 
-  <div class="unit-list">
-
-    <a href="unit-1/index.html" class="unit-card live">
-      <div class="unit-num-badge"><span class="unit-label">Unit</span><span class="unit-num">1</span></div>
-      <div class="unit-info">
-        <div class="unit-title">The Fundamental Concepts of Macroeconomics <span class="unit-badge live">🚧 Building</span></div>
-        <div class="unit-meta">Definition of macroeconomics · Focus areas · Economic growth · Inflation · Unemployment · Business cycle · Balance of trade · Schools of thought</div>
-        <div class="unit-lessons-count">2 of 3 Lessons Live</div>
+  <div class="lesson-list">
+    <a href="lesson-1-1.html" class="lesson-card live">
+      <div class="lesson-icon">📖</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 1.1 — Definition &amp; Focus Areas of Macroeconomics <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Micro vs macro · Focus areas · GDP &amp; GNP · Measurement approaches · Nominal vs real GDP</div>
       </div>
-      <span class="unit-arrow">→</span>
+      <span class="lesson-arrow">→</span>
     </a>
 
-    <div class="unit-card upcoming">
-      <div class="unit-num-badge"><span class="unit-label">Unit</span><span class="unit-num">2</span></div>
-      <div class="unit-info">
-        <div class="unit-title">Aggregate Demand &amp; Aggregate Supply Analysis <span class="unit-badge soon">Coming Soon</span></div>
-        <div class="unit-meta">Aggregate demand · AD curve &amp; shifts · Aggregate supply · SRAS &amp; LRAS · Equilibrium · Demand &amp; supply shocks</div>
-        <div class="unit-lessons-count">Lessons Planned</div>
+    <a href="lesson-1-2.html" class="lesson-card live">
+      <div class="lesson-icon">📈</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 1.2 — Key Challenges in Macroeconomics <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Economic growth · Inflation &amp; CPI · Unemployment · Business cycle · Balance of trade</div>
       </div>
-      <span class="unit-arrow">→</span>
-    </div>
+      <span class="lesson-arrow">→</span>
+    </a>
 
-    <div class="unit-card upcoming">
-      <div class="unit-num-badge"><span class="unit-label">Unit</span><span class="unit-num">3</span></div>
-      <div class="unit-info">
-        <div class="unit-title">Market Failure and Consumer Protection <span class="unit-badge soon">Coming Soon</span></div>
-        <div class="unit-meta">Market failure · Public goods · Externalities · Asymmetric information · Adverse selection · Moral hazard · Consumer protection</div>
-        <div class="unit-lessons-count">Lessons Planned</div>
+    <a href="lesson-1-3.html" class="lesson-card live">
+      <div class="lesson-icon">🏛️</div>
+      <div class="lesson-info">
+        <div class="lesson-title">Lesson 1.3 — Schools of Thought in Macroeconomic Analysis <span class="lesson-badge live">✓ Live</span></div>
+        <div class="lesson-meta">Classical &amp; Neoclassical · Keynesian · Monetarist · New Classical · New Keynesian</div>
       </div>
-      <span class="unit-arrow">→</span>
-    </div>
-
-    <div class="unit-card upcoming">
-      <div class="unit-num-badge"><span class="unit-label">Unit</span><span class="unit-num">4</span></div>
-      <div class="unit-info">
-        <div class="unit-title">Macroeconomic Policy Instruments <span class="unit-badge soon">Coming Soon</span></div>
-        <div class="unit-meta">Fiscal policy · Monetary policy · Income policy &amp; wages · Price ceiling &amp; price floor · Foreign exchange policies · Exchange rate systems</div>
-        <div class="unit-lessons-count">Lessons Planned</div>
-      </div>
-      <span class="unit-arrow">→</span>
-    </div>
-
-    <div class="unit-card upcoming">
-      <div class="unit-num-badge"><span class="unit-label">Unit</span><span class="unit-num">5</span></div>
-      <div class="unit-info">
-        <div class="unit-title">Tax Theory and Practice <span class="unit-badge soon">Coming Soon</span></div>
-        <div class="unit-meta">Definition of taxes · Principles &amp; objectives · Classification · Tax equity · Ethiopian tax system · VAT, TOT, excise, surtax · Tax problems in Ethiopia</div>
-        <div class="unit-lessons-count">Lessons Planned</div>
-      </div>
-      <span class="unit-arrow">→</span>
-    </div>
-
-    <div class="unit-card upcoming">
-      <div class="unit-num-badge"><span class="unit-label">Unit</span><span class="unit-num">6</span></div>
-      <div class="unit-info">
-        <div class="unit-title">Poverty and Inequality <span class="unit-badge soon">Coming Soon</span></div>
-        <div class="unit-meta">Concept of poverty · Types &amp; measurement · Sen's capability approach · Inequality · Lorenz curve &amp; Gini coefficient · Global poverty · Women and poverty · Indigenous knowledge</div>
-        <div class="unit-lessons-count">Lessons Planned</div>
-      </div>
-      <span class="unit-arrow">→</span>
-    </div>
-
-    <div class="unit-card upcoming">
-      <div class="unit-num-badge"><span class="unit-label">Unit</span><span class="unit-num">7</span></div>
-      <div class="unit-info">
-        <div class="unit-title">Macroeconomic Reforms in Ethiopia <span class="unit-badge soon">Coming Soon</span></div>
-        <div class="unit-meta">National development plans (Imperial, Derg, FDRE) · SDPRP · PASDEP · GTP I &amp; II · Ten-year plan (2021–2030) · Home-grown economic reform · Fiscal decentralization</div>
-        <div class="unit-lessons-count">Lessons Planned</div>
-      </div>
-      <span class="unit-arrow">→</span>
-    </div>
-
-    <div class="unit-card upcoming">
-      <div class="unit-num-badge"><span class="unit-label">Unit</span><span class="unit-num">8</span></div>
-      <div class="unit-info">
-        <div class="unit-title">Economy, Environment and Climate Change <span class="unit-badge soon">Coming Soon</span></div>
-        <div class="unit-meta">Economy &amp; environment · Rural &amp; urban development · Population &amp; resources · Global warming &amp; climate change · Mitigation &amp; adaptation · Green economy · Ethiopian climate policy</div>
-        <div class="unit-lessons-count">Lessons Planned</div>
-      </div>
-      <span class="unit-arrow">→</span>
-    </div>
-
+      <span class="lesson-arrow">→</span>
+    </a>
   </div>
 </div>
 
@@ -190,7 +106,7 @@
   <div class="fsh-footer-inner">
     <div class="fsh-footer-bottom">
       <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
-      <p>8 Units · MoE 2023 Curriculum · Building</p>
+      <p>Unit 1: Fundamental Concepts of Macroeconomics · 3 of 3 Lessons Live ✓</p>
     </div>
   </div>
 </footer>
