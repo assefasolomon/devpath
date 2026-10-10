@@ -3,55 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Social Science · Grade 12 | Freelance Skills Hub</title>
+  <title>Social Science — Grade 12 | Freelance Skills Hub</title>
   <link rel="stylesheet" href="../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
     body{background:#F8FAFC}
-    .ss-hero{background:linear-gradient(135deg,#0F172A 0%,#1E40AF 100%);padding:3rem 2rem 3.5rem;color:#fff;position:relative;overflow:hidden}
-    .ss-hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(30,64,175,.18),transparent 70%);border-radius:50%;pointer-events:none}
-    .ss-hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
-    .ss-hero .tag{display:inline-flex;gap:6px;background:rgba(30,64,175,.18);border:1px solid rgba(30,64,175,.35);color:#93C5FD;font-size:.75rem;font-weight:600;padding:4px 14px;border-radius:999px;margin-bottom:1rem}
-    .ss-hero h1{font-size:2.25rem;font-weight:900;color:#fff;margin-bottom:.5rem;letter-spacing:-.02em}
-    .ss-hero p{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.7;max-width:680px;margin-bottom:1.5rem}
-    .hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:1.5rem}
-    .hero-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.25rem}
-    .hero-stat .num{font-size:1.75rem;font-weight:900;color:#fff;line-height:1}
-    .hero-stat .label{font-size:.72rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;margin-top:.35rem}
-    .wrap{max-width:1000px;margin:0 auto;padding:3rem 2rem}
+    .ss-hero{background:linear-gradient(135deg,#0F172A 0%,#7C2D12 100%);padding:3rem 2rem 3.5rem;color:#fff;position:relative;overflow:hidden}
+    .ss-hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(234,88,12,.18),transparent 70%);border-radius:50%;pointer-events:none}
+    .ss-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+    .ss-hero-icon{width:80px;height:80px;border-radius:20px;background:linear-gradient(135deg,#7C2D12,#EA580C);display:flex;align-items:center;justify-content:center;font-size:2.5rem;flex-shrink:0}
+    .ss-hero-text{flex:1;min-width:240px}
+    .ss-hero h1{font-size:2rem;font-weight:900;color:#fff;margin-bottom:.25rem;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+    .hero-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(234,88,12,.20);border:1px solid rgba(234,88,12,.4);color:#FDBA74;font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:999px}
+    .ss-hero p{color:rgba(255,255,255,.72);font-size:.95rem;line-height:1.7;margin:0}
+    .wrap{max-width:1100px;margin:0 auto;padding:3rem 2rem}
     .breadcrumb{display:flex;gap:6px;font-size:.82rem;color:var(--text-muted,#64748b);margin-bottom:2rem;flex-wrap:wrap}
-    .breadcrumb a{color:#1E40AF;text-decoration:none}
+    .breadcrumb a{color:#EA580C;text-decoration:none}
     .breadcrumb a:hover{text-decoration:underline}
-    .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-    .progress-summary{font-size:.8rem;font-weight:600;color:#1E40AF;background:#EFF6FF;border:1px solid #BFDBFE;padding:4px 12px;border-radius:999px}
-    .subject-list{display:flex;flex-direction:column;gap:1rem}
-    .subject-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:18px;padding:1.5rem 1.75rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1.5rem;transition:all .25s ease;position:relative;overflow:hidden}
-    .subject-card:hover{border-color:#1E40AF;transform:translateY(-3px);box-shadow:0 12px 32px rgba(30,64,175,.14)}
-    .subject-card.complete{border-color:#BFDBFE;background:linear-gradient(135deg,#fff 0%,#EFF6FF 100%)}
-    .subject-card.complete:hover{border-color:#1E40AF;box-shadow:0 12px 32px rgba(30,64,175,.16)}
-    .subject-icon{width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;background:linear-gradient(135deg,#7F1D1D,#991B1B);color:#fff}
-    .subject-card.complete .subject-icon{background:linear-gradient(135deg,#1E3A8A,#1E40AF)}
+    .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem}
+    .subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-bottom:2rem}
+    .subject-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:1.25rem 1.5rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1rem;transition:all .2s ease}
+    .subject-card.complete{border-color:#FED7AA;background:linear-gradient(90deg,#fff 0%,#FFF7ED 100%)}
+    .subject-card.complete:hover{border-color:#EA580C;transform:translateY(-2px);box-shadow:0 8px 24px rgba(234,88,12,.14)}
+    .subject-card.soon{border-color:#e2e8f0;background:#fff;opacity:.72;cursor:not-allowed}
+    .subject-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+    .subject-icon.mathematics{background:linear-gradient(135deg,#D97706,#F59E0B)}
+    .subject-icon.economics{background:linear-gradient(135deg,#7C2D12,#EA580C)}
+    .subject-icon.geography{background:linear-gradient(135deg,#0369A1,#0EA5E9)}
+    .subject-icon.history{background:linear-gradient(135deg,#854D0E,#CA8A04)}
+    .subject-icon.aptitude{background:linear-gradient(135deg,#0891B2,#22D3EE)}
+    .subject-icon.english{background:linear-gradient(135deg,#4F46E5,#6366F1)}
     .subject-info{flex:1;min-width:0}
-    .subject-title{font-size:1.35rem;font-weight:900;color:#0f172a;margin-bottom:.35rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;letter-spacing:-.01em}
-    .subject-check{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;color:#1E40AF;background:#DBEAFE;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
-    .subject-desc{font-size:.88rem;color:#475569;line-height:1.6;margin-bottom:.5rem}
-    .subject-units{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem}
-    .unit-chip{font-size:.72rem;font-weight:600;color:#991B1B;background:#FEE2E2;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
-    .subject-card.complete .unit-chip{color:#1E40AF;background:#DBEAFE}
-    .subject-arrow{color:#1E40AF;font-weight:900;font-size:1.6rem;flex-shrink:0}
-    .coming-soon{background:#fff;border:1.5px dashed #cbd5e1;border-radius:18px;padding:1.5rem 1.75rem;display:flex;align-items:center;gap:1.5rem;opacity:.75}
-    .coming-soon .subject-icon{background:linear-gradient(135deg,#94a3b8,#64748b)}
-    .coming-soon .subject-title{color:#64748b}
-    .coming-soon .subject-desc{color:#94a3b8}
-    .cs-badge{font-size:.68rem;font-weight:700;color:#64748b;background:#F1F5F9;border:1px solid #CBD5E1;padding:3px 10px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
+    .subject-name{font-size:1rem;font-weight:800;color:#0f172a;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    .subject-status{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:2px 10px;border-radius:999px;letter-spacing:.03em}
+    .subject-status.complete{color:#7C2D12;background:#FFEDD5}
+    .subject-status.soon{color:#64748b;background:#F1F5F9}
+    .subject-desc{font-size:.8rem;color:#64748b;line-height:1.5}
     @media (max-width: 640px){
-      .ss-hero{padding:2.25rem 1rem 2.5rem}
-      .ss-hero h1{font-size:1.6rem}
+      .ss-hero{padding:2rem 1rem 2.25rem}
+      .ss-hero h1{font-size:1.5rem}
+      .ss-hero-icon{width:60px;height:60px;font-size:2rem}
       .wrap{padding:2rem 1rem}
-      .subject-card{padding:1.25rem 1.125rem;gap:1rem;flex-wrap:wrap}
-      .subject-icon{width:56px;height:56px;font-size:1.5rem}
-      .subject-title{font-size:1.1rem}
-      .coming-soon{padding:1.25rem 1.125rem;gap:1rem;flex-wrap:wrap}
     }
   </style>
 </head>
@@ -79,14 +71,10 @@
 
 <div class="ss-hero">
   <div class="ss-hero-inner">
-    <div class="tag">🌍 Grade 12 · Social Science Stream</div>
-    <h1>Social Science</h1>
-    <p>History, Geography, Economics, Mathematics, Aptitude, and English — the complete Social Science EUEE curriculum.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">1</div><div class="label">Subject Complete</div></div>
-      <div class="hero-stat"><div class="num">5</div><div class="label">Coming Soon</div></div>
-      <div class="hero-stat"><div class="num">11</div><div class="label">Lessons Built</div></div>
-      <div class="hero-stat"><div class="num">2</div><div class="label">Units in Math</div></div>
+    <div class="ss-hero-icon">📚</div>
+    <div class="ss-hero-text">
+      <h1>Social Science <span class="hero-badge">🚀 Building</span></h1>
+      <p>Mathematics, Economics, Geography, History, and the EUEE-shared subjects — the social-science-track curriculum.</p>
     </div>
   </div>
 </div>
@@ -99,64 +87,56 @@
     <span>Social Science</span>
   </div>
 
-  <div class="section-title">
-    <span>Subjects</span>
-    <span class="progress-summary">✓ 1 Complete · 5 Coming Soon</span>
-  </div>
+  <div class="section-title">Subjects</div>
 
-  <div class="subject-list">
+  <div class="subject-grid">
     <a href="mathematics/index.html" class="subject-card complete">
-      <div class="subject-icon">📐</div>
+      <div class="subject-icon mathematics">📐</div>
       <div class="subject-info">
-        <div class="subject-title">Mathematics <span class="subject-check">✓ Complete</span></div>
-        <div class="subject-desc">Grade 12 Mathematics for the Social Science stream — 11 lessons covering advanced algebra, statistics, and quantitative methods.</div>
-        <div class="subject-units">
-          <span class="unit-chip">11 Lessons</span>
-          <span class="unit-chip">Full Curriculum</span>
-        </div>
+        <div class="subject-name">Mathematics <span class="subject-status complete">✓ Complete</span></div>
+        <div class="subject-desc">Algebra, calculus, geometry, statistics, sequences</div>
       </div>
-      <span class="subject-arrow">→</span>
     </a>
 
-    <div class="coming-soon">
-      <div class="subject-icon">📜</div>
+    <a href="economics/index.html" class="subject-card soon">
+      <div class="subject-icon economics">💹</div>
       <div class="subject-info">
-        <div class="subject-title">History <span class="cs-badge">Coming Soon</span></div>
-        <div class="subject-desc">World History, African History, and Ethiopian History for the EUEE.</div>
+        <div class="subject-name">Economics <span class="subject-status soon">⏳ Soon</span></div>
+        <div class="subject-desc">Macroeconomics, AD-AS, market failure, policy, taxation, poverty, reforms</div>
       </div>
-    </div>
+    </a>
 
-    <div class="coming-soon">
-      <div class="subject-icon">🗺️</div>
+    <a href="geography/index.html" class="subject-card soon">
+      <div class="subject-icon geography">🌍</div>
       <div class="subject-info">
-        <div class="subject-title">Geography <span class="cs-badge">Coming Soon</span></div>
-        <div class="subject-desc">Physical and Human Geography — climate, landforms, population, and resources.</div>
+        <div class="subject-name">Geography <span class="subject-status soon">⏳ Soon</span></div>
+        <div class="subject-desc">Physical &amp; human geography, Ethiopia's regions, climate, population</div>
       </div>
-    </div>
+    </a>
 
-    <div class="coming-soon">
-      <div class="subject-icon">💹</div>
+    <a href="history/index.html" class="subject-card soon">
+      <div class="subject-icon history">🏛️</div>
       <div class="subject-info">
-        <div class="subject-title">Economics <span class="cs-badge">Coming Soon</span></div>
-        <div class="subject-desc">Microeconomics, macroeconomics, and economic development.</div>
+        <div class="subject-name">History <span class="subject-status soon">⏳ Soon</span></div>
+        <div class="subject-desc">World history, African history, Ethiopian history, modern era</div>
       </div>
-    </div>
+    </a>
 
-    <div class="coming-soon">
-      <div class="subject-icon">🧩</div>
+    <a href="aptitude/index.html" class="subject-card soon">
+      <div class="subject-icon aptitude">🧩</div>
       <div class="subject-info">
-        <div class="subject-title">Aptitude <span class="cs-badge">Coming Soon</span></div>
-        <div class="subject-desc">Aptitude test preparation — logical reasoning, data interpretation, and quantitative aptitude.</div>
+        <div class="subject-name">Aptitude <span class="subject-status soon">⏳ Soon</span></div>
+        <div class="subject-desc">Logical reasoning, verbal &amp; numerical aptitude for EUEE</div>
       </div>
-    </div>
+    </a>
 
-    <div class="coming-soon">
-      <div class="subject-icon">📘</div>
+    <a href="english/index.html" class="subject-card soon">
+      <div class="subject-icon english">📖</div>
       <div class="subject-info">
-        <div class="subject-title">English <span class="cs-badge">Coming Soon</span></div>
-        <div class="subject-desc">English language skills for the EUEE — comprehension, grammar, vocabulary, and writing.</div>
+        <div class="subject-name">English <span class="subject-status soon">⏳ Soon</span></div>
+        <div class="subject-desc">Reading comprehension, grammar, vocabulary, writing</div>
       </div>
-    </div>
+    </a>
   </div>
 </div>
 
@@ -164,7 +144,7 @@
   <div class="fsh-footer-inner">
     <div class="fsh-footer-bottom">
       <p>© 2025 Freelance Skills Hub · Grade 12 Social Science</p>
-      <p>Mathematics Complete · Other subjects coming soon</p>
+      <p>Mathematics · Economics · Geography · History</p>
     </div>
   </div>
 </footer>
