@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.3: Equilibrium &amp; Shocks | Economics Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#EA580C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#EA580C}
+    .sidebar-link.active{background:#FFEDD5;color:#7C2D12;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#EA580C;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7C2D12,#EA580C);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FFEDD5}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#EA580C;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-left:5px solid #EA580C;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C2D12;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#EA580C;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#EA580C;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #FED7AA;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#EA580C;box-shadow:0 4px 12px rgba(234,88,12,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#7C2D12;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .formula-box{background:#0F172A;color:#F1F5F9;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;text-align:center}
+    .formula-box .formula-label{font-size:.72rem;color:#FDBA74;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:.5rem}
+    .formula-box .formula-eq{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.7;font-family:'Courier New',monospace}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#EA580C;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#EA580C;background:#FFF7ED}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #EA580C;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#EA580C}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#7C2D12;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(234,88,12,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#EA580C;font-weight:700;flex-shrink:0;margin-top:1px}
+    .svg-figure{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin:1rem 0;text-align:center}
+    .svg-caption{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic}
+    .completion-card{background:linear-gradient(135deg,#EA580C,#7C2D12);border-radius:var(--radius-xl);padding:2rem 2.5rem;color:#fff;text-align:center;margin:2rem 0}
+    .completion-card .cc-icon{font-size:3rem;margin-bottom:.5rem}
+    .completion-card h2{font-size:1.5rem;font-weight:900;margin-bottom:.5rem}
+    .completion-card p{color:rgba(255,255,255,.9);font-size:.95rem;line-height:1.7}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#EA580C;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 2</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 3</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('short-run')"><div class="sidebar-dot"></div> Short-Run Equilibrium</button>
+      <button class="sidebar-link" onclick="scrollToId('long-run')"><div class="sidebar-dot"></div> Long-Run Equilibrium</button>
+      <button class="sidebar-link" onclick="scrollToId('ad-shocks')"><div class="sidebar-dot"></div> Demand Shocks</button>
+      <button class="sidebar-link" onclick="scrollToId('as-shocks')"><div class="sidebar-dot"></div> Supply Shocks</button>
+      <button class="sidebar-link" onclick="scrollToId('summary-table')"><div class="sidebar-dot"></div> Summary Table</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Aggregate Demand</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Aggregate Supply</a>
+      <a href="lesson-2-3.html" class="sidebar-link active"><div class="sidebar-dot"></div> L3: Equilibrium &amp; Shocks</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Economics</a> ›
+      <a href="../index.html">Unit 2</a> ›
+      Lesson 2.3
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · AD-AS Analysis · MoE Textbook §2.3 · FINAL LESSON</div>
+      <h1>⚖️ Equilibrium &amp; Shocks in the AD-AS Model</h1>
+      <p>When aggregate demand meets aggregate supply, we get the equilibrium price level and real GDP. This final lesson shows how the economy reaches equilibrium — and what happens when demand or supply shocks hit.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">Bringing AD and AS together</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Now we bring aggregate demand and aggregate supply <strong>together</strong> to see how the market price level and real GDP are determined. The intersection of AD and SRAS gives <strong>short-run equilibrium</strong>; the intersection of AD and LRAS gives <strong>long-run equilibrium</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>short-run equilibrium</strong> (AD ∩ SRAS)</li>
+          <li>Define <strong>long-run equilibrium</strong> (AD ∩ LRAS)</li>
+          <li>Explain the effects of <strong>aggregate demand shocks</strong></li>
+          <li>Explain the effects of <strong>aggregate supply shocks</strong></li>
+          <li>Analyse how shocks change <strong>price level and real GDP</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="short-run">
+      <div class="section-header"><div class="section-icon">📍</div>
+        <div><div class="section-title-text">Short-Run Equilibrium</div><div class="section-subtitle">MoE Textbook §2.3, p. 41</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Short-Run Equilibrium</div>
+          <p>
+            <strong>Short-run equilibrium</strong> occurs at the intersection of the <strong>aggregate demand curve</strong> and the <strong>short-run aggregate supply curve</strong>. At this point:
+          </p>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-label">Short-Run Equilibrium Condition</div>
+          <div class="formula-eq">Quantity of real GDP demanded = Quantity of real GDP supplied (short-run)</div>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          At the equilibrium point <strong>E</strong>: <strong>P<sub>E</sub></strong> is the short-run equilibrium price level, and <strong>Q<sub>E</sub></strong> is the short-run equilibrium real GDP.
+        </p>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <line x1="80" y1="340" x2="600" y2="340" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="340" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+            <text x="340" y="380" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real Domestic Product (Q)</text>
+            <text x="45" y="190" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 190)">Price Level (P)</text>
+
+            <!-- SRAS upward -->
+            <path d="M 150 300 Q 330 240, 570 100" stroke="#EA580C" stroke-width="3" fill="none"/>
+            <text x="555" y="88" font-size="12" font-weight="800" fill="#7C2D12">SRAS</text>
+
+            <!-- AD downward -->
+            <path d="M 130 90 Q 320 220, 570 310" stroke="#0EA5E9" stroke-width="3" fill="none"/>
+            <text x="555" y="325" font-size="12" font-weight="800" fill="#0369A1">AD</text>
+
+            <!-- Equilibrium E -->
+            <circle cx="345" cy="215" r="7" fill="#16A34A"/>
+            <text x="360" y="205" font-size="13" font-weight="800" fill="#166534">E</text>
+
+            <!-- P_E dashed -->
+            <line x1="80" y1="215" x2="345" y2="215" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="60" y="220" text-anchor="end" font-size="13" font-weight="700" fill="#166534">P_E</text>
+
+            <!-- Q_E dashed -->
+            <line x1="345" y1="215" x2="345" y2="340" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="345" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">Q_E</text>
+
+            <!-- Surplus region P1 -->
+            <text x="220" y="130" font-size="11" font-style="italic" fill="#64748b">Surplus</text>
+            <text x="470" y="270" font-size="11" font-style="italic" fill="#64748b">Shortage</text>
+          </svg>
+          <div class="svg-caption">Short-run equilibrium (E) occurs where AD intersects SRAS. At prices above P_E, there's a surplus; at prices below, there's a shortage.</div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">How the Market Reaches Equilibrium</h3>
+        <ul class="key-points">
+          <li><strong>At price P₁ (above P_E):</strong> Quantity supplied &gt; Quantity demanded → <strong>surplus</strong> → price level drops → firms decrease output, consumers increase consumption</li>
+          <li><strong>At price P₂ (below P_E):</strong> Quantity supplied &lt; Quantity demanded → <strong>shortage</strong> → price level rises → firms increase output, consumers decrease consumption</li>
+          <li>In both cases, economic forces move the economy toward <strong>point E</strong></li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why do consumers increase consumption when prices drop?</div>
+          <p>
+            Three effects at work: <strong>real balance effect</strong> (money buys more), <strong>interest rate effect</strong> (lower money demand → lower interest rates → more spending), and <strong>international trade effect</strong> (exports become more competitive).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="long-run">
+      <div class="section-header"><div class="section-icon">📏</div>
+        <div><div class="section-title-text">Long-Run Equilibrium</div><div class="section-subtitle">MoE Textbook §2.3</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Long-Run Equilibrium</div>
+          <p>
+            <strong>Long-run equilibrium</strong> identifies the level of real GDP the economy produces when <strong>wages and prices have adjusted to their final equilibrium levels</strong> and there are <strong>no misperceptions</strong> on the part of workers. It occurs where the <strong>AD curve intersects the LRAS curve</strong>.
+          </p>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          In long-run equilibrium, the economy produces its <strong>natural real GDP (Q<sub>N</sub>)</strong> — also called full-employment real GDP.
+        </p>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <line x1="80" y1="340" x2="600" y2="340" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="340" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+            <text x="340" y="380" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real Domestic Product (Q)</text>
+            <text x="45" y="190" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 190)">Price Level (P)</text>
+
+            <!-- LRAS vertical -->
+            <line x1="345" y1="40" x2="345" y2="340" stroke="#EA580C" stroke-width="3.5"/>
+            <text x="345" y="30" text-anchor="middle" font-size="12" font-weight="800" fill="#7C2D12">LRAS</text>
+
+            <!-- SRAS upward -->
+            <path d="M 150 300 Q 330 240, 570 100" stroke="#F59E0B" stroke-width="2.5" fill="none" opacity="0.7"/>
+            <text x="555" y="88" font-size="12" font-weight="800" fill="#92400E">SRAS</text>
+
+            <!-- AD downward -->
+            <path d="M 130 90 Q 320 220, 570 310" stroke="#0EA5E9" stroke-width="3" fill="none"/>
+            <text x="555" y="325" font-size="12" font-weight="800" fill="#0369A1">AD</text>
+
+            <!-- Long-run equilibrium -->
+            <circle cx="345" cy="215" r="7" fill="#16A34A"/>
+            <text x="360" y="205" font-size="13" font-weight="800" fill="#166534">E_LR</text>
+
+            <!-- P dashed -->
+            <line x1="80" y1="215" x2="345" y2="215" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="60" y="220" text-anchor="end" font-size="13" font-weight="700" fill="#166534">P*</text>
+
+            <!-- Q_N dashed -->
+            <line x1="345" y1="215" x2="345" y2="340" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="345" y="360" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">Q_N</text>
+
+            <text x="500" y="200" text-anchor="middle" font-size="11" font-style="italic" fill="#64748b">Natural real GDP</text>
+          </svg>
+          <div class="svg-caption">Long-run equilibrium (E_LR) occurs where AD intersects LRAS. The economy produces its natural real GDP (Q_N) at price level P*.</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Static equilibrium</div>
+          <p>
+            If the AD and AS curves were to remain unchanged, the economy would continue to produce the natural rate of output and have an equilibrium price <strong>indefinitely</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ad-shocks">
+      <div class="section-header"><div class="section-icon">📉</div>
+        <div><div class="section-title-text">Shocks to Aggregate Demand</div><div class="section-subtitle">MoE Textbook §2.3.1, p. 43</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Demand Shock</div>
+          <p>
+            A <strong>demand shock</strong> is an unexpected shift of the AD curve. It changes the price level and real GDP in the <strong>same direction</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Types</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">📈</div>
+            <div class="concept-title">Positive Demand Shock</div>
+            <p class="concept-desc">AD shifts <strong>right</strong>. Price level ↑ <em>and</em> real GDP ↑. Caused by: ↑C, ↑I, ↑G, ↑NE.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">📉</div>
+            <div class="concept-title">Negative Demand Shock</div>
+            <p class="concept-desc">AD shifts <strong>left</strong>. Price level ↓ <em>and</em> real GDP ↓. Caused by: ↓C, ↓I, ↓G, ↓NE.</p>
+          </div>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <line x1="80" y1="340" x2="600" y2="340" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="340" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+            <text x="340" y="380" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real GDP</text>
+            <text x="45" y="190" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 190)">Price Level</text>
+
+            <!-- SRAS -->
+            <path d="M 150 300 Q 340 230, 570 100" stroke="#EA580C" stroke-width="3" fill="none"/>
+            <text x="555" y="88" font-size="12" font-weight="800" fill="#7C2D12">SRAS</text>
+
+            <!-- AD0 initial -->
+            <path d="M 130 100 Q 320 220, 570 300" stroke="#0F172A" stroke-width="2.5" fill="none"/>
+            <text x="555" y="315" font-size="11" font-weight="800" fill="#0F172A">AD₀</text>
+
+            <!-- AD1 right -->
+            <path d="M 180 80 Q 370 200, 610 280" stroke="#16A34A" stroke-width="2.5" fill="none" opacity="0.8"/>
+            <text x="600" y="295" font-size="11" font-weight="800" fill="#166534">AD₁</text>
+
+            <!-- AD2 left -->
+            <path d="M 90 120 Q 280 240, 530 320" stroke="#DC2626" stroke-width="2.5" fill="none" opacity="0.8"/>
+            <text x="515" y="335" font-size="11" font-weight="800" fill="#991B1B">AD₂</text>
+
+            <!-- Equilibria -->
+            <circle cx="335" cy="212" r="5" fill="#0F172A"/>
+            <text x="320" y="205" font-size="11" font-weight="800" fill="#0F172A">E₀</text>
+
+            <circle cx="400" cy="190" r="5" fill="#16A34A"/>
+            <text x="410" y="183" font-size="11" font-weight="800" fill="#166534">E₁</text>
+
+            <circle cx="280" cy="240" r="5" fill="#DC2626"/>
+            <text x="265" y="255" font-size="11" font-weight="800" fill="#991B1B">E₂</text>
+          </svg>
+          <div class="svg-caption">A positive demand shock shifts AD₀ → AD₁ (higher price &amp; higher output). A negative demand shock shifts AD₀ → AD₂ (lower price &amp; lower output).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="as-shocks">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">Shocks to Aggregate Supply</div><div class="section-subtitle">MoE Textbook §2.3.2, p. 44</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Supply Shock</div>
+          <p>
+            A <strong>supply shock</strong> is an unexpected shift of the SRAS curve. Aggregate supply shocks cause the price level and real GDP to change in <strong>opposite directions</strong>.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Types</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">✅</div>
+            <div class="concept-title">Positive Supply Shock</div>
+            <p class="concept-desc">SRAS shifts <strong>right</strong>. Price level ↓, real GDP ↑. Caused by: technology improvement, more resources, better weather.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">⚠️</div>
+            <div class="concept-title">Negative Supply Shock</div>
+            <p class="concept-desc">SRAS shifts <strong>left</strong>. Price level ↑, real GDP ↓. Caused by: oil price spike, crop-destroying storm, imported input interruption.</p>
+          </div>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <line x1="80" y1="340" x2="600" y2="340" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="340" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+            <text x="340" y="380" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real GDP</text>
+            <text x="45" y="190" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 190)">Price Level</text>
+
+            <!-- AD -->
+            <path d="M 130 100 Q 330 240, 570 310" stroke="#0EA5E9" stroke-width="3" fill="none"/>
+            <text x="555" y="325" font-size="12" font-weight="800" fill="#0369A1">AD</text>
+
+            <!-- SRAS1 initial -->
+            <path d="M 170 300 Q 350 240, 570 130" stroke="#0F172A" stroke-width="2.5" fill="none"/>
+            <text x="555" y="118" font-size="11" font-weight="800" fill="#0F172A">SRAS₁</text>
+
+            <!-- SRAS0 left (negative shock) -->
+            <path d="M 130 280 Q 310 220, 530 100" stroke="#DC2626" stroke-width="2.5" fill="none" opacity="0.8"/>
+            <text x="515" y="88" font-size="11" font-weight="800" fill="#991B1B">SRAS₀</text>
+
+            <!-- SRAS2 right (positive shock) -->
+            <path d="M 220 320 Q 400 260, 620 160" stroke="#16A34A" stroke-width="2.5" fill="none" opacity="0.8"/>
+            <text x="600" y="150" font-size="11" font-weight="800" fill="#166534">SRAS₂</text>
+
+            <!-- Equilibria -->
+            <circle cx="360" cy="220" r="5" fill="#0F172A"/>
+            <text x="345" y="212" font-size="11" font-weight="800" fill="#0F172A">E₁</text>
+
+            <circle cx="335" cy="195" r="5" fill="#DC2626"/>
+            <text x="315" y="190" font-size="11" font-weight="800" fill="#991B1B">E₀</text>
+
+            <circle cx="410" cy="240" r="5" fill="#16A34A"/>
+            <text x="420" y="250" font-size="11" font-weight="800" fill="#166534">E₂</text>
+          </svg>
+          <div class="svg-caption">Negative supply shock: SRAS₁ → SRAS₀ (higher price, lower output = stagflation). Positive supply shock: SRAS₁ → SRAS₂ (lower price, higher output).</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Example: Oil price shock</div>
+          <p>
+            An increase in the price of oil shifts SRAS <strong>left</strong> (from SRAS₁ to SRAS₀). Output falls and prices rise — <strong>stagflation</strong> (stagnation + inflation).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary-table">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Summary Table — Shock Effects</div><div class="section-subtitle">Price level and real GDP response</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Shock Type</th>
+              <th>Curve Moves</th>
+              <th>Price Level (P)</th>
+              <th>Real GDP (Q)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Positive demand shock</strong></td>
+              <td>AD → right</td>
+              <td>↑ Up</td>
+              <td>↑ Up</td>
+            </tr>
+            <tr>
+              <td><strong>Negative demand shock</strong></td>
+              <td>AD → left</td>
+              <td>↓ Down</td>
+              <td>↓ Down</td>
+            </tr>
+            <tr>
+              <td><strong>Positive supply shock</strong></td>
+              <td>SRAS → right</td>
+              <td>↓ Down</td>
+              <td>↑ Up</td>
+            </tr>
+            <tr>
+              <td><strong>Negative supply shock</strong></td>
+              <td>SRAS → left</td>
+              <td>↑ Up</td>
+              <td>↓ Down</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key insight</div>
+          <p>
+            <strong>Demand shocks</strong> move price level and real GDP in the <strong>same direction</strong>.<br>
+            <strong>Supply shocks</strong> move them in <strong>opposite directions</strong>. This is why supply shocks are harder to manage — you can't fight both inflation and unemployment at the same time.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. Define macroeconomic equilibrium.<br>
+            B. Explain the effects of aggregate demand and aggregate supply shocks on real GDP and the price level.<br>
+            C. What happens to price level and real GDP when: (i) consumer confidence falls, (ii) oil prices spike, (iii) technology improves?<br>
+            D. Why is a negative supply shock harder to manage than a negative demand shock?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question"><strong>Short-run equilibrium</strong> occurs where the AD curve intersects which curve?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> LRAS</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> SRAS</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> The vertical axis</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> The 45-degree line</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">A <strong>positive demand shock</strong> causes what?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Price level ↑, real GDP ↓</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Price level ↑, real GDP ↑</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Price level ↓, real GDP ↑</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Price level ↓, real GDP ↓</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">A <strong>negative supply shock</strong> (like an oil price spike) causes what?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Price level ↑ and real GDP ↓ — stagflation</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Price level ↓ and real GDP ↑</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Price level ↑ and real GDP ↑</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Both remain unchanged</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">In <strong>long-run equilibrium</strong>, the economy produces its:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Maximum possible output regardless of price level</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Natural real GDP (Q_N) where AD intersects LRAS</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Higher-than-potential output</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Zero output</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">What distinguishes <strong>supply shocks</strong> from <strong>demand shocks</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Supply shocks change P and Q in the same direction; demand shocks in opposite directions</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Supply shocks change P and Q in opposite directions; demand shocks in the same direction</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Supply shocks only affect real GDP</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Supply shocks only affect the price level</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=ad+as+model+equilibrium+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">AD-AS Model &amp; Equilibrium</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=short+run+long+run+macroeconomic+equilibrium" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Short-Run vs Long-Run Equilibrium</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=demand+shock+supply+shock+macroeconomics" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Demand Shocks &amp; Supply Shocks</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=stagflation+oil+shock+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Stagflation &amp; Oil Shocks</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 2.3</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Short-run equilibrium</strong> = AD ∩ SRAS</li>
+          <li><strong>Long-run equilibrium</strong> = AD ∩ LRAS; economy produces natural real GDP (Q<sub>N</sub>)</li>
+          <li>At prices above P<sub>E</sub>, there's a <strong>surplus</strong>; at prices below, there's a <strong>shortage</strong></li>
+          <li><strong>Positive demand shock</strong>: AD shifts right → P ↑, Q ↑</li>
+          <li><strong>Negative demand shock</strong>: AD shifts left → P ↓, Q ↓</li>
+          <li><strong>Positive supply shock</strong>: SRAS shifts right → P ↓, Q ↑</li>
+          <li><strong>Negative supply shock</strong>: SRAS shifts left → P ↑, Q ↓ → <strong>stagflation</strong></li>
+          <li><strong>Demand shocks</strong> move P and Q in the <strong>same</strong> direction</li>
+          <li><strong>Supply shocks</strong> move P and Q in <strong>opposite</strong> directions</li>
+          <li>Supply shocks are harder to manage — you can't fight inflation and unemployment at the same time</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="completion-card">
+      <div class="cc-icon">🎉</div>
+      <h2>Unit 2 Complete!</h2>
+      <p>You've finished all 3 lessons of Unit 2: Aggregate Demand &amp; Aggregate Supply Analysis. You now understand the AD-AS model — the core tool of macroeconomics.</p>
+      <p style="margin-top:.75rem;font-weight:700">Ready for Unit 3: Market Failure &amp; Consumer Protection. 🛒</p>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-2.html" class="btn btn-outline">← Lesson 2.2</a>
+      <a href="../index.html" class="btn btn-primary">Unit 2 Complete ✓</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
+      <p>Unit 2 · Lesson 2.3 · Equilibrium &amp; Shocks</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'A', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Short-run equilibrium occurs where AD intersects SRAS.',wrong:'✗ SR equilibrium = AD ∩ SRAS.'},
+    2:{correct:'✓ Correct! Positive demand shock → higher price AND higher real GDP.',wrong:'✗ Both P and Q rise.'},
+    3:{correct:'✓ Correct! Negative supply shock causes stagflation — P ↑ and Q ↓.',wrong:'✗ Negative supply shock = stagflation (P↑, Q↓).'},
+    4:{correct:'✓ Correct! Long-run equilibrium = AD ∩ LRAS, at natural real GDP (Q_N).',wrong:'✗ LR equilibrium at natural real GDP Q_N.'},
+    5:{correct:'✓ Correct! Supply shocks move P and Q in OPPOSITE directions; demand shocks in the SAME direction.',wrong:'✗ Supply = opposite; demand = same.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! Unit 2 complete — well done!';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
