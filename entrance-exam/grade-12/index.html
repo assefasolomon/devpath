@@ -3,71 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grade 12 · Entrance Exam | Freelance Skills Hub</title>
+  <title>Grade 12 — Entrance Exam | Freelance Skills Hub</title>
   <link rel="stylesheet" href="../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
     body{background:#F8FAFC}
-    .g12-hero{background:linear-gradient(135deg,#0F172A 0%,#7F1D1D 100%);padding:3rem 2rem 3.5rem;color:#fff;position:relative;overflow:hidden}
-    .g12-hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(220,38,38,.15),transparent 70%);border-radius:50%;pointer-events:none}
-    .g12-hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
-    .g12-hero .tag{display:inline-flex;gap:6px;background:rgba(220,38,38,.15);border:1px solid rgba(220,38,38,.3);color:#FCA5A5;font-size:.75rem;font-weight:600;padding:4px 14px;border-radius:999px;margin-bottom:1rem}
-    .g12-hero h1{font-size:2.5rem;font-weight:900;color:#fff;margin-bottom:.5rem;letter-spacing:-.02em}
-    .g12-hero p{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.7;max-width:680px;margin-bottom:1.5rem}
-    .hero-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin-top:1.5rem}
-    .hero-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:1rem 1.25rem}
-    .hero-stat .num{font-size:1.75rem;font-weight:900;color:#fff;line-height:1}
-    .hero-stat .label{font-size:.72rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;margin-top:.35rem}
-    .wrap{max-width:1000px;margin:0 auto;padding:3rem 2rem}
+    .g12-hero{background:linear-gradient(135deg,#0F172A 0%,#14532D 100%);padding:3rem 2rem 3.5rem;color:#fff;position:relative;overflow:hidden}
+    .g12-hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(22,163,74,.18),transparent 70%);border-radius:50%;pointer-events:none}
+    .g12-hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+    .g12-hero h1{font-size:2.25rem;font-weight:900;color:#fff;margin-bottom:.5rem;letter-spacing:-.02em}
+    .g12-hero p{color:rgba(255,255,255,.72);font-size:1rem;line-height:1.7;max-width:680px;margin:0}
+    .wrap{max-width:1100px;margin:0 auto;padding:3rem 2rem}
     .breadcrumb{display:flex;gap:6px;font-size:.82rem;color:var(--text-muted,#64748b);margin-bottom:2rem;flex-wrap:wrap}
-    .breadcrumb a{color:#DC2626;text-decoration:none}
+    .breadcrumb a{color:#16A34A;text-decoration:none}
     .breadcrumb a:hover{text-decoration:underline}
-    .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
-    .progress-summary{font-size:.8rem;font-weight:600;color:#166534;background:#F0FDF4;border:1px solid #BBF7D0;padding:4px 12px;border-radius:999px}
-    .stream-list{display:flex;flex-direction:column;gap:1.25rem}
-    .stream-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:20px;padding:1.75rem 2rem;display:block;transition:all .25s ease;position:relative;overflow:hidden}
-    .stream-card.ns{border-color:#BBF7D0}
-    .stream-card.ss{border-color:#BFDBFE}
-    .stream-header{display:flex;align-items:center;gap:1.25rem;margin-bottom:1rem}
-    .stream-icon{width:64px;height:64px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;color:#fff}
-    .stream-card.ns .stream-icon{background:linear-gradient(135deg,#166534,#16A34A)}
-    .stream-card.ss .stream-icon{background:linear-gradient(135deg,#1E3A8A,#1E40AF)}
-    .stream-info{flex:1;min-width:0}
-    .stream-title{font-size:1.35rem;font-weight:900;color:#0f172a;margin-bottom:.35rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;letter-spacing:-.01em}
-    .stream-badge{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
-    .stream-badge.building{color:#166534;background:#DCFCE7}
-    .stream-badge.partial{color:#92400E;background:#FFFBEB}
-    .stream-desc{font-size:.88rem;color:#475569;line-height:1.6}
-    .stream-open{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid #e2e8f0;text-align:right}
-    .stream-open a{color:#DC2626;font-size:.85rem;font-weight:700;text-decoration:none;letter-spacing:.02em}
-    .stream-card.ns .stream-open a{color:#16A34A}
-    .stream-card.ss .stream-open a{color:#1E40AF}
-    .stream-open a:hover{text-decoration:underline}
-    .subject-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:.625rem;margin-top:1.25rem}
-    .subject-pill{display:flex;align-items:center;gap:.5rem;background:#F8FAFC;border:1.5px solid #e2e8f0;border-radius:12px;padding:.625rem .875rem;font-size:.82rem;font-weight:600;color:#0f172a;text-decoration:none;transition:all .2s ease}
-    .subject-pill.live{cursor:pointer}
-    .subject-pill.live:hover{transform:translateX(2px)}
-    .stream-card.ns .subject-pill.live:hover{border-color:#16A34A;background:#F0FDF4}
-    .stream-card.ss .subject-pill.live:hover{border-color:#1E40AF;background:#EFF6FF}
-    .subject-pill.done{border-color:#BBF7D0;background:#F0FDF4}
-    .stream-card.ss .subject-pill.done{border-color:#BFDBFE;background:#EFF6FF}
-    .subject-pill.done .subject-status{color:#16A34A}
-    .stream-card.ss .subject-pill.done .subject-status{color:#1E40AF}
-    .subject-pill.building{border-color:#BBF7D0;background:#F0FDF4}
-    .subject-pill.building .subject-status{color:#16A34A}
-    .subject-pill.soon{border-color:#e2e8f0;background:#F8FAFC;opacity:.65}
-    .subject-pill.soon .subject-status{color:#94a3b8}
+    .stream-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:20px;padding:2rem;margin-bottom:1.75rem;transition:all .2s ease}
+    .stream-card:hover{border-color:#16A34A;box-shadow:0 8px 28px rgba(22,163,74,.10)}
+    .stream-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .stream-icon{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#14532D,#16A34A);display:flex;align-items:center;justify-content:center;font-size:1.9rem;flex-shrink:0;color:#fff}
+    .stream-info{flex:1;min-width:220px}
+    .stream-title{font-size:1.35rem;font-weight:900;color:#0f172a;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.35rem}
+    .stream-badge{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:999px;letter-spacing:.03em}
+    .stream-badge.complete{color:#166534;background:#DCFCE7}
+    .stream-badge.partial{color:#92400E;background:#FEF3C7}
+    .stream-badge.building{color:#7C2D12;background:#FFEDD5}
+    .stream-desc{font-size:.88rem;color:#64748b;line-height:1.6;margin:0}
+    .subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem}
+    .subject-pill{display:flex;align-items:center;gap:.65rem;padding:.875rem 1.1rem;border:1.5px solid #e2e8f0;border-radius:12px;background:#fff;text-decoration:none;color:inherit;font-size:.85rem;font-weight:600;transition:all .2s ease}
+    .subject-pill.live{cursor:pointer;border-color:#FED7AA;background:linear-gradient(90deg,#fff 0%,#FFF7ED 100%)}
+    .subject-pill.live:hover{border-color:#EA580C;transform:translateY(-2px);box-shadow:0 6px 16px rgba(234,88,12,.15)}
+    .subject-pill.live.done{border-color:#BBF7D0;background:linear-gradient(90deg,#fff 0%,#F0FDF4 100%)}
+    .subject-pill.live.done:hover{border-color:#16A34A;box-shadow:0 6px 16px rgba(22,163,74,.15)}
+    .subject-pill.soon{border-color:#e2e8f0;background:#fff;opacity:.72;cursor:not-allowed}
     .subject-icon-small{font-size:1.1rem;flex-shrink:0}
-    .subject-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .subject-status{font-size:.72rem;font-weight:700;flex-shrink:0}
+    .subject-name{flex:1;color:#0f172a;font-weight:700}
+    .subject-status{font-size:.72rem;color:#64748b;font-weight:600;flex-shrink:0}
+    .subject-pill.live .subject-status{color:#EA580C}
+    .subject-pill.live.done .subject-status{color:#16A34A}
+    .stream-open{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #e2e8f0;text-align:right}
+    .stream-open a{font-size:.9rem;font-weight:700;color:#16A34A;text-decoration:none}
+    .stream-open a:hover{text-decoration:underline}
     @media (max-width: 640px){
       .g12-hero{padding:2.25rem 1rem 2.5rem}
-      .g12-hero h1{font-size:1.75rem}
+      .g12-hero h1{font-size:1.6rem}
       .wrap{padding:2rem 1rem}
-      .stream-card{padding:1.25rem 1.25rem}
-      .stream-icon{width:52px;height:52px;font-size:1.5rem}
-      .stream-title{font-size:1.15rem}
-      .subject-grid{grid-template-columns:1fr}
+      .stream-card{padding:1.25rem}
     }
   </style>
 </head>
@@ -95,15 +75,8 @@
 
 <div class="g12-hero">
   <div class="g12-hero-inner">
-    <div class="tag">🎓 Grade 12 · EUEE Preparation</div>
-    <h1>Grade 12</h1>
-    <p>Choose your stream to access the full EUEE curriculum. Both streams cover common subjects (Aptitude, English, Mathematics) plus stream-specific subjects.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">2</div><div class="label">Streams</div></div>
-      <div class="hero-stat"><div class="num">9</div><div class="label">Subjects</div></div>
-      <div class="hero-stat"><div class="num">112+</div><div class="label">Lessons Built</div></div>
-      <div class="hero-stat"><div class="num">4</div><div class="label">Complete Subjects</div></div>
-    </div>
+    <h1>Grade 12 — Entrance Exam</h1>
+    <p>Complete EUEE preparation across all streams. Choose your track — Natural Science or Social Science — and dive into your subject.</p>
   </div>
 </div>
 
@@ -114,100 +87,95 @@
     <span>Grade 12</span>
   </div>
 
-  <div class="section-title">
-    <span>Streams</span>
-    <span class="progress-summary">✓ Physics · Chemistry · Math (both streams) Complete</span>
-  </div>
-
-  <div class="stream-list">
-    <div class="stream-card ns">
-      <div class="stream-header">
-        <div class="stream-icon">🔬</div>
-        <div class="stream-info">
-          <div class="stream-title">Natural Science <span class="stream-badge building">🚀 Building</span></div>
-          <div class="stream-desc">Physics, Chemistry, Biology, and Mathematics — the science-track EUEE curriculum.</div>
-        </div>
-      </div>
-      <div class="subject-grid">
-        <a href="natural-science/physics/index.html" class="subject-pill live done">
-          <span class="subject-icon-small">⚛️</span>
-          <span class="subject-name">Physics</span>
-          <span class="subject-status">✓ Complete</span>
-        </a>
-        <a href="natural-science/chemistry/index.html" class="subject-pill live done">
-          <span class="subject-icon-small">⚗️</span>
-          <span class="subject-name">Chemistry</span>
-          <span class="subject-status">✓ Complete</span>
-        </a>
-        <a href="natural-science/mathematics/index.html" class="subject-pill live done">
-          <span class="subject-icon-small">📐</span>
-          <span class="subject-name">Mathematics</span>
-          <span class="subject-status">✓ Complete</span>
-        </a>
-        <a href="natural-science/biology/index.html" class="subject-pill live building">
-          <span class="subject-icon-small">🧬</span>
-          <span class="subject-name">Biology</span>
-          <span class="subject-status">🚀 Building</span>
-        </a>
-        <div class="subject-pill soon">
-          <span class="subject-icon-small">🧩</span>
-          <span class="subject-name">Aptitude</span>
-          <span class="subject-status">⏳ Soon</span>
-        </div>
-        <div class="subject-pill soon">
-          <span class="subject-icon-small">📘</span>
-          <span class="subject-name">English</span>
-          <span class="subject-status">⏳ Soon</span>
-        </div>
-      </div>
-      <div class="stream-open">
-        <a href="natural-science/index.html">Open Natural Science →</a>
+  <!-- ============ NATURAL SCIENCE ============ -->
+  <div class="stream-card">
+    <div class="stream-header">
+      <div class="stream-icon">🧪</div>
+      <div class="stream-info">
+        <div class="stream-title">Natural Science <span class="stream-badge complete">✓ 4 Complete</span></div>
+        <div class="stream-desc">Physics, Chemistry, Biology, and Mathematics — the science-track EUEE curriculum.</div>
       </div>
     </div>
+    <div class="subject-grid">
+      <a href="natural-science/physics/index.html" class="subject-pill live done">
+        <span class="subject-icon-small">⚛️</span>
+        <span class="subject-name">Physics</span>
+        <span class="subject-status">✓ Complete</span>
+      </a>
+      <a href="natural-science/chemistry/index.html" class="subject-pill live done">
+        <span class="subject-icon-small">🧪</span>
+        <span class="subject-name">Chemistry</span>
+        <span class="subject-status">✓ Complete</span>
+      </a>
+      <a href="natural-science/mathematics/index.html" class="subject-pill live done">
+        <span class="subject-icon-small">📐</span>
+        <span class="subject-name">Mathematics</span>
+        <span class="subject-status">✓ Complete</span>
+      </a>
+      <a href="natural-science/biology/index.html" class="subject-pill live done">
+        <span class="subject-icon-small">🧬</span>
+        <span class="subject-name">Biology</span>
+        <span class="subject-status">✓ Complete</span>
+      </a>
+      <div class="subject-pill soon">
+        <span class="subject-icon-small">🧩</span>
+        <span class="subject-name">Aptitude</span>
+        <span class="subject-status">⏳ Soon</span>
+      </div>
+      <div class="subject-pill soon">
+        <span class="subject-icon-small">📖</span>
+        <span class="subject-name">English</span>
+        <span class="subject-status">⏳ Soon</span>
+      </div>
+    </div>
+    <div class="stream-open">
+      <a href="natural-science/index.html">Open Natural Science →</a>
+    </div>
+  </div>
 
-    <div class="stream-card ss">
-      <div class="stream-header">
-        <div class="stream-icon">🌍</div>
-        <div class="stream-info">
-          <div class="stream-title">Social Science <span class="stream-badge partial">🌱 Math Ready</span></div>
-          <div class="stream-desc">History, Geography, Economics, and Mathematics — the social-science-track EUEE curriculum.</div>
-        </div>
+  <!-- ============ SOCIAL SCIENCE ============ -->
+  <div class="stream-card">
+    <div class="stream-header">
+      <div class="stream-icon">🌍</div>
+      <div class="stream-info">
+        <div class="stream-title">Social Science <span class="stream-badge building">🚧 Building</span></div>
+        <div class="stream-desc">History, Geography, Economics, and Mathematics — the social-science-track EUEE curriculum.</div>
       </div>
-      <div class="subject-grid">
-        <a href="social-science/mathematics/index.html" class="subject-pill live done">
-          <span class="subject-icon-small">📐</span>
-          <span class="subject-name">Mathematics</span>
-          <span class="subject-status">✓ Complete</span>
-        </a>
-        <div class="subject-pill soon">
-          <span class="subject-icon-small">📜</span>
-          <span class="subject-name">History</span>
-          <span class="subject-status">⏳ Soon</span>
-        </div>
-        <div class="subject-pill soon">
-          <span class="subject-icon-small">🗺️</span>
-          <span class="subject-name">Geography</span>
-          <span class="subject-status">⏳ Soon</span>
-        </div>
-        <div class="subject-pill soon">
-          <span class="subject-icon-small">💹</span>
-          <span class="subject-name">Economics</span>
-          <span class="subject-status">⏳ Soon</span>
-        </div>
-        <div class="subject-pill soon">
-          <span class="subject-icon-small">🧩</span>
-          <span class="subject-name">Aptitude</span>
-          <span class="subject-status">⏳ Soon</span>
-        </div>
-        <div class="subject-pill soon">
-          <span class="subject-icon-small">📘</span>
-          <span class="subject-name">English</span>
-          <span class="subject-status">⏳ Soon</span>
-        </div>
+    </div>
+    <div class="subject-grid">
+      <a href="social-science/mathematics/index.html" class="subject-pill live done">
+        <span class="subject-icon-small">📐</span>
+        <span class="subject-name">Mathematics</span>
+        <span class="subject-status">✓ Complete</span>
+      </a>
+      <a href="social-science/economics/index.html" class="subject-pill live">
+        <span class="subject-icon-small">💹</span>
+        <span class="subject-name">Economics</span>
+        <span class="subject-status">🚧 Building</span>
+      </a>
+      <div class="subject-pill soon">
+        <span class="subject-icon-small">📜</span>
+        <span class="subject-name">History</span>
+        <span class="subject-status">⏳ Soon</span>
       </div>
-      <div class="stream-open">
-        <a href="social-science/index.html">Open Social Science →</a>
+      <div class="subject-pill soon">
+        <span class="subject-icon-small">🗺️</span>
+        <span class="subject-name">Geography</span>
+        <span class="subject-status">⏳ Soon</span>
       </div>
+      <div class="subject-pill soon">
+        <span class="subject-icon-small">🧩</span>
+        <span class="subject-name">Aptitude</span>
+        <span class="subject-status">⏳ Soon</span>
+      </div>
+      <div class="subject-pill soon">
+        <span class="subject-icon-small">📘</span>
+        <span class="subject-name">English</span>
+        <span class="subject-status">⏳ Soon</span>
+      </div>
+    </div>
+    <div class="stream-open">
+      <a href="social-science/index.html">Open Social Science →</a>
     </div>
   </div>
 </div>
