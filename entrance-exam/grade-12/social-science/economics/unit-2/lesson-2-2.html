@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.2: Aggregate Supply | Economics Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#EA580C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#EA580C}
+    .sidebar-link.active{background:#FFEDD5;color:#7C2D12;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#EA580C;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7C2D12,#EA580C);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FFEDD5}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#EA580C;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-left:5px solid #EA580C;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C2D12;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#EA580C;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#EA580C;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #FED7AA;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#EA580C;box-shadow:0 4px 12px rgba(234,88,12,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#7C2D12;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .formula-box{background:#0F172A;color:#F1F5F9;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;text-align:center}
+    .formula-box .formula-label{font-size:.72rem;color:#FDBA74;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:.5rem}
+    .formula-box .formula-eq{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.7;font-family:'Courier New',monospace}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#EA580C;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#EA580C;background:#FFF7ED}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #EA580C;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#EA580C}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#7C2D12;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(234,88,12,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#EA580C;font-weight:700;flex-shrink:0;margin-top:1px}
+    .svg-figure{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin:1rem 0;text-align:center}
+    .svg-caption{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#EA580C;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 2</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('concept')"><div class="sidebar-dot"></div> Concept of AS</button>
+      <button class="sidebar-link" onclick="scrollToId('keynes-classical')"><div class="sidebar-dot"></div> Keynesian vs Classical AS</button>
+      <button class="sidebar-link" onclick="scrollToId('sras')"><div class="sidebar-dot"></div> SRAS Curve</button>
+      <button class="sidebar-link" onclick="scrollToId('sras-why')"><div class="sidebar-dot"></div> Why SRAS Slopes Up</button>
+      <button class="sidebar-link" onclick="scrollToId('shifts-sras')"><div class="sidebar-dot"></div> Shifts in SRAS</button>
+      <button class="sidebar-link" onclick="scrollToId('lras')"><div class="sidebar-dot"></div> LRAS Curve</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Aggregate Demand</a>
+      <a href="lesson-2-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Aggregate Supply</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Equilibrium</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Economics</a> ›
+      <a href="../index.html">Unit 2</a> ›
+      Lesson 2.2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · AD-AS Analysis · MoE Textbook §2.2</div>
+      <h1>📈 Aggregate Supply</h1>
+      <p>Aggregate supply is the other side of the economy — the total quantity of goods and services that firms are willing to produce. In this lesson, we explore both the short-run and long-run aggregate supply curves and what makes them shift.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Aggregate demand is one side of the economy; <strong>aggregate supply is the other</strong>. The interaction of the two determines the level of national output and the general price level. This lesson focuses on the <strong>supply side</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>aggregate supply</strong></li>
+          <li>Distinguish between the <strong>Keynesian</strong> and <strong>Classical</strong> AS curves</li>
+          <li>Explain why <strong>SRAS slopes upward</strong> (sticky wages + worker misperceptions)</li>
+          <li>Explain why <strong>LRAS is vertical</strong></li>
+          <li>Identify what <strong>shifts the SRAS curve</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="concept">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">Concept of Aggregate Supply</div><div class="section-subtitle">MoE Textbook §2.2.1, p. 35</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Aggregate Supply (MoE Textbook, p. 35)</div>
+          <p>
+            <strong>Aggregate supply</strong> refers to the <strong>quantity supplied of all goods and services (real GDP) at various price levels</strong>, <em>ceteris paribus</em>. There is a <strong>direct or positive relationship</strong> between the price level and the amount of real output that firms offer for sale.
+          </p>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Aggregate supply includes both <strong>short-run aggregate supply (SRAS)</strong> and <strong>long-run aggregate supply (LRAS)</strong>. Understanding the difference is essential for the AD-AS model.
+        </p>
+
+        <div class="note-box">
+          <div class="note-label">📝 Short run vs Long run</div>
+          <p>
+            • <strong>Short run:</strong> a time horizon during which at least one of the firm's inputs <em>cannot</em> be varied<br>
+            • <strong>Long run:</strong> a time horizon long enough for a firm to vary <em>all</em> of its inputs
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="keynes-classical">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">Keynesian vs Classical Aggregate Supply</div><div class="section-subtitle">Two extreme views</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🔑</div>
+            <div class="concept-title">Keynesian AS Curve</div>
+            <p class="concept-desc">The Keynesian supply curve is <strong>horizontal</strong>. Firms will supply whatever amount of goods is demanded at the existing price level since there is unemployment. Firms can obtain as much labour as they want at the current wage.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🏛️</div>
+            <div class="concept-title">Classical AS Curve</div>
+            <p class="concept-desc">The classical aggregate supply curve is <strong>vertical</strong>, indicating that the same amount of goods will be supplied whatever the price level — based on the assumption that the labour market is always in equilibrium with full employment.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The modern synthesis</div>
+          <p>
+            Modern macroeconomics combines both views: the <strong>SRAS</strong> is upward sloping (like an intermediate case), while the <strong>LRAS</strong> is vertical (Classical view applies in the long run).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="sras">
+      <div class="section-header"><div class="section-icon">📈</div>
+        <div><div class="section-title-text">The Short-Run Aggregate Supply (SRAS) Curve</div><div class="section-subtitle">MoE Textbook §2.2.2, p. 36</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 SRAS Curve</div>
+          <p>
+            The <strong>SRAS curve</strong> shows the quantity supplied of all goods and services (real GDP) at different price levels, <em>ceteris paribus</em>. The SRAS curve is <strong>upward sloping</strong>: as the price level rises, firms increase the quantity supplied; as the price level drops, firms decrease the quantity supplied.
+          </p>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <line x1="80" y1="320" x2="600" y2="320" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="320" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+
+            <text x="340" y="360" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real Domestic Product (GDP)</text>
+            <text x="45" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 180)">Price Level</text>
+
+            <!-- SRAS curve -->
+            <path d="M 130 280 Q 320 240, 560 90" stroke="#EA580C" stroke-width="3.5" fill="none"/>
+            <text x="540" y="78" font-size="12" font-weight="800" fill="#7C2D12">SRAS</text>
+
+            <!-- Price level P1 -->
+            <line x1="80" y1="140" x2="470" y2="140" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="60" y="145" text-anchor="end" font-size="13" font-weight="700" fill="#0F172A">P₁</text>
+            <circle cx="470" cy="140" r="5" fill="#0EA5E9"/>
+            <line x1="470" y1="140" x2="470" y2="320" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="470" y="340" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Q₁</text>
+
+            <!-- Price level P0 -->
+            <line x1="80" y1="240" x2="250" y2="240" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="60" y="245" text-anchor="end" font-size="13" font-weight="700" fill="#0F172A">P₀</text>
+            <circle cx="250" cy="240" r="5" fill="#0EA5E9"/>
+            <line x1="250" y1="240" x2="250" y2="320" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="250" y="340" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Q₀</text>
+
+            <!-- Arrow -->
+            <path d="M 260 230 Q 360 190, 450 150" stroke="#16A34A" stroke-width="2" fill="none" marker-end="url(#garrow3)"/>
+            <defs>
+              <marker id="garrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#16A34A"/>
+              </marker>
+            </defs>
+            <text x="360" y="200" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">P↑ → Qs↑</text>
+          </svg>
+          <div class="svg-caption">The SRAS curve slopes upward: as price level rises (P₀ → P₁), quantity supplied rises (Q₀ → Q₁).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="sras-why">
+      <div class="section-header"><div class="section-icon">❓</div>
+        <div><div class="section-title-text">Why Does the SRAS Slope Upward?</div><div class="section-subtitle">Two explanations</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">📌</div>
+            <div class="concept-title">1. Sticky Wages</div>
+            <p class="concept-desc">Wages do not adjust immediately to changes in the price level. When the price level falls, real wages rise — firms cut back on labour, and output falls.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">👷</div>
+            <div class="concept-title">2. Worker Misperceptions</div>
+            <p class="concept-desc">Workers may misperceive changes in real wages. They see nominal wage changes but may not fully understand the change in price level — so they alter their labour supply.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Sticky Wages — An Example</h3>
+        <ul class="key-points">
+          <li>Suppose the nominal wage is fixed at <strong>$20/hour</strong></li>
+          <li>If the price level <strong>falls</strong>, the <strong>real wage rises</strong> (employers pay the same nominal wage, but each Birr now buys more)</li>
+          <li>A rise in real wages means higher labour costs for firms</li>
+          <li>Firms cut back on labour — say, from 1,000 to 800 workers</li>
+          <li>With fewer workers, <strong>less output is produced</strong></li>
+          <li>Result: a fall in the price level causes a fall in output — the essence of the upward-sloping SRAS curve</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Worker Misperceptions — An Example</h3>
+        <ul class="key-points">
+          <li>Nominal wage falls from <strong>$30</strong> to <strong>$25/hour</strong></li>
+          <li>Price level falls from <strong>1.50</strong> to <strong>1.25</strong></li>
+          <li>Real wage is still <strong>$20</strong> ($25 ÷ 1.25) — <em>no real change</em></li>
+          <li>But workers may mistakenly believe the price level only fell to 1.39 → they <em>think</em> their real wage fell to $17.98</li>
+          <li>Believing their real wage fell, workers reduce labour supply</li>
+          <li>With fewer workers, <strong>firms produce less</strong></li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Bottom line</div>
+          <p>
+            Both sticky wages and worker misperceptions mean that a <strong>fall in the price level leads to a fall in output</strong> — which is exactly what an upward-sloping SRAS curve represents.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="shifts-sras">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">Shifts in the SRAS Curve</div><div class="section-subtitle">What moves the curve?</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          A change in the quantity supplied of real GDP is brought about by a change in the <strong>price level</strong> — that's a movement <em>along</em> the SRAS curve. But several factors <strong>shift</strong> the entire SRAS curve.
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Factor</th><th>Effect on SRAS</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cost of inputs ↑ (wages, raw materials)</td><td>SRAS shifts <strong>left</strong> (costs ↑ → less profitable to produce)</td></tr>
+            <tr><td>Domestic resource availability ↑</td><td>SRAS shifts <strong>right</strong></td></tr>
+            <tr><td>Productivity ↑</td><td>SRAS shifts <strong>right</strong> (more output per worker)</td></tr>
+            <tr><td>Technology improves</td><td>SRAS shifts <strong>right</strong></td></tr>
+            <tr><td>Business taxes ↑ or subsidies ↓</td><td>SRAS shifts <strong>left</strong></td></tr>
+            <tr><td>Weather improves (agriculture)</td><td>SRAS shifts <strong>right</strong></td></tr>
+            <tr><td>Price of imported resources ↑</td><td>SRAS shifts <strong>left</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Formula</h3>
+        <div class="formula-box">
+          <div class="formula-label">Profit per unit</div>
+          <div class="formula-eq">Profit per unit = Price per unit − Cost per unit</div>
+        </div>
+
+        <ul class="key-points">
+          <li><strong>Higher wages</strong> → higher costs → at constant prices, lower profits → fewer units produced → SRAS shifts <strong>left</strong></li>
+          <li><strong>Lower wages</strong> → lower costs → at constant prices, higher profits → more units produced → SRAS shifts <strong>right</strong></li>
+        </ul>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <line x1="80" y1="320" x2="600" y2="320" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="320" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+
+            <text x="340" y="360" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real Domestic Product (GDP)</text>
+            <text x="45" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 180)">Price Level</text>
+
+            <!-- SRAS1 (initial) -->
+            <path d="M 160 280 Q 340 220, 560 100" stroke="#0F172A" stroke-width="3" fill="none"/>
+            <text x="545" y="88" font-size="12" font-weight="800" fill="#0F172A">SRAS₁</text>
+
+            <!-- SRAS0 (shift left) -->
+            <path d="M 130 260 Q 300 200, 520 60" stroke="#DC2626" stroke-width="3" fill="none" opacity="0.75"/>
+            <text x="505" y="48" font-size="12" font-weight="800" fill="#991B1B">SRAS₀ (↑costs)</text>
+
+            <!-- SRAS2 (shift right) -->
+            <path d="M 200 300 Q 380 240, 610 130" stroke="#16A34A" stroke-width="3" fill="none" opacity="0.75"/>
+            <text x="595" y="120" font-size="12" font-weight="800" fill="#166534">SRAS₂ (↓costs)</text>
+
+            <!-- Arrows -->
+            <path d="M 320 190 L 290 180" stroke="#DC2626" stroke-width="2" fill="none" marker-end="url(#rarrow3)"/>
+            <path d="M 360 210 L 400 220" stroke="#16A34A" stroke-width="2" fill="none" marker-end="url(#garrow4)"/>
+            <defs>
+              <marker id="rarrow3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#DC2626"/>
+              </marker>
+              <marker id="garrow4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#16A34A"/>
+              </marker>
+            </defs>
+          </svg>
+          <div class="svg-caption">Higher input costs shift SRAS left (SRAS₁ → SRAS₀). Lower costs or higher productivity shift it right (SRAS₁ → SRAS₂).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="lras">
+      <div class="section-header"><div class="section-icon">📏</div>
+        <div><div class="section-title-text">The Long-Run Aggregate Supply (LRAS) Curve</div><div class="section-subtitle">MoE Textbook §2.2.3, p. 40</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 LRAS Curve</div>
+          <p>
+            In the long run, wages become flexible and misperceptions turn into accurate perceptions. The economy then produces the <strong>full-employment real GDP</strong> or the <strong>natural real GDP (Q<sub>N</sub>)</strong>. The LRAS curve is <strong>vertical</strong>, indicating the same output is produced regardless of the price level.
+          </p>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <line x1="80" y1="320" x2="600" y2="320" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="320" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+
+            <text x="340" y="360" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real Domestic Product (GDP)</text>
+            <text x="45" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 180)">Price Level</text>
+
+            <!-- LRAS vertical -->
+            <line x1="350" y1="40" x2="350" y2="320" stroke="#EA580C" stroke-width="3.5" stroke-linecap="round"/>
+            <text x="350" y="30" text-anchor="middle" font-size="12" font-weight="800" fill="#7C2D12">LRAS</text>
+
+            <!-- Marking QN -->
+            <line x1="350" y1="320" x2="350" y2="330" stroke="#0F172A" stroke-width="2"/>
+            <text x="350" y="345" text-anchor="middle" font-size="13" font-weight="800" fill="#0F172A">Q_N (Natural GDP)</text>
+
+            <!-- Price levels P1, P0, P2 -->
+            <line x1="80" y1="120" x2="350" y2="120" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="60" y="125" text-anchor="end" font-size="13" font-weight="700" fill="#0F172A">P₁</text>
+            <circle cx="350" cy="120" r="5" fill="#0EA5E9"/>
+
+            <line x1="80" y1="200" x2="350" y2="200" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="60" y="205" text-anchor="end" font-size="13" font-weight="700" fill="#0F172A">P₀</text>
+            <circle cx="350" cy="200" r="5" fill="#0EA5E9"/>
+
+            <line x1="80" y1="270" x2="350" y2="270" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="60" y="275" text-anchor="end" font-size="13" font-weight="700" fill="#0F172A">P₂</text>
+            <circle cx="350" cy="270" r="5" fill="#0EA5E9"/>
+
+            <text x="530" y="200" text-anchor="middle" font-size="11" font-style="italic" fill="#64748b">Price level</text>
+            <text x="530" y="220" text-anchor="middle" font-size="11" font-style="italic" fill="#64748b">doesn't change</text>
+            <text x="530" y="240" text-anchor="middle" font-size="11" font-style="italic" fill="#64748b">real output</text>
+          </svg>
+          <div class="svg-caption">In the long run, the economy produces its natural real GDP (Q_N) regardless of the price level — hence a vertical LRAS curve.</div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Key Points About LRAS</h3>
+        <ul class="key-points">
+          <li>The LRAS is <strong>vertical</strong> — the same amount of goods will be supplied at whatever the price level</li>
+          <li>It reflects <strong>full employment</strong> of the labour force</li>
+          <li>It assumes <strong>flexible wages and prices</strong> (the Classical assumption)</li>
+          <li>In the long run, the economy produces its <strong>natural real GDP (Q<sub>N</sub>)</strong></li>
+          <li>Long-run equilibrium occurs where <strong>AD intersects LRAS</strong></li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Keynesian vs Classical — resolved</div>
+          <p>
+            The <strong>SRAS</strong> (upward sloping) captures the Keynesian view of sticky wages and misperceptions. The <strong>LRAS</strong> (vertical) captures the Classical view of flexible prices and full employment. Together, they give us the <strong>modern AD-AS model</strong>.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is aggregate supply?<br>
+            B. Why does the SRAS curve slope upward? Explain using sticky wages and worker misperceptions.<br>
+            C. Why is the LRAS curve vertical?<br>
+            D. What factors shift the SRAS curve? Give two examples of shifts to the right and two to the left.<br>
+            E. Distinguish between movement along the SRAS curve and a shift of the SRAS curve.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is the shape of the <strong>short-run aggregate supply (SRAS)</strong> curve?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Horizontal</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Vertical</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Upward sloping</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Downward sloping</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Why does the <strong>LRAS curve</strong> appear vertical?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Because wages are sticky in the long run</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Because in the long run the economy produces its full-employment real GDP regardless of price level</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Because government always sets output at full employment</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Because prices fall to zero in the long run</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Which of the following <strong>shifts SRAS to the left</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> An improvement in technology</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> An increase in input costs (e.g., higher wages)</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> An increase in labour productivity</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> A cut in business taxes</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">What is <strong>sticky wage theory</strong> about?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Wages that rise with prices automatically</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Wages that don't adjust immediately to changes in the price level</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Wages that are always equal to the price level</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Wages that never change at all</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">What is the <strong>Keynesian AS curve</strong> shaped like?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Vertical</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Horizontal</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Downward sloping</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Circular</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=aggregate+supply+explained+short+run+long+run" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Aggregate Supply — Short Run &amp; Long Run</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=short+run+aggregate+supply+curve+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The SRAS Curve Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=long+run+aggregate+supply+lras+vertical" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The LRAS Curve — Why It's Vertical</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=sticky+wages+worker+misperceptions+aggregate+supply" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Sticky Wages &amp; Worker Misperceptions</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 2.2</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Aggregate supply</strong> = quantity supplied of all goods and services at various price levels</li>
+          <li>The <strong>Keynesian AS curve</strong> is <strong>horizontal</strong> (firms supply whatever is demanded at the current price)</li>
+          <li>The <strong>Classical AS curve</strong> is <strong>vertical</strong> (output is at full employment regardless of price level)</li>
+          <li>The <strong>SRAS curve slopes upward</strong> due to <strong>sticky wages</strong> and <strong>worker misperceptions</strong></li>
+          <li>The <strong>LRAS curve is vertical</strong> — the economy produces its natural real GDP (Q<sub>N</sub>) in the long run</li>
+          <li><strong>SRAS shifts left</strong> when input costs rise (higher wages, expensive imports)</li>
+          <li><strong>SRAS shifts right</strong> when costs fall, productivity rises, technology improves, or subsidies increase</li>
+          <li>Profit per unit = Price per unit − Cost per unit</li>
+          <li>Short run = at least one input fixed; Long run = all inputs variable</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-2-1.html" class="btn btn-outline">← Lesson 2.1</a>
+      <a href="lesson-2-3.html" class="btn btn-primary">Next: Lesson 2.3 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
+      <p>Unit 2 · Lesson 2.2 · Aggregate Supply</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'C', 2:'B', 3:'B', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! The SRAS curve is upward sloping — as price level rises, quantity supplied rises.',wrong:'✗ SRAS is upward sloping.'},
+    2:{correct:'✓ Correct! In the long run, the economy produces its natural (full-employment) real GDP regardless of price level.',wrong:'✗ LRAS vertical because output = natural real GDP.'},
+    3:{correct:'✓ Correct! Higher input costs (like wages) shift SRAS left because firms produce fewer units at given prices.',wrong:'✗ Higher input costs → SRAS shifts left.'},
+    4:{correct:'✓ Correct! Sticky wages are wages that don\'t adjust immediately to changes in the price level.',wrong:'✗ Sticky = don\'t adjust immediately.'},
+    5:{correct:'✓ Correct! The Keynesian AS curve is horizontal — firms supply whatever is demanded at current price.',wrong:'✗ Keynesian AS = horizontal.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 2.2.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
