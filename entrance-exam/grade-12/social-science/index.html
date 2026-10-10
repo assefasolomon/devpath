@@ -25,6 +25,8 @@
     .subject-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:1.25rem 1.5rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1rem;transition:all .2s ease}
     .subject-card.complete{border-color:#FED7AA;background:linear-gradient(90deg,#fff 0%,#FFF7ED 100%)}
     .subject-card.complete:hover{border-color:#EA580C;transform:translateY(-2px);box-shadow:0 8px 24px rgba(234,88,12,.14)}
+    .subject-card.building{border-color:#FED7AA;background:linear-gradient(90deg,#fff 0%,#FFF7ED 100%)}
+    .subject-card.building:hover{border-color:#EA580C;transform:translateY(-2px);box-shadow:0 8px 24px rgba(234,88,12,.14)}
     .subject-card.soon{border-color:#e2e8f0;background:#fff;opacity:.72;cursor:not-allowed}
     .subject-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
     .subject-icon.mathematics{background:linear-gradient(135deg,#D97706,#F59E0B)}
@@ -37,6 +39,7 @@
     .subject-name{font-size:1rem;font-weight:800;color:#0f172a;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
     .subject-status{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:2px 10px;border-radius:999px;letter-spacing:.03em}
     .subject-status.complete{color:#7C2D12;background:#FFEDD5}
+    .subject-status.building{color:#7C2D12;background:#FFEDD5}
     .subject-status.soon{color:#64748b;background:#F1F5F9}
     .subject-desc{font-size:.8rem;color:#64748b;line-height:1.5}
     @media (max-width: 640px){
@@ -98,10 +101,10 @@
       </div>
     </a>
 
-    <a href="economics/index.html" class="subject-card soon">
+    <a href="economics/index.html" class="subject-card building">
       <div class="subject-icon economics">💹</div>
       <div class="subject-info">
-        <div class="subject-name">Economics <span class="subject-status soon">⏳ Soon</span></div>
+        <div class="subject-name">Economics <span class="subject-status building">🚧 Building</span></div>
         <div class="subject-desc">Macroeconomics, AD-AS, market failure, policy, taxation, poverty, reforms</div>
       </div>
     </a>
