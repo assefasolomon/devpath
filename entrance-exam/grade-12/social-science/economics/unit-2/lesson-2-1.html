@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2.1: Aggregate Demand | Economics Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#EA580C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#EA580C}
+    .sidebar-link.active{background:#FFEDD5;color:#7C2D12;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#EA580C;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7C2D12,#EA580C);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FFEDD5}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#EA580C;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-left:5px solid #EA580C;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C2D12;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#EA580C;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#EA580C;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #FED7AA;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#EA580C;box-shadow:0 4px 12px rgba(234,88,12,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#7C2D12;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .formula-box{background:#0F172A;color:#F1F5F9;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;text-align:center}
+    .formula-box .formula-label{font-size:.72rem;color:#FDBA74;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:.5rem}
+    .formula-box .formula-eq{font-size:1.1rem;font-weight:700;color:#fff;line-height:1.7;font-family:'Courier New',monospace}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#EA580C;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#EA580C;background:#FFF7ED}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #EA580C;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#EA580C}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#7C2D12;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(234,88,12,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#EA580C;font-weight:700;flex-shrink:0;margin-top:1px}
+    .svg-figure{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin:1rem 0;text-align:center}
+    .svg-caption{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#EA580C;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 2</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 2 · Lesson 1</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('concept')"><div class="sidebar-dot"></div> Concept of AD</button>
+      <button class="sidebar-link" onclick="scrollToId('components')"><div class="sidebar-dot"></div> Components of AD</button>
+      <button class="sidebar-link" onclick="scrollToId('curve')"><div class="sidebar-dot"></div> The AD Curve</button>
+      <button class="sidebar-link" onclick="scrollToId('slope')"><div class="sidebar-dot"></div> Why AD Slopes Down</button>
+      <button class="sidebar-link" onclick="scrollToId('movement')"><div class="sidebar-dot"></div> Movement vs Shift</button>
+      <button class="sidebar-link" onclick="scrollToId('shifts')"><div class="sidebar-dot"></div> Shifts in AD</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 2 Lessons</div>
+      <a href="lesson-2-1.html" class="sidebar-link active"><div class="sidebar-dot"></div> L1: Aggregate Demand</a>
+      <a href="lesson-2-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Aggregate Supply</a>
+      <a href="lesson-2-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Equilibrium</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Economics</a> ›
+      <a href="../index.html">Unit 2</a> ›
+      Lesson 2.1
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 2 · AD-AS Analysis · MoE Textbook §2.1</div>
+      <h1>📉 Aggregate Demand</h1>
+      <p>Aggregate demand is one side of the economy — the total spending by all sectors. In this lesson, we define AD, look at its four components, and explore why the AD curve slopes downward and what makes it shift.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          The <strong>AD-AS model</strong> is the basic macroeconomic model for studying output and price level determination. Just as there are two sides to a market — a buying side (demand) and a selling side (supply) — there are two sides to an economy. This lesson focuses on the <strong>demand side</strong>.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>aggregate demand</strong></li>
+          <li>List the four <strong>components of AD</strong></li>
+          <li>Explain why the <strong>AD curve slopes downward</strong></li>
+          <li>Distinguish between a <strong>change in quantity demanded</strong> and a <strong>change in AD</strong></li>
+          <li>Describe what <strong>shifts the AD curve</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="concept">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">Concept of Aggregate Demand</div><div class="section-subtitle">MoE Textbook §2.1.1, p. 26</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Aggregate Demand (MoE Textbook, p. 26)</div>
+          <p>
+            <strong>Aggregate demand (AD)</strong> refers to the <strong>total amount that different sectors in the economy willingly spend in a given period</strong>. More specifically, it is the total amount of money which all sections — households, firms, and governments — are ready to spend on the purchase of goods and services produced in an economy during a given period.
+          </p>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          In other words, AD is the <strong>total spending by all entities in the economy</strong>. It depends on the level of prices as well as on monetary policy, fiscal policy, and other factors.
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block" id="components">
+      <div class="section-header"><div class="section-icon">🧩</div>
+        <div><div class="section-title-text">Four Components of AD</div><div class="section-subtitle">AD = C + I + G + (X − M)</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="formula-box">
+          <div class="formula-label">Aggregate Demand Formula</div>
+          <div class="formula-eq">AD = C + I + G + (X − M)</div>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🏠</div>
+            <div class="concept-title">C — Consumption</div>
+            <p class="concept-desc">Household consumption demand. Primarily determined by disposable income, household wealth, longer-term income trends, and the aggregate price level.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🏭</div>
+            <div class="concept-title">I — Investment</div>
+            <p class="concept-desc">Private purchases of structures, equipment, and inventories. Major determinants: level of output, cost of capital, and future expectations.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🏛️</div>
+            <div class="concept-title">G — Government Spending</div>
+            <p class="concept-desc">Government purchases of goods and services. Determined directly by government spending decisions.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🌐</div>
+            <div class="concept-title">(X − M) — Net Exports</div>
+            <p class="concept-desc">Value of exports minus value of imports. Determined by domestic and foreign incomes, relative prices, and exchange rates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="curve">
+      <div class="section-header"><div class="section-icon">📉</div>
+        <div><div class="section-title-text">The Aggregate Demand Curve</div><div class="section-subtitle">MoE Textbook §2.1.2, p. 27</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The AD Curve</div>
+          <p>
+            The <strong>AD curve</strong> is a schedule that shows the amount of real output that buyers collectively desire to purchase at each price level, <em>ceteris paribus</em>. The relationship between price level and real GDP demanded is <strong>inverse or negative</strong> — hence the curve slopes downward.
+          </p>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <!-- Grid -->
+            <line x1="80" y1="320" x2="600" y2="320" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="320" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+
+            <!-- Axis labels -->
+            <text x="340" y="360" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real Domestic Product (GDP)</text>
+            <text x="45" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 180)">Price Level</text>
+
+            <!-- AD Curve -->
+            <path d="M 130 70 Q 300 200, 580 290" stroke="#EA580C" stroke-width="3.5" fill="none"/>
+            <text x="560" y="278" font-size="12" font-weight="800" fill="#7C2D12">AD</text>
+
+            <!-- Price level P1 -->
+            <line x1="80" y1="120" x2="200" y2="120" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="60" y="125" text-anchor="end" font-size="13" font-weight="700" fill="#0F172A">P₁</text>
+            <circle cx="200" cy="120" r="5" fill="#0EA5E9"/>
+            <line x1="200" y1="120" x2="200" y2="320" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="200" y="340" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Q₁</text>
+
+            <!-- Price level P0 -->
+            <line x1="80" y1="230" x2="430" y2="230" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="60" y="235" text-anchor="end" font-size="13" font-weight="700" fill="#0F172A">P₀</text>
+            <circle cx="430" cy="230" r="5" fill="#0EA5E9"/>
+            <line x1="430" y1="230" x2="430" y2="320" stroke="#0EA5E9" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="430" y="340" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Q₀</text>
+
+            <!-- Arrow showing movement -->
+            <path d="M 220 145 Q 320 190, 410 240" stroke="#16A34A" stroke-width="2" fill="none" marker-end="url(#greenarrow)"/>
+            <defs>
+              <marker id="greenarrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#16A34A"/>
+              </marker>
+            </defs>
+            <text x="330" y="180" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">P↓ → Qd↑</text>
+          </svg>
+          <div class="svg-caption">The AD curve slopes downward: as price level falls (P₁ → P₀), quantity demanded rises (Q₁ → Q₀).</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Connection to Grade 9</div>
+          <p>
+            Remember what you learned about the relationship between the price of an individual commodity and its demand (law of demand). The AD curve follows the same <strong>inverse principle</strong> — but for the whole economy.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="slope">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Why Does the AD Curve Slope Downward?</div><div class="section-subtitle">Three effects</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">💰</div>
+            <div class="concept-title">1. Real Balance Effect</div>
+            <p class="concept-desc">A rise in the price level causes purchasing power to fall, decreasing monetary wealth. Less wealthy people demand less real GDP.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">📊</div>
+            <div class="concept-title">2. Interest Rate Effect</div>
+            <p class="concept-desc">Higher price level → higher demand for money → higher interest rates → less investment and consumption spending → less real output demanded.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🌐</div>
+            <div class="concept-title">3. International Trade Effect</div>
+            <p class="concept-desc">If Ethiopian prices rise, Ethiopian goods become relatively more expensive than foreign goods. Both Ethiopians and foreigners buy fewer Ethiopian goods.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Interest Rate Effect — Step by Step</h3>
+        <ul class="key-points">
+          <li>Price level rises</li>
+          <li>Demand for money increases (people need more cash for purchases)</li>
+          <li>Given fixed money supply, the "price" of money — <strong>the interest rate</strong> — rises</li>
+          <li>Higher interest rates <strong>curtail investment spending</strong> and interest-sensitive consumption</li>
+          <li>Result: real output demanded falls</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Example</div>
+          <p>
+            A firm expecting a <strong>6%</strong> return on a capital purchase will invest when the interest rate is <strong>5%</strong> — but not when it rises to <strong>7%</strong>. Similarly, consumers may delay buying a house or car as interest rates rise.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="movement">
+      <div class="section-header"><div class="section-icon">🔄</div>
+        <div><div class="section-title-text">Movement vs Shift</div><div class="section-subtitle">A critical distinction</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr><th></th><th>Change in Quantity Demanded</th><th>Change in Aggregate Demand</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Caused by</strong></td>
+              <td>Change in <strong>price level</strong></td>
+              <td>Change in <strong>spending determinants</strong> (C, I, G, NE)</td>
+            </tr>
+            <tr>
+              <td><strong>Shown as</strong></td>
+              <td>Movement <em>along</em> the same AD curve</td>
+              <td>Shift of the AD curve (right or left)</td>
+            </tr>
+            <tr>
+              <td><strong>Direction</strong></td>
+              <td>Price ↓ → Qd ↑ (move down-right)</td>
+              <td>Spending ↑ → AD shifts right</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Shifts in the AD Curve</h3>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <line x1="80" y1="320" x2="600" y2="320" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="320" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+
+            <text x="340" y="360" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real Domestic Product (GDP)</text>
+            <text x="45" y="180" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 180)">Price Level</text>
+
+            <!-- AD1 (Shift Right) -->
+            <path d="M 170 60 Q 340 190, 620 280" stroke="#16A34A" stroke-width="3" fill="none" opacity="0.7"/>
+            <text x="600" y="268" font-size="12" font-weight="800" fill="#166534">AD₁ (↑AD)</text>
+
+            <!-- AD0 (Initial) -->
+            <path d="M 110 70 Q 280 200, 560 290" stroke="#0F172A" stroke-width="3" fill="none"/>
+            <text x="540" y="305" font-size="12" font-weight="800" fill="#0F172A">AD₀ (Initial)</text>
+
+            <!-- AD2 (Shift Left) -->
+            <path d="M 60 90 Q 220 220, 490 305" stroke="#DC2626" stroke-width="3" fill="none" opacity="0.7"/>
+            <text x="470" y="320" font-size="12" font-weight="800" fill="#991B1B">AD₂ (↓AD)</text>
+
+            <!-- Arrows -->
+            <path d="M 260 160 L 300 145" stroke="#16A34A" stroke-width="2" fill="none" marker-end="url(#garrow2)"/>
+            <path d="M 240 190 L 200 205" stroke="#DC2626" stroke-width="2" fill="none" marker-end="url(#rarrow2)"/>
+            <defs>
+              <marker id="garrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#16A34A"/>
+              </marker>
+              <marker id="rarrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#DC2626"/>
+              </marker>
+            </defs>
+          </svg>
+          <div class="svg-caption">An increase in AD shifts the curve right (AD₀ → AD₁). A decrease shifts it left (AD₀ → AD₂).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="shifts">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">What Shifts the AD Curve?</div><div class="section-subtitle">Factors affecting C, I, G, NE</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Factors Affecting Consumption (C)</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Factor</th><th>Effect on C</th><th>Effect on AD</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Wealth ↑</strong></td><td>Consumers feel more secure → spend more</td><td>C ↑ → AD ↑ (right)</td></tr>
+            <tr><td><strong>Expect higher future prices</strong></td><td>Buy now at lower prices → C ↑</td><td>C ↑ → AD ↑ (right)</td></tr>
+            <tr><td><strong>Interest rate ↑</strong></td><td>Consumer durables cost more to finance → C ↓</td><td>C ↓ → AD ↓ (left)</td></tr>
+            <tr><td><strong>Income taxes ↑</strong></td><td>Disposable income ↓ → C ↓</td><td>C ↓ → AD ↓ (left)</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Factors Affecting Investment (I)</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Factor</th><th>Effect on I</th><th>Effect on AD</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Interest rate ↑</strong></td><td>Cost of investment ↑ → I ↓</td><td>I ↓ → AD ↓ (left)</td></tr>
+            <tr><td><strong>Businesses optimistic</strong></td><td>Expect higher future sales → I ↑</td><td>I ↑ → AD ↑ (right)</td></tr>
+            <tr><td><strong>Business taxes ↑</strong></td><td>After-tax profits ↓ → I ↓</td><td>I ↓ → AD ↓ (left)</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Factors Affecting Government Spending (G)</h3>
+        <ul class="key-points">
+          <li><strong>G ↑</strong> (e.g., on military equipment) → AD shifts <strong>right</strong> (if taxes and interest rates don't change)</li>
+          <li><strong>G ↓</strong> (e.g., fewer transportation projects) → AD shifts <strong>left</strong></li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Factors Affecting Net Exports (X − M)</h3>
+        <ul class="key-points">
+          <li><strong>Foreign income ↑</strong> → foreigners buy more Ethiopian goods → exports ↑ → net exports ↑ → AD shifts <strong>right</strong></li>
+          <li><strong>Foreign income ↓</strong> → foreigners buy fewer Ethiopian goods → exports ↓ → net exports ↓ → AD shifts <strong>left</strong></li>
+          <li><strong>Birr depreciates</strong> → exports ↑, imports ↓ → net exports ↑ → AD shifts <strong>right</strong></li>
+          <li><strong>Birr appreciates</strong> → exports ↓, imports ↑ → net exports ↓ → AD shifts <strong>left</strong></li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Exchange rate example</div>
+          <p>
+            An Ethiopian leather jacket costs 1,500 Birr. At 1 Birr = 2 Rupees, an Indian pays 3,000 Rupees. If the Rupee depreciates to 3 Rupees = 1 Birr, the same jacket now costs 4,500 Rupees — making Ethiopian exports more expensive for Indian buyers.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is aggregate demand?<br>
+            B. What are the four main components of AD?<br>
+            C. Why does the AD curve slope downward? List the three effects.<br>
+            D. Distinguish between a change in quantity demanded and a change in aggregate demand.<br>
+            E. What happens to the AD curve when: (i) household wealth increases, (ii) interest rates rise, (iii) the Birr depreciates?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is the correct formula for <strong>aggregate demand</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> AD = C + I + G + (X − M)</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> AD = C + I + G + (M − X)</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> AD = C × I × G × NE</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> AD = GDP + GNP</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Why does the <strong>AD curve slope downward</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Because governments always increase spending</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Due to the real balance, interest rate, and international trade effects</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Because supply always exceeds demand</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Because inflation is always positive</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">Which of the following is the <strong>interest rate effect</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Higher prices → less purchasing power → less wealth</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Higher prices → more money demand → higher interest rates → less investment</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Higher prices → exports become more expensive</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Higher prices → government spends more</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">A <strong>change in the price level</strong> causes what on the AD curve?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> A shift of the AD curve to the right</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> A shift of the AD curve to the left</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> A movement along the same AD curve</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> No change at all</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">If the <strong>Ethiopian Birr depreciates</strong>, what happens to the AD curve?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Shifts left — because imports rise</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Shifts right — because net exports rise</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Does not move — exchange rates don't affect AD</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Becomes vertical</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=aggregate+demand+explained+macroeconomics" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Aggregate Demand Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=why+aggregate+demand+curve+slopes+downward" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Why the AD Curve Slopes Downward</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=shifts+in+aggregate+demand+curve" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Shifts in the Aggregate Demand Curve</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=components+of+aggregate+demand+consumption+investment" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Components of Aggregate Demand</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 2.1</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Aggregate demand (AD)</strong> = total spending by all sectors in a given period</li>
+          <li><strong>AD = C + I + G + (X − M)</strong></li>
+          <li>The <strong>AD curve slopes downward</strong> — inverse relationship between price level and real GDP demanded</li>
+          <li>Three reasons for downward slope: <strong>real balance effect, interest rate effect, international trade effect</strong></li>
+          <li>A change in <strong>price level</strong> → movement <em>along</em> the AD curve</li>
+          <li>A change in <strong>spending determinants</strong> → shift of the AD curve</li>
+          <li><strong>Rightward shift</strong>: C ↑, I ↑, G ↑, or NE ↑</li>
+          <li><strong>Leftward shift</strong>: C ↓, I ↓, G ↓, or NE ↓</li>
+          <li>Currency <strong>depreciation</strong> → exports ↑, imports ↓ → AD shifts <strong>right</strong></li>
+          <li>Currency <strong>appreciation</strong> → exports ↓, imports ↑ → AD shifts <strong>left</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="../index.html" class="btn btn-outline">← Unit 2 Hub</a>
+      <a href="lesson-2-2.html" class="btn btn-primary">Next: Lesson 2.2 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
+      <p>Unit 2 · Lesson 2.1 · Aggregate Demand</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'A', 2:'B', 3:'B', 4:'C', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! AD = C + I + G + (X − M).',wrong:'✗ AD = C + I + G + (X − M).'},
+    2:{correct:'✓ Correct! The three effects are: real balance, interest rate, and international trade.',wrong:'✗ Three effects: real balance, interest rate, international trade.'},
+    3:{correct:'✓ Correct! Higher prices → more money demand → higher interest rates → less investment.',wrong:'✗ Higher prices → higher interest rates → less investment.'},
+    4:{correct:'✓ Correct! A change in price level causes a movement ALONG the same AD curve.',wrong:'✗ Change in price level = movement along AD curve.'},
+    5:{correct:'✓ Correct! Birr depreciation → exports ↑, imports ↓ → net exports ↑ → AD shifts right.',wrong:'✗ Depreciation → net exports ↑ → AD shifts right.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 2.1.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
