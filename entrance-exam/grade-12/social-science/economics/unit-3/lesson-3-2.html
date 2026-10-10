@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.2: Public Goods | Economics Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#EA580C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#EA580C}
+    .sidebar-link.active{background:#FFEDD5;color:#7C2D12;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#EA580C;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7C2D12,#EA580C);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FFEDD5}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#EA580C;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-left:5px solid #EA580C;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C2D12;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#EA580C;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#EA580C;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #FED7AA;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#EA580C;box-shadow:0 4px 12px rgba(234,88,12,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#7C2D12;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#EA580C;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#EA580C;background:#FFF7ED}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #EA580C;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#EA580C}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#7C2D12;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(234,88,12,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#EA580C;font-weight:700;flex-shrink:0;margin-top:1px}
+    .svg-figure{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin:1rem 0;text-align:center}
+    .svg-caption{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#EA580C;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 3</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> Definition &amp; Features</button>
+      <button class="sidebar-link" onclick="scrollToId('classification')"><div class="sidebar-dot"></div> 2×2 Classification</button>
+      <button class="sidebar-link" onclick="scrollToId('private-public')"><div class="sidebar-dot"></div> Private vs Public</button>
+      <button class="sidebar-link" onclick="scrollToId('free-rider')"><div class="sidebar-dot"></div> Free Rider Problem</button>
+      <button class="sidebar-link" onclick="scrollToId('mechanisms')"><div class="sidebar-dot"></div> Providing Public Goods</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Market Failure</a>
+      <a href="lesson-3-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Public Goods</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Externalities</a>
+      <a href="lesson-3-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Asymmetric Info</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Consumer Protection</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Economics</a> ›
+      <a href="../index.html">Unit 3</a> ›
+      Lesson 3.2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Market Failure · MoE Textbook §3.2</div>
+      <h1>🏛️ Public Goods</h1>
+      <p>Public goods are goods whose benefits are shared. Unlike private goods, they can't easily be sold in markets — because they're non-rival and non-excludable. In this lesson, we explore what makes a good "public" and why markets underprovide them.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Have you ever appreciated the satisfaction you got from using street lights? Or clean air? These are examples of <strong>public goods</strong> — goods whose benefits are shared and which markets often fail to provide efficiently.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>public goods</strong> and their two key features</li>
+          <li>Explain <strong>non-rivalry</strong> and <strong>non-excludability</strong></li>
+          <li>Classify goods using the <strong>2×2 table</strong></li>
+          <li>Explain the <strong>free rider problem</strong></li>
+          <li>Describe <strong>mechanisms</strong> for providing public goods</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">Definition &amp; Key Features</div><div class="section-subtitle">MoE Textbook §3.2, p. 51</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Public Goods (MoE Textbook, p. 51)</div>
+          <p>
+            <strong>Public goods</strong> are goods whose benefits are shared. They generally have two major features:
+          </p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">1️⃣</div>
+            <div class="concept-title">Non-Rivalry in Consumption</div>
+            <p class="concept-desc">Once the good is provided or supplied, consumption by one person <strong>does not reduce the quantity</strong> available for consumption by another. The marginal cost of allowing another person to consume the good is <strong>zero</strong>.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">2️⃣</div>
+            <div class="concept-title">Non-Excludability</div>
+            <p class="concept-desc">It is <strong>difficult and expensive to prevent or exclude</strong> someone (non-payers) from consuming the good.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Pure public goods</div>
+          <p>
+            Goods that fulfil <strong>both</strong> these properties are known as <strong>pure public goods</strong>. Examples: national defence, clean air, biodiversity, wilderness.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="classification">
+      <div class="section-header"><div class="section-icon">🔢</div>
+        <div><div class="section-title-text">Classifying Goods: The 2×2 Table</div><div class="section-subtitle">Rivalry × Excludability</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Goods can be classified based on <strong>two criteria</strong>: whether they are <strong>rivalrous</strong> (one person's use reduces availability to others) and whether they are <strong>excludable</strong> (sellers can prevent non-payers from consuming).
+        </p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Excludable</th>
+              <th>Non-Excludable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Rivalrous</strong></td>
+              <td>
+                <strong>Pure Private Goods</strong><br>
+                <span style="font-size:.75rem;color:#64748b">Food, clothing, cars, pens</span>
+              </td>
+              <td>
+                <strong>Common Pool Resources</strong><br>
+                <span style="font-size:.75rem;color:#64748b">Fish stocks, timber, coal, national health service, roads</span>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Non-Rivalrous</strong></td>
+              <td>
+                <strong>Club Goods</strong><br>
+                <span style="font-size:.75rem;color:#64748b">Cinemas, private parks, satellite TV</span>
+              </td>
+              <td>
+                <strong>Pure Public Goods</strong><br>
+                <span style="font-size:.75rem;color:#64748b">National defence, air, free-to-air TV</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Classification isn't absolute</div>
+          <p>
+            Whether a good is public depends on <strong>market conditions and technology</strong>. Technology now allows radio or TV broadcasts to be <strong>encrypted</strong>, so those without a special decoder can be excluded — turning a public good into a club good. Similarly, toll booths on Ethiopian express roads (Addis Ababa–Adama, Addis Ababa–Hawassa) enforce payment for what would otherwise be non-excludable.
+          </p>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 700 340" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <!-- Top labels -->
+            <text x="350" y="25" text-anchor="middle" font-size="13" font-weight="800" fill="#0F172A">EXCLUDABLE</text>
+            <text x="575" y="25" text-anchor="middle" font-size="13" font-weight="800" fill="#0F172A">NON-EXCLUDABLE</text>
+
+            <!-- Left labels -->
+            <text x="20" y="120" text-anchor="start" font-size="13" font-weight="800" fill="#0F172A">RIVALROUS</text>
+            <text x="20" y="250" text-anchor="start" font-size="13" font-weight="800" fill="#0F172A">NON-RIVALROUS</text>
+
+            <!-- Quadrant 1: Private goods -->
+            <rect x="130" y="45" width="240" height="140" rx="12" fill="#F0FDF4" stroke="#16A34A" stroke-width="2.5"/>
+            <text x="250" y="80" text-anchor="middle" font-size="15" font-weight="900" fill="#166534">Pure Private</text>
+            <text x="250" y="102" text-anchor="middle" font-size="12" fill="#166534">Goods</text>
+            <text x="250" y="135" text-anchor="middle" font-size="11" fill="#0F172A">Food, clothing,</text>
+            <text x="250" y="153" text-anchor="middle" font-size="11" fill="#0F172A">cars, pens</text>
+            <text x="250" y="175" text-anchor="middle" font-size="10" font-style="italic" fill="#64748b">🛒 Can be bought and sold</text>
+
+            <!-- Quadrant 2: Common pool -->
+            <rect x="390" y="45" width="240" height="140" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2.5"/>
+            <text x="510" y="80" text-anchor="middle" font-size="15" font-weight="900" fill="#78350F">Common Pool</text>
+            <text x="510" y="102" text-anchor="middle" font-size="12" fill="#78350F">Resources</text>
+            <text x="510" y="135" text-anchor="middle" font-size="11" fill="#0F172A">Fish stocks, timber,</text>
+            <text x="510" y="153" text-anchor="middle" font-size="11" fill="#0F172A">coal, roads</text>
+            <text x="510" y="175" text-anchor="middle" font-size="10" font-style="italic" fill="#64748b">⚠️ Tragic overuse</text>
+
+            <!-- Quadrant 3: Club goods -->
+            <rect x="130" y="205" width="240" height="120" rx="12" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="2.5"/>
+            <text x="250" y="240" text-anchor="middle" font-size="15" font-weight="900" fill="#0369A1">Club Goods</text>
+            <text x="250" y="262" text-anchor="middle" font-size="12" fill="#0369A1">(artificially scarce)</text>
+            <text x="250" y="290" text-anchor="middle" font-size="11" fill="#0F172A">Cinemas, private parks,</text>
+            <text x="250" y="307" text-anchor="middle" font-size="11" fill="#0F172A">satellite TV</text>
+
+            <!-- Quadrant 4: Public goods -->
+            <rect x="390" y="205" width="240" height="120" rx="12" fill="#FCE7F3" stroke="#DB2777" stroke-width="3"/>
+            <text x="510" y="240" text-anchor="middle" font-size="15" font-weight="900" fill="#9F1239">Pure Public Goods</text>
+            <text x="510" y="262" text-anchor="middle" font-size="12" fill="#9F1239">⭐ The focus of this lesson</text>
+            <text x="510" y="290" text-anchor="middle" font-size="11" fill="#0F172A">National defence, air,</text>
+            <text x="510" y="307" text-anchor="middle" font-size="11" fill="#0F172A">free-to-air TV</text>
+          </svg>
+          <div class="svg-caption">The 2×2 classification of goods: private goods (top-left), common pool resources (top-right), club goods (bottom-left), and pure public goods (bottom-right).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="private-public">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">Pure Private vs Pure Public Goods</div><div class="section-subtitle">Comparison table</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>Pure Private Good</th>
+              <th>Pure Public Good</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Divisibility</strong></td>
+              <td>At certain price, individuals may consume different amounts</td>
+              <td>Indivisible: the same quantity is available to different individuals</td>
+            </tr>
+            <tr>
+              <td><strong>Ability to price</strong></td>
+              <td>Benefits can be priced</td>
+              <td>Benefits cannot be priced — no incentive to reveal preferences</td>
+            </tr>
+            <tr>
+              <td><strong>Principle of exclusion</strong></td>
+              <td>Possible to apply</td>
+              <td>Cannot be applied</td>
+            </tr>
+            <tr>
+              <td><strong>Externality</strong></td>
+              <td>No externality</td>
+              <td>Usually characterized by externality</td>
+            </tr>
+            <tr>
+              <td><strong>Marginal cost</strong></td>
+              <td>Usually positive MC</td>
+              <td>Zero MC — additional person costs nothing extra</td>
+            </tr>
+            <tr>
+              <td><strong>Decreasing average cost</strong></td>
+              <td>May or may not have economies of scale</td>
+              <td>Decreasing AC — subject to economies of scale</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Public ≠ government-provided</div>
+          <p>
+            <strong>Public provision</strong> doesn't necessarily mean <strong>public production</strong>. A government may collect garbage using its own trucks (public provision + public production) or hire a private firm (public provision + private production). Similarly, many private goods (electricity, telecom) are supplied by governments, and many public goods (protection, guarding) are supplied by the private sector.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Unusual Public Goods</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          A number of things that are not conventionally considered commodities have public good characteristics:
+        </p>
+        <ul class="key-points">
+          <li><strong>Honesty</strong> — benefits everyone when widespread</li>
+          <li><strong>Fair income distribution</strong> — public good-like</li>
+          <li><strong>Certain information</strong> — a poem, mathematical theorem</li>
+          <li><strong>Polio vaccination</strong> — herd immunity protects everyone</li>
+          <li><strong>HIV/AIDS blood tests</strong> — public health benefit</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="free-rider">
+      <div class="section-header"><div class="section-icon">🎭</div>
+        <div><div class="section-title-text">The Free Rider Problem</div><div class="section-subtitle">Why markets underprovide public goods</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Free Rider (Social Loafer)</div>
+          <p>
+            A <strong>free rider</strong> is a person who seeks to enjoy the benefit of public goods <strong>without contributing anything</strong> to the cost of financing the amount made.
+          </p>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          This problem was first observed in <strong>trade unions</strong> — where non-members benefit from the successful bargaining of union members. As a result, non-members were not willing to become members and make a contribution.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why Free Riding Arises</h3>
+        <ul class="key-points">
+          <li>Public goods are <strong>non-excludable</strong> — it's difficult to exclude non-payers from using/benefiting</li>
+          <li>Therefore, there's an <strong>incentive not to pay</strong></li>
+          <li>If individual A chooses to be a free rider, and B is equally smart, <strong>B also has an incentive to let others pay</strong></li>
+          <li>Result: there is <strong>no automatic force that makes the good provided</strong></li>
+          <li>Market fails to supply it — the private market may provide no output as no one is willing to purchase it</li>
+        </ul>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <text x="350" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">The Free Rider Problem</text>
+
+            <!-- 3 consumers -->
+            <circle cx="140" cy="110" r="40" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/>
+            <text x="140" y="105" text-anchor="middle" font-size="20">👤</text>
+            <text x="140" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Alice</text>
+            <text x="140" y="170" text-anchor="middle" font-size="11" fill="#16A34A" font-weight="700">Pays ✓</text>
+
+            <circle cx="350" cy="110" r="40" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/>
+            <text x="350" y="105" text-anchor="middle" font-size="20">👤</text>
+            <text x="350" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Bob</text>
+            <text x="350" y="170" text-anchor="middle" font-size="11" fill="#16A34A" font-weight="700">Pays ✓</text>
+
+            <circle cx="560" cy="110" r="40" fill="#FEF2F2" stroke="#DC2626" stroke-width="3"/>
+            <text x="560" y="105" text-anchor="middle" font-size="20">👤</text>
+            <text x="560" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#991B1B">Carla</text>
+            <text x="560" y="170" text-anchor="middle" font-size="11" fill="#DC2626" font-weight="700">Free rides! ✗</text>
+
+            <!-- Public good -->
+            <rect x="180" y="210" width="340" height="70" rx="12" fill="#FCE7F3" stroke="#DB2777" stroke-width="2.5"/>
+            <text x="350" y="240" text-anchor="middle" font-size="14" font-weight="800" fill="#9F1239">🏛️ Public Good: Street Lighting</text>
+            <text x="350" y="262" text-anchor="middle" font-size="11" fill="#0F172A">All three benefit — but only two paid</text>
+
+            <!-- Arrows -->
+            <path d="M 140 155 L 200 210" stroke="#16A34A" stroke-width="2" fill="none"/>
+            <path d="M 350 155 L 350 210" stroke="#16A34A" stroke-width="2" fill="none"/>
+            <path d="M 560 155 L 500 210" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="5 3" fill="none"/>
+
+            <text x="640" y="230" text-anchor="end" font-size="11" font-style="italic" fill="#DC2626">But Carla enjoys</text>
+            <text x="640" y="248" text-anchor="end" font-size="11" font-style="italic" fill="#DC2626">the same benefit!</text>
+          </svg>
+          <div class="svg-caption">Carla gets the same benefit from street lighting as Alice and Bob — but she doesn't pay. This is the free rider problem.</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The tragedy of the commons</div>
+          <p>
+            Free ridership is closely related to the <strong>tragedy of the commons</strong> — where common pool resources get overused because no one has an incentive to conserve them.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="mechanisms">
+      <div class="section-header"><div class="section-icon">🛠️</div>
+        <div><div class="section-title-text">Providing Public Goods Efficiently</div><div class="section-subtitle">When the market fails, collective action steps in</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          In cases where the private market fails to provide the efficient level of public goods, provision requires <strong>collective action</strong>. People need to realize that a public goods situation exists and either raise contributions from private individuals or let the government provide.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Four Mechanisms</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🎬</div>
+            <div class="concept-title">Private Provision of Excludable Public Goods</div>
+            <p class="concept-desc">Movies, music concerts — private firms provide when they can exclude non-payers (ticket required).</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🏞️</div>
+            <div class="concept-title">Public Provision with Entrance Fees</div>
+            <p class="concept-desc">National Parks charge entrance fees — the government provides but excludes non-payers via fee.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">💰</div>
+            <div class="concept-title">Public Provision via Tax Revenues</div>
+            <p class="concept-desc">National defence funded by taxes earmarked for it — the classic solution to non-excludable goods.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🙏</div>
+            <div class="concept-title">Religious Beliefs</div>
+            <p class="concept-desc">Church/mosque services are public goods; during the ceremony a basket is passed around. Religion can prevent free riding by convincing people that God is watching.</p>
+          </div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What are public goods? How are they distinguished from private goods?<br>
+            B. What are the two key characteristics of public goods?<br>
+            C. Give examples of public goods, and state why such goods cannot be provided through the market.<br>
+            D. What is the free rider problem?<br>
+            E. Explain why the federal government funds national defence.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What are the <strong>two key features</strong> of public goods?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Rivalry in consumption and excludability</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Non-rivalry in consumption and non-excludability</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> High price and low quality</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Government production and private consumption</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Which of the following is a <strong>pure public good</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> A hamburger</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> A cinema ticket</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> National defence</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Fish in the ocean</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">What type of good is <strong>fish stock in the ocean</strong> — rivalrous and non-excludable?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Pure private good</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Pure public good</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Common pool resource</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Club good</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Why does the <strong>free rider problem</strong> occur?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Because public goods are excludable</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Because public goods are non-excludable — it's hard to prevent non-payers from benefiting</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Because public goods are always too expensive</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Because governments ban private provision</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which mechanism is used to prevent free riding in religious services?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Entrance fees at the door</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Passing a collection basket, with religion convincing people God is watching</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Government taxation</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Private bargaining between members</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=public+goods+explained+economics" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Public Goods Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=free+rider+problem+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">The Free Rider Problem</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=four+types+of+goods+rival+excludable" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Four Types of Goods</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=non+rival+non+excludable+goods" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Non-Rival &amp; Non-Excludable Goods</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 3.2</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Public goods</strong> = goods whose benefits are shared</li>
+          <li>Two key features: <strong>non-rivalry</strong> and <strong>non-excludability</strong></li>
+          <li><strong>Non-rivalry</strong> = one person's consumption doesn't reduce availability to others</li>
+          <li><strong>Non-excludability</strong> = difficult to prevent non-payers from consuming</li>
+          <li>Four types of goods: <strong>private</strong> (rival, excludable), <strong>common pool</strong> (rival, non-excludable), <strong>club</strong> (non-rival, excludable), <strong>public</strong> (non-rival, non-excludable)</li>
+          <li>Pure public goods: national defence, clean air, biodiversity, wilderness, free-to-air TV</li>
+          <li>The <strong>free rider problem</strong> = people enjoy public goods without contributing</li>
+          <li>Free riding arises because public goods are <strong>non-excludable</strong></li>
+          <li>Mechanisms to provide public goods: private provision (movies), public with fees (National Parks), public via taxes (defence), religious beliefs (church collection)</li>
+          <li>Classification depends on <strong>technology and market conditions</strong> — encryption can turn a public good into a club good</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-1.html" class="btn btn-outline">← Lesson 3.1</a>
+      <a href="lesson-3-3.html" class="btn btn-primary">Next: Lesson 3.3 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
+      <p>Unit 3 · Lesson 3.2 · Public Goods</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'C', 3:'C', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Public goods are non-rival and non-excludable.',wrong:'✗ Non-rival and non-excludable.'},
+    2:{correct:'✓ Correct! National defence is a classic pure public good.',wrong:'✗ National defence = pure public good.'},
+    3:{correct:'✓ Correct! Fish stocks are rival (finite) and non-excludable (open ocean) → common pool resource.',wrong:'✗ Fish stocks = common pool resource.'},
+    4:{correct:'✓ Correct! Free riding arises because public goods are non-excludable.',wrong:'✗ Non-excludability → free rider problem.'},
+    5:{correct:'✓ Correct! Church/mosque services pass a collection basket — religion prevents free riding by convincing people God is watching.',wrong:'✗ Religion + collection basket.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 3.2.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
