@@ -28,8 +28,11 @@
     .unit-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:1.25rem 1.5rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1.25rem;transition:all .2s ease;position:relative;overflow:hidden}
     .unit-card.live:hover{border-color:#EA580C;transform:translateX(4px);box-shadow:0 8px 24px rgba(234,88,12,.14)}
     .unit-card.live{border-color:#FED7AA;background:linear-gradient(90deg,#fff 0%,#FFF7ED 100%)}
+    .unit-card.done{border-color:#BBF7D0;background:linear-gradient(90deg,#fff 0%,#F0FDF4 100%)}
+    .unit-card.done:hover{border-color:#16A34A;transform:translateX(4px);box-shadow:0 8px 24px rgba(22,163,74,.14)}
     .unit-card.upcoming{border-color:#e2e8f0;background:#fff;opacity:.72;cursor:not-allowed}
     .unit-num-badge{width:56px;height:56px;background:linear-gradient(135deg,#7C2D12,#EA580C);color:#fff;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-weight:900}
+    .unit-card.done .unit-num-badge{background:linear-gradient(135deg,#14532D,#16A34A)}
     .unit-card.upcoming .unit-num-badge{background:linear-gradient(135deg,#94a3b8,#64748b)}
     .unit-num-badge .unit-label{font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;opacity:.75;line-height:1}
     .unit-num-badge .unit-num{font-size:1.5rem;line-height:1;margin-top:2px}
@@ -37,10 +40,12 @@
     .unit-title{font-size:1.05rem;font-weight:800;color:#0f172a;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
     .unit-badge{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.03em}
     .unit-badge.live{color:#7C2D12;background:#FFEDD5}
+    .unit-badge.done{color:#166534;background:#DCFCE7}
     .unit-badge.soon{color:#64748b;background:#F1F5F9}
     .unit-meta{font-size:.82rem;color:#64748b;line-height:1.5}
     .unit-lessons-count{font-size:.72rem;color:#94a3b8;font-weight:600;margin-top:.3rem;text-transform:uppercase;letter-spacing:.05em}
     .unit-arrow{color:#EA580C;font-weight:900;font-size:1.3rem;flex-shrink:0}
+    .unit-card.done .unit-arrow{color:#16A34A}
     .unit-card.upcoming .unit-arrow{color:#cbd5e1}
     @media (max-width: 640px){
       .eco-hero{padding:2.25rem 1rem 2.5rem}
@@ -81,8 +86,8 @@
     <p>All eight MoE curriculum units — macroeconomics fundamentals, aggregate demand &amp; supply, market failure, macroeconomic policy, taxation, poverty &amp; inequality, Ethiopian economic reforms, and economy &amp; environment.</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="num">8</div><div class="label">Units</div></div>
-      <div class="hero-stat"><div class="num">0</div><div class="label">Lessons Live</div></div>
-      <div class="hero-stat"><div class="num">🚀</div><div class="label">Building</div></div>
+      <div class="hero-stat"><div class="num">3</div><div class="label">Lessons Live</div></div>
+      <div class="hero-stat"><div class="num">✓ 1</div><div class="label">Unit Complete</div></div>
     </div>
   </div>
 </div>
@@ -98,17 +103,17 @@
 
   <div class="section-title">
     <span>All Units</span>
-    <span class="progress-summary">🚧 0 Complete · 8 Units</span>
+    <span class="progress-summary">✓ 1 Complete · 7 Planned</span>
   </div>
 
   <div class="unit-list">
 
-    <a href="unit-1/index.html" class="unit-card live">
+    <a href="unit-1/index.html" class="unit-card done">
       <div class="unit-num-badge"><span class="unit-label">Unit</span><span class="unit-num">1</span></div>
       <div class="unit-info">
-        <div class="unit-title">The Fundamental Concepts of Macroeconomics <span class="unit-badge live">🚧 Building</span></div>
+        <div class="unit-title">The Fundamental Concepts of Macroeconomics <span class="unit-badge done">✓ Complete</span></div>
         <div class="unit-meta">Definition of macroeconomics · Focus areas · Economic growth · Inflation · Unemployment · Business cycle · Balance of trade · Schools of thought</div>
-        <div class="unit-lessons-count">1 of 3 Lessons Live</div>
+        <div class="unit-lessons-count">3 of 3 Lessons Live</div>
       </div>
       <span class="unit-arrow">→</span>
     </a>
@@ -190,7 +195,7 @@
   <div class="fsh-footer-inner">
     <div class="fsh-footer-bottom">
       <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
-      <p>8 Units · MoE 2023 Curriculum · Building</p>
+      <p>8 Units · MoE 2023 Curriculum · 1 Complete</p>
     </div>
   </div>
 </footer>
