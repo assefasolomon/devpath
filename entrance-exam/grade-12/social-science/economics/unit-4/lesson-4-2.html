@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4.2: Fiscal Policy | Economics Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#EA580C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#EA580C}
+    .sidebar-link.active{background:#FFEDD5;color:#7C2D12;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#EA580C;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7C2D12,#EA580C);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FFEDD5}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#EA580C;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-left:5px solid #EA580C;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C2D12;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#EA580C;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#EA580C;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #FED7AA;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#EA580C;box-shadow:0 4px 12px rgba(234,88,12,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#7C2D12;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#EA580C;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#EA580C;background:#FFF7ED}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #EA580C;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#EA580C}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#7C2D12;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(234,88,12,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#EA580C;font-weight:700;flex-shrink:0;margin-top:1px}
+    .svg-figure{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin:1rem 0;text-align:center}
+    .svg-caption{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#EA580C;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 4</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 4 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What is Fiscal Policy?</button>
+      <button class="sidebar-link" onclick="scrollToId('tools')"><div class="sidebar-dot"></div> Tools of Fiscal Policy</button>
+      <button class="sidebar-link" onclick="scrollToId('components')"><div class="sidebar-dot"></div> Components of G &amp; Taxes</button>
+      <button class="sidebar-link" onclick="scrollToId('expansionary')"><div class="sidebar-dot"></div> Expansionary Fiscal Policy</button>
+      <button class="sidebar-link" onclick="scrollToId('contractionary')"><div class="sidebar-dot"></div> Contractionary Fiscal Policy</button>
+      <button class="sidebar-link" onclick="scrollToId('compare')"><div class="sidebar-dot"></div> Comparison Table</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 4 Lessons</div>
+      <a href="lesson-4-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Types of Policy</a>
+      <a href="lesson-4-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Fiscal Policy</a>
+      <a href="lesson-4-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Monetary Policy</a>
+      <a href="lesson-4-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Income Policy</a>
+      <a href="lesson-4-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Forex Policy</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Economics</a> ›
+      <a href="../index.html">Unit 4</a> ›
+      Lesson 4.2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 4 · Policy Instruments · MoE Textbook §4.2</div>
+      <h1>🏛️ Fiscal Policy</h1>
+      <p>When the economy is in recession, the government can spend more and tax less to boost demand. When inflation is high, it can spend less and tax more to cool the economy. This lesson explores the two faces of fiscal policy — expansionary and contractionary.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Fiscal policy is the government's most direct tool for managing the economy. When the private sector cuts back, the government can step in. When spending is too high, the government can pull back. This lesson shows you exactly how.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>fiscal policy</strong></li>
+          <li>List the two key <strong>tools</strong> of fiscal policy</li>
+          <li>Explain the difference between <strong>expansionary</strong> and <strong>contractionary</strong> fiscal policy</li>
+          <li>Analyse the AD-AS effects of each type</li>
+          <li>Give real-world examples of both</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is Fiscal Policy?</div><div class="section-subtitle">MoE Textbook §4.2, p. 73</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Fiscal Policy (MoE Textbook, p. 73)</div>
+          <p>
+            <strong>Fiscal policy</strong> is the <strong>expenditure and revenue (tax) policy of the government</strong> to achieve desired objectives. It can be <strong>expansionary</strong> or <strong>contractionary</strong> depending on prevailing economic conditions.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Two tools, two directions</div>
+          <p>
+            Fiscal policy works through <strong>government spending (G)</strong> and <strong>taxation (T)</strong>. By adjusting both, the government can either boost demand (expansionary) or reduce it (contractionary).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="tools">
+      <div class="section-header"><div class="section-icon">🛠️</div>
+        <div><div class="section-title-text">Two Key Tools of Fiscal Policy</div><div class="section-subtitle">MoE Textbook §4.2.1, p. 74</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">💰</div>
+            <div class="concept-title">1. Taxation</div>
+            <p class="concept-desc">Funds in the form of direct and indirect taxes, capital gains, etc. Taxes affect the consumer's income — and changes in consumption lead to changes in real GDP.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">💳</div>
+            <div class="concept-title">2. Government Spending</div>
+            <p class="concept-desc">Welfare programmes, government salaries, subsidies, infrastructure, etc. Government spending has the power to raise or lower real GDP.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key formula</div>
+          <p>
+            Recall AD = C + I + <strong>G</strong> + (X − M). Changes in <strong>G</strong> directly shift AD. Changes in <strong>taxes</strong> affect <strong>C</strong> (disposable income), which also shifts AD.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="components">
+      <div class="section-header"><div class="section-icon">🧩</div>
+        <div><div class="section-title-text">Components of Government Spending &amp; Taxes</div><div class="section-subtitle">The detailed breakdown</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Four Components of Government Spending</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>#</th><th>Component</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td><strong>Government Spending (G)</strong></td><td>Sum of government expenditures on final goods and services: salaries of public servants, weapons for the military, investment expenditure</td></tr>
+            <tr><td><strong>2</strong></td><td><strong>Transfer Payments</strong></td><td>Direct payments to individuals — unemployment insurance, social security, Medicare, welfare. No goods/services in return</td></tr>
+            <tr><td><strong>3</strong></td><td><strong>Grants in Aid</strong></td><td>Federal assistance to state and local governments</td></tr>
+            <tr><td><strong>4</strong></td><td><strong>Net Interest Payments</strong></td><td>Interest payments made to holders of government debt, less interest received</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Four Major Components of Tax Revenue</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>#</th><th>Component</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td><strong>Personal Taxes</strong></td><td>Income taxes and property taxes — major sources of total government revenue</td></tr>
+            <tr><td><strong>2</strong></td><td><strong>Social Insurance Contributions</strong></td><td>Primarily social security taxes — assessed as a fixed percentage of a worker's wages</td></tr>
+            <tr><td><strong>3</strong></td><td><strong>Taxes on Production &amp; Imports</strong></td><td>Primarily sales taxes; also include tariffs on imported goods</td></tr>
+            <tr><td><strong>4</strong></td><td><strong>Corporate Taxes</strong></td><td>Primary taxes on the profits of businesses</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="expansionary">
+      <div class="section-header"><div class="section-icon">📈</div>
+        <div><div class="section-title-text">I. Expansionary Fiscal Policy</div><div class="section-subtitle">MoE Textbook §4.2.2, p. 75</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          When the economy faces <strong>deficient demand</strong> — aggregate demand falling short of output at full employment — there is a depression marked by overproduction, rising unemployment, and falling prices and incomes. To boost demand, the government adopts <strong>expansionary fiscal policy</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Major Instruments</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🏗️</div>
+            <div class="concept-title">Increase Expenditure</div>
+            <p class="concept-desc">The government should make large investments in public works — roads, bridges, buildings, railway lines, canals. Also provide free education and medical facilities. The aim: pump more money into the system to boost demand.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">📉</div>
+            <div class="concept-title">Reduce Tax Rate</div>
+            <p class="concept-desc">Taxes on personal incomes and expenditures should be reduced. If possible, taxes on lower income groups should be abolished to increase their disposable income. Expand subsidies, pensions, unemployment allowances, and interest-free loans.</p>
+          </div>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <!-- Axes -->
+            <line x1="80" y1="360" x2="600" y2="360" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="360" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+            <text x="340" y="400" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real GDP</text>
+            <text x="45" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 200)">Price Level</text>
+
+            <!-- LRAS vertical -->
+            <line x1="450" y1="40" x2="450" y2="360" stroke="#16A34A" stroke-width="3"/>
+            <text x="450" y="30" text-anchor="middle" font-size="12" font-weight="800" fill="#166534">LRAS</text>
+
+            <!-- SRAS -->
+            <path d="M 180 320 Q 350 260, 580 130" stroke="#F59E0B" stroke-width="3" fill="none"/>
+            <text x="565" y="118" font-size="12" font-weight="800" fill="#92400E">SRAS₀</text>
+
+            <!-- AD₀ initial -->
+            <path d="M 130 100 Q 320 230, 570 320" stroke="#0F172A" stroke-width="2.5" fill="none"/>
+            <text x="555" y="335" font-size="12" font-weight="800" fill="#0F172A">AD₀</text>
+
+            <!-- AD₁ expansionary -->
+            <path d="M 190 70 Q 380 200, 620 290" stroke="#DC2626" stroke-width="2.5" fill="none" stroke-dasharray="7 4"/>
+            <text x="605" y="305" font-size="12" font-weight="800" fill="#991B1B">AD₁</text>
+
+            <!-- Equilibrium E₀ (initial - recession) -->
+            <circle cx="335" cy="222" r="6" fill="#0F172A"/>
+            <text x="320" y="215" text-anchor="middle" font-size="12" font-weight="800" fill="#0F172A">E₀</text>
+
+            <!-- P₀ -->
+            <line x1="80" y1="222" x2="335" y2="222" stroke="#0F172A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="65" y="227" text-anchor="end" font-size="13" font-weight="700" fill="#0F172A">P₀</text>
+            <line x1="335" y1="222" x2="335" y2="360" stroke="#0F172A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="335" y="380" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Y₀</text>
+
+            <!-- Equilibrium E₁ (new - closer to potential) -->
+            <circle cx="450" cy="180" r="6" fill="#16A34A"/>
+            <text x="465" y="170" font-size="12" font-weight="800" fill="#166534">E₁</text>
+
+            <!-- P₁ -->
+            <line x1="80" y1="180" x2="450" y2="180" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="65" y="185" text-anchor="end" font-size="13" font-weight="700" fill="#166534">P₁</text>
+            <line x1="450" y1="180" x2="450" y2="360" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="450" y="380" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">Y₁</text>
+
+            <!-- Arrow -->
+            <path d="M 340 195 L 440 175" stroke="#16A34A" stroke-width="2.5" fill="none" marker-end="url(#garrow4-2)"/>
+            <defs>
+              <marker id="garrow4-2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#16A34A"/>
+              </marker>
+            </defs>
+            <text x="400" y="165" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">↑G or ↓T</text>
+
+            <!-- Recession label -->
+            <text x="335" y="250" text-anchor="middle" font-size="11" font-style="italic" fill="#DC2626">Recession gap</text>
+          </svg>
+          <div class="svg-caption">Expansionary fiscal policy: AD₀ → AD₁ shifts the economy from a recession (Y₀) toward potential GDP (Y₁).</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key insight</div>
+          <p>
+            At the initial equilibrium (E₀), the economy is producing <strong>below</strong> its potential (Y₀ &lt; Y<sub>potential</sub>). Expansionary fiscal policy — through tax cuts or increased government spending — shifts AD to the right. The new equilibrium (E₁) is closer to full employment.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="contractionary">
+      <div class="section-header"><div class="section-icon">📉</div>
+        <div><div class="section-title-text">II. Contractionary Fiscal Policy</div><div class="section-subtitle">MoE Textbook §4.2.2, p. 76</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          When the economy's aggregate demand is <strong>more than full employment</strong>, demand is said to be an <strong>excess demand</strong>. This gap results in an inflationary situation. To control excess demand and reduce the pressure of high inflation, the government adopts <strong>contractionary fiscal policy</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Two Major Instruments</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">✂️</div>
+            <div class="concept-title">Reduce Expenditure</div>
+            <p class="concept-desc">Curtail expenditures on public works — roads, buildings, rural electrification, irrigation. This reduces people's money income and thus their demand for goods and services. It also reduces the budget deficit.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">📈</div>
+            <div class="concept-title">Increase Taxes</div>
+            <p class="concept-desc">Raise rates of all taxes, especially taxes on rich people. Taxation withdraws purchasing power from taxpayers, reducing effective demand. Care must be taken that measures are disinflationary without harming production or savings.</p>
+          </div>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <!-- Axes -->
+            <line x1="80" y1="360" x2="600" y2="360" stroke="#0F172A" stroke-width="2"/>
+            <line x1="80" y1="360" x2="80" y2="40" stroke="#0F172A" stroke-width="2"/>
+            <text x="340" y="400" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A">Real GDP</text>
+            <text x="45" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#0F172A" transform="rotate(-90 45 200)">Price Level</text>
+
+            <!-- LRAS vertical -->
+            <line x1="400" y1="40" x2="400" y2="360" stroke="#16A34A" stroke-width="3"/>
+            <text x="400" y="30" text-anchor="middle" font-size="12" font-weight="800" fill="#166534">LRAS</text>
+
+            <!-- SRAS -->
+            <path d="M 140 320 Q 300 250, 560 120" stroke="#F59E0B" stroke-width="3" fill="none"/>
+            <text x="545" y="108" font-size="12" font-weight="800" fill="#92400E">SRAS₀</text>
+
+            <!-- AD₀ (original - inflationary) -->
+            <path d="M 170 80 Q 380 200, 620 300" stroke="#DC2626" stroke-width="2.5" fill="none"/>
+            <text x="605" y="315" font-size="12" font-weight="800" fill="#991B1B">AD₀</text>
+
+            <!-- AD₁ (contractionary shift left) -->
+            <path d="M 120 110 Q 300 240, 540 330" stroke="#0F172A" stroke-width="2.5" fill="none" stroke-dasharray="7 4"/>
+            <text x="525" y="345" font-size="12" font-weight="800" fill="#0F172A">AD₁</text>
+
+            <!-- Equilibrium E₀ (initial - overheating) -->
+            <circle cx="490" cy="200" r="6" fill="#DC2626"/>
+            <text x="505" y="195" font-size="12" font-weight="800" fill="#991B1B">E₀</text>
+
+            <!-- P₀ -->
+            <line x1="80" y1="200" x2="490" y2="200" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="65" y="205" text-anchor="end" font-size="13" font-weight="700" fill="#991B1B">P₀</text>
+            <line x1="490" y1="200" x2="490" y2="360" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="490" y="380" text-anchor="middle" font-size="13" font-weight="700" fill="#991B1B">Y₀</text>
+
+            <!-- Equilibrium E₁ (new - at potential) -->
+            <circle cx="400" cy="220" r="6" fill="#16A34A"/>
+            <text x="415" y="215" font-size="12" font-weight="800" fill="#166534">E₁</text>
+
+            <!-- P₁ -->
+            <line x1="80" y1="220" x2="400" y2="220" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="65" y="225" text-anchor="end" font-size="13" font-weight="700" fill="#166534">P₁</text>
+            <line x1="400" y1="220" x2="400" y2="360" stroke="#16A34A" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <text x="400" y="380" text-anchor="middle" font-size="13" font-weight="700" fill="#166534">Y₁</text>
+
+            <!-- Arrow -->
+            <path d="M 470 225 L 420 240" stroke="#0F172A" stroke-width="2.5" fill="none" marker-end="url(#darrow4-2)"/>
+            <defs>
+              <marker id="darrow4-2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#0F172A"/>
+              </marker>
+            </defs>
+            <text x="440" y="255" text-anchor="middle" font-size="11" font-weight="700" fill="#0F172A">↓G or ↑T</text>
+
+            <!-- Inflationary gap label -->
+            <text x="530" y="240" text-anchor="middle" font-size="11" font-style="italic" fill="#DC2626">Inflationary</text>
+            <text x="530" y="255" text-anchor="middle" font-size="11" font-style="italic" fill="#DC2626">pressure</text>
+          </svg>
+          <div class="svg-caption">Contractionary fiscal policy: AD₀ → AD₁ shifts the economy from above-potential output back toward potential GDP, easing inflation.</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key insight</div>
+          <p>
+            A very large budget deficit pushes aggregate demand beyond potential GDP, causing inflation. In this situation, contractionary fiscal policy — spending cuts or tax increases — reduces the upward pressure on the price level.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="compare">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Expansionary vs Contractionary</div><div class="section-subtitle">Side-by-side comparison</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Expansionary Fiscal Policy</th>
+              <th>Contractionary Fiscal Policy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Applied when</strong></td>
+              <td>Recession / deficient demand</td>
+              <td>Inflation / excess demand</td>
+            </tr>
+            <tr>
+              <td><strong>Government spending</strong></td>
+              <td>Increase (↑G)</td>
+              <td>Reduce (↓G)</td>
+            </tr>
+            <tr>
+              <td><strong>Taxes</strong></td>
+              <td>Reduce (↓T)</td>
+              <td>Increase (↑T)</td>
+            </tr>
+            <tr>
+              <td><strong>AD shift</strong></td>
+              <td>Right →</td>
+              <td>Left ←</td>
+            </tr>
+            <tr>
+              <td><strong>Effect on real GDP</strong></td>
+              <td>Increase</td>
+              <td>Decrease</td>
+            </tr>
+            <tr>
+              <td><strong>Effect on price level</strong></td>
+              <td>Increase</td>
+              <td>Decrease</td>
+            </tr>
+            <tr>
+              <td><strong>Budget impact</strong></td>
+              <td>Deficit expands</td>
+              <td>Deficit shrinks</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">Two Faces of Fiscal Policy</text>
+
+            <rect x="40" y="55" width="300" height="170" rx="14" fill="#F0FDF4" stroke="#16A34A" stroke-width="2.5"/>
+            <text x="190" y="85" text-anchor="middle" font-size="14" font-weight="900" fill="#166534">EXPANSIONARY</text>
+            <text x="190" y="110" text-anchor="middle" font-size="12" font-style="italic" fill="#166534">Recession problem</text>
+            <text x="190" y="145" text-anchor="middle" font-size="13" fill="#0F172A">↑ G (spend more)</text>
+            <text x="190" y="170" text-anchor="middle" font-size="13" fill="#0F172A">↓ T (cut taxes)</text>
+            <text x="190" y="200" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">→ AD shifts right</text>
+
+            <rect x="360" y="55" width="300" height="170" rx="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5"/>
+            <text x="510" y="85" text-anchor="middle" font-size="14" font-weight="900" fill="#991B1B">CONTRACTIONARY</text>
+            <text x="510" y="110" text-anchor="middle" font-size="12" font-style="italic" fill="#991B1B">Inflation problem</text>
+            <text x="510" y="145" text-anchor="middle" font-size="13" fill="#0F172A">↓ G (spend less)</text>
+            <text x="510" y="170" text-anchor="middle" font-size="13" fill="#0F172A">↑ T (raise taxes)</text>
+            <text x="510" y="200" text-anchor="middle" font-size="12" font-weight="700" fill="#991B1B">← AD shifts left</text>
+          </svg>
+          <div class="svg-caption">Choose the right tool for the problem. Recession → expansionary. Inflation → contractionary.</div>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is fiscal policy? Who manipulates fiscal policy tools and why?<br>
+            B. What is an expansionary fiscal policy? How does it operate in the economy?<br>
+            C. What is the effect of a contractionary fiscal policy on the economy?<br>
+            D. List the two key instruments of expansionary fiscal policy.<br>
+            E. List the two key instruments of contractionary fiscal policy.<br>
+            F. Discuss the roles and objectives of fiscal policy in a developing economy like Ethiopia.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is the best definition of <strong>fiscal policy</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Control of the money supply by the central bank</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> The government's expenditure and revenue (tax) policy</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Managing the foreign exchange rate</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Setting minimum wage levels</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What are the <strong>two key tools</strong> of fiscal policy?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Interest rates and money supply</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Taxation and government spending</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Exports and imports</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Wages and prices</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">When is <strong>expansionary fiscal policy</strong> used?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> When there is inflation / excess demand</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> When there is a recession / deficient demand</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> When the currency appreciates</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> When the balance of payments is in surplus</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Which of these is a tool of <strong>contractionary fiscal policy</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Increasing government spending on public works</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Cutting tax rates for lower income groups</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Increasing taxes and reducing government spending</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Expanding subsidies and old-age pensions</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">In the AD-AS diagram, <strong>expansionary fiscal policy</strong> shifts the AD curve in which direction?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> To the left</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> To the right</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> It doesn't move at all</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> It becomes vertical</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=fiscal+policy+explained+expansionary+contractionary" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Fiscal Policy Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=expansionary+fiscal+policy+ad+as+model" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Expansionary Fiscal Policy — AD-AS</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=contractionary+fiscal+policy+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Contractionary Fiscal Policy</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=government+spending+tax+multiplier" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Government Spending &amp; Tax Multipliers</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 4.2</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Fiscal policy</strong> = government's expenditure and revenue (tax) policy</li>
+          <li>Two tools: <strong>taxation</strong> and <strong>government spending</strong></li>
+          <li>Four components of government spending: <strong>G, transfer payments, grants in aid, net interest payments</strong></li>
+          <li>Four tax revenue components: <strong>personal taxes, social insurance, production/import taxes, corporate taxes</strong></li>
+          <li><strong>Expansionary fiscal policy</strong>: ↑G + ↓T → AD shifts right → boosts output during recession</li>
+          <li><strong>Contractionary fiscal policy</strong>: ↓G + ↑T → AD shifts left → controls inflation</li>
+          <li>Expansionary fiscal policy is used during <strong>recession / deficient demand</strong></li>
+          <li>Contractionary fiscal policy is used during <strong>inflation / excess demand</strong></li>
+          <li>Budget impact: expansionary widens the deficit; contractionary shrinks it</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-4-1.html" class="btn btn-outline">← Lesson 4.1</a>
+      <a href="lesson-4-3.html" class="btn btn-primary">Next: Lesson 4.3 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
+      <p>Unit 4 · Lesson 4.2 · Fiscal Policy</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'B', 3:'B', 4:'C', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Fiscal policy = government expenditure and revenue (tax) policy.',wrong:'✗ Fiscal policy = government spending + taxation.'},
+    2:{correct:'✓ Correct! Taxation and government spending are the two key tools.',wrong:'✗ Taxation + government spending.'},
+    3:{correct:'✓ Correct! Expansionary fiscal policy is used during recession (deficient demand).',wrong:'✗ Expansionary = used during recession.'},
+    4:{correct:'✓ Correct! Contractionary = ↑T (raise taxes) + ↓G (reduce spending).',wrong:'✗ Contractionary = ↑T + ↓G.'},
+    5:{correct:'✓ Correct! Expansionary fiscal policy shifts AD to the RIGHT.',wrong:'✗ AD shifts right.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 4.2.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
