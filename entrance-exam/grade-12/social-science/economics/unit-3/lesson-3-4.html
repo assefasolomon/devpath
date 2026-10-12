@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 3.4: Asymmetric Information | Economics Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#EA580C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#EA580C}
+    .sidebar-link.active{background:#FFEDD5;color:#7C2D12;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#EA580C;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7C2D12,#EA580C);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FFEDD5}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#EA580C;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-left:5px solid #EA580C;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C2D12;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#EA580C;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#EA580C;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #FED7AA;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#EA580C;box-shadow:0 4px 12px rgba(234,88,12,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#7C2D12;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#EA580C;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#EA580C;background:#FFF7ED}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #EA580C;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#EA580C}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#7C2D12;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(234,88,12,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#EA580C;font-weight:700;flex-shrink:0;margin-top:1px}
+    .svg-figure{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin:1rem 0;text-align:center}
+    .svg-caption{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#EA580C;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 3</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 3 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('definition')"><div class="sidebar-dot"></div> What is Asymmetric Info?</button>
+      <button class="sidebar-link" onclick="scrollToId('adverse')"><div class="sidebar-dot"></div> Adverse Selection</button>
+      <button class="sidebar-link" onclick="scrollToId('moral')"><div class="sidebar-dot"></div> Moral Hazard</button>
+      <button class="sidebar-link" onclick="scrollToId('solutions')"><div class="sidebar-dot"></div> Signalling &amp; Screening</button>
+      <button class="sidebar-link" onclick="scrollToId('compare')"><div class="sidebar-dot"></div> Comparison Table</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 3 Lessons</div>
+      <a href="lesson-3-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Market Failure</a>
+      <a href="lesson-3-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Public Goods</a>
+      <a href="lesson-3-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Externalities</a>
+      <a href="lesson-3-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Asymmetric Info</a>
+      <a href="lesson-3-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Consumer Protection</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Economics</a> ›
+      <a href="../index.html">Unit 3</a> ›
+      Lesson 3.4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 3 · Market Failure · MoE Textbook §3.4</div>
+      <h1>🔍 Asymmetric Information</h1>
+      <p>When one party in a transaction knows more than the other — the seller knows more than the buyer, or the insured knows more than the insurer — the market can break down. This lesson explores <strong>adverse selection</strong>, <strong>moral hazard</strong>, and how <strong>signalling</strong> and <strong>screening</strong> solve the problem.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~25 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Have you ever bought a used car and discovered later that it had hidden problems? Or wondered why insurance companies ask so many questions? These situations arise from <strong>asymmetric information</strong> — when one party in a transaction has more information than the other.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Define <strong>asymmetric information</strong></li>
+          <li>Explain <strong>adverse selection</strong> (hidden information)</li>
+          <li>Explain <strong>moral hazard</strong> (hidden action)</li>
+          <li>Describe the solutions: <strong>signalling</strong> and <strong>screening</strong></li>
+          <li>Distinguish adverse selection from moral hazard</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="definition">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">What is Asymmetric Information?</div><div class="section-subtitle">MoE Textbook §3.4, p. 60</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Asymmetric Information (MoE Textbook, p. 60)</div>
+          <p>
+            <strong>Asymmetric information</strong> is a situation in which different agents have <strong>different amounts of information about a good</strong>. In other words, it occurs when one party in a transaction is in possession of more information than the other.
+          </p>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          In certain transactions, <strong>sellers can take advantage of buyers</strong> because asymmetric information exists — the seller has more knowledge of the good being sold than the buyer.
+        </p>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Information asymmetry deals with the study of decisions in transactions where one party has more information than another. This creates an <strong>imbalance in power</strong> which can sometimes cause the transaction to go away.
+        </p>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">Asymmetric Information — Knowledge Gap</text>
+
+            <!-- Seller box -->
+            <rect x="60" y="60" width="240" height="200" rx="14" fill="#F0FDF4" stroke="#16A34A" stroke-width="2.5"/>
+            <text x="180" y="90" text-anchor="middle" font-size="15" font-weight="900" fill="#166534">SELLER</text>
+            <text x="180" y="112" text-anchor="middle" font-size="12" fill="#166534">knows the quality</text>
+            <text x="180" y="145" text-anchor="middle" font-size="30">🏪</text>
+            <text x="180" y="185" text-anchor="middle" font-size="11" fill="#0F172A">✓ Product history</text>
+            <text x="180" y="203" text-anchor="middle" font-size="11" fill="#0F172A">✓ True condition</text>
+            <text x="180" y="221" text-anchor="middle" font-size="11" fill="#0F172A">✓ Cost structure</text>
+            <text x="180" y="245" text-anchor="middle" font-size="11" font-style="italic" font-weight="700" fill="#166534">MORE INFO</text>
+
+            <!-- Buyer box -->
+            <rect x="400" y="60" width="240" height="200" rx="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5"/>
+            <text x="520" y="90" text-anchor="middle" font-size="15" font-weight="900" fill="#991B1B">BUYER</text>
+            <text x="520" y="112" text-anchor="middle" font-size="12" fill="#991B1B">does not know quality</text>
+            <text x="520" y="145" text-anchor="middle" font-size="30">👤</text>
+            <text x="520" y="185" text-anchor="middle" font-size="11" fill="#0F172A">✗ Product history</text>
+            <text x="520" y="203" text-anchor="middle" font-size="11" fill="#0F172A">✗ True condition</text>
+            <text x="520" y="221" text-anchor="middle" font-size="11" fill="#0F172A">✗ Cost structure</text>
+            <text x="520" y="245" text-anchor="middle" font-size="11" font-style="italic" font-weight="700" fill="#991B1B">LESS INFO</text>
+
+            <!-- Arrow -->
+            <path d="M 305 160 L 395 160" stroke="#EA580C" stroke-width="3" fill="none" marker-end="url(#arrowinfo)"/>
+            <defs>
+              <marker id="arrowinfo" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+                <polygon points="0 0, 12 4, 0 8" fill="#EA580C"/>
+              </marker>
+            </defs>
+            <text x="350" y="145" text-anchor="middle" font-size="11" font-weight="700" fill="#7C2D12">?</text>
+
+            <text x="350" y="290" text-anchor="middle" font-size="12" font-style="italic" fill="#64748b">The seller knows more than the buyer → market can break down</text>
+          </svg>
+          <div class="svg-caption">Asymmetric information: the seller knows the true quality; the buyer doesn't. This imbalance can prevent efficient transactions.</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The two problems that arise</div>
+          <p>
+            Two types of problems are associated with asymmetric information:<br>
+            <strong>1. Adverse selection</strong> (hidden information)<br>
+            <strong>2. Moral hazard</strong> (hidden action)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="adverse">
+      <div class="section-header"><div class="section-icon">🎭</div>
+        <div><div class="section-title-text">Adverse Selection Problem</div><div class="section-subtitle">Hidden information</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Adverse Selection</div>
+          <p>
+            <strong>Adverse selection</strong> refers to situations where one side of the market <strong>cannot observe the "type" or quality</strong> of the goods on the other side of the market. It is sometimes known as the <strong>"hidden information problem"</strong> or <strong>"anti-selection problem"</strong>.
+          </p>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          This is a term used in economics, insurance, statistics, and risk management. When bad results occur due to information asymmetries between buyers and sellers, the <strong>bad products or customers are more likely to be selected</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Classic Examples</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🚗</div>
+            <div class="concept-title">Used Cars (Lemons)</div>
+            <p class="concept-desc">Sellers of good used cars can't prove quality; buyers discount all cars. Sellers of bad cars (lemons) are more willing to sell — driving good cars out of the market.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🏥</div>
+            <div class="concept-title">Health Insurance</div>
+            <p class="concept-desc">Health insurance is more likely to be purchased by people who are <strong>more likely to get sick</strong>. The insurer can't tell who is high-risk.</p>
+          </div>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">Adverse Selection in Insurance</text>
+
+            <!-- Pool of customers -->
+            <rect x="60" y="60" width="280" height="200" rx="14" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/>
+            <text x="200" y="90" text-anchor="middle" font-size="13" font-weight="800" fill="#166534">Healthy Customers</text>
+            <text x="200" y="115" text-anchor="middle" font-size="40">💪💪💪💪</text>
+            <text x="200" y="155" text-anchor="middle" font-size="11" fill="#0F172A">Rarely need healthcare</text>
+            <text x="200" y="175" text-anchor="middle" font-size="11" fill="#0F172A">See premium as too high</text>
+            <text x="200" y="195" text-anchor="middle" font-size="11" fill="#0F172A">May not buy insurance</text>
+            <text x="200" y="230" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">↓ Drop out of market</text>
+
+            <!-- High-risk -->
+            <rect x="360" y="60" width="280" height="200" rx="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5"/>
+            <text x="500" y="90" text-anchor="middle" font-size="13" font-weight="800" fill="#991B1B">High-Risk Customers</text>
+            <text x="500" y="115" text-anchor="middle" font-size="40">🤒🤒🤒🤒</text>
+            <text x="500" y="155" text-anchor="middle" font-size="11" fill="#0F172A">Frequently need healthcare</text>
+            <text x="500" y="175" text-anchor="middle" font-size="11" fill="#0F172A">See premium as a bargain</text>
+            <text x="500" y="195" text-anchor="middle" font-size="11" fill="#0F172A">Gladly buy insurance</text>
+            <text x="500" y="230" text-anchor="middle" font-size="12" font-weight="700" fill="#991B1B">↓ Dominate the pool</text>
+
+            <text x="350" y="295" text-anchor="middle" font-size="12" font-style="italic" fill="#64748b">Result: insurance pool becomes riskier → premiums rise → more healthy customers leave</text>
+          </svg>
+          <div class="svg-caption">Adverse selection in insurance: high-risk customers buy more, driving premiums up and healthy customers out — a downward spiral.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="moral">
+      <div class="section-header"><div class="section-icon">🎬</div>
+        <div><div class="section-title-text">Moral Hazard Problem</div><div class="section-subtitle">Hidden action</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Moral Hazard</div>
+          <p>
+            <strong>Moral hazard</strong> refers to a situation where one side of the market <strong>cannot observe the actions</strong> of the others. It is sometimes known as the <strong>"hidden action problem"</strong> — the inability to observe and/or verify an agent's action.
+          </p>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          A moral hazard problem arises when an individual or situation <strong>does not bear the full consequences of its actions</strong>, and therefore has a tendency to act less carefully than it otherwise would — leaving another party to bear some responsibility for the consequences.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Classic Examples</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🚙</div>
+            <div class="concept-title">Car Theft Insurance</div>
+            <p class="concept-desc">An individual with insurance against automobile theft may be <strong>less vigilant</strong> about locking their car — because the insurance company bears part of the consequences.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🏥</div>
+            <div class="concept-title">Ex-Post Moral Hazard</div>
+            <p class="concept-desc">Insured parties don't behave more riskily, but they ask the insurer to pay for <strong>more negative consequences</strong> as coverage increases — e.g., seeking unnecessary medical treatment.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The medical insurance example</div>
+          <p>
+            Without medical insurance, some forgo medical treatment due to its costs, or simply deal with substandard health. But after medical insurance becomes available, some may ask the insurance provider to pay for the cost of medical treatment that they would not otherwise have undergone.
+          </p>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">Moral Hazard — Behaviour Changes After Insurance</text>
+
+            <!-- Before -->
+            <rect x="60" y="60" width="280" height="200" rx="14" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/>
+            <text x="200" y="90" text-anchor="middle" font-size="14" font-weight="800" fill="#166534">BEFORE Insurance</text>
+            <text x="200" y="125" text-anchor="middle" font-size="40">🔒</text>
+            <text x="200" y="165" text-anchor="middle" font-size="12" fill="#0F172A">Careful about locking car</text>
+            <text x="200" y="185" text-anchor="middle" font-size="12" fill="#0F172A">Avoids risky behaviour</text>
+            <text x="200" y="205" text-anchor="middle" font-size="12" fill="#0F172A">Bears full cost of mistakes</text>
+            <text x="200" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#166534">High vigilance</text>
+
+            <!-- After -->
+            <rect x="360" y="60" width="280" height="200" rx="14" fill="#FEF2F2" stroke="#DC2626" stroke-width="2.5"/>
+            <text x="500" y="90" text-anchor="middle" font-size="14" font-weight="800" fill="#991B1B">AFTER Insurance</text>
+            <text x="500" y="125" text-anchor="middle" font-size="40">🔓</text>
+            <text x="500" y="165" text-anchor="middle" font-size="12" fill="#0F172A">Less careful about locking</text>
+            <text x="500" y="185" text-anchor="middle" font-size="12" fill="#0F172A">Takes more risks</text>
+            <text x="500" y="205" text-anchor="middle" font-size="12" fill="#0F172A">Insurer bears consequences</text>
+            <text x="500" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#991B1B">Lower vigilance</text>
+
+            <text x="350" y="290" text-anchor="middle" font-size="12" font-style="italic" fill="#64748b">Being insured changes behaviour → the insurer's risk increases</text>
+          </svg>
+          <div class="svg-caption">Moral hazard: after getting insurance, people may act less carefully because they no longer bear the full cost of their actions.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="solutions">
+      <div class="section-header"><div class="section-icon">🛠️</div>
+        <div><div class="section-title-text">Solutions: Signalling &amp; Screening</div><div class="section-subtitle">How markets cope with information asymmetry</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Signalling</div>
+          <p>
+            <strong>Signalling</strong> is the idea that one party (the <strong>agent</strong>) <strong>conveys some meaningful information about itself</strong> to another party (the <strong>principal</strong>). It's a way for the more informed party to reveal their quality.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Signalling Examples</h3>
+        <ul class="key-points">
+          <li><strong>Education</strong> — Employees signal their skill levels to employers by acquiring a certain degree of education</li>
+          <li><strong>Warranties</strong> — In the market for used goods, owners of good used cars can offer a warranty — signalling that they have good cars, since owners of bad cars cannot afford this</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Limitations of signalling</div>
+          <p>
+            • How much time, energy, or money should the sender spend on sending the signal?<br>
+            • How can the receiver trust the signal to be an honest declaration of information?<br>
+            • Under what circumstances will the signalling equilibrium break down?
+          </p>
+        </div>
+
+        <div class="definition-box">
+          <div class="def-label">📌 Screening</div>
+          <p>
+            <strong>Screening</strong> is a strategy of <strong>combating adverse selection</strong>. The <strong>screener</strong> (the party with less information) attempts to rectify this asymmetry by <strong>learning as much as possible</strong> about the other party.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Screening Examples</h3>
+        <ul class="key-points">
+          <li><strong>Banks screening borrowers</strong> — Banks screen people interested in borrowing money to weed out those who will not be able to repay. They ask for financial history, job security, reason for borrowing, education, experience.</li>
+          <li><strong>Group health insurance</strong> — Offering health insurance as a package of fringe benefits. The insurance company can base rates on the averages over the set of employees, and is assured all employees will participate — eliminating adverse selection.</li>
+        </ul>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">Signalling vs Screening</text>
+
+            <!-- Signalling -->
+            <rect x="30" y="55" width="300" height="170" rx="12" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/>
+            <text x="180" y="85" text-anchor="middle" font-size="14" font-weight="900" fill="#166534">SIGNALLING</text>
+            <text x="180" y="110" text-anchor="middle" font-size="11" fill="#166534">Informed party acts first</text>
+            <circle cx="90" cy="150" r="22" fill="#16A34A"/>
+            <text x="90" y="157" text-anchor="middle" font-size="12" fill="#fff" font-weight="700">Agent</text>
+            <circle cx="270" cy="150" r="22" fill="#0F172A"/>
+            <text x="270" y="157" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">Principal</text>
+            <path d="M 115 150 L 245 150" stroke="#16A34A" stroke-width="2.5" fill="none" marker-end="url(#garrow5)"/>
+            <text x="180" y="143" text-anchor="middle" font-size="10" fill="#166534">signal →</text>
+            <text x="180" y="205" text-anchor="middle" font-size="11" font-style="italic" fill="#0F172A">e.g. education, warranty</text>
+            <defs>
+              <marker id="garrow5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#16A34A"/>
+              </marker>
+            </defs>
+
+            <!-- Screening -->
+            <rect x="370" y="55" width="300" height="170" rx="12" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="2"/>
+            <text x="520" y="85" text-anchor="middle" font-size="14" font-weight="900" fill="#0369A1">SCREENING</text>
+            <text x="520" y="110" text-anchor="middle" font-size="11" fill="#0369A1">Uninformed party acts first</text>
+            <circle cx="430" cy="150" r="22" fill="#0EA5E9"/>
+            <text x="430" y="157" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">Screener</text>
+            <circle cx="610" cy="150" r="22" fill="#0F172A"/>
+            <text x="610" y="157" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">Candidate</text>
+            <path d="M 455 150 L 585 150" stroke="#0EA5E9" stroke-width="2.5" fill="none" marker-end="url(#barrow5)"/>
+            <text x="520" y="143" text-anchor="middle" font-size="10" fill="#0369A1">screening ←</text>
+            <text x="520" y="205" text-anchor="middle" font-size="11" font-style="italic" fill="#0F172A">e.g. credit check, questions</text>
+            <defs>
+              <marker id="barrow5" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                <polygon points="0 0, 10 3, 0 6" fill="#0EA5E9"/>
+              </marker>
+            </defs>
+          </svg>
+          <div class="svg-caption">Signalling: the informed party reveals quality. Screening: the uninformed party investigates.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="compare">
+      <div class="section-header"><div class="section-icon">📋</div>
+        <div><div class="section-title-text">Adverse Selection vs Moral Hazard</div><div class="section-subtitle">Key differences</div></div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Adverse Selection</th>
+              <th>Moral Hazard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Timing</strong></td>
+              <td><strong>Before</strong> the transaction</td>
+              <td><strong>After</strong> the transaction</td>
+            </tr>
+            <tr>
+              <td><strong>Problem</strong></td>
+              <td>Hidden <strong>information</strong> (type/quality)</td>
+              <td>Hidden <strong>action</strong> (behaviour)</td>
+            </tr>
+            <tr>
+              <td><strong>What's unknown?</strong></td>
+              <td>The other party's characteristics</td>
+              <td>The other party's behaviour</td>
+            </tr>
+            <tr>
+              <td><strong>Classic example</strong></td>
+              <td>High-risk people buy more health insurance</td>
+              <td>Insured people are less careful about theft</td>
+            </tr>
+            <tr>
+              <td><strong>Solution</strong></td>
+              <td><strong>Signalling</strong> and <strong>screening</strong></td>
+              <td>Monitoring, deductibles, co-payments</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Memory trick</div>
+          <p>
+            <strong>Adverse selection</strong> = "Who is buying?" (selection of the wrong type).<br>
+            <strong>Moral hazard</strong> = "How do they behave?" (change in behaviour after the deal).
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is asymmetric information?<br>
+            B. How does asymmetric information lead to adverse selection?<br>
+            C. Give two examples of adverse selection.<br>
+            D. What is moral hazard? How does it differ from adverse selection?<br>
+            E. What are the possible solutions for adverse selection? What about for moral hazard?<br>
+            F. Why is asymmetric information a problem?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What is <strong>asymmetric information</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> When two parties share all information equally</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> When one party in a transaction has more information than the other</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> When information is symmetric between buyer and seller</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> When both parties lie to each other</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is <strong>adverse selection</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> When one party can't observe the <strong>quality/type</strong> of the other side of the market</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> When one party can't observe the <strong>actions</strong> of the other party</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> When insurance companies make profits</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> When prices rise unexpectedly</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">An individual with car theft insurance becomes less careful about locking their car. This is an example of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Adverse selection</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Moral hazard</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Positive externality</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Signalling</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Employees signal their skill level to employers by:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Asking for a lower wage</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Acquiring a certain degree of education</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Hiding their qualifications</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Quitting their job</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which is the key difference between <strong>adverse selection</strong> and <strong>moral hazard</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Adverse selection is about hidden information (before); moral hazard is about hidden action (after)</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> They are the same thing</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Adverse selection only happens in insurance markets</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Moral hazard only happens in used-car markets</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=asymmetric+information+economics+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Asymmetric Information Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=adverse+selection+explained+used+cars" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Adverse Selection — The Lemons Problem</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=moral+hazard+explained+economics" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Moral Hazard Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=signalling+screening+economics+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Signalling &amp; Screening in Economics</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 3.4</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Asymmetric information</strong> = different agents have different amounts of information about a good</li>
+          <li>It creates an <strong>imbalance in power</strong> in transactions — sometimes causing the transaction to fail</li>
+          <li>Two key problems: <strong>adverse selection</strong> and <strong>moral hazard</strong></li>
+          <li><strong>Adverse selection</strong> = hidden information problem — one side can't observe the type/quality of the other side</li>
+          <li>Adverse selection examples: used cars (lemons), health insurance (high-risk buyers)</li>
+          <li><strong>Moral hazard</strong> = hidden action problem — one side can't observe the actions of the other</li>
+          <li>Moral hazard examples: car theft insurance, ex-post medical insurance claims</li>
+          <li><strong>Signalling</strong> = informed party conveys meaningful info (education, warranties)</li>
+          <li><strong>Screening</strong> = uninformed party learns about the other (bank credit checks, group insurance)</li>
+          <li>Key difference: adverse selection = <strong>before</strong> the transaction (who is buying); moral hazard = <strong>after</strong> (how do they behave)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-3-3.html" class="btn btn-outline">← Lesson 3.3</a>
+      <a href="lesson-3-5.html" class="btn btn-primary">Next: Lesson 3.5 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
+      <p>Unit 3 · Lesson 3.4 · Asymmetric Information</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'A', 3:'B', 4:'B', 5:'A'};
+  const feedback = {
+    1:{correct:'✓ Correct! Asymmetric information = one party has more information than the other.',wrong:'✗ One party knows more.'},
+    2:{correct:'✓ Correct! Adverse selection = hidden information problem (can\'t observe type/quality).',wrong:'✗ Adverse selection = hidden information.'},
+    3:{correct:'✓ Correct! This is moral hazard — behaviour changes after the transaction.',wrong:'✗ Behaviour change after = moral hazard.'},
+    4:{correct:'✓ Correct! Employees signal skill by acquiring education.',wrong:'✗ Education = signalling.'},
+    5:{correct:'✓ Correct! Adverse selection = before (hidden info); moral hazard = after (hidden action).',wrong:'✗ Before vs after transaction.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 3.4.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
