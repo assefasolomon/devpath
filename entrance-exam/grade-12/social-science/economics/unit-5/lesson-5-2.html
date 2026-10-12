@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5.2: Approaches to Tax Equity | Economics Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#EA580C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#EA580C}
+    .sidebar-link.active{background:#FFEDD5;color:#7C2D12;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#EA580C;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7C2D12,#EA580C);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FFEDD5}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#EA580C;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-left:5px solid #EA580C;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C2D12;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#EA580C;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#EA580C;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #FED7AA;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#EA580C;box-shadow:0 4px 12px rgba(234,88,12,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#7C2D12;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .formula-box{background:#0F172A;color:#F1F5F9;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;text-align:center}
+    .formula-box .formula-label{font-size:.72rem;color:#FDBA74;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:.5rem}
+    .formula-box .formula-eq{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.7;font-family:'Courier New',monospace}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#EA580C;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#EA580C;background:#FFF7ED}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #EA580C;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#EA580C}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#7C2D12;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(234,88,12,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#EA580C;font-weight:700;flex-shrink:0;margin-top:1px}
+    .svg-figure{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin:1rem 0;text-align:center}
+    .svg-caption{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#EA580C;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 5</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 5 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('concept')"><div class="sidebar-dot"></div> Concept of Tax Equity</button>
+      <button class="sidebar-link" onclick="scrollToId('benefits')"><div class="sidebar-dot"></div> Benefits Approach</button>
+      <button class="sidebar-link" onclick="scrollToId('ability')"><div class="sidebar-dot"></div> Ability-to-Pay Approach</button>
+      <button class="sidebar-link" onclick="scrollToId('horizontal')"><div class="sidebar-dot"></div> Horizontal &amp; Vertical Equity</button>
+      <button class="sidebar-link" onclick="scrollToId('types')"><div class="sidebar-dot"></div> Progressive, Proportional, Regressive</button>
+      <button class="sidebar-link" onclick="scrollToId('incidence')"><div class="sidebar-dot"></div> Tax Incidence Analysis</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="lesson-5-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Taxes Overview</a>
+      <a href="lesson-5-2.html" class="sidebar-link active"><div class="sidebar-dot"></div> L2: Tax Equity</a>
+      <a href="lesson-5-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Ethiopian System</a>
+      <a href="lesson-5-4.html" class="sidebar-link"><div class="sidebar-dot"></div> L4: Types &amp; Accounting</a>
+      <a href="lesson-5-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Tax Problems</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Economics</a> ›
+      <a href="../index.html">Unit 5</a> ›
+      Lesson 5.2
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Taxation · MoE Textbook §5.2</div>
+      <h1>⚖️ Approaches to Tax Equity</h1>
+      <p>What makes a tax fair? Should the rich pay more? Should everyone pay the same rate? This lesson explores the two approaches to tax fairness — the benefits approach and the ability-to-pay approach — and the three types of tax by impact.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          Tax fairness is one of the most debated topics in economics. Should the rich pay less or more? This lesson answers that question through two classic approaches: <strong>the benefits approach</strong> and <strong>the ability-to-pay approach</strong>. You'll also see how tax rates can be progressive, proportional, or regressive.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Explain the <strong>benefits approach</strong> to tax equity</li>
+          <li>Explain the <strong>ability-to-pay approach</strong></li>
+          <li>Distinguish <strong>horizontal</strong> from <strong>vertical</strong> equity</li>
+          <li>Define <strong>progressive, proportional, and regressive</strong> taxes</li>
+          <li>Apply the concept of <strong>tax incidence</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="concept">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">Concept of Tax Equity</div><div class="section-subtitle">MoE Textbook §5.2, p. 109</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Tax Equity</div>
+          <p>
+            <strong>Tax equity</strong> refers to <strong>fairness in taxation</strong> — the principle that taxes should be distributed among taxpayers in a manner that is considered just. There are <strong>two main approaches</strong> for evaluating tax equity:
+          </p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🎁</div>
+            <div class="concept-title">Benefits Approach</div>
+            <p class="concept-desc">Pay according to the <strong>benefits received</strong> from public services.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">💰</div>
+            <div class="concept-title">Ability-to-Pay Approach</div>
+            <p class="concept-desc">Pay according to your <strong>capacity</strong> to pay taxes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="benefits">
+      <div class="section-header"><div class="section-icon">🎁</div>
+        <div><div class="section-title-text">The Benefits Approach</div><div class="section-subtitle">MoE Textbook §5.2.1, p. 109</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Benefits Approach</div>
+          <p>
+            According to the <strong>benefits approach</strong>, an equitable tax system is one in which each taxpayer <strong>contributes in line with the benefits</strong> which he/she receives from public services. Tax obligations should be based on the benefits received from the enjoyment of public services.
+          </p>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          The aim here is to work out <strong>how much each person gains</strong> from public spending. The benefits approach has the advantage of linking the discussion of tax equity with the <strong>expenditure side</strong> of the public budget.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Problem with the Benefits Approach</h3>
+        <ul class="key-points">
+          <li>While some government spending (health, education, social subsidies) can easily be attributed to beneficiary households, <strong>about half of government spending may not be</strong></li>
+          <li>It is difficult, if not impossible, to determine who benefits most from spending on:
+            <ul style="margin-top:.4rem;padding-left:1.25rem;font-size:.85rem;line-height:1.8">
+              <li>The army</li>
+              <li>Police</li>
+              <li>Diplomatic service</li>
+              <li>Judicial system</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The challenge</div>
+          <p>
+            It's much easier to <strong>state</strong> the benefits principle than to <strong>apply</strong> it in reality. Public goods like national defence benefit everyone but can't be traced back to specific individuals.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="ability">
+      <div class="section-header"><div class="section-icon">💰</div>
+        <div><div class="section-title-text">The Ability-to-Pay Approach</div><div class="section-subtitle">MoE Textbook §5.2.2, p. 109</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Ability-to-Pay Approach</div>
+          <p>
+            According to the <strong>ability-to-pay approach</strong>, tax is levied on each taxpayer in line with their <strong>ability to pay</strong>. This approach focuses on the <strong>distributive nature</strong> of taxation — people with equal capacity pay the same, and people with greater ability pay more.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Three Key Questions</h3>
+        <ul class="key-points">
+          <li>How to <strong>measure ability to pay</strong>?</li>
+          <li>How to determine a fair set of <strong>tax rates</strong> based on differing abilities to pay?</li>
+          <li>How to <strong>compare the economic status</strong> of various individual taxpayers?</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 The ideal measure</div>
+          <p>
+            Ideally, the measure for ability to pay would reflect the <strong>entire welfare</strong> a person can derive from all options available — consumption (present and future), holding of wealth, and the enjoyment of leisure. Unfortunately, such a comprehensive measure is <strong>not practicable</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="horizontal">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">Horizontal &amp; Vertical Equity</div><div class="section-subtitle">Two dimensions of fairness</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">↔️</div>
+            <div class="concept-title">Horizontal Equity</div>
+            <p class="concept-desc">People <strong>in the same circumstances pay the same taxes</strong>. Example: Two people with equal incomes face equal tax obligations.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">↕️</div>
+            <div class="concept-title">Vertical Equity</div>
+            <p class="concept-desc">A degree of proportionality — <strong>unequals should be treated unequally</strong>. Example: Someone with higher income pays more tax than someone with lower income.</p>
+          </div>
+        </div>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 700 260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">Horizontal vs Vertical Equity</text>
+
+            <!-- Horizontal -->
+            <rect x="30" y="55" width="300" height="180" rx="12" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/>
+            <text x="180" y="85" text-anchor="middle" font-size="14" font-weight="900" fill="#166534">HORIZONTAL EQUITY</text>
+            <text x="180" y="110" text-anchor="middle" font-size="11" fill="#166534">"Same = Same"</text>
+
+            <!-- Two equal bars -->
+            <rect x="80" y="140" width="60" height="60" fill="#16A34A" rx="4"/>
+            <text x="110" y="175" text-anchor="middle" font-size="12" fill="#fff" font-weight="700">$5k</text>
+            <text x="110" y="220" text-anchor="middle" font-size="10" fill="#0F172A">Person A</text>
+            <text x="110" y="233" text-anchor="middle" font-size="10" fill="#64748b">Income: $50k</text>
+
+            <rect x="220" y="140" width="60" height="60" fill="#16A34A" rx="4"/>
+            <text x="250" y="175" text-anchor="middle" font-size="12" fill="#fff" font-weight="700">$5k</text>
+            <text x="250" y="220" text-anchor="middle" font-size="10" fill="#0F172A">Person B</text>
+            <text x="250" y="233" text-anchor="middle" font-size="10" fill="#64748b">Income: $50k</text>
+
+            <!-- Vertical -->
+            <rect x="370" y="55" width="300" height="180" rx="12" fill="#FEF2F2" stroke="#DC2626" stroke-width="2"/>
+            <text x="520" y="85" text-anchor="middle" font-size="14" font-weight="900" fill="#991B1B">VERTICAL EQUITY</text>
+            <text x="520" y="110" text-anchor="middle" font-size="11" fill="#991B1B">"Unequal = Unequal"</text>
+
+            <!-- Different bars -->
+            <rect x="420" y="180" width="60" height="20" fill="#16A34A" rx="4"/>
+            <text x="450" y="195" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">$1k</text>
+            <text x="450" y="220" text-anchor="middle" font-size="10" fill="#0F172A">Person C</text>
+            <text x="450" y="233" text-anchor="middle" font-size="10" fill="#64748b">Income: $10k</text>
+
+            <rect x="560" y="140" width="60" height="60" fill="#DC2626" rx="4"/>
+            <text x="590" y="175" text-anchor="middle" font-size="12" fill="#fff" font-weight="700">$20k</text>
+            <text x="590" y="220" text-anchor="middle" font-size="10" fill="#0F172A">Person D</text>
+            <text x="590" y="233" text-anchor="middle" font-size="10" fill="#64748b">Income: $200k</text>
+          </svg>
+          <div class="svg-caption">Horizontal equity: people in the same situation pay the same tax. Vertical equity: people in different situations pay different amounts.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="types">
+      <div class="section-header"><div class="section-icon">📊</div>
+        <div><div class="section-title-text">Progressive, Proportional &amp; Regressive Taxes</div><div class="section-subtitle">Type by impact</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">📈</div>
+            <div class="concept-title">Progressive Tax</div>
+            <p class="concept-desc">Those with <strong>higher incomes pay a higher share</strong> of taxes out of their income compared to those with lower incomes. The <strong>average tax rate rises</strong> with income.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">➡️</div>
+            <div class="concept-title">Proportional Tax</div>
+            <p class="concept-desc">Everyone pays the <strong>same share</strong> of taxes regardless of income level. The <strong>average tax rate is the same</strong> at all income levels.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">📉</div>
+            <div class="concept-title">Regressive Tax</div>
+            <p class="concept-desc">Those with <strong>high income pay a lower share</strong> of income in taxes than those with lower incomes. The <strong>average tax rate falls</strong> as income rises.</p>
+          </div>
+        </div>
+
+        <div class="formula-box">
+          <div class="formula-label">Average Tax Rate</div>
+          <div class="formula-eq">Average Tax Rate = (Total Tax Paid ÷ Total Income) × 100%</div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Numeric Comparison</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Income</th>
+              <th>Progressive</th>
+              <th>Proportional</th>
+              <th>Regressive</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>$10,000</strong></td>
+              <td>$1,000 (10%)</td>
+              <td>$2,000 (20%)</td>
+              <td>$3,000 (30%)</td>
+            </tr>
+            <tr>
+              <td><strong>$50,000</strong></td>
+              <td>$10,000 (20%)</td>
+              <td>$10,000 (20%)</td>
+              <td>$7,500 (15%)</td>
+            </tr>
+            <tr>
+              <td><strong>$100,000</strong></td>
+              <td>$30,000 (30%)</td>
+              <td>$20,000 (20%)</td>
+              <td>$10,000 (10%)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="svg-figure">
+          <svg viewBox="0 0 700 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+            <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">Average Tax Rate vs Income</text>
+
+            <!-- Axes -->
+            <line x1="70" y1="280" x2="660" y2="280" stroke="#0F172A" stroke-width="2"/>
+            <line x1="70" y1="280" x2="70" y2="50" stroke="#0F172A" stroke-width="2"/>
+            <text x="365" y="310" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A">Income →</text>
+            <text x="35" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#0F172A" transform="rotate(-90 35 165)">Tax Rate →</text>
+
+            <!-- Progressive (up) -->
+            <path d="M 120 240 Q 360 200, 600 90" stroke="#DC2626" stroke-width="3" fill="none"/>
+            <text x="610" y="85" font-size="12" font-weight="800" fill="#991B1B">Progressive</text>
+
+            <!-- Proportional (flat) -->
+            <line x1="120" y1="170" x2="600" y2="170" stroke="#0EA5E9" stroke-width="3"/>
+            <text x="610" y="175" font-size="12" font-weight="800" fill="#0369A1">Proportional</text>
+
+            <!-- Regressive (down) -->
+            <path d="M 120 100 Q 360 130, 600 240" stroke="#16A34A" stroke-width="3" fill="none"/>
+            <text x="610" y="245" font-size="12" font-weight="800" fill="#166534">Regressive</text>
+
+            <!-- Y-axis labels -->
+            <text x="60" y="105" text-anchor="end" font-size="11" fill="#64748b">High</text>
+            <text x="60" y="175" text-anchor="end" font-size="11" fill="#64748b">Mid</text>
+            <text x="60" y="245" text-anchor="end" font-size="11" fill="#64748b">Low</text>
+          </svg>
+          <div class="svg-caption">Progressive tax rates rise with income. Proportional rates stay flat. Regressive rates fall as income rises.</div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Which type is fair?</div>
+          <p>
+            Most modern tax systems use <strong>progressive</strong> income taxes because they address vertical equity. Sales taxes (like VAT) tend to be <strong>regressive</strong> in practice — because lower-income people spend a higher share of their income on consumption.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="incidence">
+      <div class="section-header"><div class="section-icon">🔍</div>
+        <div><div class="section-title-text">Tax Incidence Analysis</div><div class="section-subtitle">Who really pays?</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Tax Incidence</div>
+          <p>
+            <strong>Tax incidence</strong> relates to the way the burden of a tax is <strong>distributed among economic units</strong> (consumers, producers, employees, employers). It points out who is <strong>legally responsible</strong> for paying the tax — but more importantly, <strong>who is actually made worse off</strong>.
+          </p>
+        </div>
+
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Though taxes may be collected from firms, the <strong>ultimate burden may fall on individual consumers</strong>. The incidence of a tax is defined as its <strong>final resting place</strong>.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Impact vs Incidence vs Effect</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Term</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Impact</strong></td>
+              <td>The tax's <strong>first point of contact</strong> with the taxpayer. Felt by those who bear the first statutory responsibility of paying it to the government.</td>
+            </tr>
+            <tr>
+              <td><strong>Incidence</strong></td>
+              <td>The <strong>final resting place</strong> of the tax burden. Who is ultimately made worse off.</td>
+            </tr>
+            <tr>
+              <td><strong>Effect</strong></td>
+              <td>The <strong>responses</strong> from taxpayers and the economy — production, growth, saving, investment, inequality.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Example</div>
+          <p>
+            When a business pays VAT, the <strong>impact</strong> is on the business (they write the cheque). But the <strong>incidence</strong> may fall on consumers (through higher prices) or on producers (through lower margins), depending on demand elasticity. The <strong>effect</strong> might be reduced consumption.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. What is the benefits approach to tax equity? Why is it difficult to apply?<br>
+            B. What is the ability-to-pay approach? What key questions does it raise?<br>
+            C. Distinguish horizontal equity from vertical equity.<br>
+            D. Define progressive, proportional, and regressive taxes with examples.<br>
+            E. Explain the relationship between tax impact, incidence, and effect.<br>
+            F. Should the rich pay more taxes? Discuss using the concepts from this lesson.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">According to the <strong>benefits approach</strong>, an equitable tax system is one where:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Everyone pays the same tax amount</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Each taxpayer contributes in line with the benefits they receive from public services</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> The rich pay all taxes</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Only businesses pay taxes</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is <strong>horizontal equity</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> People in the same circumstances pay the same taxes</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Unequals should be treated unequally</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Everyone pays the same rate</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> The rich pay less</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">If Ayele earns $4,000 and pays $300 in tax (7.5%), while Atote earns $20,000 and pays $1,400 in tax (7%), this tax system is:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Progressive</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Proportional</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Regressive</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Horizontal</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">What does the <strong>tax incidence</strong> of a tax refer to?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> The tax rate percentage</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> The final resting place of the tax burden — who is ultimately made worse off</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> The tax base multiplied by the tax rate</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> The first point of contact with the taxpayer</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which of these is a <strong>major problem</strong> with the benefits approach to tax equity?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> It forces everyone to pay the same tax</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> About half of government spending cannot be attributed to specific beneficiaries — e.g., defence, police, judiciary</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> It only applies to corporations</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> It violates vertical equity</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=progressive+proportional+regressive+tax+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Progressive vs Proportional vs Regressive Taxes</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=tax+equity+benefits+ability+to+pay" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Tax Equity — Benefits vs Ability-to-Pay</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=horizontal+vertical+equity+taxation" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Horizontal &amp; Vertical Tax Equity</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=tax+incidence+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Tax Incidence Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 5.2</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Tax equity</strong> = fairness in taxation. Two main approaches: benefits and ability-to-pay</li>
+          <li><strong>Benefits approach</strong>: pay according to benefits received from public services</li>
+          <li>Benefits approach has a <strong>major flaw</strong> — about half of government spending can't be attributed to specific beneficiaries</li>
+          <li><strong>Ability-to-pay approach</strong>: pay according to capacity. People with equal capacity pay the same; with greater capacity pay more</li>
+          <li><strong>Horizontal equity</strong>: people in the same circumstances pay the same taxes</li>
+          <li><strong>Vertical equity</strong>: unequals should be treated unequally</li>
+          <li><strong>Progressive tax</strong>: average tax rate rises with income</li>
+          <li><strong>Proportional tax</strong>: same average rate at all income levels</li>
+          <li><strong>Regressive tax</strong>: average tax rate falls as income rises</li>
+          <li><strong>Tax incidence</strong> = final resting place of tax burden — who is ultimately made worse off</li>
+          <li><strong>Impact</strong> = first contact; <strong>incidence</strong> = final resting place; <strong>effect</strong> = behavioural response</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-5-1.html" class="btn btn-outline">← Lesson 5.1</a>
+      <a href="lesson-5-3.html" class="btn btn-primary">Next: Lesson 5.3 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
+      <p>Unit 5 · Lesson 5.2 · Approaches to Tax Equity</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'A', 3:'C', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Benefits approach = contribute in line with benefits received.',wrong:'✗ Benefits approach = pay per benefits received.'},
+    2:{correct:'✓ Correct! Horizontal equity = people in the same circumstances pay the same taxes.',wrong:'✗ Horizontal equity = same circumstances, same tax.'},
+    3:{correct:'✓ Correct! The higher earner pays a lower rate (7% vs 7.5%) — this is a regressive tax.',wrong:'✗ Higher earner pays LOWER rate = regressive.'},
+    4:{correct:'✓ Correct! Tax incidence = final resting place of the tax burden.',wrong:'✗ Incidence = final resting place.'},
+    5:{correct:'✓ Correct! Defence, police, judiciary benefit everyone — can\'t be allocated to specific beneficiaries.',wrong:'✗ Half of gov spending can\'t be traced to beneficiaries.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 5.2.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
