@@ -3,42 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unit 5: Tax Theory and Practice | Economics Grade 12</title>
+  <title>Lesson 5.4: Types of Tax &amp; Tax Accounting in Ethiopia | Economics Grade 12</title>
   <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
     body{background:#F8FAFC}
-    .unit-hero{background:linear-gradient(135deg,#0F172A 0%,#7C2D12 100%);padding:3rem 2rem;color:#fff}
-    .unit-hero-inner{max-width:900px;margin:0 auto}
-    .unit-tag{display:inline-flex;gap:6px;background:rgba(234,88,12,.15);border:1px solid rgba(234,88,12,.35);color:#FDBA74;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:999px;margin-bottom:1rem}
-    .unit-hero h1{font-size:2rem;font-weight:900;color:#fff;margin-bottom:.5rem}
-    .unit-hero p{color:rgba(255,255,255,.72);font-size:.95rem;line-height:1.7;max-width:640px}
-    .wrap{max-width:900px;margin:0 auto;padding:3rem 2rem}
-    .breadcrumb{display:flex;gap:6px;font-size:.82rem;color:var(--text-muted,#64748b);margin-bottom:2rem;flex-wrap:wrap}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#EA580C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#EA580C}
+    .sidebar-link.active{background:#FFEDD5;color:#7C2D12;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
     .breadcrumb a{color:#EA580C;text-decoration:none}
-    .breadcrumb a:hover{text-decoration:underline}
-    .section-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#EA580C;margin-bottom:.75rem}
-    .section-title{font-size:1.35rem;font-weight:800;color:var(--heading,#0f172a);margin-bottom:1.25rem}
-    .lesson-list{display:flex;flex-direction:column;gap:.75rem}
-    .lesson-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:14px;padding:1rem 1.25rem;text-decoration:none;color:inherit;display:flex;align-items:center;gap:1rem;transition:all .2s ease}
-    .lesson-card.live:hover{border-color:#EA580C;transform:translateX(4px);box-shadow:0 6px 16px rgba(234,88,12,.12)}
-    .lesson-card.live{border-color:#FED7AA;background:linear-gradient(90deg,#fff 0%,#FFF7ED 100%)}
-    .lesson-card.upcoming{border-color:#e2e8f0;background:#fff;opacity:.72;cursor:not-allowed}
-    .lesson-icon{font-size:1.5rem;flex-shrink:0}
-    .lesson-info{flex:1;min-width:0}
-    .lesson-title{font-size:.95rem;font-weight:700;color:#0f172a;margin-bottom:.15rem;display:flex;align-items:center;gap:.4rem;flex-wrap:wrap}
-    .lesson-meta{font-size:.75rem;color:#64748b}
-    .lesson-badge{display:inline-flex;align-items:center;gap:3px;font-size:.65rem;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:.2rem}
-    .lesson-badge.live{color:#7C2D12;background:#FFEDD5}
-    .lesson-badge.soon{color:#64748b;background:#F1F5F9}
-    .lesson-arrow{color:#EA580C;font-weight:900;font-size:1.1rem;flex-shrink:0}
-    .lesson-card.upcoming .lesson-arrow{color:#cbd5e1}
-    @media (max-width:640px){
-      .unit-hero{padding:2.25rem 1rem}
-      .unit-hero h1{font-size:1.5rem}
-      .wrap{padding:2rem 1rem}
-      .lesson-card{padding:.875rem 1rem}
-    }
+    .lesson-header{background:linear-gradient(135deg,#7C2D12,#EA580C);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FFEDD5}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#EA580C;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-left:5px solid #EA580C;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C2D12;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#EA580C;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#EA580C;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .data-table .highlight-row td{background:#FEF3C7 !important;font-weight:700}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #FED7AA;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#EA580C;box-shadow:0 4px 12px rgba(234,88,12,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#7C2D12;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .formula-box{background:#0F172A;color:#F1F5F9;border-radius:var(--radius-lg);padding:1.25rem 1.5rem;margin:1rem 0;text-align:center}
+    .formula-box .formula-label{font-size:.72rem;color:#FDBA74;text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-bottom:.5rem}
+    .formula-box .formula-eq{font-size:1.05rem;font-weight:700;color:#fff;line-height:1.7;font-family:'Courier New',monospace}
+    .schedule-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:var(--radius-xl);padding:1.5rem 1.75rem;margin-bottom:1.25rem;border-left:5px solid #EA580C}
+    .schedule-header{display:flex;align-items:center;gap:12px;margin-bottom:.875rem}
+    .schedule-badge{width:56px;height:56px;border-radius:var(--radius);background:linear-gradient(135deg,#7C2D12,#EA580C);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;flex-shrink:0}
+    .schedule-title{font-size:1.05rem;font-weight:800;color:#0F172A}
+    .schedule-sub{font-size:.75rem;color:#64748b;margin-top:2px}
+    .schedule-body{font-size:.875rem;color:var(--text);line-height:1.75}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#EA580C;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#EA580C;background:#FFF7ED}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #EA580C;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#EA580C}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#7C2D12;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(234,88,12,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#EA580C;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#EA580C;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}.data-table{font-size:.75rem}.data-table th,.data-table td{padding:.35rem .5rem}}
   </style>
 </head>
 <body>
@@ -49,85 +114,600 @@
     <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
   </a>
   <div class="fsh-nav-actions">
-    <a href="../index.html" class="btn btn-ghost btn-sm">← Economics Units</a>
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 5</a>
     <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
   </div>
 </nav>
 
-<div class="unit-hero">
-  <div class="unit-hero-inner">
-    <div class="unit-tag">📘 Unit 5 · MoE 2023 Curriculum · Pages 102–130</div>
-    <h1>Tax Theory and Practice</h1>
-    <p>Taxation is a critical element of modern government. This unit explores the concept of taxation, tax equity, the Ethiopian tax system, and the major problems associated with tax collection in Ethiopia.</p>
-  </div>
-</div>
-
-<div class="wrap">
-  <div class="breadcrumb">
-    <a href="../../../../../index.html">Home</a> ›
-    <a href="../../../../index.html">Entrance Exam</a> ›
-    <a href="../../../index.html">Grade 12</a> ›
-    <a href="../../index.html">Social Science</a> ›
-    <a href="../index.html">Economics</a> ›
-    <span>Unit 5</span>
-  </div>
-
-  <div class="section-label">Lessons</div>
-  <div class="section-title">5 Lessons in this Unit · 4 Live</div>
-
-  <div class="lesson-list">
-    <a href="lesson-5-1.html" class="lesson-card live">
-      <div class="lesson-icon">💰</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 5.1 — Taxes: Definition, Principles, Objectives &amp; Classification <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Definition · Objectives · Principles · Characteristics · Direct vs indirect taxes · Categories</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-5-2.html" class="lesson-card live">
-      <div class="lesson-icon">⚖️</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 5.2 — Approaches to Tax Equity <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Benefits approach · Ability-to-pay approach · Progressive, proportional, regressive taxes</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-5-3.html" class="lesson-card live">
-      <div class="lesson-icon">🏛️</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 5.3 — Tax System &amp; Structure in Ethiopia <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Federal-regional revenue sharing · Ministry of Revenues · Legal framework · 11 regional states</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <a href="lesson-5-4.html" class="lesson-card live">
-      <div class="lesson-icon">📊</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 5.4 — Types of Tax &amp; Tax Accounting in Ethiopia <span class="lesson-badge live">✓ Live</span></div>
-        <div class="lesson-meta">Schedules A–E · Employment income tax · VAT · TOT · Excise · Surtax · Withholding · Stamp · Customs</div>
-      </div>
-      <span class="lesson-arrow">→</span>
-    </a>
-
-    <div class="lesson-card upcoming">
-      <div class="lesson-icon">⚠️</div>
-      <div class="lesson-info">
-        <div class="lesson-title">Lesson 5.5 — Problems of Taxation in Ethiopia <span class="lesson-badge soon">Coming Soon</span></div>
-        <div class="lesson-meta">Tax compliance · Tax avoidance vs evasion · Bureaucracy · Underground economy</div>
-      </div>
-      <span class="lesson-arrow">→</span>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 5 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
     </div>
-  </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('schedules')"><div class="sidebar-dot"></div> The 5 Tax Schedules</button>
+      <button class="sidebar-link" onclick="scrollToId('schedule-a')"><div class="sidebar-dot"></div> Schedule A: Employment</button>
+      <button class="sidebar-link" onclick="scrollToId('schedule-b')"><div class="sidebar-dot"></div> Schedule B: Rental</button>
+      <button class="sidebar-link" onclick="scrollToId('schedule-c')"><div class="sidebar-dot"></div> Schedule C: Business</button>
+      <button class="sidebar-link" onclick="scrollToId('schedule-d')"><div class="sidebar-dot"></div> Schedule D: Other</button>
+      <button class="sidebar-link" onclick="scrollToId('schedule-e')"><div class="sidebar-dot"></div> Schedule E: Exempt</button>
+      <button class="sidebar-link" onclick="scrollToId('indirect')"><div class="sidebar-dot"></div> Indirect Taxes</button>
+      <button class="sidebar-link" onclick="scrollToId('accounting')"><div class="sidebar-dot"></div> Tax Accounting</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 5 Lessons</div>
+      <a href="lesson-5-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Taxes Overview</a>
+      <a href="lesson-5-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Tax Equity</a>
+      <a href="lesson-5-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Ethiopian System</a>
+      <a href="lesson-5-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Types &amp; Accounting</a>
+      <a href="lesson-5-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Tax Problems</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Economics</a> ›
+      <a href="../index.html">Unit 5</a> ›
+      Lesson 5.4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 5 · Taxation · MoE Textbook §5.4</div>
+      <h1>📊 Types of Tax &amp; Tax Accounting in Ethiopia</h1>
+      <p>Ethiopia's tax system is organized into <strong>five schedules</strong> — A, B, C, D, and E — plus several indirect taxes. This lesson covers all of them, including the actual employment income tax rate tables from Ethiopian law.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~30 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          According to the <strong>Tax Proclamation No. 286/2002</strong> and <strong>Regulations No. 78/2002</strong> of Ethiopia, income is taxed under <strong>four schedules</strong> plus an exempt category. Together with several indirect taxes, this forms the complete Ethiopian tax system.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Identify the <strong>5 schedules</strong> of Ethiopian income tax</li>
+          <li>Explain <strong>Schedule A</strong> — employment income tax (with rates)</li>
+          <li>Explain <strong>Schedule B</strong> — rental income tax</li>
+          <li>Explain <strong>Schedule C</strong> — business income tax</li>
+          <li>Explain <strong>Schedule D</strong> — other income</li>
+          <li>Explain <strong>Schedule E</strong> — exempt income</li>
+          <li>Describe the main <strong>indirect taxes</strong> in Ethiopia</li>
+          <li>Explain <strong>tax accounting</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="schedules">
+      <div class="section-header"><div class="section-icon">🔢</div>
+        <div><div class="section-title-text">The 5 Tax Schedules</div><div class="section-subtitle">MoE Textbook §5.4, p. 112</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Ethiopia's Income Tax Schedules</div>
+          <p>
+            According to the Tax Proclamation No. 286/2002 and Regulations No. 78/2002, there are <strong>four schedules of income</strong> in addition to <strong>exempt income</strong>:
+          </p>
+        </div>
+
+        <table class="data-table">
+          <thead>
+            <tr><th>Schedule</th><th>Type of Income</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Schedule A</strong></td><td>Income from <strong>employment</strong></td></tr>
+            <tr><td><strong>Schedule B</strong></td><td>Income from <strong>rental of buildings</strong></td></tr>
+            <tr><td><strong>Schedule C</strong></td><td>Income from <strong>business</strong></td></tr>
+            <tr><td><strong>Schedule D</strong></td><td><strong>Other income</strong> (royalties, dividends, interest, etc.)</td></tr>
+            <tr><td><strong>Schedule E</strong></td><td><strong>Exempt income</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="schedule-a">
+      <div class="section-header"><div class="section-icon">🅰️</div>
+        <div><div class="section-title-text">Schedule A: Employment Income Tax</div><div class="section-subtitle">The most common tax for workers</div></div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <div class="schedule-badge">A</div>
+          <div>
+            <div class="schedule-title">Schedule A — Employment Income</div>
+            <div class="schedule-sub">Taxed at rates from 10% to 35%</div>
+          </div>
+        </div>
+        <div class="schedule-body">
+          <p style="margin-bottom:.75rem">
+            Employment income tax is <strong>withheld by employers</strong> and is a <strong>final tax</strong> — meaning employees earning income exclusively from employment are <strong>not required to declare income</strong> to tax authorities.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">What Counts as Employment Income?</h3>
+        <ul class="key-points">
+          <li><strong>Salary, wages, allowances, bonus, commission, gratuity</strong>, or other remuneration (past, current, or future employment)</li>
+          <li>The value of <strong>fringe benefits</strong> received by an employee</li>
+          <li>Amounts received on <strong>termination of employment</strong> — including redundancy compensation or a golden handshake payment</li>
+        </ul>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Employment Income Tax Rate Table</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Monthly Employment Income (Birr)</th><th>Income Tax Rate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0 – 600</td><td><strong>0%</strong> (exempt)</td></tr>
+            <tr><td>601 – 1,650</td><td><strong>10%</strong></td></tr>
+            <tr><td>1,651 – 3,200</td><td><strong>15%</strong></td></tr>
+            <tr><td>3,201 – 5,250</td><td><strong>20%</strong></td></tr>
+            <tr><td>5,251 – 7,800</td><td><strong>25%</strong></td></tr>
+            <tr><td>7,801 – 10,900</td><td><strong>30%</strong></td></tr>
+            <tr class="highlight-row"><td>More than 10,900</td><td><strong>35%</strong></td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Tax Computation with Deductions</h3>
+        <p style="font-size:.875rem;line-height:1.75;color:var(--text);margin-bottom:.75rem">
+          To calculate tax quickly, use the deduction method: <strong>EIT = (Income × Rate) − Deduction</strong>
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Income per Month (I) — Birr</th>
+              <th>Rate</th>
+              <th>Deduction</th>
+              <th>Tax Computation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0 – 600</td><td>0%</td><td>0</td><td>—</td></tr>
+            <tr><td>601 – 1,650</td><td>10%</td><td>60</td><td>EIT = I × 10% − 60</td></tr>
+            <tr><td>1,651 – 3,200</td><td>15%</td><td>142.50</td><td>EIT = I × 15% − 142.50</td></tr>
+            <tr><td>3,201 – 5,250</td><td>20%</td><td>302.50</td><td>EIT = I × 20% − 302.50</td></tr>
+            <tr><td>5,251 – 7,800</td><td>25%</td><td>565</td><td>EIT = I × 25% − 565</td></tr>
+            <tr><td>7,801 – 10,900</td><td>30%</td><td>955</td><td>EIT = I × 30% − 955</td></tr>
+            <tr class="highlight-row"><td>More than 10,900</td><td>35%</td><td>1,500</td><td>EIT = I × 35% − 1,500</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Worked example — 10,000 Birr monthly income</div>
+          <p>
+            Income falls in the <strong>7,801–10,900</strong> bracket (30% rate, deduction = 955).<br>
+            EIT = (10,000 × 30%) − 955 = 3,000 − 955 = <strong>2,045 Birr</strong>
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 What about 15,000 Birr income?</div>
+          <p>
+            Falls in the top bracket (35%, deduction = 1,500).<br>
+            EIT = (15,000 × 35%) − 1,500 = 5,250 − 1,500 = <strong>3,750 Birr</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="schedule-b">
+      <div class="section-header"><div class="section-icon">🅱️</div>
+        <div><div class="section-title-text">Schedule B: Rental Income Tax</div><div class="section-subtitle">Tax on building rentals</div></div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <div class="schedule-badge">B</div>
+          <div>
+            <div class="schedule-title">Schedule B — Rental Income</div>
+            <div class="schedule-sub">Taxed at 25% of taxable income</div>
+          </div>
+        </div>
+        <div class="schedule-body">
+          <p style="margin-bottom:.75rem">
+            Rental income tax is imposed for each tax year on a person <strong>renting out a building or buildings</strong> who has taxable income for the year.
+          </p>
+          <p style="margin:0">
+            The <strong>taxable income</strong> for a tax year = gross rental income for the year − total allowed deductions for the year.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <ul class="key-points">
+          <li><strong>Rate:</strong> 25% of taxable rental income</li>
+          <li><strong>Frequency:</strong> Annual</li>
+          <li><strong>Deductions:</strong> Certain specified expenses can be deducted before calculating tax</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="schedule-c">
+      <div class="section-header"><div class="section-icon">🅲</div>
+        <div><div class="section-title-text">Schedule C: Business Income Tax</div><div class="section-subtitle">Tax on business profits</div></div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <div class="schedule-badge">C</div>
+          <div>
+            <div class="schedule-title">Schedule C — Business Income</div>
+            <div class="schedule-sub">30% for bodies, 10–35% progressive for individuals</div>
+          </div>
+        </div>
+        <div class="schedule-body">
+          <p style="margin-bottom:.75rem">
+            Business income tax is imposed for each tax year. The <strong>taxable income</strong> for a tax year = total business income − total deductions allowed to the taxpayer for the year.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <table class="data-table">
+          <thead>
+            <tr><th>Type of Taxpayer</th><th>Rate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Bodies</strong> (corporations)</td><td><strong>30%</strong> flat</td></tr>
+            <tr><td><strong>Individuals</strong> (sole proprietors)</td><td><strong>Progressive 10% – 35%</strong></td></tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <div class="note-label">📝 Frequency</div>
+          <p>
+            Business income tax is filed and paid <strong>annually</strong> with monthly advance payments.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="schedule-d">
+      <div class="section-header"><div class="section-icon">🅳</div>
+        <div><div class="section-title-text">Schedule D: Other Income</div><div class="section-subtitle">Catch-all category</div></div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <div class="schedule-badge">D</div>
+          <div>
+            <div class="schedule-title">Schedule D — Other Income</div>
+            <div class="schedule-sub">A catch-all for income not in Schedules A, B, or C</div>
+          </div>
+        </div>
+        <div class="schedule-body">
+          <p style="margin:0">
+            Schedule D includes various types of income that don't fit into the other schedules.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">What Falls Under Schedule D?</h3>
+        <ul class="key-points">
+          <li><strong>Income from royalties</strong></li>
+          <li><strong>Income paid for services rendered outside of Ethiopia</strong></li>
+          <li><strong>Income from games</strong> (gambling, lotteries, etc.)</li>
+          <li><strong>Dividends</strong></li>
+          <li><strong>Income from casual rental of property</strong> (not buildings — that's Schedule B)</li>
+          <li><strong>Interest income</strong></li>
+          <li><strong>Specified non-business capital gains</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="schedule-e">
+      <div class="section-header"><div class="section-icon">🅴</div>
+        <div><div class="section-title-text">Schedule E: Exempt Income</div><div class="section-subtitle">Income not subject to tax</div></div>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-header">
+          <div class="schedule-badge">E</div>
+          <div>
+            <div class="schedule-title">Schedule E — Exempt Income</div>
+            <div class="schedule-sub">Income types that are legally exempt from tax</div>
+          </div>
+        </div>
+        <div class="schedule-body">
+          <p style="margin:0">
+            Certain types of income are <strong>exempted from tax</strong> by law to serve social, health, or equity purposes.
+          </p>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Exempt Income Items</h3>
+        <ul class="key-points">
+          <li>The cost of <strong>medical treatment of employees</strong></li>
+          <li><strong>Hardship allowance</strong></li>
+          <li>Salary paid to <strong>domestic servants</strong></li>
+          <li><strong>Maintenance</strong> or <strong>child support payments</strong></li>
+          <li><strong>Travelling expenses</strong> paid to employees recruited from elsewhere than the place of employment</li>
+          <li><strong>Pension contribution</strong></li>
+          <li>Payments made to a person as <strong>compensation</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="indirect">
+      <div class="section-header"><div class="section-icon">📈</div>
+        <div><div class="section-title-text">Indirect Taxes in Ethiopia</div><div class="section-subtitle">Taxes on consumption</div></div>
+      </div>
+
+      <div class="content-box">
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Apart from the direct income taxes (Schedules A–E), the Ethiopian government also levies several indirect taxes:
+        </p>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🛒</div>
+            <div class="concept-title">Value Added Tax (VAT)</div>
+            <p class="concept-desc">Rate: <strong>15%</strong>. Introduced 1 January 2003. A destination-based (consumption) tax — only the consumption of goods and services is taxed.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🔄</div>
+            <div class="concept-title">Turnover Tax (TOT)</div>
+            <p class="concept-desc">An equalization tax for persons not registered for VAT. Rates: <strong>2% on goods</strong>, <strong>10% on services</strong>. Threshold: annual transactions ≤ 500,000 Birr.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🎯</div>
+            <div class="concept-title">Excise Tax</div>
+            <p class="concept-desc">Imposed on selected goods (luxury and demand-inelastic items). Applies to <strong>19 groups of items and 378 goods</strong>. Rate range: <strong>5% – 500%</strong>.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">➕</div>
+            <div class="concept-title">Surtax</div>
+            <p class="concept-desc">An additional <strong>10% tax on imported goods</strong> except fertilizers, petroleum, motor vehicles, aircraft, and capital goods.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">💼</div>
+            <div class="concept-title">Withholding Tax</div>
+            <p class="concept-desc">All bodies and specified sole proprietors deduct <strong>2%</strong> of transaction value on domestic transactions and remit monthly.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🏛️</div>
+            <div class="concept-title">Stamp Duty</div>
+            <p class="concept-desc">A tax raised by requiring <strong>stamps</strong> sold by the government to be affixed to designated documents.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">📦</div>
+            <div class="concept-title">Customs Duty</div>
+            <p class="concept-desc">Tax on <strong>imported or exported goods</strong>. Best instrument to prevent or reduce importation. Can reach rates of 100% or above.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">👴</div>
+            <div class="concept-title">Pension Contribution</div>
+            <p class="concept-desc">Employer pays <strong>11%</strong>; employee pays <strong>7%</strong> of salary to the Private Organizations Pension Fund.</p>
+          </div>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Summary Table — All Taxes at a Glance</h3>
+        <table class="data-table">
+          <thead>
+            <tr><th>Tax Type</th><th>Rate</th><th>Frequency</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Business income tax</strong></td><td>30% (bodies) / 10–35% progressive (individuals)</td><td>Annual / Monthly</td></tr>
+            <tr><td><strong>Employment income tax</strong></td><td>0–35% progressive (see Schedule A table)</td><td>Monthly</td></tr>
+            <tr><td><strong>Rental income tax</strong></td><td>25% of taxable income</td><td>Annual</td></tr>
+            <tr><td><strong>Value Added Tax (VAT)</strong></td><td>15%</td><td>Monthly (&gt;70M) / Quarterly (&lt;70M)</td></tr>
+            <tr><td><strong>Turnover Tax (TOT)</strong></td><td>2% on goods, 10% on services</td><td>Annual / Quarterly</td></tr>
+            <tr><td><strong>Excise tax</strong></td><td>5% – 500% (varies by good)</td><td>Monthly / On import</td></tr>
+            <tr><td><strong>Withholding tax</strong></td><td>2% of transaction value</td><td>Monthly</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="section-block" id="accounting">
+      <div class="section-header"><div class="section-icon">🧾</div>
+        <div><div class="section-title-text">Tax Accounting</div><div class="section-subtitle">MoE Textbook §5.4, p. 117</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Tax Accounting</div>
+          <p>
+            <strong>Tax accounting</strong> is the practice of <strong>calculating financial statements and figures</strong> used to make tax calculations. Tax and accounting are two separate entities that are also linked — all taxation involves accounting processes.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Who Uses Tax Accounting?</h3>
+        <ul class="key-points">
+          <li><strong>Individuals</strong> — focus on income, qualifying deductions, and investment gains or losses</li>
+          <li><strong>Businesses</strong> — need to keep up-to-date financial records to determine tax liabilities</li>
+          <li><strong>Other entities</strong> — partnerships, corporations, non-profits</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 Ethiopia example</div>
+          <p>
+            Individuals with employment in different public establishments in Ethiopia get their income tax <strong>paid by their employers</strong>. Businesses must keep financial records to help determine their tax liabilities.
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            A. List the 5 schedules of Ethiopian income tax and what falls under each.<br>
+            B. Calculate the employment income tax for an employee with a monthly income of 10,000 Birr.<br>
+            C. What is the tax rate for rental income in Ethiopia?<br>
+            D. What is the difference between VAT and Turnover Tax?<br>
+            E. What is excise tax? What is its rate range?<br>
+            F. Explain what "tax accounting" means and who uses it.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">Which Schedule of Ethiopian income tax covers <strong>income from employment</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Schedule A</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Schedule B</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Schedule C</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Schedule D</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is the top marginal tax rate for <strong>employment income</strong> in Ethiopia?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> 20%</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> 25%</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> 30%</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> 35%</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">An employee earns <strong>10,000 Birr per month</strong>. What is their monthly employment income tax?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> 1,500 Birr</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> 2,045 Birr</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> 3,000 Birr</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> 3,500 Birr</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">What is the standard <strong>VAT rate</strong> in Ethiopia?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> 10%</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> 15%</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> 20%</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> 25%</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Which of the following is an <strong>exempt income</strong> under Schedule E?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Corporate profits</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Rental income from a building</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Cost of medical treatment of employees</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Income from royalties</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=ethiopia+employment+income+tax+calculation" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Ethiopia — Employment Income Tax Calculation</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=ethiopia+vat+turnover+tax+excise" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">VAT, Turnover Tax &amp; Excise in Ethiopia</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=ethiopia+tax+schedules+income+tax" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Ethiopia's Tax Schedules Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=tax+accounting+explained" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Tax Accounting Explained</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 5.4</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li>Ethiopia has <strong>5 income tax schedules</strong>: A (employment), B (rental), C (business), D (other), E (exempt)</li>
+          <li><strong>Schedule A</strong> — Employment income tax at <strong>0–35%</strong>, withheld by employers, final tax</li>
+          <li>Employment income includes salary, wages, bonus, fringe benefits, and termination payments</li>
+          <li>EIT = (Income × Rate) − Deduction</li>
+          <li><strong>Schedule B</strong> — Rental income at <strong>25%</strong> of taxable income</li>
+          <li><strong>Schedule C</strong> — Business income: <strong>30%</strong> for bodies, progressive <strong>10–35%</strong> for individuals</li>
+          <li><strong>Schedule D</strong> — Other income: royalties, dividends, interest, capital gains</li>
+          <li><strong>Schedule E</strong> — Exempt income: medical treatment, pensions, child support</li>
+          <li><strong>Indirect taxes</strong>: VAT (15%), TOT (2%/10%), Excise (5–500%), Surtax (10%), Withholding (2%), Stamp Duty, Customs</li>
+          <li>Pension: employer pays <strong>11%</strong>, employee pays <strong>7%</strong></li>
+          <li><strong>Tax accounting</strong> = calculating financial statements for tax purposes</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-5-3.html" class="btn btn-outline">← Lesson 5.3</a>
+      <a href="lesson-5-5.html" class="btn btn-primary">Next: Lesson 5.5 →</a>
+    </div>
+  </main>
 </div>
 
 <footer class="fsh-footer">
   <div class="fsh-footer-inner">
     <div class="fsh-footer-bottom">
       <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
-      <p>Unit 5: Tax Theory and Practice · 4 of 5 Lessons Live</p>
+      <p>Unit 5 · Lesson 5.4 · Types of Tax &amp; Tax Accounting in Ethiopia</p>
     </div>
   </div>
 </footer>
@@ -135,6 +715,54 @@
 <script>
   fetch('/api/auth/me',{credentials:'include'})
     .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'A', 2:'D', 3:'B', 4:'B', 5:'C'};
+  const feedback = {
+    1:{correct:'✓ Correct! Schedule A covers income from employment.',wrong:'✗ Schedule A = employment income.'},
+    2:{correct:'✓ Correct! The top rate for employment income is 35%.',wrong:'✗ 35% is the top rate.'},
+    3:{correct:'✓ Correct! EIT = (10,000 × 30%) − 955 = 3,000 − 955 = 2,045 Birr.',wrong:'✗ EIT = (10,000 × 30%) − 955 = 2,045.'},
+    4:{correct:'✓ Correct! The standard VAT rate in Ethiopia is 15%.',wrong:'✗ VAT is 15%.'},
+    5:{correct:'✓ Correct! Medical treatment costs for employees are exempt under Schedule E.',wrong:'✗ Medical treatment is exempt.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 5.4.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
 </script>
 </body>
 </html>
