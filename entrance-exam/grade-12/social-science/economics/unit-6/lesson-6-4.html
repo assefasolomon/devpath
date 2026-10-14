@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 6.4: Women and Poverty | Economics Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#EA580C;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#EA580C}
+    .sidebar-link.active{background:#FFEDD5;color:#7C2D12;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#EA580C;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#7C2D12,#EA580C);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #FFEDD5}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#EA580C;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#FFF7ED;border:1.5px solid #FED7AA;border-left:5px solid #EA580C;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#7C2D12;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#EA580C;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#EA580C;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #FED7AA;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#EA580C;box-shadow:0 4px 12px rgba(234,88,12,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#7C2D12;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#EA580C;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#EA580C;background:#FFF7ED}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #EA580C;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#EA580C}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#FFF7ED,#FFEDD5);border:1.5px solid #FED7AA;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#7C2D12;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(234,88,12,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#EA580C;font-weight:700;flex-shrink:0;margin-top:1px}
+    .svg-figure{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.5rem;margin:1rem 0;text-align:center}
+    .svg-caption{font-size:.78rem;color:var(--text-muted);margin-top:.5rem;font-style:italic}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#EA580C;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Economics Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 6</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 6 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('why')"><div class="sidebar-dot"></div> Why Women Are Disproportionately Poor</button>
+      <button class="sidebar-link" onclick="scrollToId('household')"><div class="sidebar-dot"></div> Female-Headed Households</button>
+      <button class="sidebar-link" onclick="scrollToId('access')"><div class="sidebar-dot"></div> Access to Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('intra')"><div class="sidebar-dot"></div> Intra-Household Bias</button>
+      <button class="sidebar-link" onclick="scrollToId('policy')"><div class="sidebar-dot"></div> Policy Implications</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 6 Lessons</div>
+      <a href="lesson-6-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Poverty &amp; Measurement</a>
+      <a href="lesson-6-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Inequality</a>
+      <a href="lesson-6-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Global &amp; Regional</a>
+      <a href="lesson-6-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Women &amp; Poverty</a>
+      <a href="lesson-6-5.html" class="sidebar-link"><div class="sidebar-dot"></div> L5: Ethiopia</a>
+      <a href="lesson-6-6.html" class="sidebar-link"><div class="sidebar-dot"></div> L6: Indigenous Knowledge</a>
+    </div>
+  </aside>
+
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Economics</a> ›
+      <a href="../index.html">Unit 6</a> ›
+      Lesson 6.4
+    </div>
+
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 6 · Poverty &amp; Inequality · MoE Textbook §6.4</div>
+      <h1>👩 Women and Poverty</h1>
+      <p>Globally, women make up a substantial majority of the world's poor. This lesson examines why women are disproportionately affected by poverty, the role of female-headed households, and the policy implications for development.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          In developing countries, women are disproportionately poor. This isn't an accident — it results from a combination of economic, social, and cultural factors that systematically disadvantage women. Understanding these factors is essential to designing effective anti-poverty policies.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Explain <strong>why women are disproportionately poor</strong></li>
+          <li>Describe the role of <strong>female-headed households</strong></li>
+          <li>Identify <strong>barriers women face</strong> in accessing resources</li>
+          <li>Explain the concept of <strong>intra-household bias</strong></li>
+          <li>Discuss <strong>policy implications</strong> for integrating women into development</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="why">
+      <div class="section-header"><div class="section-icon">📌</div>
+        <div><div class="section-title-text">Why Women Are Disproportionately Poor</div><div class="section-subtitle">MoE Textbook §6.4, p. 137</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The Global Reality</div>
+          <p>
+            Globally, women make up a <strong>substantial majority of the world's poor</strong>. Among the poorest communities throughout the developing world, virtually everywhere <strong>women and children experience the harshest deprivation</strong>. They are more likely to be poor and malnourished and less likely to receive medical services, clean water, sanitation, and other benefits.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Three Key Contributing Factors</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">1️⃣</div>
+            <div class="concept-title">Female-Headed Households</div>
+            <p class="concept-desc">The prevalence of female-headed households contributes to women's disproportionate poverty.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">2️⃣</div>
+            <div class="concept-title">Lower Earning Capacity</div>
+            <p class="concept-desc">Women's earning capacity is considerably below that of their male counterparts.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">3️⃣</div>
+            <div class="concept-title">Limited Control Over Income</div>
+            <p class="concept-desc">Women have limited control over their spouses' income.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Key finding</div>
+          <p>
+            A disproportionate number of the poorest people live in households <strong>headed by women who have lower incomes</strong>. A portion of the income disparity between male-headed and female-headed households can be explained by the <strong>large earnings differentials between men and women</strong>. Since the earning potential of women is considerably below that of their male counterparts, women are more likely to be among the very poor.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="household">
+      <div class="section-header"><div class="section-icon">🏠</div>
+        <div><div class="section-title-text">Female-Headed Households</div><div class="section-subtitle">More likely to be poor, more likely to stay poor</div></div>
+      </div>
+
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">Why Female-Headed Households Face More Poverty</h3>
+        <ul class="key-points">
+          <li>Higher proportion of female-headed households are situated in the <strong>poorest areas</strong></li>
+          <li>These areas have <strong>little or no access to public services</strong> such as piped water, sanitation, and health care</li>
+          <li>Household members are <strong>more likely to fall ill</strong> and less likely to receive medical attention</li>
+          <li>Children in female-headed households are <strong>less likely to be enrolled in school</strong></li>
+          <li>Children are <strong>more likely to be working</strong> in order to provide additional income</li>
+        </ul>
+
+        <div class="note-box">
+          <div class="note-label">📝 What household income alone misses</div>
+          <p>
+            <strong>Household income alone fails to describe the severity of women's relative deprivation.</strong> Even within households, income may be distributed unequally — and women often bear the brunt of that inequality.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="access">
+      <div class="section-header"><div class="section-icon">🚧</div>
+        <div><div class="section-title-text">Access to Resources</div><div class="section-subtitle">Structural barriers women face</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">📚</div>
+            <div class="concept-title">Education</div>
+            <p class="concept-desc">Women have less access to education.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">💼</div>
+            <div class="concept-title">Formal Employment</div>
+            <p class="concept-desc">Women have less access to formal-sector employment.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🛡️</div>
+            <div class="concept-title">Social Security</div>
+            <p class="concept-desc">Women have less access to social security.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🏛️</div>
+            <div class="concept-title">Government Programs</div>
+            <p class="concept-desc">Women have less access to government employment programs.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🌾</div>
+            <div class="concept-title">Rural Resources</div>
+            <p class="concept-desc">Rural women have less access to resources needed to generate stable incomes.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">⚖️</div>
+            <div class="concept-title">Property Rights</div>
+            <p class="concept-desc">Social customs and laws sometimes play a restrictive role in women owning property.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Urban vs rural</div>
+          <p>
+            In <strong>urban areas</strong>, women are much less likely to obtain formal employment in private companies or public agencies and are frequently restricted to illegal, low-productivity jobs. In <strong>rural areas</strong>, women have less access to the resources necessary to generate stable incomes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intra">
+      <div class="section-header"><div class="section-icon">⚖️</div>
+        <div><div class="section-title-text">Intra-Household Bias</div><div class="section-subtitle">Inequality within families</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Intra-Household Resource Allocation</div>
+          <p>
+            The degree of economic hardship may vary widely <strong>within a household</strong> depending on the distribution of income within the household, which may be unequal. In terms of intra-household resource allocation, there may exist a <strong>bias against females</strong> in areas such as nutrition, medical care, education, and inheritance.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 What the studies show</div>
+          <p>
+            Studies have found that where women's share of income within the home is relatively high, there is <strong>less discrimination against girls</strong>, and women are better able to meet their own needs as well as those of their children.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Nutrition and household spending</div>
+          <p>
+            When household income is marginal, most of <strong>women's income is contributed towards household nutritional intake</strong>. Since this fraction is considerably smaller for men, a rise in male earnings leads to a <strong>less than proportionate increase</strong> in the funds available for daily needs. It is thus unsurprising that programs designed to increase nutrition and family health are <strong>more effective when targeting women</strong> than when targeting men.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why Women's Control Over Resources Is Limited</h3>
+        <ul class="key-points">
+          <li>A relatively large proportion of work performed by women is <strong>unremunerated</strong> (e.g., collecting firewood, cooking, parenting)</li>
+          <li>Many women from poor households are <strong>not paid for work</strong> performed in family agriculture or business</li>
+          <li>It is common for a <strong>male head of household to control all funds</strong> from cash crops or family business</li>
+          <li>These factors <strong>perpetuate the low economic status of women</strong> and limit their control over household resources</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="policy">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Policy Implications</div><div class="section-subtitle">Integrating women into development</div></div>
+      </div>
+
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 The Core Policy Principle</div>
+          <p>
+            When public programmes to alleviate poverty work <strong>exclusively with men</strong>, they tend to <strong>exacerbate these inequalities</strong>. In urban areas, training programmes to increase earning potential and formal-sector employment are generally geared to men, while agricultural extension programmes promote male-dominated crops, frequently at the expense of women's vegetable plots.
+          </p>
+        </div>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Policy Recommendations</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">1️⃣</div>
+            <div class="concept-title">Integrate Women Into Development</div>
+            <p class="concept-desc">Design development policy to integrate women into programmes, since these influence the welfare of women and children.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">2️⃣</div>
+            <div class="concept-title">Increase Female Participation</div>
+            <p class="concept-desc">Increase female participation rates in educational programmes, training programmes, formal-sector employment, and agricultural extension programmes.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">3️⃣</div>
+            <div class="concept-title">Equal Access to Government Resources</div>
+            <p class="concept-desc">Ensure women have equal access to government resources provided through schooling, health, and other services.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">4️⃣</div>
+            <div class="concept-title">Formalise Informal Employment</div>
+            <p class="concept-desc">Where the majority of female labour force is employed in the informal sector, formalising or legalising such employment would improve women's economic status.</p>
+          </div>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 Why this matters for growth</div>
+          <p>
+            The consequences of a decline in women's relative or absolute economic status have both <strong>ethical and long-term economic implications</strong>. Any process of growth that fails to improve the welfare of the people experiencing the greatest hardship has failed to accomplish one of the principal goals of development. Likewise, the low status of women, in the long run, is likely to translate into <strong>slower rates of economic growth</strong>.
+          </p>
+        </div>
+
+        <div class="note-box">
+          <div class="note-label">📝 The human capital argument</div>
+          <p>
+            Considering that <strong>human capital is perhaps the most important prerequisite for growth</strong>, education and enhanced economic status for women are critical to meeting long-term development objectives. Women-centred poverty strategies often require us to challenge basic assumptions. In general, women must be drawn into the <strong>economic mainstream</strong> in order to improve living conditions for the poorest individuals (Todaro and Smith, 2015).
+          </p>
+        </div>
+
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            1. In developing countries, women are disproportionately poor. Why do you think this is the case?<br>
+            2. What are the three key contributing factors to women's poverty?<br>
+            3. Why are female-headed households more likely to be poor?<br>
+            4. What is intra-household bias? Give examples.<br>
+            5. What policy recommendations does the textbook offer for integrating women into development?
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">Globally, who makes up a <strong>substantial majority of the world's poor</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Men</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Women and children</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> The elderly only</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Government workers</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">Which of the following contributes to women's disproportionate poverty?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> The prevalence of female-headed households</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Lower earning capacity of women</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> Limited control over spouses' income</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> All of the above</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">According to the textbook, why does <strong>intra-household bias</strong> against females occur?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Females are inherently less productive</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Unequal distribution of income within the household, affecting nutrition, medical care, education, inheritance</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Legal prohibitions on women working</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> International trade policies</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Which of the following is a <strong>policy recommendation</strong> for improving women's economic status?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Keep women in informal, unpaid work</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Ensure equal access to government resources through schooling and health services</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Focus agricultural extension only on male-dominated crops</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Exclude women from training programmes</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Why does the textbook argue that integrating women into development is critical?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Only because it is a legal requirement</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Because human capital is the most important prerequisite for growth, and low status of women slows economic growth</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Because women consume more than men</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> To reduce the number of female-headed households</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+
+      <a href="https://www.youtube.com/results?search_query=gender+and+poverty+women+developing+countries" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Gender and Poverty in Developing Countries</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=female+headed+households+and+poverty" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Female-Headed Households and Poverty</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=women+economic+empowerment+development" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Women's Economic Empowerment</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+
+      <a href="https://www.youtube.com/results?search_query=gender+equality+sustainable+development" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div>
+          <div class="resource-title">Gender Equality &amp; Sustainable Development</div>
+          <div class="resource-channel">YouTube Search</div>
+        </div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 6.4</div></div>
+      </div>
+
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li>Globally, <strong>women make up a substantial majority of the world's poor</strong></li>
+          <li>Women and children experience the <strong>harshest deprivation</strong> in the poorest communities</li>
+          <li>Three key factors: <strong>female-headed households, lower earning capacity, limited control over income</strong></li>
+          <li><strong>Female-headed households</strong> are more likely to be poor, less likely to access services, and their children are less likely to be in school</li>
+          <li>Women have less access to <strong>education, formal employment, social security, government programs, and property</strong></li>
+          <li><strong>Intra-household bias</strong> against females affects nutrition, medical care, education, and inheritance</li>
+          <li>When women control more income, there is <strong>less discrimination against girls</strong> and better outcomes for children</li>
+          <li>Women's work is often <strong>unremunerated</strong> — collecting firewood, cooking, parenting, family agriculture</li>
+          <li>Poverty programmes working <strong>exclusively with men exacerbate inequalities</strong></li>
+          <li>Policy recommendations: <strong>integrate women into development, increase participation, ensure equal access, formalise informal employment</strong></li>
+          <li><strong>Low status of women slows economic growth</strong> — human capital is the key prerequisite for development</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-6-3.html" class="btn btn-outline">← Lesson 6.3</a>
+      <a href="lesson-6-5.html" class="btn btn-primary">Next: Lesson 6.5 →</a>
+    </div>
+  </main>
+</div>
+
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Economics Grade 12</p>
+      <p>Unit 6 · Lesson 6.4 · Women and Poverty</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
+  const correct = {1:'B', 2:'D', 3:'B', 4:'B', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! Women and children make up the majority of the world\'s poor.',wrong:'✗ Women and children.'},
+    2:{correct:'✓ Correct! All three factors contribute to women\'s poverty.',wrong:'✗ All three factors.'},
+    3:{correct:'✓ Correct! Intra-household bias affects nutrition, medical care, education, inheritance.',wrong:'✗ Unequal intra-household distribution.'},
+    4:{correct:'✓ Correct! Ensure equal access to government resources through schooling and health services.',wrong:'✗ Equal access to government resources.'},
+    5:{correct:'✓ Correct! Human capital is the key prerequisite for growth; low status of women slows growth.',wrong:'✗ Human capital + slower growth.'}
+  };
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 6.4.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes to strengthen your understanding.';
+      else msg = '💪 Keep going — read through the lesson again and try the quiz once more.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
