@@ -6,8 +6,105 @@
   <title>Lesson 3.2: Territorial Expansion, External Relations &amp; the Victory of Adwa | History Grade 12</title>
   <link rel="stylesheet" href="../../../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#1E3A8A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#1E3A8A}
+    .sidebar-link.active{background:#DBEAFE;color:#0F172A;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#1E3A8A;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#0F172A,#1E3A8A);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #DBEAFE}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#1E3A8A;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#EFF6FF;border:1.5px solid #BFDBFE;border-left:5px solid #1E3A8A;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0F172A;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .note-box{background:#FFFBEB;border:1px solid #FDE68A;border-left:5px solid #F59E0B;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.25rem}
+    .note-box .note-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:.4rem}
+    .note-box p{font-size:.875rem;color:#78350F;line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#1E3A8A;font-weight:900;flex-shrink:0;margin-top:1px}
+    .data-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:.875rem 0}
+    .data-table th{background:#1E3A8A;color:#fff;padding:.5rem .875rem;text-align:left;font-weight:600;font-size:.8rem}
+    .data-table td{padding:.5rem .875rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-table tr:nth-child(even) td{background:var(--surface-2)}
+    .concept-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .concept-card{background:#fff;border:1.5px solid #BFDBFE;border-radius:var(--radius-lg);padding:1.15rem;transition:all var(--transition)}
+    .concept-card:hover{border-color:#1E3A8A;box-shadow:0 4px 12px rgba(30,58,138,.12);transform:translateY(-2px)}
+    .concept-icon{font-size:1.75rem;margin-bottom:.4rem}
+    .concept-title{font-size:.88rem;font-weight:700;color:#0F172A;margin-bottom:.4rem}
+    .concept-desc{font-size:.78rem;color:var(--text);line-height:1.65;margin:0}
+    .activity-card{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border:1.5px solid #FDE68A;border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .activity-title{font-size:.95rem;font-weight:800;color:#92400E;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+    .activity-body{font-size:.85rem;color:#78350F;line-height:1.75}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1E3A8A;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#1E3A8A;background:#EFF6FF}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #1E3A8A;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#1E3A8A}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .resource-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;text-decoration:none;color:inherit;transition:all var(--transition);margin-bottom:.875rem}
+    .resource-card:hover{border-color:#FF0000;box-shadow:0 4px 12px rgba(255,0,0,.08);transform:translateX(4px)}
+    .resource-yt-icon{width:44px;height:44px;border-radius:var(--radius);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-size:1.2rem}
+    .resource-title{font-size:.9rem;font-weight:700;color:var(--heading)}
+    .resource-channel{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+    .resource-arrow{margin-left:auto;color:var(--text-muted);font-size:1.1rem;flex-shrink:0}
+    .summary-card{background:linear-gradient(135deg,#EFF6FF,#DBEAFE);border:1.5px solid #BFDBFE;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#0F172A;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(30,58,138,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#1E3A8A;font-weight:700;flex-shrink:0;margin-top:1px}
+    .timeline{position:relative;padding-left:2rem;margin:1.5rem 0}
+    .timeline::before{content:'';position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,#1E3A8A,#DBEAFE)}
+    .timeline-item{position:relative;margin-bottom:1.5rem}
+    .timeline-item::before{content:'';position:absolute;left:-2rem;top:6px;width:16px;height:16px;border-radius:50%;background:#1E3A8A;border:3px solid #fff;box-shadow:0 0 0 2px #DBEAFE}
+    .timeline-year{font-size:.72rem;font-weight:800;color:#1E3A8A;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.2rem}
+    .timeline-title{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:.3rem}
+    .timeline-desc{font-size:.82rem;color:var(--text);line-height:1.65}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#1E3A8A;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
 </head>
 <body>
+
 <nav class="fsh-nav">
   <a href="../../../../../index.html" class="fsh-logo">
     <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
@@ -22,16 +119,21 @@
 <div class="lesson-layout">
   <aside class="sidebar">
     <div class="sidebar-title">Unit 3 · Lesson 2</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">In this lesson</div>
-      <a href="#intro" class="sidebar-link"><div class="sidebar-dot"></div> Introduction</a>
-      <a href="#expansion" class="sidebar-link"><div class="sidebar-dot"></div> Territorial Expansion</a>
-      <a href="#incorporation" class="sidebar-link"><div class="sidebar-dot"></div> Incorporation</a>
-      <a href="#external" class="sidebar-link"><div class="sidebar-dot"></div> External Relations</a>
-      <a href="#wuchale" class="sidebar-link"><div class="sidebar-dot"></div> Treaty of Wuchale</a>
-      <a href="#adwa" class="sidebar-link"><div class="sidebar-dot"></div> Victory of Adwa</a>
-      <a href="#significance" class="sidebar-link"><div class="sidebar-dot"></div> Significance</a>
-      <a href="#quiz" class="sidebar-link"><div class="sidebar-dot"></div> Quiz</a>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('expansion')"><div class="sidebar-dot"></div> Territorial Expansion</button>
+      <button class="sidebar-link" onclick="scrollToId('external')"><div class="sidebar-dot"></div> External Relations</button>
+      <button class="sidebar-link" onclick="scrollToId('wuchale')"><div class="sidebar-dot"></div> Treaty of Wuchale</button>
+      <button class="sidebar-link" onclick="scrollToId('adwa')"><div class="sidebar-dot"></div> The Victory of Adwa</button>
+      <button class="sidebar-link" onclick="scrollToId('significance')"><div class="sidebar-dot"></div> Significance</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('resources')"><div class="sidebar-dot"></div> Online Resources</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-title">Unit 3 Lessons</div>
@@ -47,170 +149,316 @@
       <a href="../../../../index.html">Grade 12</a> ›
       <a href="../../../index.html">Social Science</a> ›
       <a href="../../index.html">History</a> ›
-      <a href="../index.html">Unit 3</a> › Lesson 3.2
+      <a href="../index.html">Unit 3</a> ›
+      Lesson 3.2
     </div>
 
     <div class="lesson-header">
       <div class="lesson-unit-tag">Unit 3 · Ethiopia 1855–1941 · MoE Textbook §3.3–3.5</div>
-      <h1>🏆 Territorial Expansion &amp; the Victory of Adwa</h1>
-      <p>Under Menelik II, Ethiopia expanded to its modern boundaries and — on 1 March 1896 — defeated an invading Italian army at Adwa.</p>
+      <h1>🏆 Territorial Expansion, External Relations &amp; the Victory of Adwa</h1>
+      <p>Under Menelik II, Ethiopia expanded to its modern boundaries and — on 1 March 1896 — defeated an invading Italian army at Adwa. This lesson covers expansion, diplomacy, and Ethiopia's greatest victory.</p>
       <div class="lesson-meta">
         <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~30 min</div>
         <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+        <div class="lesson-meta-item">🎥 <strong>Videos:</strong> 4 resources</div>
       </div>
     </div>
 
     <div class="section-block" id="intro">
-      <div class="section-header"><div class="section-icon">🎯</div><div><div class="section-title-text">Introduction</div></div></div>
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
       <div class="content-box">
-        <p>After becoming emperor in 1889, Menelik II began a remarkable process of territorial expansion — bringing the southern, eastern, and western regions under Ethiopian control. In doing so, he encountered European colonial powers — especially Italy — who were also expanding into the Horn of Africa. The result was the Battle of Adwa (1896): the most important African military victory over a European power in the colonial era.</p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          After becoming emperor in 1889, <strong>Menelik II</strong> began a remarkable process of territorial expansion — bringing the southern, eastern, and western regions under Ethiopian control. In doing so, he encountered European colonial powers — especially Italy — who were also expanding into the Horn of Africa. The result was the <strong>Battle of Adwa</strong> (1896): the most important African military victory over a European power in the colonial era.
+        </p>
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text)">By the end of this lesson you will be able to:</p>
+        <ul style="margin-top:.75rem;padding-left:1.25rem;font-size:.9rem;line-height:2;color:var(--text)">
+          <li>Describe Ethiopia's <strong>territorial expansion</strong> under Menelik II</li>
+          <li>Explain the <strong>incorporation</strong> of southern, eastern, and western kingdoms</li>
+          <li>Analyze Ethiopia's <strong>external relations</strong> with European powers</li>
+          <li>Explain the <strong>Treaty of Wuchale</strong> and its ambiguous Article 17</li>
+          <li>Describe the <strong>Battle of Adwa</strong> and its significance</li>
+        </ul>
       </div>
     </div>
 
     <div class="section-block" id="expansion">
-      <div class="section-header"><div class="section-icon">🗺️</div><div><div class="section-title-text">Territorial Expansion</div></div></div>
-      <div class="content-box">
-        <p>Between 1870 and 1900, Ethiopia nearly <strong>tripled in size</strong> — expanding into the south (Kaffa, Wolayta, Sidamo), the east (Harar, Ogaden), and the west (Beni Shangul).</p>
-        <table>
-          <thead><tr><th>Region</th><th>Significance</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Southern Kingdoms</strong> (Kaffa, Wolayta, Gurage)</td><td>Coffee, gold, agricultural land</td></tr>
-            <tr><td><strong>Eastern Regions</strong> (Harar, Ogaden)</td><td>Trade routes to Gulf of Aden</td></tr>
-            <tr><td><strong>Western Regions</strong> (Beni Shangul, Asosa)</td><td>Gold, border with Sudan</td></tr>
-          </tbody>
-        </table>
-        <p>Reasons for expansion included controlling trade routes, acquiring resources (coffee, gold, ivory, cattle), taxing new populations, and securing buffer zones against European colonies.</p>
+      <div class="section-header"><div class="section-icon">🗺️</div>
+        <div><div class="section-title-text">Territorial Expansion</div><div class="section-subtitle">MoE Textbook §3.3</div></div>
       </div>
-    </div>
-
-    <div class="section-block" id="incorporation">
-      <div class="section-header"><div class="section-icon">⚖️</div><div><div class="section-title-text">Incorporating Kingdoms</div></div></div>
       <div class="content-box">
-        <p>Menelik's expansion was achieved through a mix of military conquest, diplomacy, and negotiated agreements. Some regions submitted peacefully in exchange for autonomy; others resisted and were defeated.</p>
-        <ul>
-          <li><strong>Military campaigns</strong> — led by Menelik, his generals, and regional armies</li>
-          <li><strong>Peaceful submission</strong> — some kings accepted Ethiopian rule</li>
-          <li><strong>Appointment of governors</strong> — <em>neftenya</em> administered new territories</li>
-          <li><strong>Land grants</strong> — land distributed to soldiers, nobles, and the church</li>
-        </ul>
-        <p>The expansion was not without cost. Many southern and western peoples lost their land to <em>neftenya</em> and to the Ethiopian Orthodox Church. There were uprisings and resistance that were suppressed by force.</p>
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          Between 1870 and 1900, Ethiopia nearly <strong>tripled in size</strong>. What had been a highland state centred on Shewa, Gondar, and Tigray expanded to include the south (Kaffa, Wolayta, Sidamo), the east (Harar, Ogaden), and the west (Beni Shangul, the lowlands).
+        </p>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Regions Incorporated</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="concept-icon">🌾</div>
+            <div class="concept-title">Southern Kingdoms</div>
+            <p class="concept-desc">Kaffa, Wolayta, Sidamo, Gurage, Jimma, and the Omo valley. Rich in coffee, gold, and agricultural land.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🏙️</div>
+            <div class="concept-title">Eastern Regions</div>
+            <p class="concept-desc">Harar (1887), Ogaden, and the Somali-inhabited areas. Strategic for trade with the Gulf of Aden.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">⛰️</div>
+            <div class="concept-title">Western Regions</div>
+            <p class="concept-desc">Beni Shangul, Asosa, and the western lowlands — rich in gold and bordering Sudan.</p>
+          </div>
+          <div class="concept-card">
+            <div class="concept-icon">🌍</div>
+            <div class="concept-title">Lowland Areas</div>
+            <p class="concept-desc">Afar and the eastern lowlands — strategic for trade routes to the Red Sea.</p>
+          </div>
+        </div>
+        <div class="note-box">
+          <div class="note-label">📝 Reasons for expansion</div>
+          <p>
+            Menelik's expansion served multiple purposes: <strong>controlling trade routes</strong>, acquiring <strong>resources</strong> (coffee, gold, ivory, cattle), <strong>taxing</strong> new populations, and <strong>securing buffer zones</strong> against European colonies. His aim was to build a strong, self-sufficient Ethiopian state capable of resisting colonial pressure.
+          </p>
+        </div>
       </div>
     </div>
 
     <div class="section-block" id="external">
-      <div class="section-header"><div class="section-icon">🌍</div><div><div class="section-title-text">External Relations</div></div></div>
+      <div class="section-header"><div class="section-icon">🌍</div>
+        <div><div class="section-title-text">External Relations</div><div class="section-subtitle">MoE Textbook §3.4</div></div>
+      </div>
       <div class="content-box">
-        <p>In the late 19th century, European powers were expanding across Africa. Menelik II skillfully played them off each other to preserve Ethiopia's independence and secure modern weapons.</p>
-        <table>
+        <p style="font-size:.9rem;line-height:1.75;color:var(--text);margin-bottom:1rem">
+          In the late 19th century, European powers were expanding across Africa. Menelik II skillfully played them off each other to preserve Ethiopia's independence and secure modern weapons. His main relationships were with:
+        </p>
+        <table class="data-table">
           <thead><tr><th>Power</th><th>Relationship with Ethiopia</th></tr></thead>
           <tbody>
             <tr><td><strong>Italy</strong></td><td>Had colonized Eritrea (1890); sought to make Ethiopia a protectorate; the main threat — defeated at Adwa (1896)</td></tr>
             <tr><td><strong>France</strong></td><td>Had colony of Djibouti (1884); supplied Ethiopia with arms and advisors</td></tr>
             <tr><td><strong>Britain</strong></td><td>Controlled Egypt, Sudan, and British Somaliland; sought to limit French and Italian influence</td></tr>
-            <tr><td><strong>Russia</strong></td><td>Provided military advisors, weapons, and medical support</td></tr>
+            <tr><td><strong>Russia</strong></td><td>Provided military advisors, weapons, and medical support; seen as an Orthodox ally</td></tr>
+            <tr><td><strong>Ottoman Empire</strong></td><td>Had influence on the Red Sea coast; sometimes allied with Ethiopia</td></tr>
           </tbody>
         </table>
-      </div>
-    </div>
-
-    <div class="section-block" id="wuchale">
-      <div class="section-header"><div class="section-icon">📜</div><div><div class="section-title-text">The Treaty of Wuchale (1889)</div></div></div>
-      <div class="content-box">
-        <p>Signed in May 1889 between Ethiopia and Italy. The treaty recognized Ethiopian sovereignty but included Article 17, whose wording differed drastically between the Amharic and Italian versions.</p>
-        <table>
-          <thead><tr><th>Version</th><th>Wording</th><th>Meaning</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Amharic</strong></td><td>The Emperor <em>may</em> use the services of Italy for foreign affairs</td><td>Ethiopia is an independent state</td></tr>
-            <tr><td><strong>Italian</strong></td><td>The Emperor <em>must</em> use the services of Italy</td><td>Ethiopia is an Italian protectorate</td></tr>
-          </tbody>
-        </table>
-        <p>Italy used its version to claim Ethiopia as a protectorate and sent troops into Ethiopia in 1895. Menelik, understanding the deception, mobilized his forces. The result was the Battle of Adwa.</p>
-      </div>
-    </div>
-
-    <div class="section-block" id="adwa">
-      <div class="section-header"><div class="section-icon">🏆</div><div><div class="section-title-text">The Victory of Adwa</div></div></div>
-      <div class="content-box">
-        <p>Fought on <strong>1 March 1896</strong> near the town of Adwa. Ethiopian forces under Emperor Menelik II and Empress Taytu decisively defeated the Italian army under General Oreste Baratieri.</p>
-        <ul>
-          <li><strong>Leadership</strong> — Menelik II and Empress Taytu mobilized the nation</li>
-          <li><strong>Unity</strong> — Ethiopians of all regions and faiths joined</li>
-          <li><strong>Modern Weapons</strong> — Menelik had stockpiled rifles and artillery</li>
-          <li><strong>Tactics</strong> — The Italian army was split into three columns; Ethiopians attacked each separately</li>
-        </ul>
-        <p>Italy was forced to recognize Ethiopian sovereignty in the Treaty of Addis Ababa (1896).</p>
-      </div>
-    </div>
-
-    <div class="section-block" id="significance">
-      <div class="section-header"><div class="section-icon">🌍</div><div><div class="section-title-text">Significance of Adwa</div></div></div>
-      <div class="content-box">
-        <p><strong>For Ethiopia:</strong></p>
-        <ul><li>Preserved Ethiopian independence — one of only two African states to survive the colonial era</li><li>Established Ethiopia as a modern sovereign state</li><li>Became a central part of Ethiopian national identity</li></ul>
-        <p><strong>For Africa and the World:</strong></p>
-        <ul><li>Beacon of hope for anti-colonial movements across Africa</li><li>Inspired Pan-Africanism and Black liberation movements globally</li><li>Counter to racist colonial ideology that claimed African inferiority</li></ul>
-      </div>
-    </div>
-
-    <div class="section-block" id="quiz">
-      <div class="section-header"><div class="section-icon">📝</div><div><div class="section-title-text">Lesson Quiz</div></div></div>
-      <div class="content-box">
-        <h3>Question 1</h3>
-        <p>What was the <strong>Article 17 dispute</strong> in the Treaty of Wuchale?</p>
-        <label><input type="radio" name="q1" onclick="quizAnswer(this,1,'A')"> A. A dispute over the border between Ethiopia and Eritrea</label><br>
-        <label><input type="radio" name="q1" onclick="quizAnswer(this,1,'B')"> B. A dispute over the Italian vs Amharic wording: "may" vs "must" use Italy for foreign affairs</label><br>
-        <label><input type="radio" name="q1" onclick="quizAnswer(this,1,'C')"> C. A dispute over trade tariffs</label><br>
-        <label><input type="radio" name="q1" onclick="quizAnswer(this,1,'D')"> D. A dispute over religious freedom</label>
-        <div class="quiz-feedback" id="qfb1"></div>
-
-        <h3>Question 2</h3>
-        <p>When was the <strong>Battle of Adwa</strong> fought?</p>
-        <label><input type="radio" name="q2" onclick="quizAnswer(this,2,'A')"> A. 1 January 1889</label><br>
-        <label><input type="radio" name="q2" onclick="quizAnswer(this,2,'B')"> B. 1 March 1896</label><br>
-        <label><input type="radio" name="q2" onclick="quizAnswer(this,2,'C')"> C. 1 January 1900</label><br>
-        <label><input type="radio" name="q2" onclick="quizAnswer(this,2,'D')"> D. 1 March 1889</label>
-        <div class="quiz-feedback" id="qfb2"></div>
-
-        <h3>Question 3</h3>
-        <p>Who led the Italian army at Adwa?</p>
-        <label><input type="radio" name="q3" onclick="quizAnswer(this,3,'A')"> A. Benito Mussolini</label><br>
-        <label><input type="radio" name="q3" onclick="quizAnswer(this,3,'B')"> B. General Oreste Baratieri</label><br>
-        <label><input type="radio" name="q3" onclick="quizAnswer(this,3,'C')"> C. King Umberto I</label><br>
-        <label><input type="radio" name="q3" onclick="quizAnswer(this,3,'D')"> D. General Pietro Badoglio</label>
-        <div class="quiz-feedback" id="qfb3"></div>
-
-        <h3>Question 4</h3>
-        <p>Which of the following was a <strong>reason Ethiopia won</strong> at Adwa?</p>
-        <label><input type="radio" name="q4" onclick="quizAnswer(this,4,'A')"> A. Ethiopia had no modern weapons</label><br>
-        <label><input type="radio" name="q4" onclick="quizAnswer(this,4,'B')"> B. Ethiopian unity, modern weapons, and tactical skill</label><br>
-        <label><input type="radio" name="q4" onclick="quizAnswer(this,4,'C')"> C. Italy had more troops than Ethiopia</label><br>
-        <label><input type="radio" name="q4" onclick="quizAnswer(this,4,'D')"> D. Ethiopia had no intelligence on Italian movements</label>
-        <div class="quiz-feedback" id="qfb4"></div>
-
-        <h3>Question 5</h3>
-        <p>Why is Adwa considered significant <strong>globally</strong>?</p>
-        <label><input type="radio" name="q5" onclick="quizAnswer(this,5,'A')"> A. It was the first battle where machine guns were used</label><br>
-        <label><input type="radio" name="q5" onclick="quizAnswer(this,5,'B')"> B. It was the first major African military victory over a European power, inspiring anti-colonial movements worldwide</label><br>
-        <label><input type="radio" name="q5" onclick="quizAnswer(this,5,'C')"> C. It ended World War I</label><br>
-        <label><input type="radio" name="q5" onclick="quizAnswer(this,5,'D')"> D. It resulted in Ethiopia colonizing Italy</label>
-        <div class="quiz-feedback" id="qfb5"></div>
-
-        <div id="quiz-score" class="quiz-score-bar">
-          <div class="score-num" id="score-num">0 / 5</div>
-          <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+        <div class="note-box">
+          <div class="note-label">📝 Menelik's strategy</div>
+          <p>
+            Menelik understood that Ethiopia could not defeat all of Europe at once. So he <strong>played the powers against each other</strong> — buying weapons from France and Russia, using Italian rivalry with France, and signing treaties where useful.
+          </p>
         </div>
       </div>
     </div>
 
-    <div class="section-block" id="summary">
-      <div class="section-header"><div class="section-icon">✅</div><div><div class="section-title-text">Summary</div></div></div>
+    <div class="section-block" id="wuchale">
+      <div class="section-header"><div class="section-icon">📜</div>
+        <div><div class="section-title-text">The Treaty of Wuchale (1889)</div><div class="section-subtitle">The dispute that led to war</div></div>
+      </div>
       <div class="content-box">
-        <ul>
-          <li>Under Menelik II, Ethiopia <strong>tripled in size</strong></li>
-          <li>Incorporation methods: military conquest, diplomacy, land grants to neftenya</li>
-          <li>Treaty of Wuchale (1889) — Article 17 dispute: Italian "must" vs Amharic "may"</li>
+        <div class="definition-box">
+          <div class="def-label">📌 Treaty of Wuchale</div>
+          <p>
+            Signed in <strong>May 1889</strong> between Ethiopia and Italy. The treaty recognized Ethiopian sovereignty but included <strong>Article 17</strong>, whose wording differed drastically between the Amharic and Italian versions — a discrepancy that led directly to war.
+          </p>
+        </div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">The Article 17 Dispute</h3>
+        <table class="data-table">
+          <thead><tr><th>Version</th><th>Wording</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Amharic</strong></td><td>The Emperor <em>may</em> use the services of Italy for foreign affairs</td><td>Ethiopia is an <strong>independent state</strong></td></tr>
+            <tr><td><strong>Italian</strong></td><td>The Emperor <em>must</em> use the services of Italy for foreign affairs</td><td>Ethiopia is an <strong>Italian protectorate</strong></td></tr>
+          </tbody>
+        </table>
+        <div class="note-box">
+          <div class="note-label">📝 The result</div>
+          <p>
+            Italy used its version of the treaty to <strong>claim Ethiopia as a protectorate</strong> and sent troops into Ethiopia in 1895. Menelik, understanding the deception, mobilized his forces. The result was the Battle of Adwa.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="adwa">
+      <div class="section-header"><div class="section-icon">🏆</div>
+        <div><div class="section-title-text">The Victory of Adwa</div><div class="section-subtitle">MoE Textbook §3.5 · 1 March 1896</div></div>
+      </div>
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Battle of Adwa</div>
+          <p>
+            Fought on <strong>1 March 1896</strong> near the town of Adwa in northern Ethiopia. <strong>Ethiopian forces under Emperor Menelik II and Empress Taytu</strong> decisively defeated the <strong>Italian army under General Oreste Baratieri</strong>. It was the most significant African military victory over a European power in the colonial era.
+          </p>
+        </div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Background Timeline</h3>
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-year">1889</div><div class="timeline-title">Treaty of Wuchale signed</div><div class="timeline-desc">Amharic and Italian versions differ on Article 17 — the seeds of war.</div></div>
+          <div class="timeline-item"><div class="timeline-year">1890</div><div class="timeline-title">Italy colonizes Eritrea</div><div class="timeline-desc">Italy declares Eritrea a colony and claims Ethiopia as a protectorate.</div></div>
+          <div class="timeline-item"><div class="timeline-year">1893</div><div class="timeline-title">Menelik rejects protectorate</div><div class="timeline-desc">Menelik formally denounces the Italian claim.</div></div>
+          <div class="timeline-item"><div class="timeline-year">1895</div><div class="timeline-title">Italy invades Ethiopia</div><div class="timeline-desc">Italian forces advance from Eritrea into Tigray. Menelik issues a national call to arms.</div></div>
+          <div class="timeline-item"><div class="timeline-year">March 1, 1896</div><div class="timeline-title">Battle of Adwa</div><div class="timeline-desc">Ethiopian forces (~100,000) defeat Italian forces (~17,000). Italian army routed.</div></div>
+          <div class="timeline-item"><div class="timeline-year">October 1896</div><div class="timeline-title">Treaty of Addis Ababa</div><div class="timeline-desc">Italy recognizes Ethiopian independence.</div></div>
+        </div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">Why Ethiopia Won</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="concept-icon">👑</div><div class="concept-title">Leadership</div><p class="concept-desc">Menelik II mobilized the entire nation; Empress Taytu led troops.</p></div>
+          <div class="concept-card"><div class="concept-icon">🤝</div><div class="concept-title">Unity</div><p class="concept-desc">Ethiopians of all regions and faiths joined the war effort.</p></div>
+          <div class="concept-card"><div class="concept-icon">🔫</div><div class="concept-title">Modern Weapons</div><p class="concept-desc">Menelik had stockpiled rifles and artillery by trading with France and Russia.</p></div>
+          <div class="concept-card"><div class="concept-icon">📚</div><div class="concept-title">Intelligence</div><p class="concept-desc">Ethiopian forces had better knowledge of terrain and Italian plans.</p></div>
+          <div class="concept-card"><div class="concept-icon">🎯</div><div class="concept-title">Tactical Skill</div><p class="concept-desc">The Italian army was split into three columns; Ethiopians attacked each separately.</p></div>
+          <div class="concept-card"><div class="concept-icon">🌾</div><div class="concept-title">Logistics</div><p class="concept-desc">Menelik had stockpiled food and supplies for the campaign.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="significance">
+      <div class="section-header"><div class="section-icon">🌍</div>
+        <div><div class="section-title-text">Significance of Adwa</div><div class="section-subtitle">Global impact</div></div>
+      </div>
+      <div class="content-box">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin-bottom:.75rem">For Ethiopia</h3>
+        <ul class="key-points">
+          <li><strong>Preserved Ethiopian independence</strong> — one of only two African states to survive the colonial era</li>
+          <li>Established Ethiopia as a <strong>modern sovereign state</strong></li>
+          <li>Became a central part of <strong>Ethiopian national identity</strong></li>
+          <li>Marked the beginning of modern Ethiopia's relations with Europe</li>
+        </ul>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--heading);margin:1.5rem 0 .75rem">For Africa and the World</h3>
+        <ul class="key-points">
+          <li>Beacon of hope for <strong>anti-colonial movements</strong> across Africa</li>
+          <li>Inspired <strong>Pan-Africanism</strong> and Black liberation movements globally</li>
+          <li>Counter to <strong>racist colonial ideology</strong> that claimed African inferiority</li>
+          <li>A symbol for the global South — proving a united African nation could defeat a European power</li>
+        </ul>
+        <div class="note-box">
+          <div class="note-label">📝 A century of celebration</div>
+          <p>
+            Adwa has been celebrated for over a century — both in Ethiopia and across the African diaspora. The victory continues to be a source of national pride, commemorated every year on March 2 as a national holiday.
+          </p>
+        </div>
+        <div class="activity-card">
+          <div class="activity-title">📝 Self-Assessment Questions</div>
+          <div class="activity-body">
+            1. Describe Ethiopia's territorial expansion under Menelik II. What regions were incorporated?<br>
+            2. What was the Treaty of Wuchale? What was the Article 17 dispute?<br>
+            3. Describe the Battle of Adwa. Why did Ethiopia win?<br>
+            4. What was the significance of Adwa for Ethiopia, for Africa, and for the world?
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">What was the <strong>Treaty of Wuchale</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> A treaty between Ethiopia and Britain dividing Africa</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> A treaty between Ethiopia and Italy (1889) with conflicting Amharic and Italian versions of Article 17</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> A treaty between Ethiopia and France in Djibouti</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> A treaty between Ethiopia and Sudan</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What was the <strong>Article 17 dispute</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> A dispute over the border between Ethiopia and Eritrea</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> A dispute over the Italian vs Amharic wording: "may" vs "must" use Italy for foreign affairs</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> A dispute over trade tariffs</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> A dispute over religious freedom</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">When was the <strong>Battle of Adwa</strong> fought?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> 1 January 1889</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> 1 March 1896</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> 1 January 1900</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> 1 March 1889</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">Who led the Italian army at Adwa?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Benito Mussolini</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> General Oreste Baratieri</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> King Umberto I</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> General Pietro Badoglio</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">Why is Adwa significant <strong>globally</strong>?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> It was the first battle where machine guns were used</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> It was the first major African military victory over a European power, inspiring anti-colonial movements worldwide</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> It ended World War I</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> It resulted in Ethiopia colonizing Italy</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="resources">
+      <div class="section-header"><div class="section-icon">🎥</div>
+        <div><div class="section-title-text">Online Resources</div><div class="section-subtitle">Curated videos for deeper understanding</div></div>
+      </div>
+      <a href="https://www.youtube.com/results?search_query=battle+of+adwa+1896" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div><div class="resource-title">The Battle of Adwa (1896)</div><div class="resource-channel">YouTube Search</div></div>
+        <span class="resource-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/results?search_query=menelik+ii+territorial+expansion" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div><div class="resource-title">Menelik II &amp; Ethiopia's Territorial Expansion</div><div class="resource-channel">YouTube Search</div></div>
+        <span class="resource-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/results?search_query=treaty+of+wuchale+article+17" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div><div class="resource-title">The Treaty of Wuchale &amp; Article 17</div><div class="resource-channel">YouTube Search</div></div>
+        <span class="resource-arrow">→</span>
+      </a>
+      <a href="https://www.youtube.com/results?search_query=empress+taytu+adwa" target="_blank" rel="noopener" class="resource-card">
+        <div class="resource-yt-icon">▶</div>
+        <div><div class="resource-title">Empress Taytu &amp; the Battle of Adwa</div><div class="resource-channel">YouTube Search</div></div>
+        <span class="resource-arrow">→</span>
+      </a>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 3.2</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li>Under Menelik II, Ethiopia <strong>tripled in size</strong> — expanded into the south, east, and west</li>
+          <li>Incorporation methods: <strong>military conquest, diplomacy, marriage alliances, and land grants to neftenya</strong></li>
+          <li>Ethiopia's external relations: <strong>Italy</strong> (main threat), <strong>France</strong> (arms supplier), <strong>Britain</strong> (rival of France/Italy), <strong>Russia</strong> (Orthodox ally)</li>
+          <li><strong>Treaty of Wuchale (1889)</strong> — Article 17 dispute: Italian "must" vs Amharic "may" use Italy for diplomacy</li>
+          <li>Italy used its version to claim Ethiopia as a protectorate and invaded in 1895</li>
           <li><strong>Battle of Adwa (1 March 1896)</strong> — Ethiopia defeated Italy decisively</li>
-          <li>Adwa became a global symbol of anti-colonial resistance</li>
+          <li>Why Ethiopia won: <strong>leadership, unity, modern weapons, intelligence, tactics, logistics</strong></li>
+          <li><strong>Treaty of Addis Ababa (1896)</strong> — Italy recognized Ethiopian independence</li>
+          <li>Adwa became a <strong>global symbol of anti-colonial resistance</strong> and Pan-Africanism</li>
         </ul>
       </div>
     </div>
@@ -223,33 +471,64 @@
 </div>
 
 <footer class="fsh-footer">
-  <div class="fsh-footer-inner"><div class="fsh-footer-bottom"><p>© 2025 Freelance Skills Hub · History Grade 12</p><p>Unit 3 · Lesson 3.2 · Expansion &amp; Adwa</p></div></div>
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · History Grade 12</p>
+      <p>Unit 3 · Lesson 3.2 · Territorial Expansion, External Relations &amp; the Victory of Adwa</p>
+    </div>
+  </div>
 </footer>
 
 <script>
-  fetch('/api/auth/me',{credentials:'include'}).then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+
   const correct = {1:'B', 2:'B', 3:'B', 4:'B', 5:'B'};
   const feedback = {
-    1:{c:'✓ Correct! "May" vs "must".',w:'✗ "May" vs "must".'},
-    2:{c:'✓ Correct! 1 March 1896.',w:'✗ 1 March 1896.'},
-    3:{c:'✓ Correct! General Oreste Baratieri.',w:'✗ Baratieri.'},
-    4:{c:'✓ Correct! Unity + weapons + tactics.',w:'✗ Unity + weapons.'},
-    5:{c:'✓ Correct! First major African victory.',w:'✗ First major African victory.'}
+    1:{correct:'✓ Correct! Treaty of Wuchale (1889) with Article 17 dispute.',wrong:'✗ Treaty of Wuchale.'},
+    2:{correct:'✓ Correct! "May" (Amharic) vs "must" (Italian) use Italy for diplomacy.',wrong:'✗ Article 17: may vs must.'},
+    3:{correct:'✓ Correct! 1 March 1896.',wrong:'✗ 1 March 1896.'},
+    4:{correct:'✓ Correct! General Oreste Baratieri.',wrong:'✗ General Baratieri.'},
+    5:{correct:'✓ Correct! First major African victory over a European power — inspired anti-colonial movements worldwide.',wrong:'✗ First major African victory over a European power.'}
   };
-  const answers = {}; let answered = 0;
-  function quizAnswer(el, qNum, choice){
-    if(answers[qNum]) return; answers[qNum] = choice; answered++;
-    const ok = choice === correct[qNum];
+
+  const answers = {};
+  let answered = 0;
+
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
     const fb = document.getElementById('qfb'+qNum);
-    fb.textContent = ok ? feedback[qNum].c : feedback[qNum].w;
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
     fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
     if(answered === 5){
       const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
-      const bar = document.getElementById('quiz-score'); bar.classList.add('show');
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
       document.getElementById('score-num').textContent = score + ' / 5';
-      let msg = score === 5 ? '🎉 Perfect!' : (score >= 4 ? '👍 Excellent!' : (score >= 3 ? '📖 Good.' : '💪 Keep going.'));
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect! You have fully understood Lesson 3.2.';
+      else if(score >= 4) msg = '👍 Excellent! Just review one point.';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes.';
+      else msg = '💪 Keep going — read through the lesson again.';
       document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
     }
+  }
+
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
   }
 </script>
 </body>
