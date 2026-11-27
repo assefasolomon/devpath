@@ -2,115 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Social Science | Grade 12</title>
   <link rel="stylesheet" href="../../../css/brand.css">
   <link rel="stylesheet" href="/css/lesson-responsive.css">
   <style>
-    body{background:#F8FAFC;font-family:var(--font-sans);color:var(--text)}
-    .wrap{max-width:900px;margin:0 auto;padding:3rem 2rem}
-    .ss-hero{background:linear-gradient(135deg,#0F172A,#1E3A8A);border-radius:var(--radius-xl);padding:3rem 2.5rem;color:#fff;margin-bottom:2rem}
-    .ss-hero-icon{font-size:2.5rem;margin-bottom:1rem}
-    .ss-hero h1{font-size:2rem;font-weight:900;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
-    .hero-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(234,88,12,.20);border:1px solid rgba(234,88,12,.4);color:#FDBA74;font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:999px}
-    .ss-hero p{color:rgba(255,255,255,.78);font-size:.95rem;line-height:1.7}
-    
-    .subject-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:1rem}
-    .subject-card{display:flex;align-items:center;gap:1rem;background:#fff;border:1.5px solid #e2e8f0;border-radius:var(--radius-lg);padding:1rem 1.25rem;text-decoration:none;transition:all .2s ease;color:inherit}
-    .subject-card.complete{border-color:#BBF7D0;background:linear-gradient(90deg,#fff 0%,#F0FDF4 100%)}
-    .subject-card.complete:hover{border-color:#16A34A;transform:translateY(-2px);box-shadow:0 8px 24px rgba(22,163,74,.14)}
-    .subject-card.building{border-color:#FED7AA;background:linear-gradient(90deg,#fff 0%,#FFF7ED 100%)}
-    .subject-card.building:hover{border-color:#EA580C;transform:translateY(-2px);box-shadow:0 8px 24px rgba(234,88,12,.14)}
-    .subject-card.soon{border-color:#e2e8f0;background:#fff;opacity:.72;cursor:not-allowed}
-    
-    .subject-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;color:#fff}
-    .subject-icon.mathematics{background:linear-gradient(135deg,#D97706,#F59E0B)}
-    .subject-icon.economics{background:linear-gradient(135deg,#7C2D12,#EA580C)}
-    .subject-icon.geography{background:linear-gradient(135deg,#0369A1,#0EA5E9)}
-    .subject-icon.history{background:linear-gradient(135deg,#854D0E,#CA8A04)}
-    .subject-icon.aptitude{background:linear-gradient(135deg,#0891B2,#22D3EE)}
-    .subject-icon.english{background:linear-gradient(135deg,#4F46E5,#6366F1)}
-    
-    .subject-info{flex:1}
-    .subject-name{font-size:1rem;font-weight:800;color:#0f172a;margin-bottom:.3rem;display:flex;align-items:center;gap:.5rem}
-    .subject-status{display:inline-flex;align-items:center;gap:4px;font-size:.68rem;font-weight:700;padding:2px 10px;border-radius:999px}
-    .subject-status.complete{color:#166534;background:#DCFCE7}
-    .subject-status.building{color:#7C2D12;background:#FFEDD5}
-    .subject-status.soon{color:#64748b;background:#F1F5F9}
-    .subject-desc{font-size:.78rem;color:#64748b;line-height:1.5}
+    body{background:#F8FAFC;font-family:sans-serif;padding:2rem}
+    .wrap{max-width:800px;margin:0 auto}
+    h1{font-size:2rem;margin-bottom:2rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));gap:1rem}
+    .card{display:flex;align-items:center;gap:1rem;padding:1rem;border-radius:12px;border:1.5px solid;text-decoration:none;color:#000}
+    .green{border-color:#BBF7D0;background:#F0FDF4}
+    .orange{border-color:#FED7AA;background:#FFF7ED}
+    .gray{border-color:#e2e8f0;background:#fff;opacity:0.7}
+    .icon{font-size:1.5rem}
+    .name{font-weight:bold}
+    .badge{font-size:0.7rem;padding:2px 8px;border-radius:99px;margin-left:8px}
+    .bg-green{background:#DCFCE7;color:#166534}
+    .bg-orange{background:#FFEDD5;color:#7C2D12}
+    .bg-gray{background:#F1F5F9;color:#64748b}
   </style>
 </head>
 <body>
-<nav class="fsh-nav">
-  <a href="../../../index.html" class="fsh-logo">
-    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Grade 12</span></div>
-  </a>
-  <div class="fsh-nav-actions">
-    <a href="../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
-  </div>
-</nav>
-
 <div class="wrap">
-  <div class="ss-hero">
-    <div class="ss-hero-icon">🌍</div>
-    <h1>Social Science <span class="hero-badge">✓ Complete</span></h1>
-    <p>History, Geography, Economics, and Mathematics — the social-science-track EUEE curriculum.</p>
-  </div>
-
-  <div class="subject-grid">
-    <a href="mathematics/index.html" class="subject-card complete">
-      <div class="subject-icon mathematics">📐</div>
-      <div class="subject-info">
-        <div class="subject-name">Mathematics <span class="subject-status complete">✓ Complete</span></div>
-        <div class="subject-desc">Algebra, calculus, statistics, geometry</div>
-      </div>
-    </a>
-
-    <a href="economics/index.html" class="subject-card complete">
-      <div class="subject-icon economics">💹</div>
-      <div class="subject-info">
-        <div class="subject-name">Economics <span class="subject-status complete">✓ Complete</span></div>
-        <div class="subject-desc">Macroeconomics, AD-AS, market failure, policy</div>
-      </div>
-    </a>
-
-    <a href="history/index.html" class="subject-card complete">
-      <div class="subject-icon history">🏛️</div>
-      <div class="subject-info">
-        <div class="subject-name">History <span class="subject-status complete">✓ Complete</span></div>
-        <div class="subject-desc">World history, African history, Ethiopian history</div>
-      </div>
-    </a>
-
-    <a href="geography/index.html" class="subject-card complete">
-      <div class="subject-icon geography">🌍</div>
-      <div class="subject-info">
-        <div class="subject-name">Geography <span class="subject-status complete">✓ Complete</span></div>
-        <div class="subject-desc">Physical &amp; human geography, Ethiopia's regions</div>
-      </div>
-    </a>
-
-    <div class="subject-card soon">
-      <div class="subject-icon aptitude">🧩</div>
-      <div class="subject-info">
-        <div class="subject-name">Aptitude <span class="subject-status soon">⏳ Soon</span></div>
-        <div class="subject-desc">Logical reasoning and problem solving</div>
-      </div>
-    </div>
-
-    <div class="subject-card soon">
-      <div class="subject-icon english">📘</div>
-      <div class="subject-info">
-        <div class="subject-name">English <span class="subject-status soon">⏳ Soon</span></div>
-        <div class="subject-desc">Grammar, reading comprehension, writing</div>
-      </div>
-    </div>
+  <h1>Social Science</h1>
+  <div class="grid">
+    <a href="mathematics/index.html" class="card green"><span class="icon">📐</span><span class="name">Mathematics <span class="badge bg-green">✓ Complete</span></span></a>
+    <a href="economics/index.html" class="card green"><span class="icon">💹</span><span class="name">Economics <span class="badge bg-green">✓ Complete</span></span></a>
+    <a href="history/index.html" class="card green"><span class="icon">🏛️</span><span class="name">History <span class="badge bg-green">✓ Complete</span></span></a>
+    <a href="geography/index.html" class="card orange"><span class="icon">🌍</span><span class="name">Geography <span class="badge bg-orange">🚧 Building</span></span></a>
+    <div class="card gray"><span class="icon">🧩</span><span class="name">Aptitude <span class="badge bg-gray">⏳ Soon</span></span></div>
+    <div class="card gray"><span class="icon">📘</span><span class="name">English <span class="badge bg-gray">⏳ Soon</span></span></div>
   </div>
 </div>
-
-<script>
-  fetch('/api/auth/me',{credentials:'include'}).then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
-</script>
 </body>
 </html>
