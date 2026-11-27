@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 1.4: Major Geological Processes | Geography Grade 12</title>
+  <link rel="stylesheet" href="../../../../../css/brand.css">
+  <link rel="stylesheet" href="/css/lesson-responsive.css">
+  <style>
+    body{background:#F8FAFC}
+    .lesson-layout{display:grid;grid-template-columns:260px 1fr;min-height:calc(100vh - 64px);max-width:1200px;margin:0 auto;align-items:start}
+    .sidebar{background:#fff;border-right:1px solid var(--border);padding:1.5rem;position:sticky;top:64px;max-height:calc(100vh - 64px);overflow-y:auto}
+    .sidebar-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .sidebar-section{margin-bottom:1.25rem}
+    .sidebar-section-title{font-size:.72rem;font-weight:700;color:#0369A1;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
+    .sidebar-link{display:flex;align-items:center;gap:8px;padding:.4rem .5rem;border-radius:var(--radius);font-size:.82rem;color:var(--text-muted);text-decoration:none;cursor:pointer;transition:all var(--transition);border:none;background:none;width:100%;text-align:left;font-family:var(--font-sans)}
+    .sidebar-link:hover{background:var(--surface-2);color:#0369A1}
+    .sidebar-link.active{background:#E0F2FE;color:#0F172A;font-weight:600}
+    .sidebar-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0}
+    .lesson-main{padding:2.5rem 3rem;min-width:0;overflow-x:hidden}
+    .breadcrumb{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--text-muted);margin-bottom:2rem;flex-wrap:wrap}
+    .breadcrumb a{color:#0369A1;text-decoration:none}
+    .lesson-header{background:linear-gradient(135deg,#0F172A,#0369A1);border-radius:var(--radius-xl);padding:2rem 2.5rem;margin-bottom:2.5rem;color:#fff}
+    .lesson-unit-tag{display:inline-block;background:rgba(255,255,255,.15);font-size:.72rem;font-weight:700;padding:3px 12px;border-radius:999px;margin-bottom:.875rem;letter-spacing:.05em}
+    .lesson-header h1{font-size:1.75rem;font-weight:900;margin-bottom:.5rem}
+    .lesson-header p{color:rgba(255,255,255,.78);font-size:.9rem;line-height:1.7}
+    .lesson-meta{display:flex;gap:1.5rem;margin-top:1.25rem;flex-wrap:wrap}
+    .lesson-meta-item{font-size:.78rem;color:rgba(255,255,255,.65);display:flex;align-items:center;gap:5px}
+    .lesson-meta-item strong{color:#fff}
+    .section-block{margin-bottom:3rem;scroll-margin-top:80px}
+    .section-header{display:flex;align-items:center;gap:10px;margin-bottom:1.25rem;padding-bottom:.875rem;border-bottom:2px solid #E0F2FE}
+    .section-icon{width:36px;height:36px;border-radius:var(--radius);background:#0369A1;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:#fff}
+    .section-title-text{font-size:1.2rem;font-weight:800;color:var(--heading)}
+    .section-subtitle{font-size:.78rem;color:var(--text-muted);margin-top:2px}
+    .content-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1.25rem}
+    .definition-box{background:#F0F9FF;border:1.5px solid #BAE6FD;border-left:5px solid #0369A1;border-radius:var(--radius-xl);padding:1.25rem 1.5rem;margin-bottom:1.25rem}
+    .definition-box .def-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0F172A;margin-bottom:.4rem}
+    .definition-box p{font-size:.9rem;color:var(--heading);line-height:1.7;margin:0}
+    .key-points{list-style:none;padding:0;margin:.5rem 0}
+    .key-points li{display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;font-size:.875rem;color:var(--text);line-height:1.7;border-bottom:1px dashed var(--border)}
+    .key-points li:last-child{border-bottom:none}
+    .key-points li::before{content:'▸';color:#0369A1;font-weight:900;flex-shrink:0;margin-top:1px}
+    .quiz-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius-xl);padding:1.75rem;margin-bottom:1rem}
+    .quiz-num{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#0369A1;margin-bottom:.5rem}
+    .quiz-question{font-size:.95rem;font-weight:700;color:var(--heading);margin-bottom:1.25rem;line-height:1.6}
+    .quiz-options{display:flex;flex-direction:column;gap:.5rem}
+    .quiz-option{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all var(--transition);font-size:.875rem;color:var(--text)}
+    .quiz-option:hover{border-color:#0369A1;background:#F0F9FF}
+    .quiz-option.correct{border-color:#16A34A;background:#F0FDF4;color:#166534}
+    .quiz-option.wrong{border-color:#DC2626;background:#FEF2F2;color:#991B1B}
+    .quiz-option.disabled{cursor:not-allowed;pointer-events:none}
+    .option-letter{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+    .quiz-option.correct .option-letter{background:#16A34A;color:#fff}
+    .quiz-option.wrong .option-letter{background:#DC2626;color:#fff}
+    .quiz-feedback{margin-top:.875rem;padding:.75rem 1rem;border-radius:var(--radius);font-size:.82rem;line-height:1.6;display:none}
+    .quiz-feedback.show{display:block}
+    .quiz-feedback.correct{background:#F0FDF4;border:1px solid #BBF7D0;color:#166534}
+    .quiz-feedback.wrong{background:#FEF2F2;border:1px solid #FECACA;color:#991B1B}
+    .quiz-score-bar{background:#fff;border:1.5px solid #0369A1;border-radius:var(--radius-xl);padding:1.5rem;text-align:center;margin-top:1.5rem;display:none}
+    .quiz-score-bar.show{display:block}
+    .score-num{font-size:2.5rem;font-weight:900;color:#0369A1}
+    .score-label{font-size:.875rem;color:var(--text-muted);margin-top:.25rem}
+    .summary-card{background:linear-gradient(135deg,#F0F9FF,#E0F2FE);border:1.5px solid #BAE6FD;border-radius:var(--radius-xl);padding:1.75rem}
+    .summary-title{font-size:1rem;font-weight:800;color:#0F172A;margin-bottom:1rem}
+    .summary-list{list-style:none}
+    .summary-list li{display:flex;align-items:flex-start;gap:10px;font-size:.875rem;color:var(--heading);padding:.5rem 0;border-bottom:1px solid rgba(3,105,161,.15);line-height:1.6}
+    .summary-list li:last-child{border-bottom:none}
+    .summary-list li::before{content:'✓';color:#0369A1;font-weight:700;flex-shrink:0;margin-top:1px}
+    .lesson-nav{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;margin-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+    .progress-tracker{background:#fff;border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;margin-bottom:1.5rem}
+    .progress-label{font-size:.72rem;font-weight:600;color:var(--text-muted);margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em}
+    .progress-bar-track{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden}
+    .progress-bar-fill{height:100%;background:#0369A1;border-radius:999px;transition:width .5s ease;width:0%}
+    @media(max-width:768px){.lesson-layout{grid-template-columns:1fr}.sidebar{display:none}.lesson-main{padding:1.5rem 1rem}}
+  </style>
+</head>
+<body>
+<nav class="fsh-nav">
+  <a href="../../../../../index.html" class="fsh-logo">
+    <div class="fsh-logo-icon"><svg viewBox="0 0 24 24" stroke="#fff" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+    <div class="fsh-logo-text"><span class="fsh-logo-name">Freelance Skills Hub</span><span class="fsh-logo-tag">Geography Grade 12</span></div>
+  </a>
+  <div class="fsh-nav-actions">
+    <a href="../index.html" class="btn btn-ghost btn-sm">← Unit 1</a>
+    <a href="../../../../../dashboard.html" class="btn btn-primary btn-sm">Dashboard</a>
+  </div>
+</nav>
+<div class="lesson-layout">
+  <aside class="sidebar">
+    <div class="sidebar-title">Unit 1 · Lesson 4</div>
+    <div class="progress-tracker">
+      <div class="progress-label">Lesson Progress</div>
+      <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">In this lesson</div>
+      <button class="sidebar-link active" onclick="scrollToId('intro')"><div class="sidebar-dot"></div> Introduction</button>
+      <button class="sidebar-link" onclick="scrollToId('earthquakes')"><div class="sidebar-dot"></div> Earthquakes</button>
+      <button class="sidebar-link" onclick="scrollToId('volcanoes')"><div class="sidebar-dot"></div> Volcanism</button>
+      <button class="sidebar-link" onclick="scrollToId('mountains')"><div class="sidebar-dot"></div> Mountain Building</button>
+      <button class="sidebar-link" onclick="scrollToId('quiz')"><div class="sidebar-dot"></div> Quiz (5 Questions)</button>
+      <button class="sidebar-link" onclick="scrollToId('summary')"><div class="sidebar-dot"></div> Summary</button>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">Unit 1 Lessons</div>
+      <a href="lesson-1-1.html" class="sidebar-link"><div class="sidebar-dot"></div> L1: Continental Drift</a>
+      <a href="lesson-1-2.html" class="sidebar-link"><div class="sidebar-dot"></div> L2: Plate Tectonics</a>
+      <a href="lesson-1-3.html" class="sidebar-link"><div class="sidebar-dot"></div> L3: Plate Boundaries</a>
+      <a href="lesson-1-4.html" class="sidebar-link active"><div class="sidebar-dot"></div> L4: Geological Processes</a>
+    </div>
+  </aside>
+  <main class="lesson-main">
+    <div class="breadcrumb">
+      <a href="../../../../../entrance-exam/index.html">Entrance Exam</a> ›
+      <a href="../../../../index.html">Grade 12</a> ›
+      <a href="../../../index.html">Social Science</a> ›
+      <a href="../../index.html">Geography</a> ›
+      <a href="../index.html">Unit 1</a> ›
+      Lesson 1.4
+    </div>
+    <div class="lesson-header">
+      <div class="lesson-unit-tag">Unit 1 · Physical Geography · MoE Textbook §1.4</div>
+      <h1>⛰️ Major Geological Processes</h1>
+      <p>Plate tectonics drives the major geological processes that constantly reshape the Earth's surface. These include earthquakes, volcanic activity, and the formation of mountains and rift valleys.</p>
+      <div class="lesson-meta">
+        <div class="lesson-meta-item">📖 <strong>Reading:</strong> ~20 min</div>
+        <div class="lesson-meta-item">🎯 <strong>Quiz:</strong> 5 questions</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="intro">
+      <div class="section-header"><div class="section-icon">🎯</div>
+        <div><div class="section-title-text">Introduction</div><div class="section-subtitle">What you will learn</div></div>
+      </div>
+      <div class="content-box">
+        <p style="font-size:.95rem;line-height:1.8;color:var(--text);margin-bottom:1rem">
+          The movement of tectonic plates creates immense stress on the Earth's crust. When this stress is released, it results in powerful geological processes. Understanding these processes helps humanity predict natural hazards and minimize their damage.
+        </p>
+      </div>
+    </div>
+
+    <div class="section-block" id="earthquakes">
+      <div class="section-header"><div class="section-icon">🌋</div>
+        <div><div class="section-title-text">Earthquakes</div><div class="section-subtitle">Section 1.4</div></div>
+      </div>
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Earthquake</div>
+          <p>A sudden shaking of the ground caused by the release of energy stored in the Earth's crust, usually due to the movement of tectonic plates along faults.</p>
+        </div>
+        <ul class="key-points">
+          <li><strong>Focus:</strong> The point inside the Earth where the earthquake originates.</li>
+          <li><strong>Epicenter:</strong> The point on the Earth's surface directly above the focus.</li>
+          <li><strong>Seismograph:</strong> The instrument used to record and measure the magnitude of earthquakes.</li>
+          <li><strong>Impact:</strong> Earthquakes can cause widespread destruction, tsunamis (if underwater), and loss of life.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="volcanoes">
+      <div class="section-header"><div class="section-icon">🌋</div>
+        <div><div class="section-title-text">Volcanism</div><div class="section-subtitle">Section 1.4 (continued)</div></div>
+      </div>
+      <div class="content-box">
+        <div class="definition-box">
+          <div class="def-label">📌 Volcanism</div>
+          <p>The process by which magma (molten rock), gases, and ash erupt onto the Earth's surface through a vent or fissure.</p>
+        </div>
+        <ul class="key-points">
+          <li><strong>Magma vs. Lava:</strong> Magma is molten rock beneath the surface; lava is magma that has erupted onto the surface.</li>
+          <li><strong>Types of Volcanoes:</strong> Shield volcanoes (broad, gentle slopes from fluid lava) and composite/stratovolcanoes (steep, explosive from thick, sticky lava).</li>
+          <li><strong>Location:</strong> Most volcanism occurs at plate boundaries, particularly at divergent boundaries (mid-ocean ridges) and convergent boundaries (subduction zones).</li>
+          <li><strong>Impact:</strong> Volcanic soil is highly fertile, but eruptions can be deadly and disrupt air travel.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="mountains">
+      <div class="section-header"><div class="section-icon">🏔️</div>
+        <div><div class="section-title-text">Mountain Building & Rift Valleys</div><div class="section-subtitle">Section 1.4 (continued)</div></div>
+      </div>
+      <div class="content-box">
+        <ul class="key-points">
+          <li><strong>Orogeny (Mountain Building):</strong> The process of mountain formation, primarily caused by the collision of continental plates (e.g., the formation of the Himalayas).</li>
+          <li><strong>Rift Valleys:</strong> Formed when tectonic plates pull apart on land. The crust stretches, thins, and drops down, creating a valley. (e.g., the East African Rift Valley).</li>
+          <li><strong>Faulting:</strong> The breaking and shifting of rocks along a fracture (fault line) in the Earth's crust, often creating fault-block mountains.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-block" id="quiz">
+      <div class="section-header"><div class="section-icon">📝</div>
+        <div><div class="section-title-text">Lesson Quiz</div><div class="section-subtitle">Test your understanding — 5 questions</div></div>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-num">Question 1</div>
+        <div class="quiz-question">The point on the Earth's surface directly above an earthquake's origin is called the:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 1)"><div class="option-letter">A</div> Focus</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 1)"><div class="option-letter">B</div> Epicenter</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 1)"><div class="option-letter">C</div> Fault</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 1)"><div class="option-letter">D</div> Vent</div>
+        </div>
+        <div class="quiz-feedback" id="qfb1"></div>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-num">Question 2</div>
+        <div class="quiz-question">What is the difference between magma and lava?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 2)"><div class="option-letter">A</div> Magma is on the surface; lava is underground</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 2)"><div class="option-letter">B</div> Magma is underground; lava is on the surface</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 2)"><div class="option-letter">C</div> They are exactly the same thing</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 2)"><div class="option-letter">D</div> Magma is solid; lava is liquid</div>
+        </div>
+        <div class="quiz-feedback" id="qfb2"></div>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-num">Question 3</div>
+        <div class="quiz-question">The East African Rift Valley is an example of what process?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 3)"><div class="option-letter">A</div> Subduction</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 3)"><div class="option-letter">B</div> Continental collision</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 3)"><div class="option-letter">C</div> Rifting (divergent boundary)</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 3)"><div class="option-letter">D</div> Transform faulting</div>
+        </div>
+        <div class="quiz-feedback" id="qfb3"></div>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-num">Question 4</div>
+        <div class="quiz-question">What instrument is used to record earthquakes?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 4)"><div class="option-letter">A</div> Barometer</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 4)"><div class="option-letter">B</div> Thermometer</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 4)"><div class="option-letter">C</div> Seismograph</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 4)"><div class="option-letter">D</div> Hygrometer</div>
+        </div>
+        <div class="quiz-feedback" id="qfb4"></div>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-num">Question 5</div>
+        <div class="quiz-question">The formation of the Himalayas is primarily a result of:</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="quizAnswer(this, 'A', 5)"><div class="option-letter">A</div> Divergent boundaries</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'B', 5)"><div class="option-letter">B</div> Continental-continental collision</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'C', 5)"><div class="option-letter">C</div> Transform faulting</div>
+          <div class="quiz-option" onclick="quizAnswer(this, 'D', 5)"><div class="option-letter">D</div> Oceanic-oceanic subduction</div>
+        </div>
+        <div class="quiz-feedback" id="qfb5"></div>
+      </div>
+      <div class="quiz-score-bar" id="quiz-score">
+        <div class="score-num" id="score-num">0 / 5</div>
+        <div class="score-label" id="score-label">Complete all 5 questions to see your score.</div>
+      </div>
+    </div>
+
+    <div class="section-block" id="summary">
+      <div class="section-header"><div class="section-icon">✅</div>
+        <div><div class="section-title-text">Summary</div><div class="section-subtitle">Key takeaways from Lesson 1.4</div></div>
+      </div>
+      <div class="summary-card">
+        <div class="summary-title">What you should remember</div>
+        <ul class="summary-list">
+          <li><strong>Earthquakes</strong> occur when stress along faults is released. The epicenter is on the surface above the focus.</li>
+          <li><strong>Volcanism</strong> is the eruption of magma (underground) as lava (on the surface).</li>
+          <li><strong>Rift valleys</strong> form where plates pull apart on land, like the East African Rift Valley.</li>
+          <li><strong>Mountain building (orogeny)</strong> occurs when plates collide, like the Himalayas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson-nav">
+      <a href="lesson-1-3.html" class="btn btn-outline">← Lesson 1.3</a>
+      <a href="../index.html" class="btn btn-primary">Back to Unit 1 Hub →</a>
+    </div>
+  </main>
+</div>
+<footer class="fsh-footer">
+  <div class="fsh-footer-inner">
+    <div class="fsh-footer-bottom">
+      <p>© 2025 Freelance Skills Hub · Geography Grade 12</p>
+      <p>Unit 1 · Lesson 1.4 · Major Geological Processes</p>
+    </div>
+  </div>
+</footer>
+<script>
+  fetch('/api/auth/me',{credentials:'include'})
+    .then(r=>r.json()).then(d=>{if(!d.user)location.href='/login.html?reason=login_required';}).catch(()=>{});
+  const correct = {1:'B', 2:'B', 3:'C', 4:'C', 5:'B'};
+  const feedback = {
+    1:{correct:'✓ Correct! The epicenter is directly above the focus.',wrong:'✗ Epicenter.'},
+    2:{correct:'✓ Correct! Magma is underground; lava is on the surface.',wrong:'✗ Magma is underground; lava is on the surface.'},
+    3:{correct:'✓ Correct! The East African Rift is a divergent boundary.',wrong:'✗ Rifting (divergent boundary).'},
+    4:{correct:'✓ Correct! A seismograph records earthquakes.',wrong:'✗ Seismograph.'},
+    5:{correct:'✓ Correct! The Himalayas formed from continental collision.',wrong:'✗ Continental-continental collision.'}
+  };
+  const answers = {};
+  let answered = 0;
+  function quizAnswer(el, choice, qNum){
+    if(answers[qNum]) return;
+    answers[qNum] = choice;
+    answered++;
+    const opts = el.parentElement.querySelectorAll('.quiz-option');
+    const correct_letter = correct[qNum];
+    const letters = ['A','B','C','D'];
+    opts.forEach((o,i)=>{
+      o.classList.add('disabled');
+      if(letters[i] === correct_letter) o.classList.add('correct');
+      else if(letters[i] === choice && choice !== correct_letter) o.classList.add('wrong');
+    });
+    const fb = document.getElementById('qfb'+qNum);
+    const ok = choice === correct_letter;
+    fb.textContent = ok ? feedback[qNum].correct : feedback[qNum].wrong;
+    fb.className = 'quiz-feedback show ' + (ok ? 'correct' : 'wrong');
+    document.getElementById('progress-fill').style.width = (answered / 5 * 100) + '%';
+    if(answered === 5){
+      const score = Object.keys(answers).filter(q => answers[q] === correct[q]).length;
+      const bar = document.getElementById('quiz-score');
+      bar.classList.add('show');
+      document.getElementById('score-num').textContent = score + ' / 5';
+      let msg = '';
+      if(score === 5) msg = '🎉 Perfect!';
+      else if(score >= 4) msg = '👍 Excellent!';
+      else if(score >= 3) msg = '📖 Good — review the lesson notes.';
+      else msg = '💪 Keep going — read through the lesson again.';
+      document.getElementById('score-label').textContent = msg;
+      bar.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+  function scrollToId(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth', block:'start'});
+  }
+</script>
+</body>
+</html>
